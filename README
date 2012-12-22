@@ -1,0 +1,65 @@
+Source code distribution of Maxima on Android
+written by Yasuaki Honda (yasuaki.honda@gmail.com)
+
+Copyright 2012 Yasuaki Honda, Chiba, Japan
+
+Licensing:
+This software consists of 5 major components and one experimental component:
+1. Java app which is written by and copyrighted by Yasuaki Honda
+2. Maxima command line binary program maintained at maxima.sourceforge.net
+3. MathJax ajax Javascript library maintained at www.mathjax.org
+4. assets/index.html, an HTML file based on sample program from Mathjax and 
+heavily modified for use in the webview main UI
+5. Gnuplot 4.6 whose licensing term can be seen from here
+6. Qepcad B 1.69 whose licensing term can be seen from here
+
+1. and 2. are under GPL. Source code of 1. and 2. are distributed at
+https://sites.google.com/site/maximaonandroid/home/how-to-build-maxima-on-android
+
+3. and 4. are under Apache 2.0 License. The source code of 3. and 4. are included in 
+the binary and source distribution. Note that source code of 3. is not modified at
+all.
+
+5. was compiled without any modification to the source code!! The version I used
+was Gnuplot 4.6. You can obtain it from <a href="http://www.gnuplot.info/">Gnuplot web site</a>.
+
+6. is the experimental one new from this version. All about Qepcad B can be seen at 
+Qepcad B web site. Experimental interface 
+from Maxima to Qepcad may appear on the Maxima on Android website. 
+The license of Qepcad B is BSD style.
+
+Build:
+Using this Eclipse project file, you can just compile everything and create the
+APK.
+
+Internals:
+Some notes for the internals of the Java files:
+- MaximaOnAndroidActivity.java is the main java program and initially invoked.
+If necessary it throws an intent to invoke the additional data installation
+program implemented as MOAInstallerActivity.java.
+The MaximaOnAndroidActivity.java invokes maxima binary program and establish 
+the communication so that any maxima command can be sent, then it can receive
+the computation results (in tex format).
+- It's main UI is implemented as the WebView component. The webview component refers
+to the MathJax Javascript library so that any maxima output, passed through the
+java program, will be rendered beautifully. At the end of the rendering, it calls
+'callback' procedure to Java in order to notify the finish of rendering. With this
+notification, Java code adjusts the scroll position automatically. 
+- Back to the topic of installation, the Java needs to install maxima binary, its
+init.lisp initialization file, gnuplot binary, and maxima-5.28.0 directory which contains examples,
+share and autoload files. MOAInstallerActivity.java performs the installation
+of them. They are located in assets folder in the zip format in the APK. The maxima binary 
+and init.lisp will be installed in the application specific local folder assinged by the 
+Android system (typically /data/data/jp.yhonda/files). The maxima-5.28.0 folder is 
+installed either in the same folder as above, or the folder located on the sdcard 
+(/sdcard/Android/data/jp.yhonda/files). 
+- The MOAInstallerActivity.java uses UnzipAsyncTask.Java to perform the unzipping
+in the independent thread so that the progress is visible to the user.
+
+Development Environment of this project
+Eclipse Indigo Service Release 2, running on Mac OS X 10.7.4.
+
+About the author
+Yasuaki Honda, living in Chiba, Japan, the maintainer of imaxima, and also a contirbuter
+to the Maxima project.
+
