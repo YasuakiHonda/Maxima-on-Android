@@ -410,3 +410,9 @@
 
     ; the output is a simplified description of the scene(s)
     (reverse scenes-list)) )
+
+;;; /data/local/init.mac
+(setq $file_search_maxima                                                  
+        ($append '((mlist) "/data/local/###.{mac,mc}")                  
+                 $file_search_maxima))                               
+(if (probe-file "/data/local/init.mac") ($load "init.mac"))
