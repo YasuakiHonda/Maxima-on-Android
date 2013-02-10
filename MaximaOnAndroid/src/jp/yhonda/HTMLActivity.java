@@ -54,10 +54,10 @@ public class HTMLActivity extends Activity {
 	@Override
   public boolean onKeyDown( int keyCode, KeyEvent event ) {
 	  if ( event.getAction() == KeyEvent.ACTION_DOWN
-	          && keyCode == KeyEvent.KEYCODE_BACK
+	          && keyCode == KeyEvent.KEYCODE_BACK 
 	          && webview.canGoBack() == true ) {
-	      webview.goBack();
-	      return true;
+		  webview.goBack();
+		  return true; 
 	  }
 	  return super.onKeyDown( keyCode, event );
   }

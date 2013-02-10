@@ -56,7 +56,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     CommandExec maximaProccess;
     File internalDir;
     File externalDir;
-    MaximaVersion mvers=new MaximaVersion(5,28,0);
+    MaximaVersion mvers=new MaximaVersion(5,29,1);
 
       @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -118,7 +118,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         long verNo = prevVers.versionInteger();
         long thisVerNo = mvers.versionInteger();
         
-    	if ((thisVerNo > verNo) || 
+    	if (1>0 || (thisVerNo > verNo) || 
     		!((new File(internalDir+"/maxima")).exists()) || 
     		!((new File(internalDir+"/additions")).exists()) ||
     		(!( new File( internalDir+"/maxima-"+mvers.versionString() ) ).exists() 
