@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on 2012年12月月12日 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Maxima 5.29.1 Manual: 17. Limits</title>
+
+<meta name="description" content="Maxima 5.29.1 Manual: 17. Limits">
+<meta name="keywords" content="Maxima 5.29.1 Manual: 17. Limits">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+body
+{
+    color: black;
+    background: white; 
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+h1
+{
+    margin-left: +8%;
+    font-size: 150%;
+    font-family: sans-serif
+}
+
+h2
+{
+    font-size: 125%;
+    font-family: sans-serif
+}
+
+h3
+{
+    font-size: 100%;
+    font-family: sans-serif
+}
+
+h2,h3,h4,h5,h6 { margin-left: +4%; }
+
+div.textbox
+{
+    border: solid;
+    border-width: thin;
+    /* width: 100%; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em
+}
+
+div.titlebox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: rgb(200,255,255);
+    font-family: sans-serif
+}
+
+div.synopsisbox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+     background: rgb(255,220,255);
+    /*background: rgb(200,255,255); */
+    /* font-family: fixed */
+}
+
+pre.example
+{
+    border: 1px solid gray;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    /* background: rgb(247,242,180); */ /* kind of sandy */
+    /* background: rgb(200,255,255); */ /* sky blue */
+    background-color: #F1F5F9; /* light blue-gray */
+    /* font-family: "Lucida Console", monospace */
+}
+
+div.spacerbox
+{
+    border: none;
+    padding-top: 2em;
+    padding-bottom: 2em
+}
+
+div.image
+{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+div.categorybox
+{
+    border: 1px solid gray;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: rgb(247,242,220);
+}
+
+
+-->
+</style>
+
+<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<script type="text/javascript"><!--
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-510249-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+--></script>
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="Limits"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="maxima_16.html#Functions-and-Variables-for-Elliptic-Integrals" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Limits" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_16.html#Elliptic-Functions" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_18.html#Differentiation" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Limits-1"></a>
+<h1 class="chapter">17. Limits</h1>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Limits">17.1 Functions and Variables for Limits</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<p><a name="Item_003a-Functions-and-Variables-for-Limits"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-Limits"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Limits" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_18.html#Differentiation" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Limits" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Limits" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_18.html#Differentiation" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-and-Variables-for-Limits-1"></a>
+<h2 class="section">17.1 Functions and Variables for Limits</h2>
+
+<p><a name="lhospitallim"></a>
+<a name="Item_003a-lhospitallim"></a>
+</p><dl>
+<dt><a name="index-lhospitallim"></a><u>オプション変数:</u> <b>lhospitallim</b></dt>
+<dd><p>Default: 4
+</p>
+<p><code>lhospitallim</code>は
+<code>limit</code>の中で使われるロピタルの規則の回数の最大数です。
+これは
+<code>limit (cot(x)/csc(x), x, 0)</code>のような場合の無限ループを防ぎます。
+</p>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Limits">Limits</a>
+</div></p></dd></dl>
+
+<p><a name="limit"></a>
+<a name="Item_003a-limit"></a>
+</p><dl>
+<dt><a name="index-limit"></a><u>関数:</u> <b>limit</b><i> (<var>expr</var>, <var>x</var>, <var>val</var>, <var>dir</var>)</i></dt>
+<dt><a name="index-limit-1"></a><u>関数:</u> <b>limit</b><i> (<var>expr</var>, <var>x</var>, <var>val</var>)</i></dt>
+<dt><a name="index-limit-2"></a><u>関数:</u> <b>limit</b><i> (<var>expr</var>)</i></dt>
+<dd>
+<p>実変数 <var>x</var>が値 <var>val</var>に方向 <var>dir</var>に近づく時の
+<var>expr</var>の極限を計算します。
+<var>dir</var>は、上からの極限に関して値 <code>plus</code>を
+下からの極限に関して <code>minus</code>を持つことがあり、
+また (両側極限が計算されることを暗示して)省略されることもあります。
+</p>
+<p><code>limit</code>は以下の特殊シンボルを使います:
+<code>inf</code> (正の無限大)と <code>minf</code> (負の無限大)
+出力時には <code>und</code> (未定義), <code>ind</code> (不定しかし有界),
+<code>infinity</code> (複素無限大)も使うことがあります。
+</p>
+<p>式の絶対値の極限が正の無限大ですけれども式自体の極限は正の無限大でも負の無限大でもない時、
+<code>infinity</code>(複素数の無限大)が返されます。
+これは <code>limit(log(x), x, minf)</code>のように複素偏角の極限が定数である場合、
+<code>limit((-2)^x, x, inf)</code>のように複素偏角が振動する場合、
+<code>limit(1/x, x, 0)</code>や
+<code>limit(log(x), x, 0)</code>のように複素偏角が左右の極限のいずれかで異なる場合を
+を含みます。
+</p>
+<p><code>lhospitallim</code>は、
+<code>limit</code>の中で使われるロピタルの規則の回数の最大数です。
+これは
+<code>limit (cot(x)/csc(x), x, 0)</code>のような場合の無限ループを防ぎます。
+</p>
+<p><code>tlimswitch</code>が <code>true</code>の場合、
+必要な時 <code>limit</code>コマンドがテイラー級数展開を使うことを許します。
+</p>
+<p><code>limsubst</code>は
+<code>limit</code>が未知の形式上の代入を試みることを防ぎます。
+これは <code>limit (f(n)/f(n+1), n, inf)</code>が1となるようなバグを避けるためです。
+<code>limsubst</code>を <code>true</code>に設定するとそんな代入を許します。
+</p>
+<p>例えば <code>limit (inf-1)</code>のように、
+定数式を整理するために引数１つの <code>limit</code>がしばしばコールされます。
+</p>
+<p><code>example (limit)</code>はいくつかの例を表示します。
+</p>
+<p>方法に関して
+Wang, P., &quot;Evaluation of Definite Integrals by Symbolic
+Manipulation&quot;, Ph.D. thesis, MAC TR-92, October 1971を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Limits">Limits</a>
+</div></p></dd></dl>
+
+<p><a name="limsubst"></a>
+<a name="Item_003a-limsubst"></a>
+</p><dl>
+<dt><a name="index-limsubst"></a><u>オプション変数:</u> <b>limsubst</b></dt>
+<dd><p>デフォルト値: <code>false</code> - 
+<code>limit</code>が未知の形式上の代入を試みることを防ぎます。
+</p>
+<p>これは <code>limit (f(n)/f(n+1), n, inf)</code>が1となるようなバグを避けるためです。
+<code>limsubst</code>を <code>true</code>に設定するとそんな代入を許します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Limits">Limits</a>
+</div></p></dd></dl>
+
+<p><a name="tlimit"></a>
+<a name="Item_003a-tlimit"></a>
+</p><dl>
+<dt><a name="index-tlimit"></a><u>関数:</u> <b>tlimit</b><i> (<var>expr</var>, <var>x</var>, <var>val</var>, <var>dir</var>)</i></dt>
+<dt><a name="index-tlimit-1"></a><u>関数:</u> <b>tlimit</b><i> (<var>expr</var>, <var>x</var>, <var>val</var>)</i></dt>
+<dt><a name="index-tlimit-2"></a><u>関数:</u> <b>tlimit</b><i> (<var>expr</var>)</i></dt>
+<dd>
+<p><code>x</code>に関する <code>val</code>での <code>expr</code>のテイラー級数展開の極限を方向
+<code>dir</code>から取ります。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Limits">Limits</a>
+</div></p></dd></dl>
+
+<p><a name="tlimswitch"></a>
+<a name="Item_003a-tlimswitch"></a>
+</p><dl>
+<dt><a name="index-tlimswitch"></a><u>オプション変数:</u> <b>tlimswitch</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p><code>tlimswitch</code>が <code>true</code>の時、
+もし入力式が直接計算できないなら
+<code>limit</code>コマンドはテイラー級数展開を使います。
+これは <code>limit(x/(x-1)-1/log(x),x,1,plus)</code>のような極限の評価を許します。
+<code>tlimswitch</code>が <code>false</code>でかつ入力式の極限が直接計算できない時は、
+<code>limit</code>は未評価の極限式を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Limits">Limits</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-Differentiation"></a>
+</p><hr size="6">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Limits" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_18.html#Differentiation" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

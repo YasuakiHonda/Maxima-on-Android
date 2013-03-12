@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on 2012年12月月12日 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Maxima 5.29.1 Manual: 27. atensor</title>
+
+<meta name="description" content="Maxima 5.29.1 Manual: 27. atensor">
+<meta name="keywords" content="Maxima 5.29.1 Manual: 27. atensor">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+body
+{
+    color: black;
+    background: white; 
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+h1
+{
+    margin-left: +8%;
+    font-size: 150%;
+    font-family: sans-serif
+}
+
+h2
+{
+    font-size: 125%;
+    font-family: sans-serif
+}
+
+h3
+{
+    font-size: 100%;
+    font-family: sans-serif
+}
+
+h2,h3,h4,h5,h6 { margin-left: +4%; }
+
+div.textbox
+{
+    border: solid;
+    border-width: thin;
+    /* width: 100%; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em
+}
+
+div.titlebox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: rgb(200,255,255);
+    font-family: sans-serif
+}
+
+div.synopsisbox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+     background: rgb(255,220,255);
+    /*background: rgb(200,255,255); */
+    /* font-family: fixed */
+}
+
+pre.example
+{
+    border: 1px solid gray;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    /* background: rgb(247,242,180); */ /* kind of sandy */
+    /* background: rgb(200,255,255); */ /* sky blue */
+    background-color: #F1F5F9; /* light blue-gray */
+    /* font-family: "Lucida Console", monospace */
+}
+
+div.spacerbox
+{
+    border: none;
+    padding-top: 2em;
+    padding-bottom: 2em
+}
+
+div.image
+{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+div.categorybox
+{
+    border: 1px solid gray;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: rgb(247,242,220);
+}
+
+
+-->
+</style>
+
+<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<script type="text/javascript"><!--
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-510249-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+--></script>
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="atensor"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="maxima_26.html#Changes" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-atensor" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_28.html#Sums-Products-and-Series" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="atensor-1"></a>
+<h1 class="chapter">27. atensor</h1>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Introduction-to-atensor">27.1 Introduction to atensor</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-atensor">27.2 Functions and Variables for atensor</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<p><a name="Item_003a-Introduction-to-atensor"></a>
+</p><hr size="6">
+<a name="Introduction-to-atensor"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#atensor" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-atensor" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#atensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#atensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_28.html#Sums-Products-and-Series" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Introduction-to-atensor-1"></a>
+<h2 class="section">27.1 Introduction to atensor</h2>
+
+<p><code>atensor</code>は代数テンソル操作パッケージです。
+<code>atensor</code>を使うには <code>load(atensor)</code>とタイプしてください。
+続いて <code>init_atensor</code>関数をコールしてください。
+</p>
+<p><code>atensor</code>の本質は非可換(ドット)積演算子 (&quot;<code>.</code>&quot;)の整理ルール一式です
+<code>atensor</code>はいくつかの代数型を認識します;
+<code>init_atensor</code>関数がコールされた時、対応する整理ルールが有効になります。
+</p>
+<p><code>atensor</code>の能力は、四元数代数を 2つの基底ベクトルを持つ
+Clifford代数 Cl(0,2)として定義することで実演することができます。
+3つの四元数虚数単位は 2つの基底ベクトルとその積、すなわち以下の通りです:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">    i = v     j = v     k = v  . v
+         1         2         1    2
+</pre></td></tr></table>
+
+<p><code>atensor</code>パッケージは四元数代数に関する組み込みの定義を持ちますが、
+この例では使わず、四元数乗算表を行列として組むよう試みます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(atensor);
+(%o1)       /share/tensor/atensor.mac
+(%i2) init_atensor(clifford,0,0,2);
+(%o2)                                done
+(%i3) atensimp(v[1].v[1]);
+(%o3)                                 - 1
+(%i4) atensimp((v[1].v[2]).(v[1].v[2]));
+(%o4)                                 - 1
+(%i5) q:zeromatrix(4,4);
+                                [ 0  0  0  0 ]
+                                [            ]
+                                [ 0  0  0  0 ]
+(%o5)                           [            ]
+                                [ 0  0  0  0 ]
+                                [            ]
+                                [ 0  0  0  0 ]
+(%i6) q[1,1]:1;
+(%o6)                                  1
+(%i7) for i thru adim do q[1,i+1]:q[i+1,1]:v[i];
+(%o7)                                done
+(%i8) q[1,4]:q[4,1]:v[1].v[2];
+(%o8)                               v  . v
+                                     1    2
+(%i9) for i from 2 thru 4 do for j from 2 thru 4 do
+      q[i,j]:atensimp(q[i,1].q[1,j]);
+(%o9)                                done
+(%i10) q;
+</pre><pre class="example">                   [    1        v         v      v  . v  ]
+                   [              1         2      1    2 ]
+                   [                                      ]
+                   [   v         - 1     v  . v    - v    ]
+                   [    1                 1    2      2   ]
+(%o10)             [                                      ]
+                   [   v      - v  . v     - 1      v     ]
+                   [    2        1    2              1    ]
+                   [                                      ]
+                   [ v  . v      v        - v       - 1   ]
+                   [  1    2      2          1            ]
+</pre></td></tr></table>
+
+<p><code>atensor</code>は添字付きシンボルを基底ベクトルと認識します。
+シンボルは <code>asymbol</code>の中に記憶されたものであり、
+添字は 1から <code>adim</code>まで間です。
+添字付きシンボルだけに関して双一次形式
+<code>sf</code>, <code>af</code>, <code>av</code>が評価されます。
+評価によって <code>fun(v[i],v[j])</code>に <code>aform[i,j]</code>の値が代入されます。
+ここで <code>v</code>は <code>asymbol</code>の値を表し、
+<code>fun</code>は <code>af</code>か <code>sf</code>を示します;
+また、
+<code>av(v[i],v[j])</code>に <code>v[aform[i,j]]</code>が代入されます。
+</p>
+<p>言うまでもなく、関数 <code>sf</code>, <code>af</code>, <code>av</code>は再定義できます。
+</p>
+<p><code>atensor</code>パッケージがロードされる時、以下のフラグが設定されます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">dotscrules:true;
+dotdistrib:true;
+dotexptsimp:false;
+</pre></td></tr></table>
+
+<p>もし非結合代数で実験したいなら、
+<code>dotassoc</code>を <code>false</code>に設定することも考えるかもしれません。
+しかし、この場合、
+<code>atensimp</code>はいつも望みの整理を得ることができるわけではありません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Tensors">Tensors</a>
+ &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-atensor">Package atensor</a>
+</div></p>
+<p><a name="Item_003a-Functions-and-Variables-for-atensor"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-atensor"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-atensor" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_28.html#Sums-Products-and-Series" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#atensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#atensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_28.html#Sums-Products-and-Series" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="Functions-and-Variables-for-atensor-1"></a>
+<h2 class="section">27.2 Functions and Variables for atensor</h2>
+
+<p><a name="Item_003a-init_005fatensor"></a>
+</p><dl>
+<dt><a name="index-init_005fatensor"></a><u>関数:</u> <b>init_atensor</b><i> (<var>alg_type</var>, <var>opt_dims</var>)</i></dt>
+<dt><a name="index-init_005fatensor-1"></a><u>関数:</u> <b>init_atensor</b><i> (<var>alg_type</var>)</i></dt>
+<dd>
+<p>特定の代数型で
+<code>atensor</code>パッケージを初期化します。
+<var>alg_type</var>は以下のいずれかであり得ます:
+</p>
+<p><code>universal</code>: 普遍代数は交換規則を持ちません。
+</p>
+<p><code>grassmann</code>: Grassman代数は交換関係 <code>u.v+v.u=0</code>で定義されます。
+</p>
+<p><code>clifford</code>: Clifford代数は交換関係 <code>u.v+v.u=-2*sf(u,v)</code>で定義されます。
+ここで <code>sf</code>は対称スカラ値函数です。
+この代数では、
+<var>opt_dims</var>は代数の正の次元数、縮退次元数、負の次元数をそれぞれ表す
+3つの非負整数までありえます。
+もしいずれかの <var>opt_dims</var>値が供給されたら、
+<code>atensor</code>は <code>adim</code>と <code>aform</code>の値を適切に構成します。
+そうでないなら、
+<code>adim</code>はデフォルトが 0で、 <code>aform</code>は未定義です。
+</p>
+<p><code>symmetric</code>: 対称代数は交換関係 <code>u.v-v.u=0</code>で定義されます。
+</p>
+<p><code>symplectic</code>: シンプレクティック代数は交換関係
+<code>u.v-v.u=2*af(u,v)</code>で定義されます。
+ここで <code>af</code>は反対称スカラ値函数です。
+シンプレクティック代数では
+<var>opt_dims</var>は非縮退次元数、縮退次元数をそれぞれ表す 2つの非負整数までありえます。
+もしいずれかの <var>opt_dims</var>値が供給されたら、
+<code>atensor</code>は <code>adim</code>と <code>aform</code>の値を適切に構成します。
+そうでないなら
+<code>adim</code>はデフォルトが 0で、 <code>aform</code>は未定義です。
+</p>
+<p><code>lie_envelop</code>: Lie包絡代数は交換関係 <code>u.v-v.u=2*av(u,v)</code>で定義されます。
+ここで <code>av</code>は反対称函数です。
+</p>
+<p><code>init_atensor</code>関数はいくつかの予め定義された代数型も認識します:
+</p>
+<p><code>complex</code>は複素数代数を Clifford代数 Cl(0,1)として実装します。
+<code>init_atensor(complex)</code>をコールすることは
+<code>init_atensor(clifford,0,0,1)</code>と同値です。
+</p>
+<p><code>quaternion</code>は四元数代数を実装します。
+<code>init_atensor (quaternion)</code>をコールすることは
+<code>init_atensor (clifford,0,0,2)</code>と同値です。
+</p>
+<p><code>pauli</code>は Pauliスピノール代数を Clifford代数 Cl(3,0)として実装します。
+<code>init_atensor(pauli)</code>をコールすることは
+<code>init_atensor(clifford,3)</code>と同値です。
+</p>
+<p><code>dirac</code>は Diracスピノール代数を Clifford代数 Cl(3,1)として実装します。
+<code>init_atensor(dirac)</code>をコールすることは
+<code>init_atensor(clifford,3,0,1)</code>と同値です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-atensor">Package atensor</a>
+</div></p></dd></dl>
+
+
+<p><a name="Item_003a-atensimp"></a>
+</p><dl>
+<dt><a name="index-atensimp"></a><u>関数:</u> <b>atensimp</b><i> (<var>expr</var>)</i></dt>
+<dd>
+<p><code>init_atensor</code>のコールで構成された規則に従って代数テンソル式
+<var>expr</var>を整理します。
+整理は、適用可能な場所への交換関係の再帰的な適用と
+<code>sf</code>, <code>af</code>, <code>av</code>のコールの分解 (resolving calls)を含みます。
+複雑な式に関してさえ、保護手段を使い、関数がいつでも終了することを確実にします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-atensor">Package atensor</a>
+ &middot;<a href="maxima_99.html#Category_003a-Simplification-functions">Simplification functions</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-adim"></a>
+</p><dl>
+<dt><a name="index-adim"></a><u>変数:</u> <b>adim</b></dt>
+<dd><p>デフォルト値: 0
+</p>
+<p>代数の次元。
+<code>atensor</code>は添字付きオブジェクトが有効な基底ベクトルか決定するのに
+<code>adim</code>の値を使います。
+<code>abasep</code>を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-atensor">Package atensor</a>
+ &middot;<a href="maxima_99.html#Category_003a-Global-variables">Global variables</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-aform"></a>
+</p><dl>
+<dt><a name="index-aform"></a><u>変数:</u> <b>aform</b></dt>
+<dd><p>デフォルト値: <code>ident(3)</code>
+</p>
+<p>双一次形式<code>sf</code>, <code>af</code>, <code>av</code>のデフォルト値。
+デフォルトは、単位行列 <code>ident(3)</code>です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-atensor">Package atensor</a>
+ &middot;<a href="maxima_99.html#Category_003a-Global-variables">Global variables</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-asymbol"></a>
+</p><dl>
+<dt><a name="index-asymbol"></a><u>変数:</u> <b>asymbol</b></dt>
+<dd><p>デフォルト値: <code>v</code>
+</p>
+<p>基底ベクトルのシンボル。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-atensor">Package atensor</a>
+ &middot;<a href="maxima_99.html#Category_003a-Global-variables">Global variables</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-sf"></a>
+</p><dl>
+<dt><a name="index-sf"></a><u>関数:</u> <b>sf</b><i> (<var>u</var>, <var>v</var>)</i></dt>
+<dd>
+<p>交換関係で使われる対称スカラ関数。
+デフォルトの実装は
+両方の引数が <code>abasep</code>を使った基底ベクトルかチェックし、
+もしそうなら行列 <code>aform</code>から対応する値を代入します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-atensor">Package atensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-af"></a>
+</p><dl>
+<dt><a name="index-af"></a><u>関数:</u> <b>af</b><i> (<var>u</var>, <var>v</var>)</i></dt>
+<dd>
+<p>交換関係で使われる反対称スカラ関数。
+デフォルトの実装は
+両方の引数が <code>abasep</code>を使った基底ベクトルかチェックし、
+もしそうなら行列 <code>aform</code>から対応する値を代入します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-atensor">Package atensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-av"></a>
+</p><dl>
+<dt><a name="index-av"></a><u>関数:</u> <b>av</b><i> (<var>u</var>, <var>v</var>)</i></dt>
+<dd>
+<p>交換関係で使われる反対称スカラ関数。
+デフォルトの実装は
+両方の引数が<code>abasep</code>を使った基底ベクトルかチェックし、
+もしそうなら行列 <code>aform</code>から対応する値を代入します。
+</p>
+<p>例えば:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(atensor);
+(%o1)       /share/tensor/atensor.mac
+(%i2) adim:3;
+(%o2)                                  3
+(%i3) aform:matrix([0,3,-2],[-3,0,1],[2,-1,0]);
+                               [  0    3   - 2 ]
+                               [               ]
+(%o3)                          [ - 3   0    1  ]
+                               [               ]
+                               [  2   - 1   0  ]
+(%i4) asymbol:x;
+(%o4)                                  x
+(%i5) av(x[1],x[2]);
+(%o5)                                 x
+                                       3
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-atensor">Package atensor</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-abasep"></a>
+</p><dl>
+<dt><a name="index-abasep"></a><u>関数:</u> <b>abasep</b><i> (<var>v</var>)</i></dt>
+<dd>
+<p>引数が <code>atensor</code>基底ベクトルかチェックします。
+すなわち、それが添字付きシンボルかどうか、
+<code>asymbol</code>の値と同じシンボルを持つかどうか、
+そして、1から <code>adim</code>までの間の数値の添字を持つどうかチェックします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-atensor">Package atensor</a>
+ &middot;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-Sums-Products-and-Series"></a>
+</p><hr size="6">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#atensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_28.html#Sums-Products-and-Series" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

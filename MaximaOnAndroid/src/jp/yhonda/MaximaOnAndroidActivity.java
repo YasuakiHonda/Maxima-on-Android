@@ -78,10 +78,10 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 			  exitMOA();
 			  return true;
 		  case R.id.man:
-			  showManual("file://"+internalDir+"/additions/en/maxima.html");
+			  showManual("file:///android_asset/maxima-doc/en/de/maxima.html");
 			  return true;
 		  case R.id.manj:
-			  showManual("file://"+internalDir+"/additions/ja/maxima.html");
+			  showManual("file:///android_asset/maxima-doc/ja/maxima.html");
 			  return true;
 		  default:
 			   return super.onOptionsItemSelected(item);
@@ -118,7 +118,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         long verNo = prevVers.versionInteger();
         long thisVerNo = mvers.versionInteger();
         
-    	if (1>0 || (thisVerNo > verNo) || 
+    	if ((thisVerNo > verNo) || 
     		!((new File(internalDir+"/maxima")).exists()) || 
     		!((new File(internalDir+"/additions")).exists()) ||
     		(!( new File( internalDir+"/maxima-"+mvers.versionString() ) ).exists() 
@@ -242,12 +242,8 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    					return true;
    				}
    				removeTmpFiles();
-   				if (maxima_syntax_check(cmdstr)) {
-   					maximaProccess.maximaCmd(cmdstr+"\n");
-   				} else {
-   					Toast.makeText(this, "Syntax error. Please correct.", Toast.LENGTH_LONG).show();
-   					return false;
-   				}
+   				cmdstr=maxima_syntax_check(cmdstr);
+   				maximaProccess.maximaCmd(cmdstr+"\n");
 			} catch (IOException e) {
 				// TODO 自動生成された catch ブロック
 				e.printStackTrace();
@@ -312,11 +308,24 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    		return true;
    	}
    	
-   	private boolean maxima_syntax_check(String cmd) {
-   		// 最後がセミコロンあるいはダラーで終わっているかチェック
-   		if (!cmd.endsWith(";") && !cmd.endsWith("$")) return false;
-   		if (cmd.endsWith(";;")) return false;
-   		return true;
+   	private String maxima_syntax_check(String cmd) {
+   		/*
+   		 * Search the last char which is not white spaces.
+   		 * If the last char is semi-colon or dollar, that is OK.
+   		 * Otherwise, semi-colon is added at the end.
+   		 */
+   		int i=cmd.length()-1;
+   		while (i>=0) {
+   			char c=cmd.charAt(i);
+   			if (c==' ' || c=='\t') {
+   				i--;
+   			} else if (c==';' || c=='$') {
+   				return(cmd);
+   			} else {
+   				return(cmd.substring(0, i+1)+';');
+   			}
+   		}
+   		return(";");
    	}
    	
    	private String escapeChars(String cmd) {

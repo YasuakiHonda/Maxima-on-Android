@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on 2012年12月月12日 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Maxima 5.29.1 Manual: 40. augmented_lagrangian</title>
+
+<meta name="description" content="Maxima 5.29.1 Manual: 40. augmented_lagrangian">
+<meta name="keywords" content="Maxima 5.29.1 Manual: 40. augmented_lagrangian">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+body
+{
+    color: black;
+    background: white; 
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+h1
+{
+    margin-left: +8%;
+    font-size: 150%;
+    font-family: sans-serif
+}
+
+h2
+{
+    font-size: 125%;
+    font-family: sans-serif
+}
+
+h3
+{
+    font-size: 100%;
+    font-family: sans-serif
+}
+
+h2,h3,h4,h5,h6 { margin-left: +4%; }
+
+div.textbox
+{
+    border: solid;
+    border-width: thin;
+    /* width: 100%; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em
+}
+
+div.titlebox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: rgb(200,255,255);
+    font-family: sans-serif
+}
+
+div.synopsisbox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+     background: rgb(255,220,255);
+    /*background: rgb(200,255,255); */
+    /* font-family: fixed */
+}
+
+pre.example
+{
+    border: 1px solid gray;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    /* background: rgb(247,242,180); */ /* kind of sandy */
+    /* background: rgb(200,255,255); */ /* sky blue */
+    background-color: #F1F5F9; /* light blue-gray */
+    /* font-family: "Lucida Console", monospace */
+}
+
+div.spacerbox
+{
+    border: none;
+    padding-top: 2em;
+    padding-bottom: 2em
+}
+
+div.image
+{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+div.categorybox
+{
+    border: 1px solid gray;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: rgb(247,242,220);
+}
+
+
+-->
+</style>
+
+<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<script type="text/javascript"><!--
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-510249-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+--></script>
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="augmented_005flagrangian"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="maxima_39.html#Functions-and-variables-for-asympa" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-augmented_005flagrangian" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_39.html#asympa" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_41.html#Bernstein" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="augmented_005flagrangian-1"></a>
+<h1 class="chapter">40. augmented_lagrangian</h1>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-augmented_005flagrangian">40.1 Functions and Variables for augmented_lagrangian</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<p><a name="Item_003a-Functions-and-Variables-for-augmented_005flagrangian"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-augmented_005flagrangian"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#augmented_005flagrangian" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_41.html#Bernstein" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#augmented_005flagrangian" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#augmented_005flagrangian" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_41.html#Bernstein" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-and-Variables-for-augmented_005flagrangian-1"></a>
+<h2 class="section">40.1 Functions and Variables for augmented_lagrangian</h2>
+
+<p><a name="Item_003a-augmented_005flagrangian_005fmethod"></a>
+</p><dl>
+<dt><a name="index-augmented_005flagrangian_005fmethod"></a><u>関数:</u> <b>augmented_lagrangian_method</b><i> (<var>FOM</var>, <var>xx</var>, <var>C</var>, <var>yy</var>)</i></dt>
+<dt><a name="index-augmented_005flagrangian_005fmethod-1"></a><u>関数:</u> <b>augmented_lagrangian_method</b><i> (<var>FOM</var>, <var>xx</var>, <var>C</var>, <var>yy</var>, optional_args)</i></dt>
+<dt><a name="index-augmented_005flagrangian_005fmethod-2"></a><u>関数:</u> <b>augmented_lagrangian_method</b><i> ([<var>FOM</var>, <var>grad</var>], <var>xx</var>, <var>C</var>, <var>yy</var>)</i></dt>
+<dt><a name="index-augmented_005flagrangian_005fmethod-3"></a><u>関数:</u> <b>augmented_lagrangian_method</b><i> ([<var>FOM</var>, <var>grad</var>], <var>xx</var>, <var>C</var>, <var>yy</var>, optional_args)</i></dt>
+<dd>
+<p>制約 <var>C</var>をゼロに保ちながら、式 <var>FOM</var>の変数 <var>xx</var>に関する近似最小を返します。
+<var>yy</var>は <var>xx</var>の初期推量のリストです。
+利用した方法は拡張 Lagrange法です。(文献[1]と[2]を参照してください。)
+</p>
+<p>もし<var>grad</var>が存在するなら、 それは <var>FOM</var>の <var>xx</var>に関するグラディエントであり、
+<var>xx</var>の変数それぞれに関する式のリストとして表されます。
+もし存在ないなら、グラディエントは自動的に構成されます。
+</p>
+<p><var>FOM</var>と、もし <var>grad</var>が存在するならその要素それぞれは、
+関数名やラムダ式ではなく、通常の式でなければいけません。
+</p>
+<p><code>optional_args</code>は
+<code><var>symbol</var> = <var>value</var></code>として指定される追加の引数を表します。
+認識するオプション引数は以下の通りです:
+</p>
+<dl compact="compact">
+<dt> <code>niter</code></dt>
+<dd><p>拡張 Lagrangeアルゴリズムの繰り返しの回数
+</p></dd>
+<dt> <code>lbfgs_tolerance</code></dt>
+<dd><p>LBFGSに供給される許容誤差
+</p></dd>
+<dt> <code>iprint</code></dt>
+<dd><p>LBFGSに供給される
+IPRINTパラメータ(メッセージ出力を制御する２つの整数のリスト)
+</p></dd>
+<dt> <code>%lambda</code></dt>
+<dd><p>拡張 Lagrangeを計算するために使われる
+<code>%lambda</code>の初期値
+</p></dd>
+</dl>
+
+<p>この実装は
+擬似 Newtonアルゴリズムであるメモリ制限付きBFGS (LBFGS)アルゴリズムを適用することで
+拡張 Lagrangeを最小化します。
+</p>
+<p><code>load(augmented_lagrangian)</code>はこの関数をロードします。
+</p>
+<p><code>lbfgs</code>も参照してください。
+</p>
+<p>参考文献:
+</p>
+<p>[1] <a href="http://www-fp.mcs.anl.gov/otc/Guide/OptWeb/continuous/constrained/nonlinearcon/auglag.html">http://www-fp.mcs.anl.gov/otc/Guide/OptWeb/continuous/constrained/nonlinearcon/auglag.html</a>
+</p>
+<p>[2] <a href="http://www.cs.ubc.ca/spider/ascher/542/chap10.pdf">http://www.cs.ubc.ca/spider/ascher/542/chap10.pdf</a>
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lbfgs);
+(%o1)     /maxima/share/lbfgs/lbfgs.mac
+(%i2) load (augmented_lagrangian);
+(%o2) 
+   /maxima/share/contrib/augmented_lagrangian.mac
+(%i3) FOM: x^2 + 2*y^2;
+                               2    2
+(%o3)                       2 y  + x
+(%i4) xx: [x, y];
+(%o4)                        [x, y]
+(%i5) C: [x + y - 1];
+(%o5)                      [y + x - 1]
+(%i6) yy: [1, 1];
+(%o6)                        [1, 1]
+(%i7) augmented_lagrangian_method(FOM, xx, C, yy, iprint=[-1,0]);
+(%o7) [[x = 0.66665984108002, y = 0.33334027245545],
+                                 %lambda = [- 1.333337940892525]]
+</pre></td></tr></table>
+
+<p>前と同じ例ですが、今回はグラディエントが引数として供給されます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lbfgs)$
+(%i2) load (augmented_lagrangian)$
+(%i3) FOM: x^2 + 2*y^2;
+                               2    2
+(%o3)                       2 y  + x
+(%i4) FOM: x^2 + 2*y^2;
+                               2    2
+(%o4)                       2 y  + x
+(%i5) xx: [x, y];
+(%o5)                        [x, y]
+(%i6) grad : [2*x, 4*y];
+(%o6)                      [2 x, 4 y]
+(%i7) C: [x + y - 1];
+(%o7)                      [y + x - 1]
+(%i8) yy: [1, 1];
+(%o8)                        [1, 1]
+(%i9) augmented_lagrangian_method ([FOM, grad], xx, C, yy,
+                                   iprint = [-1, 0]);
+(%o9) [[x = 0.666659841080025, y = .3333402724554462], 
+                                 %lambda = [- 1.333337940892543]]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a>
+ &middot;<a href="maxima_99.html#Category_003a-Optimization">Optimization</a>
+ &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-augmented_005flagrangian">Package augmented_lagrangian</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-Bernstein"></a>
+</p><hr size="6">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#augmented_005flagrangian" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_41.html#Bernstein" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

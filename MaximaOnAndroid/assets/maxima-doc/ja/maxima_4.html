@@ -1,0 +1,1957 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on 2012年12月月12日 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Maxima 5.29.1 Manual: 4. Command Line</title>
+
+<meta name="description" content="Maxima 5.29.1 Manual: 4. Command Line">
+<meta name="keywords" content="Maxima 5.29.1 Manual: 4. Command Line">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+body
+{
+    color: black;
+    background: white; 
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+h1
+{
+    margin-left: +8%;
+    font-size: 150%;
+    font-family: sans-serif
+}
+
+h2
+{
+    font-size: 125%;
+    font-family: sans-serif
+}
+
+h3
+{
+    font-size: 100%;
+    font-family: sans-serif
+}
+
+h2,h3,h4,h5,h6 { margin-left: +4%; }
+
+div.textbox
+{
+    border: solid;
+    border-width: thin;
+    /* width: 100%; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em
+}
+
+div.titlebox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: rgb(200,255,255);
+    font-family: sans-serif
+}
+
+div.synopsisbox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+     background: rgb(255,220,255);
+    /*background: rgb(200,255,255); */
+    /* font-family: fixed */
+}
+
+pre.example
+{
+    border: 1px solid gray;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    /* background: rgb(247,242,180); */ /* kind of sandy */
+    /* background: rgb(200,255,255); */ /* sky blue */
+    background-color: #F1F5F9; /* light blue-gray */
+    /* font-family: "Lucida Console", monospace */
+}
+
+div.spacerbox
+{
+    border: none;
+    padding-top: 2em;
+    padding-bottom: 2em
+}
+
+div.image
+{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+div.categorybox
+{
+    border: 1px solid gray;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: rgb(247,242,220);
+}
+
+
+-->
+</style>
+
+<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<script type="text/javascript"><!--
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-510249-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+--></script>
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="Command-Line"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="maxima_3.html#Functions-and-Variables-for-Help" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-Command-Line" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_3.html#Help" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_5.html#Data-Types-and-Structures" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Command-Line-1"></a>
+<h1 class="chapter">4. Command Line</h1>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Introduction-to-Command-Line">4.1 Introduction to Command Line</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Command-Line">4.2 Functions and Variables for Command Line</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Display">4.3 Functions and Variables for Display</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<p><a name="Item_003a-Introduction-to-Command-Line"></a>
+</p><hr size="6">
+<a name="Introduction-to-Command-Line"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Command-Line" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Command-Line" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Command-Line" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Command-Line" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_5.html#Data-Types-and-Structures" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Introduction-to-Command-Line-1"></a>
+<h2 class="section">4.1 Introduction to Command Line</h2>
+
+
+<p><a name="Item_003a-Functions-and-Variables-for-Command-Line"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-Command-Line"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-Command-Line" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Display" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Command-Line" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Command-Line" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_5.html#Data-Types-and-Structures" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-and-Variables-for-Command-Line-1"></a>
+<h2 class="section">4.2 Functions and Variables for Command Line</h2>
+
+<p><a name="g_t_005f_005f"></a>
+<a name="Item_003a-_005f_005f"></a>
+</p><dl>
+<dt><a name="index-_005f_005f"></a><u>システム変数:</u> <b>__</b></dt>
+<dd>
+<p><code>__</code>は、現在評価中の入力式です。
+すなわち、入力式 <var>expr</var>が評価されている間、 <code>__</code>は <var>expr</var>です。
+</p>
+<p><code>__</code>は、入力が整理されたり評価されたりする前に入力式に割り当てられます。
+しかし表示される時、<code>__</code>の値は（評価はされませんが）整理されます。
+</p>
+<p><code><a href="maxima_13.html#batch">batch</a></code>
+と <code><a href="maxima_13.html#load">load</a></code>
+は <code>__</code>を認識します。
+<code>batch</code>が処理するファイル内では、
+<code>__</code>は対話プロンプトでのそれと同じ意味になります。
+<code>load</code>が処理するファイル内では、
+<code>__</code>は対話プロンプトやバッチファイルの中で直前に入力された入力式にバインドされています;
+<code>__</code>は処理中のファイル内の入力式にはバインドされません。
+特に、 <code>load (<var>filename</var>)</code>が対話プロンプトからコールされた時、
+<code>__</code>は、ファイルが処理されている間、
+<code>load (<var>filename</var>)</code>にバインドされます。
+</p>
+<p><code><a href="#g_t_005f">_</a></code>
+や <code><a href="#g_t_0025">%</a></code>
+も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) print (&quot;I was called as&quot;, __);
+I was called as print(I was called as, __) 
+(%o1)              print(I was called as, __)
+(%i2) foo (__);
+(%o2)                     foo(foo(__))
+(%i3) g (x) := (print (&quot;Current input expression =&quot;, __), 0);
+(%o3) g(x) := (print(&quot;Current input expression =&quot;, __), 0)
+(%i4) [aa : 1, bb : 2, cc : 3];
+(%o4)                       [1, 2, 3]
+(%i5) (aa + bb + cc)/(dd + ee + g(x));
+                            cc + bb + aa
+Current input expression = -------------- 
+                           g(x) + ee + dd
+                                6
+(%o5)                        -------
+                             ee + dd
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Global-variables">Global variables</a>
+</div></p></dd></dl>
+
+<p><a name="g_t_005f"></a>
+<a name="Item_003a-_005f"></a>
+</p><dl>
+<dt><a name="index-_005f"></a><u>システム変数:</u> <b>_</b></dt>
+<dd>
+<p><code>_</code>は直前の入力式です。
+(例えば、<code>%i1</code>, <code>%i2</code>, <code>%i3</code>, &hellip;)
+</p>
+<p><code>_</code>は、入力が整理されたり評価されたりする前に、入力式に割り当てられます。
+しかし、
+<code>_</code>の値は、表示される時（評価はされませんが）整理されます。
+</p>
+<p><code><a href="maxima_13.html#batch">batch</a></code>
+と <code><a href="maxima_13.html#load">load</a></code>
+は <code>_</code>を認識します。
+<code>batch</code>が処理するファイル内では、
+<code>_</code>は対話プロンプトでのそれと同じ意味になります。
+<code>load</code>が処理するファイル内では、
+<code>_</code>は、対話プロンプトやバッチファイルの中で、直前に入力された入力式にバインドされます;
+<code>_</code>は処理中のファイル内の入力式にはバインドされません。
+</p>
+<p><code><a href="#g_t_005f_005f">__</a></code>
+や <code><a href="#g_t_0025">%</a></code>
+も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) 13 + 29;
+(%o1)                          42
+(%i2) :lisp $_
+((MPLUS) 13 29)
+(%i2) _;
+(%o2)                          42
+(%i3) sin (%pi/2);
+(%o3)                           1
+(%i4) :lisp $_
+((%SIN) ((MQUOTIENT) $%PI 2))
+(%i4) _;
+(%o4)                           1
+(%i5) a: 13$
+(%i6) b: 29$
+(%i7) a + b;
+(%o7)                          42
+(%i8) :lisp $_
+((MPLUS) $A $B)
+(%i8) _;
+(%o8)                         b + a
+(%i9) a + b;
+(%o9)                          42
+(%i10) ev (_);
+(%o10)                         42
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+ &middot;<a href="maxima_99.html#Category_003a-Global-variables">Global variables</a>
+</div></p></dd></dl>
+
+<p><a name="g_t_0025"></a>
+<a name="Item_003a-_0025"></a>
+</p><dl>
+<dt><a name="index-_0025"></a><u>システム変数:</u> <b>%</b></dt>
+<dd>
+<p><code>%</code>はMaximaが直前に計算した出力式です。
+(例えば、 <code>%o1</code>, <code>%o2</code>, <code>%o3</code>, &hellip;)
+出力の表示には無関係です。
+</p>
+<p><code>batch</code>と <code>load</code>は<code>%</code>を認識します。
+<code>batch</code>が処理するファイル内では、
+<code>%</code>は対話プロンプトでのそれと同じ意味になります。
+<code>load</code>が処理するファイル内では、
+<code>%</code>は、対話プロンプトやバッチファイルの中で、直前に計算された出力式にバインドされます;
+<code>%</code>は、処理中のファイル内の出力式にはバインドされません。
+</p>
+<p><code><a href="#g_t_005f">_</a></code>
+, <code><a href="#g_t_0025_0025">%%</a></code>
+, <code><a href="#g_t_0025th">%th</a></code>
+も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+ &middot;<a href="maxima_99.html#Category_003a-Global-variables">Global variables</a>
+</div></p></dd></dl>
+
+<p><a name="g_t_0025_0025"></a>
+<a name="Item_003a-_0025_0025"></a>
+</p><dl>
+<dt><a name="index-_0025_0025"></a><u>システム変数:</u> <b>%%</b></dt>
+<dd>
+<p>合成文、すなわち<code>block</code>, <code>lambda</code>,
+もしくは<code>(<var>s_1</var>, ..., <var>s_n</var>)</code>の中で、 <code>%%</code>は前の文の値です。
+</p>
+<p>合成文の最初の文もしくは合成文の外側では<code>%%</code>は未定義です。
+</p>
+<p><code>%%</code>は、<code><a href="maxima_13.html#batch">batch</a></code>
+や <code><a href="maxima_13.html#load">load</a></code>
+で認識され、
+対話プロンプトでのそれと同じ意味になります。
+</p>
+<p><code>%</code>も参照してください。
+</p>
+<p>例:
+</p>
+<p>以下の二つの例は同じ結果になります。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) block (integrate (x^5, x), ev (%%, x=2) - ev (%%, x=1));
+                               21
+(%o1)                          --
+                               2
+(%i2) block ([prev], prev: integrate (x^5, x),
+               ev (prev, x=2) - ev (prev, x=1));
+                               21
+(%o2)                          --
+                               2
+
+</pre></td></tr></table>
+
+<p>合成文は他の合成文を含むかもしれません。
+文が単文か合成文かに関係なく、
+<code>%%</code>は前の文の値です。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) block (block (a^n, %%*42), %%/6);
+                                 n
+(%o3)                         7 a
+</pre></td></tr></table>
+
+<p>合成文の中ではブレイクプロンプトで<code>%%</code>の値を検査することができます。
+ブレイクプロンプトは <code>break</code>関数を実行することで開きます。
+例えば、以下の例で<code>%%;</code>を入力すると、<code>42</code>が出力されます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) block (a: 42, break ())$
+
+Entering a Maxima break point. Type 'exit;' to resume.
+_%%;
+42
+_
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Global-variables">Global variables</a>
+</div></p></dd></dl>
+
+<p><a name="g_t_0025th"></a>
+<a name="Item_003a-_0025th"></a>
+</p><dl>
+<dt><a name="index-_0025th"></a><u>関数:</u> <b>%th</b><i> (<var>i</var>)</i></dt>
+<dd>
+<p><var>i</var>番前の出力式の値。
+すなわち、計算される次の式を<var>n</var>番目の出力とすると
+<code>%th (<var>m</var>)</code>は、(<var>n</var> - <var>m</var>)番目の出力です。
+</p>
+<p><code>batch</code>と<code>load</code>は<code>%th</code>を認識されます。
+<code>batch</code>が処理するファイル内では、
+<code>%th</code>は、対話プロンプトでのそれと同じ意味になります。
+<code>load</code>が処理するファイル内では、
+<code>%th</code>は、対話プロンプトやバッチファイルの中で、直前に計算された出力式にバインドされます;
+<code>%th</code>は、処理中のファイル内の出力式にはバインドされません。
+</p>
+<p><code><a href="#g_t_0025">%</a></code>
+と <code><a href="#g_t_0025_0025">%%</a></code>
+も参照してください。
+</p>
+<p>例:
+</p>
+<p><code>batch</code>ファイルの中でとか、出力式のグループを参照する時<code>%th</code>は役立ちます。
+この例は<code>s</code>を最後の5つの出力式の和に設定します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) 1;2;3;4;5;
+(%o1)                           1
+(%o2)                           2
+(%o3)                           3
+(%o4)                           4
+(%o5)                           5
+(%i6) block (s: 0, for i:1 thru 5 do s: s + %th(i), s);
+(%o6)                          15
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+</div></p></dd></dl>
+
+
+<p><a name="g_t_003f"></a>
+<a name="Item_003a-_003f"></a>
+</p><dl>
+<dt><a name="index-_003f"></a><u>特殊シンボル:</u> <b>?</b></dt>
+<dd>
+<p>関数名や変数名の前置としての<code>?</code>は、
+名前が、Maximaの名前ではなくLispの名前であることを意味します。
+例えば、<code>?round</code>は、Lisp関数<code>ROUND</code>を意味します。
+この点に関して更に知るには<a href="maxima_37.html#Lisp-and-Maxima">Lisp and Maxima</a>を参照してください。
+</p>
+<p>表記<code>? word</code> (空白を空けて単語が続くクエスチョンマーク)は
+<code>describe(&quot;word&quot;)</code>と同値です。
+クエスチョンマークは入力ラインの先頭になければいけません;
+そうでなければドキュメンテーションのリクエストとして認識されません。
+<code><a href="maxima_3.html#describe">describe</a></code>
+も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Help">Help</a>
+ &middot;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+</div></p>
+</dd></dl>
+
+<p><a name="g_t_003f_003f"></a>
+<a name="Item_003a-_003f_003f"></a>
+</p><dl>
+<dt><a name="index-_003f_003f"></a><u>特殊シンボル:</u> <b>??</b></dt>
+<dd>
+<p>表記<code>?? word</code>(空白を空けて単語が続く<code>??</code>)は
+<code>describe(&quot;word&quot;, inexact)</code>と同値です。
+クエスチョンマークは入力行の先頭になければいけません;
+そうでなければドキュメンテーションのリクエストとして認識されません。
+<code><a href="maxima_3.html#describe">describe</a></code>
+も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Help">Help</a>
+ &middot;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+</div></p></dd></dl>
+
+<p><a name="inchar"></a>
+<a name="Item_003a-inchar"></a>
+</p><dl>
+<dt><a name="index-inchar"></a><u>オプション変数:</u> <b>inchar</b></dt>
+<dd><p>デフォルト値: <code>%i</code>
+</p>
+<p><code>inchar</code>はユーザーが入力した式のラベルの前置です。
+Maximaは、
+<code>inchar</code>と<code><a href="#linenum">linenum</a></code>
+を連結することで、
+入力式それぞれのラベルを自動的に構成します。
+</p>
+<p><code>inchar</code>は単一文字である必要はなく、
+任意の文字列もしくはシンボルを割り当てられます。
+Maximaは内部的に前置の最初の文字だけを考慮するので、
+前置<code>inchar</code>, <code><a href="#outchar">outchar</a></code>
+, <code><a href="#linechar">linechar</a></code>
+は異なる最初の文字を持たなければいけません。
+そうでなければ<code>kill(inlables)</code>のようないくつかのコマンドは期待通りに動きません。
+</p>
+<p><code>labels</code>も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) inchar: &quot;input&quot;;
+(%o1)                         input
+(input2) expand((a+b)^3);
+                     3        2      2      3
+(%o2)               b  + 3 a b  + 3 a  b + a
+(input3)
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p></dd></dl>
+
+<p><a name="infolists"></a>
+<a name="Item_003a-infolists"></a>
+</p><dl>
+<dt><a name="index-infolists"></a><u>システム変数:</u> <b>infolists</b></dt>
+<dd><p>デフォルト値: <code>[]</code>
+</p>
+<p><code>infolists</code>はMaximaに関する情報リストすべての名前のリストです。
+これらは以下の通りです:
+</p>
+<dl compact="compact">
+<dt> <code>labels</code></dt>
+<dd><p>すべてのバインドされた<code>%i</code>, <code>%o</code>, <code>%t</code>ラベル
+</p></dd>
+<dt> <code>values</code></dt>
+<dd><p><code><a href="maxima_7.html#g_t_003a">:</a></code>
+や<code><a href="maxima_7.html#g_t_003a_003a">::</a></code>
+や関数バインドが生成する、
+ユーザー変数であって、Maximaオプションやスイッチでない、
+すべてのバインドされたアトム
+</p></dd>
+<dt> <code>functions</code></dt>
+<dd><p><code><a href="maxima_7.html#g_t_003a_003d">:=</a></code>
+や<code><a href="maxima_36.html#define">define</a></code>
+が生成するすべてのユーザー定義関数
+</p></dd>
+<dt> <code>arrays</code></dt>
+<dd><p><code>:</code>, <code>::</code>, または<code>:=</code>が生成するすべての宣言配列と未宣言配列
+</p></dd>
+<dt> <code>macros</code></dt>
+<dd><p><code><a href="maxima_7.html#g_t_003a_003a_003d">::=</a></code>
+が生成したすべてのユーザー定義マクロ関数
+</p></dd>
+<dt> <code>myoptions</code></dt>
+<dd><p>(それらが後にデフォルト値に再設定されようがされまいが)
+ユーザーが再設定したすべてのオプション
+</p></dd>
+<dt> <code>rules</code></dt>
+<dd><p><code><a href="maxima_34.html#tellsimp">tellsimp</a></code>
+, <code><a href="maxima_34.html#tellsimpafter">tellsimpafter</a></code>
+, <code><a href="maxima_34.html#defmatch">defmatch</a></code>
+,
+または<code><a href="maxima_34.html#defrule">defrule</a></code>
+が生成するすべてのユーザー定義パターンマッチングと整理規則
+</p></dd>
+<dt> <code>aliases</code></dt>
+<dd><p><code><a href="maxima_6.html#alias">alias</a></code>
+, <code><a href="maxima_6.html#ordergreat">ordergreat</a></code>
+, <code><a href="maxima_6.html#orderless">orderless</a></code>
+関数が生成するか、
+<code><a href="maxima_11.html#declare">declare</a></code>
+を使ってアトムを<code><a href="maxima_6.html#noun">noun</a></code>
+として宣言することで生成された、
+ユーザー定義エーリアスを持つすべてのアトム
+</p></dd>
+<dt> <code>dependencies</code></dt>
+<dd><p><code><a href="maxima_18.html#depends">depends</a></code>
+や<code><a href="maxima_18.html#gradef">gradef</a></code>
+関数が生成する関数依存性を持つすべてのアトム
+</p></dd>
+<dt> <code>gradefs</code></dt>
+<dd><p><code><a href="maxima_18.html#gradef">gradef</a></code>
+関数が生成するユーザー定義の導関数を持つすべての関数
+</p></dd>
+<dt> <code>props</code></dt>
+<dd><p><code><a href="maxima_11.html#declare">declare</a></code>
+関数で確立されるプロパティはもちろん、
+<code><a href="maxima_18.html#atvalue">atvalue</a></code>
+や<code><a href="maxima_34.html#matchdeclare">matchdeclare</a></code>
+などが確立するプロパティで、
+上で述べたもの以外の任意のプロパティを持つすべてのアトム
+</p></dd>
+<dt> <code>let_rule_packages</code></dt>
+<dd><p>特別パッケージ<code><a href="maxima_34.html#default_005flet_005frule_005fpackage">default_let_rule_package</a></code>
+に加えて
+すべてのユーザー定義<code><a href="maxima_34.html#let">let</a></code>
+規則パッケージ 
+(<code>default_let_rule_package</code>は、
+ユーザーが陽に設定していない時使われる規則パッケージの名前です。)
+</p></dd>
+</dl>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
+ &middot;<a href="maxima_99.html#Category_003a-Global-variables">Global variables</a>
+</div></p></dd></dl>
+
+
+<p><a name="kill"></a>
+<a name="Item_003a-kill"></a>
+</p><dl>
+<dt><a name="index-kill"></a><u>関数:</u> <b>kill</b><i> (<var>a_1</var>, &hellip;, <var>a_n</var>)</i></dt>
+<dt><a name="index-kill-1"></a><u>関数:</u> <b>kill</b><i> (labels)</i></dt>
+<dt><a name="index-kill-2"></a><u>関数:</u> <b>kill</b><i> (inlabels, outlabels, linelabels)</i></dt>
+<dt><a name="index-kill-3"></a><u>関数:</u> <b>kill</b><i> (<var>n</var>)</i></dt>
+<dt><a name="index-kill-4"></a><u>関数:</u> <b>kill</b><i> ([<var>m</var>, <var>n</var>])</i></dt>
+<dt><a name="index-kill-5"></a><u>関数:</u> <b>kill</b><i> (values, functions, arrays, &hellip;)</i></dt>
+<dt><a name="index-kill-6"></a><u>関数:</u> <b>kill</b><i> (all)</i></dt>
+<dt><a name="index-kill-7"></a><u>関数:</u> <b>kill</b><i> (allbut (<var>a_1</var>, &hellip;, <var>a_n</var>))</i></dt>
+<dd>
+<p>引数<var>a_1</var>, &hellip;, <var>a_n</var>からすべてのバインド（値、関数、配列、ルール）を解除します。
+引数<var>a_k</var>はシンボルか配列要素を取り得ます。
+<var>a_k</var>が配列要素の時、<code>kill</code>は配列の他の要素には影響することなくその要素をアンバインドします。
+</p>
+<p>いくつかの特殊な引数が認識されます。
+例えば、<code>kill (inlabels, functions, allbut (foo, bar))</code>のように、異なる引数の種類が組み合わされます。
+</p>
+<p><code>kill (labels)</code>はそれまでに作られた入力、出力、中間式のラベルすべてをアンバインドします。
+<code>kill (inlabels)</code>は <code><a href="#inchar">inchar</a></code>
+の現在の値で始まる入力ラベルのみをアンバインドします。
+同様に、
+<code>kill (outlabels)</code>は <code><a href="#outchar">outchar</a></code>
+の現在の値で始まる出力ラベルのみをアンバインドし、
+<code>kill (linelabels)</code>は <code><a href="#linechar">linechar</a></code>
+の現在の値で始まる中間式ラベルのみをアンバインドします。
+</p>
+<p><code>kill (</code><em>n</em><code>)</code>（nは整数）は入力、出力ラベルの最近のn個をアンバインドします。
+</p>
+<p><code>kill ([<var>m</var>, <var>n</var>])</code>は入力、出力ラベル<var>m</var>から<var>n</var>までをアンバインドします。
+</p>
+<p><code>kill (<var>infolist</var>)</code>は <var>infolist</var>の中のすべての項目をアンバインドします。
+ここで、<var>infolist</var>は（<code><a href="#values">values</a></code>
+, <code><a href="maxima_36.html#functions">functions</a></code>
+, <code><a href="maxima_5.html#arrays">arrays</a></code>
+のような)
+<code>infolists</code>の中の任意の項目です。
+<code>infolists</code>も参照してください。
+</p>
+<p><code>kill (all)</code>はinfolistsのすべての項目をアンバインドします。
+<code>kill (all)</code>はグローバル変数をデフォルト値にリセットしません;
+この点に関しては<code><a href="#reset">reset</a></code>
+を参照してください。
+</p>
+<p><code>kill (allbut (<var>a_1</var>, ..., <var>a_n</var>))</code>は、
+<var>a_1</var>, ..., <var>a_n</var>を除いて
+すべてのinfolistsの中のすべての項目をアンバインドします。
+<code>kill (allbut (<var>infolist</var>))</code>は
+<var>infolist</var>（<var>infolist</var>は<code><a href="#values">values</a></code>
+, <code><a href="maxima_36.html#functions">functions</a></code>
+, <code><a href="maxima_5.html#arrays">arrays</a></code>
+など）
+上の項目を除いてすべての項目をアンバインドします。
+</p>
+<p>バインドされたプロパティによって使われたメモリは、すべてのシンボルがプロパティからアンバインドされるまで解放されません。
+特に、シンボルの値によって使われているメモリを解放するには、
+シンボルそのもののアンバインドだけでなく、バインドされた値を表示する出力ラベルをアンバインドします。
+</p>
+<p><code>kill</code>は引数をクォートします。
+引数を評価するにはクォートクォート演算子<code>''</code>を使います。
+</p>
+<p><code>kill (<var>symbol</var>)</code>はシンボルのすべてのプロパティをアンバインドします。
+対照的に、関数<code><a href="maxima_33.html#remvalue">remvalue</a></code>
+, <code><a href="maxima_36.html#remfunction">remfunction</a></code>
+, <code><a href="maxima_5.html#remarray">remarray</a></code>
+,
+<code><a href="maxima_34.html#remrule">remrule</a></code>
+は特定のプロパティをアンバインドします。
+</p>
+<p><code>kil</code>は常に、たとえ引数がバインドされていなくても、<code>done</code>を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Evaluation">Evaluation</a>
+ &middot;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+ &middot;<a href="maxima_99.html#Category_003a-Session-management">Session management</a>
+</div></p></dd></dl>
+
+<p><a name="labels"></a>
+<a name="Item_003a-labels"></a>
+</p><dl>
+<dt><a name="index-labels"></a><u>関数:</u> <b>labels</b><i> (<var>symbol</var>)</i></dt>
+<dt><a name="index-labels-1"></a><u>システム変数:</u> <b>labels</b></dt>
+<dd>
+<p><var>symbol</var>で始まる入力、出力、中間式ラベルのリストを返します。
+<var>symbol</var>は、<code><a href="#inchar">inchar</a></code>
+, <code><a href="#outchar">outchar</a></code>
+, もしくは<code><a href="#linechar">linechar</a></code>
+の値が典型的です。
+ラベル文字はパーセント記号ありでもあしでもかまいませんので、
+例えば、<code>i</code>と<code>%i</code>は同じ結果になります。
+</p>
+<p>もし<var>symbol</var>で始まるラベルがなければ、<code>labels</code>は空のリストを返します。
+</p>
+<p>関数<code>labels</code>は引数をクォートします。
+引数を評価するにはクォートクォート演算子<code>''</code>を使います。
+例えば，
+<code>labels (''inchar)</code>は、現在の入力ラベル文字で始まる入力ラベルを返します。
+</p>
+<p>変数<code>labels</code>は入力、出力、中間式ラベルのリストです。
+<code>inchar</code>, <code>outchar</code>, もしくは<code>linechar</code>が再定義されても、以前のラベルすべてを含みます。
+</p>
+<p>デフォルトで、Maximaはそれぞれのユーザー入力式の結果を表示し、結果に出力ラベルが与えられます。
+入力を<code>;</code>(セミコロン)の代わりに<code>$</code>(ドル記号)で終了することで、出力表示は抑制されます。
+出力ラベルが構成され、結果にバインドされますが、表示されません。
+ラベルは表示された出力ラベルと同じ方法で参照できます。
+<code><a href="#g_t_0025">%</a></code>
+や<code><a href="#g_t_0025_0025">%%</a></code>
+, <code><a href="#g_t_0025th">%th</a></code>
+も参照してください。
+</p>
+<p>いくつかの関数では中間式ラベルが生成されることがあります。
+フラグ<code><a href="maxima_20.html#programmode">programmode</a></code>
+は
+<code><a href="maxima_20.html#solve">solve</a></code>
+や他の関数が式のリストを返す代わりに中間式ラベルを生成するかどうかを制御します。
+<code><a href="#ldisplay">ldisplay</a></code>
+のようないくつかの他の関数は常に中間式ラベルを生成します。
+</p>
+<p><code><a href="#inchar">inchar</a></code>
+や<code><a href="#outchar">outchar</a></code>
+, <code><a href="#linechar">linechar</a></code>
+, <code><a href="#infolists">infolists</a></code>
+も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-functions">Display functions</a>
+ &middot;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+ &middot;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+</div></p></dd></dl>
+
+<p><a name="linechar"></a>
+<a name="Item_003a-linechar"></a>
+</p><dl>
+<dt><a name="index-linechar"></a><u>オプション変数:</u> <b>linechar</b></dt>
+<dd><p>デフォルト値: <code>%t</code>
+</p>
+<p><code>linechar</code>は
+Maximaが生成する中間式のラベルの前置です。
+Maximaは（もし表示されるなら）
+<code>linechar</code>と<code><a href="#linenum">linenum</a></code>
+を連結することで
+中間式それぞれのラベルを構成します。
+</p>
+<p><code>linechar</code>は単一文字である必要はなく、
+任意の文字列もしくはシンボルを割り当てられます。
+Maximaは内部的に
+前置の最初の文字だけを考慮するので、
+前置<code><a href="#inchar">inchar</a></code>
+, <code><a href="#outchar">outchar</a></code>
+, <code>linechar</code>は異なる最初の文字を持たなければいけません。
+そうでなければ <code>kill(inlables)</code>のようないくつかのコマンドは期待通りに動きません。
+</p>
+<p>中間式は表示されるかもしれませんし、表示されないかもしれません。
+<code><a href="maxima_20.html#programmode">programmode</a></code>
+と<code><a href="#labels">labels</a></code>
+も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p></dd></dl>
+
+
+<p><a name="linenum"></a>
+<a name="Item_003a-linenum"></a>
+</p><dl>
+<dt><a name="index-linenum"></a><u>システム変数:</u> <b>linenum</b></dt>
+<dd>
+<p>入力出力式の現在のペアの行番号。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+ &middot;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+</div></p></dd></dl>
+
+
+<p><a name="myoptions"></a>
+<a name="Item_003a-myoptions"></a>
+</p><dl>
+<dt><a name="index-myoptions"></a><u>システム変数:</u> <b>myoptions</b></dt>
+<dd><p>デフォルト値: <code>[]</code>
+</p>
+<p><code>myoptions</code>はユーザーが再設定したオプションすべてのリストです。
+初期値に再設定されたか否かに関わらずです。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Global-variables">Global variables</a>
+ &middot;<a href="maxima_99.html#Category_003a-Session-management">Session management</a>
+ &middot;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+</div></p></dd></dl>
+
+<p><a name="nolabels"></a>
+<a name="Item_003a-nolabels"></a>
+</p><dl>
+<dt><a name="index-nolabels"></a><u>オプション変数:</u> <b>nolabels</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>nolabels</code>は<code>true</code>であれば、
+入力と出力結果のラベル（それぞれ<code>%i</code>と<code>%o</code>）は表示されますが、
+ラベルは結果にバインドされず、<code><a href="#labels">labels</a></code>
+リストにも追加されません。
+ラベルは結果にバインドされないので、
+ガーベッジコレクションは結果が使ったメモリを回復することができます。
+</p>
+<p>そうでなければ、入力と出力の結果のラベルは結果にバインドされ、<code>labels</code>リストに追加されます。
+</p>
+<p>中間式ラベル(<code>%t</code>)は<code>nolabels</code>に影響されません;
+<code>nolabels</code>が<code>true</code>でも<code>false</code>でも、中間式ラベルはバインドされ、<code>labels</code>リストに追加されます。
+</p>
+<p><code><a href="maxima_13.html#batch">batch</a></code>
+や<code><a href="maxima_13.html#load">load</a></code>
+、 <code><a href="#labels">labels</a></code>
+も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Global-flags">Global flags</a>
+ &middot;<a href="maxima_99.html#Category_003a-Session-management">Session management</a>
+</div></p></dd></dl>
+
+
+<p><a name="optionset"></a>
+<a name="Item_003a-optionset"></a>
+</p><dl>
+<dt><a name="index-optionset"></a><u>オプション変数:</u> <b>optionset</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>optionset</code>が<code>true</code>の時、Maximaは、Maximaオプションが再設定されるといつでも、メッセージを表示します。
+もしユーザーがあるオプションの綴りが怪しく、割り当てた変数が本当にオプション変数か確認したいなら便利です。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) optionset:true;
+assignment: assigning to option optionset
+(%o1)                         true
+(%i2) gamma_expand:true;
+assignment: assigning to option gamma_expand
+(%o2)                         true
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Global-flags">Global flags</a>
+ &middot;<a href="maxima_99.html#Category_003a-Session-management">Session management</a>
+ &middot;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+</div></p></dd></dl>
+
+<p><a name="outchar"></a>
+<a name="Item_003a-outchar"></a>
+</p><dl>
+<dt><a name="index-outchar"></a><u>オプション変数:</u> <b>outchar</b></dt>
+<dd><p>デフォルト値: <code>%o</code>
+</p>
+<p><code>outchar</code>はMaximaが計算した式のラベルの前置です。
+<code>outchar</code>と<code><a href="#linenum">linenum</a></code>
+を連結することで、
+Maximaは計算された式それぞれのラベルを自動的に構成します。
+<code>outchar</code>は、単一文字である必要はなく、
+任意の文字列もしくはシンボルを割り当てられます。
+Maximaは内部的に前置の最初の文字だけを考慮するので、
+前置<code><a href="#inchar">inchar</a></code>
+, <code>outchar</code>, <code><a href="#linechar">linechar</a></code>
+は異なる最初の文字を持たなければいけません。
+そうでなければ、<code>kill(inlables)</code>のようないくつかのコマンドは期待通りに動きません。
+</p>
+<p><code>labels</code>も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) outchar: &quot;output&quot;;
+(output1)                    output
+(%i2) expand((a+b)^3);
+                     3        2      2      3
+(output2)           b  + 3 a b  + 3 a  b + a
+(%i3)
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p></dd></dl>
+
+<p><a name="playback"></a>
+<a name="Item_003a-playback"></a>
+</p><dl>
+<dt><a name="index-playback"></a><u>関数:</u> <b>playback</b><i> ()</i></dt>
+<dt><a name="index-playback-1"></a><u>関数:</u> <b>playback</b><i> (<var>n</var>)</i></dt>
+<dt><a name="index-playback-2"></a><u>関数:</u> <b>playback</b><i> ([<var>m</var>, <var>n</var>])</i></dt>
+<dt><a name="index-playback-3"></a><u>関数:</u> <b>playback</b><i> ([<var>m</var>])</i></dt>
+<dt><a name="index-playback-4"></a><u>関数:</u> <b>playback</b><i> (input)</i></dt>
+<dt><a name="index-playback-5"></a><u>関数:</u> <b>playback</b><i> (slow)</i></dt>
+<dt><a name="index-playback-6"></a><u>関数:</u> <b>playback</b><i> (time)</i></dt>
+<dt><a name="index-playback-7"></a><u>関数:</u> <b>playback</b><i> (grind)</i></dt>
+<dd>
+<p>入力、出力、中間式を表示します。再計算はしません。
+<code>playback</code>はラベルにバインドされた式表示するだけです;
+（<code><a href="#print">print</a></code>
+や<code><a href="maxima_3.html#describe">describe</a></code>
+で表示されたテキストやエラーメッセージなど）他の出力は表示されません。
+<code><a href="#labels">labels</a></code>
+も参照してください。
+</p>
+<p><code>playback</code>は引数をクォートします。
+引数を評価するにはクォートクォート演算子<code>''</code>を使います。
+<code>playback</code>は常に<code>done</code>を返します。
+</p>
+<p><code>playback ()</code>（引数なし）は今までに生成された入力、出力、中間式すべてを表示します。
+たとえ計算時に<code>$</code>終端子で出力が抑制されていても、
+出力式は表示されます。
+</p>
+<p><code>playback (<var>n</var>)</code>は最近の<var>n</var>個の式を表示します。
+入力、出力、中間式それぞれを１と数えます。
+</p>
+<p><code>playback ([<var>m</var>, <var>n</var>])</code>は
+<var>m</var>番目から<var>n</var>番目までの入力、出力、中間式を表示します。
+</p>
+<p><code>playback ([<var>m</var>])</code>は <code>playback ([<var>m</var>, <var>m</var>])</code>と同値です;
+これは普通、入力と出力の式のペアを１つ表示します。
+</p>
+<p><code>playback (input)</code>は今までに生成された入力式をすべて表示します。
+</p>
+<p><code>playback (slow)</code>は式の間でポーズし、ユーザーが
+<code>enter</code>を入力するのを待ちます。
+これは <code><a href="maxima_3.html#demo">demo</a></code>
+と似たような振る舞いです。
+<code>playback (slow)</code>は、<code>save</code>や<code><a href="maxima_13.html#stringout">stringout</a></code>
+と関連して、
+役立つ式を取り出すために２次記憶ファイルを生成するときに便利です。
+</p>
+<p><code>playback (time)</code>はそれぞれの式の計算時間を表示します。
+</p>
+<p><code>playback (grind)</code>は入力式を <code>grind</code>関数と同じ形式で表示します。
+出力式は <code>grind</code>オプションで影響を受けません。
+<code><a href="#grind">grind</a></code>
+を参照してください。
+</p>
+<p>例えば、<code>playback ([5, 10], grind, time, slow)</code>のように、
+引数を組み合わせられます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-functions">Display functions</a>
+ &middot;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+</div></p></dd></dl>
+
+<p><a name="prompt"></a>
+<a name="Item_003a-prompt"></a>
+</p><dl>
+<dt><a name="index-prompt"></a><u>オプション変数:</u> <b>prompt</b></dt>
+<dd><p>デフォルト値: <code>_</code>
+</p>
+<p><code>prompt</code>は、<code><a href="maxima_3.html#demo">demo</a></code>
+関数や<code>playback (slow)</code>モード、
+（<code><a href="maxima_36.html#break">break</a></code>
+で呼び出された）Maximaブレイクループのプロンプトシンボルです。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Global-variables">Global variables</a>
+ &middot;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+</div></p>
+</dd></dl>
+
+<p><a name="quit"></a>
+<a name="Item_003a-quit"></a>
+</p><dl>
+<dt><a name="index-quit"></a><u>関数:</u> <b>quit</b><i> ()</i></dt>
+<dd>
+<p>Maximaセッションを終了します。
+関数は、<code>quit</code>ではなく、<code>quit();</code>もしくは<code>quit()$</code>として呼び出さなければいけないことに注意してください。
+</p>
+<p>長い計算を中断するには <code>control-C</code>をタイプしてください。
+デフォルトの動作では Maximaプロンプトに戻ります。
+もし<code>*debugger-hook*</code>が<code>nil</code>なら、
+<code>control-C</code>はLispデバッガを開きます。
+<code>debugging</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+</div></p></dd></dl>
+
+<p><a name="read"></a>
+<a name="Item_003a-read"></a>
+</p><dl>
+<dt><a name="index-read"></a><u>関数:</u> <b>read</b><i> (<var>expr_1</var>, &hellip;, <var>expr_n</var>)</i></dt>
+<dd>
+<p><var>expr_1</var>, &hellip;, <var>expr_n</var>を表示し、
+コンソールから式１つを読み込み、評価された式を返します。
+式はセミコロン<code>;</code>もしくはドル記号<code>$</code>で終了します。
+</p>
+<p><code><a href="#readonly">readonly</a></code>
+も参照してください。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) foo: 42$ 
+(%i2) foo: read (&quot;foo is&quot;, foo, &quot; -- enter new value.&quot;)$
+foo is 42  -- enter new value. 
+(a+b)^3;
+(%i3) foo;
+                                     3
+(%o3)                         (b + a)
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+</div></p></dd></dl>
+
+<p><a name="readonly"></a>
+<a name="Item_003a-readonly"></a>
+</p><dl>
+<dt><a name="index-readonly"></a><u>関数:</u> <b>readonly</b><i> (<var>expr_1</var>, &hellip;, <var>expr_n</var>)</i></dt>
+<dd>
+<p><var>expr_1</var>, &hellip;, <var>expr_n</var>を表示し、
+コンソールから式を１つ読み込み、
+式を（評価せずに）返します。
+式はセミコロン<code>;</code>もしくはドル記号<code>$</code>で終了します。
+</p>
+<p><code><a href="#read">read</a></code>
+も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) aa: 7$
+(%i2) foo: readonly (&quot;Enter an expression:&quot;);
+Enter an expression: 
+2^aa;
+                                  aa
+(%o2)                            2
+(%i3) foo: read (&quot;Enter an expression:&quot;);
+Enter an expression: 
+2^aa;
+(%o3)                            128
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+</div></p></dd></dl>
+
+<p><a name="reset"></a>
+<a name="Item_003a-reset"></a>
+</p><dl>
+<dt><a name="index-reset"></a><u>関数:</u> <b>reset</b><i> ()</i></dt>
+<dd>
+<p>多くのグローバル変数やオプション、いくつかの他の変数をデフォルト値に再設定します。
+</p>
+<p><code>reset</code>は Lispリスト<code>*variable-initial-values*</code>上の変数を処理します。
+Lispマクロ<code>defmvar</code>は（他の動作の間に）このリストに変数を置きます。
+すべてではありませんが多くのグローバル変数やオプションがdefmvarによって定義されており、
+また、<code>defmvar</code>で定義されたいくつかの変数はグローバル変数でもオプションでもありません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Session-management">Session management</a>
+</div></p></dd></dl>
+
+<p><a name="showtime"></a>
+<a name="Item_003a-showtime"></a>
+</p><dl>
+<dt><a name="index-showtime"></a><u>オプション変数:</u> <b>showtime</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>showtime</code>が<code>true</code>の時、出力式と一緒に計算時間と経過時間を表示します。
+</p>
+<p>計算時間は常に記録されており、
+<code>showtime</code>が<code>false</code>の時でも、
+<code><a href="maxima_32.html#time">time</a></code>
+や<code><a href="#playback">playback</a></code>
+で計算時間を表示することができます。
+</p>
+<p><code><a href="maxima_38.html#timer">timer</a></code>
+も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+ &middot;<a href="maxima_99.html#Category_003a-Debugging">Debugging</a>
+</div></p>
+</dd></dl>
+
+<p><a name="to_005flisp"></a>
+<a name="Item_003a-to_005flisp"></a>
+</p><dl>
+<dt><a name="index-to_005flisp"></a><u>関数:</u> <b>to_lisp</b><i> ()</i></dt>
+<dd>
+<p>Maximaの下のLispシステムに入ります。<code>(to-maxima)</code>でMaximaに戻ります。
+</p>
+<p>例:
+</p>
+<p>関数を定義し、Maximaの下のLispシステムに入ります。
+定義をプロパティリスト上で検査します。そして、関数定義を抽出し、因数分解し、
+変数$resultに格納します。
+変数はMaximaに戻った後、Maximaで使うことができます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) f(x):=x^2+x;
+                                  2
+(%o1)                    f(x) := x  + x
+(%i2) to_lisp();
+Type (to-maxima) to restart, ($quit) to quit Maxima.
+
+MAXIMA&gt; (symbol-plist '$f)
+(MPROPS (NIL MEXPR ((LAMBDA) ((MLIST) $X) 
+                             ((MPLUS) ((MEXPT) $X 2) $X))))
+MAXIMA&gt; (setq $result ($factor (caddr (mget '$f 'mexpr))))
+((MTIMES SIMP FACTORED) $X ((MPLUS SIMP IRREDUCIBLE) 1 $X))
+MAXIMA&gt; (to-maxima)
+Returning to Maxima
+(%o2)                         true
+(%i3) result;
+(%o3)                       x (x + 1)
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+</div></p></dd></dl>
+
+<p><a name="values"></a>
+<a name="Item_003a-values"></a>
+</p><dl>
+<dt><a name="index-values"></a><u>システム変数:</u> <b>values</b></dt>
+<dd><p>初期値: <code>[]</code>
+</p>
+<p><code>values</code>は（Maximaのオプションやスイッチではなく）バインドされたユーザー変数すべてのリストです。
+リストは、<code><a href="maxima_7.html#g_t_003a">:</a></code>
+や<code><a href="maxima_7.html#g_t_003a_003a">::</a></code>
+でバインドされたシンボルを含みます。
+</p>
+<p>もし変数の値がコマンド<code>kill</code>や, <code><a href="maxima_11.html#remove">remove</a></code>
+, <code><a href="maxima_33.html#remvalue">remvalue</a></code>
+で削除されたら、
+変数は<code>values</code>から削除されます。
+</p>
+<p>ユーザー定義関数のリストに関しては <code><a href="maxima_36.html#functions">functions</a></code>
+を参照してください。
+</p>
+<p>例:
+</p>
+<p>最初、<code>values</code>はシンボル<code>a</code>, <code>b</code>, <code>c</code>を示しますが、
+<code>d</code>も―それは値にバインドされていません―ユーザー関数<code>f</code>も示しません。
+値は変数から削除されます。<code>values</code>は空のリストです。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) [a:99, b::a-90, c:a-b, d, f(x):= x^2];
+                                           2
+(%o1)              [99, 9, 90, d, f(x) := x ]
+(%i2) values;
+(%o2)                       [a, b, c]
+(%i3) [kill(a), remove(b,value), remvalue(c)];
+(%o3)                   [done, done, [c]]
+(%i4) values;
+(%o4)                          []
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Evaluation">Evaluation</a>
+ &middot;<a href="maxima_99.html#Category_003a-Global-variables">Global variables</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-Functions-and-Variables-for-Display"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-Display"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Command-Line" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_5.html#Data-Types-and-Structures" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Command-Line" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Command-Line" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_5.html#Data-Types-and-Structures" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-and-Variables-for-Display-1"></a>
+<h2 class="section">4.3 Functions and Variables for Display</h2>
+
+<p><a name="g_t_0025edispflag"></a>
+<a name="Item_003a-_0025edispflag"></a>
+</p><dl>
+<dt><a name="index-_0025edispflag"></a><u>オプション変数:</u> <b>%edispflag</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>%edispflag</code>が<code>true</code>の時、
+Maximaは <code>%e</code>の負の指数乗を商として表示します。
+例えば、<code>%e^-x</code>は <code>1/%e^x</code>と表示されます。
+<code><a href="#exptdispflag">exptdispflag</a></code>
+も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) %e^-10;
+                               - 10
+(%o1)                        %e
+(%i2) %edispflag:true$
+(%i3) %e^-10;
+                               1
+(%o3)                         ----
+                                10
+                              %e
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
+ &middot;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p></dd></dl>
+
+<p><a name="absboxchar"></a>
+<a name="Item_003a-absboxchar"></a>
+</p><dl>
+<dt><a name="index-absboxchar"></a><u>オプション変数:</u> <b>absboxchar</b></dt>
+<dd><p>デフォルト値: <code>!</code>
+</p>
+<p><code>absboxchar</code>は１行より広い式の回りに絶対値記号を描くのに使われる文字です。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) abs((x^3+1));
+                            ! 3    !
+(%o1)                       !x  + 1!
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p></dd></dl>
+
+
+<p><a name="disp"></a>
+<a name="Item_003a-disp"></a>
+</p><dl>
+<dt><a name="index-disp"></a><u>関数:</u> <b>disp</b><i> (<var>expr_1</var>, <var>expr_2</var>, &hellip;)</i></dt>
+<dd>
+<p><code><a href="#display">display</a></code>
+のようですが、
+等式ではなく引数の値だけが表示されます。
+これは名前を持たない複雑な引数や引数の値だけに興味があって
+名前には興味がない引数に役立ちます。
+</p>
+<p><code><a href="#ldisp">ldisp</a></code>
+と<code><a href="#print">print</a></code>
+も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) b[1,2]:x-x^2$
+(%i2) x:123$
+(%i3) disp(x, b[1,2], sin(1.0));
+                               123
+
+                                  2
+                             x - x
+
+                        .8414709848078965
+
+(%o3)                         done
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-functions">Display functions</a>
+</div></p></dd></dl>
+
+<p><a name="display"></a>
+<a name="Item_003a-display"></a>
+</p><dl>
+<dt><a name="index-display"></a><u>関数:</u> <b>display</b><i> (<var>expr_1</var>, <var>expr_2</var>, &hellip;)</i></dt>
+<dd>
+<p>左辺が未評価の<var>expr_i</var>で、右辺が式の値の等式を行の中央に表示します。
+この関数は、中間結果を表示するのにブロックや<code><a href="maxima_37.html#for">for</a></code>
+文の中で役立ちます。
+<code>display</code>の引数は、通常アトムや、添字付き変数、関数コールです。
+<code>disp</code>も参照してください。
+</p>
+<p><code><a href="#ldisplay">ldisplay</a></code>
+, <code><a href="#disp">disp</a></code>
+, <code><a href="#ldisp">ldisp</a></code>
+も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) b[1,2]:x-x^2$
+(%i2) x:123$
+(%i3) display(x, b[1,2], sin(1.0));
+                             x = 123
+
+                                      2
+                         b     = x - x
+                          1, 2
+
+                  sin(1.0) = .8414709848078965
+
+(%o3)                         done
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-functions">Display functions</a>
+</div></p></dd></dl>
+
+<p><a name="display2d"></a>
+<a name="Item_003a-display2d"></a>
+</p><dl>
+<dt><a name="index-display2d"></a><u>オプション変数:</u> <b>display2d</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p><code>display2d</code>が<code>false</code>の時、
+コンソール表示は（２次元）形式ではなく文字列（１次元）形式です。
+</p>
+<p>等式の左寄せ表示と中央表示の間を切り替えるには、 <code><a href="#leftjust">leftjust</a></code>
+も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) x/(x^2+1);
+                               x
+(%o1)                        ------
+                              2
+                             x  + 1
+(%i2) display2d:false$
+(%i3) x/(x^2+1);
+(%o3) x/(x^2+1)
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p></dd></dl>
+
+<p><a name="display_005fformat_005finternal"></a>
+<a name="Item_003a-display_005fformat_005finternal"></a>
+</p><dl>
+<dt><a name="index-display_005fformat_005finternal"></a><u>オプション変数:</u> <b>display_format_internal</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>display_format_internal</code>が<code>true</code>の時、
+式は数学的内部表現を隠すように変換されることなく表示されます。
+表示は<code>part</code>ではなく<code>inpart</code>が返すものに対応します。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">User     part       inpart
+a-b;      a - b     a + (- 1) b
+
+           a            - 1
+a/b;       -         a b
+           b
+                       1/2
+sqrt(x);   sqrt(x)    x
+
+          4 X        4
+X*4/3;    ---        - X
+           3         3
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p></dd></dl>
+
+
+<p><a name="dispterms"></a>
+<a name="Item_003a-dispterms"></a>
+</p><dl>
+<dt><a name="index-dispterms"></a><u>関数:</u> <b>dispterms</b><i> (<var>expr</var>)</i></dt>
+<dd><p><var>expr</var>をパーツ毎に一行ずつ使って表示します。
+すなわち、最初に<var>expr</var>の演算子が表示され、
+それぞれの項が別々に表示されます。
+もし<var>expr</var>が他の方法で表示するには大きすぎるなら、
+これは役に立ちます。
+例えば、もし<code>P1</code>, <code>P2</code>, ...が非常に大きな式なら、
+<code>P1 + P2 + ...</code>を一度に表示しようとする場合、
+表示プログラムは保存の空き領域を使い尽くすかもしれません。
+しかしながら、
+<code>dispterms (P1 + P2 + ...)</code>は、
+<code>P1</code>を表示し、その下に<code>P2</code>を表示し、という具合です。
+<code>dispterms</code>を使わない時、
+もし指数式が<code>A^B</code>のように表示するには広すぎるなら、
+それは<code>expt (A, B)</code>
+(もしくは<code>A^^B</code>の場合、<code>ncexpt (A, B)</code>）のように現れます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-functions">Display functions</a>
+</div></p></dd></dl>
+
+<p><a name="expt"></a>
+<a name="ncexpt"></a>
+<a name="Item_003a-expt"></a>
+</p><dl>
+<dt><a name="index-expt"></a><u>関数:</u> <b>expt</b><i> (<var>a</var>, <var>b</var>)</i></dt>
+<dt><a name="index-ncexpt"></a><u>関数:</u> <b>ncexpt</b><i> (<var>a</var>, <var>b</var>)</i></dt>
+<dd>
+<p>もし指数式が<code><var>a</var>^<var>b</var></code>のように表示するには広すぎるなら、
+<code>expt (<var>a</var>, <var>b</var>)</code>
+(もしくは、<code><var>a</var>^^<var>b</var></code>の場合、<code>ncexpt (<var>a</var>, <var>b</var>)</code>
+のように現れます。
+</p>
+<p><code>expt</code>や<code>ncexpt</code>は入力では認識されません。
+</p>
+</dd></dl>
+
+<p><a name="exptdispflag"></a>
+<a name="Item_003a-exptdispflag"></a>
+</p><dl>
+<dt><a name="index-exptdispflag"></a><u>オプション変数:</u> <b>exptdispflag</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p><code>exptdispflag</code>が<code>true</code>の時、
+Maximaは式を商を使って負の指数の式を表示します。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) exptdispflag:true;
+(%o1)                         true
+(%i2) 10^-x;
+                                1
+(%o2)                          ---
+                                 x
+                               10
+(%i3) exptdispflag:false;
+(%o3)                         false
+(%i4) 10^-x;
+                                - x
+(%o4)                         10
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
+ &middot;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p>
+</dd></dl>
+
+<p><a name="grind"></a>
+<a name="Item_003a-grind"></a>
+</p><dl>
+<dt><a name="index-grind"></a><u>関数:</u> <b>grind</b><i> (<var>expr</var>)</i></dt>
+<dt><a name="index-grind-1"></a><u>オプション変数:</u> <b>grind</b></dt>
+<dd>
+<p>関数<code>grind</code>は
+コンソールにMaximaへの入力に適した形で<var>expr</var>を印刷します。
+<code>grind</code>はいつも<code>done</code>を返します。
+</p>
+<p><var>expr</var>が関数名やマクロ名の時、
+<code>grind</code>は、名前だけでなく関数やマクロ定義を出力します。
+</p>
+<p><code><a href="maxima_5.html#string">string</a></code>
+も参照してください。
+それは出力を印刷する代わりに文字列を返します。
+<code>grind</code>は
+<code>string</code>の出力より若干読みやすい方法で
+式を印刷しようとします。
+</p>
+<p>変数<code>grind</code>が<code>true</code>の時、
+<code>string</code>や<code>stringout</code>の出力は
+<code>grind</code>のそれと同じフォーマットです;
+そうでなければ、それらの関数の出力を特別にフォーマットしようとはしません。
+変数<code>grind</code>のデフォルト値は<code>false</code>です。
+</p>
+<p><code>grind</code>は <code>playback</code>の引数としても指定できます。
+<code>grind</code>が存在する時、
+<code>playback</code>は <code>grind</code>関数と同じフォーマットで入力式を印刷します。
+そうでなければ、入力式を特にフォーマットしようとはしません。
+</p>
+<p><code>grind</code>は引数を評価します。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) aa + 1729;
+(%o1)                       aa + 1729
+(%i2) grind (%);
+aa+1729$
+(%o2)                         done
+(%i3) [aa, 1729, aa + 1729];
+(%o3)                 [aa, 1729, aa + 1729]
+(%i4) grind (%);
+[aa,1729,aa+1729]$
+(%o4)                         done
+(%i5) matrix ([aa, 17], [29, bb]);
+                           [ aa  17 ]
+(%o5)                      [        ]
+                           [ 29  bb ]
+(%i6) grind (%);
+matrix([aa,17],[29,bb])$
+(%o6)                         done
+(%i7) set (aa, 17, 29, bb);
+(%o7)                   {17, 29, aa, bb}
+(%i8) grind (%);
+{17,29,aa,bb}$
+(%o8)                         done
+(%i9) exp (aa / (bb + 17)^29);
+                                aa
+                            -----------
+                                     29
+                            (bb + 17)
+(%o9)                     %e
+(%i10) grind (%);
+%e^(aa/(bb+17)^29)$
+(%o10)                        done
+(%i11) expr: expand ((aa + bb)^10);
+         10           9        2   8         3   7         4   6
+(%o11) bb   + 10 aa bb  + 45 aa  bb  + 120 aa  bb  + 210 aa  bb
+         5   5         6   4         7   3        8   2
+ + 252 aa  bb  + 210 aa  bb  + 120 aa  bb  + 45 aa  bb
+        9        10
+ + 10 aa  bb + aa
+(%i12) grind (expr);
+</pre><pre class="example">bb^10+10*aa*bb^9+45*aa^2*bb^8+120*aa^3*bb^7+210*aa^4*bb^6
+     +252*aa^5*bb^5+210*aa^6*bb^4+120*aa^7*bb^3+45*aa^8*bb^2
+     +10*aa^9*bb+aa^10$
+</pre><pre class="example">(%o12)                        done
+(%i13) string (expr);
+(%o13) bb^10+10*aa*bb^9+45*aa^2*bb^8+120*aa^3*bb^7+210*aa^4*bb^6\
++252*aa^5*bb^5+210*aa^6*bb^4+120*aa^7*bb^3+45*aa^8*bb^2+10*aa^9*\
+bb+aa^10
+(%i14) cholesky (A):= block ([n : length (A), L : copymatrix (A),
+  p : makelist (0, i, 1, length (A))], for i thru n do
+  for j : i thru n do
+  (x : L[i, j], x : x - sum (L[j, k] * L[i, k], k, 1, i - 1),
+  if i = j then p[i] : 1 / sqrt(x) else L[j, i] : x * p[i]),
+  for i thru n do L[i, i] : 1 / p[i],
+  for i thru n do for j : i + 1 thru n do L[i, j] : 0, L)$
+(%i15) grind (cholesky);
+cholesky(A):=block(
+         [n:length(A),L:copymatrix(A),
+          p:makelist(0,i,1,length(A))],
+         for i thru n do
+             (for j from i thru n do
+                  (x:L[i,j],x:x-sum(L[j,k]*L[i,k],k,1,i-1),
+                   if i = j then p[i]:1/sqrt(x)
+                       else L[j,i]:x*p[i])),
+         for i thru n do L[i,i]:1/p[i],
+         for i thru n do (for j from i+1 thru n do L[i,j]:0),L)$
+(%o15)                        done
+(%i16) string (fundef (cholesky));
+(%o16) cholesky(A):=block([n:length(A),L:copymatrix(A),p:makelis\
+t(0,i,1,length(A))],for i thru n do (for j from i thru n do (x:L\
+[i,j],x:x-sum(L[j,k]*L[i,k],k,1,i-1),if i = j then p[i]:1/sqrt(x\
+) else L[j,i]:x*p[i])),for i thru n do L[i,i]:1/p[i],for i thru \
+n do (for j from i+1 thru n do L[i,j]:0),L)
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-functions">Display functions</a>
+ &middot;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p></dd></dl>
+
+<p><a name="ibase"></a>
+<a name="Item_003a-ibase"></a>
+</p><dl>
+<dt><a name="index-ibase"></a><u>オプション変数:</u> <b>ibase</b></dt>
+<dd><p>デフォルト値: <code>10</code>
+</p>
+<p><code>ibase</code>は Maximaが読む整数の基数です。
+</p>
+<p><code>ibase</code>は2から(十進数で)36までの任意の整数を割り当てられます。
+<code>ibase</code>が10よりも大きい時、
+数値は十進数字0から9に加えて、
+<code>ibase</code>ディジットに必要なアルファベットA, B, C, &hellip;で構成されます。
+最初のディジットが0から9の時だけ文字はディジットとして解釈されます。
+大文字小文字は区別されません。
+許容される最も大きな基数36の数値は0から9までとAからZまでから構成されます。
+</p>
+<p><code>ibase</code>の値がいくつでも、
+整数が小数点で終了する時は基数10として解釈されます。
+</p>
+<p><code><a href="#obase">obase</a></code>
+も参照してください。
+</p>
+<p>例:
+</p>
+<p><code>ibase</code> less than 10.
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) ibase : 2 $
+(%i2) obase;
+(%o2)                          10
+(%i3) 1111111111111111;
+(%o3)                         65535
+</pre></td></tr></table>
+
+<p>10より大きな<code>ibase</code>。
+最初のディジットが0から9までの時だけ文字はディジットとして解釈されます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) ibase : 16 $
+(%i2) obase;
+(%o2)                          10
+(%i3) 1000;
+(%o3)                         4096
+(%i4) abcd;
+(%o4)                         abcd
+(%i5) symbolp (abcd);
+(%o5)                         true
+(%i6) 0abcd;
+(%o6)                         43981
+(%i7) symbolp (0abcd);
+(%o7)                         false
+</pre></td></tr></table>
+
+<p>整数が小数点で終了する時、基数10として解釈されます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) ibase : 36 $
+(%i2) obase;
+(%o2)                          10
+(%i3) 1234;
+(%o3)                         49360
+(%i4) 1234.;
+(%o4)                         1234
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+</div></p></dd></dl>
+
+<p><a name="ldisp"></a>
+<a name="Item_003a-ldisp"></a>
+</p><dl>
+<dt><a name="index-ldisp"></a><u>関数:</u> <b>ldisp</b><i> (<var>expr_1</var>, &hellip;, <var>expr_n</var>)</i></dt>
+<dd>
+<p>式<var>expr_1</var>, ..., <var>expr_n</var>をコンソールに印刷出力として表示します。
+<code>ldisp</code>は
+引数それぞれに中間式ラベルを割り当て、ラベルのリストを返します。
+</p>
+<p><code><a href="#disp">disp</a></code>
+, <code><a href="#display">display</a></code>
+, <code><a href="#ldisplay">ldisplay</a></code>
+も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) e: (a+b)^3;
+                                   3
+(%o1)                       (b + a)
+(%i2) f: expand (e);
+                     3        2      2      3
+(%o2)               b  + 3 a b  + 3 a  b + a
+(%i3) ldisp (e, f);
+                                   3
+(%t3)                       (b + a)
+
+                     3        2      2      3
+(%t4)               b  + 3 a b  + 3 a  b + a
+
+(%o4)                      [%t3, %t4]
+(%i4) %t3;
+                                   3
+(%o4)                       (b + a)
+(%i5) %t4;
+                     3        2      2      3
+(%o5)               b  + 3 a b  + 3 a  b + a
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-functions">Display functions</a>
+</div></p></dd></dl>
+
+<p><a name="ldisplay"></a>
+<a name="Item_003a-ldisplay"></a>
+</p><dl>
+<dt><a name="index-ldisplay"></a><u>関数:</u> <b>ldisplay</b><i> (<var>expr_1</var>, &hellip;, <var>expr_n</var>)</i></dt>
+<dd>
+<p>式<var>expr_1</var>, ..., <var>expr_n</var>をコンソールに印刷出力として表示します。
+式それぞれは、
+<code>lhs</code>が<code>ldisplay</code>の引数の１つで、<code>rhs</code>がその値の、
+形式<code>lhs = rhs</code>の等式として表示されます。
+典型的には引数それぞれは変数です。
+<code>ldisp</code>は式それぞれに中間式ラベルを割り当て、ラベルのリストを返します。
+</p>
+<p><code><a href="#display">display</a></code>
+, <code><a href="#disp">disp</a></code>
+も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) e: (a+b)^3;
+                                   3
+(%o1)                       (b + a)
+(%i2) f: expand (e);
+                     3        2      2      3
+(%o2)               b  + 3 a b  + 3 a  b + a
+(%i3) ldisplay (e, f);
+                                     3
+(%t3)                     e = (b + a)
+
+                       3        2      2      3
+(%t4)             f = b  + 3 a b  + 3 a  b + a
+
+(%o4)                      [%t3, %t4]
+(%i4) %t3;
+                                     3
+(%o4)                     e = (b + a)
+(%i5) %t4;
+                       3        2      2      3
+(%o5)             f = b  + 3 a b  + 3 a  b + a
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-functions">Display functions</a>
+</div></p></dd></dl>
+
+<p><a name="leftjust"></a>
+<a name="Item_003a-leftjust"></a>
+</p><dl>
+<dt><a name="index-leftjust"></a><u>オプション変数:</u> <b>leftjust</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>leftjust</code>が <code>true</code>の時、
+2D表示での等式を中央揃えではなく左寄せで描きます。
+</p>
+<p>1D表示と2D表示の間を切り替えるには、<code><a href="#display2d">display2d</a></code>
+も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) expand((x+1)^3);
+                        3      2
+(%o1)                  x  + 3 x  + 3 x + 1
+(%i2) leftjust:true$
+(%i3) expand((x+1)^3);
+       3      2
+(%o3) x  + 3 x  + 3 x + 1
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p></dd></dl>
+
+<p><a name="linel"></a>
+<a name="Item_003a-linel"></a>
+</p><dl>
+<dt><a name="index-linel"></a><u>オプション変数:</u> <b>linel</b></dt>
+<dd><p>デフォルト値: <code>79</code>
+</p>
+<p><code>linel</code>はコンソールディスプレイの仮定された(文字単位の)幅です。
+<code>linel</code>はユーザーによって任意の値に割り当てられます。
+非常に小さい値や非常に大きな値は実用的ではありませんが。
+エラーメッセージや<code><a href="maxima_3.html#describe">describe</a></code>
+の出力のように、
+Maximaの組み込み関数が表示するテキストは<code>linel</code>の影響を受けません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p></dd></dl>
+
+<p><a name="lispdisp"></a>
+<a name="Item_003a-lispdisp"></a>
+</p><dl>
+<dt><a name="index-lispdisp"></a><u>オプション変数:</u> <b>lispdisp</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>lispdisp</code>が<code>true</code>の時、
+Lispシンボルはクエスチョンマーク<code>?</code>を先頭文字として表示されます。
+そうでなければ、Lispシンボルは先頭文字を持ちません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) lispdisp: false$
+(%i2) ?foo + ?bar;
+(%o2)                       foo + bar
+(%i3) lispdisp: true$
+(%i4) ?foo + ?bar;
+(%o4)                      ?foo + ?bar
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p></dd></dl>
+
+
+<p><a name="negsumdispflag"></a>
+<a name="Item_003a-negsumdispflag"></a>
+</p><dl>
+<dt><a name="index-negsumdispflag"></a><u>オプション変数:</u> <b>negsumdispflag</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p><code>negsumdispflag</code>が<code>true</code>の時、
+<code>x - y</code>は <code>- y + x</code>でなく<code>x - y</code>と表示されます。
+<code>false</code>に設定すると、
+２つの式の違いに関する表示での特殊なチェックがされないようになります。
+１つの応用は、例えば、<code>a + %i*b</code>と<code>a - %i*b</code>を同じ表示にすることです。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p></dd></dl>
+
+<p><a name="obase"></a>
+<a name="Item_003a-obase"></a>
+</p><dl>
+<dt><a name="index-obase"></a><u>オプション変数:</u> <b>obase</b></dt>
+<dd><p>デフォルト値: <code>10</code>
+</p>
+<p><code>obase</code>はMaximaが表示する整数の基数です。
+</p>
+<p><code>obase</code>は2から(十進数で)36までの任意の整数を割り当てられます。
+<code>obase</code>が10よりも大きい時、
+数値は十進数字0から9に加えて、
+必要な大文字アルファベットA, B, C, ...で構成されます。
+もし先頭ディジットがそうでなければ文字なら、0ディジットが先頭に表示されます。
+許容される最も大きな基数36の数値は0から9までとAからZまでから構成されます。
+</p>
+<p><code><a href="#ibase">ibase</a></code>
+も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) obase : 2;
+(%o1)                          10
+(%i2) 2^8 - 1;
+(%o10)                      11111111
+(%i3) obase : 8;
+(%o3)                          10
+(%i4) 8^8 - 1;
+(%o4)                       77777777
+(%i5) obase : 16;
+(%o5)                          10
+(%i6) 16^8 - 1;
+(%o6)                       0FFFFFFFF
+(%i7) obase : 36;
+(%o7)                          10
+(%i8) 36^8 - 1;
+(%o8)                       0ZZZZZZZZ
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+ &middot;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+</div></p></dd></dl>
+
+<p><a name="pfeformat"></a>
+<a name="Item_003a-pfeformat"></a>
+</p><dl>
+<dt><a name="index-pfeformat"></a><u>オプション変数:</u> <b>pfeformat</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>pfeformat</code>が<code>true</code>の時、
+整数の比は斜線（スラッシュ）文字で表示され、
+整数分母<code>n</code>は掛け算項<code>1/n</code>として先に表示されます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) pfeformat: false$
+(%i2) 2^16/7^3;
+                              65536
+(%o2)                         -----
+                               343
+(%i3) (a+b)/8;
+                              b + a
+(%o3)                         -----
+                                8
+(%i4) pfeformat: true$ 
+(%i5) 2^16/7^3;
+(%o5)                       65536/343
+(%i6) (a+b)/8;
+(%o6)                      1/8 (b + a)
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p></dd></dl>
+
+<p><a name="powerdisp"></a>
+<a name="Item_003a-powerdisp"></a>
+</p><dl>
+<dt><a name="index-powerdisp"></a><u>オプション変数:</u> <b>powerdisp</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>powerdisp</code>が<code>true</code>の時、
+べきを増やす順に項を使って和が表示されます。
+例えば、
+多項式は切り詰められたべき級数として表示され、
+最初に定数項最後に最高次項となります。
+</p>
+<p>デフォルトでは和の項はべきを減らす順に表示されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p></dd></dl>
+
+<p><a name="print"></a>
+<a name="Item_003a-print"></a>
+</p><dl>
+<dt><a name="index-print"></a><u>関数:</u> <b>print</b><i> (<var>expr_1</var>, &hellip;, <var>expr_n</var>)</i></dt>
+<dd>
+<p><var>expr_1</var>, &hellip;, <var>expr_n</var>を１つ１つ、左から右へ評価し、
+コンソールディスプレイの左端から表示します。
+</p>
+<p><code>print</code>が返す値は最後の引数の値です。
+<code>print</code>は中間式ラベルを生成しません。
+</p>
+<p><code><a href="#display">display</a></code>
+, <code><a href="#disp">disp</a></code>
+, <code><a href="#ldisplay">ldisplay</a></code>
+, <code><a href="#ldisp">ldisp</a></code>
+も参照してください。
+これらの関数は一行ずつ１つの式を表示しますが、
+<code>print</code>は一行に２つ以上の式を表示しようとします。
+</p>
+<p>ファイルの中身を表示するには <code><a href="maxima_13.html#printfile">printfile</a></code>
+を参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) r: print (&quot;(a+b)^3 is&quot;, expand ((a+b)^3), &quot;log (a^10/b) is&quot;,
+      radcan (log (a^10/b)))$
+            3        2      2      3
+(a+b)^3 is b  + 3 a b  + 3 a  b + a  log (a^10/b) is 
+
+                                              10 log(a) - log(b) 
+(%i2) r;
+(%o2)                  10 log(a) - log(b)
+(%i3) disp (&quot;(a+b)^3 is&quot;, expand ((a+b)^3), &quot;log (a^10/b) is&quot;,
+      radcan (log (a^10/b)))$
+                           (a+b)^3 is
+
+                     3        2      2      3
+                    b  + 3 a b  + 3 a  b + a
+
+                         log (a^10/b) is
+
+                       10 log(a) - log(b)
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-functions">Display functions</a>
+</div></p></dd></dl>
+
+<p><a name="sqrtdispflag"></a>
+<a name="Item_003a-sqrtdispflag"></a>
+</p><dl>
+<dt><a name="index-sqrtdispflag"></a><u>オプション変数:</u> <b>sqrtdispflag</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p><code>sqrtdispflag</code>が<code>false</code>の時、
+<code>sqrt</code>を指数1/2で表示するようにします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Mathematical-functions">Mathematical functions</a>
+ &middot;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p></dd></dl>
+
+<p><a name="stardisp"></a>
+<a name="Item_003a-stardisp"></a>
+</p><dl>
+<dt><a name="index-stardisp"></a><u>オプション変数:</u> <b>stardisp</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>stardisp</code>が<code>true</code>の時
+掛け算はオペランドの間のアスタリスク<code>*</code>で表示されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p></dd></dl>
+
+<p><a name="ttyoff"></a>
+<a name="Item_003a-ttyoff"></a>
+</p><dl>
+<dt><a name="index-ttyoff"></a><u>オプション変数:</u> <b>ttyoff</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>ttyoff</code>が<code>true</code>の時、
+出力式は表示されません。
+出力式は計算され、ラベルに割り当てられます。
+<code>labels</code>を参照してください。
+</p>
+<p>エラーメッセージや<code>describe</code>の出力のように、組み込みMaxima関数によって出力されたテキストは <code>ttyoff</code>の影響を受けません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div></p></dd></dl>
+
+
+
+<p><a name="Item_003a-Data-Types-and-Structures"></a>
+</p><hr size="6">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Command-Line" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_5.html#Data-Types-and-Structures" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

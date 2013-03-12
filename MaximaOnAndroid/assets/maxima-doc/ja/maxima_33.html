@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on 2012年12月月12日 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Maxima 5.29.1 Manual: 33. Miscellaneous Options</title>
+
+<meta name="description" content="Maxima 5.29.1 Manual: 33. Miscellaneous Options">
+<meta name="keywords" content="Maxima 5.29.1 Manual: 33. Miscellaneous Options">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+body
+{
+    color: black;
+    background: white; 
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+h1
+{
+    margin-left: +8%;
+    font-size: 150%;
+    font-family: sans-serif
+}
+
+h2
+{
+    font-size: 125%;
+    font-family: sans-serif
+}
+
+h3
+{
+    font-size: 100%;
+    font-family: sans-serif
+}
+
+h2,h3,h4,h5,h6 { margin-left: +4%; }
+
+div.textbox
+{
+    border: solid;
+    border-width: thin;
+    /* width: 100%; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em
+}
+
+div.titlebox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: rgb(200,255,255);
+    font-family: sans-serif
+}
+
+div.synopsisbox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+     background: rgb(255,220,255);
+    /*background: rgb(200,255,255); */
+    /* font-family: fixed */
+}
+
+pre.example
+{
+    border: 1px solid gray;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    /* background: rgb(247,242,180); */ /* kind of sandy */
+    /* background: rgb(200,255,255); */ /* sky blue */
+    background-color: #F1F5F9; /* light blue-gray */
+    /* font-family: "Lucida Console", monospace */
+}
+
+div.spacerbox
+{
+    border: none;
+    padding-top: 2em;
+    padding-bottom: 2em
+}
+
+div.image
+{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+div.categorybox
+{
+    border: 1px solid gray;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: rgb(247,242,220);
+}
+
+
+-->
+</style>
+
+<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<script type="text/javascript"><!--
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-510249-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+--></script>
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="Miscellaneous-Options"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="maxima_32.html#Functions-and-Variables-for-Runtime-Environment" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-Miscellaneous-Options" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_32.html#Runtime-Environment" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_34.html#Rules-and-Patterns" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Miscellaneous-Options-1"></a>
+<h1 class="chapter">33. Miscellaneous Options</h1>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Introduction-to-Miscellaneous-Options">33.1 Introduction to Miscellaneous Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Share">33.2 Share</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                       
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Miscellaneous-Options">33.3 Functions and Variables for Miscellaneous Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+</table>
+
+<p><a name="Item_003a-Introduction-to-Miscellaneous-Options"></a>
+</p><hr size="6">
+<a name="Introduction-to-Miscellaneous-Options"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Miscellaneous-Options" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Share" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Miscellaneous-Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Miscellaneous-Options" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_34.html#Rules-and-Patterns" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Introduction-to-Miscellaneous-Options-1"></a>
+<h2 class="section">33.1 Introduction to Miscellaneous Options</h2>
+
+<p>この節では、 Maximaの操作上、グローバルな効果を持つ様々なオプションが論じられます。
+すべてのユーザー定義関数のリストのような様々なリストも論じられます。
+</p>
+<p><a name="Item_003a-Share"></a>
+</p><hr size="6">
+<a name="Share"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-Miscellaneous-Options" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Miscellaneous-Options" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Miscellaneous-Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Miscellaneous-Options" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_34.html#Rules-and-Patterns" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Share-1"></a>
+<h2 class="section">33.2 Share</h2>
+
+<p>Maximaの「共有」ディレクトリは Maximaユーザーのためのものですが、
+Maximaのコア実装の部分ではないプログラムと他のファイルを含みます。
+これらのプログラムは通常、 <code>load</code>や <code>setup_autoload</code>によってロードされます。
+</p>
+<p><code>:lisp *maxima-sharedir*</code>は
+ユーザーのファイルシステム内の共有ディレクトリの位置を表示します。
+</p>
+<p><code>printfile (&quot;share.usg&quot;)</code>は共有パッケージの期限切れリストを印字します。
+ファイルシステムブラウザを使って共有ディレクトリをブラウズするともっと情報が得られることに
+ユーザーは気づくでしょう。
+</p>
+<p><a name="Item_003a-Functions-and-Variables-for-Miscellaneous-Options"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-Miscellaneous-Options"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Share" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_34.html#Rules-and-Patterns" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Miscellaneous-Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Miscellaneous-Options" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_34.html#Rules-and-Patterns" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-and-Variables-for-Miscellaneous-Options-1"></a>
+<h2 class="section">33.3 Functions and Variables for Miscellaneous Options</h2>
+
+
+<p><a name="askexp"></a>
+<a name="Item_003a-askexp"></a>
+</p><dl>
+<dt><a name="index-askexp"></a><u>システム変数:</u> <b>askexp</b></dt>
+<dd><p><code>asksign</code>がコールされた時、
+<code>askexp</code>は <code>asksign</code>がテストしている式です。
+</p>
+<p>以前は、control-AでMaximaブレイクに入ることによって
+ユーザーが <code>askexp</code>を検査することができました。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
+</div></p></dd></dl>
+
+<p><a name="genindex"></a>
+<a name="Item_003a-genindex"></a>
+</p><dl>
+<dt><a name="index-genindex"></a><u>オプション変数:</u> <b>genindex</b></dt>
+<dd><p>デフォルト値: <code>i</code>
+</p>
+<p><code>genindex</code>は、必要な時、和の次の変数を生成するために使われる
+アルファベットの接頭辞です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Sums-and-products">Sums and products</a>
+</div></p></dd></dl>
+
+<p><a name="gensumnum"></a>
+<a name="Item_003a-gensumnum"></a>
+</p><dl>
+<dt><a name="index-gensumnum"></a><u>オプション変数:</u> <b>gensumnum</b></dt>
+<dd><p>デフォルト値: 0
+</p>
+<p><code>gensumnum</code>は、和の次の変数を生成するために使われる数値接尾辞です。
+もし <code>false</code>に設定されているなら、インデックスは数値接尾辞なしで
+<code>genindex</code>だけから構成されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Sums-and-products">Sums and products</a>
+</div></p></dd></dl>
+
+<p><a name="gensym"></a>
+<a name="Item_003a-gensym"></a>
+</p><dl>
+<dt><a name="index-gensym"></a><u>関数:</u> <b>gensym</b><i> ()</i></dt>
+<dt><a name="index-gensym-1"></a><u>関数:</u> <b>gensym</b><i> (<var>x</var>)</i></dt>
+<dd>
+<p><code>gensym()</code>は新鮮なシンボルを生成し返します。
+</p>
+<p>新しいシンボルの名前はデフォルトでは、 &quot;g&quot;の接頭辞と
+Lisp内部カウンタの値がデフォルトの数の十進表現である接尾辞の連結です。
+</p>
+<p>もし <var>x</var>が供給されてそれが文字列なら、この
+gensymへの呼び出しに限ってその文字列が
+&quot;g&quot;の代わりに接頭辞として使われます。
+</p>
+<p>もし <var>x</var>が供給されてそれが整数なら、
+この gensymへの呼び出しに限って内部
+Lisp整数の値の代わりに接尾辞として使われます。
+</p>
+<p>もし明示的に接尾辞が供給されない時だけ、
+Lisp内部整数が使われた後 1だけ増分されます。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) gensym();
+(%o1)                         g887
+(%i2) gensym(&quot;new&quot;);
+(%o2)                        new888
+(%i3) gensym(123);
+(%o3)                         g123
+</pre></td></tr></table>
+</dd></dl>
+
+
+<p><a name="packagefile"></a>
+<a name="Item_003a-packagefile"></a>
+</p><dl>
+<dt><a name="index-packagefile"></a><u>オプション変数:</u> <b>packagefile</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>packagefile: true</code>を設定すると、
+ファイルがロードされる時必要なところを除いて、
+Maximaの情報リスト（例えば、<code><a href="maxima_4.html#values">values</a></code>
+, <code><a href="maxima_36.html#functions">functions</a></code>
+）への
+情報の追加を抑制します。
+他の人が使うパッケージ（ファイル）を生成するために
+<code><a href="maxima_13.html#save">save</a></code>
+や <code><a href="maxima_36.html#translate">translate</a></code>
+を使うパッケージデザイナーが使ったりします。
+こうすると、
+ユーザーが自身のデータを追加した時
+パッケージの中身はユーザーのやったことを取り込まないでしょう。
+これは起こりうる名前衝突の問題を解決はしないことに注意してください。
+このフラグはパッケージファイルへ出力されるものに素直に影響することにも注意してください。
+フラグを <code>true</code>に設定することは
+Maxima初期化ファイルを生成するにも役に立ちます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Translation-flags-and-variables">Translation flags and variables</a>
+</div></p></dd></dl>
+
+
+<p><a name="remvalue"></a>
+<a name="Item_003a-remvalue"></a>
+</p><dl>
+<dt><a name="index-remvalue"></a><u>関数:</u> <b>remvalue</b><i> (<var>name_1</var>, ..., <var>name_n</var>)</i></dt>
+<dt><a name="index-remvalue-1"></a><u>関数:</u> <b>remvalue</b><i> (all)</i></dt>
+<dd>
+<p>(添字付きもありえる)ユーザー変数 <var>name_1</var>, ...,
+<var>name_n</var>の値をシステムから取り除きます。
+</p>
+<p><code>remvalue (all)</code>は、<code>values</code>―
+(Maximaが自動的に割り当てたものと対照的に)ユーザーが名前を与えた変数すべてのリスト―
+の中の変数すべての値を取り除きます。
+</p>
+<p><code>values</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Evaluation">Evaluation</a>
+</div></p></dd></dl>
+
+
+<p><a name="rncombine"></a>
+<a name="Item_003a-rncombine"></a>
+</p><dl>
+<dt><a name="index-rncombine"></a><u>関数:</u> <b>rncombine</b><i> (<var>expr</var>)</i></dt>
+<dd>
+<p>同一の分母や、たがいに数値因子だけ異なる分母を持つ
+<var>expr</var>のすべての項を結合することで、 <var>expr</var>を変換します。
+これは <code>combine</code>の振る舞いとわずかに違います。
+<code>combine</code>は同一分母を持つ項を集めます。
+</p>
+<p><code>pfeformat: true</code>を設定し、 <code>combine</code>を使うことは、
+<code>rncombine</code>を使って得られるものと似た結果をもたらしますが、
+<code>rncombine</code>はクロス積の数値的分母因子のおまけのステップを実行します。
+これは、きれいな形式と、いくつかの相殺を認識する可能性をもたらします。
+</p>
+<p><code>load(rncomb)</code>はこの関数をロードします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
+</div></p>
+</dd></dl>
+
+<p><a name="setup_005fautoload"></a>
+<a name="Item_003a-setup_005fautoload"></a>
+</p><dl>
+<dt><a name="index-setup_005fautoload"></a><u>関数:</u> <b>setup_autoload</b><i> (<var>filename</var>, <var>function_1</var>, ..., <var>function_n</var>)</i></dt>
+<dd>
+<p>もし <var>function_1</var>, ...,
+<var>function_n</var>のいずれかが参照されたがまだ定義されていないなら、
+<code>load</code>を通じて <var>filename</var>がロードされるように指定します。
+<var>filename</var>は強制はされませんが、普通、指定された関数の定義を含みます。
+</p>
+<p><code>setup_autoload</code>は配列関数については機能しません。
+</p>
+<p><code>setup_autoload</code>は引数をクォートします。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) legendre_p (1, %pi);
+(%o1)                  legendre_p(1, %pi)
+(%i2) setup_autoload (&quot;specfun.mac&quot;, legendre_p, ultraspherical);
+(%o2)                         done
+(%i3) ultraspherical (2, 1/2, %pi);
+Warning - you are redefining the Macsyma function ultraspherical
+Warning - you are redefining the Macsyma function legendre_p
+                            2
+                 3 (%pi - 1)
+(%o3)            ------------ + 3 (%pi - 1) + 1
+                      2
+(%i4) legendre_p (1, %pi);
+(%o4)                          %pi
+(%i5) legendre_q (1, %pi);
+                              %pi + 1
+                      %pi log(-------)
+                              1 - %pi
+(%o5)                 ---------------- - 1
+                             2
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Function-definition">Function definition</a>
+ &middot;<a href="maxima_99.html#Category_003a-File-input">File input</a>
+</div></p></dd></dl>
+
+
+<p><a name="tcl_005foutput"></a>
+<a name="Item_003a-tcl_005foutput"></a>
+</p><dl>
+<dt><a name="index-tcl_005foutput"></a><u>関数:</u> <b>tcl_output</b><i> (<var>list</var>, <var>i0</var>, <var>skip</var>)</i></dt>
+<dt><a name="index-tcl_005foutput-1"></a><u>関数:</u> <b>tcl_output</b><i> (<var>list</var>, <var>i0</var>)</i></dt>
+<dt><a name="index-tcl_005foutput-2"></a><u>関数:</u> <b>tcl_output</b><i> ([<var>list_1</var>, &hellip;, <var>list_n</var>], <var>i</var>)</i></dt>
+<dd>
+<p>リストの要素をカーリ括弧<code>{ }</code>で囲んで表示します。
+Tcl/Tk言語のプログラムの一部として適した形です。
+</p>
+<p><code>tcl_output (<var>list</var>, <var>i0</var>, <var>skip</var>)</code>は、
+要素<var>i0</var>で始まり、
+要素 <code><var>i0</var> + <var>skip</var></code>, <code><var>i0</var> + 2 <var>skip</var></code>,
+ などなどというように <var>list</var>を表示します。
+</p>
+<p><code>tcl_output (<var>list</var>, <var>i0</var>)</code>は
+<code>tcl_output (<var>list</var>, <var>i0</var>, 2)</code>と同値です。
+</p>
+<p><code>tcl_output ([<var>list_1</var>, ..., <var>list_n</var>], <var>i</var>)</code>は
+<var>list_1</var>, &hellip;, <var>list_n</var>の <var>i</var>番目の要素を表示します。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) tcl_output ([1, 2, 3, 4, 5, 6], 1, 3)$
+
+ {1.000000000     4.000000000     
+ }
+(%i2) tcl_output ([1, 2, 3, 4, 5, 6], 2, 3)$
+
+ {2.000000000     5.000000000     
+ }
+(%i3) tcl_output ([3/7, 5/9, 11/13, 13/17], 1)$
+
+ {((RAT SIMP) 3 7) ((RAT SIMP) 11 13) 
+ }
+(%i4) tcl_output ([x1, y1, x2, y2, x3, y3], 2)$
+
+ {$Y1 $Y2 $Y3 
+ }
+(%i5) tcl_output ([[1, 2, 3], [11, 22, 33]], 1)$
+
+ {SIMP 1.000000000     11.00000000     
+ }
+</pre></td></tr></table>
+</dd></dl>
+
+
+<p><a name="Item_003a-Rules-and-Patterns"></a>
+</p><hr size="6">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Miscellaneous-Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_34.html#Rules-and-Patterns" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

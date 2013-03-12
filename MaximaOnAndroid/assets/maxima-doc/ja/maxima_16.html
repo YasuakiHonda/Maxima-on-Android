@@ -1,0 +1,648 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on 2012年12月月12日 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Maxima 5.29.1 Manual: 16. Elliptic Functions</title>
+
+<meta name="description" content="Maxima 5.29.1 Manual: 16. Elliptic Functions">
+<meta name="keywords" content="Maxima 5.29.1 Manual: 16. Elliptic Functions">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+body
+{
+    color: black;
+    background: white; 
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+h1
+{
+    margin-left: +8%;
+    font-size: 150%;
+    font-family: sans-serif
+}
+
+h2
+{
+    font-size: 125%;
+    font-family: sans-serif
+}
+
+h3
+{
+    font-size: 100%;
+    font-family: sans-serif
+}
+
+h2,h3,h4,h5,h6 { margin-left: +4%; }
+
+div.textbox
+{
+    border: solid;
+    border-width: thin;
+    /* width: 100%; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em
+}
+
+div.titlebox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: rgb(200,255,255);
+    font-family: sans-serif
+}
+
+div.synopsisbox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+     background: rgb(255,220,255);
+    /*background: rgb(200,255,255); */
+    /* font-family: fixed */
+}
+
+pre.example
+{
+    border: 1px solid gray;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    /* background: rgb(247,242,180); */ /* kind of sandy */
+    /* background: rgb(200,255,255); */ /* sky blue */
+    background-color: #F1F5F9; /* light blue-gray */
+    /* font-family: "Lucida Console", monospace */
+}
+
+div.spacerbox
+{
+    border: none;
+    padding-top: 2em;
+    padding-bottom: 2em
+}
+
+div.image
+{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+div.categorybox
+{
+    border: 1px solid gray;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: rgb(247,242,220);
+}
+
+
+-->
+</style>
+
+<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<script type="text/javascript"><!--
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-510249-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+--></script>
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="Elliptic-Functions"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="maxima_15.html#Functions-and-Variables-for-Special-Functions" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-Elliptic-Functions-and-Integrals" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_15.html#Special-Functions" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_17.html#Limits" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Elliptic-Functions-1"></a>
+<h1 class="chapter">16. Elliptic Functions</h1>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Introduction-to-Elliptic-Functions-and-Integrals">16.1 Introduction to Elliptic Functions and Integrals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Elliptic-Functions">16.2 Functions and Variables for Elliptic Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Elliptic-Integrals">16.3 Functions and Variables for Elliptic Integrals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+
+
+<p><a name="Item_003a-Introduction-to-Elliptic-Functions-and-Integrals"></a>
+</p><hr size="6">
+<a name="Introduction-to-Elliptic-Functions-and-Integrals"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Elliptic-Functions" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Elliptic-Functions" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Elliptic-Functions" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Elliptic-Functions" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_17.html#Limits" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="Introduction-to-Elliptic-Functions-and-Integrals-1"></a>
+<h2 class="section">16.1 Introduction to Elliptic Functions and Integrals</h2>
+
+<p>Maximaは Jacobiの楕円関数と不完全楕円積分のサポートを含みます。
+これは、数値評価はもちろんこれらの関数のシンボル操作を含みます。
+これらの関数の定義とプロパティの多くは
+Abramowitz and Stegun, 16&ndash;17章にあります。
+可能な限り、そこで与えられた定義と関係を使います。
+</p>
+<p>特に、すべての楕円関数と積分は
+法 <em>k</em>や率角 <em>\alpha</em>の代わりにパラメータ <em>m</em>を使います。
+これは、
+楕円関数のために率角を使うAbramowitz and Stegunと違うところです。
+以下の関係は真です:
+<em>m = k^2</em> and <em>k = \sin(\alpha)</em>
+</p>
+<p>楕円関数と積分は、主としてシンボル計算をサポートするように意図されています。
+それ故に関数と積分の導関数のほとんどが知られています。
+しかしながら、もし浮動小数点値を与えたなら浮動小数点の結果を返します。
+</p>
+<p>楕円関数と積分の他の性質のほとんどのサポートはまだ書かれていません。
+</p>
+<p>楕円関数のいくつかの例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) jacobi_sn (u, m);
+(%o1)                    jacobi_sn(u, m)
+(%i2) jacobi_sn (u, 1);
+(%o2)                        tanh(u)
+(%i3) jacobi_sn (u, 0);
+(%o3)                        sin(u)
+(%i4) diff (jacobi_sn (u, m), u);
+(%o4)            jacobi_cn(u, m) jacobi_dn(u, m)
+(%i5) diff (jacobi_sn (u, m), m);
+(%o5) jacobi_cn(u, m) jacobi_dn(u, m)
+
+      elliptic_e(asin(jacobi_sn(u, m)), m)
+ (u - ------------------------------------)/(2 m)
+                     1 - m
+
+            2
+   jacobi_cn (u, m) jacobi_sn(u, m)
+ + --------------------------------
+              2 (1 - m)
+</pre></td></tr></table>
+
+<p>楕円積分のいくつかの例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) elliptic_f (phi, m);
+(%o1)                  elliptic_f(phi, m)
+(%i2) elliptic_f (phi, 0);
+(%o2)                          phi
+(%i3) elliptic_f (phi, 1);
+                               phi   %pi
+(%o3)                  log(tan(--- + ---))
+                                2     4
+(%i4) elliptic_e (phi, 1);
+(%o4)                       sin(phi)
+(%i5) elliptic_e (phi, 0);
+(%o5)                          phi
+(%i6) elliptic_kc (1/2);
+                                     1
+(%o6)                    elliptic_kc(-)
+                                     2
+(%i7) makegamma (%);
+                                 2 1
+                            gamma (-)
+                                   4
+(%o7)                      -----------
+                           4 sqrt(%pi)
+(%i8) diff (elliptic_f (phi, m), phi);
+                                1
+(%o8)                 ---------------------
+                                    2
+                      sqrt(1 - m sin (phi))
+(%i9) diff (elliptic_f (phi, m), m);
+       elliptic_e(phi, m) - (1 - m) elliptic_f(phi, m)
+(%o9) (-----------------------------------------------
+                              m
+
+                                 cos(phi) sin(phi)
+                             - ---------------------)/(2 (1 - m))
+                                             2
+                               sqrt(1 - m sin (phi))
+</pre></td></tr></table>
+
+<p>楕円関数と積分のサポートは、Raymond Toyによって書かれました。
+Maximaの配布を管理するGeneral Public License (GPL)の条件のもと置かれています。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p>
+<p><a name="Item_003a-Functions-and-Variables-for-Elliptic-Functions"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-Elliptic-Functions"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-Elliptic-Functions-and-Integrals" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Elliptic-Integrals" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Elliptic-Functions" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Elliptic-Functions" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_17.html#Limits" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="Functions-and-Variables-for-Elliptic-Functions-1"></a>
+<h2 class="section">16.2 Functions and Variables for Elliptic Functions</h2>
+
+<p><a name="Item_003a-jacobi_005fsn"></a>
+</p><dl>
+<dt><a name="index-jacobi_005fsn"></a><u>関数:</u> <b>jacobi_sn</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数 <em>sn(u,m)</em>
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-jacobi_005fcn"></a>
+</p><dl>
+<dt><a name="index-jacobi_005fcn"></a><u>関数:</u> <b>jacobi_cn</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数 <em>cn(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-jacobi_005fdn"></a>
+</p><dl>
+<dt><a name="index-jacobi_005fdn"></a><u>関数:</u> <b>jacobi_dn</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数 <em>dn(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-jacobi_005fns"></a>
+</p><dl>
+<dt><a name="index-jacobi_005fns"></a><u>関数:</u> <b>jacobi_ns</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数 <em>ns(u,m) = 1/sn(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-jacobi_005fsc"></a>
+</p><dl>
+<dt><a name="index-jacobi_005fsc"></a><u>関数:</u> <b>jacobi_sc</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数 <em>sc(u,m) = sn(u,m)/cn(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-jacobi_005fsd"></a>
+</p><dl>
+<dt><a name="index-jacobi_005fsd"></a><u>関数:</u> <b>jacobi_sd</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数 <em>sd(u,m) = sn(u,m)/dn(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-jacobi_005fnc"></a>
+</p><dl>
+<dt><a name="index-jacobi_005fnc"></a><u>関数:</u> <b>jacobi_nc</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数 <em>nc(u,m) = 1/cn(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-jacobi_005fcs"></a>
+</p><dl>
+<dt><a name="index-jacobi_005fcs"></a><u>関数:</u> <b>jacobi_cs</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数 <em>cs(u,m) = cn(u,m)/sn(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-jacobi_005fcd"></a>
+</p><dl>
+<dt><a name="index-jacobi_005fcd"></a><u>関数:</u> <b>jacobi_cd</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数 <em>cd(u,m) = cn(u,m)/dn(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-jacobi_005fnd"></a>
+</p><dl>
+<dt><a name="index-jacobi_005fnd"></a><u>関数:</u> <b>jacobi_nd</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数 <em>nc(u,m) = 1/cn(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-jacobi_005fds"></a>
+</p><dl>
+<dt><a name="index-jacobi_005fds"></a><u>関数:</u> <b>jacobi_ds</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数 <em>ds(u,m) = dn(u,m)/sn(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-jacobi_005fdc"></a>
+</p><dl>
+<dt><a name="index-jacobi_005fdc"></a><u>関数:</u> <b>jacobi_dc</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数 <em>dc(u,m) = dn(u,m)/cn(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-inverse_005fjacobi_005fsn"></a>
+</p><dl>
+<dt><a name="index-inverse_005fjacobi_005fsn"></a><u>関数:</u> <b>inverse_jacobi_sn</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数の逆関数 <em>sn(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-inverse_005fjacobi_005fcn"></a>
+</p><dl>
+<dt><a name="index-inverse_005fjacobi_005fcn"></a><u>関数:</u> <b>inverse_jacobi_cn</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数の逆関数 <em>cn(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-inverse_005fjacobi_005fdn"></a>
+</p><dl>
+<dt><a name="index-inverse_005fjacobi_005fdn"></a><u>関数:</u> <b>inverse_jacobi_dn</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数の逆関数 <em>dn(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-inverse_005fjacobi_005fns"></a>
+</p><dl>
+<dt><a name="index-inverse_005fjacobi_005fns"></a><u>関数:</u> <b>inverse_jacobi_ns</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数の逆関数 <em>ns(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-inverse_005fjacobi_005fsc"></a>
+</p><dl>
+<dt><a name="index-inverse_005fjacobi_005fsc"></a><u>関数:</u> <b>inverse_jacobi_sc</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数の逆関数 <em>sc(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-inverse_005fjacobi_005fsd"></a>
+</p><dl>
+<dt><a name="index-inverse_005fjacobi_005fsd"></a><u>関数:</u> <b>inverse_jacobi_sd</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数の逆関数 <em>sd(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-inverse_005fjacobi_005fnc"></a>
+</p><dl>
+<dt><a name="index-inverse_005fjacobi_005fnc"></a><u>関数:</u> <b>inverse_jacobi_nc</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数の逆関数 <em>nc(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-inverse_005fjacobi_005fcs"></a>
+</p><dl>
+<dt><a name="index-inverse_005fjacobi_005fcs"></a><u>関数:</u> <b>inverse_jacobi_cs</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数の逆関数 <em>cs(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-inverse_005fjacobi_005fcd"></a>
+</p><dl>
+<dt><a name="index-inverse_005fjacobi_005fcd"></a><u>関数:</u> <b>inverse_jacobi_cd</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数の逆関数 <em>cd(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-inverse_005fjacobi_005fnd"></a>
+</p><dl>
+<dt><a name="index-inverse_005fjacobi_005fnd"></a><u>関数:</u> <b>inverse_jacobi_nd</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数の逆関数 <em>nc(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-inverse_005fjacobi_005fds"></a>
+</p><dl>
+<dt><a name="index-inverse_005fjacobi_005fds"></a><u>関数:</u> <b>inverse_jacobi_ds</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数の逆関数 <em>ds(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-inverse_005fjacobi_005fdc"></a>
+</p><dl>
+<dt><a name="index-inverse_005fjacobi_005fdc"></a><u>関数:</u> <b>inverse_jacobi_dc</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>Jacobiの楕円関数の逆関数 <em>dc(u,m)</em>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-functions">Elliptic functions</a>
+</div></p></dd></dl>
+
+
+<p><a name="Item_003a-Functions-and-Variables-for-Elliptic-Integrals"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-Elliptic-Integrals"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Elliptic-Functions" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_17.html#Limits" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Elliptic-Functions" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Elliptic-Functions" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_17.html#Limits" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="Functions-and-Variables-for-Elliptic-Integrals-1"></a>
+<h2 class="section">16.3 Functions and Variables for Elliptic Integrals</h2>
+
+<p><a name="elliptic_005ff"></a>
+<a name="Item_003a-elliptic_005ff"></a>
+</p><dl>
+<dt><a name="index-elliptic_005ff"></a><u>関数:</u> <b>elliptic_f</b><i> (<var>phi</var>, <var>m</var>)</i></dt>
+<dd><p>以下のように定義された第一種不完全楕円積分
+</p>
+<p><em>integrate(1/sqrt(1 - m*sin(x)^2), x, 0, phi)</em>
+</p>
+
+<p><a href="#elliptic_005fe">elliptic_e</a>と <a href="#elliptic_005fkc">elliptic_kc</a>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-integrals">Elliptic integrals</a>
+</div></p></dd></dl>
+
+<p><a name="elliptic_005fe"></a>
+<a name="Item_003a-elliptic_005fe"></a>
+</p><dl>
+<dt><a name="index-elliptic_005fe"></a><u>関数:</u> <b>elliptic_e</b><i> (<var>phi</var>, <var>m</var>)</i></dt>
+<dd><p>以下のように定義された第二種不完全楕円積分
+</p>
+<p><em>elliptic_e(phi, m) = integrate(sqrt(1 - m*sin(x)^2), x, 0, phi)</em>
+</p>
+<p><a href="#elliptic_005fe">elliptic_e</a>と<a href="#elliptic_005fec">elliptic_ec</a>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-integrals">Elliptic integrals</a>
+</div></p></dd></dl>
+
+<p><a name="elliptic_005feu"></a>
+<a name="Item_003a-elliptic_005feu"></a>
+</p><dl>
+<dt><a name="index-elliptic_005feu"></a><u>関数:</u> <b>elliptic_eu</b><i> (<var>u</var>, <var>m</var>)</i></dt>
+<dd><p>以下のように定義された第二種不完全楕円積分
+</p>
+<p><em>integrate(dn(v,m)^2,v,0,u) = integrate(sqrt(1-m*t^2)/sqrt(1-t^2), t, 0, tau)</em>
+</p>
+<p>ここで <em>tau = sn(u,m)</em>.
+</p>
+<p>これは
+</p>
+<p><em>elliptic_eu(u, m) = elliptic_e(asin(sn(u,m)),m)</em>
+によって <em>elliptic_e</em>と関連付けられます。
+</p>
+<p><a href="#elliptic_005fe">elliptic_e</a>も参照してください。
+<div class=categorybox>&middot;<a href="maxima_99.html#Category_003a-Elliptic-integrals">Elliptic integrals</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-elliptic_005fpi"></a>
+</p><dl>
+<dt><a name="index-elliptic_005fpi"></a><u>関数:</u> <b>elliptic_pi</b><i> (<var>n</var>, <var>phi</var>, <var>m</var>)</i></dt>
+<dd><p>以下のように定義された第三種不完全楕円積分
+</p>
+<p><em>integrate(1/(1-n*sin(x)^2)/sqrt(1 - m*sin(x)^2), x, 0, phi)</em>
+</p>
+<p>Maximaが知っている <em>phi</em>に関する唯一の導関数
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-integrals">Elliptic integrals</a>
+</div></p></dd></dl>
+
+<p><a name="elliptic_005fkc"></a>
+<a name="Item_003a-elliptic_005fkc"></a>
+</p><dl>
+<dt><a name="index-elliptic_005fkc"></a><u>関数:</u> <b>elliptic_kc</b><i> (<var>m</var>)</i></dt>
+<dd><p>以下のように定義された第一種完全楕円積分
+</p>
+<p><em>integrate(1/sqrt(1 - m*sin(x)^2), x, 0, %pi/2)</em>
+</p>
+<p><em>m</em>のある値に関して
+積分の値は <em>Gamma</em>関数で表されることが知られています。
+それらを評価するには <code>makegamma</code>を使ってください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-integrals">Elliptic integrals</a>
+</div></p></dd></dl>
+
+<p><a name="elliptic_005fec"></a>
+<a name="Item_003a-elliptic_005fec"></a>
+</p><dl>
+<dt><a name="index-elliptic_005fec"></a><u>関数:</u> <b>elliptic_ec</b><i> (<var>m</var>)</i></dt>
+<dd><p>以下のように定義された第二種完全楕円積分
+</p>
+<p><em>integrate(sqrt(1 - m*sin(x)^2), x, 0, %pi/2)</em>
+</p>
+<p><em>m</em>のある値に関して
+積分の値は <em>Gamma</em>関数で表されることが知られています。
+それらを評価するには <code>makegamma</code>を使ってください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Elliptic-integrals">Elliptic integrals</a>
+</div></p></dd></dl>
+
+
+<p><a name="Item_003a-Limits"></a>
+</p><hr size="6">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Elliptic-Functions" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_17.html#Limits" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

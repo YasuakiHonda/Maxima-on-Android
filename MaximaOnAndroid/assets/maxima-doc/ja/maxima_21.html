@@ -1,0 +1,440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on 2012年12月月12日 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Maxima 5.29.1 Manual: 21. Differential Equations</title>
+
+<meta name="description" content="Maxima 5.29.1 Manual: 21. Differential Equations">
+<meta name="keywords" content="Maxima 5.29.1 Manual: 21. Differential Equations">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+body
+{
+    color: black;
+    background: white; 
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+h1
+{
+    margin-left: +8%;
+    font-size: 150%;
+    font-family: sans-serif
+}
+
+h2
+{
+    font-size: 125%;
+    font-family: sans-serif
+}
+
+h3
+{
+    font-size: 100%;
+    font-family: sans-serif
+}
+
+h2,h3,h4,h5,h6 { margin-left: +4%; }
+
+div.textbox
+{
+    border: solid;
+    border-width: thin;
+    /* width: 100%; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em
+}
+
+div.titlebox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: rgb(200,255,255);
+    font-family: sans-serif
+}
+
+div.synopsisbox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+     background: rgb(255,220,255);
+    /*background: rgb(200,255,255); */
+    /* font-family: fixed */
+}
+
+pre.example
+{
+    border: 1px solid gray;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    /* background: rgb(247,242,180); */ /* kind of sandy */
+    /* background: rgb(200,255,255); */ /* sky blue */
+    background-color: #F1F5F9; /* light blue-gray */
+    /* font-family: "Lucida Console", monospace */
+}
+
+div.spacerbox
+{
+    border: none;
+    padding-top: 2em;
+    padding-bottom: 2em
+}
+
+div.image
+{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+div.categorybox
+{
+    border: 1px solid gray;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: rgb(247,242,220);
+}
+
+
+-->
+</style>
+
+<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<script type="text/javascript"><!--
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-510249-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+--></script>
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="Differential-Equations"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="maxima_20.html#Functions-and-Variables-for-Equations" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-Differential-Equations" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_20.html#Equations" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_22.html#Numerical" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Differential-Equations-1"></a>
+<h1 class="chapter">21. Differential Equations</h1>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Introduction-to-Differential-Equations">21.1 Introduction to Differential Equations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Differential-Equations">21.2 Functions and Variables for Differential Equations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+</table>
+
+<p><a name="Item_003a-Introduction-to-Differential-Equations"></a>
+</p><hr size="6">
+<a name="Introduction-to-Differential-Equations"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Differential-Equations" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Differential-Equations" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Differential-Equations" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Differential-Equations" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_22.html#Numerical" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Introduction-to-Differential-Equations-1"></a>
+<h2 class="section">21.1 Introduction to Differential Equations</h2>
+
+<p>この節は
+Maximaで利用可能な、
+一次と二次方程式のいくつかの特定のタイプの解析解を得るための関数を記述します。
+微分方程式系の数値解を得るには
+付加パッケージ<code>dynamics</code>を参照してください。
+位相空間でのグラフィカルな表現に関しては
+付加パッケージ<code>plotdf</code>を参照してください。
+</p>
+<p><a name="Item_003a-Functions-and-Variables-for-Differential-Equations"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-Differential-Equations"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-Differential-Equations" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_22.html#Numerical" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Differential-Equations" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Differential-Equations" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_22.html#Numerical" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-and-Variables-for-Differential-Equations-1"></a>
+<h2 class="section">21.2 Functions and Variables for Differential Equations</h2>
+
+
+<p><a name="Item_003a-bc2"></a>
+</p><dl>
+<dt><a name="index-bc2"></a><u>関数:</u> <b>bc2</b><i> (<var>solution</var>, <var>xval1</var>, <var>yval1</var>, <var>xval2</var>, <var>yval2</var>)</i></dt>
+<dd><p>二階微分方程式の境界値問題を解きます。
+ここで: <var>solution</var>は <code>ode2</code>が見つけるような方程式の一般解です;
+<var>xval1</var>は独立変数の最初の点の値を形式 <code><var>x</var> = <var>x1</var></code>で指定し、
+<var>yval1</var>はその点の従属変数の値を形式 <code><var>y</var> = <var>y1</var></code>で与えます。
+式 <var>xval2</var>と <var>yval2</var>は
+対応する変数の二番目の点での値を同じ形式を使って与えます。
+</p>
+<p>用法の例については <code>ode2</code>を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Differential-equations">Differential equations</a>
+</div></p></dd></dl>
+
+
+<p><a name="Item_003a-desolve"></a>
+</p><dl>
+<dt><a name="index-desolve"></a><u>関数:</u> <b>desolve</b><i> (<var>eqn</var>, <var>x</var>)</i></dt>
+<dt><a name="index-desolve-1"></a><u>関数:</u> <b>desolve</b><i> ([<var>eqn_1</var>, ..., <var>eqn_n</var>], [<var>x_1</var>, ..., <var>x_n</var>])</i></dt>
+<dd><p>関数 <code>desolve</code>はラプラス変換を使って線形常微分方程式系を解きます。
+ここで <var>eqn</var>群は従属変数 <var>x_1</var>, ..., <var>x_n</var>に関する微分方程式です。
+<var>x_1</var>, ..., <var>x_n</var>の独立変数―例えば<var>x</var>―への関数依存性は
+変数や導関数の中で明示されなければいけません。
+例えば、以下は２つの方程式を定義する正しい方法ではありません:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">eqn_1: 'diff(f,x,2) = sin(x) + 'diff(g,x);
+eqn_2: 'diff(f,x) + x^2 - f = 2*'diff(g,x,2);
+</pre></td></tr></table>
+
+<p>正しい方法は以下の通りです:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">eqn_1: 'diff(f(x),x,2) = sin(x) + 'diff(g(x),x);
+eqn_2: 'diff(f(x),x) + x^2 - f(x) = 2*'diff(g(x),x,2);
+</pre></td></tr></table>
+
+<p>関数 <code>desolve</code>のコールは、
+</p><table><tr><td>&nbsp;</td><td><pre class="example">desolve([eqn_1, eqn_2], [f(x),g(x)]);
+</pre></td></tr></table>
+<p>です。
+</p>
+<p>もし <code>x=0</code>の初期条件が既知なら、
+それらは <code>atvalue</code>を使って <code>desolve</code>コールの前に供給することができます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) <b><tt>'diff(f(x),x)='diff(g(x),x)+sin(x);</tt></b>
+                 d           d
+(%o1)            -- (f(x)) = -- (g(x)) + sin(x)
+                 dx          dx
+(%i2) <b><tt>'diff(g(x),x,2)='diff(f(x),x)-cos(x);</tt></b>
+</pre><pre class="example">                  2
+                 d            d
+(%o2)            --- (g(x)) = -- (f(x)) - cos(x)
+                   2          dx
+                 dx
+</pre><pre class="example">(%i3) <b><tt>atvalue('diff(g(x),x),x=0,a);</tt></b>
+(%o3)                           a
+(%i4) <b><tt>atvalue(f(x),x=0,1);</tt></b>
+(%o4)                           1
+(%i5) <b><tt>desolve([%o1,%o2],[f(x),g(x)]);</tt></b>
+                  x
+(%o5) [f(x) = a %e  - a + 1, g(x) = 
+
+                                                x
+                                   cos(x) + a %e  - a + g(0) - 1]
+(%i6) <b><tt>[%o1,%o2],%o5,diff;</tt></b>
+             x       x      x                x
+(%o6)   [a %e  = a %e , a %e  - cos(x) = a %e  - cos(x)]
+
+</pre></td></tr></table>
+
+<p>もし <code>desolve</code>が解を得られないなら <code>false</code>を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Differential-equations">Differential equations</a>
+ &middot;<a href="maxima_99.html#Category_003a-Laplace-transform">Laplace transform</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ic1"></a>
+</p><dl>
+<dt><a name="index-ic1"></a><u>関数:</u> <b>ic1</b><i> (<var>solution</var>, <var>xval</var>, <var>yval</var>)</i></dt>
+<dd><p>一階微分方程式の初期値問題を解きます。
+ここで <var>solution</var>は <code>ode2</code>が見つけるような方程式の一般解であり、
+<var>xval</var>は独立変数の初期値を形式 <code><var>x</var> = <var>x0</var></code>で与え、
+<var>yval</var>は従属変数の初期値を形式 <code><var>y</var> = <var>y0</var></code>で与えます。
+</p>
+<p>用法の例については <code>ode2</code>を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Differential-equations">Differential equations</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ic2"></a>
+</p><dl>
+<dt><a name="index-ic2"></a><u>関数:</u> <b>ic2</b><i> (<var>solution</var>, <var>xval</var>, <var>yval</var>, <var>dval</var>)</i></dt>
+<dd><p>二階微分方程式の初期値を解きます。
+ここで  <var>solution</var>は <code>ode2</code>が見つけるような方程式の一般解のであり、
+<var>xval</var>は独立変数の初期値を形式 <code><var>x</var> = <var>x0</var></code>で与え、
+<var>yval</var>は従属変数の初期値を形式 <code><var>y</var> = <var>y0</var></code>で与え、
+<var>dval</var>は従属変数の独立変数に関する一階導関数の初期値を形式
+<code>diff(<var>y</var>,<var>x</var>) = <var>dy0</var></code>で与えます。
+(<code>diff</code>はクォートの必要はありません。)
+</p>
+<p>用法の例については <code>ode2</code>を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Differential-equations">Differential equations</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ode2"></a>
+</p><dl>
+<dt><a name="index-ode2"></a><u>関数:</u> <b>ode2</b><i> (<var>eqn</var>, <var>dvar</var>, <var>ivar</var>)</i></dt>
+<dd><p>関数 <code>ode2</code>は一階または二階常微分方程式 (ODE)を解きます。
+３つの引数を取ります:
+<var>eqn</var>で与えられるODE、従属変数 <var>dvar</var>、独立変数 <var>ivar</var>。
+成功した時、従属変数に関する陽解または陰解を返します。
+一階方程式の場合 <code>%c</code>が積分定数を表し、
+二階方程式の場合 <code>%k1</code>と<code>%k2</code>が定数を表します。
+従属変数の独立変数への依存性は、
+<code>desolve</code>の場合のように明示の必要はありませんが、
+独立変数はいつも三番目の引数として与えられなければいけません。
+</p>
+<p>たとえどんな理由でも もし <code>ode2</code>が解を得られなかったら、
+おそらく、エラーメッセージを表示した後 <code>false</code>を返します。
+一階方程式用に実装された方法は、試される順番に、線形、分離、厳密―おそらく因子の積分を要求します―、斉次、ベルヌーイの等式、一般化斉次法、です。
+解ける二階方程式のタイプは、定係数、厳密、定数係数に変換可能な非定数係数線形斉次、
+オイラーまたは等次元方程式、パラメータ変動法で解ける方程式、
+独立変数または従属変数を含まなくて、順に解かれる２つの一階線形方程式に換算できる方程式、
+です。
+</p>
+<p>ODEを解く間、いくつかの変数が純粋に参考目的で設定されます:
+<code>method</code>は使われた解法(例えば、 <code>linear</code>)を示し、
+<code>intfactor</code>は任意の使われた積分因子を示し、
+<code>odeindex</code>はベルヌーイ法または一般化斉次法のインデックスを示し、
+<code>yp</code>はパラメータ変動手法の特殊解を示します。
+</p>
+<p>初期値問題(IVP)を解くためには、
+一階と二階方程式のためには関数 <code>ic1</code>と <code>ic2</code>が利用可能であり、
+二階境界値問題(BVP)を解くためには <code>bc2</code>を使うことができます。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) <b><tt>x^2*'diff(y,x) + 3*y*x = sin(x)/x;</tt></b>
+                      2 dy           sin(x)
+(%o1)                x  -- + 3 x y = ------
+                        dx             x
+(%i2) <b><tt>ode2(%,y,x);</tt></b>
+                             %c - cos(x)
+(%o2)                    y = -----------
+                                  3
+                                 x
+(%i3) <b><tt>ic1(%o2,x=%pi,y=0);</tt></b>
+                              cos(x) + 1
+(%o3)                   y = - ----------
+                                   3
+                                  x
+(%i4) <b><tt>'diff(y,x,2) + y*'diff(y,x)^3 = 0;</tt></b>
+                         2
+                        d y      dy 3
+(%o4)                   --- + y (--)  = 0
+                          2      dx
+                        dx
+(%i5) <b><tt>ode2(%,y,x);</tt></b>
+                      3
+                     y  + 6 %k1 y
+(%o5)                ------------ = x + %k2
+                          6
+(%i6) <b><tt>ratsimp(ic2(%o5,x=0,y=0,'diff(y,x)=2));</tt></b>
+</pre><pre class="example">                             3
+                          2 y  - 3 y
+(%o6)                   - ---------- = x
+                              6
+</pre><pre class="example">(%i7) <b><tt>bc2(%o5,x=0,y=1,x=1,y=3);</tt></b>
+                         3
+                        y  - 10 y       3
+(%o7)                   --------- = x - -
+                            6           2
+
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Differential-equations">Differential equations</a>
+</div></p></dd></dl>
+
+
+<p><a name="Item_003a-Numerical"></a>
+</p><hr size="6">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Differential-Equations" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_22.html#Numerical" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

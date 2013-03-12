@@ -1,0 +1,2304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on 2012年12月月12日 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Maxima 5.29.1 Manual: 26. ctensor</title>
+
+<meta name="description" content="Maxima 5.29.1 Manual: 26. ctensor">
+<meta name="keywords" content="Maxima 5.29.1 Manual: 26. ctensor">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+body
+{
+    color: black;
+    background: white; 
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+h1
+{
+    margin-left: +8%;
+    font-size: 150%;
+    font-family: sans-serif
+}
+
+h2
+{
+    font-size: 125%;
+    font-family: sans-serif
+}
+
+h3
+{
+    font-size: 100%;
+    font-family: sans-serif
+}
+
+h2,h3,h4,h5,h6 { margin-left: +4%; }
+
+div.textbox
+{
+    border: solid;
+    border-width: thin;
+    /* width: 100%; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em
+}
+
+div.titlebox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: rgb(200,255,255);
+    font-family: sans-serif
+}
+
+div.synopsisbox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+     background: rgb(255,220,255);
+    /*background: rgb(200,255,255); */
+    /* font-family: fixed */
+}
+
+pre.example
+{
+    border: 1px solid gray;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    /* background: rgb(247,242,180); */ /* kind of sandy */
+    /* background: rgb(200,255,255); */ /* sky blue */
+    background-color: #F1F5F9; /* light blue-gray */
+    /* font-family: "Lucida Console", monospace */
+}
+
+div.spacerbox
+{
+    border: none;
+    padding-top: 2em;
+    padding-bottom: 2em
+}
+
+div.image
+{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+div.categorybox
+{
+    border: 1px solid gray;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: rgb(247,242,220);
+}
+
+
+-->
+</style>
+
+<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<script type="text/javascript"><!--
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-510249-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+--></script>
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="ctensor"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="maxima_25.html#Reserved-words" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-ctensor" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_25.html#itensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_27.html#atensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="ctensor-1"></a>
+<h1 class="chapter">26. ctensor</h1>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Introduction-to-ctensor">26.1 Introduction to ctensor</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-ctensor">26.2 Functions and Variables for ctensor</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<p><a name="Item_003a-Introduction-to-ctensor"></a>
+</p><hr size="6">
+<a name="Introduction-to-ctensor"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#ctensor" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-ctensor" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#ctensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#ctensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_27.html#atensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Introduction-to-ctensor-1"></a>
+<h2 class="section">26.1 Introduction to ctensor</h2>
+
+<p><code>ctensor</code>は成分テンソル操作パッケージです。
+<code>ctensor</code>パッケージを使うには <code>load(ctensor)</code>とタイプしてください。
+<code>ctensor</code>と対話的セッションを始めるには <code>csetup()</code>とタイプしてください。
+最初に多様体の次元を指定するよう尋ねられます。
+もし次元が2, 3, 4のいずれかなら、
+座標のリストがそれぞれ <code>[x,y]</code>, <code>[x,y,z]</code>, <code>[x,y,z,t]</code>に設定されます。
+これらの名前は、座標の新しいリストを(以下で記述する)変数
+<code>ct_coords</code>に割り当てることで変えることができ、ユーザーはこれについて尋ねられます。
+座標名が他のオブジェクト定義と衝突することを避けるように注意を払わなければいけません。
+</p>
+<p>次に、ユーザーは計量を直接、または順序位置
+(ordinal position)を指定してファイルから入力します。
+計量は行列 <code>lg</code>に保存されます。
+最後に、計量の逆元が計算され、行列 <code>ug</code>に保存されます。
+すべての計算を冪級数で実行するオプションがあります。
+</p>
+<p>サンプルプロトコルは、
+例として、 (Schwarzschild解に至る) Einsteinの真空方程式を導出する問題に適用される
+静的な球対称計量(標準座標)に関して、以下のように開始されます。
+<code>ctensor</code>の関数の多くは例のように標準計量に対して表示されます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(ctensor);
+(%o1)      /share/tensor/ctensor.mac
+(%i2) csetup();
+Enter the dimension of the coordinate system:
+4;
+Do you wish to change the coordinate names?
+n;
+Do you want to
+1. Enter a new metric?
+
+2. Enter a metric from a file?
+
+3. Approximate a metric with a Taylor series?
+1;
+
+Is the matrix  1. Diagonal  2. Symmetric  3. Antisymmetric  4. General
+Answer 1, 2, 3 or 4
+1;
+Row 1 Column 1:
+a;
+Row 2 Column 2:
+x^2;
+Row 3 Column 3:
+x^2*sin(y)^2;
+Row 4 Column 4:
+-d;
+
+Matrix entered.
+Enter functional dependencies with the DEPENDS function or 'N' if none
+depends([a,d],x);
+Do you wish to see the metric?
+y;
+                          [ a  0       0        0  ]
+                          [                        ]
+                          [     2                  ]
+                          [ 0  x       0        0  ]
+                          [                        ]
+                          [         2    2         ]
+                          [ 0  0   x  sin (y)   0  ]
+                          [                        ]
+                          [ 0  0       0       - d ]
+(%o2)                                done
+(%i3) christof(mcs);
+                                            a
+                                             x
+(%t3)                          mcs        = ---
+                                  1, 1, 1   2 a
+
+                                             1
+(%t4)                           mcs        = -
+                                   1, 2, 2   x
+
+                                             1
+(%t5)                           mcs        = -
+                                   1, 3, 3   x
+
+                                            d
+                                             x
+(%t6)                          mcs        = ---
+                                  1, 4, 4   2 d
+
+                                              x
+(%t7)                          mcs        = - -
+                                  2, 2, 1     a
+
+                                           cos(y)
+(%t8)                         mcs        = ------
+                                 2, 3, 3   sin(y)
+
+                                               2
+                                          x sin (y)
+(%t9)                      mcs        = - ---------
+                              3, 3, 1         a
+
+(%t10)                   mcs        = - cos(y) sin(y)
+                            3, 3, 2
+
+                                            d
+                                             x
+(%t11)                         mcs        = ---
+                                  4, 4, 1   2 a
+(%o11)                               done
+
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Tensors">Tensors</a>
+ &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+<p><a name="Item_003a-Functions-and-Variables-for-ctensor"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-ctensor"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-ctensor" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Initialization-and-setup" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#ctensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#ctensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_27.html#atensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="Functions-and-Variables-for-ctensor-1"></a>
+<h2 class="section">26.2 Functions and Variables for ctensor</h2>
+
+<hr size="6">
+<a name="Initialization-and-setup"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-ctensor" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#The-tensors-of-curved-space" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#ctensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-ctensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_27.html#atensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">26.2.1 Initialization and setup</h3>
+
+<p><a name="Item_003a-csetup"></a>
+</p><dl>
+<dt><a name="index-csetup"></a><u>関数:</u> <b>csetup</b><i> ()</i></dt>
+<dd><p>パッケージを初期化し、ユーザーに計量を対話的に入力可能にする
+<code>ctensor</code>(成分テンソル)パッケージの関数。
+より詳細は <code>ctensor</code>を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-cmetric"></a>
+</p><dl>
+<dt><a name="index-cmetric"></a><u>関数:</u> <b>cmetric</b><i> (<var>dis</var>)</i></dt>
+<dt><a name="index-cmetric-1"></a><u>関数:</u> <b>cmetric</b><i> ()</i></dt>
+<dd><p>計量の逆元を計算し、将来の計算のためパッケージを設定する
+<code>ctensor</code>(成分テンソル)パッケージの関数。
+</p>
+<p><code>cframe_flag</code>が <code>false</code>なら、
+関数は逆計量 <code>ug</code>を(ユーザー定義の)行列 <code>lg</code>から計算します。
+計量の行列式も計算され、変数 <code>gdet</code>に保存されます。
+更に、パッケージは計量が対角的か調べ、結果に従って <code>diagmetric</code>の値を設定します。
+オプション引数 <var>dis</var>が渡されて、それが <code>false</code>でないなら、
+ユーザーは計量の逆元を見るように促されます。
+</p>
+<p><code>cframe_flag</code>が <code>true</code>なら、
+関数は <code>fri</code> (逆標構行列)と <code>lfg</code>(標構計量)の値が定義されていると考えます。
+これらから標構行列 <code>fr</code>と逆標構計量 <code>ufg</code>が計算されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ct_005fcoordsys"></a>
+</p><dl>
+<dt><a name="index-ct_005fcoordsys"></a><u>関数:</u> <b>ct_coordsys</b><i> (<var>coordinate_system</var>, <var>extra_arg</var>)</i></dt>
+<dt><a name="index-ct_005fcoordsys-1"></a><u>関数:</u> <b>ct_coordsys</b><i> (<var>coordinate_system</var>)</i></dt>
+<dd><p>あらかじめ定義された座標系と計量を設定します。
+引数 <var>coordinate_system</var>は以下のシンボルのいずれかです:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+ SYMBOL             Dim Coordinates     Description/comments
+ ------------------------------------------------------------------
+ cartesian2d           2  [x,y]             Cartesian 2D 座標系
+ polar                 2  [r,phi]           極座標系
+ elliptic              2  [u,v]             楕円座標系
+ confocalelliptic      2  [u,v]             共焦点楕円座標
+ bipolar               2  [u,v]             二極座標系
+ parabolic             2  [u,v]             放物座標系
+ cartesian3d           3  [x,y,z]           Cartesian 3D 座標系
+ polarcylindrical      3  [r,theta,z]       円筒z極2D
+ ellipticcylindrical   3  [u,v,z]           円筒z楕円2D
+ confocalellipsoidal   3  [u,v,w]           共焦点楕円
+ bipolarcylindrical    3  [u,v,z]           円筒z二極2D
+ paraboliccylindrical  3  [u,v,z]           円筒z放物2D
+ paraboloidal          3  [u,v,phi]         Paraboloidal coords.
+ conical               3  [u,v,w]           円錐座標
+ toroidal              3  [u,v,phi]         環状座標
+ spherical             3  [r,theta,phi]     球座標系
+ oblatespheroidal      3  [u,v,phi]         偏球座標系
+ oblatespheroidalsqrt  3  [u,v,phi]
+ prolatespheroidal     3  [u,v,phi]         長形球座標系
+ prolatespheroidalsqrt 3  [u,v,phi]
+ ellipsoidal           3  [r,theta,phi]     楕円体座標系
+ cartesian4d           4  [x,y,z,t]         Cartesian 4D 座標系
+ spherical4d           4  [r,theta,eta,phi] 球 4D 座標系
+ exteriorschwarzschild 4  [t,r,theta,phi]   Schwarzschild 計量
+ interiorschwarzschild 4  [t,z,u,v]         内部 Schwarzschild 計量
+ kerr_newman           4  [t,r,theta,phi]   荷電軸対称計量
+</pre></td></tr></table>
+
+<p><code>coordinate_system</code>は
+座標変数を含むリストが続く変換関数のリストでもあり得ます。
+例えば、以下のように球計量を指定できます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(ctensor);
+(%o1)       /share/tensor/ctensor.mac
+(%i2) ct_coordsys([r*cos(theta)*cos(phi),r*cos(theta)*sin(phi),
+      r*sin(theta),[r,theta,phi]]);
+(%o2)                                done
+(%i3) lg:trigsimp(lg);
+                           [ 1  0         0        ]
+                           [                       ]
+                           [     2                 ]
+(%o3)                      [ 0  r         0        ]
+                           [                       ]
+                           [         2    2        ]
+                           [ 0  0   r  cos (theta) ]
+(%i4) ct_coords;
+(%o4)                           [r, theta, phi]
+(%i5) dim;
+(%o5)                                  3
+
+</pre></td></tr></table>
+
+<p><code>cframe_flag</code>が <code>true</code>の時、変換関数も使うことができます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(ctensor);
+(%o1)       /share/tensor/ctensor.mac
+(%i2) cframe_flag:true;
+(%o2)                                true
+(%i3) ct_coordsys([r*cos(theta)*cos(phi),r*cos(theta)*sin(phi),
+      r*sin(theta),[r,theta,phi]]);
+(%o3)                                done
+(%i4) fri;
+(%o4)
+ [cos(phi)cos(theta) -cos(phi) r sin(theta) -sin(phi) r cos(theta)]
+ [                                                                ]
+ [sin(phi)cos(theta) -sin(phi) r sin(theta)  cos(phi) r cos(theta)]
+ [                                                                ]
+ [    sin(theta)           r cos(theta)                0          ]
+
+(%i5) cmetric();
+(%o5)                                false
+(%i6) lg:trigsimp(lg);
+                           [ 1  0         0        ]
+                           [                       ]
+                           [     2                 ]
+(%o6)                      [ 0  r         0        ]
+                           [                       ]
+                           [         2    2        ]
+                           [ 0  0   r  cos (theta) ]
+
+</pre></td></tr></table>
+
+<p>オプションの引数 <var>extra_arg</var>は以下のいずれかです:
+</p>
+<p><code>cylindrical</code>は <code>ct_coordsys</code>に追加の極座標を結びつけるよう命じます。
+</p>
+<p><code>minkowski</code>は <code>ct_coordsys</code>に
+負の計量符号を持つ追加の座標を結びつけるよう命じます。
+</p>
+<p><code>all</code>は <code>ct_coordsys</code>に
+計量を設定した後、
+<code>cmetric</code>と <code>christof(false)</code>をコールするよう命じます。
+</p>
+<p>もしグローバル変数 <code>verbose</code>が <code>true</code>に設定されているなら、
+<code>ct_coordsys</code>は、
+<code>cframe_flag</code>の値に依存して
+<code>dim</code>, <code>ct_coords</code>と、 <code>lg</code>か <code>lfg</code>のいずれかと
+<code>fri</code>の値を表示します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-init_005fctensor"></a>
+</p><dl>
+<dt><a name="index-init_005fctensor"></a><u>関数:</u> <b>init_ctensor</b><i> ()</i></dt>
+<dd><p><code>ctensor</code>パッケージを初期化します。
+</p>
+<p><code>init_ctensor</code>関数は<code>ctensor</code>パッケージを再初期化します。
+それは<code>ctensor</code>が使う配列、行列すべてを削除し、フラグすべてをリセットし、
+<code>dim</code>を4にリセットし、標構計量を Lorentz標構にリセットします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+
+<hr size="6">
+<a name="The-tensors-of-curved-space"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Initialization-and-setup" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Taylor-series-expansion" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#ctensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-ctensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_27.html#atensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">26.2.2 The tensors of curved space</h3>
+
+<p><code>ctensor</code>パッケージの
+主な目的は曲がった空間(時間)のテンソル、
+最も顕著には一般相対性理論で使われるテンソルを計算することです。
+</p>
+<p>計量基底が使われる時、
+<code>ctensor</code>は以下のテンソルを計算できます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+ lg  -- ug
+   \      \
+    lcs -- mcs -- ric -- uric
+              \      \       \
+               \      tracer - ein -- lein
+                \
+                 riem -- lriem -- weyl
+                     \
+                      uriem
+
+
+</pre></td></tr></table>
+
+<p><code>ctensor</code>は動標構を使って機能することもできます。
+<code>cframe_flag</code>が <code>true</code>に設定されている時、
+以下のテンソルを計算できます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+ lfg -- ufg
+     \
+ fri -- fr -- lcs -- mcs -- lriem -- ric -- uric
+      \                       |  \      \       \
+       lg -- ug               |   weyl   tracer - ein -- lein
+                              |\
+                              | riem
+                              |
+                              \uriem
+
+</pre></td></tr></table>
+
+<p><a name="Item_003a-christof"></a>
+</p><dl>
+<dt><a name="index-christof"></a><u>関数:</u> <b>christof</b><i> (<var>dis</var>)</i></dt>
+<dd><p><code>ctensor</code> (成分テンソル)パッケージの関数。
+各種Christoffel記号を計算します。
+引数 <var>dis</var>はどの結果をすぐに表示するか決めます。
+第一種と第二種Christoffel記号は
+それぞれ配列 <code>lcs[i,j,k]</code>と <code>mcs[i,j,k]</code>に格納され、
+最初の 2つの添字に対して対称と定義されます。
+もし <code>christof</code>の引数が <code>lcs</code>か <code>mcs</code>なら、
+それぞれ <code>lcs[i,j,k]</code>か <code>mcs[i,j,k]</code>の固有の非零値が表示されます。
+もし引数が <code>all</code>なら、
+<code>lcs[i,j,k]</code>と <code>mcs[i,j,k]</code>の固有の非零値が表示されます。
+もし引数が <code>false</code>なら要素の表示はされません。
+配列要素 <code>mcs[i,j,k]</code>は最後の添字が反変であるような方法で定義されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ricci"></a>
+</p><dl>
+<dt><a name="index-ricci"></a><u>関数:</u> <b>ricci</b><i> (<var>dis</var>)</i></dt>
+<dd><p><code>ctensor</code> (成分テンソル)パッケージの関数。
+<code>ricci</code>は Ricciテンソルの共変(対称)成分 <code>ric[i,j]</code>を計算します。
+引数 <var>dis</var>が <code>true</code>なら非零成分が表示されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-uricci"></a>
+</p><dl>
+<dt><a name="index-uricci"></a><u>関数:</u> <b>uricci</b><i> (<var>dis</var>)</i></dt>
+<dd><p>この関数は最初にRicciテンソルの共変成分 <code>ric[i,j]</code>を計算します。
+そして混合 Ricciテンソルが反変計量テンソルを使って計算されます。
+もし引数 <var>dis</var>の値が <code>true</code>なら
+これらの(添字 <code>i</code>は共変で、添字 <code>j</code>は反変の)混合成分 <code>uric[i,j]</code> 
+は直接表示されます。
+そうでないなら、
+<code>ricci(false)</code>は結果を表示することなく、単に配列
+<code>uric[i,j]</code>の要素を計算します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-scurvature"></a>
+</p><dl>
+<dt><a name="index-scurvature"></a><u>関数:</u> <b>scurvature</b><i> ()</i></dt>
+<dd><p>与えられた計量を持つ Riemannian多様体の
+(Ricciテンソルを縮約することで得られる)スカラ曲率を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-einstein"></a>
+</p><dl>
+<dt><a name="index-einstein"></a><u>関数:</u> <b>einstein</b><i> (<var>dis</var>)</i></dt>
+<dd><p><code>ctensor</code> (成分テンソル)パッケージの関数。
+<code>einstein</code>は、
+(関数 <code>christof</code>と <code>ricci</code>を使って)
+Christoffel記号と Ricciテンソルを得られた後、
+混合 Einsteinテンソルを計算します。
+もし引数 <var>dis</var>が <code>true</code>なら、
+混合 Einsteinテンソル <code>ein[i,j]</code>の非零値が表示されます。
+ここで <code>j</code>は反変添字です。
+変数 <code>rateinstein</code>は
+これらの成分上の有理整理をもたらします。
+もし <code>ratfac</code>が <code>true</code>なら、
+成分は因数分解もされます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-leinstein"></a>
+</p><dl>
+<dt><a name="index-leinstein"></a><u>関数:</u> <b>leinstein</b><i> (<var>dis</var>)</i></dt>
+<dd><p>共変 Einsteinテンソル。
+<code>leinstein</code>は
+配列 <code>lein</code>に共変 Einsteinテンソルの値を格納します。
+共変 Einsteinテンソルは、
+計量テンソルを掛けることで
+混合 Einsteinテンソル <code>ein</code>から計算されます。
+もし引数 <var>dis</var>が <code>true</code>なら、
+共変 Einsteinテンソルの非零値が表示されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-riemann"></a>
+</p><dl>
+<dt><a name="index-riemann"></a><u>関数:</u> <b>riemann</b><i> (<var>dis</var>)</i></dt>
+<dd><p><code>ctensor</code> (成分テンソル)パッケージの関数。
+<code>riemann</code>は
+与えられた計量と対応するChristoffel記号から
+Riemann曲率テンソルを計算します。
+以下の添字慣例が使われます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">                l      _l       _l       _l   _m    _l   _m
+ R[i,j,k,l] =  R    = |      - |      + |    |   - |    |
+                ijk     ij,k     ik,j     mk   ij    mj   ik
+</pre></td></tr></table>
+
+<p>この表記法は
+<code>itensor</code>パッケージとその <code>icurvature</code>関数で使われる表記法と
+一致しています。
+もしオプション引数 <var>dis</var>が <code>true</code>なら、
+固有の非零成分 <code>riem[i,j,k,l]</code>が表示されます。
+Einsteinテンソルと同様に
+ユーザーが設定する様々なスイッチが
+Riemannテンソルの成分の整理を制御します。
+もし <code>ratriemann</code>が <code>true</code>なら、
+有理整理がされます。
+もし <code>ratfac</code>が <code>true</code>なら、
+成分のそれぞれは因数分解もされます。
+</p>
+<p>もし変数 <code>cframe_flag</code>が <code>false</code>なら、
+Riemannテンソルは
+Christoffel記号から直接計算されます。
+もし <code>cframe_flag</code>が <code>true</code>なら、
+共変 Riemannテンソルは
+標構場係数から最初に計算されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-lriemann"></a>
+</p><dl>
+<dt><a name="index-lriemann"></a><u>関数:</u> <b>lriemann</b><i> (<var>dis</var>)</i></dt>
+<dd><p>共変 Riemannテンソル (<code>lriem[]</code>).
+</p>
+<p>配列 <code>lriem</code>として
+共変 Riemannテンソルを計算します。
+引数 <var>dis</var>が <code>true</code>なら固有の非零値が表示されます。
+</p>
+<p>変数 <code>cframe_flag</code>が <code>true</code>なら、
+共変 Riemannテンソルを標構場係数から直接計算します。
+そうでないなら、 (3,1) Riemannテンソルを最初に計算します。
+</p>
+<p>添字順序の情報は <code>riemann</code>を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-uriemann"></a>
+</p><dl>
+<dt><a name="index-uriemann"></a><u>関数:</u> <b>uriemann</b><i> (<var>dis</var>)</i></dt>
+<dd><p>配列要素 <code>uriem[i,j,k,l]</code>として Riemann曲率テンソルの反変成分を計算します。
+<var>dis</var>が <code>true</code>ならこれらを表示します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-rinvariant"></a>
+</p><dl>
+<dt><a name="index-rinvariant"></a><u>関数:</u> <b>rinvariant</b><i> ()</i></dt>
+<dd><p>テンソル
+</p><table><tr><td>&nbsp;</td><td><pre class="example">lriem[i,j,k,l]*uriem[i,j,k,l].
+</pre></td></tr></table>
+<p>を縮約することで得られる Kretschmann不変量 (<code>kinvariant</code>)を形成します。
+</p>
+<p>このオブジェクトは非常に大きくなるかもしれないので、自動で整理はしません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-weyl"></a>
+</p><dl>
+<dt><a name="index-weyl"></a><u>関数:</u> <b>weyl</b><i> (<var>dis</var>)</i></dt>
+<dd><p>Weylの共形テンソルを計算します。
+引数 <var>dis</var>が <code>true</code>なら、
+非零成分 <code>weyl[i,j,k,l]</code>をユーザーに示します。
+そうでないなら、これらの成分を単に計算し、格納します。
+スイッチ <code>ratweyl</code>が <code>true</code>に設定されているなら、
+成分を有理整理します;
+<code>ratfac</code>が <code>true</code>なら結果を因数分解もします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<hr size="6">
+<a name="Taylor-series-expansion"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#The-tensors-of-curved-space" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Frame-fields" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#ctensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-ctensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_27.html#atensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">26.2.3 Taylor series expansion</h3>
+
+<p><code>ctensor</code>パッケージは
+結果が Taylor級数近似であると仮定することで、結果を切り詰める機能を持ちます。
+この振る舞いは <code>ctayswitch</code>変数で制御されます;
+trueに設定されている時、 結果を整理する際に
+<code>ctensor</code>は内部的に関数 <code>ctaylor</code>を利用します。
+</p>
+<p>以下の <code>ctensor</code>関数が <code>ctaylor</code>関数を呼び出します:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+    Function     Comments
+    ---------------------------------
+    christof()   For mcs only
+    ricci()
+    uricci()
+    einstein()
+    riemann()
+    weyl()
+    checkdiv()
+</pre></td></tr></table>
+
+<p><a name="Item_003a-ctaylor"></a>
+</p><dl>
+<dt><a name="index-ctaylor"></a><u>関数:</u> <b>ctaylor</b><i> ()</i></dt>
+<dd>
+<p><code>ctaylor</code>関数は、
+<code>taylor</code>を使ってその後<code>ratdisrep</code>をコールすることで
+引数をTaylor級数に変換することで、
+引数を切り詰めます。
+これは展開変数 <code>ctayvar</code>に関してより高い項を落とす合わせ効果を持ちます。
+落とす項の次数は<code>ctaypov</code>で定義されます;
+級数展開が実行される点は <code>ctaypt</code>で指定されます。
+</p>
+<p>例として、 Minkowski計量の置換である簡単な計量を考えます。
+追加の制約なしでは、対角計量でさえはるかに複雑すぎる Einsteinテンソルの式を生成します:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(ctensor);
+(%o1)       /share/tensor/ctensor.mac
+(%i2) ratfac:true;
+(%o2)                                true
+(%i3) derivabbrev:true;
+(%o3)                                true
+(%i4) ct_coords:[t,r,theta,phi];
+(%o4)                         [t, r, theta, phi]
+(%i5) lg:matrix([-1,0,0,0],[0,1,0,0],[0,0,r^2,0],
+                [0,0,0,r^2*sin(theta)^2]);
+                        [ - 1  0  0         0        ]
+                        [                            ]
+                        [  0   1  0         0        ]
+                        [                            ]
+(%o5)                   [          2                 ]
+                        [  0   0  r         0        ]
+                        [                            ]
+                        [              2    2        ]
+                        [  0   0  0   r  sin (theta) ]
+(%i6) h:matrix([h11,0,0,0],[0,h22,0,0],[0,0,h33,0],[0,0,0,h44]);
+                            [ h11   0    0    0  ]
+                            [                    ]
+                            [  0   h22   0    0  ]
+(%o6)                       [                    ]
+                            [  0    0   h33   0  ]
+                            [                    ]
+                            [  0    0    0   h44 ]
+(%i7) depends(l,r);
+(%o7)                               [l(r)]
+(%i8) lg:lg+l*h;
+      [ h11 l - 1      0          0                 0            ]
+      [                                                          ]
+      [     0      h22 l + 1      0                 0            ]
+      [                                                          ]
+(%o8) [                        2                                 ]
+      [     0          0      r  + h33 l            0            ]
+      [                                                          ]
+      [                                    2    2                ]
+      [     0          0          0       r  sin (theta) + h44 l ]
+(%i9) cmetric(false);
+(%o9)                                done
+(%i10) einstein(false);
+(%o10)                               done
+(%i11) ntermst(ein);
+[[1, 1], 62]
+[[1, 2], 0]
+[[1, 3], 0]
+[[1, 4], 0]
+[[2, 1], 0]
+[[2, 2], 24]
+[[2, 3], 0]
+[[2, 4], 0]
+[[3, 1], 0]
+[[3, 2], 0]
+[[3, 3], 46]
+[[3, 4], 0]
+[[4, 1], 0]
+[[4, 2], 0]
+[[4, 3], 0]
+[[4, 4], 46]
+(%o12)                               done
+
+</pre></td></tr></table>
+
+<p>しかし、もしこの例を変数 <code>l</code>に対して線形という近似として
+再計算するなら、もっと簡潔な式を得ます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i14) ctayswitch:true;
+(%o14)                               true
+(%i15) ctayvar:l;
+(%o15)                                 l
+(%i16) ctaypov:1;
+(%o16)                                 1
+(%i17) ctaypt:0;
+(%o17)                                 0
+(%i18) christof(false);
+(%o18)                               done
+(%i19) ricci(false);
+(%o19)                               done
+(%i20) einstein(false);
+(%o20)                               done
+(%i21) ntermst(ein);
+[[1, 1], 6]
+[[1, 2], 0]
+[[1, 3], 0]
+[[1, 4], 0]
+[[2, 1], 0]
+[[2, 2], 13]
+[[2, 3], 2]
+[[2, 4], 0]
+[[3, 1], 0]
+[[3, 2], 2]
+[[3, 3], 9]
+[[3, 4], 0]
+[[4, 1], 0]
+[[4, 2], 0]
+[[4, 3], 0]
+[[4, 4], 9]
+(%o21)                               done
+(%i22) ratsimp(ein[1,1]);
+                         2      2  4               2     2
+(%o22) - (((h11 h22 - h11 ) (l )  r  - 2 h33 l    r ) sin (theta)
+                              r               r r
+
+                            2               2      4    2
+              - 2 h44 l    r  - h33 h44 (l ) )/(4 r  sin (theta))
+                       r r                r
+
+
+
+</pre></td></tr></table>
+
+<p>例えば、重力源から遠く、弱い場極限で取り組む時に
+この機能が役に立つかもしれません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+
+<hr size="6">
+<a name="Frame-fields"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Taylor-series-expansion" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Algebraic-classification" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#ctensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-ctensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_27.html#atensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">26.2.4 Frame fields</h3>
+
+<p>変数 <code>cframe_flag</code>を trueに設定している時、
+<code>ctensor</code>パッケージは動標構 (moving frame)を使って計算を実行します。
+</p>
+<p><a name="Item_003a-frame_005fbracket"></a>
+</p><dl>
+<dt><a name="index-frame_005fbracket"></a><u>関数:</u> <b>frame_bracket</b><i> (<var>fr</var>, <var>fri</var>, <var>diagframe</var>)</i></dt>
+<dd><p>標構(frame)ブラケット (<code>fb[]</code>)。
+</p>
+<p>以下の定義に従って標構ブラケットを計算します:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">   c          c         c        d     e
+ifb   = ( ifri    - ifri    ) ifr   ifr
+   ab         d,e       e,d      a     b
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<hr size="6">
+<a name="Algebraic-classification"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Frame-fields" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Torsion-and-nonmetricity" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#ctensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-ctensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_27.html#atensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">26.2.5 Algebraic classification</h3>
+
+<p><code>ctensor</code>の(2004年11月時点で)新しい特長は 4次元時空計量の
+Petrov分類を計算する能力です。
+この機能のデモンストレーションは、
+ファイル <code>share/tensor/petrov.dem</code>を参照してください。
+</p>
+<p><a name="Item_003a-nptetrad"></a>
+</p><dl>
+<dt><a name="index-nptetrad"></a><u>関数:</u> <b>nptetrad</b><i> ()</i></dt>
+<dd><p>Newman-Penroseヌルテトラド(null tetrad) (<code>np</code>)と上付き添字対応物
+(<code>npi</code>)を計算します。
+例えば <code>petrov</code>を参照してください。
+</p>
+<p>ヌルテトラドは計量符号
+(-,+,+,+)を持つ4次元直交標構計量が使われいるという仮定の上で構成されます。
+以下のように、ヌルテトラドの成分は逆標構行列に関係します:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+np  = (fri  + fri ) / sqrt(2)
+  1       1      2
+
+np  = (fri  - fri ) / sqrt(2)
+  2       1      2
+
+np  = (fri  + %i fri ) / sqrt(2)
+  3       3         4
+
+np  = (fri  - %i fri ) / sqrt(2)
+  4       3         4
+
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+
+<dl>
+<dt><a name="index-psi-1"></a><u>関数:</u> <b>psi</b><i> (<var>dis</var>)</i></dt>
+<dd><p>5つの Newman-Penrose係数 <code>psi[0]</code>...<code>psi[4]</code>を計算します。
+<code>dis</code>が <code>true</code>に設定されているなら係数を表示します。
+例は <code>petrov</code>を参照してください。
+</p>
+<p>これらの係数は座標基底に関して、Weylテンソルから計算されます。
+もし標構基底が使われるなら、最初に Weylテンソルを座標基底に変換します。
+これは計算量の多い手続きになるかもしれません。
+この理由で、いくつかの場合、 Weylテンソルを計算する前に
+まず座標基底を使うのがより都合がいいかも知れません。
+しかし、
+Newman-Penroseヌルテトラドを構成することは標構基底を要求することに注意してください。
+それ故に、重要な一連の計算は標構基底で始めることができます。
+標構基底は、後で (<code>cmetric</code>が自動的に計算する) <code>lg</code>と
+<code>ug</code>を計算するのに使われます。
+この時点で、 Christoffel記号を計算し始める前に
+<code>cframe_flag</code>を falseに設定することで
+座標基底に戻ることができます。
+後の段階で標構基底に変えると、
+標構基底で計算したいくつか、座標基底でのいくつかと
+2つを識別する方法がないまま、テンソルの混ざった状態で終わるかもしれないので、
+矛盾する結果をもたらすかもしれません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-petrov"></a>
+</p><dl>
+<dt><a name="index-petrov"></a><u>関数:</u> <b>petrov</b><i> ()</i></dt>
+<dd><p><code>psi[0]</code>...<code>psi[4]</code>で特徴付けられる計量の Petrov分類を計算します。
+</p>
+<p>例えば、以下は Kerr計量の Petrov分類を得る方法を例示します:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(ctensor);
+(%o1)       /share/tensor/ctensor.mac
+(%i2) (cframe_flag:true,gcd:spmod,ctrgsimp:true,ratfac:true);
+(%o2)                                true
+(%i3) ct_coordsys(exteriorschwarzschild,all);
+(%o3)                                done
+(%i4) ug:invert(lg)$
+(%i5) weyl(false);
+(%o5)                                done
+(%i6) nptetrad(true);
+(%t6) np =
+
+[ sqrt(r - 2 m)           sqrt(r)                                 ]
+[---------------   ---------------------    0            0        ]
+[sqrt(2) sqrt(r)   sqrt(2) sqrt(r - 2 m)                          ]
+[                                                                 ]
+[ sqrt(r - 2 m)            sqrt(r)                                ]
+[---------------  - ---------------------   0            0        ]
+[sqrt(2) sqrt(r)    sqrt(2) sqrt(r - 2 m)                         ]
+[                                                                 ]
+[                                          r      %i r sin(theta) ]
+[       0                    0          -------   --------------- ]
+[                                       sqrt(2)       sqrt(2)     ]
+[                                                                 ]
+[                                          r       %i r sin(theta)]
+[       0                    0          -------  - ---------------]
+[                                       sqrt(2)        sqrt(2)    ]
+
+                             sqrt(r)         sqrt(r - 2 m)
+(%t7) npi = matrix([- ---------------------,---------------, 0, 0],
+                      sqrt(2) sqrt(r - 2 m) sqrt(2) sqrt(r)
+
+          sqrt(r)            sqrt(r - 2 m)
+[- ---------------------, - ---------------, 0, 0],
+   sqrt(2) sqrt(r - 2 m)    sqrt(2) sqrt(r)
+
+           1               %i
+[0, 0, ---------, --------------------],
+       sqrt(2) r  sqrt(2) r sin(theta)
+
+           1                 %i
+[0, 0, ---------, - --------------------])
+       sqrt(2) r    sqrt(2) r sin(theta)
+
+(%o7)                                done
+(%i7) psi(true);
+(%t8)                              psi  = 0
+                                      0
+
+(%t9)                              psi  = 0
+                                      1
+
+                                          m
+(%t10)                             psi  = --
+                                      2    3
+                                          r
+
+(%t11)                             psi  = 0
+                                      3
+
+(%t12)                             psi  = 0
+                                      4
+(%o12)                               done
+(%i12) petrov();
+(%o12)                                 D
+
+</pre></td></tr></table>
+
+<p>Petrov分類関数は以下の文献で発表されたアルゴリズムに基づいています。
+</p>
+<p>&quot;Classifying geometries in general relativity: III Classification in practice&quot;
+by Pollney, Skea, and d&rsquo;Inverno, Class. Quant. Grav. 17 2885-2902 (2000).
+</p>
+<p>いくつかの簡単なテストケースを除いて、
+2004年12月19日時点、実装はテストされていなく、エラーを含みそうです。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+
+<hr size="6">
+<a name="Torsion-and-nonmetricity"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Algebraic-classification" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Miscellaneous-features" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#ctensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-ctensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_27.html#atensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">26.2.6 Torsion and nonmetricity</h3>
+
+<p><code>ctensor</code>はねじれ係数と非計量性係数を計算し、接続係数内に含める能力を持ちます。
+</p>
+<p>ユーザーが供給するテンソル <code>tr</code>からねじれ係数を計算します。
+<code>tr</code>は階数 (2,1)テンソルでなければいけません。
+<code>tr</code>から、ねじれ係数 <code>kt</code>は以下の公式に従って計算されます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+              m          m      m
+       - g  tr   - g   tr   - tr   g
+          im  kj    jm   ki     ij  km
+kt   = -------------------------------
+  ijk                 2
+
+
+  k     km
+kt   = g   kt
+  ij         ijm
+
+</pre></td></tr></table>
+
+<p>混合添字テンソルだけを計算し、配列 <code>kt</code>に格納することに注意してください。
+</p>
+<p>非計量性係数はユーザーが供給する非計量性ベクトル <code>nm</code>から計算します。
+<code>nm</code>から非計量性係数 <code>nmc</code>は以下のように計算されます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+             k    k        km
+       -nm  D  - D  nm  + g   nm  g
+   k      i  j    i   j         m  ij
+nmc  = ------------------------------
+   ij                2
+
+</pre></td></tr></table>
+
+<p>ここで Dは Kroneckerのデルタを表します。
+</p>
+<p><code>ctorsion_flag</code>が <code>true</code>に設定されている時、
+<code>kt</code>の値が <code>christof</code>で計算された混合添字付き接続係数から引かれ、
+<code>mcs</code>に格納されます。
+同様に、もし <code>cnonmet_flag</code>が <code>true</code>に設定されているなら、
+<code>nmc</code>の値が混合添字付き接続係数から引かれます。
+</p>
+<p>もし必要なら、 <code>christof</code>は、<code>kt</code>と <code>nm</code>を計算するために
+関数 <code>contortion</code>と <code>nonmetricity</code>をコールします。
+</p>
+<p><a name="Item_003a-contortion"></a>
+</p><dl>
+<dt><a name="index-contortion"></a><u>関数:</u> <b>contortion</b><i> (<var>tr</var>)</i></dt>
+<dd>
+<p>ねじれテンソル <var>tr</var>から (2,1)コントーション (contortion)係数を計算します。
+</p>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-nonmetricity"></a>
+</p><dl>
+<dt><a name="index-nonmetricity"></a><u>関数:</u> <b>nonmetricity</b><i> (<var>nm</var>)</i></dt>
+<dd>
+<p>非計量性ベクトル <var>nm</var>から (2,1)非計量性係数を計算します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+
+
+<hr size="6">
+<a name="Miscellaneous-features"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Torsion-and-nonmetricity" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Utility-functions" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#ctensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-ctensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_27.html#atensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">26.2.7 Miscellaneous features</h3>
+
+<p><a name="Item_003a-ctransform"></a>
+</p><dl>
+<dt><a name="index-ctransform"></a><u>関数:</u> <b>ctransform</b><i> (<var>M</var>)</i></dt>
+<dd><p>任意の平方対称行列 <var>M</var>上で座標変換を実行する
+<code>ctensor</code> (成分テンソル)パッケージの関数。
+ユーザーは変換を定義する関数を入力しなければいけません。
+(以前 <code>transform</code>と呼ばれていました。)
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-findde"></a>
+</p><dl>
+<dt><a name="index-findde"></a><u>関数:</u> <b>findde</b><i> (<var>A</var>, <var>n</var>)</i></dt>
+<dd>
+<p><var>n</var>次元の平方配列 <var>A</var>要素に対応しただ1つに定まる微分方程式(式)のリストを返します。
+現在、 <var>n</var>は 2か 3を指定できます
+<code>deindex</code>はこれらのただ1つに定まる微分方程式に従う
+<var>A</var>の添字を含むグローバルリストです。
+2次元配列である Einsteinテンソル (<code>ein</code>)に関して、
+もし以下の例で計量に関して計算するなら、
+<code>findde</code>は以下の独立微分方程式を与えます:
+</p>
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(ctensor);
+(%o1)       /share/tensor/ctensor.mac
+(%i2) derivabbrev:true;
+(%o2)                                true
+(%i3) dim:4;
+(%o3)                                  4
+(%i4) lg:matrix([a, 0, 0, 0], [ 0, x^2, 0, 0],
+                              [0, 0, x^2*sin(y)^2, 0], [0,0,0,-d]);
+                          [ a  0       0        0  ]
+                          [                        ]
+                          [     2                  ]
+                          [ 0  x       0        0  ]
+(%o4)                     [                        ]
+                          [         2    2         ]
+                          [ 0  0   x  sin (y)   0  ]
+                          [                        ]
+                          [ 0  0       0       - d ]
+(%i5) depends([a,d],x);
+(%o5)                            [a(x), d(x)]
+(%i6) ct_coords:[x,y,z,t];
+(%o6)                            [x, y, z, t]
+(%i7) cmetric();
+(%o7)                                done
+(%i8) einstein(false);
+(%o8)                                done
+(%i9) findde(ein,2);
+                                            2
+(%o9) [d  x - a d + d, 2 a d d    x - a (d )  x - a  d d  x
+        x                     x x         x        x    x
+
+                                              2          2
+                          + 2 a d d   - 2 a  d , a  x + a  - a]
+                                   x       x      x
+(%i10) deindex;
+(%o10)                     [[1, 1], [2, 2], [4, 4]]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-cograd"></a>
+</p><dl>
+<dt><a name="index-cograd"></a><u>関数:</u> <b>cograd</b><i> ()</i></dt>
+<dd><p>スカラ関数の
+共変勾配を計算します。
+<code>contragrad</code>が以下で例示する例のように
+ユーザーは対応するベクトル名を選べます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-contragrad"></a>
+</p><dl>
+<dt><a name="index-contragrad"></a><u>関数:</u> <b>contragrad</b><i> ()</i></dt>
+<dd>
+<p>スカラ関数の反変勾配を計算します。
+Schwarzschild計量に関する以下の例が例示するように
+ユーザーは対応するベクトル名を選べます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(ctensor);
+(%o1)       /share/tensor/ctensor.mac
+(%i2) derivabbrev:true;
+(%o2)                                true
+(%i3) ct_coordsys(exteriorschwarzschild,all);
+(%o3)                                done
+(%i4) depends(f,r);
+(%o4)                               [f(r)]
+(%i5) cograd(f,g1);
+(%o5)                                done
+(%i6) listarray(g1);
+(%o6)                            [0, f , 0, 0]
+                                      r
+(%i7) contragrad(f,g2);
+(%o7)                                done
+(%i8) listarray(g2);
+                               f  r - 2 f  m
+                                r        r
+(%o8)                      [0, -------------, 0, 0]
+                                     r
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+
+<dl>
+<dt><a name="index-dscalar-1"></a><u>関数:</u> <b>dscalar</b><i> ()</i></dt>
+<dd><p>いったん依存性が関数に宣言されれば、スカラ関数のテンソル d&rsquo;Alembert演算子を計算します。
+例えば:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(ctensor);
+(%o1)       /share/tensor/ctensor.mac
+(%i2) derivabbrev:true;
+(%o2)                                true
+(%i3) ct_coordsys(exteriorschwarzschild,all);
+(%o3)                                done
+(%i4) depends(p,r);
+(%o4)                               [p(r)]
+(%i5) factor(dscalar(p));
+</pre><pre class="example">                          2
+                    p    r  - 2 m p    r + 2 p  r - 2 m p
+                     r r           r r        r          r
+(%o5)               --------------------------------------
+                                       2
+                                      r
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-checkdiv"></a>
+</p><dl>
+<dt><a name="index-checkdiv"></a><u>関数:</u> <b>checkdiv</b><i> ()</i></dt>
+<dd>
+<p>ベクトル場(発散)の対応する n個の成分を印字することで
+(最初の添字が共変でなければいけない)混合二階テンソルの共変発散を計算します。
+ここで n = <code>dim</code>です。
+もし関数の引数が <code>g</code>なら、
+Einsteinテンソルの発散が形成され、零にならなければいけません。
+加えて、発散(ベクトル)は配列名 <code>div</code>を与えられます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-cgeodesic"></a>
+</p><dl>
+<dt><a name="index-cgeodesic"></a><u>関数:</u> <b>cgeodesic</b><i> (<var>dis</var>)</i></dt>
+<dd><p><code>ctensor</code> (成分テンソル)パッケージの関数。
+<code>cgeodesic</code>は与えられた計量での運動の測地方程式を計算します。
+それらは配列 <code>geod[i]</code>に格納されます。
+もし引数 <var>dis</var>が <code>true</code>なら、
+これらの方程式が表示されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+
+<p><a name="Item_003a-bdvac"></a>
+</p><dl>
+<dt><a name="index-bdvac"></a><u>関数:</u> <b>bdvac</b><i> (<var>f</var>)</i></dt>
+<dd>
+<p>Brans- Dicke重力理論の真空場の方程式の共変成分を生成します。
+スカラ場は引数 <var>f</var>で指定されます。
+<var>f</var>は、例えば、<code>'p(x)</code>のように、
+関数依存性を持つ(クォートされた)関数名でなければいけません。
+</p>
+<p>二階共変場テンソルの成分は配列 <code>bd</code>で表されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-invariant1"></a>
+</p><dl>
+<dt><a name="index-invariant1"></a><u>関数:</u> <b>invariant1</b><i> ()</i></dt>
+<dd>
+<p>R^2の不変密度に関する混合 Euler- Lagrangeテンソル(場の方程式)を生成します。
+場の方程式は <code>inv1</code>と名付けられた配列の成分です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-invariant2"></a>
+</p><dl>
+<dt><a name="index-invariant2"></a><u>関数:</u> <b>invariant2</b><i> ()</i></dt>
+<dd>
+<p>*** NOT YET IMPLEMENTED ***
+</p>
+<p><code>ric[i,j]*uriem[i,j]</code>の不変密度に関する
+混合 Euler- Lagrangeテンソル(場の方程式)を生成します。
+場の方程式は <code>inv2</code>と名付けられた配列の成分です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+<p><a name="Item_003a-bimetric"></a>
+</p><dl>
+<dt><a name="index-bimetric"></a><u>関数:</u> <b>bimetric</b><i> ()</i></dt>
+<dd>
+<p>*** NOT YET IMPLEMENTED ***
+</p>
+<p>Rosenの二計量(bimetric)理論の場の方程式を生成します。
+場の方程式は <code>rosen</code>と名付けられた配列の成分です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<hr size="6">
+<a name="Utility-functions"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Miscellaneous-features" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Variables-used-by-ctensor" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#ctensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-ctensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_27.html#atensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">26.2.8 Utility functions</h3>
+
+<p><a name="Item_003a-diagmatrixp"></a>
+</p><dl>
+<dt><a name="index-diagmatrixp"></a><u>関数:</u> <b>diagmatrixp</b><i> (<var>M</var>)</i></dt>
+<dd>
+<p>もし <var>M</var>が対角行列か対角 (2D) 配列なら
+<code>true</code>を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+ &middot;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-symmetricp"></a>
+</p><dl>
+<dt><a name="index-symmetricp"></a><u>関数:</u> <b>symmetricp</b><i> (<var>M</var>)</i></dt>
+<dd>
+<p>もし <var>M</var>が対称行列か対称 (2D) 配列なら
+<code>true</code>を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+ &middot;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ntermst"></a>
+</p><dl>
+<dt><a name="index-ntermst"></a><u>関数:</u> <b>ntermst</b><i> (<var>f</var>)</i></dt>
+<dd><p>ユーザーに
+二重に下付き添字されているテンソル(配列) <var>f</var>の「サイズ」のぱっと見を与えます。
+二番目の要素が一番目の要素が指定する成分の NTERMSに対応する2つの要素のリストを印字します。
+この方法で、非零式をすばやく見つけて整理を試みることが可能です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-cdisplay"></a>
+</p><dl>
+<dt><a name="index-cdisplay"></a><u>関数:</u> <b>cdisplay</b><i> (<var>ten</var>)</i></dt>
+<dd><p>多次元配列で表されるように、テンソル <var>ten</var>の要素すべてを表示します。
+他のタイプの変数はもちろん、階数　0と　1のテンソルが
+<code>ldisplay</code>を使ったように表示されます。
+階数　2のテンソルは　2次元行列として表示され、
+より高い階数のテンソルは2次元行列のリストとして表示されます。
+例えば、
+Schwarzschild計量の Riemannテンソルは以下のように見ることができます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(ctensor);
+(%o1)       /share/tensor/ctensor.mac
+(%i2) ratfac:true;
+(%o2)                                true
+(%i3) ct_coordsys(exteriorschwarzschild,all);
+(%o3)                                done
+(%i4) riemann(false);
+(%o4)                                done
+(%i5) cdisplay(riem);
+          [ 0               0                   0           0     ]
+          [                                                       ]
+          [                              2                        ]
+          [      3 m (r - 2 m)   m    2 m                         ]
+          [ 0  - ------------- + -- - ----      0           0     ]
+          [            4          3     4                         ]
+          [           r          r     r                          ]
+          [                                                       ]
+riem    = [                                m (r - 2 m)            ]
+    1, 1  [ 0               0              -----------      0     ]
+          [                                     4                 ]
+          [                                    r                  ]
+          [                                                       ]
+          [                                           m (r - 2 m) ]
+          [ 0               0                   0     ----------- ]
+          [                                                4      ]
+          [                                               r       ]
+
+                                [    2 m (r - 2 m)       ]
+                                [ 0  -------------  0  0 ]
+                                [          4             ]
+                                [         r              ]
+                     riem     = [                        ]
+                         1, 2   [ 0        0        0  0 ]
+                                [                        ]
+                                [ 0        0        0  0 ]
+                                [                        ]
+                                [ 0        0        0  0 ]
+
+                                [         m (r - 2 m)    ]
+                                [ 0  0  - -----------  0 ]
+                                [              4         ]
+                                [             r          ]
+                     riem     = [                        ]
+                         1, 3   [ 0  0        0        0 ]
+                                [                        ]
+                                [ 0  0        0        0 ]
+                                [                        ]
+                                [ 0  0        0        0 ]
+
+                                [            m (r - 2 m) ]
+                                [ 0  0  0  - ----------- ]
+                                [                 4      ]
+                                [                r       ]
+                     riem     = [                        ]
+                         1, 4   [ 0  0  0        0       ]
+                                [                        ]
+                                [ 0  0  0        0       ]
+                                [                        ]
+                                [ 0  0  0        0       ]
+
+                               [       0         0  0  0 ]
+                               [                         ]
+                               [       2 m               ]
+                               [ - ------------  0  0  0 ]
+                    riem     = [    2                    ]
+                        2, 1   [   r  (r - 2 m)          ]
+                               [                         ]
+                               [       0         0  0  0 ]
+                               [                         ]
+                               [       0         0  0  0 ]
+
+             [     2 m                                         ]
+             [ ------------  0        0               0        ]
+             [  2                                              ]
+             [ r  (r - 2 m)                                    ]
+             [                                                 ]
+             [      0        0        0               0        ]
+             [                                                 ]
+  riem     = [                         m                       ]
+      2, 2   [      0        0  - ------------        0        ]
+             [                     2                           ]
+             [                    r  (r - 2 m)                 ]
+             [                                                 ]
+             [                                         m       ]
+             [      0        0        0         - ------------ ]
+             [                                     2           ]
+             [                                    r  (r - 2 m) ]
+
+                                [ 0  0       0        0 ]
+                                [                       ]
+                                [            m          ]
+                                [ 0  0  ------------  0 ]
+                     riem     = [        2              ]
+                         2, 3   [       r  (r - 2 m)    ]
+                                [                       ]
+                                [ 0  0       0        0 ]
+                                [                       ]
+                                [ 0  0       0        0 ]
+
+                                [ 0  0  0       0       ]
+                                [                       ]
+                                [               m       ]
+                                [ 0  0  0  ------------ ]
+                     riem     = [           2           ]
+                         2, 4   [          r  (r - 2 m) ]
+                                [                       ]
+                                [ 0  0  0       0       ]
+                                [                       ]
+                                [ 0  0  0       0       ]
+
+                                      [ 0  0  0  0 ]
+                                      [            ]
+                                      [ 0  0  0  0 ]
+                                      [            ]
+                           riem     = [ m          ]
+                               3, 1   [ -  0  0  0 ]
+                                      [ r          ]
+                                      [            ]
+                                      [ 0  0  0  0 ]
+
+                                      [ 0  0  0  0 ]
+                                      [            ]
+                                      [ 0  0  0  0 ]
+                                      [            ]
+                           riem     = [    m       ]
+                               3, 2   [ 0  -  0  0 ]
+                                      [    r       ]
+                                      [            ]
+                                      [ 0  0  0  0 ]
+
+                               [   m                      ]
+                               [ - -   0   0       0      ]
+                               [   r                      ]
+                               [                          ]
+                               [        m                 ]
+                               [  0   - -  0       0      ]
+                    riem     = [        r                 ]
+                        3, 3   [                          ]
+                               [  0    0   0       0      ]
+                               [                          ]
+                               [              2 m - r     ]
+                               [  0    0   0  ------- + 1 ]
+                               [                 r        ]
+
+                                    [ 0  0  0    0   ]
+                                    [                ]
+                                    [ 0  0  0    0   ]
+                                    [                ]
+                         riem     = [            2 m ]
+                             3, 4   [ 0  0  0  - --- ]
+                                    [             r  ]
+                                    [                ]
+                                    [ 0  0  0    0   ]
+
+                                [       0        0  0  0 ]
+                                [                        ]
+                                [       0        0  0  0 ]
+                                [                        ]
+                     riem     = [       0        0  0  0 ]
+                         4, 1   [                        ]
+                                [      2                 ]
+                                [ m sin (theta)          ]
+                                [ -------------  0  0  0 ]
+                                [       r                ]
+
+                                [ 0        0        0  0 ]
+                                [                        ]
+                                [ 0        0        0  0 ]
+                                [                        ]
+                     riem     = [ 0        0        0  0 ]
+                         4, 2   [                        ]
+                                [         2              ]
+                                [    m sin (theta)       ]
+                                [ 0  -------------  0  0 ]
+                                [          r             ]
+
+                              [ 0  0          0          0 ]
+                              [                            ]
+                              [ 0  0          0          0 ]
+                              [                            ]
+                   riem     = [ 0  0          0          0 ]
+                       4, 3   [                            ]
+                              [                2           ]
+                              [         2 m sin (theta)    ]
+                              [ 0  0  - ---------------  0 ]
+                              [                r           ]
+
+           [        2                                             ]
+           [   m sin (theta)                                      ]
+           [ - -------------         0                0         0 ]
+           [         r                                            ]
+           [                                                      ]
+           [                         2                            ]
+           [                    m sin (theta)                     ]
+riem     = [        0         - -------------         0         0 ]
+    4, 4   [                          r                           ]
+           [                                                      ]
+           [                                          2           ]
+           [                                   2 m sin (theta)    ]
+           [        0                0         ---------------  0 ]
+           [                                          r           ]
+           [                                                      ]
+           [        0                0                0         0 ]
+
+(%o5)                                done
+
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-deleten"></a>
+</p><dl>
+<dt><a name="index-deleten"></a><u>関数:</u> <b>deleten</b><i> (<var>L</var>, <var>n</var>)</i></dt>
+<dd><p><var>n</var>番目の要素を削除した <var>L</var>から成る新しいリストを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<hr size="6">
+<a name="Variables-used-by-ctensor"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Utility-functions" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Reserved-names" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#ctensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-ctensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_27.html#atensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">26.2.9 Variables used by <code>ctensor</code></h3>
+
+
+<p><a name="Item_003a-dim"></a>
+</p><dl>
+<dt><a name="index-dim"></a><u>オプション変数:</u> <b>dim</b></dt>
+<dd><p>デフォルト値: 4
+</p>
+<p><code>ctensor</code> (成分テンソル)パッケージのオプション。
+<code>dim</code>はデフォルト 4の多様体の次元です。
+コマンド <code>dim: n</code>は次元を任意の別の値 <code>n</code>に再設定します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-diagmetric"></a>
+</p><dl>
+<dt><a name="index-diagmetric"></a><u>オプション変数:</u> <b>diagmetric</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>ctensor</code> (成分テンソル)パッケージのオプション。
+もし <code>diagmetric</code>が <code>true</code>なら、
+特殊なルーチンが計量の対角性を考慮して
+(計量テンソルを明示的に含む)幾何的オブジェクトすべてを計算します。
+もちろん、実行時間短縮になります。
+注意: もし対角計量が指定されたら、
+<code>csetup</code>は自動的にこのオプションを設定します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ctrgsimp"></a>
+</p><dl>
+<dt><a name="index-ctrgsimp"></a><u>オプション変数:</u> <b>ctrgsimp</b></dt>
+<dd>
+<p>テンソルを計算する時、三角関数整理を使うようにします。
+現在、 <code>ctrgsimp</code>は動標構を含む計算だけに影響します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+ &middot;<a href="maxima_99.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-cframe_005fflag"></a>
+</p><dl>
+<dt><a name="index-cframe_005fflag"></a><u>オプション変数:</u> <b>cframe_flag</b></dt>
+<dd>
+<p>計算をホロノミック (holonomic)計量と対比して動標構に関係して実行するようにします。
+標構は逆標構配列 <code>fri</code>と標構計量 <code>lfg</code>で定義されます。
+Cartesian標構を使う計算に関して、
+<code>lfg</code>は適切な次元の単位行列でなければいけません;
+Lorentz標構での計算に関して、 <code>lfg</code>は適切な符号を持たなければいけません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ctorsion_005fflag"></a>
+</p><dl>
+<dt><a name="index-ctorsion_005fflag"></a><u>オプション変数:</u> <b>ctorsion_flag</b></dt>
+<dd>
+<p>コントーションテンソルが接続係数の計算に含まれるようにします。
+コントーションテンソル自体はユーザーが提供するテンソル <code>tr</code>から
+<code>contortion</code>によって計算されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-cnonmet_005fflag"></a>
+</p><dl>
+<dt><a name="index-cnonmet_005fflag"></a><u>オプション変数:</u> <b>cnonmet_flag</b></dt>
+<dd>
+<p>非計量性係数が接続係数の計算に含まれるようにします。
+コントーションテンソルはユーザーが提供する非計量性ベクトル <code>nm</code>から
+関数 <code>nonmetricity</code>によって計算されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ctayswitch"></a>
+</p><dl>
+<dt><a name="index-ctayswitch"></a><u>オプション変数:</u> <b>ctayswitch</b></dt>
+<dd>
+<p>もし <code>true</code>に設定されているなら、いくつかの <code>ctensor</code>計算が
+Taylor級数展開を使って実行されるようにします。
+現在、 <code>christof</code>, <code>ricci</code>, <code>uricci</code>, <code>einstein</code>,
+<code>weyl</code>がこの設定を考慮します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ctayvar"></a>
+</p><dl>
+<dt><a name="index-ctayvar"></a><u>オプション変数:</u> <b>ctayvar</b></dt>
+<dd>
+<p><code>ctayswitch</code>が <code>true</code>に設定されている場合、
+Taylor級数展開で使われる変数。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ctaypov"></a>
+</p><dl>
+<dt><a name="index-ctaypov"></a><u>オプション変数:</u> <b>ctaypov</b></dt>
+<dd>
+<p><code>ctayswitch</code>が <code>true</code>に設定されている場合、
+Taylor級数展開で使われる最大べき数
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ctaypt"></a>
+</p><dl>
+<dt><a name="index-ctaypt"></a><u>オプション変数:</u> <b>ctaypt</b></dt>
+<dd>
+<p><code>ctayswitch</code>が <code>true</code>に設定されている場合、
+Taylor級数展開が実行される点。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-gdet"></a>
+</p><dl>
+<dt><a name="index-gdet"></a><u>システム変数:</u> <b>gdet</b></dt>
+<dd>
+<p>計量テンソル <code>lg</code>の行列式。
+<code>cframe_flag</code>が <code>false</code>に設定されている時、
+<code>cmetric</code>が計算します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ratchristof"></a>
+</p><dl>
+<dt><a name="index-ratchristof"></a><u>オプション変数:</u> <b>ratchristof</b></dt>
+<dd>
+<p><code>christof</code>が有理整理を適用するようにします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-rateinstein"></a>
+</p><dl>
+<dt><a name="index-rateinstein"></a><u>オプション変数:</u> <b>rateinstein</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p>もし <code>true</code>なら、
+Einsteinテンソルの非零成分上で有理整理が実行されます;
+もし <code>ratfac</code>が <code>true</code>なら、成分は因数分解もされます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+<p><a name="Item_003a-ratriemann"></a>
+</p><dl>
+<dt><a name="index-ratriemann"></a><u>オプション変数:</u> <b>ratriemann</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p>Riemannテンソルの整理を制御するスイッチの1つです;
+もし <code>true</code>なら、有理整理がされます;
+もし <code>ratfac</code>が <code>true</code>なら、成分それぞれは因数分解もされます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ratweyl"></a>
+</p><dl>
+<dt><a name="index-ratweyl"></a><u>オプション変数:</u> <b>ratweyl</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p>もし <code>true</code>なら、このスイッチは,
+<code>weyl</code>関数が Weylテンソルの値に有理整理を適用するようにします。
+もし <code>ratfac</code>が <code>true</code>なら、成分は因数分解もされます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-lfg"></a>
+</p><dl>
+<dt><a name="index-lfg"></a><u>変数:</u> <b>lfg</b></dt>
+<dd><p>共変標構計量。
+デフォルトでは、符号 (+,+,+,-)を持つ4次元Lorentz標構に初期化されます。
+<code>cframe_flag</code>が <code>true</code>の時使われます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ufg"></a>
+</p><dl>
+<dt><a name="index-ufg"></a><u>変数:</u> <b>ufg</b></dt>
+<dd><p>逆標構計量。
+<code>cframe_flag</code>が <code>true</code>に設定されているなら、
+<code>cmetric</code>がコールされた時 <code>lfg</code>から計算されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-riem"></a>
+</p><dl>
+<dt><a name="index-riem"></a><u>変数:</u> <b>riem</b></dt>
+<dd><p>(3,1) Riemannテンソル。
+関数 <code>riemann</code>が呼び出された時計算されます。
+添字順序についての情報については <code>riemann</code>の記述を参照してください。
+</p>
+<p>もし <code>cframe_flag</code>が <code>true</code>なら、
+<code>riem</code>は共変Riemannテンソル <code>lriem</code>から計算されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-lriem"></a>
+</p><dl>
+<dt><a name="index-lriem"></a><u>変数:</u> <b>lriem</b></dt>
+<dd>
+<p>共変Riemannテンソル。
+<code>lriemann</code>が計算します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-uriem"></a>
+</p><dl>
+<dt><a name="index-uriem"></a><u>変数:</u> <b>uriem</b></dt>
+<dd>
+<p>反変Riemannテンソル。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ric"></a>
+</p><dl>
+<dt><a name="index-ric"></a><u>変数:</u> <b>ric</b></dt>
+<dd>
+<p>混合Ricciテンソル。
+<code>ricci</code>が計算します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-uric"></a>
+</p><dl>
+<dt><a name="index-uric"></a><u>変数:</u> <b>uric</b></dt>
+<dd>
+<p>反変Ricciテンソル。
+<code>ricci</code>が計算します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-lg"></a>
+</p><dl>
+<dt><a name="index-lg"></a><u>変数:</u> <b>lg</b></dt>
+<dd>
+<p>計量テンソル。
+このテンソルは他の計算が実行される前に
+(<code>dim</code>掛け <code>dim</code>行列として)指定されなければいけません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ug"></a>
+</p><dl>
+<dt><a name="index-ug"></a><u>変数:</u> <b>ug</b></dt>
+<dd>
+<p>計量テンソルの逆元。
+<code>cmetric</code>が計算します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+
+<dl>
+<dt><a name="index-weyl-1"></a><u>変数:</u> <b>weyl</b></dt>
+<dd>
+<p>Weylテンソル。
+<code>weyl</code>が計算します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-fb"></a>
+</p><dl>
+<dt><a name="index-fb"></a><u>変数:</u> <b>fb</b></dt>
+<dd>
+<p><code>frame_bracket</code>が計算する標構ブラケット係数。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-kinvariant"></a>
+</p><dl>
+<dt><a name="index-kinvariant"></a><u>変数:</u> <b>kinvariant</b></dt>
+<dd>
+<p>Kretchmann不変量。
+<code>rinvariant</code>が計算します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-np"></a>
+</p><dl>
+<dt><a name="index-np"></a><u>変数:</u> <b>np</b></dt>
+<dd>
+<p>Newman-Penroseヌルテトラド。
+<code>nptetrad</code>が計算します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-npi"></a>
+</p><dl>
+<dt><a name="index-npi"></a><u>変数:</u> <b>npi</b></dt>
+<dd>
+<p>上付き添字 Newman-Penroseヌルテトラド。
+<code>nptetrad</code>が計算します。
+<code>ug.np</code>として定義されます。
+積 <code>np.transpose(npi)</code>は定数です:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i39) trigsimp(np.transpose(npi));
+                              [  0   - 1  0  0 ]
+                              [                ]
+                              [ - 1   0   0  0 ]
+(%o39)                        [                ]
+                              [  0    0   0  1 ]
+                              [                ]
+                              [  0    0   1  0 ]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-tr"></a>
+</p><dl>
+<dt><a name="index-tr"></a><u>変数:</u> <b>tr</b></dt>
+<dd>
+<p>ユーザーが提供するねじれを表す階数3のテンソル。
+<code>contortion</code>が使います。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-kt"></a>
+</p><dl>
+<dt><a name="index-kt"></a><u>変数:</u> <b>kt</b></dt>
+<dd>
+<p>コントーションテンソル。
+<code>contortion</code>が <code>tr</code>から計算します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-nm"></a>
+</p><dl>
+<dt><a name="index-nm"></a><u>変数:</u> <b>nm</b></dt>
+<dd>
+<p>ユーザーが提供する非計量性ベクトル。
+<code>nonmetricity</code>が使います。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-nmc"></a>
+</p><dl>
+<dt><a name="index-nmc"></a><u>変数:</u> <b>nmc</b></dt>
+<dd>
+<p><code>nonmetricity</code>が <code>nm</code>から計算する
+非計量性係数。
+</p>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-tensorkill"></a>
+</p><dl>
+<dt><a name="index-tensorkill"></a><u>システム変数:</u> <b>tensorkill</b></dt>
+<dd>
+<p>テンソルパッケージが初期化されたかを示す変数。
+<code>csetup</code>が設定し使います。
+<code>init_ctensor</code>が再設定します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ct_005fcoords"></a>
+</p><dl>
+<dt><a name="index-ct_005fcoords"></a><u>オプション変数:</u> <b>ct_coords</b></dt>
+<dd><p>デフォルト値: <code>[]</code>
+</p>
+<p><code>ctensor</code> (成分テンソル)パッケージのオプション。
+<code>ct_coords</code>は座標のリストを含みます。
+関数 <code>csetup</code>がコールされる時通常定義される一方、
+割り当て <code>ct_coords: [j1, j2, ..., jn]</code>で座標を再定義できます。
+ここで、 jは新しい座標名です。
+<code>csetup</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p>
+</dd></dl>
+
+<hr size="6">
+<a name="Reserved-names"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Variables-used-by-ctensor" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Changes" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#ctensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-ctensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_27.html#atensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">26.2.10 Reserved names</h3>
+
+<p><code>ctensor</code>パッケージによって以下の名前が内部的に使われます。
+なので再定義してはいけません:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">  Name         Description
+  ---------------------------------------------------------------------
+  _lg()        Evaluates to lfg if frame metric used, lg otherwise
+  _ug()        Evaluates to ufg if frame metric used, ug otherwise
+  cleanup()    Removes items drom the deindex list
+  contract4()  Used by psi()
+  filemet()    Used by csetup() when reading the metric from a file
+  findde1()    Used by findde()
+  findde2()    Used by findde()
+  findde3()    Used by findde()
+  kdelt()      Kronecker-delta (not generalized)
+  newmet()     Used by csetup() for setting up a metric interactively
+  setflags()   Used by init_ctensor()
+  readvalue()
+  resimp()
+  sermet()     Used by csetup() for entering a metric as Taylor-series
+  txyzsum()
+  tmetric()    Frame metric, used by cmetric() when cframe_flag:true
+  triemann()   Riemann-tensor in frame base, used when cframe_flag:true
+  tricci()     Ricci-tensor in frame base, used when cframe_flag:true
+  trrc()       Ricci rotation coefficients, used by christof()
+  yesp()
+</pre></td></tr></table>
+
+
+<hr size="6">
+<a name="Changes"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Reserved-names" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_27.html#atensor" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#ctensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-ctensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_27.html#atensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">26.2.11 Changes</h3>
+
+<p>2004年11月に <code>ctensor</code>パッケージは広範囲に渡って書き直されました。
+多くの関数と変数は、パッケージにMacsymaの商用版との互換性を持たせるために、
+リネームされました。
+</p>
+
+<table><tr><td>&nbsp;</td><td><pre class="example">  New Name     Old Name        Description
+  ---------------------------------------------------------------------
+  ctaylor()    DLGTAYLOR()     Taylor-series expansion of an expression
+  lgeod[]      EM              Geodesic equations
+  ein[]        G[]             Mixed Einstein-tensor
+  ric[]        LR[]            Mixed Ricci-tensor
+  ricci()      LRICCICOM()     Compute the mixed Ricci-tensor
+  ctaypov      MINP            Maximum power in Taylor-series expansion
+  cgeodesic()  MOTION          Compute geodesic equations
+  ct_coords    OMEGA           Metric coordinates
+  ctayvar      PARAM           Taylor-series expansion variable
+  lriem[]      R[]             Covariant Riemann-tensor
+  uriemann()   RAISERIEMANN()  Compute the contravariant Riemann-tensor
+  ratriemann   RATRIEMAN       Rational simplif. of the Riemann-tensor
+  uric[]       RICCI[]         Contravariant Ricci-tensor
+  uricci()     RICCICOM()      Compute the contravariant Ricci-tensor
+  cmetric()    SETMETRIC()     Set up the metric
+  ctaypt       TAYPT           Point for Taylor-series expansion
+  ctayswitch   TAYSWITCH       Taylor-series setting switch
+  csetup()     TSETUP()        Start interactive setup session
+  ctransform() TTRANSFORM()    Interactive coordinate transformation
+  uriem[]      UR[]            Contravariant Riemann-tensor
+  weyl[]       W[]             (3,1) Weyl-tensor
+
+</pre></td></tr></table>
+
+
+<p><a name="Item_003a-atensor"></a>
+</p><hr size="6">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#ctensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_27.html#atensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on 2012年12月月12日 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Maxima 5.29.1 Manual: 72. romberg</title>
+
+<meta name="description" content="Maxima 5.29.1 Manual: 72. romberg">
+<meta name="keywords" content="Maxima 5.29.1 Manual: 72. romberg">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+body
+{
+    color: black;
+    background: white; 
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+h1
+{
+    margin-left: +8%;
+    font-size: 150%;
+    font-family: sans-serif
+}
+
+h2
+{
+    font-size: 125%;
+    font-family: sans-serif
+}
+
+h3
+{
+    font-size: 100%;
+    font-family: sans-serif
+}
+
+h2,h3,h4,h5,h6 { margin-left: +4%; }
+
+div.textbox
+{
+    border: solid;
+    border-width: thin;
+    /* width: 100%; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em
+}
+
+div.titlebox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: rgb(200,255,255);
+    font-family: sans-serif
+}
+
+div.synopsisbox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+     background: rgb(255,220,255);
+    /*background: rgb(200,255,255); */
+    /* font-family: fixed */
+}
+
+pre.example
+{
+    border: 1px solid gray;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    /* background: rgb(247,242,180); */ /* kind of sandy */
+    /* background: rgb(200,255,255); */ /* sky blue */
+    background-color: #F1F5F9; /* light blue-gray */
+    /* font-family: "Lucida Console", monospace */
+}
+
+div.spacerbox
+{
+    border: none;
+    padding-top: 2em;
+    padding-bottom: 2em
+}
+
+div.image
+{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+div.categorybox
+{
+    border: 1px solid gray;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: rgb(247,242,220);
+}
+
+
+-->
+</style>
+
+<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<script type="text/javascript"><!--
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-510249-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+--></script>
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="romberg"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="maxima_71.html#Functions-and-Variables-for-plotdf" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-romberg" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_71.html#plotdf" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_73.html#simplex" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="romberg-1"></a>
+<h1 class="chapter">72. romberg</h1>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-romberg">72.1 Functions and Variables for romberg</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<p><a name="Item_003a-Functions-and-Variables-for-romberg"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-romberg"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#romberg" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_73.html#simplex" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#romberg" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#romberg" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_73.html#simplex" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-and-Variables-for-romberg-1"></a>
+<h2 class="section">72.1 Functions and Variables for romberg</h2>
+
+
+<dl>
+<dt><a name="index-romberg"></a><u>関数:</u> <b>romberg</b><i> (<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</i></dt>
+<dt><a name="index-romberg-1"></a><u>関数:</u> <b>romberg</b><i> (<var>F</var>, <var>a</var>, <var>b</var>)</i></dt>
+<dd>
+<p>Romberg法による数値積分を計算します。
+</p>
+<p><code>romberg(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>は積分
+<code>integrate(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>の概算を返します。
+</p>
+<p><var>expr</var>は、
+<var>x</var>が浮動小数点値にバインドされた時
+浮動小数点値に評価される式でなければいけません。
+</p>
+<p><code>romberg(<var>F</var>, <var>a</var>, <var>b</var>)</code>は積分
+<code>integrate(<var>F</var>(x), x, <var>a</var>, <var>b</var>)</code>の概算を返します。
+ここで、 <code>x</code>は <var>F</var>の名付けられない唯一の引数を表します;
+実際の引数は <code>x</code>と名付けられません。
+<var>F</var>は、引数が浮動小数点値の時、浮動小数点値を返す
+Maximaか Lispの関数でなければいけません。
+<var>F</var>は翻訳またはコンパイルされた Maxima関数を指定することができます。
+</p>
+<p>グローバル変数 <code>rombergabs</code>と <code>rombergtol</code>が
+<code>romberg</code>の精度を決定します。
+<code>romberg</code>は、連続する近似の間の絶対差が 
+<code>rombergabs</code>よりも小さい時か、連続する近似に関する相対差が
+<code>rombergtol</code>よりも小さい時、成功のうちに終了します。
+従って、
+<code>rombergabs</code>が 0.0 (デフォルト)の時、
+相対誤差テストだけが <code>romberg</code>に効果を持ちます。
+</p>
+<p><code>romberg</code>は、
+あきらめる前に、せいぜい <code>rombergit</code>回、ステップサイズを半分にします;
+それゆえ関数評価の最大回数は <code>2^rombergit</code>です。
+もし <code>rombergabs</code>や
+<code>rombergtol</code>によって確立される誤差基準が満たされないなら、
+<code>romberg</code>はエラーメッセージを印字します。
+<code>romberg</code>はいつも、少なくとも <code>rombergmin</code>回の繰り返しを行います;
+これは、被積分関数が振動的な時、見せかけの終了を防ぐつもりの発見的方法です。
+</p>
+<p><code>romberg</code>は、積分変数を特定の値にバインド(する前ではなく)した後、
+被積分関数を繰り返し評価します。
+この評価ポリシーは、多次元積分を計算するための
+<code>romberg</code>の入れ子のコールを可能にします。
+しかしながら、誤差計算は入れ子の積分の誤差を考慮しないので、
+エラーは過小評価されるかもしれません。
+また、多次元問題のために特別に工夫された方法は
+より少ない関数評価で同じ精度をもたらす可能性があります。
+</p>
+<p><code>load(romberg)</code>はこの関数をロードします。
+</p>
+<p><code>QUADPACK</code>、数値積分関数のコレクションも参照してください。
+</p>
+<p>例:
+</p>
+<p>1次元積分。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (romberg);
+(%o1)    /usr/share/maxima/5.11.0/share/numeric/romberg.lisp
+(%i2) f(x) := 1/((x - 1)^2 + 1/100) + 1/((x - 2)^2 + 1/1000)
+              + 1/((x - 3)^2 + 1/200);
+                    1                 1                1
+(%o2) f(x) := -------------- + --------------- + --------------
+                     2    1           2    1            2    1
+              (x - 1)  + ---   (x - 2)  + ----   (x - 3)  + ---
+                         100              1000              200
+(%i3) rombergtol : 1e-6;
+(%o3)                 9.9999999999999995E-7
+(%i4) rombergit : 15;
+(%o4)                          15
+(%i5) estimate : romberg (f(x), x, -5, 5);
+(%o5)                   173.6730736617464
+(%i6) exact : integrate (f(x), x, -5, 5);
+(%o6) 10 sqrt(10) atan(70 sqrt(10))
+ + 10 sqrt(10) atan(30 sqrt(10)) + 10 sqrt(2) atan(80 sqrt(2))
+ + 10 sqrt(2) atan(20 sqrt(2)) + 10 atan(60) + 10 atan(40)
+(%i7) abs (estimate - exact) / exact, numer;
+(%o7)                7.5527060865060088E-11
+</pre></td></tr></table>
+
+<p><code>romberg</code>の入れ子のコールで実装された 2次元積分。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (romberg);
+(%o1)    /usr/share/maxima/5.11.0/share/numeric/romberg.lisp
+(%i2) g(x, y) := x*y / (x + y);
+                                    x y
+(%o2)                   g(x, y) := -----
+                                   x + y
+(%i3) rombergtol : 1e-6;
+(%o3)                 9.9999999999999995E-7
+(%i4) estimate : romberg (romberg (g(x, y), y, 0, x/2), x, 1, 3);
+(%o4)                   0.81930239628356
+(%i5) assume (x &gt; 0);
+(%o5)                        [x &gt; 0]
+(%i6) integrate (integrate (g(x, y), y, 0, x/2), x, 1, 3);
+                                          3
+                                    2 log(-) - 1
+                    9                     2        9
+(%o6)       - 9 log(-) + 9 log(3) + ------------ + -
+                    2                    6         2
+(%i7) exact : radcan (%);
+                    26 log(3) - 26 log(2) - 13
+(%o7)             - --------------------------
+                                3
+(%i8) abs (estimate - exact) / exact, numer;
+(%o8)                1.3711979871851024E-10
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-romberg">Package romberg</a>
+ &middot;<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-rombergabs"></a>
+</p><dl>
+<dt><a name="index-rombergabs"></a><u>オプション変数:</u> <b>rombergabs</b></dt>
+<dd><p>デフォルト値: 0.0
+</p>
+<p>グローバル変数 <code>rombergabs</code>と <code>rombergtol</code>は
+<code>romberg</code>の精度を決定します。
+<code>romberg</code>は、連続する近似の間の絶対差が
+<code>rombergabs</code>よりも小さい時か、連続する近似に関する相対差が
+<code>rombergtol</code>よりも小さい時、成功のうちに終了します。
+従って、 <code>rombergabs</code>が 0.0 (デフォルト)の時、
+相対誤差テストだけが <code>romberg</code>に効果を持ちます。
+</p>
+<p><code>rombergit</code>と <code>rombergmin</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-romberg">Package romberg</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-rombergit"></a>
+</p><dl>
+<dt><a name="index-rombergit"></a><u>オプション変数:</u> <b>rombergit</b></dt>
+<dd><p>デフォルト値: 11
+</p>
+<p><code>romberg</code>は、あきらめる前に、せいぜい
+<code>rombergit</code>回、ステップサイズを半分にします;
+それゆえ、関数評価の最大回数は <code>2^rombergit</code>です。
+<code>romberg</code>はいつも、少なくとも <code>rombergmin</code>回の繰り返しを行います;
+これは、被積分関数が振動的な時、見せかけの終了を防ぐつもりの発見的方法です。
+</p>
+<p><code>rombergabs</code>と <code>rombergtol</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-romberg">Package romberg</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-rombergmin"></a>
+</p><dl>
+<dt><a name="index-rombergmin"></a><u>オプション変数:</u> <b>rombergmin</b></dt>
+<dd><p>デフォルト値: 0
+</p>
+<p><code>romberg</code>はいつも、少なくとも <code>rombergmin</code>回の繰り返しを行います;
+これは、被積分関数が振動的な時、見せかけの終了を防ぐつもりの発見的方法です。
+</p>
+<p><code>rombergit</code>, <code>rombergabs</code>, <code>rombergtol</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-romberg">Package romberg</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-rombergtol"></a>
+</p><dl>
+<dt><a name="index-rombergtol"></a><u>オプション変数:</u> <b>rombergtol</b></dt>
+<dd><p>デフォルト値: 1e-4
+</p>
+<p>グローバル変数 <code>rombergabs</code>と <code>rombergtol</code>は
+<code>romberg</code>の精度を決定されます。
+<code>romberg</code>は、連続する近似の間の絶対差が
+<code>rombergabs</code>よりも小さい時か、連続する近似に関する相対差が
+<code>rombergtol</code>よりも小さい時、成功のうちに終了します。
+従って、 <code>rombergabs</code>が 0.0 (デフォルト)の時、
+相対誤差テストだけが <code>romberg</code>に効果を持ちます。
+</p>
+<p><code>rombergit</code>と <code>rombergmin</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-romberg">Package romberg</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-simplex"></a>
+</p><hr size="6">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#romberg" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_73.html#simplex" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

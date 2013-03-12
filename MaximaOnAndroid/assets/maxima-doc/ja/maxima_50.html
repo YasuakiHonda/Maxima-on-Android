@@ -1,0 +1,714 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on 2012年12月月12日 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Maxima 5.29.1 Manual: 50. dynamics</title>
+
+<meta name="description" content="Maxima 5.29.1 Manual: 50. dynamics">
+<meta name="keywords" content="Maxima 5.29.1 Manual: 50. dynamics">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+body
+{
+    color: black;
+    background: white; 
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+h1
+{
+    margin-left: +8%;
+    font-size: 150%;
+    font-family: sans-serif
+}
+
+h2
+{
+    font-size: 125%;
+    font-family: sans-serif
+}
+
+h3
+{
+    font-size: 100%;
+    font-family: sans-serif
+}
+
+h2,h3,h4,h5,h6 { margin-left: +4%; }
+
+div.textbox
+{
+    border: solid;
+    border-width: thin;
+    /* width: 100%; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em
+}
+
+div.titlebox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: rgb(200,255,255);
+    font-family: sans-serif
+}
+
+div.synopsisbox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+     background: rgb(255,220,255);
+    /*background: rgb(200,255,255); */
+    /* font-family: fixed */
+}
+
+pre.example
+{
+    border: 1px solid gray;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    /* background: rgb(247,242,180); */ /* kind of sandy */
+    /* background: rgb(200,255,255); */ /* sky blue */
+    background-color: #F1F5F9; /* light blue-gray */
+    /* font-family: "Lucida Console", monospace */
+}
+
+div.spacerbox
+{
+    border: none;
+    padding-top: 2em;
+    padding-bottom: 2em
+}
+
+div.image
+{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+div.categorybox
+{
+    border: 1px solid gray;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: rgb(247,242,220);
+}
+
+
+-->
+</style>
+
+<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<script type="text/javascript"><!--
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-510249-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+--></script>
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="dynamics"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="maxima_49.html#Functions" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-dynamics" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_49.html#drawdf" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_51.html#ezunits" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="dynamics-1"></a>
+<h1 class="chapter">50. dynamics</h1>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Introduction-to-dynamics">50.1 Introduction to dynamics</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-dynamics">50.2 Functions and Variables for dynamics</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<p><a name="Item_003a-Introduction-to-dynamics"></a>
+</p><hr size="6">
+<a name="Introduction-to-dynamics"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#dynamics" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-dynamics" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#dynamics" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#dynamics" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_51.html#ezunits" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Introduction-to-dynamics-1"></a>
+<h2 class="section">50.1 Introduction to dynamics</h2>
+
+<p>追加パッケージ <code>dynamics</code>には、
+離散力学系とフラクタルの様々なグラフィックス表現を生成するためのいくつかの関数と、
+微分方程式系を数値的に解くための 4次 Runge-Kutta法の実装が含まれています。
+</p>
+<p>このパッケージの関数を使うには、最初に
+<code>load(&quot;dynamics&quot;)</code>でパッケージをロードしなければいけません。
+</p>
+<p><b>Maxima 5.12で導入された変更</b>
+</p>
+<p>Maxima 5.12以来現在まで dynamicsパッケージは
+グラフを処理するのに関数 <code>plot2d</code>を使います。
+(<code>julia</code>や <code>mandelbrot</code>を除いて)
+グラフィックスを生成するコマンドは <code>plot2d</code>のいかなるオプションも受け付けます。
+オプションには、プロットスタイルや色を使ったり、
+一方の、または両方の軸を対数スケールで表したり、
+様々なグラフィカルインターフェイス全体に渡って変更を加えるものを含みます。
+古いオプション <var>domain</var>, <var>pointsize</var>, <var>xcenter</var>, <var>xradius</var>,
+<var>ycenter</var>, <var>yradius</var>, <var>xaxislabel</var>, <var>yaxislabel</var>は
+この新しいバージョンでは受け付けられません。
+</p>
+<p>現在，すべてのプログラムは、以前のバージョンのように <var>x</var>と <var>y</var>だけでなく、
+任意の変数名を受け付けます。
+２つの要求パラメータが2つのプログラムで変えられました:
+<code>evolution2d</code>は、現在、２つの独立変数を陽に指定するリストを要求し、
+<code>orbits</code>の水平範囲はもはやステップサイズを要求しません;
+範囲は、変数名と最小値、最大値だけを指定しなければいけません;
+ステップ数は、現在、オプション <var>nticks</var>で変えることができます。
+</p>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Dynamical-systems">Dynamical systems</a>
+ &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-dynamics">Package dynamics</a>
+</div></p>
+<p><a name="Item_003a-Functions-and-Variables-for-dynamics"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-dynamics"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-dynamics" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_51.html#ezunits" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#dynamics" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#dynamics" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_51.html#ezunits" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-and-Variables-for-dynamics-1"></a>
+<h2 class="section">50.2 Functions and Variables for dynamics</h2>
+
+<p><a name="Item_003a-chaosgame"></a>
+</p><dl>
+<dt><a name="index-chaosgame"></a><u>関数:</u> <b>chaosgame</b><i> (<code>[[</code><var>x1</var>, <var>y1</var><code>]</code>...<code>[</code><var>xm</var>, <var>ym</var><code>]]</code>, <code>[</code><var>x0</var>, <var>y0</var><code>]</code>, <var>b</var>, <var>n</var>, ..., options, ...);</i></dt>
+<dd>
+<p>いわゆるカオスゲームを実装します:
+初期点 (<var>x0</var>, <var>y0</var>)がプロットされ、
+<var>m</var>個の点 <code>[</code><var>x1</var>, <var>y1</var><code>]</code>...<code>[</code><var>xm</var>,
+<var>ym</var><code>]</code>の１つがランダムに選択されます。
+プロットされる次の点はプロットされた以前の点からランダムに選ばれた点までの線分上で、
+ランダム点からその線分の長さに <var>b</var>を掛けた距離にあります。
+手続きは <var>n</var>回繰り返されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-dynamics">Package dynamics</a>
+ &middot;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-evolution"></a>
+</p><dl>
+<dt><a name="index-evolution"></a><u>関数:</u> <b>evolution</b><i> (<var>F</var>, <var>y0</var>, <var>n</var>, ..., options, ...);</i></dt>
+<dd>
+<p>２次元グラフに、点の水平座標が整数 0, 1, 2, ..., <var>n</var>、
+垂直座標が再帰関係
+</p><table><tr><td>&nbsp;</td><td><pre class="example">        y(n+1) = F(y(n))
+</pre></td></tr></table>
+<p>で定義された数列の対応する値 <var>y(n)</var>である <var>n+1</var>個の点を描きます。
+ここで、初期値 <var>y(0)</var>は <var>y0</var>に等しいです。
+<var>F</var>は１変数にだけ依存する式でなければいけません。
+(例の中では <var>y</var>に依存していますが、他のいかなる変数を使うことができます),
+<var>y0</var>は実数でなければいけなく、 <var>n</var>は正の整数でなければいけません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-dynamics">Package dynamics</a>
+ &middot;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-evolution2d"></a>
+</p><dl>
+<dt><a name="index-evolution2d"></a><u>関数:</u> <b>evolution2d</b><i> (<code>[</code><var>F</var>, <var>G</var><code>]</code>, <code>[</code><var>u</var>, <var>v</var><code>]</code>, <code>[</code><var>u0</var>, <var>y0</var><code>]</code>, <var>n</var>, ..., options, ...);</i></dt>
+<dd>
+<p>再帰関係を伴う二次元離散力学系によって定義された点列の中の最初の
+<var>n+1</var>点を二次元プロットで表示します。
+初期値 <var>u0</var>と <var>v0</var>を持つ
+</p><table><tr><td>&nbsp;</td><td><pre class="example">        u(n+1) = F(u(n), v(n))    v(n+1) = G(u(n), v(n))
+</pre></td></tr></table>
+
+<p><var>F</var>と <var>G</var>は 2変数 <var>u</var>と <var>v</var>のみに依存する式 2つでなければいけません。
+変数はリストの中に明示的に指名されなければいけません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-dynamics">Package dynamics</a>
+ &middot;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ifs"></a>
+</p><dl>
+<dt><a name="index-ifs"></a><u>関数:</u> <b>ifs</b><i> (<code>[</code><var>r1</var>, ..., <var>rm</var><code>]</code>, <code>[</code><var>A1</var>, ..., <var>Am</var><code>]</code>, <code>[[</code><var>x1</var>, <var>y1</var><code>]</code>, ..., <code>[</code><var>xm</var>, <var>ym</var><code>]]</code>, <code>[</code><var>x0</var>, <var>y0</var><code>]</code>, <var>n</var>, ..., options, ...);</i></dt>
+<dd>
+<p>反復関数系法を実装します。
+この方法は関数 <code>chaosgame</code>で記述した方法に似ていますが、
+現在点からランダムに選ばれた点にセグメントを縮める代わりに、
+そのセグメントの2成分はランダムに選ばれた点に対応する 2行 2列行列 <var>Ai</var>を乗算されます。
+</p>
+<p><var>m</var>個のアトラクティブな点の１つのランダムな選択を重み
+<var>r1</var>,...,<var>rm</var>で定義された非均一な確率分布で作ることができます。
+それらの重みは累積形で与えられます;
+例えばもし確率0.2, 0.5, 0.3を持つ3点があるなら、
+重み <var>r1</var>, <var>r2</var>と <var>r3</var>は 2, 7, 10とできます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-dynamics">Package dynamics</a>
+ &middot;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-julia"></a>
+</p><dl>
+<dt><a name="index-julia"></a><u>関数:</u> <b>julia</b><i> (<var>x</var>, <var>y</var>, ...<var>options</var>...)</i></dt>
+<dd>
+<p>複素数 (<var>x</var> + i <var>y</var>)に関する
+Julia集合の表現のグラフィックスファイルを生成します。
+パラメータ <var>x</var>と <var>y</var>は実数でなければいけません。
+ファイルは、
+XPMグラフィックスフォーマットでカレントディレクトリかユーザーディレクトリに生成されます。
+プログラムは走らせるのに数秒かかるかもしれません。
+終了後、生成したファイル名と共にメッセージが印字されます。
+</p>
+<p>Julia集合に属さない点には異なる色が割り当てられます。
+繰り返し回数に従って、その点から始まり、半径2の収束円から動く数列を取ります。
+繰り返しの最大回数はオプション <var>levels</var>で設定されます;
+その回数の繰り返しの後、もし数列がまだ収束円内なら、
+点はオプション <var>color</var>で定義された色で塗られます。
+</p>
+<p>Julia集合に属さない点に使われる色すべては、同じ
+<var>saturation</var>と <var>value</var>を持ちますが、
+<var>hue</var>と (<var>hue</var> + <var>huerange</var>)の間に一様に分布する、違った色相角を持ちます。
+</p>
+<p><var>options</var>はオプションの列です。
+受け付けられるオプションのリストは以下の節で与えられます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-dynamics">Package dynamics</a>
+ &middot;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-mandelbrot"></a>
+</p><dl>
+<dt><a name="index-mandelbrot"></a><u>関数:</u> <b>mandelbrot</b><i> (<var>options</var>)</i></dt>
+<dd>
+<p>Mandelbrot集合の表現のグラフィックスファイルを生成します。
+ファイルは、
+XPMグラフィックスフォーマットでカレントディレクトリかユーザーディレクトリに生成されます。
+プログラムは走らせるのに数秒かかるかもしれません。
+終了後、生成したファイル名と共にメッセージが印字されます。
+</p>
+<p>Mandelbrot集合に属さない点には、異なる色が割り当てられます。
+繰り返し回数に従って、その点から始まり、半径 2の収束円から動く数列を取ります。
+繰り返しの最大回数はオプション <var>levels</var>で設定されます;
+その回数の繰り返しの後、もし数列がまだ収束円内なら、点はオプション
+<var>color</var>で定義された色で塗られます。
+</p>
+<p>Mandelbrot集合に属さない点に使われる色すべては、同じ <var>saturation</var>と
+<var>value</var>を持ちますが、<var>hue</var>と (<var>hue</var> +
+<var>huerange</var>)の間に一様に分布する、違った色相角を持ちます。
+</p>
+<p><var>options</var>はオプションの列です。
+受け付けられるオプションのリストは以下の節で与えられます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-dynamics">Package dynamics</a>
+ &middot;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-orbits"></a>
+</p><dl>
+<dt><a name="index-orbits"></a><u>関数:</u> <b>orbits</b><i> (<var>F</var>, <var>y0</var>, <var>n1</var>, <var>n2</var>, [<var>x</var>, <var>x0</var>, <var>xf</var>, <var>xstep</var>], ...options...);</i></dt>
+<dd>
+<p>パラメータ <var>x</var>を持つ一次元離散力学系の族に関する軌道図を描画します;
+この種の図は一次元離散系の分岐の研究に使われます。
+</p>
+<p>関数 <var>F(y)</var>は、
+関数 <code>evolution</code>の場合と同様に値 <var>y0</var>で始まる数列を定義しますが、
+この場合、その関数は <var>x0</var>から <var>xf</var>までの区間内の値を取り、
+<var>xstep</var>の増分を持つパラメータ <var>x</var>にも依存します。
+パラメータ <var>x</var>に使われるそれぞれの値は水平軸に示されます。
+垂直軸は、数列に <var>n1</var>回の時間発展させた後得られる数列
+<var>y(n1+1)</var>,..., <var>y(n1+n2+1)</var>の <var>n2</var>個の値を示します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-dynamics">Package dynamics</a>
+ &middot;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-rk"></a>
+</p><dl>
+<dt><a name="index-rk"></a><u>関数:</u> <b>rk</b><i> (<var>ODE</var>, <var>var</var>, <var>initial</var>, <var>domain</var>)</i></dt>
+<dt><a name="index-rk-1"></a><u>関数:</u> <b>rk</b><i> ([<var>ODE1</var>,...,<var>ODEm</var>], [<var>v1</var>,...,<var>vm</var>], [<var>init1</var>,...,<var>initm</var>], <var>domain</var>)</i></dt>
+<dd>
+<p>4次の Runge-Kutta法を使って、
+最初の形式は一階常微分方程式一つを数値的に解き、二番目の形式はそれら
+m個の方程式系を解きます。
+<var>var</var>は従属変数を表します。
+<var>ODE</var>は独立変数と従属変数にだけ依存する式でなければいけません。
+そして、独立変数に関する従属変数の導関数を定義します。
+</p>
+<p>独立変数は <code>domain</code>で指定されます。
+それは 4つの要素のリストでなければいけません。
+例えば:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">[t, 0, 10, 0.1]
+</pre></td></tr></table>
+<p>リストの最初の要素は独立変数を特定し、二番目と三番目の要素はその変数の初期値と最終値であり、
+最後の要素はその区間内で使用されるべき増加分を設定します。
+</p>
+<p>もし <var>m</var>この方程式が解かれようとしているなら、
+<var>m</var>個の従属変数 <var>v1</var>, <var>v2</var>, ..., <var>vm</var>が存在しなければいけません。
+それらの変数の初期値は <var>init1</var>, <var>init2</var>, ..., <var>initm</var>となります。
+以前の場合と同様、 <code>domain</code>で定義されたただ 1つの独立変数が残っています。
+<var>ODE1</var>, ..., <var>ODEm</var>は独立変数に関する従属変数それぞれの導関数を定義する式です。
+それらの式に現れるかもしれない変数は独立変数と任意の従属変数だけです。
+従属変数と厳密に同じ順序でリストの中に導関数
+<var>ODE1</var>, ..., <var>ODEm</var>を与えることが重要です;
+例えば、リストの三番目の要素は三番目の従属変数の導関数と解釈されます。
+</p>
+<p>プログラムは
+方程式を独立変数の初期値から最終値まで一定の増加分を使って積分しようとします。
+もしあるステップで従属変数の1つが大きすぎる絶対値を取ったら、積分はその点で中断されます。
+結果は、なされた繰り返しの回数と同じ数の要素を持つリストです。
+結果リストの中のそれぞれの要素は、それ自身 <var>m</var>+1個の要素を持つもう一つのリストです:
+独立変数の値にその点に対応する従属変数の値が続きます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-dynamics">Package dynamics</a>
+ &middot;<a href="maxima_99.html#Category_003a-Differential-equations">Differential equations</a>
+ &middot;<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-staircase"></a>
+</p><dl>
+<dt><a name="index-staircase"></a><u>関数:</u> <b>staircase</b><i> (<var>F</var>, <var>y0</var>, <var>n</var>, ...options...);</i></dt>
+<dd>
+<p>再帰関係によって定義された数列に関する階段図形を描画します。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">        y(n+1) = F(y(n))
+</pre></td></tr></table>
+
+<p>入力パラメータの解釈と許される値は
+関数 <code>evolution</code>に関するものと同じです。
+階段図形は線 <var>G(y)</var> <code>=</code> <var>y</var>と共に関数
+<var>F(y)</var>のプロットから構成されます。
+垂直区間は、その線上の点 (<var>y0</var>, <var>y0</var>)から関数
+<var>F</var>と交差する点まで描画されます。
+水平区間はその点から線上の点 (<var>y1</var>, <var>y1</var>)に届くまで描画されます。
+手続きは点 (<var>yn</var>, <var>yn</var>)に届くまで <var>n</var>回繰り返されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-dynamics">Package dynamics</a>
+ &middot;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+</div></p>
+</dd></dl>
+
+<p><b>オプション</b>
+</p>
+<p>それぞれのオプションは複数の項目のリストです。
+最初の項目はオプション名で、残りはオプションの引数からなります。
+</p>
+<p>関数 <code>evolution</code>, <code>evolution2d</code>, <code>staircase</code>, <code>orbits</code>,
+<code>ifs</code>, <code>chaosgame</code>が受け付けるオプションは
+<code>plot2d</code>に関するオプションと同じです。
+<code>orbits</code>は、それらのオプションに加えて、
+垂直方向に表される異なる点の最大数を設定する特別なオプション <var>pixels</var>を受け付けます。
+</p>
+<p>以下のオプションを関数 <code>julia</code>と <code>mandelbrot</code>は受け付けます:
+</p>
+<ul>
+<li>
+<em>size</em>は 1つか 2つの引数を取ります。
+もし 1つだけ引数が与えられたら、
+生成されるグラフィックスファイルの幅と高さはピクセル単位でその値に等しくなります。
+もし引数 2つが与えられたら、それらは幅と高さを定義します。
+デフォルト値は、幅と高さ両方に関して 400ピクセルです。
+もし 2つの値が等しくないなら、集合は歪んで現れます。
+
+</li><li>
+<em>levels</em>は繰り返しの最大数を定義します。
+これは集合に属さない点に使われる色の数にも等しいです。
+デフォルト値は 12です;
+値が大きくなると、処理時間が長くなります。
+
+</li><li>
+<em>huerange</em>は
+集合に属さない点の色相に使われる色相角の範囲を定義します。
+デフォルト値は 360です。これは色が色相のすべての範囲に広がることを意味します。
+360より大きな値は、色相範囲の繰り返しを意味し、
+負の値は、繰り返し回数が増えるにつれ、色相角を減らすように使うことができます。
+
+</li><li>
+<em>hue</em>は集合に属さない点に使われる最初の色の色相を度単位で設定します。
+デフォルト値は 300度です。これはマゼンダに対応します;
+他の標準的な色の値は、赤には 0、オレンジには 45、黄には 60、緑には 120、シアンには
+180、青には 240です。
+オプション <var>huerange</var>も参照してください。
+
+</li><li>
+<em>saturation</em>は集合に属さない点に使われる飽和値を設定します。
+0と 1の間でなければいけません。
+デフォルト値は 0.46です。
+
+</li><li>
+<em>value</em>は
+集合に属さない点に使われる色の値を設定します。
+0と 1の間でなければいけません;
+値が高くなると、色が明るくなります。
+デフォルト値は 0.96です。
+
+</li><li>
+<em>color</em>には、集合の点を表すのに使われる色の色相、飽和、値を定義する
+3つのパラメータが続きます。
+デフォルト値は３つのパラメータすべてが 0であり、黒に対応します。
+許される値の範囲の説明に関してオプション
+<var>hue</var>, <var>saturation</var>, <var>value</var>を参照してください。
+
+
+</li><li>
+<em>center</em>には、2つの実パラメータが続きます。
+これは表示される領域の中心点の複素平面上の座標を与えます。
+デフォルト値は両座標に関して 0(原点)です。
+
+</li><li>
+<em>radius</em>は表示される正方形領域内の最大円の半径を設定します。
+デフォルト値は 2です。
+
+</li><li>
+<em>filename</em>は
+結果のグラフが保存されるファイル名を与えます。
+拡張子 .xpmがその名前に加えられます。
+もしファイルが既に存在しているなら、
+関数が生成したファイルで置き換えられます。
+デフォルト値は Julia集合には julia、 Mandelbrot集合には mandelbrotです。
+
+</li></ul>
+
+<p><b>例</b>
+</p>
+<p>以下の数列のグファフィックス表現と階段図形:
+2, cos(2), cos(cos(2)),...
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;dynamics&quot;)$
+
+(%i2) evolution(cos(y), 2, 11);
+
+(%i3) staircase(cos(y), 1, 11, [y, 0, 1.2]);
+</pre></td></tr></table>
+
+<img src="figures/dynamics1.gif" alt="figures/dynamics1">
+<img src="figures/dynamics2.gif" alt="figures/dynamics2">
+
+<p>もしシステムが遅いなら、以下の例のように繰り返し回数を減らさなければいけないでしょう。
+そして、もしモニタ上のドットが小さすぎるなら、
+<code>[</code><var>style</var>,<code>[</code><var>points</var>,0.8<code>]]</code>のように、
+違ったスタイルを試したくなるかもしれません。
+</p>
+<p>パラメータ <var>a</var>を持つ二次写像の軌跡図。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">        x(n+1) = a + x(n)^2
+</pre></td></tr></table>
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) orbits(x^2+a, 0, 50, 200, [a, -2, 0.25], [style, dots]);
+</pre></td></tr></table>
+
+<img src="figures/dynamics3.gif" alt="figures/dynamics3">
+
+
+<p>x <code>=</code> -1.25近くのより低い分岐の回りの領域を拡大するには、以下を使ってください:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i5) orbits(x^2+a, 0, 100, 400, [a,-1,-1.53], [x,-1.6,-0.8],
+             [nticks, 400], [style,dots]);
+</pre></td></tr></table>
+
+<img src="figures/dynamics4.gif" alt="figures/dynamics4">
+
+<p>フラクタルに導かれる二次元系の発展:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) f: 0.6*x*(1+2*x)+0.8*y*(x-1)-y^2-0.9$
+
+(%i7) g: 0.1*x*(1-6*x+4*y)+0.1*y*(1+9*y)-0.4$
+
+(%i8) evolution2d([f,g], [x,y], [-0.5,0], 50000, [style,dots]);
+</pre></td></tr></table>
+
+<img src="figures/dynamics5.gif" alt="figures/dynamics5">
+
+<p>そしてそのフラクタルの小さな領域の拡大:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i9) evolution2d([f,g], [x,y], [-0.5,0], 300000, [x,-0.8,-0.6],
+                  [y,-0.4,-0.2], [style, dots]);
+</pre></td></tr></table>
+
+<img src="figures/dynamics6.gif" alt="figures/dynamics6">
+
+<p>カオスゲームで得られる Sierpinski三角形のプロット:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i9) chaosgame([[0, 0], [1, 0], [0.5, sqrt(3)/2]], [0.1, 0.1], 1/2,
+                 30000, [style, dots]);
+</pre></td></tr></table>
+
+<img src="figures/dynamics7.gif" alt="figures/dynamics7">
+
+<p>反復函数系で得られる Barnsleyのシダ:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i10) a1: matrix([0.85,0.04],[-0.04,0.85])$
+
+(%i11) a2: matrix([0.2,-0.26],[0.23,0.22])$
+
+(%i12) a3: matrix([-0.15,0.28],[0.26,0.24])$
+
+(%i13) a4: matrix([0,0],[0,0.16])$
+
+(%i14) p1: [0,1.6]$
+
+(%i15) p2: [0,1.6]$
+
+(%i16) p3: [0,0.44]$
+
+(%i17) p4: [0,0]$
+
+(%i18) w: [85,92,99,100]$
+
+(%i19) ifs(w, [a1,a2,a3,a4], [p1,p2,p3,p4], [5,0], 50000, [style,dots]);
+</pre></td></tr></table>
+
+<img src="figures/dynamics8.gif" alt="figures/dynamics8">
+
+<p>Mandelbrot集合の 12色のグラフィックス表現を納めた
+<em>dynamics9.xpm</em>という名前のファイルを生成するには以下を使ってください:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">mandelbrot([filename,&quot;dynamics9&quot;])$
+</pre></td></tr></table>
+
+<img src="figures/dynamics9.gif" alt="figures/dynamics9">
+
+<p>そして数 (-0.55 + i 0.6)に関する Julia集合は以下で得られます:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">julia(-0.55, 0.6, [levels, 36], [center, 0, 0.6], [radius, 0.3],
+      [hue, 240], [huerange, -180], [filename, &quot;dynamics10&quot;])$
+</pre></td></tr></table>
+
+<p>グラフはファイル <em>dynamics10.xpm</em>に保存されます。
+x方向に -0.3から 0.3まで、 y方向に 0.3から 0.9までの領域を表示します。
+青から始まり黄で終わる 36色が使われます。
+</p>
+<img src="figures/dynamics10.gif" alt="figures/dynamics10">
+
+<p>微分方程式
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">          dx/dt = t - x^2
+</pre></td></tr></table>
+
+<p>を、初期値 x(t=0) = 1で、0から 8までの tの区間で
+0.1の増分で数値的に解くには、以下を使ってください:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i20) results: rk(t-x^2,x,1,[t,0,8,0.1])$
+</pre></td></tr></table>
+
+<p>結果はリスト <code>results</code>に保存されます。
+</p>
+<p>系
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">        dx/dt = 4-x^2-4*y^2     dy/dt = y^2-x^2+1
+</pre></td></tr></table>
+
+<p>を、 t=0の xと yの初期値がそれぞれ -1.25, 0.75で、
+0から 4までの区間で、数値的に解くには:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i21) sol: rk([4-x^2-4*y^2,y^2-x^2+1],[x,y],[-1.25,0.75],[t,0,4,0.02])$
+</pre></td></tr></table>
+
+<p><a name="Item_003a-ezunits"></a>
+</p><hr size="6">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#dynamics" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_51.html#ezunits" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

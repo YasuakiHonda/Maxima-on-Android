@@ -1,0 +1,588 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on 2012年12月月12日 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Maxima 5.29.1 Manual: 32. Runtime Environment</title>
+
+<meta name="description" content="Maxima 5.29.1 Manual: 32. Runtime Environment">
+<meta name="keywords" content="Maxima 5.29.1 Manual: 32. Runtime Environment">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+body
+{
+    color: black;
+    background: white; 
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+h1
+{
+    margin-left: +8%;
+    font-size: 150%;
+    font-family: sans-serif
+}
+
+h2
+{
+    font-size: 125%;
+    font-family: sans-serif
+}
+
+h3
+{
+    font-size: 100%;
+    font-family: sans-serif
+}
+
+h2,h3,h4,h5,h6 { margin-left: +4%; }
+
+div.textbox
+{
+    border: solid;
+    border-width: thin;
+    /* width: 100%; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em
+}
+
+div.titlebox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: rgb(200,255,255);
+    font-family: sans-serif
+}
+
+div.synopsisbox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+     background: rgb(255,220,255);
+    /*background: rgb(200,255,255); */
+    /* font-family: fixed */
+}
+
+pre.example
+{
+    border: 1px solid gray;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    /* background: rgb(247,242,180); */ /* kind of sandy */
+    /* background: rgb(200,255,255); */ /* sky blue */
+    background-color: #F1F5F9; /* light blue-gray */
+    /* font-family: "Lucida Console", monospace */
+}
+
+div.spacerbox
+{
+    border: none;
+    padding-top: 2em;
+    padding-bottom: 2em
+}
+
+div.image
+{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+div.categorybox
+{
+    border: 1px solid gray;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: rgb(247,242,220);
+}
+
+
+-->
+</style>
+
+<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<script type="text/javascript"><!--
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-510249-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+--></script>
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="Runtime-Environment"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="maxima_31.html#Functions-and-Variables-for-Groups" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-for-Runtime-Environment" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_31.html#Groups" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_33.html#Miscellaneous-Options" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Runtime-Environment-1"></a>
+<h1 class="chapter">32. Runtime Environment</h1>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Introduction-for-Runtime-Environment">32.1 Introduction for Runtime Environment</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Interrupts">32.2 Interrupts</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                  
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Runtime-Environment">32.3 Functions and Variables for Runtime Environment</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+</table>
+
+<p><a name="Item_003a-Introduction-for-Runtime-Environment"></a>
+</p><hr size="6">
+<a name="Introduction-for-Runtime-Environment"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Runtime-Environment" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Interrupts" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Runtime-Environment" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Runtime-Environment" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_33.html#Miscellaneous-Options" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Introduction-for-Runtime-Environment-1"></a>
+<h2 class="section">32.1 Introduction for Runtime Environment</h2>
+
+<p><code>maxima-init.mac</code>は、 Maximaがスタートする時自動的にロードされるファイルです。
+自分の Maxima環境をカスタマイズするために
+<code>maxima-init.mac</code>を使うことができます。
+<code>maxima-init.mac</code>は、もし存在するなら、
+関数 <code>file_search</code>が検索する任意のディレクトリで大丈夫ですが、
+通常は <code>maxima_userdir</code>で名付けられたディレクトリの中に置かれます。
+</p>
+<p>以下は <code>maxima-init.mac</code>ファイルの例です:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">setup_autoload (&quot;specfun.mac&quot;, ultraspherical, assoc_legendre_p);
+showtime:all;
+</pre></td></tr></table>
+
+<p>この例では、 <code>setup_autoload</code>はMaximaに
+もし関数 (<code>ultraspherical</code>,
+<code>assoc_legendre_p</code>)のいずれかがコールされた時まだ定義されていなかったら、
+指定されたファイル (<code>specfun.mac</code>)をロードするように命じます。
+このように関数をコールする前にファイルをロードすることを覚えておく必要はありません。
+</p>
+<p>文 <code>showtime: all</code>は Maximaに <code>showtime</code>変数を設定することを命じます。
+<code>maxima-init.mac</code>ファイルは他の任意の割り当てや Maxima文を含むことができます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Session-management">Session management</a>
+</div></p>
+<p><a name="Item_003a-Interrupts"></a>
+</p><hr size="6">
+<a name="Interrupts"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Introduction-for-Runtime-Environment" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Runtime-Environment" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Runtime-Environment" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Runtime-Environment" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_33.html#Miscellaneous-Options" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Interrupts-1"></a>
+<h2 class="section">32.2 Interrupts</h2>
+
+<p>ユーザーは、時間のかかる計算を ^C (control-C)文字で止めることができます。
+デフォルトの動作は、計算を止めて、別のユーザープロンプトを印字することでです。
+この場合、止められた計算の再開することはできません。
+</p>
+<p>もし
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">:lisp (setq *debugger-hook* nil)
+</pre></td></tr></table>
+
+<p>を実行することによって、
+Lisp変数　<code>*debugger-hook*</code>が　<code>nil</code>に設定されているなら、
+^Cを受け取ると、Maximaは Lispデバッガに入り、
+ユーザーは Lisp環境を検査するためにデバッガを使うことができます。
+止められた計算は Lispデバッガの中で、
+<code>continue</code>を入力することで、再開することができます。
+(計算を完了まで走らせる以外に)
+Lispデバッガから Maximaに戻る方法は Lispのバージョンそれぞれで異なります。
+</p>
+<p>Unixシステム上では、 文字^Z (control-Z)は Maximaが完全に止まるようにし、
+制御はシェルスクリプトに戻ります。
+<code>fg</code>コマンドが Maximaが止められた点から再開するようにします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Console-interaction">Console interaction</a>
+</div></p>
+
+<p><a name="Item_003a-Functions-and-Variables-for-Runtime-Environment"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-Runtime-Environment"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Interrupts" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_33.html#Miscellaneous-Options" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Runtime-Environment" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Runtime-Environment" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_33.html#Miscellaneous-Options" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-and-Variables-for-Runtime-Environment-1"></a>
+<h2 class="section">32.3 Functions and Variables for Runtime Environment</h2>
+
+<p><a name="maxima_005ftempdir"></a>
+<a name="Item_003a-maxima_005ftempdir"></a>
+</p><dl>
+<dt><a name="index-maxima_005ftempdir"></a><u>システム変数:</u> <b>maxima_tempdir</b></dt>
+<dd>
+<p><code>maxima_tempdir</code>は
+Maximaが一時的なファイルを生成するディレクトリを指名します。
+特に、プロットのための一時ファイルが
+<code>maxima_tempdir</code>に生成されます。
+</p>
+<p><code>maxima_tempdir</code>の初期値は、
+もし Maximaが置くことができるならユーザーのホームディレクトリです;
+そうでないなら、Maximaは適切なディレクトリについて推量します。
+</p>
+<p><code>maxima_tempdir</code>はディレクトリを指名する文字列に割り当てられます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Global-variables">Global variables</a>
+</div></p></dd></dl>
+
+<p><a name="maxima_005fuserdir"></a>
+<a name="Item_003a-maxima_005fuserdir"></a>
+</p><dl>
+<dt><a name="index-maxima_005fuserdir"></a><u>システム変数:</u> <b>maxima_userdir</b></dt>
+<dd>
+<p><code>maxima_userdir</code>は、
+Maximaが Maximaや Lispファイルを見つけるために検索するディレクトリを指名します。
+(Maximaは他のディレクトリも検索します;
+<code>file_search_maxima</code>と <code>file_search_lisp</code>が完全なリストです。)
+</p>
+<p><code>maxima_userdir</code>の初期値は、
+もし　Maximaが置くことができなら
+ユーザーのホームディレクトリのサブディレクトリです;
+そうでないなら Maximaは適切なディレクトリについて推量します。
+</p>
+<p><code>maxima_userdir</code>はディレクトリを指名する文字列に割り当てられます。
+しかしながら、
+<code>maxima_userdir</code>への割り当ては、自動的には
+<code>file_search_maxima</code>と <code>file_search_lisp</code>を変えません;
+それらの変数は別々に変更しなければいけません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Global-variables">Global variables</a>
+</div></p></dd></dl>
+
+<p><a name="room"></a>
+<a name="Item_003a-room"></a>
+</p><dl>
+<dt><a name="index-room"></a><u>関数:</u> <b>room</b><i> ()</i></dt>
+<dt><a name="index-room-1"></a><u>関数:</u> <b>room</b><i> (true)</i></dt>
+<dt><a name="index-room-2"></a><u>関数:</u> <b>room</b><i> (false)</i></dt>
+<dd>
+<p>Maximaの記憶装置とスタックマネージメントの状態の描写を印字します。
+<code>room</code>は同じ名前の Lisp関数をコールします。
+</p>
+<ul>
+<li>
+<code>room ()</code>は適度の描写を印字します。
+</li><li>
+<code>room (true)</code>は言葉数の多い描写を印字します。
+</li><li>
+<code>room (false)</code>は簡潔な描写を印字します。
+</li></ul>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Debugging">Debugging</a>
+</div></p></dd></dl>
+
+<p><a name="sstatus"></a>
+<a name="Item_003a-sstatus"></a>
+</p><dl>
+<dt><a name="index-sstatus"></a><u>関数:</u> <b>sstatus</b><i> (<var>keyword</var>, <var>item</var>)</i></dt>
+<dd>
+<p><var>keyword</var>がシンボル <code>feature</code>の時、
+<var>item</var>がシステムフィーチャのリスト上に追加されます。
+<code>sstatus (keyword, item)</code>が実行された後、
+<code>status (feature, item)</code>は <code>true</code>を返します。
+もし <var>keyword</var>がシンボル <code>nofeature</code>なら、
+<var>item</var>はシステムフィーチャのリストから削除されます。
+これはパッケージ作者が、搭載したフィーチャの追跡をするのに役に立つかもしれません。
+</p>
+<p><code>status</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Programming">Programming</a>
+</div></p></dd></dl>
+
+<p><a name="status"></a>
+<a name="Item_003a-status"></a>
+</p><dl>
+<dt><a name="index-status"></a><u>関数:</u> <b>status</b><i> (<code>feature</code>)</i></dt>
+<dt><a name="index-status-1"></a><u>関数:</u> <b>status</b><i> (<code>feature</code>, <var>item</var>)</i></dt>
+<dd><p>いくつかのシステム依存のフィーチャの存在と不在についての情報を返す。
+</p>
+<ul>
+<li>
+<code>status (feature)</code>はシステムフィーチャのリストを返します。
+これらは Lispのバージョン、オペレーティングシステムのタイプなどを含みます。
+リストは１つの Lispタイプからもう１つに変わるかもしれません。
+
+</li><li>
+<code>status (feature, item)</code>は、
+もし <var>item</var>が <code>status (feature)</code>が返す項目のリスト上にあるなら、
+<code>true</code>を返し、そうでないなら <code>false</code>を返します。
+<code>status</code>は引数 <var>item</var>をクォートします。
+クォート-クォート演算子 <code>''</code>はクォーテーションに優先されます。
+名前がハイフンのように特殊文字を含むフィーチャは、
+文字列引数として与えられなければいけません。例えば、
+<code>status (feature, &quot;ansi-cl&quot;)</code>。
+</li></ul>
+
+<p><code>sstatus</code>も参照してください。
+</p>
+<p>変数 <code>features</code>は数式に適用されるフィーチャのリストを含みます。
+もっと情報を知るには、 <code>features</code>と <code>featurep</code>を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Programming">Programming</a>
+</div></p></dd></dl>
+
+
+<p><a name="system"></a>
+<a name="Item_003a-system"></a>
+</p><dl>
+<dt><a name="index-system"></a><u>関数:</u> <b>system</b><i> (<var>command</var>)</i></dt>
+<dd>
+<p>別のプロセスとして <var>command</var>を実行します。
+コマンドは実行のためデフォルトのシェルに渡されます。
+<code>system</code>はオペレーティングシステムすべてではサポートされませんが、
+一般に Unixと Unixライクな環境では存在します。
+</p>
+<p><code>_hist.out</code>は、
+<code>xgraph</code>を使ってバーグラフとしてプロットしたい頻度のリストだと仮定します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) (with_stdout(&quot;_hist.out&quot;,
+           for i:1 thru length(hist) do (
+             print(i,hist[i]))),
+       system(&quot;xgraph -bar -brw .7 -nl &lt; _hist.out&quot;));
+</pre></td></tr></table>
+
+<p>プロットをバックグラウンドで（ Maximaに制御を戻すように）させるようにし、
+終了した後、一次ファルを削除するようにするためには以下のようにします:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">system(&quot;(xgraph -bar -brw .7 -nl &lt; _hist.out;  rm -f _hist.out)&amp;&quot;)
+</pre></td></tr></table>
+
+</dd></dl>
+
+<p><a name="time"></a>
+<a name="Item_003a-time"></a>
+</p><dl>
+<dt><a name="index-time"></a><u>関数:</u> <b>time</b><i> (%o1, %o2, %o3, &hellip;)</i></dt>
+<dd>
+<p>出力行 <code>%o1</code>, <code>%o2</code>, <code>%o3</code>,
+&hellip;を計算するために使った時間のリストを秒で返します。
+返された時間は内部計算時間の Maximaの概算であって、経過時間ではありません。
+<code>time</code>は出力行変数にだけ適用されます;
+他の変数に関して <code>time</code>は <code>unknown</code>を返します。
+</p>
+<p>Maximaに出力行それぞれに計算時間と経過時間を印字させるには、
+<code>showtime: true</code>を設定してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Debugging">Debugging</a>
+</div></p></dd></dl>
+
+<p><a name="timedate"></a>
+<a name="Item_003a-timedate"></a>
+</p><dl>
+<dt><a name="index-timedate"></a><u>関数:</u> <b>timedate</b><i> ()</i></dt>
+<dt><a name="index-timedate-1"></a><u>関数:</u> <b>timedate</b><i> (<var>T</var>)</i></dt>
+<dd>
+<p>引数なしの <code>timedate()</code>は現在時刻と日付を表す文字列を返します。
+文字列は、フォーマット <code>YYYY-MM-DD HH:MM:SS[+|-]ZZ:ZZ</code>を持ちます。
+ここで、欄は、年、月、日、時、分、秒、時間と分のタイムゾーンオフセットです。
+</p>
+<p><code>timedate(<var>T</var>)</code>はフォーマット
+<code>YYYY-MM-DD HH:MM:SS[+|-]ZZ:ZZ</code>の文字列として時刻
+<var>T</var>を返します。
+<var>T</var>は <code>absolute_real_time</code>が返すような
+1990年1月1日の真夜中以来の秒数として解釈されます。
+</p>
+<p>例:
+</p>
+<p>引数なしの <code>timedate()</code>は現在時刻と日付を表す文字列を返します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) d : timedate ();
+(%o1)                      2010-06-08 04:08:09+01:00
+(%i2) print (&quot;timedate reports current time&quot;, d) $
+timedate reports current time 2010-06-08 04:08:09+01:00
+</pre></td></tr></table>
+
+<p>引数ありの <code>timedate</code>は引数を表す文字列を返します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) timedate (0);
+(%o1)                      1900-01-01 01:00:00+01:00
+(%i2) timedate (absolute_real_time () - 7*24*3600);
+(%o2)                      2010-06-01 04:19:51+01:00
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Time-and-date-functions">Time and date functions</a>
+</div></p></dd></dl>
+
+<p><a name="absolute_005freal_005ftime"></a>
+<a name="Item_003a-absolute_005freal_005ftime"></a>
+</p><dl>
+<dt><a name="index-absolute_005freal_005ftime"></a><u>関数:</u> <b>absolute_real_time</b><i> ()</i></dt>
+<dd>
+<p>協定世界時で1900年1月1日の深夜以来の秒数を返します。
+戻り値は整数です。
+</p>
+<p><code>elapsed_real_time</code>と <code>elapsed_run_time</code>も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) absolute_real_time ();
+(%o1)                      3385045277
+(%i2) 1900 + absolute_real_time () / (365.25 * 24 * 3600);
+(%o2)                   2007.265612087104
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Time-and-date-functions">Time and date functions</a>
+</div></p></dd></dl>
+
+<p><a name="elapsed_005freal_005ftime"></a>
+<a name="Item_003a-elapsed_005freal_005ftime"></a>
+</p><dl>
+<dt><a name="index-elapsed_005freal_005ftime"></a><u>関数:</u> <b>elapsed_real_time</b><i> ()</i></dt>
+<dd>
+<p>Maximaがもっとも最近スタートしたか再スタートして以来の
+(1秒の小数を含む)秒数を返します。
+戻り値は浮動小数点数です。
+</p>
+<p><code>absolute_real_time</code>と <code>elapsed_run_time</code>も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) elapsed_real_time ();
+(%o1)                       2.559324
+(%i2) expand ((a + b)^500)$
+(%i3) elapsed_real_time ();
+(%o3)                       7.552087
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Time-and-date-functions">Time and date functions</a>
+</div></p></dd></dl>
+
+<p><a name="elapsed_005frun_005ftime"></a>
+<a name="Item_003a-elapsed_005frun_005ftime"></a>
+</p><dl>
+<dt><a name="index-elapsed_005frun_005ftime"></a><u>関数:</u> <b>elapsed_run_time</b><i> ()</i></dt>
+<dd>
+<p>Maximaがもっとも最近スタートしたか再スタートして以来
+Maximaが計算に費やした(1秒の小数を含む)秒数の概算を返します。
+戻り値は浮動小数点数です。
+</p>
+<p><code>absolute_real_time</code>と <code>elapsed_real_time</code>も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) elapsed_run_time ();
+(%o1)                         0.04
+(%i2) expand ((a + b)^500)$
+(%i3) elapsed_run_time ();
+(%o3)                         1.26
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Time-and-date-functions">Time and date functions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-Miscellaneous-Options"></a>
+</p><hr size="6">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Runtime-Environment" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_33.html#Miscellaneous-Options" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

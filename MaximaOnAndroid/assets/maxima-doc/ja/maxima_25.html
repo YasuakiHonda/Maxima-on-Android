@@ -1,0 +1,2802 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on 2012年12月月12日 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Maxima 5.29.1 Manual: 25. itensor</title>
+
+<meta name="description" content="Maxima 5.29.1 Manual: 25. itensor">
+<meta name="keywords" content="Maxima 5.29.1 Manual: 25. itensor">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+body
+{
+    color: black;
+    background: white; 
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+h1
+{
+    margin-left: +8%;
+    font-size: 150%;
+    font-family: sans-serif
+}
+
+h2
+{
+    font-size: 125%;
+    font-family: sans-serif
+}
+
+h3
+{
+    font-size: 100%;
+    font-family: sans-serif
+}
+
+h2,h3,h4,h5,h6 { margin-left: +4%; }
+
+div.textbox
+{
+    border: solid;
+    border-width: thin;
+    /* width: 100%; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em
+}
+
+div.titlebox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: rgb(200,255,255);
+    font-family: sans-serif
+}
+
+div.synopsisbox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+     background: rgb(255,220,255);
+    /*background: rgb(200,255,255); */
+    /* font-family: fixed */
+}
+
+pre.example
+{
+    border: 1px solid gray;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    /* background: rgb(247,242,180); */ /* kind of sandy */
+    /* background: rgb(200,255,255); */ /* sky blue */
+    background-color: #F1F5F9; /* light blue-gray */
+    /* font-family: "Lucida Console", monospace */
+}
+
+div.spacerbox
+{
+    border: none;
+    padding-top: 2em;
+    padding-bottom: 2em
+}
+
+div.image
+{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+div.categorybox
+{
+    border: 1px solid gray;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: rgb(247,242,220);
+}
+
+
+-->
+</style>
+
+<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<script type="text/javascript"><!--
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-510249-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+--></script>
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="itensor"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="maxima_24.html#Functions-and-Variables-for-Affine" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-itensor" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_24.html#Affine" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="itensor-1"></a>
+<h1 class="chapter">25. itensor</h1>
+
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Introduction-to-itensor">25.1 Introduction to itensor</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-itensor">25.2 Functions and Variables for itensor</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<p><a name="Item_003a-Introduction-to-itensor"></a>
+</p><hr size="6">
+<a name="Introduction-to-itensor"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#itensor" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#New-tensor-notation" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#itensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#itensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Introduction-to-itensor-1"></a>
+<h2 class="section">25.1 Introduction to itensor</h2>
+
+<p>Maximaは記号的なテンソル操作を２つの異なったタイプで実装しています:
+成分テンソル操作 (<code>ctensor</code>パッケージ)と添字テンソル操作
+(<code>itensor</code>パッケージ)。
+</p>
+<p>注意せよ: 以下の&rsquo;新しいテンソル表記&rsquo;に関するノートを参照してください。
+</p>
+<p>成分テンソル操作は幾何学的テンソルオブジェクトが配列または行列で表現されることを意味します。
+縮約や共変微分のようなテンソル演算は実際に、
+<code>do</code>文を伴う繰り返し用(ダミー)添字上の和によって実行されます。
+すなわち、配列や行列に記憶された適切なテンソル成分上で明示的に演算を実行します。
+</p>
+<p>添字テンソル操作は共変添字、反変添字、微分添字の関数として
+テンソルを表現することで実装されています。
+縮約や共変微分のようなテンソル演算は
+対応する成分よりむしろ添字それ自身を操作することで実行されます。
+</p>
+<p>Riemann幾何の文脈での微分的、代数的、解析的処理へのこれらの２つのアプローチは、
+ユーザーの問題の個々の性質と難しさを通してだけ明らかにされる様々な利点と欠点を持ちます。
+しかしながら、２つの実装の以下の特性を心にとどめて置くべきです:
+</p>
+<p>成分を明示的に使ったテンソルとテンソル演算の表現は <code>ctensor</code>を使いやすくします。
+計量の指定と帰納されたテンソルと不変量の計算が直接的で回りくどくありません。
+Maximaの強力な整理能力すべてがいつでも使えますが、
+入り組んだ関数的、座標依存性を持つ複雑な計量はすぐに、
+サイズが極端で構造が隠された式に至ります。
+さらに、たくさんの計算は増大する中間式を含み、プログラムが完了前に終了する原因となります。
+経験を通して、ユーザーはこれらの難しさの多くを避けることができます。
+</p>
+<p>テンソルとテンソル演算が添字上の記号演算を使って表される特別な方法のために、
+成分表現では処理できなかった式が、
+<code>itensor</code>の中の対称オブジェクト用特別ルーチンを使うことで、
+たいそう整理することができることがあります。
+この方法で大きな式の構造がもっと明白になるかもしれません。
+他方で、
+<code>itensor</code>の中の特別な添字表現のために、
+いくつかの場合、
+ユーザーは、計量の指定や関数の定義、微分された「添字付き」オブジェクトの評価に
+難しさを見いだすかもしれません。
+</p>
+<p><code>itensor</code>パッケージは添字付き変数に関する微分を実行できます。
+そのため、ラグランジアンとハミルトニアン形式を扱う時にこのパッケージを使うことができます。
+(添字付き)場の変数に関する場のラグランジアンを微分することが可能なので、
+対応する Euler-Lagrange方程式を添字形式で得るのに Maximaを使うことができます。
+<code>ic_convert</code>関数を使って、これらの方程式を成分テンソル
+(<code>ctensor</code>)プログラムに翻訳することができ、
+それによって場の方程式を個別の座標表現で解くことや、
+ハミルトニアン形式の運動方程式を計算し直すことが可能になります。
+２つの包括的な例として <code>einhil.dem</code>と <code>bradic.dem</code>を参照してください。
+最初の <code>einhil.dem</code>は、
+斉次で等方的な場合 (Friedmann方程式)と球対称で静的な場合 (Schwarzschild解)に
+Einsteinの場テンソルを得るために Einstein-Hilbert作用を使います。
+二番目の <code>bradic.dem</code>は、
+Brans-Dicke重力理論の作用から Friedmann方程式を計算する方法を示し、
+理論のスカラー場に関連したハミルトニアンも演繹します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Tensors">Tensors</a>
+ &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p>
+<hr size="6">
+<a name="New-tensor-notation"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-itensor" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Indicial-tensor-manipulation" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#itensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-itensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">25.1.1 New tensor notation</h3>
+
+<p>Maximaの <code>itensor</code>パッケージの初期のバージョンは
+時々、間違った添字順序に至る表記を使いました。
+例えば、以下を考えてください:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) imetric(g);
+(%o2)                                done
+(%i3) ishow(g([],[j,k])*g([],[i,l])*a([i,j],[]))$
+                                 i l  j k
+(%t3)                           g    g    a
+                                           i j
+(%i4) ishow(contract(%))$
+                                      k l
+(%t4)                                a
+</pre></td></tr></table>
+
+<p><code>a</code>が偶然対称テンソルでないなら、この結果は間違っています
+これが起こる理由は、
+<code>itensor</code>は正しく共変添字と反変添字の集合の中の順序を保つけれども、
+一旦、添字が上がったり下がったりすると、添字の他の集合に関する位置が失われるからです。
+</p>
+<p>この問題を避けるため、
+存在する表記と完全に互換性を残し、相互に使うことが可能な新しい表記が開発されました。
+この表記では、反変添字は共変添字リストの中の適切な位置に挿入されますが、
+マイナス記号が前に付けられます。
+現在、 <code>contract</code>や <code>ishow</code>のような関数はこの新しい添字表記に通じており、
+テンソルを適切に処理することができます。
+</p>
+<p>この新しい表記では以前の例は正しい結果をもたらします:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) ishow(g([-j,-k],[])*g([-i,-l],[])*a([i,j],[]))$
+                                 i l       j k
+(%t5)                           g    a    g
+                                      i j
+(%i6) ishow(contract(%))$
+                                      l k
+(%t6)                                a
+</pre></td></tr></table>
+
+<p>現在、この表記を使う唯一のコードは <code>lc2kdt</code>関数です。
+数値添字に頼らず Levi-Civita記号を決定するために計量テンソルを用いる時、
+この表記を通じて、一貫した結果を達成します。
+</p>
+<p>このコードはできたばかりなので、おそらくバグを含みます。
+「古い」テンソル表記を使った何かを壊さないことを確認するためにテストされている一方、
+「新しい」テンソルが特定の関数や特徴と相互運営するのに失敗する相当な可能性があります。
+これらのバグは見つかった時修正されるでしょう。それまでは、利用者責任で！
+</p>
+
+<hr size="6">
+<a name="Indicial-tensor-manipulation"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#New-tensor-notation" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-itensor" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#itensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-itensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">25.1.2 Indicial tensor manipulation</h3>
+
+<p>添字テンソル操作パッケージは　<code>load(itensor)</code>でロードできます。
+デモも利用可能です: <code>demo(tensor)</code>を試してください。
+</p>
+<p><code>itensor</code>では、テンソルは「添字付きオブジェクト」として表されます。
+これは共変、反変、微分添字を表す添字の3つのグループの関数です。
+共変添字は添字付きオブジェクトの最初の引数としてリストで指定され、
+半変添字は二番目の引数としてリストで指定されます。
+もし添字付きオブジェクトが添字のグループのいずれかを欠いているなら、
+空のリスト <code>[]</code>が対応する引数として与えられます。
+例えば、<code>g([a,b],[c])</code>は、２つの共変添字
+<code>(a,b)</code>と１つの反変添字(<code>c</code>)を持ち、微分添字を持たない
+<code>g</code>と呼ばれる添字付きオブジェクトを表します。
+</p>
+<p>もし存在するなら、微分添字はテンソルを表すシンボル関数の追加の引数として添えられます。
+それらは、ユーザーが明示的に指定したり、ある座標変数に関する微分の処理の中で生成されたりします。
+常微分は可換なので、フレーム計量が使われることを示す <code>iframe_flag</code>が
+<code>true</code>に設定されない限り、微分添字はアルファベット順に並び替えられます。
+この標準オーダーのおかけで、 Maximaは、例えば、
+<code>t([a],[b],i,j)</code>が <code>t([a],[b],j,i)</code>と同じだと認識できます。
+添字付きオブジェクトの引数として現れない添字の座標に関する
+添字付きオブジェクトの微分は、通常ゼロをもたらします。
+これは Maximaが添字付きオブジェクトで表されたテンソルが
+対応する座標に陰に依存するかもしれないことを知らないためです。
+現行の Maxima関数 <code>diff</code>を<code>itensor</code>内で修正することで、
+他に記述されない限り、
+Maximaは添字付きオブジェクトすべてが微分の任意の変数に依存することを仮定するようになります。
+これによって、和の慣例を微分添字に拡張することができます。
+<code>itensor</code>は微分添字を上げる能力を所有しないこと、
+そしてそれらは常に共変として扱われることに注意すべきです。
+</p>
+<p>以下の関数が添字付きオブジェクトを操作するためにテンソルパッケージの中で利用可能です。
+現在、整理ルーチンに関して添字付きオブジェクトが
+デフォルトで対称性を持たないことを仮定します。
+これは、変数 <code>allsym[false]</code>を
+<code>true</code>に設定することで上書きすることができます。
+これによって、すべての添字付きオブジェクトを
+共変添字のリストと反変添字のリストに関して完全に対称に扱うようになります。
+</p>
+<p><code>itensor</code>パッケージは一般にテンソルを不透明なオブジェクトとして扱います。
+テンソル等式は、代数ルール、特に対称性と縮約ルールに基づいて操作されます。
+加えて、<code>itensor</code>パッケージは、共変微分、曲率、ねじれ率を理解します。
+<code>iframe_flag</code>変数の設定に依存して、
+動枠 (moving frame)の計量に関して計算を実行できます。
+</p>
+<p>以下のサンプルセッションは、
+<code>itensor</code>パッケージをロードし、計量名を指定し、いくつかの簡単な計算を実行する仕方を
+例示します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) imetric(g);
+(%o2)                                done
+(%i3) components(g([i,j],[]),p([i,j],[])*e([],[]))$
+(%i4) ishow(g([k,l],[]))$
+(%t4)                               e p
+                                       k l
+(%i5) ishow(diff(v([i],[]),t))$
+(%t5)                                  0
+(%i6) depends(v,t);
+(%o6)                               [v(t)]
+(%i7) ishow(diff(v([i],[]),t))$
+                                    d
+(%t7)                               -- (v )
+                                    dt   i
+(%i8) ishow(idiff(v([i],[]),j))$
+(%t8)                                v
+                                      i,j
+(%i9) ishow(extdiff(v([i],[]),j))$
+(%t9)                             v    - v
+                                   j,i    i,j
+                                  -----------
+                                       2
+(%i10) ishow(liediff(v,w([i],[])))$
+                               %3          %3
+(%t10)                        v   w     + v   w
+                                   i,%3    ,i  %3
+(%i11) ishow(covdiff(v([i],[]),j))$
+                                              %4
+(%t11)                        v    - v   ichr2
+                               i,j    %4      i j
+(%i12) ishow(ev(%,ichr2))$
+                %4 %5
+(%t12) v    - (g      v   (e p       + e   p     - e p       - e    p
+        i,j            %4     j %5,i    ,i  j %5      i j,%5    ,%5  i j
+
+                                         + e p       + e   p    ))/2
+                                              i %5,j    ,j  i %5
+(%i13) iframe_flag:true;
+(%o13)                               true
+(%i14) ishow(covdiff(v([i],[]),j))$
+                                             %6
+(%t14)                        v    - v   icc2
+                               i,j    %6     i j
+(%i15) ishow(ev(%,icc2))$
+                                             %6
+(%t15)                        v    - v   ifc2
+                               i,j    %6     i j
+(%i16) ishow(radcan(ev(%,ifc2,ifc1)))$
+             %6 %7                    %6 %7
+(%t16) - (ifg      v   ifb       + ifg      v   ifb       - 2 v
+                    %6    j %7 i             %6    i j %7      i,j
+
+                                             %6 %7
+                                        - ifg      v   ifb      )/2
+                                                    %6    %7 i j
+(%i17) ishow(canform(s([i,j],[])-s([j,i])))$
+(%t17)                            s    - s
+                                   i j    j i
+(%i18) decsym(s,2,0,[sym(all)],[]);
+(%o18)                               done
+(%i19) ishow(canform(s([i,j],[])-s([j,i])))$
+(%t19)                                 0
+(%i20) ishow(canform(a([i,j],[])+a([j,i])))$
+(%t20)                            a    + a
+                                   j i    i j
+(%i21) decsym(a,2,0,[anti(all)],[]);
+(%o21)                               done
+(%i22) ishow(canform(a([i,j],[])+a([j,i])))$
+(%t22)                                 0
+</pre></td></tr></table>
+
+
+<p><a name="Item_003a-Functions-and-Variables-for-itensor"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-itensor"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Indicial-tensor-manipulation" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Managing-indexed-objects" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#itensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#itensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-and-Variables-for-itensor-1"></a>
+<h2 class="section">25.2 Functions and Variables for itensor</h2>
+<hr size="6">
+<a name="Managing-indexed-objects"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-itensor" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Tensor-symmetries" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#itensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-itensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">25.2.1 Managing indexed objects</h3>
+
+<p><a name="dispcon"></a>
+<a name="Item_003a-dispcon"></a>
+</p><dl>
+<dt><a name="index-dispcon"></a><u>関数:</u> <b>dispcon</b><i> (<var>tensor_1</var>, <var>tensor_2</var>, ...)</i></dt>
+<dt><a name="index-dispcon-1"></a><u>関数:</u> <b>dispcon</b><i> (all)</i></dt>
+<dd>
+<p><code>defcon</code>に与えられたような引数の縮約プロパティを表示します。
+<code>dispcon (all)</code>は、定義された縮約プロパティすべてを表示します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Display-functions">Display functions</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-entertensor"></a>
+</p><dl>
+<dt><a name="index-entertensor"></a><u>関数:</u> <b>entertensor</b><i> (<var>name</var>)</i></dt>
+<dd>
+<p>プロンプトによって、
+任意の数のテンソル添字や微分添字を持つ
+<var>name</var>と呼ばれる添字付きオブジェクトを生成することを許す関数です。
+単一添字または(nullもありえる)添字のリストが受け付け可能な入力です。
+(<code>covdiff</code>の下の例を参照してください。)
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-changename"></a>
+</p><dl>
+<dt><a name="index-changename"></a><u>関数:</u> <b>changename</b><i> (<var>old</var>, <var>new</var>, <var>expr</var>)</i></dt>
+<dd>
+<p><var>expr</var>の中の <var>old</var>と呼ばれるすべての添字付きオブジェクトの名前を
+<var>new</var>に変えます。
+<var>old</var>はシンボルまたは形式
+<code>[<var>name</var>, <var>m</var>, <var>n</var>]</code>のリストであり得ます。
+後者の場合、 <var>m</var>個の共変添字と <var>n</var>個の反変添字を持つ
+<var>name</var>と呼ばれるそれらの添字付きオブジェクトだけが <var>new</var>にリネームされます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-listoftens"></a>
+</p><dl>
+<dt><a name="index-listoftens"></a><u>関数:</u> <b>listoftens</b></dt>
+<dd>
+<p>テンソル式の中のすべてのテンソルを添字が完備した形でリストします。
+例えば、
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i6) ishow(a([i,j],[k])*b([u],[],v)+c([x,y],[])*d([],[])*e)$
+                                         k
+(%t6)                        d e c    + a    b
+                                  x y    i j  u,v
+(%i7) ishow(listoftens(%))$
+                               k
+(%t7)                        [a   , b   , c   , d]
+                               i j   u,v   x y
+
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ishow"></a>
+</p><dl>
+<dt><a name="index-ishow"></a><u>関数:</u> <b>ishow</b><i> (<var>expr</var>)</i></dt>
+<dd>
+<p>下付き添字としての共変添字と上付き添字としての反変添字を持つように
+添字付きオブジェクトを持つ形で <var>expr</var>を表示します。
+微分添字は共変添字からコンマで区切られた下付き添字として表示されます。
+(このドキュメント至る所の例を参照してください。)
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-indices"></a>
+</p><dl>
+<dt><a name="index-indices"></a><u>関数:</u> <b>indices</b><i> (<var>expr</var>)</i></dt>
+<dd>
+<p>2つの要素のリストを返します。
+以下の例が例示するように、
+一番目は <var>expr</var>の中の自由添字(一度だけ現れるもの)のリストです。
+二番目は <var>expr</var>の中のダミー添字(正確に二回現れるもの)のリストです。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) ishow(a([i,j],[k,l],m,n)*b([k,o],[j,m,p],q,r))$
+                                k l      j m p
+(%t2)                          a        b
+                                i j,m n  k o,q r
+(%i3) indices(%);
+(%o3)                 [[l, p, i, n, o, q, r], [k, j, m]]
+
+</pre></td></tr></table>
+
+<p>同じ添字を二回以上含むテンソル積は構文的に認められていません。
+<code>indices</code>は、これらの式を合理的な方法で扱おうとします;
+しかしながら、そんな非合法な式上で動くようにコールされた時は
+その振る舞いは未定義と考えなければいけません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-rename"></a>
+</p><dl>
+<dt><a name="index-rename"></a><u>関数:</u> <b>rename</b><i> (<var>expr</var>)</i></dt>
+<dt><a name="index-rename-1"></a><u>関数:</u> <b>rename</b><i> (<var>expr</var>, <var>count</var>)</i></dt>
+<dd>
+<p>もしオプションの二番目の引数が省略されたら、
+<var>expr</var>と同値な、しかし、各項に対して集合
+<code>[%1, %2,...]</code>から選ばれたダミー添字を持つ式を返します。
+そうでないなら、ダミー添字を <var>count</var>の値で始まるようインデックスします。
+積の中のそれぞれのダミー添字は異なります。
+和に関しては
+<code>rename</code>は各項毎にカウンタが再設定されるように和の中の各項上で作用します。
+この方法で <code>rename</code>はテンソル整理器として利用できます。
+加えて、(もし<code>allsym</code>が<code>true</code>なら、)
+添字を
+<code>flipflag</code>の値に依存して共変または反変添字に関して、
+英数字順に並び替えます。
+もし <code>flipflag</code>が <code>false</code>なら、
+添字は反変添字の順に従ってリネームされます。
+もし <code>flipflag</code>が <code>true</code>なら、
+リネームは共変添字の順に従って起こるでしょう。
+２つのリネームの組み合わせた効果が、それ自身によって、
+どちらか１つよりも更に式を簡単にすることがしばしば起こります。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) allsym:true;
+(%o2)                                true
+(%i3) g([],[%4,%5])*g([],[%6,%7])*ichr2([%1,%4],[%3])*
+ichr2([%2,%3],[u])*ichr2([%5,%6],[%1])*ichr2([%7,r],[%2])-
+g([],[%4,%5])*g([],[%6,%7])*ichr2([%1,%2],[u])*
+ichr2([%3,%5],[%1])*ichr2([%4,%6],[%3])*ichr2([%7,r],[%2]),noeval$
+(%i4) expr:ishow(%)$
+</pre><pre class="example">       %4 %5  %6 %7      %3         u          %1         %2
+(%t4) g      g      ichr2      ichr2      ichr2      ichr2
+                         %1 %4      %2 %3      %5 %6      %7 r
+
+        %4 %5  %6 %7      u          %1         %3         %2
+     - g      g      ichr2      ichr2      ichr2      ichr2
+                          %1 %2      %3 %5      %4 %6      %7 r
+</pre><pre class="example">(%i5) flipflag:true;
+(%o5)                                true
+(%i6) ishow(rename(expr))$
+       %2 %5  %6 %7      %4         u          %1         %3
+(%t6) g      g      ichr2      ichr2      ichr2      ichr2
+                         %1 %2      %3 %4      %5 %6      %7 r
+
+        %4 %5  %6 %7      u          %1         %3         %2
+     - g      g      ichr2      ichr2      ichr2      ichr2
+                          %1 %2      %3 %4      %5 %6      %7 r
+(%i7) flipflag:false;
+(%o7)                                false
+(%i8) rename(%th(2));
+(%o8)                                  0
+(%i9) ishow(rename(expr))$
+       %1 %2  %3 %4      %5         %6         %7        u
+(%t9) g      g      ichr2      ichr2      ichr2     ichr2
+                         %1 %6      %2 %3      %4 r      %5 %7
+
+        %1 %2  %3 %4      %6         %5         %7        u
+     - g      g      ichr2      ichr2      ichr2     ichr2
+                          %1 %3      %2 %6      %4 r      %5 %7
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+
+<p><a name="show"></a>
+<a name="Item_003a-show"></a>
+</p><dl>
+<dt><a name="index-show"></a><u>関数:</u> <b>show</b><i> (<var>expr</var>)</i></dt>
+<dd><p>下付き添字として共変インデックス、上付き添字として反変インデックスを持つよう、
+インデックスされたオブジェクトと一緒に <code>expr</code>を表示します。
+微分インデックスは下付き添字として表示され、
+コンマによって共変インデックスと区別されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+ &middot;<a href="maxima_99.html#Category_003a-Display-functions">Display functions</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-flipflag"></a>
+</p><dl>
+<dt><a name="index-flipflag"></a><u>オプション変数:</u> <b>flipflag</b></dt>
+<dd>
+<p>デフォルト: <code>false</code>。
+もし <code>false</code>なら反変添字の順に従って、
+そうでないなら、共変添字の順に従って、添字をリネームします。
+</p>
+<p>もし <code>flipflag</code>が <code>false</code>なら、
+<code>rename</code>は左から右に現れるよう反変添字のリストを形成します
+(もし <code>true</code>なら共変添字について同様に)。
+リストの最初のダミー添字は <code>%1</code>に、次は <code>%2</code>にというように、リネームします。
+そして、 <code>rename</code>の後、並び替えが起こります。
+(<code>rename</code>の下の例を参照してください。)
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-defcon"></a>
+</p><dl>
+<dt><a name="index-defcon"></a><u>関数:</u> <b>defcon</b><i> (<var>tensor_1</var>)</i></dt>
+<dt><a name="index-defcon-1"></a><u>関数:</u> <b>defcon</b><i> (<var>tensor_1</var>, <var>tensor_2</var>, <var>tensor_3</var>)</i></dt>
+<dd><p><var>tensor_1</var>と <var>tensor_2</var>の積の縮約が適切な添字を持つ
+<var>tensor_3</var>に帰着するというプロパティを <var>tensor_1</var>に与えます。
+もし引数が <var>tensor_1</var>１つだけ与えれたなら、
+適切な添字を持つ任意の添字付きオブジェクト (<code>my_tensor</code>とします)との
+<var>tensor_1</var>の積の縮約はその名前、すなわち<code>my_tensor</code>と、
+実行された縮約を反映した添字の新しい集合を持つ添字付きオブジェクトをもたらします。
+例えば、もし <code>imetric:g</code>なら、
+<code>defcon(g)</code>は計量テンソルとの縮約を通して添字の上げ下げを実行します。
+１つ以上の <code>defcon</code>を同じ添字付きオブジェクトに関して与えることができます;
+特定の縮約に関して適用する最新のものが使われます。
+<code>contractions</code>は
+<code>defcon</code>で縮約プロパティを与えられたそれら添字付きオブジェクトのリストです。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-remcon"></a>
+</p><dl>
+<dt><a name="index-remcon"></a><u>関数:</u> <b>remcon</b><i> (<var>tensor_1</var>, ..., <var>tensor_n</var>)</i></dt>
+<dt><a name="index-remcon-1"></a><u>関数:</u> <b>remcon</b><i> (all)</i></dt>
+<dd><p><var>tensor_1</var>, ..., <var>tensor_n</var>からすべての縮約プロパティを取り除きます。
+<code>remcon(all)</code>はすべての添字付きオブジェクトからすべての縮約プロパティを取り除きます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-contract"></a>
+</p><dl>
+<dt><a name="index-contract"></a><u>関数:</u> <b>contract</b><i> (<var>expr</var>)</i></dt>
+<dd>
+<p>和と積の任意の組み合わせであり得る
+<var>expr</var>に関してテンソル縮約を実行します。
+この関数は
+<code>defcon</code>関数に与えられた情報を使います。
+最高の結果として <code>expr</code>は完全に展開されなければいけません。
+もし項の分母の中に変数がないなら、
+<code>ratexpand</code>は和の積やべきを展開する最速の方法です。
+もし GCD消去が不要なら、
+<code>gcd</code>スイッチは <code>false</code>でなければいけません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-indexed_005ftensor"></a>
+</p><dl>
+<dt><a name="index-indexed_005ftensor"></a><u>関数:</u> <b>indexed_tensor</b><i> (<var>tensor</var>)</i></dt>
+<dd>
+<p><code>ichr1</code>, <code>ichr2</code>, <code>icurvature</code>と合わせて組み込みの値が既に存在する
+<var>tensor</var>に成分を割り当てる前に実行しなければいけません。
+<code>icurvature</code>の下の例を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-components"></a>
+</p><dl>
+<dt><a name="index-components"></a><u>関数:</u> <b>components</b><i> (<var>tensor</var>, <var>expr</var>)</i></dt>
+<dd>
+<p><var>tensor</var>の成分の値を与える式 <var>expr</var>に添字値を割り当てることを許します。
+その添字のすべてを伴って何かが起こるときはいつでも、これらは自動的にテンソルに代入されます。
+テンソルは形式 <code>t([...],[...])</code>でなければいけません。
+ここで形式 <code>t([...],[...])</code>の中のリストのいずれかは空であり得えます。
+<var>expr</var>は
+<var>tensor</var>と同じ自由添字を持つ他のオブジェクトを含む任意の添字付き式であり得ます。
+成分がダミー添字を含む計量テンソルへ値を割り当てるのに使われる時、
+複数のダミー添字の生成を避けるようにこれらの添字を定義するように注意しなければいけません。
+この割り当ての削除には関数 <code>remcomps</code>を使います。
+</p>
+<p><code>components</code>はテンソル価についてだけ気にして、
+特別な添字順序について気にしないことを覚えておくことは重要です。
+このように、成分を、例えば <code>x([i,-j],[])</code>, <code>x([-j,i],[])</code>または
+<code>x([i],[j])</code>に割り当てることはすべて同じ結果を生成します。
+すなわち、価 <code>(1,1)</code>を持つ
+<code>x</code>と名付けられたテンソルに割り当てられた成分を生成します。
+</p>
+<p>成分は4つの方法で添字付き式に割り当てることができます。
+そのうちの2つは <code>components</code>コマンドの使用を含みます:
+</p>
+<p>1) 添字付き式として。例えば:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) components(g([],[i,j]),e([],[i])*p([],[j]))$
+(%i3) ishow(g([],[i,j]))$
+                                      i  j
+(%t3)                                e  p
+
+</pre></td></tr></table>
+
+<p>2) 行列として:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i5) lg:-ident(4)$lg[1,1]:1$lg;
+</pre><pre class="example">                            [ 1   0    0    0  ]
+                            [                  ]
+                            [ 0  - 1   0    0  ]
+(%o5)                       [                  ]
+                            [ 0   0   - 1   0  ]
+                            [                  ]
+                            [ 0   0    0   - 1 ]
+</pre><pre class="example">(%i6) components(g([i,j],[]),lg);
+(%o6)                                done
+(%i7) ishow(g([i,j],[]))$
+(%t7)                                g
+                                      i j
+(%i8) g([1,1],[]);
+(%o8)                                  1
+(%i9) g([4,4],[]);
+(%o9)                                 - 1
+</pre></td></tr></table>
+
+<p>3) 関数として。 Maxima関数を使って添字に基づいたテンソルの成分を指定することができます。
+例えば、以下のコードは、
+もし <code>h</code>が同じ数の共変添字と反変添字を持ち、微分添字を持たないなら、
+<code>kdelta</code>を <code>h</code>に割り当て、そうでないなら <code>g</code>を割り当てます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i4) h(l1,l2,[l3]):=if length(l1)=length(l2) and length(l3)=0
+  then kdelta(l1,l2) else apply(g,append([l1,l2], l3))$
+(%i5) ishow(h([i],[j]))$
+                                          j
+(%t5)                               kdelta
+                                          i
+(%i6) ishow(h([i,j],[k],l))$
+                                     k
+(%t6)                               g
+                                     i j,l
+</pre></td></tr></table>
+
+<p>4) Maximaのパターンマッチング機能、特に <code>defrule</code>と
+<code>applyb1</code>コマンドを使って:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) matchdeclare(l1,listp);
+(%o2)                                done
+(%i3) defrule(r1,m(l1,[]),(i1:idummy(),
+      g([l1[1],l1[2]],[])*q([i1],[])*e([],[i1])))$
+
+(%i4) defrule(r2,m([],l1),(i1:idummy(),
+      w([],[l1[1],l1[2]])*e([i1],[])*q([],[i1])))$
+
+(%i5) ishow(m([i,n],[])*m([],[i,m]))$
+</pre><pre class="example">                                    i m
+(%t5)                              m    m
+                                         i n
+</pre><pre class="example">(%i6) ishow(rename(applyb1(%,r1,r2)))$
+                           %1  %2  %3 m
+(%t6)                     e   q   w     q   e   g
+                                         %1  %2  %3 n
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-remcomps"></a>
+</p><dl>
+<dt><a name="index-remcomps"></a><u>関数:</u> <b>remcomps</b><i> (<var>tensor</var>)</i></dt>
+<dd>
+<p><code>components</code>関数で割り当てられたすべての値を
+<var>tensor</var>からアンバインドします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+
+<p><a name="Item_003a-showcomps"></a>
+</p><dl>
+<dt><a name="index-showcomps"></a><u>関数:</u> <b>showcomps</b><i> (<var>tensor</var>)</i></dt>
+<dd>
+<p><code>components</code>コマンドを使って作られたようにテンソルの成分割り当てを表示します。
+以下の例で明示されるように、行列が
+<code>components</code>を使って添字テンソルに割り当てられている時、
+この関数は特に役に立ちます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(ctensor);
+(%o1)       /share/tensor/ctensor.mac
+(%i2) load(itensor);
+(%o2)      /share/tensor/itensor.lisp
+(%i3) lg:matrix([sqrt(r/(r-2*m)),0,0,0],[0,r,0,0],
+                [0,0,sin(theta)*r,0],[0,0,0,sqrt((r-2*m)/r)]);
+               [         r                                     ]
+               [ sqrt(-------)  0       0              0       ]
+               [      r - 2 m                                  ]
+               [                                               ]
+               [       0        r       0              0       ]
+(%o3)          [                                               ]
+               [       0        0  r sin(theta)        0       ]
+               [                                               ]
+               [                                      r - 2 m  ]
+               [       0        0       0        sqrt(-------) ]
+               [                                         r     ]
+(%i4) components(g([i,j],[]),lg);
+(%o4)                                done
+(%i5) showcomps(g([i,j],[]));
+                  [         r                                     ]
+                  [ sqrt(-------)  0       0              0       ]
+                  [      r - 2 m                                  ]
+                  [                                               ]
+                  [       0        r       0              0       ]
+(%t5)      g    = [                                               ]
+            i j   [       0        0  r sin(theta)        0       ]
+                  [                                               ]
+                  [                                      r - 2 m  ]
+                  [       0        0       0        sqrt(-------) ]
+                  [                                         r     ]
+(%o5)                                false
+
+</pre></td></tr></table>
+
+<p><code>showcomps</code>コマンドは 2よりも高い階数のテンソルの成分も表示することができます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-idummy"></a>
+</p><dl>
+<dt><a name="index-idummy"></a><u>関数:</u> <b>idummy</b><i> ()</i></dt>
+<dd>
+<p><code>icounter</code>を1つ増やし、形式 <code>%n</code>の添字を値として返します。
+ここで nは正の整数です。
+これは式を形成する際必要なダミー添字が既に使用中の添字とぶつからないことを保証します。
+(<code>indices</code>の下の例を参照してください。)
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-idummyx"></a>
+</p><dl>
+<dt><a name="index-idummyx"></a><u>オプション変数:</u> <b>idummyx</b></dt>
+<dd><p>デフォルト値: <code>%</code>
+</p>
+<p>ダミー添字の接頭辞です。
+(<code>indices</code>の下の例を参照してください。)
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-icounter"></a>
+</p><dl>
+<dt><a name="index-icounter"></a><u>オプション変数:</u> <b>icounter</b></dt>
+<dd><p>デフォルト値: <code>1</code>
+</p>
+<p>テンソルパッケージで次のダミー添字を生成する際使われる数値接尾を決定します。
+接頭辞はオプション <code>idummy</code> (デフォルト: <code>%</code>)で決定されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-kdelta"></a>
+</p><dl>
+<dt><a name="index-kdelta"></a><u>関数:</u> <b>kdelta</b><i> (<var>L1</var>, <var>L2</var>)</i></dt>
+<dd><p>共変添字のリスト <var>L1</var>と反変添字のリスト <var>L2</var>を使った
+<code>itensor</code>パッケージで定義された
+一般化された Kroneckerのデルタ関数です。
+<code>kdelta([i],[j])</code>は通常の Kroneckerデルタを返します。
+コマンド <code>ev(<var>expr</var>,kdelta)</code>は
+<code>kdelta([],[])</code>を多様体の次元に含む式の評価をもたらします。
+</p>
+<p>この表記法の乱用となることですが、
+<code>itensor</code>は
+<code>kdelta</code>が2つの共変添字だけ、または、2つの反変添字だけを持つことも許し、
+事実上、共(反)変「単位行列」を供給します。
+これは厳密にはプログラミング目的としてみなされ、
+<code>kdelta([i,j],[])</code>が有効なテンソルオブジェクトだということを
+意味するつもりではありません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-kdels"></a>
+</p><dl>
+<dt><a name="index-kdels"></a><u>関数:</u> <b>kdels</b><i> (<var>L1</var>, <var>L2</var>)</i></dt>
+<dd>
+<p>いくつかの計算で使われる、対称化された Kroneckerデルタ。
+例えば:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) kdelta([1,2],[2,1]);
+(%o2)                                 - 1
+(%i3) kdels([1,2],[2,1]);
+(%o3)                                  1
+(%i4) ishow(kdelta([a,b],[c,d]))$
+                             c       d         d       c
+(%t4)                  kdelta  kdelta  - kdelta  kdelta
+                             a       b         a       b
+(%i4) ishow(kdels([a,b],[c,d]))$
+                             c       d         d       c
+(%t4)                  kdelta  kdelta  + kdelta  kdelta
+                             a       b         a       b
+
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-levi_005fcivita"></a>
+</p><dl>
+<dt><a name="index-levi_005fcivita"></a><u>関数:</u> <b>levi_civita</b><i> (<var>L</var>)</i></dt>
+<dd><p>リスト <var>L</var>が整数の偶置換から成るなら 1を返し、
+<var>L</var>が奇置換なら成るなら -1を返し、
+<var>L</var>のいくつかの添字が繰り返しなら 0を返す置換(別名Levi-Civita)テンソルです。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-lc2kdt"></a>
+</p><dl>
+<dt><a name="index-lc2kdt"></a><u>関数:</u> <b>lc2kdt</b><i> (<var>expr</var>)</i></dt>
+<dd><p>Levi-Civitaシンボルを含む式を整理し、可能ならこれらを Kroneckerデルタ式に変換します。
+この関数と単に Levi-Civitaシンボルを評価することの主な違いは、
+直接評価はしばしば数値添字を含む Kronecker式に帰着することです。
+これは更なる整理を妨げるので、しばしば望ましくないことです。
+<code>lc2kdt</code>関数はこの問題を避けて、
+<code>rename</code>や <code>contract</code>を使って更に容易に整理される式をもたらします。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) expr:ishow('levi_civita([],[i,j])
+                 *'levi_civita([k,l],[])*a([j],[k]))$
+                                  i j  k
+(%t2)                  levi_civita    a  levi_civita
+                                       j            k l
+(%i3) ishow(ev(expr,levi_civita))$
+                                  i j  k       1 2
+(%t3)                       kdelta    a  kdelta
+                                  1 2  j       k l
+(%i4) ishow(ev(%,kdelta))$
+             i       j         j       i   k
+(%t4) (kdelta  kdelta  - kdelta  kdelta ) a
+             1       2         1       2   j
+
+                               1       2         2       1
+                        (kdelta  kdelta  - kdelta  kdelta )
+                               k       l         k       l
+(%i5) ishow(lc2kdt(expr))$
+                     k       i       j    k       j       i
+(%t5)               a  kdelta  kdelta  - a  kdelta  kdelta
+                     j       k       l    j       k       l
+(%i6) ishow(contract(expand(%)))$
+                                 i           i
+(%t6)                           a  - a kdelta
+                                 l           l
+</pre></td></tr></table>
+
+<p><code>lc2kdt</code>関数は時々計量テンソルを利用します。
+もし前もって計量テンソルが <code>imetric</code>で定義されていなかったなら、
+これはエラーになります。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i7) expr:ishow('levi_civita([],[i,j])
+                 *'levi_civita([],[k,l])*a([j,k],[]))$
+</pre><pre class="example">                                 i j            k l
+(%t7)                 levi_civita    levi_civita    a
+                                                     j k
+</pre><pre class="example">(%i8) ishow(lc2kdt(expr))$
+Maxima encountered a Lisp error:
+
+ Error in $IMETRIC [or a callee]:
+ $IMETRIC [or a callee] requires less than two arguments.
+
+Automatically continuing.
+To reenable the Lisp debugger set *debugger-hook* to nil.
+(%i9) imetric(g);
+(%o9)                                done
+(%i10) ishow(lc2kdt(expr))$
+         %3 i       k   %4 j       l     %3 i       l   %4 j
+(%t10) (g     kdelta   g     kdelta   - g     kdelta   g    
+                    %3             %4               %3
+              k
+        kdelta  ) a
+              %4   j k
+(%i11) ishow(contract(expand(%)))$
+                                  l i    l i  j
+(%t11)                           a    - g    a
+                                              j
+</pre></td></tr></table>
+
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+
+<p><a name="Item_003a-lc_005fl"></a>
+</p><dl>
+<dt><a name="index-lc_005fl"></a><u>関数:</u> <b>lc_l</b></dt>
+<dd>
+<p>未評価の Levi-Civitaシンボル (<code>levi_civita</code>)を含む式のために使われる整理ルール。
+<code>lc_u</code>と組み合わせて、
+<code>levi_civita</code>の評価より効率的にたくさんの式を整理するのに使うことができます。
+</p>
+<p>例えば:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) el1:ishow('levi_civita([i,j,k],[])*a([],[i])*a([],[j]))$
+                             i  j
+(%t2)                       a  a  levi_civita
+                                             i j k
+(%i3) el2:ishow('levi_civita([],[i,j,k])*a([i])*a([j]))$
+                                       i j k
+(%t3)                       levi_civita      a  a
+                                              i  j
+(%i4) canform(contract(expand(applyb1(el1,lc_l,lc_u))));
+(%t4)                                  0
+(%i5) canform(contract(expand(applyb1(el2,lc_l,lc_u))));
+(%t5)                                  0
+
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+
+<p><a name="Item_003a-lc_005fu"></a>
+</p><dl>
+<dt><a name="index-lc_005fu"></a><u>関数:</u> <b>lc_u</b></dt>
+<dd>
+<p>未評価の Levi-Civitaシンボル (<code>levi_civita</code>)を含む式のために使われる整理ルール。
+<code>lc_l</code>と組み合わせて、
+<code>levi_civita</code>の評価より効率的にたくさんの式を整理するのに使うことができます。
+詳しくは <code>lc_l</code>を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-canten"></a>
+</p><dl>
+<dt><a name="index-canten"></a><u>関数:</u> <b>canten</b><i> (<var>expr</var>)</i></dt>
+<dd><p>名前を変えて (<code>rename</code>を参照してください)、ダミー添字を置換することで、
+<var>expr</var>を整理します。
+<code>rename</code>は微分がないテンソル積の和に制限されます。
+本当に限定されていて、
+<code>canform</code>が要求された整理を実行する能力がない時だけ使われるはずです。
+</p>
+<p><code>canten</code>関数は、引数が添字が完全に対称な式の時だけ数学的に正確な結果を返します。
+この理由から、<code>canten</code>は、もし
+<code>allsym</code>が <code>true</code>に設定されてないならエラーを返します。
+</p>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-concan"></a>
+</p><dl>
+<dt><a name="index-concan"></a><u>関数:</u> <b>concan</b><i> (<var>expr</var>)</i></dt>
+<dd><p><code>canten</code>に似ていますが、添字縮約も実行します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<hr size="6">
+<a name="Tensor-symmetries"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Managing-indexed-objects" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Indicial-tensor-calculus" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#itensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-itensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">25.2.2 Tensor symmetries</h3>
+
+<p><a name="Item_003a-allsym"></a>
+</p><dl>
+<dt><a name="index-allsym"></a><u>オプション変数:</u> <b>allsym</b></dt>
+<dd>
+<p>デフォルト: <code>false</code>。
+もし <code>true</code>なら、
+すべての添字付きオブジェクトは共変、反変添字のすべてに関して対称と仮定されます。
+もし <code>false</code>なら、これらの添字に関していかなる種類の対称性も仮定されません。
+<code>iframe_flag</code>が <code>true</code>に設定されない限り、
+微分添字はいつも対称と取られます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-decsym"></a>
+</p><dl>
+<dt><a name="index-decsym"></a><u>関数:</u> <b>decsym</b><i> (<var>tensor</var>, <var>m</var>, <var>n</var>, [<var>cov_1</var>, <var>cov_2</var>, ...], [<var>contr_1</var>, <var>contr_2</var>, ...])</i></dt>
+<dd>
+<p><var>m</var>個の共変添字と <var>n</var>個の反変添字を持つ
+<var>tensor</var>に関する対称プロパティを宣言します。
+<var>cov_i</var>と <var>contr_i</var>は
+それぞれ共変添字と反変添字の間の対称関係を表す擬似関数です。
+これらは形式 <code>symoper(<var>index_1</var>, <var>index_2</var>,...)</code>を取ります。
+ここで <code>symoper</code>は
+<code>sym</code>か <code>anti</code>, <code>cyc</code>のいずれかで、
+<var>index_i</var>は <var>tensor</var>の添字の位置を示す整数です。
+これは、 <var>tensor</var>が
+<var>index_i</var>に関してそれぞれ対称、反対称、巡回であると宣言します。
+<code>symoper(all)</code>も対称条件に従う添字すべてを示す有効な形式です。
+例えば、5つの共変添字を持つオブジェクト <code>b</code>が与えられたとして、
+<code>decsym(b,5,3,[sym(1,2),anti(3,4)],[cyc(all)])</code>は、
+<code>b</code>が一番目と二番目の共変添字に対して対称であり、
+三番目、四番目の共変添字に対して反対称であり、
+反変添字すべてに対して巡回的であると宣言します。
+対称宣言のリストのどれかは空であり得ます。
+以下の例で示すように式整理を実行する関数は <code>canform</code>です。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) expr:contract( expand( a([i1, j1, k1], [])
+           *kdels([i, j, k], [i1, j1, k1])))$
+(%i3) ishow(expr)$
+</pre><pre class="example">(%t3)         a      + a      + a      + a      + a      + a
+               k j i    k i j    j k i    j i k    i k j    i j k
+</pre><pre class="example">(%i4) decsym(a,3,0,[sym(all)],[]);
+(%o4)                                done
+(%i5) ishow(canform(expr))$
+(%t5)                              6 a
+                                      i j k
+(%i6) remsym(a,3,0);
+(%o6)                                done
+(%i7) decsym(a,3,0,[anti(all)],[]);
+(%o7)                                done
+(%i8) ishow(canform(expr))$
+(%t8)                                  0
+(%i9) remsym(a,3,0);
+(%o9)                                done
+(%i10) decsym(a,3,0,[cyc(all)],[]);
+(%o10)                               done
+(%i11) ishow(canform(expr))$
+(%t11)                        3 a      + 3 a
+                                 i k j      i j k
+(%i12) dispsym(a,3,0);
+(%o12)                     [[cyc, [[1, 2, 3]], []]]
+
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-remsym"></a>
+</p><dl>
+<dt><a name="index-remsym"></a><u>関数:</u> <b>remsym</b><i> (<var>tensor</var>, <var>m</var>, <var>n</var>)</i></dt>
+<dd><p><var>m</var>個の共変添字と <var>n</var>個の反変添字を持つ
+<var>tensor</var>からすべての対称プロパティを取り除きます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-canform"></a>
+</p><dl>
+<dt><a name="index-canform"></a><u>関数:</u> <b>canform</b><i> (<var>expr</var>)</i></dt>
+<dt><a name="index-canform-1"></a><u>関数:</u> <b>canform</b><i> (<var>expr</var>, <var>rename</var>)</i></dt>
+<dd><p>ダミー添字をリネームして、
+それらに課せられた対称条件によって指令されたようにすべての添字を並べ替えることで、
+<var>expr</var>を整理します。
+もし <code>allsym</code>が <code>true</code>なら、
+すべての添字は対称と仮定され、
+そうでないなら <code>decsym</code>宣言が提供する対称情報が使われます。
+ダミー添字は <code>rename</code>関数に関するものと同じ方法でリネームされます。
+<code>canform</code>が大きな式に適用される時、
+計算にかなりの時間が費やされるかもしれません。
+この時間は最初に式に対して <code>rename</code>をコールすることで短くできます。
+<code>decsym</code>の下の例も参照してください。
+注意: <code>canform</code>はいつも数学的に正しい結果を返しますが、
+式を最も簡単な形式に完全に整理できないかもしれません。
+</p>
+<p>オプションの二番目のパラメータ <var>rename</var>は、
+もし <code>false</code>に設定されたなら、リネームを抑制します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<hr size="6">
+<a name="Indicial-tensor-calculus"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Tensor-symmetries" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Tensors-in-curved-spaces" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#itensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-itensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">25.2.3 Indicial tensor calculus</h3>
+
+
+<dl>
+<dt><a name="index-diff-5"></a><u>関数:</u> <b>diff</b><i> (<var>expr</var>, <var>v_1</var>, [<var>n_1</var>, [<var>v_2</var>, <var>n_2</var>] ...])</i></dt>
+<dd>
+<p><code>itensor</code>のための能力に関して拡張された通常の Maxima微分関数です。
+<var>v_1</var>に関して <var>n_1</var>階、 <var>v_2</var>に関して <var>n_2</var>階、
+という <var>expr</var>の微分を取ります。
+テンソルパッケージでは <var>v_i</var>が 1から変数
+<code>dim</code>の値までの整数であるように関数が修正されています。
+これによって、
+微分がリスト <code>vect_coords</code>の <var>v_i</var>番目の要素に関して実行されます。
+もし <code>vect_coords</code>がアトム変数にバインドされているなら、
+<var>v_i</var>を下付き添字に持つ変数が微分変数として使われます。
+これは座標名や、<code>x[1]</code>, <code>x[2]</code>,
+...のような下付き添字付き名前の配列を使うことを可能にします。
+</p>
+<p>更に、 <code>diff</code>には添字付き変数に関する微分を計算する能力が追加されています。
+特にテンソルパッケージは
+計量テンソルと、計量テンソルやその一階微分、二階微分に関する微分を含む
+式を微分する方法を知っています。
+この能力は重力理論の Lagrange形式を考える時、
+特に役に立ちます。
+作用原理から Einsteinテンソルと場の方程式を演繹することを可能にします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-idiff"></a>
+</p><dl>
+<dt><a name="index-idiff"></a><u>関数:</u> <b>idiff</b><i> (<var>expr</var>, <var>v_1</var>, [<var>n_1</var>, [<var>v_2</var>, <var>n_2</var>] ...])</i></dt>
+<dd><p>添字微分。
+独立変数に関して微分する <code>diff</code>と異なり、
+<code>idiff)</code>は座標に関して微分するのに使うことができます。
+添字付きオブジェクトに関しては
+結果的に、これは <var>v_i</var>を微分添字として追加することになります。
+<code>iframe_flag</code>が <code>true</code>に設定されていない限り
+続いて，微分添字が並び替えられます。
+</p>
+<p><code>idiff</code>は計量テンソルの行列式も微分することができます。
+従って、もし <code>imetric</code>が <code>G</code>にバインドされていたら、
+<code>idiff(determinant(g),k)</code>は
+ダミー添字 <code>%i</code>が適当に選ばれて
+<code>2 * determinant(g) * ichr2([%i,k],[%i])</code>を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-liediff"></a>
+</p><dl>
+<dt><a name="index-liediff"></a><u>関数:</u> <b>liediff</b><i> (<var>v</var>, <var>ten</var>)</i></dt>
+<dd>
+<p>ベクトル場 <var>v</var>に対してテンソル式 <var>ten</var>の Lie微分を計算します。
+<var>ten</var>は任意の添字付きテンソル式でなければいけません;
+<var>v</var>はベクトル場の(添字なしの)名前でなければいけません。
+例えば:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) ishow(liediff(v,a([i,j],[])*b([],[k],l)))$
+       k    %2            %2          %2
+(%t2) b   (v   a       + v   a     + v   a    )
+       ,l       i j,%2    ,j  i %2    ,i  %2 j
+
+                          %1  k        %1  k      %1  k
+                      + (v   b      - b   v    + v   b   ) a
+                              ,%1 l    ,l  ,%1    ,l  ,%1   i j
+
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-rediff"></a>
+</p><dl>
+<dt><a name="index-rediff"></a><u>関数:</u> <b>rediff</b><i> (<var>ten</var>)</i></dt>
+<dd>
+<p>テンソル式 <var>ten</var>の中の <code>idiff</code>コマンドすべてを評価します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-undiff"></a>
+</p><dl>
+<dt><a name="index-undiff"></a><u>関数:</u> <b>undiff</b><i> (<var>expr</var>)</i></dt>
+<dd>
+<p><var>expr</var>と同値ですが、
+添字付きオブジェクトの微分すべてが
+<code>idiff</code>関数の名詞形で置き換えられた式を返します。
+もし微分が実行されたら引数はその添字付きオブジェクトをもたらしたでしょう。
+微分された添字付きオブジェクトを
+<var>expr</var>をもたらすある関数定義で置き換えて、
+その後、 <code>ev(<var>expr</var>, idiff)</code>で微分を実行したい時、
+これは役に立ちます。
+</p>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-evundiff"></a>
+</p><dl>
+<dt><a name="index-evundiff"></a><u>関数:</u> <b>evundiff</b><i> (<var>expr</var>)</i></dt>
+<dd>
+<p><code>undiff</code>の実行と同値ですが、 <code>ev</code>と <code>rediff</code>があとに続きます。
+</p>
+<p>この演算のポイントは微分形式で直接評価できない式を簡単に評価することです。
+例えば、以下はエラーをもたらします:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) icurvature([i,j,k],[l],m);
+Maxima encountered a Lisp error:
+
+ Error in $ICURVATURE [or a callee]:
+ $ICURVATURE [or a callee] requires less than three arguments.
+
+Automatically continuing.
+To reenable the Lisp debugger set *debugger-hook* to nil.
+</pre></td></tr></table>
+
+<p>しかし、もし <code>icurvature</code>が名詞形で入っているなら、
+<code>evundiff</code>を使って評価できます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) ishow('icurvature([i,j,k],[l],m))$
+                                         l
+(%t3)                          icurvature
+                                         i j k,m
+(%i4) ishow(evundiff(%))$
+             l              l         %1           l           %1
+(%t4) - ichr2        - ichr2     ichr2      - ichr2       ichr2
+             i k,j m        %1 j      i k,m        %1 j,m      i k
+
+             l              l         %1           l           %1
+      + ichr2        + ichr2     ichr2      + ichr2       ichr2
+             i j,k m        %1 k      i j,m        %1 k,m      i j
+</pre></td></tr></table>
+
+<p>注意: Maximaの以前のバージョンでは、
+Christoffel記号の微分形式も評価できませんでした。
+これは現在修正されています。
+だから <code>evundiff</code>はもはやこのような式に関しては不要です:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) imetric(g);
+(%o5)                                done
+(%i6) ishow(ichr2([i,j],[k],l))$
+       k %3
+      g     (g         - g         + g        )
+              j %3,i l    i j,%3 l    i %3,j l
+(%t6) -----------------------------------------
+                          2
+
+                         k %3
+                        g     (g       - g       + g      )
+                         ,l     j %3,i    i j,%3    i %3,j
+                      + -----------------------------------
+                                         2
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-flush"></a>
+</p><dl>
+<dt><a name="index-flush"></a><u>関数:</u> <b>flush</b><i> (<var>expr</var>, <var>tensor_1</var>, <var>tensor_2</var>, ...)</i></dt>
+<dd><p><var>expr</var>において微分添字を持たない <var>tensor_i</var>をすべて0にします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-flushd"></a>
+</p><dl>
+<dt><a name="index-flushd"></a><u>関数:</u> <b>flushd</b><i> (<var>expr</var>, <var>tensor_1</var>, <var>tensor_2</var>, ...)</i></dt>
+<dd><p><var>expr</var>において、
+微分添字を持つ <var>tensor_i</var>をすべて0にします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-flushnd"></a>
+</p><dl>
+<dt><a name="index-flushnd"></a><u>関数:</u> <b>flushnd</b><i> (<var>expr</var>, <var>tensor</var>, <var>n</var>)</i></dt>
+<dd><p>以下の例で例示されるように、 <var>expr</var>において
+<var>n</var>以上の微分添字を持つ微分されたオブジェクト <var>tensor</var>をすべて 0にします。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) ishow(a([i],[J,r],k,r)+a([i],[j,r,s],k,r,s))$
+                                J r      j r s
+(%t2)                          a      + a
+                                i,k r    i,k r s
+(%i3) ishow(flushnd(%,a,3))$
+                                     J r
+(%t3)                               a
+                                     i,k r
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-coord"></a>
+</p><dl>
+<dt><a name="index-coord"></a><u>関数:</u> <b>coord</b><i> (<var>tensor_1</var>, <var>tensor_2</var>, ...)</i></dt>
+<dd>
+<p>名前が <var>tensor_i</var>の1つである反変ベクトルの微分が
+Kroneckerデルタをもたらすという座標微分プロパティを
+<var>tensor_i</var>に与えます。
+例えば、
+もし <code>coord(x)</code>が実行されたら、
+<code>idiff(x([],[i]),j)</code>は <code>kdelta([i],[j])</code>を与えます。
+<code>coord</code>はこのプロパティを持つ添字付きオブジェクトすべてのリストです。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-remcoord"></a>
+</p><dl>
+<dt><a name="index-remcoord"></a><u>関数:</u> <b>remcoord</b><i> (<var>tensor_1</var>, <var>tensor_2</var>, ...)</i></dt>
+<dt><a name="index-remcoord-1"></a><u>関数:</u> <b>remcoord</b><i> (all)</i></dt>
+<dd>
+<p><code>tensor_i</code>から関数 <code>coord</code>がもたらした座標微分プロパティを削除します。
+<code>remcoord(all)</code>は添字付きオブジェクトすべてからこのプロパティを削除します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-makebox"></a>
+</p><dl>
+<dt><a name="index-makebox"></a><u>関数:</u> <b>makebox</b><i> (<var>expr</var>)</i></dt>
+<dd><p><code>show</code>と同じように <var>expr</var>を表示します;
+しかし、
+<var>expr</var>に現れるテンソル d&rsquo;Alembert演算子はすべて記号 <code>[]</code>を使って示されます。
+例えば、 <code>[]p([m],[n])</code>は
+<code>g([],[i,j])*p([m],[n],i,j)</code>を表します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-conmetderiv"></a>
+</p><dl>
+<dt><a name="index-conmetderiv"></a><u>関数:</u> <b>conmetderiv</b><i> (<var>expr</var>, <var>tensor</var>)</i></dt>
+<dd>
+<p>計量テンソルの共変と反変形式両方(現在の制約)の常微分を含む式を整理します。
+例えば、 以下に見られるように、
+<code>conmetderiv</code>は反変計量テンソルの微分を Christoffelシンボルに結びつけます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) ishow(g([],[a,b],c))$
+                                      a b
+(%t2)                                g
+                                      ,c
+(%i3) ishow(conmetderiv(%,g))$
+                         %1 b      a       %1 a      b
+(%t3)                 - g     ichr2     - g     ichr2
+                                   %1 c              %1 c
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-simpmetderiv"></a>
+</p><dl>
+<dt><a name="index-simpmetderiv"></a><u>関数:</u> <b>simpmetderiv</b><i> (<var>expr</var>)</i></dt>
+<dt><a name="index-simpmetderiv-1"></a><u>関数:</u> <b>simpmetderiv</b><i> (<var>expr</var>[, <var>stop</var>])</i></dt>
+<dd>
+<p>計量テンソルの微分の積を含む式を整理します。
+特に <code>simpmetderiv</code>は2つの恒等式を知っています:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+   ab        ab           ab                 a
+  g   g   + g   g     = (g   g  )   = (kdelta )   = 0
+   ,d  bc        bc,d         bc ,d          c ,d
+
+</pre></td></tr></table>
+
+<p>従って、
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+   ab          ab
+  g   g   = - g   g
+   ,d  bc          bc,d
+</pre></td></tr></table>
+
+<p>と
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+  ab          ab
+ g   g     = g   g
+  ,j  ab,i    ,i  ab,j
+
+</pre></td></tr></table>
+
+<p>これは Christoffel記号の対称性の結果です。
+</p>
+<p><code>simpmetderiv</code>関数はオプションパラメータを1つ取ります。
+オプションパラメータがある時は、
+積の式の中に(整理のための)代入が1つうまくいくと関数が停止します。
+<code>simpmetderiv</code>関数は
+&ldquo;正準&rdquo;順序を積添字に適用する方法を決めるグローバル変数 <var>flipflag</var>も利用します。
+</p>
+<p>まとめると、これらの機能は
+他の方法では遂行困難か不可能な強力な式整理を達成するのに使うことができます。
+これについて、
+<code>simpmetderiv</code>の部分整理機能を明示的に使って縮約式を得る
+以下の例を通じて例示します:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) imetric(g);
+(%o2)                                done
+(%i3) ishow(g([],[a,b])*g([],[b,c])*g([a,b],[],d)*g([b,c],[],e))$
+                             a b  b c
+(%t3)                       g    g    g      g
+                                       a b,d  b c,e
+(%i4) ishow(canform(%))$
+
+errexp1 has improper indices
+ -- an error.  Quitting.  To debug this try debugmode(true);
+(%i5) ishow(simpmetderiv(%))$
+                             a b  b c
+(%t5)                       g    g    g      g
+                                       a b,d  b c,e
+(%i6) flipflag:not flipflag;
+(%o6)                                true
+(%i7) ishow(simpmetderiv(%th(2)))$
+                               a b  b c
+(%t7)                         g    g    g    g
+                               ,d   ,e   a b  b c
+(%i8) flipflag:not flipflag;
+(%o8)                                false
+(%i9) ishow(simpmetderiv(%th(2),stop))$
+                               a b  b c
+(%t9)                       - g    g    g      g
+                                    ,e   a b,d  b c
+(%i10) ishow(contract(%))$
+                                    b c
+(%t10)                           - g    g
+                                    ,e   c b,d
+
+</pre></td></tr></table>
+
+<p>Weylテンソルの縮約を整理するために
+<code>simpmetderiv</code>と <code>conmetderiv</code>を一緒に使う例として、
+<code>weyl.dem</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-flush1deriv"></a>
+</p><dl>
+<dt><a name="index-flush1deriv"></a><u>関数:</u> <b>flush1deriv</b><i> (<var>expr</var>, <var>tensor</var>)</i></dt>
+<dd>
+<p><var>expr</var>の中の、微分添字を 1つだけ持つ <var>tensor</var>をすべて0にします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<hr size="6">
+<a name="Tensors-in-curved-spaces"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Indicial-tensor-calculus" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Moving-frames" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#itensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-itensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">25.2.4 Tensors in curved spaces</h3>
+
+<p><a name="Item_003a-imetric"></a>
+</p><dl>
+<dt><a name="index-imetric"></a><u>関数:</u> <b>imetric</b><i> (<var>g</var>)</i></dt>
+<dt><a name="index-imetric-1"></a><u>システム変数:</u> <b>imetric</b></dt>
+<dd>
+<p>変数 <code>imetric:<var>g</var></code>を割り当てることで計量を指定します。
+更に、コマンド
+<code>defcon(<var>g</var>),defcon(<var>g</var>, <var>g</var>, kdelta)</code>を実行することで計量
+<var>g</var>の縮約プロパティを設定します。
+(デフォルトではバインドされていない)変数 <code>imetric</code>を
+<code>imetric(<var>g</var>)</code>コマンドが割り当てる計量にバインドします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-idim"></a>
+</p><dl>
+<dt><a name="index-idim"></a><u>関数:</u> <b>idim</b><i> (<var>n</var>)</i></dt>
+<dd><p>計量の次元を設定します。
+与えられた次元で Levi-Civita記号の反対称プロパティも初期化します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ichr1"></a>
+</p><dl>
+<dt><a name="index-ichr1"></a><u>関数:</u> <b>ichr1</b><i> ([<var>i</var>, <var>j</var>, <var>k</var>])</i></dt>
+<dd><p>以下の定義を介して第一種 Christoffel記号をもたらします。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">       (g      + g      - g     )/2 .
+         ik,j     jk,i     ij,k
+</pre></td></tr></table>
+<p>特定の計量で Christoffel記号を評価するには、
+<code>chr2</code>の下の例のように変数 <code>imetric</code>が名前を割り当てられなければいけません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ichr2"></a>
+</p><dl>
+<dt><a name="index-ichr2"></a><u>関数:</u> <b>ichr2</b><i> ([<var>i</var>, <var>j</var>], [<var>k</var>])</i></dt>
+<dd><p>以下の定義を介して第二種 Christoffel記号をもたらします。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">                       ks
+   ichr2([i,j],[k]) = g    (g      + g      - g     )/2
+                             is,j     js,i     ij,s
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-icurvature"></a>
+</p><dl>
+<dt><a name="index-icurvature"></a><u>関数:</u> <b>icurvature</b><i> ([<var>i</var>, <var>j</var>, <var>k</var>], [<var>h</var>])</i></dt>
+<dd><p>第二種 Christoffel記号(<code>ichr2</code>)を使った
+Riemann曲率テンソルをもたらします。
+以下の表記法が使われます:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">            h             h            h         %1         h
+  icurvature     = - ichr2      - ichr2     ichr2    + ichr2
+            i j k         i k,j        %1 j      i k        i j,k
+                            h          %1
+                     + ichr2      ichr2
+                            %1 k       i j
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-covdiff"></a>
+</p><dl>
+<dt><a name="index-covdiff"></a><u>関数:</u> <b>covdiff</b><i> (<var>expr</var>, <var>v_1</var>, <var>v_2</var>, ...)</i></dt>
+<dd><p>第二種 Christoffel記号(<code>ichr2</code>)を使って、
+変数 <var>v_i</var>に対する
+<var>expr</var>の共変微分をもたらします。
+これらを評価するには、
+<code>ev(<var>expr</var>,ichr2)</code>を使わなければ行けません。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) entertensor()$
+Enter tensor name: a;
+Enter a list of the covariant indices: [i,j];
+Enter a list of the contravariant indices: [k];
+Enter a list of the derivative indices: [];
+                                      k
+(%t2)                                a
+                                      i j
+(%i3) ishow(covdiff(%,s))$
+             k         %1     k         %1     k
+(%t3)     - a     ichr2    - a     ichr2    + a
+             i %1      j s    %1 j      i s    i j,s
+
+             k     %1
+      + ichr2     a
+             %1 s  i j
+(%i4) imetric:g;
+(%o4)                                  g
+(%i5) ishow(ev(%th(2),ichr2))$
+         %1 %4  k
+        g      a     (g       - g       + g      )
+                i %1   s %4,j    j s,%4    j %4,s
+(%t5) - ------------------------------------------
+                            2
+</pre><pre class="example">    %1 %3  k
+   g      a     (g       - g       + g      )
+           %1 j   s %3,i    i s,%3    i %3,s
+ - ------------------------------------------
+                       2
+    k %2  %1
+   g     a    (g        - g        + g       )
+          i j   s %2,%1    %1 s,%2    %1 %2,s     k
+ + ------------------------------------------- + a
+                        2                         i j,s
+</pre><pre class="example">(%i6)
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-lorentz_005fgauge"></a>
+</p><dl>
+<dt><a name="index-lorentz_005fgauge"></a><u>関数:</u> <b>lorentz_gauge</b><i> (<var>expr</var>)</i></dt>
+<dd><p>反変添字と同一の微分添字を持つ <var>expr</var>の中で
+添字付きオブジェクトすべてに0を代入することで、
+Lorentz条件を課します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-igeodesic_005fcoords"></a>
+</p><dl>
+<dt><a name="index-igeodesic_005fcoords"></a><u>関数:</u> <b>igeodesic_coords</b><i> (<var>expr</var>, <var>name</var>)</i></dt>
+<dd>
+<p><var>expr</var>の中の未微分 Christoffel記号と計量テンソルの一階微分を消すようにします。
+<code>igeodesic_coords</code>関数での <var>name</var>は
+(もし <var>expr</var>)の中で現れるなら)
+計量 <var>name</var>を参照します。
+一方で、接続係数は
+名前 <code>ichr1</code>か <code>ichr2</code>で呼ばれなければいけません。
+以下の例は、
+<code>igeodesic_coords</code>関数を使った、
+Riemann曲率テンソルが満たす巡回恒等式の検証を例示します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) ishow(icurvature([r,s,t],[u]))$
+             u            u         %1         u     
+(%t2) - ichr2      - ichr2     ichr2    + ichr2      
+             r t,s        %1 s      r t        r s,t 
+
+                                              u         %1
+                                       + ichr2     ichr2
+                                              %1 t      r s
+(%i3) ishow(igeodesic_coords(%,ichr2))$
+                                 u            u
+(%t3)                       ichr2      - ichr2
+                                 r s,t        r t,s
+(%i4) ishow(igeodesic_coords(icurvature([r,s,t],[u]),ichr2)+
+            igeodesic_coords(icurvature([s,t,r],[u]),ichr2)+
+            igeodesic_coords(icurvature([t,r,s],[u]),ichr2))$
+             u            u            u            u
+(%t4) - ichr2      + ichr2      + ichr2      - ichr2
+             t s,r        t r,s        s t,r        s r,t
+
+                                             u            u
+                                      - ichr2      + ichr2
+                                             r t,s        r s,t
+(%i5) canform(%);
+(%o5)                                  0
+
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<hr size="6">
+<a name="Moving-frames"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Tensors-in-curved-spaces" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Torsion-and-nonmetricity-1" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#itensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-itensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">25.2.5 Moving frames</h3>
+
+<p>今では Maximaは
+動標構(moving frame)を使って計算を実行する能力があります。
+これらは直交標構(テトラド、四脚場)か任意系であり得ます。
+</p>
+<p>標構 (frame)を使うには、
+最初に <code>iframe_flag</code>を <code>true</code>に設定しなければいけません。
+これにより計算内で Christoffel記号, <code>ichr1</code>と
+<code>ichr2</code>がもっと一般的な標構 (frame)の接続係数
+<code>icc1</code>と <code>icc2</code>に置き換えられることになります。
+特に <code>covdiff</code>と <code>icurvature</code>の振る舞いが変わります。
+</p>
+<p>系は 2つのテンソルで定義されます:
+逆標枠場 (<code>ifri</code>, 双対基底四脚場)と標構計量 (frame metric) <code>ifg</code>。
+標構計量は直交標構の単位行列、すなわち、
+Minkowski時空での直交標構の Lorentz計量です。
+逆標枠場は標構基底(単位ベクトル)を定義します。
+標枠と標構計量に縮約プロパティが定義されます。
+</p>
+<p><code>iframe_flag</code>が trueなら、
+<code>imetric</code>が上付き添字と下付き添字に関して定義する計量の代わりに
+たくさんの <code>itensor</code>式が標構計量 <code>ifg</code>を使います。
+</p>
+<p>重要: 変数 <code>iframe_flag</code>を <code>true</code>に設定することは <code>defcon</code>や
+<code>imetric</code>のコールによって定義された計量の縮約プロパティを未定義に戻しません。
+もし標枠場が使われるなら、
+<code>imetric</code>関数を呼び出さず、
+変数 <code>imetric</code>に名前を割り当てて計量を定義することが最良です。
+</p>
+
+<p>Maximaはこれら2つのテンソルを使って、
+接続係数 (<code>icc1</code>と <code>icc2</code>)の一部を形成する
+標構係数 (<code>ifc1</code>と <code>ifc2</code>)を定義します。
+以下の例がそれを例示します:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) iframe_flag:true;
+(%o2)                                true
+(%i3) ishow(covdiff(v([],[i]),j))$
+                               i        i     %1
+(%t3)                         v   + icc2     v
+                               ,j       %1 j
+(%i4) ishow(ev(%,icc2))$
+                               %1     i       i
+(%t4)                         v   ifc2     + v
+                                      %1 j    ,j
+(%i5) ishow(ev(%,ifc2))$
+                          %1    i %2                i
+(%t5)                    v   ifg     ifc1        + v
+                                         %1 j %2    ,j
+(%i6) ishow(ev(%,ifc1))$
+</pre><pre class="example">            %1    i %2
+           v   ifg     (ifb        - ifb        + ifb       )
+                           j %2 %1      %2 %1 j      %1 j %2     i
+(%t6)      -------------------------------------------------- + v
+                                   2                             ,j
+</pre><pre class="example">(%i7) ishow(ifb([a,b,c]))$
+                                                   %3    %4
+(%t7)               (ifri        - ifri       ) ifr   ifr
+                         a %3,%4       a %4,%3     b     c
+
+</pre></td></tr></table>
+
+<p>もし <code>iframe_bracket_form</code>フラグが <code>false</code>に設定されているなら
+標構ブラケット (frame bracket) (<code>ifb</code>)を計算するのに代わりの方法を使います:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i8) block([iframe_bracket_form:false],ishow(ifb([a,b,c])))$
+                                %6    %5        %5      %6
+(%t8)              ifri     (ifr   ifr     - ifr     ifr  )
+                       a %5     b     c,%6      b,%6    c
+
+</pre></td></tr></table>
+
+<p><a name="Item_003a-iframes"></a>
+</p><dl>
+<dt><a name="index-iframes"></a><u>関数:</u> <b>iframes</b><i> ()</i></dt>
+<dd>
+<p>Maximaのこのバージョン以来、
+標構ブラケット (<code>ifb</code>)と同じように
+<code>ifr</code>と <code>ifri</code>に関する縮約恒等式がいつも定義されます。
+この関数は何もしません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ifb"></a>
+</p><dl>
+<dt><a name="index-ifb"></a><u>変数:</u> <b>ifb</b></dt>
+<dd>
+<p>標構ブラケット(frame bracket)。
+標構計量の接続係数への寄与が標構ブラケットを使って表されます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+          - ifb      + ifb      + ifb
+               c a b      b c a      a b c
+ifc1    = --------------------------------
+    abc                  2
+
+</pre></td></tr></table>
+
+<p>標構ブラケット自身は
+標枠と標構計量を使って定義されます。
+<code>frame_bracket_form</code>の値に依存して
+2つの代わりの計算方法が使われます。
+もし true (デフォルト)か <code>itorsion_flag</code>が <code>true</code>なら:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+          d      e                                      f
+ifb =  ifr    ifr   (ifri      - ifri      - ifri    itr   )
+   abc    b      c       a d,e       a e,d       a f    d e
+
+
+</pre></td></tr></table>
+
+<p>そうでないなら:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+             e      d        d      e
+ifb    = (ifr    ifr    - ifr    ifr   ) ifri
+   abc       b      c,e      b,e    c        a d
+
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+
+<p><a name="Item_003a-icc1"></a>
+</p><dl>
+<dt><a name="index-icc1"></a><u>変数:</u> <b>icc1</b></dt>
+<dd>
+<p>第一種接続係数。
+<code>itensor</code>では以下のように定義されます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+icc1    = ichr1    - ikt1    - inmc1
+    abc        abc       abc        abc
+
+</pre></td></tr></table>
+
+<p>この式では、 <code>iframe_flag</code>が trueなら、
+Christoffel記号 <code>ichr1</code>が標構接続係数 <code>ifc1</code>に置き換えられます。
+ <code>itorsion_flag</code>が <code>false</code>なら、 <code>ikt1</code>は省略されます。
+標構基底が使われるなら、
+ねじれが標構ブラケットの一部として既に計算されているので、
+その時にも <code>ikt1</code>は省略されます。
+最後に、
+<code>inonmet_flag</code>が <code>false</code>なら <code>inmc1</code>は存在しません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-icc2"></a>
+</p><dl>
+<dt><a name="index-icc2"></a><u>変数:</u> <b>icc2</b></dt>
+<dd>
+<p>第二種接続係数。
+<code>itensor</code>では以下のように定義されます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+    c         c        c         c
+icc2   = ichr2   - ikt2   - inmc2
+    ab        ab       ab        ab
+
+</pre></td></tr></table>
+
+<p>この式では、
+<code>iframe_flag</code>が trueなら、
+Christoffel記号 <code>ichr2</code>が標構接続係数 <code>ifc2</code>に置き換えられます。
+<code>itorsion_flag</code>が <code>false</code>なら、 <code>ikt2</code>は省略されます。
+標構基底が使われるなら、
+ねじれが標構ブラケットの一部として既に計算されているので、
+その時にも <code>ikt1</code>は省略されます。
+最後に、
+<code>inonmet_flag</code>が <code>false</code>なら、
+<code>inmc1</code>は存在しません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ifc1"></a>
+</p><dl>
+<dt><a name="index-ifc1"></a><u>変数:</u> <b>ifc1</b></dt>
+<dd>
+<p>(Ricci回転係数としても知られている)第一種標構係数。
+このテンソルは標構計量の第一種接続係数への寄与を表します。
+以下のように定義されます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+          - ifb      + ifb      + ifb
+               c a b      b c a      a b c
+ifc1    = --------------------------------
+    abc                   2
+
+
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ifc2"></a>
+</p><dl>
+<dt><a name="index-ifc2"></a><u>変数:</u> <b>ifc2</b></dt>
+<dd>
+<p>第二種標構係数。
+このテンソルは標構計量の第一種接続係数への寄与を表します。
+必要に応じて、標構ブラケット (<code>ifb</code>)の
+適切な上付き、下付き添字での置換として定義されます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+    c       cd
+ifc2   = ifg   ifc1
+    ab             abd
+
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ifr"></a>
+</p><dl>
+<dt><a name="index-ifr"></a><u>変数:</u> <b>ifr</b></dt>
+<dd>
+<p>標枠。
+標構計量(<code>ifg</code>)を形成するために逆標構場 (<code>ifri</code>)を縮約します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ifri"></a>
+</p><dl>
+<dt><a name="index-ifri"></a><u>変数:</u> <b>ifri</b></dt>
+<dd>
+<p>逆標構場。
+(双対基底ベクトル)標構基底を指定します。
+標構計量と一緒に標構に基づいた計算すべての基底を形成します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ifg"></a>
+</p><dl>
+<dt><a name="index-ifg"></a><u>変数:</u> <b>ifg</b></dt>
+<dd>
+<p>標構計量。
+<code>kdelta</code>のデフォルトですが、
+<code>components</code>を使って変えることができます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ifgi"></a>
+</p><dl>
+<dt><a name="index-ifgi"></a><u>変数:</u> <b>ifgi</b></dt>
+<dd>
+<p>逆標構計量。
+標構計量 (<code>ifg</code>)を <code>kdelta</code>に縮約します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-iframe_005fbracket_005fform"></a>
+</p><dl>
+<dt><a name="index-iframe_005fbracket_005fform"></a><u>オプション変数:</u> <b>iframe_bracket_form</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p>標構ブラケット (<code>ifb</code>)が如何に計算されるか指定します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<hr size="6">
+<a name="Torsion-and-nonmetricity-1"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Moving-frames" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Exterior-algebra" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#itensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-itensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">25.2.6 Torsion and nonmetricity</h3>
+
+<p>Maximaは今では、ねじれと非計量性を考慮することができます。
+フラグ <code>itorsion_flag</code>が <code>true</code>に設定されている時、
+ねじれの寄与が接続係数に加えられます。
+同様に、フラグ <code>inonmet_flag</code>が trueの時、非計量性成分が含まれます。
+</p>
+<p><a name="Item_003a-inm"></a>
+</p><dl>
+<dt><a name="index-inm"></a><u>変数:</u> <b>inm</b></dt>
+<dd>
+<p>非計量性ベクトル。
+共形非計量性は計量テンソルの共変微分を通して定義されます。
+<code>inonmet_flag</code>が <code>true</code>に設定されている時
+通常零の計量テンソルの共変微分は以下のように評価されます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+g     =- g  inm
+ ij;k     ij   k
+
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-inmc1"></a>
+</p><dl>
+<dt><a name="index-inmc1"></a><u>変数:</u> <b>inmc1</b></dt>
+<dd>
+<p>非計量ベクトル成分の共変置換。
+以下のように定義されます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+           g   inm  - inm  g   - g   inm
+            ab    c      a  bc    ac    b
+inmc1    = ------------------------------
+     abc                 2
+
+</pre></td></tr></table>
+
+<p>(もし標構計量を使うなら、<code>ifg</code>を <code>g</code>に代入します。)
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-inmc2"></a>
+</p><dl>
+<dt><a name="index-inmc2"></a><u>変数:</u> <b>inmc2</b></dt>
+<dd>
+<p>非計量ベクトル成分の反変置換。
+<code>inonmet_flag</code>が <code>true</code>なら接続係数で使われます。
+以下のように定義されます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+                      c         c         cd
+          -inm  kdelta  - kdelta  inm  + g   inm  g
+     c        a       b         a    b          d  ab
+inmc2   = -------------------------------------------
+     ab                        2
+
+</pre></td></tr></table>
+
+<p>(もし標構計量を使うなら、<code>ifg</code>を <code>g</code>に代入します。)
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ikt1"></a>
+</p><dl>
+<dt><a name="index-ikt1"></a><u>変数:</u> <b>ikt1</b></dt>
+<dd>
+<p>(コントーションとしても知られる)ねじれテンソルの共変置換。
+以下のように定義されます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+                  d           d       d
+          -g   itr  - g    itr   - itr   g
+            ad    cb    bd    ca      ab  cd
+ikt1    = ----------------------------------
+    abc                   2
+
+</pre></td></tr></table>
+
+<p>(標構計量を使うなら、<code>ifg</code>を <code>g</code>に代入します。)
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ikt2"></a>
+</p><dl>
+<dt><a name="index-ikt2"></a><u>変数:</u> <b>ikt2</b></dt>
+<dd>
+<p>(コントーションとしても知られる)ねじれテンソルの共変置換。
+以下のように定義されます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+    c     cd
+ikt2   = g   ikt1
+    ab           abd
+
+</pre></td></tr></table>
+
+<p>(標構計量を使うなら、<code>ifg</code>を <code>g</code>に代入します。)
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-itr"></a>
+</p><dl>
+<dt><a name="index-itr"></a><u>変数:</u> <b>itr</b></dt>
+<dd>
+<p>ねじれテンソル。
+以下の例で例示されるように、
+ねじれを伴う計量に関してスカラー関数上の繰り返される共変微分は計算されません:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) imetric:g;
+(%o2)                                  g
+(%i3) covdiff( covdiff( f( [], []), i), j)
+                      - covdiff( covdiff( f( [], []), j), i)$
+(%i4) ishow(%)$
+                                   %4              %2
+(%t4)                    f    ichr2    - f    ichr2
+                          ,%4      j i    ,%2      i j
+(%i5) canform(%);
+(%o5)                                  0
+(%i6) itorsion_flag:true;
+(%o6)                                true
+(%i7) covdiff( covdiff( f( [], []), i), j)
+                      - covdiff( covdiff( f( [], []), j), i)$
+(%i8) ishow(%)$
+                           %8             %6
+(%t8)             f    icc2    - f    icc2    - f     + f
+                   ,%8     j i    ,%6     i j    ,j i    ,i j
+(%i9) ishow(canform(%))$
+                                   %1             %1
+(%t9)                     f    icc2    - f    icc2
+                           ,%1     j i    ,%1     i j
+(%i10) ishow(canform(ev(%,icc2)))$
+                                   %1             %1
+(%t10)                    f    ikt2    - f    ikt2
+                           ,%1     i j    ,%1     j i
+(%i11) ishow(canform(ev(%,ikt2)))$
+                      %2 %1                    %2 %1
+(%t11)          f    g      ikt1       - f    g      ikt1
+                 ,%2            i j %1    ,%2            j i %1
+(%i12) ishow(factor(canform(rename(expand(ev(%,ikt1))))))$
+                           %3 %2            %1       %1
+                     f    g      g      (itr    - itr   )
+                      ,%3         %2 %1     j i      i j
+(%t12)               ------------------------------------
+                                      2
+(%i13) decsym(itr,2,1,[anti(all)],[]);
+(%o13)                               done
+(%i14) defcon(g,g,kdelta);
+(%o14)                               done
+(%i15) subst(g,nounify(g),%th(3))$
+(%i16) ishow(canform(contract(%)))$
+                                           %1
+(%t16)                           - f    itr
+                                    ,%1    i j
+
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<hr size="6">
+<a name="Exterior-algebra"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Torsion-and-nonmetricity-1" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Exporting-TeX-expressions" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#itensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-itensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">25.2.7 Exterior algebra</h3>
+
+<p><code>itensor</code>パッケージは
+完全反対称共変テンソル場上の演算を実行できます。
+回数 (0,L)の完全反対称テンソル場は微分L形式に対応します。
+これらのオブジェクト上で外積やウェッジ積として知られる乗算が定義されます。
+</p>
+<p>不運にも、すべての作者がウェッジ積の定義に同意しません。
+何人の作者は反対称の概念に対応した定義を好みます:
+これらの仕事では、2つのベクトル場のウェッジ積は、例えば以下のように定義されます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">            a a  - a a
+             i j    j i
+ a  /\ a  = -----------
+  i     j        2
+</pre></td></tr></table>
+
+<p>もっと一般的に、 p形式や q形式の積は以下のように定義されます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">                       1     k1..kp l1..lq
+A       /\ B       = ------ D              A       B
+ i1..ip     j1..jq   (p+q)!  i1..ip j1..jq  k1..kp  l1..lq
+</pre></td></tr></table>
+
+<p>ここで <code>D</code>はKroneckerのデルタを表します。
+</p>
+<p>しかし、他の作者は容積要素の概念に対応する&ldquo;幾何的&rdquo;定義を好みます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">a  /\ a  = a a  - a a
+ i     j    i j    j i
+</pre></td></tr></table>
+
+<p>そして一般的な場合、
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">                       1    k1..kp l1..lq
+A       /\ B       = ----- D              A       B
+ i1..ip     j1..jq   p! q!  i1..ip j1..jq  k1..kp  l1..lq
+</pre></td></tr></table>
+
+<p><code>itensor</code>はテンソル代数パッケージなので、
+これら2つの定義の前者がより自然なもののようです。
+しかし、多くの応用は後者の定義を使います。
+このジレンマを解決するに、ウェッジ積の振る舞いを制御するフラグが実装されました:
+<code>igeowedge_flag</code>が <code>false</code> (デフォルト)なら、
+前者の &quot;テンソル的&quot;定義が使われ、そうでないなら，後者の&quot;幾何的&quot;定義が適用されます。
+</p>
+<p><a name="Item_003a-_007e"></a>
+</p><dl>
+<dt><a name="index-_007e"></a><u>演算子:</u> <b>~</b></dt>
+<dd>
+<p>ウェッジ積演算子はティルデ <code>~</code>で示されれます。
+これは二項演算子です。
+引数は、スカラか、階数1の共変テンソル、
+共変添字すべてに関して反対称と宣言された階数
+<code>l</code>の共変テンソルのいずれかを含む式でなければいけません。
+</p>
+<p>以下の例のように、
+ウェッジ積演算子の振る舞いは <code>igeowedge_flag</code>フラグで制御されます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) ishow(a([i])~b([j]))$
+                                 a  b  - b  a
+                                  i  j    i  j
+(%t2)                            -------------
+                                       2
+(%i3) decsym(a,2,0,[anti(all)],[]);
+(%o3)                                done
+(%i4) ishow(a([i,j])~b([k]))$
+                          a    b  + b  a    - a    b
+                           i j  k    i  j k    i k  j
+(%t4)                     ---------------------------
+                                       3
+(%i5) igeowedge_flag:true;
+(%o5)                                true
+(%i6) ishow(a([i])~b([j]))$
+(%t6)                            a  b  - b  a
+                                  i  j    i  j
+(%i7) ishow(a([i,j])~b([k]))$
+(%t7)                     a    b  + b  a    - a    b
+                           i j  k    i  j k    i k  j
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+ &middot;<a href="maxima_99.html#Category_003a-Operators">Operators</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-_007c"></a>
+</p><dl>
+<dt><a name="index-_007c"></a><u>演算子:</u> <b>|</b></dt>
+<dd>
+<p>縦線 <code>|</code>は&quot;ベクトルの縮約&quot;二項演算子を示します。
+完全反対称共変テンソルが反変ベクトルと縮約される時、
+結果はどの添字が縮約に使われるかに関わらず同じです。
+このように、添字に無関係な方法で縮約演算子を定義することが可能です。
+</p>
+<p><code>itensor</code>パッケージでは、ベクトルとの縮約は常に
+文字通りの並べ順で最初の添字に対して実行されます。
+これは <code>|</code>演算子を含む式のより良い整理を保証します。
+例えば:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) decsym(a,2,0,[anti(all)],[]);
+(%o2)                                done
+(%i3) ishow(a([i,j],[])|v)$
+                                    %1
+(%t3)                              v   a
+                                        %1 j
+(%i4) ishow(a([j,i],[])|v)$
+                                     %1
+(%t4)                             - v   a
+                                         %1 j
+</pre></td></tr></table>
+
+<p><code>|</code>演算子で使われるテンソルは
+は共変添字に対して完全反対称と宣言されなければいけないことが
+本質的であることに注意してください。
+そうでないなら、結果は正しくありません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+ &middot;<a href="maxima_99.html#Category_003a-Operators">Operators</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-extdiff"></a>
+</p><dl>
+<dt><a name="index-extdiff"></a><u>関数:</u> <b>extdiff</b><i> (<var>expr</var>, <var>i</var>)</i></dt>
+<dd>
+<p>添字 <var>i</var>に対する <var>expr</var>の外積を計算します。
+外微分は形式的に偏微分演算子のウェッジ積で微分形式として定義されます。
+そんなように、演算子も <code>igeowedge_flag</code>の設定で制御されます。
+例えば:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) ishow(extdiff(v([i]),j))$
+                                  v    - v
+                                   j,i    i,j
+(%t2)                             -----------
+                                       2
+(%i3) decsym(a,2,0,[anti(all)],[]);
+(%o3)                                done
+(%i4) ishow(extdiff(a([i,j]),k))$
+                           a      - a      + a
+                            j k,i    i k,j    i j,k
+(%t4)                      ------------------------
+                                      3
+(%i5) igeowedge_flag:true;
+(%o5)                                true
+(%i6) ishow(extdiff(v([i]),j))$
+(%t6)                             v    - v
+                                   j,i    i,j
+(%i7) ishow(extdiff(a([i,j]),k))$
+(%t7)                    - (a      - a      + a     )
+                             k j,i    k i,j    j i,k
+
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-hodge"></a>
+</p><dl>
+<dt><a name="index-hodge"></a><u>関数:</u> <b>hodge</b><i> (<var>expr</var>)</i></dt>
+<dd>
+<p><var>expr</var>の Hodge双対を計算します。
+例えば:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) imetric(g);
+(%o2)                            done
+(%i3) idim(4);
+(%o3)                            done
+(%i4) icounter:100;
+(%o4)                             100
+(%i5) decsym(A,3,0,[anti(all)],[])$
+
+(%i6) ishow(A([i,j,k],[]))$
+(%t6)                           A
+                                 i j k
+(%i7) ishow(canform(hodge(%)))$
+                          %1 %2 %3 %4
+               levi_civita            g        A
+                                       %1 %102  %2 %3 %4
+(%t7)          -----------------------------------------
+                                   6
+(%i8) ishow(canform(hodge(%)))$
+                 %1 %2 %3 %8            %4 %5 %6 %7
+(%t8) levi_civita            levi_civita            g       
+                                                     %1 %106
+                             g        g        g      A         /6
+                              %2 %107  %3 %108  %4 %8  %5 %6 %7
+(%i9) lc2kdt(%)$
+
+(%i10) %,kdelta$
+
+(%i11) ishow(canform(contract(expand(%))))$
+(%t11)                     - A
+                              %106 %107 %108
+
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-igeowedge_005fflag"></a>
+</p><dl>
+<dt><a name="index-igeowedge_005fflag"></a><u>オプション変数:</u> <b>igeowedge_flag</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>ウェッジ積と外微分の振る舞いを制御します。
+<code>false</code> (デフォルト)に設定された時、
+微分形式の概念は完全反対称共変テンソル場のそれに対応します。
+<code>true</code>に設定された時、微分形式は容積要素の概念に一致します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+</div></p></dd></dl>
+
+<hr size="6">
+<a name="Exporting-TeX-expressions"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Exterior-algebra" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Interfacing-with-ctensor" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#itensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-itensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">25.2.8 Exporting TeX expressions</h3>
+
+<p><code>itensor</code>パッケージは
+テンソル式をTexにエクスポートするための限定サポートを提供します。
+<code>itensor</code>式は関数コールとして現れるので、
+いつもの Maxima <code>tex</code>コマンドは期待された出力を生成しません。
+代わりに <code>tentex</code>コマンドを試すことができます。
+これはテンソル式を適切に添字が付けられたTeXオブジェクトに翻訳しようとします。
+</p>
+<p><a name="Item_003a-tentex"></a>
+</p><dl>
+<dt><a name="index-tentex"></a><u>関数:</u> <b>tentex</b><i> (<var>expr</var>)</i></dt>
+<dd>
+<p>以下の例のように、
+<code>tentex</code>関数を使うには、最初に<code>tentex</code>をロードしなければいけません:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) load(tentex);
+(%o2)       /share/tensor/tentex.lisp
+(%i3) idummyx:m;
+(%o3)                                  m
+(%i4) ishow(icurvature([j,k,l],[i]))$
+            m1       i           m1       i           i
+(%t4)  ichr2    ichr2     - ichr2    ichr2     - ichr2
+            j k      m1 l        j l      m1 k        j l,k
+
+                                                      i
+                                               + ichr2
+                                                      j k,l
+(%i5) tentex(%)$
+$$\Gamma_{j\,k}^{m_1}\,\Gamma_{l\,m_1}^{i}-\Gamma_{j\,l}^{m_1}\,
+ \Gamma_{k\,m_1}^{i}-\Gamma_{j\,l,k}^{i}+\Gamma_{j\,k,l}^{i}$$
+</pre></td></tr></table>
+
+<p>コンパイルエラーに導かれるTeX式でのパーセント符号の出現を避けるための、
+<code>idummyx</code>割り当ての使用に注意してください。
+</p>
+<p>注意せよ: このバージョンの <code>tentex</code>関数は幾分実験的です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+ &middot;<a href="maxima_99.html#Category_003a-TeX-output">TeX output</a>
+</div></p></dd></dl>
+
+<hr size="6">
+<a name="Interfacing-with-ctensor"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Exporting-TeX-expressions" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Reserved-words" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#itensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-itensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">25.2.9 Interfacing with ctensor</h3>
+
+<p><code>itensor</code>パッケージは
+<code>ctensor</code>パッケージの文脈で実行することができる
+Maximaコードを生成する能力があります。
+この仕事を実行する関数は <code>ic_convert</code>です。
+</p>
+<p><a name="Item_003a-ic_005fconvert"></a>
+</p><dl>
+<dt><a name="index-ic_005fconvert"></a><u>関数:</u> <b>ic_convert</b><i> (<var>eqn</var>)</i></dt>
+<dd>
+<p><code>itensor</code>方程式 <var>eqn</var>を
+<code>ctensor</code>割り当て文に変換します。
+添字付きオブジェクトが配列に変換される一方で、
+ダミー添字上の暗黙の和は明示的にされます。
+</p>
+<p>(配列下付き添字は添字付きオブジェクトの反変添字が続く共変の順です。)
+添字付きオブジェクトの微分は、
+微分添字で下に添えられた <code>ct_coords</code>に対して取られる <code>diff</code>の名詞形に
+置き換えられます。
+Christoffel記号 <code>ichr1</code>と <code>ichr2</code>は
+それぞれ、<code>lcs</code>と <code>mcs</code>に翻訳されます。
+もし <code>metricconvert</code>が <code>true</code>なら、
+2つの共変(反変)添字を持つ計量はすべて
+<code>lg</code> (<code>ug</code>)にリネームされます。
+更に、 自由添字すべての上で足される<code>do</code>ループが導入されます。
+なので、
+ただ <code>ev</code>するだけで変換される割り当て分を評価することができます。
+以下の例はこの関数の特長を例示します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(itensor);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) eqn:ishow(t([i,j],[k])=f([],[])*g([l,m],[])*a([],[m],j)
+      *b([i],[l,k]))$
+                             k        m   l k
+(%t2)                       t    = f a   b    g
+                             i j      ,j  i    l m
+(%i3) ic_convert(eqn);
+(%o3) for i thru dim do (for j thru dim do (
+       for k thru dim do
+        t        : f sum(sum(diff(a , ct_coords ) b
+         i, j, k                   m           j   i, l, k
+
+ g    , l, 1, dim), m, 1, dim)))
+  l, m
+(%i4) imetric(g);
+(%o4)                                done
+(%i5) metricconvert:true;
+(%o5)                                true
+(%i6) ic_convert(eqn);
+(%o6) for i thru dim do (for j thru dim do (
+       for k thru dim do
+        t        : f sum(sum(diff(a , ct_coords ) b
+         i, j, k                   m           j   i, l, k
+
+ lg    , l, 1, dim), m, 1, dim)))
+   l, m
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-itensor">Package itensor</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-ctensor">Package ctensor</a>
+</div></p></dd></dl>
+
+<hr size="6">
+<a name="Reserved-words"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Interfacing-with-ctensor" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#itensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-itensor" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">25.2.10 Reserved words</h3>
+
+<p>以下の Maximaワードは
+<code>itensor</code>パッケージで内部的に使われているので再定義してはいけません:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">  Keyword    Comments
+  ------------------------------------------
+  indices2() Internal version of indices()
+  conti      Lists contravariant indices
+  covi       Lists covariant indices of a indexed object
+  deri       Lists derivative indices of an indexed object
+  name       Returns the name of an indexed object
+  concan
+  irpmon
+  lc0
+  _lc2kdt0
+  _lcprod
+  _extlc
+</pre></td></tr></table>
+
+
+<p><a name="Item_003a-ctensor"></a>
+</p><hr size="6">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#itensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_26.html#ctensor" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

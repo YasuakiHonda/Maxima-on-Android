@@ -1,0 +1,5386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on 2012年12月月12日 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Maxima 5.29.1 Manual: 48. draw</title>
+
+<meta name="description" content="Maxima 5.29.1 Manual: 48. draw">
+<meta name="keywords" content="Maxima 5.29.1 Manual: 48. draw">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+body
+{
+    color: black;
+    background: white; 
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+h1
+{
+    margin-left: +8%;
+    font-size: 150%;
+    font-family: sans-serif
+}
+
+h2
+{
+    font-size: 125%;
+    font-family: sans-serif
+}
+
+h3
+{
+    font-size: 100%;
+    font-family: sans-serif
+}
+
+h2,h3,h4,h5,h6 { margin-left: +4%; }
+
+div.textbox
+{
+    border: solid;
+    border-width: thin;
+    /* width: 100%; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em
+}
+
+div.titlebox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: rgb(200,255,255);
+    font-family: sans-serif
+}
+
+div.synopsisbox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+     background: rgb(255,220,255);
+    /*background: rgb(200,255,255); */
+    /* font-family: fixed */
+}
+
+pre.example
+{
+    border: 1px solid gray;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    /* background: rgb(247,242,180); */ /* kind of sandy */
+    /* background: rgb(200,255,255); */ /* sky blue */
+    background-color: #F1F5F9; /* light blue-gray */
+    /* font-family: "Lucida Console", monospace */
+}
+
+div.spacerbox
+{
+    border: none;
+    padding-top: 2em;
+    padding-bottom: 2em
+}
+
+div.image
+{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+div.categorybox
+{
+    border: 1px solid gray;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: rgb(247,242,220);
+}
+
+
+-->
+</style>
+
+<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<script type="text/javascript"><!--
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-510249-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+--></script>
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="draw"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="maxima_47.html#Functions-and-Variables-for-discrete-distributions" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-draw" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_47.html#distrib" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_49.html#drawdf" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="draw-1"></a>
+<h1 class="chapter">48. draw</h1>
+<p>,</p><table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Introduction-to-draw">48.1 Introduction to draw</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-draw">48.2 Functions and Variables for draw</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-pictures">48.3 Functions and Variables for pictures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-worldmap">48.4 Functions and Variables for worldmap</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+
+
+<p><a name="Item_003a-Introduction-to-draw"></a>
+</p><hr size="6">
+<a name="Introduction-to-draw"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#draw" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-draw" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#draw" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#draw" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_49.html#drawdf" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Introduction-to-draw-1"></a>
+<h2 class="section">48.1 Introduction to draw</h2>
+
+
+<p><code>draw</code>は Maxima-Gnuplotインターフェイスです。
+</p>
+<p>Maximaレベルで使われる３つの主な関数があります:
+<code>draw2d</code>, <code>draw3d</code>, <code>draw</code>。
+</p>
+<p>このパッケージのさらに磨きかけられた例のために以下のリンクに従ってください:
+</p>
+<p><a href="http://riotorto.users.sourceforge.net/gnuplot">http://riotorto.users.sourceforge.net/gnuplot</a>
+</p>
+<p>このプログラムを走らせるには Gnuplot 4.2以上が必要です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+ &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+
+<p><a name="Item_003a-Functions-and-Variables-for-draw"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-draw"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-draw" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Scenes" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#draw" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#draw" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_49.html#drawdf" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-and-Variables-for-draw-1"></a>
+<h2 class="section">48.2 Functions and Variables for draw</h2>
+
+
+
+<hr size="6">
+<a name="Scenes"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-draw" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-1" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#draw" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-draw" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_49.html#drawdf" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">48.2.1 Scenes</h3>
+
+
+<p><a name="Item_003a-gr2d"></a>
+</p><dl>
+<dt><a name="index-gr2d"></a><u>シーン構成子:</u> <b>gr2d</b><i> (<var>graphic option</var>, ..., <var>graphic object</var>, ...)</i></dt>
+<dd>
+<p>関数 <code>gr2d</code>は 2Dシーンを記述するオブジェクトを作ります。
+引数は<i>グラフィックオプション</i>、<i>グラフィックオブジェクト</i>、または、
+グラフィックオプションとオブジェクト両方を含むリストです。
+このシーンは順に解釈されます:
+<i>グラフィックオプション</i>はその右に置かれたそれらの<i>グラフィックオブジェクト</i>に影響します。
+いくつかの<i>グラフィックオプション</i>はシーンのグローバルな外観に影響します。
+</p>
+<p>以下は2次元のシーンで利用可能な<i>グラフィックオブジェクト</i>のリストです:
+<code>bars</code>, <code>ellipse</code>, <code>explicit</code>, <code>image</code>, <code>implicit</code>,
+<code>label</code>, <code>parametric</code>, <code>points</code>, <code>polar</code>, <code>polygon</code>,
+<code>quadrilateral</code>, <code>rectangle</code>, <code>triangle</code>, <code>vector</code>,
+<code>geomap</code> (パッケージ<code>worldmap</code>で定義されるもの)。
+</p>
+<p><code>draw</code>と<code>draw2d</code>も参照してください。
+</p>
+<p>このオブジェクトを利用するには、最初に <code>load(draw)</code>と書いてください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-gr3d"></a>
+</p><dl>
+<dt><a name="index-gr3d"></a><u>シーン構成子:</u> <b>gr3d</b><i> (<var>graphic option</var>, ..., <var>graphic object</var>, ...)</i></dt>
+<dd>
+<p>関数 <code>gr3d</code>は 3dシーンを記述するオブジェクトを作ります。
+引数は<i>グラフィックオプション</i>、<i>グラフィックオブジェクト</i>、または
+グラフィックオプションとオブジェクト両方を含むリストです。
+このシーンは順に解釈されます:
+<i>グラフィックオプション</i>はその右に置かれたそれらの
+<i>グラフィックオブジェクト</i>に影響します。
+いくつかの<i>グラフィックオプション</i>はシーンのグローバルな外観に影響します。
+</p>
+<p>以下は3次元のシーンで利用可能な<i>グラフィックオブジェクト</i>のリストです:
+<code>cylindrical</code>, <code>elevation_grid</code>, <code>explicit</code>, <code>implicit</code>,
+<code>label</code>, <code>mesh</code>, <code>parametric</code>,<br>
+<code>parametric_surface</code>,
+<code>points</code>, <code>quadrilateral</code>, <code>spherical</code>, <code>triangle</code>,
+<code>tube</code>,<br>
+<code>vector</code>, <code>geomap</code>
+(パッケージ <code>worldmap</code>で定義されるもの)。
+</p>
+<p><code>draw</code>と <code>draw3d</code>も参照してください。
+</p>
+<p>このオブジェクトを利用するには、最初に <code>load(draw)</code>と書いてください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+
+<hr size="6">
+<a name="Functions-1"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Scenes" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Graphic-options" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#draw" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-draw" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_49.html#drawdf" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">48.2.2 Functions</h3>
+
+
+
+
+<dl>
+<dt><a name="index-draw"></a><u>関数:</u> <b>draw</b><i> (<var>gr2d</var>, ..., <var>gr3d</var>, ..., <var>options</var>, ...)</i></dt>
+<dd>
+<p>一連のシーンをプロットします;
+引数は <code>gr2d</code>や <code>gr3d</code>のオブジェクトといくつかのオプションです。
+デフォルトでは、1列の中にシーンを一緒に配置します。
+</p>
+<p>関数 <code>draw</code>は以下のグローバルオプションを受け付けます: <code>terminal</code>,
+<code>columns</code>, <code>dimensions</code>, <code>file_name</code>, <code>delay</code>.
+</p>
+<p>関数 <code>draw2d</code>や <code>draw3d</code>は
+それぞれ、2次元と3次元に関して、１つのシーンだけが要求される時に使われるショートカットです。
+</p>
+<p><code>gr2d</code>と <code>gr3d</code>も参照してください。
+</p>
+<p>この関数を利用するには、最初に <code>load(draw)</code>と書いてください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) scene1: gr2d(title=&quot;Ellipse&quot;,
+                   nticks=30,
+                   parametric(2*cos(t),5*sin(t),t,0,2*%pi))$
+(%i3) scene2: gr2d(title=&quot;Triangle&quot;,
+                   polygon([4,5,7],[6,4,2]))$
+(%i4) draw(scene1, scene2, columns = 2)$
+</pre></td></tr></table>
+
+<p>2つの描画文は同値です:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw(gr3d(explicit(x^2+y^2,x,-1,1,y,-1,1)));
+(%o2)                          [gr3d(explicit)]
+(%i3) draw3d(explicit(x^2+y^2,x,-1,1,y,-1,1));
+(%o3)                          [gr3d(explicit)]
+</pre></td></tr></table>
+
+<p>アニメーティド gifファイル:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw(
+        delay     = 100,
+        file_name = &quot;zzz&quot;,
+        terminal  = 'animated_gif,
+        gr2d(explicit(x^2,x,-1,1)),
+        gr2d(explicit(x^3,x,-1,1)),
+        gr2d(explicit(x^4,x,-1,1)));
+End of animation sequence
+(%o2)          [gr2d(explicit), gr2d(explicit), gr2d(explicit)]
+</pre></td></tr></table>
+
+<p><code>gr2d</code>, <code>gr3d</code>, <code>draw2d</code>, <code>draw3d</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+ &middot;<a href="maxima_99.html#Category_003a-File-output">File output</a>
+</div></p></dd></dl>
+
+
+
+
+
+<p><a name="Item_003a-draw2d"></a>
+</p><dl>
+<dt><a name="index-draw2d"></a><u>関数:</u> <b>draw2d</b><i> (<var>option</var>, <var>graphic_object</var>, ...)</i></dt>
+<dd><p>この関数は
+<code>draw(gr2d(<var>options</var>, ..., <var>graphic_object</var>, ...))</code>.
+のショートカットです。
+</p>
+<p>2d特化のシーンをプロットするのに使うことができます。
+</p>
+<p>この関数を利用するには、最初に <code>load(draw)</code>と書いてください。
+</p>
+<p><code>draw</code>と <code>gr2d</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+ &middot;<a href="maxima_99.html#Category_003a-File-output">File output</a>
+</div></p></dd></dl>
+
+
+
+
+<p><a name="Item_003a-draw3d"></a>
+</p><dl>
+<dt><a name="index-draw3d"></a><u>関数:</u> <b>draw3d</b><i> (<var>option</var>, <var>graphic_object</var>, ...)</i></dt>
+<dd><p>この関数は
+<code>draw(gr3d(<var>options</var>, ..., <var>graphic_object</var>, ...))</code>
+のショートカットです。
+</p>
+<p>3d特化のシーンをプロットするのに使うことができます。
+</p>
+<p>この関数を利用するには、最初に <code>load(draw)</code>と書いてください。
+</p>
+<p><code>draw</code>と <code>gr3d</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+ &middot;<a href="maxima_99.html#Category_003a-File-output">File output</a>
+</div></p></dd></dl>
+
+
+
+<p><a name="Item_003a-drawf_005file"></a>
+</p><dl>
+<dt><a name="index-drawf_005file"></a><u>関数:</u> <b>drawf_ile</b><i> (<var>graphic option</var>, ..., <var>graphic object</var>, ...)</i></dt>
+<dd>
+<p>現在のプロットをファイルに保存します。
+受け付けられるグラフィックオプションは以下です:
+<code>terminal</code>, <code>dimensions</code>, <code>file_name</code>, <code>file_bgcolor</code>. 
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) /* screen plot */
+      draw(gr3d(explicit(x^2+y^2,x,-1,1,y,-1,1)))$
+(%i3) /* same plot in eps format */
+      draw_file(terminal  = eps,
+                dimensions = [5,5]) $
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+ &middot;<a href="maxima_99.html#Category_003a-File-output">File output</a>
+</div></p></dd></dl>
+
+
+
+<p><a name="Item_003a-multiplot_005fmode"></a>
+</p><dl>
+<dt><a name="index-multiplot_005fmode"></a><u>関数:</u> <b>multiplot_mode</b><i> (<var>term</var>)</i></dt>
+<dd><p>この関数を使うと、 Maximaを端末
+<var>term</var>で 1ウィンドウマルチプロットモードとして動作させることができます;
+この関数が受け付ける引数は、<code>screen</code>, <code>wxt</code>, <code>aquaterm</code>,
+<code>none</code>です。
+</p>
+<p>マルチプロットモードがイネーブルの時、
+<code>draw</code>へのそれぞれのコールは、
+同じウィンドウに以前のものを消すことなく新しいプロットを送ります。
+マルチモードをディセーブルにするには、
+<code>multiplot_mode(none)</code>を書いてください。
+</p>
+<p>マルチプロットモードがイネーブルの時、グローバルオプション
+<code>terminal</code>はブロックされます。
+別の端末に変更する前に、この機能中のモードをディセーブルしなければいけません。
+</p>
+<p>この特長は Windowsプラットフォームでは機能しません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) set_draw_defaults(
+         xrange = [-1,1],
+         yrange = [-1,1],
+         grid   = true,
+         title  = &quot;Step by step plot&quot; )$
+(%i3) multiplot_mode(screen)$
+(%i4) draw2d(color=blue,  explicit(x^2,x,-1,1))$
+(%i5) draw2d(color=red,   explicit(x^3,x,-1,1))$
+(%i6) draw2d(color=brown, explicit(x^4,x,-1,1))$
+(%i7) multiplot_mode(none)$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+ &middot;<a href="maxima_99.html#Category_003a-File-output">File output</a>
+</div></p></dd></dl>
+
+
+
+<p><a name="Item_003a-set_005fdraw_005fdefaults"></a>
+</p><dl>
+<dt><a name="index-set_005fdraw_005fdefaults"></a><u>関数:</u> <b>set_draw_defaults</b><i> (<var>graphic option</var>, ..., <var>graphic object</var>, ...)</i></dt>
+<dd>
+<p>ユーザーグラフィックオプションを設定します。
+この関数は
+共通のグラフィックスオプションで一連のグラフィックスをプロットするのに役に立ちます。
+引数なしにこの関数を呼ぶと、ユーザーデフォルトを取り除きます。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) set_draw_defaults(
+         xrange = [-10,10],
+         yrange = [-2, 2],
+         color  = blue,
+         grid   = true)$
+(%i3) /* plot with user defaults */
+      draw2d(explicit(((1+x)**2/(1+x*x))-1,x,-10,10))$
+(%i4) set_draw_defaults()$
+(%i5) /* plot with standard defaults */
+      draw2d(explicit(((1+x)**2/(1+x*x))-1,x,-10,10))$
+</pre></td></tr></table>
+
+<p>この関数を利用するには、最初に <code>load(draw)</code>と書いてください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<hr size="6">
+<a name="Graphic-options"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Functions-1" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Graphics-objects" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#draw" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-draw" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_49.html#drawdf" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">48.2.3 Graphic options</h3>
+
+
+
+<dl>
+<dt><a name="index-adapt_005fdepth-1"></a><u>グラフィックオプション:</u> <b>adapt_depth</b></dt>
+<dd><p>デフォルト値: 10
+</p>
+<p><code>adapt_depth</code>は適応プロットルーチンが使う分割の最大数です。
+</p>
+<p>このオプションは 2d <code>explicit</code>関数に対してだけ有効です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-allocation"></a>
+</p><dl>
+<dt><a name="index-allocation"></a><u>グラフィックオプション:</u> <b>allocation</b></dt>
+<dd><p>でフォルト値: <code>false</code>
+</p>
+<p>オプション <code>allocation</code>を使うと、出力ウィンドウの中に自在にシーンを置くことが可能です;
+これはマルチプロットで重要です。
+<code>false</code>の時、シーンは、オプション <code>columns</code>に割り当てられた値に従って自動的に配置されます。
+他の場合には <code>allocation</code>は二組の数のリストに設定しなければいけません;
+一番目はシーンの左下隅の位置に対応し、
+二番目のペアはプロットの幅と高さを与えます。
+すべての数字は0から1の間の相対座標で与えなければいけません。
+</p>
+<p>例:
+</p>
+<p>グラフィックスの配置に関して。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw(
+        gr2d(
+          explicit(x^2,x,-1,1)),
+        gr2d(
+          allocation = [[1/4, 1/4],[1/2, 1/2]],
+          explicit(x^3,x,-1,1),
+          grid = true) ) $
+</pre></td></tr></table>
+
+<p>選択された次元を持つマルチプロット。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw(
+        terminal = wxt,
+        gr2d(
+          allocation = [[0, 0],[1, 1/4]],
+          explicit(x^2,x,-1,1)),
+        gr3d(
+          allocation = [[0, 1/4],[1, 3/4]],
+          explicit(x^2+y^2,x,-1,1,y,-1,1) ))$
+</pre></td></tr></table>
+
+<p>オプション <code>columns</code>も参照して下さい。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-axis_005f3d"></a>
+</p><dl>
+<dt><a name="index-axis_005f3d"></a><u>グラフィックオプション:</u> <b>axis_3d</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p>もし <code>axis_3d</code>が <code>true</code>なら、
+<var>x</var>, <var>y</var> <var>z</var>軸が3dシーンで表示されます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(axis_3d = false,
+             explicit(sin(x^2+y^2),x,-2,2,y,-2,2) )$
+</pre></td></tr></table>
+
+<p>2dでの軸に関しては、
+<code>axis_bottom</code>,  <code>axis_left</code>, <code>axis_top</code>,
+<code>axis_right</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-axis_005fbottom"></a>
+</p><dl>
+<dt><a name="index-axis_005fbottom"></a><u>グラフィックオプション:</u> <b>axis_bottom</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p>もし <code>axis_bottom</code>が <code>true</code>なら、底の軸は 2dシーンで表示されます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(axis_bottom = false,
+             explicit(x^3,x,-1,1))$
+</pre></td></tr></table>
+
+<p><code>axis_left</code>,  <code>axis_top</code>, <code>axis_right</code>,
+<code>axis_3d</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-axis_005fleft"></a>
+</p><dl>
+<dt><a name="index-axis_005fleft"></a><u>グラフィックオプション:</u> <b>axis_left</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p>もし <code>axis_left</code>が <code>true</code>なら、左の軸が 2dシーンで表示されます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(axis_left = false,
+             explicit(x^3,x,-1,1))$
+</pre></td></tr></table>
+
+<p><code>axis_bottom</code>,  <code>axis_top</code>, <code>axis_right</code>,
+<code>axis_3d</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-axis_005fright"></a>
+</p><dl>
+<dt><a name="index-axis_005fright"></a><u>グラフィックオプション:</u> <b>axis_right</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p>もし <code>axis_right</code>が <code>true</code>なら、 2dシーンで右軸が表示されます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(axis_right = false,
+             explicit(x^3,x,-1,1))$
+</pre></td></tr></table>
+
+<p><code>axis_bottom</code>,  <code>axis_left</code>, <code>axis_top</code>,
+<code>axis_3d</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-axis_005ftop"></a>
+</p><dl>
+<dt><a name="index-axis_005ftop"></a><u>グラフィックオプション:</u> <b>axis_top</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p>もし <code>axis_top</code>が <code>true</code>なら、上部の軸が 2dシーンで表示されます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(axis_top = false,
+             explicit(x^3,x,-1,1))$
+</pre></td></tr></table>
+
+<p><code>axis_bottom</code>,  <code>axis_left</code>, <code>axis_right</code>,
+<code>axis_3d</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-background_005fcolor"></a>
+</p><dl>
+<dt><a name="index-background_005fcolor"></a><u>グラフィックオプション:</u> <b>background_color</b></dt>
+<dd><p>デフォルト値: <code>white</code>
+</p>
+<p>端末の背景色を設定します。デフォルト背景色は白です。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p><code>color</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-border"></a>
+</p><dl>
+<dt><a name="index-border"></a><u>グラフィックオプション:</u> <b>border</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p>もし <code>border</code>が <code>true</code>なら、
+ポリゴンの境界は <code>line_type</code>と <code>line_width</code>に従って塗られます。
+</p>
+<p>このオプションは以下のグラフィックオブジェクトに影響します:
+</p><ul>
+<li>
+<code>gr2d</code>: <code>polygon</code>, <code>rectangle</code>, と<code>ellipse</code>.
+</li></ul>
+
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(color       = brown,
+             line_width  = 8,
+             polygon([[3,2],[7,2],[5,5]]),
+             border      = false,
+             fill_color  = blue,
+             polygon([[5,2],[9,2],[7,5]]) )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-cbrange"></a>
+</p><dl>
+<dt><a name="index-cbrange"></a><u>グラフィックオプション:</u> <b>cbrange</b></dt>
+<dd><p>デフォルト値: <code>auto</code>
+</p>
+<p>もし <code>cbrange</code>が <code>auto</code>なら
+<code>enhanced3d</code>が <code>false</code>でない時
+色付けられる値の範囲は自動的に計算されます。
+カラー範囲外の値は、最も近い端の色を使います。
+</p>
+<p><code>enhanced3d</code>や <code>colorbox</code>が <code>false</code>の時、オプション
+<code>cbrange</code>は効果を持ちません。
+</p>
+<p>もしユーザーが色付けられた値の特定の区間が欲しいなら、
+<code>cbrange=[-2, 3]</code>のように Maximaリストとして与えられなければいけません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d (
+        enhanced3d     = true,
+        color          = green,
+        cbrange = [-3,10],
+        explicit(x^2+y^2, x,-2,2,y,-2,2)) $
+</pre></td></tr></table>
+
+<p><code>enhanced3d</code>, <code>colorbox</code>, <code>cbtics</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p></dd></dl>
+
+
+
+<p><a name="Item_003a-cbtics"></a>
+</p><dl>
+<dt><a name="index-cbtics"></a><u>グラフィックオプション:</u> <b>cbtics</b></dt>
+<dd><p>デフォルト値: <code>auto</code>
+</p>
+<p>このグラフィックオプションは、オプション <code>enhanced3d</code>が
+<code>false</code>でない時、カラーボックス上にチックマークを描く方法を制御します。
+</p>
+<p><code>enhanced3d</code>か <code>colorbox</code>が <code>false</code>の時、
+オプション <code>cbtics</code>は効果を持ちません。
+</p>
+<p>完全な記述に関しては、<code>xtics</code>を参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d (
+        enhanced3d = true,
+        color      = green,
+        cbtics  = {[&quot;High&quot;,10],[&quot;Medium&quot;,05],[&quot;Low&quot;,0]},
+        cbrange = [0, 10],
+        explicit(x^2+y^2, x,-2,2,y,-2,2)) $
+</pre></td></tr></table>
+
+<p><code>enhanced3d</code>, <code>colorbox</code>, <code>cbrange</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<dl>
+<dt><a name="index-color-1"></a><u>グラフィックオプション:</u> <b>color</b></dt>
+<dd><p>デフォルト値: <code>&quot;blue&quot;</code>
+</p>
+<p><code>color</code>は、線や点、ポリゴンやラベルの境界をプロットする色を指定します。
+</p>
+<p>色は名前や16進数の <i>rgb</i>コードとして与えられます。
+</p>
+<p>利用可能な色の名前は以下のものです: 
+</p><pre class="verbatim">white            black            gray0            grey0 
+gray10           grey10           gray20           grey20     
+gray30           grey30           gray40           grey40     
+gray50           grey50           gray60           grey60     
+gray70           grey70           gray80           grey80
+gray90           grey90           gray100          grey100 
+gray             grey             light_gray       light_grey 
+dark_gray        dark_grey        red              light_red 
+dark_red         yellow           light_yellow     dark_yellow
+green            light_green      dark_green       spring_green
+forest_green     sea_green        blue             light_blue 
+dark_blue        midnight_blue    navy             medium_blue 
+royalblue        skyblue          cyan             light_cyan 
+dark_cyan        magenta          light_magenta    dark_magenta
+turquoise        light_turquoise  dark_turquoise   pink 
+light_pink       dark_pink        coral            light_coral 
+orange_red       salmon           light_salmon     dark_salmon 
+aquamarine       khaki            dark_khaki       goldenrod 
+light_goldenrod  dark_goldenrod   gold             beige 
+brown            orange           dark_orange      violet 
+dark_violet      plum             purple
+</pre>
+<p>16進コードでの色彩成分は形式 <code>&quot;#rrggbb&quot;</code>で導入されます。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(explicit(x^2,x,-1,1), /* default is black */
+             color = &quot;red&quot;,
+             explicit(0.5 + x^2,x,-1,1),
+             color = blue,
+             explicit(1 + x^2,x,-1,1),
+             color = &quot;light-blue&quot;, /* double quotes if - is used */
+             explicit(1.5 + x^2,x,-1,1),
+             color = &quot;#23ab0f&quot;,
+             label([&quot;This is a label&quot;,0,1.2])  )$
+</pre></td></tr></table>
+
+<p><code>fill_color</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<dl>
+<dt><a name="index-colorbox-1"></a><u>グラフィックオプション:</u> <b>colorbox</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p>もし <code>colorbox</code>が <code>true</code>なら、
+ラベルなしの色スケールが <code>image</code> 2Dオブジェクトか色付けされた
+3dオブジェクトと一緒に描かれます。
+もし <code>colorbox</code>が <code>false</code>なら、色スケールは表示されません。
+もし <code>colorbox</code>が文字列なら、ラベル付き色スケールを描きます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) im: apply('matrix,
+                 makelist(makelist(random(200),i,1,30),i,1,30))$
+(%i3) draw2d(image(im,0,0,30,30))$
+(%i4) draw2d(colorbox=false, image(im,0,0,30,30))$
+</pre></td></tr></table>
+
+<p><code>palette</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-columns"></a>
+</p><dl>
+<dt><a name="index-columns"></a><u>グラフィックオプション:</u> <b>columns</b></dt>
+<dd><p>デフォルト値: 1
+</p>
+<p><code>columns</code>は多重プロットでの列の数です。
+</p>
+<p>これはグローバルグラフィックオプションなので、シーン記述での位置はかまいません。
+関数 <code>draw</code>の引数として使うこともできます。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) scene1: gr2d(title=&quot;Ellipse&quot;,
+                   nticks=30,
+                   parametric(2*cos(t),5*sin(t),t,0,2*%pi))$
+(%i3) scene2: gr2d(title=&quot;Triangle&quot;,
+                   polygon([4,5,7],[6,4,2]))$
+(%i4) draw(scene1, scene2, columns = 2)$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-contour"></a>
+</p><dl>
+<dt><a name="index-contour"></a><u>グラフィックオプション:</u> <b>contour</b></dt>
+<dd><p>デフォルト値: <code>none</code>
+</p>
+<p>オプション <code>contour</code>を使うと、ユーザーは等高線をプロットする場所を選択できます。
+可能な値は以下の通りです:
+</p>
+<ul>
+<li>
+<code>none</code>:
+等高線をプロットしません。
+
+</li><li>
+<code>base</code>:
+等高線を xy平面上に射影します。
+
+</li><li>
+<code>surface</code>:
+等高線を表面にプロットします。
+
+</li><li>
+<code>both</code>:
+xy平面上と表面と2つの等高線をプロットします。
+
+</li><li>
+<code>map</code>:
+等高線を xy平面上に射影して、観点をちょうど垂直に設定します。
+
+</li></ul>
+
+<p>これはグローバルグラフィックオプションなので、シーン記述での位置はかまいません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(explicit(20*exp(-x^2-y^2)-10,x,0,2,y,-3,3),
+             contour_levels = 15,
+             contour        = both,
+             surface_hide   = true) $
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-contour_005flevels"></a>
+</p><dl>
+<dt><a name="index-contour_005flevels"></a><u>グラフィックオプション:</u> <b>contour_levels</b></dt>
+<dd><p>デフォルト値: 5
+</p>
+<p>このグラフィックオプションは等高線が描かれる方法を制御します。
+<code>contour_levels</code>は、正の整数、
+3つの数のリスト、または、数の任意の集合に設定することができます:
+</p>
+<ul>
+<li>
+オプション <code>contour_levels</code>が正の整数 <var>n</var>にバインド (bounded)されている時、
+<var>n</var>この等高線が等しい間隔で描かれます。
+デフォルトでは、
+5つの等しく間隔の空けられた等高線がプロットされます。
+
+</li><li>
+オプション<code>contour_levels</code>が
+形式<code>[lowest,s,highest]</code>の長さ3のリストにバインド(bounded)されている時、
+等高線は
+<code>lowest</code>から<code>highest</code>へ<code>s</code>個のステップでプロットされます。
+
+</li><li>
+オプション <code>contour_levels</code>が形式
+<code>{n1, n2, ...}</code>の数の集合にバインド (bounded)されている時、
+等高線は値 <code>n1</code>, <code>n2</code>, ...にプロットされます。
+</li></ul>
+
+<p>これはグローバルグラフィックオプションなので、シーン記述での位置はかまいません。
+</p>
+<p>例:
+</p>
+<p>10の等しく間隔の空けられた等高線。
+レベルの実際の数は簡単なラベルを与えるために調整することができます。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(color = green,
+             explicit(20*exp(-x^2-y^2)-10,x,0,2,y,-3,3),
+             contour_levels = 10,
+             contour        = both,
+             surface_hide   = true) $
+</pre></td></tr></table>
+
+
+<p>-8から 8まで 4つのステップで。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(color = green,
+             explicit(20*exp(-x^2-y^2)-10,x,0,2,y,-3,3),
+             contour_levels = [-8,4,8],
+             contour        = both,
+             surface_hide   = true) $
+</pre></td></tr></table>
+
+<p>レベル -7, -6, 0.8, 5での等値線。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(color = green,
+             Explicit(20*exp(-x^2-y^2)-10,x,0,2,y,-3,3),
+             Contour_levels = {-7, -6, 0.8, 5},
+             Contour        = both,
+             Surface_hide   = true) $
+</pre></td></tr></table>
+
+<p><code>contour</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-data_005ffile_005fname"></a>
+</p><dl>
+<dt><a name="index-data_005ffile_005fname"></a><u>グラフィックオプション:</u> <b>data_file_name</b></dt>
+<dd><p>デフォルト値: <code>&quot;data.gnuplot&quot;</code>
+</p>
+<p>これは、リクエストされたプロットを構築するために
+Gnuplotが必要とする数値データを含むファイルの名前です。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+関数 <code>draw</code>の引数としても使うことができます。
+</p>
+<p><code>gnuplot_file_name</code>の中で例を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-delay"></a>
+</p><dl>
+<dt><a name="index-delay"></a><u>グラフィックオプション:</u> <b>delay</b></dt>
+<dd><p>デフォルト値: 5
+</p>
+<p>これはアニメーション gifファイルにおけるフレームの 1/100秒単位の遅延です。
+</p>
+<p>これはグローバルグラフィックスオプションなので、
+シーン記述の位置は問題なりません。
+関数 <code>draw</code>の引数としても使うことができます。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw(
+        delay     = 100,
+        file_name = &quot;zzz&quot;,
+        terminal  = 'animated_gif,
+        gr2d(explicit(x^2,x,-1,1)),
+        gr2d(explicit(x^3,x,-1,1)),
+        gr2d(explicit(x^4,x,-1,1)));
+End of animation sequence
+(%o2)          [gr2d(explicit), gr2d(explicit), gr2d(explicit)]
+</pre></td></tr></table>
+
+<p>オプション <code>delay</code>はアニメーション gifに関してだけアクティブです;
+他のいかなる場合も無視されます。
+</p>
+<p><code>terminal</code>, <code>dimensions</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-dimensions"></a>
+</p><dl>
+<dt><a name="index-dimensions"></a><u>グラフィックオプション:</u> <b>dimensions</b></dt>
+<dd><p>デフォルト値: <code>[600,500]</code>
+</p>
+<p>出力端末の寸法。
+その値は、幅と高さで形成されるリストです。
+2つの数の意味は使っている端末に依存します。
+</p>
+<p>端末 <code>gif</code>, <code>animated_gif</code>, <code>png</code>, <code>jpg</code>, <code>svg</code>,
+<code>screen</code>, <code>wxt</code>, <code>aquaterm</code>では、
+整数はそれぞれの方向の点の数を表します。
+もし整数でないなら丸められます。
+</p>
+<p>端末 <code>eps</code>, <code>eps_color</code>, <code>pdf</code>, <code>pdfcairo</code>では、
+両方の数は 1/100cm単位の長さを表します。
+デフォルトでは、これらのフォーマットでの画像は幅 6cm、高さ 5cmであることを意味します。
+</p>
+<p>これはグローバルグラフィックオプションなので、シーン記述での位置は関係ありません。
+関数 <code>draw</code>の引数として使われることもあります。
+</p>
+<p>例:
+</p>
+<p>ファイル出力と wxtキャンバスに適用されたオプション <code>dimensions</code>。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(
+        dimensions = [300,300],
+        terminal   = 'png,
+        explicit(x^4,x,-1,1)) $
+(%i3) draw2d(
+        dimensions = [300,300],
+        terminal   = 'wxt,
+        explicit(x^4,x,-1,1)) $
+</pre></td></tr></table>
+
+<p>eps出力に適用されたオプション <code>dimensions</code>。
+A4縦寸法の epsファイルが欲しいです。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) A4portrait: 100*[21, 29.7]$
+(%i3) draw3d(
+        dimensions = A4portrait,
+        terminal   = 'eps,
+        explicit(x^2-y^2,x,-2,2,y,-2,2)) $
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-draw_005frealpart"></a>
+</p><dl>
+<dt><a name="index-draw_005frealpart"></a><u>グラフィックオプション:</u> <b>draw_realpart</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p><code>true</code>の時、描画される関数は複素関数とみなされ、実部の値をプロットします;
+<code>false</code>の時、関数が実数値を与えないときは何もプロットしません。
+</p>
+<p>このオプションは
+2Dや 3Dにおけるオブジェクト <code>explicit</code>と <code>parametric</code>と
+<code>parametric_surface</code>に作用します。
+</p>
+<p>例:
+</p>
+<p>オプション <code>draw_realpart</code>はオブジェクト <code>explicit</code>と
+<code>parametric</code>に作用します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(
+        draw_realpart = false,
+        explicit(sqrt(x^2  - 4*x) - x, x, -1, 5),
+        color         = red,
+        draw_realpart = true,
+        parametric(x,sqrt(x^2  - 4*x) - x + 1, x, -1, 5) );
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-enhanced3d"></a>
+</p><dl>
+<dt><a name="index-enhanced3d"></a><u>グラフィックオプション:</u> <b>enhanced3d</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>enhanced3d</code>が <code>false</code>なら、 3dプロットで表面は色付けられません。
+もし <code>enhanced3d</code>が <code>true</code>なら、 Gnuplotの
+pm3dモードを設定して表面が色付けられます。
+もし式が <code>enhanced3d</code>に与えられるなら、
+それは <code>palette</code>に従って色を割り当てるのに使われます;
+この式の中の変数は表面記述で使われるものと同じでなければいけません。
+</p>
+<p>如何にパレットが指定されるか知るためには、オプション <code>palette</code>を参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(
+         surface_hide = true,
+         enhanced3d   = true,
+         palette      = gray,
+         explicit(20*exp(-x^2-y^2)-10,x,-3,3,y,-3,3))$
+(%i3) draw3d(
+         surface_hide = true,
+         /* same variables x and y as */
+         /* in explicit below:        */
+         enhanced3d   = sin(x*y),
+         explicit(20*exp(-x^2-y^2)-10,x,-3,3,y,-3,3))$
+(%i4) draw3d(
+         color = blue,
+         nticks = 60,
+         line_width = 3,
+         enhanced3d = (u-1)^2,
+         parametric(cos(5*u)^2,sin(7*u),u-2,u,0,2))$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-error_005ftype"></a>
+</p><dl>
+<dt><a name="index-error_005ftype"></a><u>グラフィックオプション:</u> <b>error_type</b></dt>
+<dd><p>デフォルト値: <code>y</code>
+</p>
+<p>値は <code>x</code>, <code>y</code>, <code>xy</code>を取り得ますが、
+その値に依存して、グラフィックオブジェクト
+<code>errors</code>は水平エラーバー、垂直エラーバー、その両方を伴って点を描画します。
+<code>error_type=boxes</code>の時、クロスの代わりにボックスが描かれます。
+</p>
+<p><code>errors</code>も参照してください。
+</p></dd></dl>
+
+
+<p><a name="Item_003a-file_005fname"></a>
+</p><dl>
+<dt><a name="index-file_005fname"></a><u>グラフィックオプション:</u> <b>file_name</b></dt>
+<dd><p>デフォルト値: <code>&quot;maxima_out&quot;</code>
+</p>
+<p>これは、端末<code>png</code>, <code>jpg</code>, <code>eps</code>, <code>eps_color</code>, <code>pdf</code>,
+<code>pdfcairo</code>がグラフィックを保存するファイルの名前です。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(file_name = &quot;myfile&quot;,
+             explicit(x^2,x,-1,1),
+             terminal  = 'png)$
+</pre></td></tr></table>
+
+<p><code>terminal</code>, <code>dimensions</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-fill_005fcolor"></a>
+</p><dl>
+<dt><a name="index-fill_005fcolor"></a><u>グラフィックオプション:</u> <b>fill_color</b></dt>
+<dd><p>デフォルト値: <code>&quot;red&quot;</code>
+</p>
+<p><code>fill_color</code>はポリゴンと 2d <code>explicit</code>関数を塗りつぶすための色を指定します。
+</p>
+<p>如何に色が指定されるかを知るには <code>color</code>を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-fill_005fdensity"></a>
+</p><dl>
+<dt><a name="index-fill_005fdensity"></a><u>グラフィックオプション:</u> <b>fill_density</b></dt>
+<dd><p>デフォルト値: 0
+</p>
+<p><code>fill_density</code>は <code>bars</code>オブジェクトに関して
+<code>fill_color</code>の強度を指定する数です。 0と 1の間の数です。
+</p>
+<p>例を見るには <code>bars</code>を参照してください。
+</p></dd></dl>
+
+
+
+<p><a name="Item_003a-filled_005ffunc"></a>
+</p><dl>
+<dt><a name="index-filled_005ffunc"></a><u>グラフィックオプション:</u> <b>filled_func</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>オプション <code>filled_func</code>は関数によって制限された領域が如何に塗りつぶされるべきかを
+制御します。
+<code>filled_func</code>が <code>true</code>の時、
+オブジェクト
+<code>explicit</code>とグラフィックウィンドウの底で定義された関数によって閉ざされた領域を
+<code>fill_color</code>で塗りつぶします。
+<code>filled_func</code>が関数式を含む時、
+この関数とオブジェクト <code>explicit</code> で定義された関数によって閉ざされた領域を
+塗りつぶします。
+デフォルトでは、明示的な関数は塗りつぶされません。
+</p>
+<p>このオプションは 2dグラフィックオブジェクト <code>explicit</code>だけに影響します。
+</p>
+<p>例:
+</p>
+<p><code>explicit</code>オブジェクトとグラフィックウィンドウによって閉ざされた領域。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(fill_color  = red,
+             filled_func = true,
+             explicit(sin(x),x,0,10) )$
+</pre></td></tr></table>
+
+<p><code>explicit</code>オブジェクトとオプション
+<code>filled_func</code>で定義された関数によって閉ざされた領域。
+<code>filled_func</code>の中の変数は
+<code>explicit</code>の中で使われるものと同じでなければいけないことに注意してください。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(fill_color  = grey,
+             filled_func = sin(x),
+             explicit(-sin(x),x,0,%pi));
+</pre></td></tr></table>
+
+<p><code>fill_color</code>と <code>explicit</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-font"></a>
+</p><dl>
+<dt><a name="index-font"></a><u>グラフィックオプション:</u> <b>font</b></dt>
+<dd><p>デフォルト値: <code>&quot;&quot;</code> (empty string)
+</p>
+<p>このオプションは端末が使う書体を設定するために使うことができます。
+プロットを通して書体とサイズは１つだけ使うことができます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p><code>font_size</code>も参照してください。
+</p>
+<p>Gnuplotはそれ自身フォントを扱いません。
+異なる端末のサポートライブラリに任せます。
+それぞれはフォントに関して独自の哲学を持っています。
+簡単なまとめは以下の通りです:
+</p>
+<ul>
+<li>
+<i>x11</i>:
+通常のX11フォンとサーバーメカニズムを使います。
+
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(font      = &quot;Arial&quot;, 
+             font_size = 20,
+             label([&quot;Arial font, size 20&quot;,1,1]))$
+</pre></td></tr></table>
+
+</li><li>
+<i>windows</i>:
+Windows端末はプロット内部でフォントの変更をサポートしません。
+一旦プロットが生成されると、
+グラフウィンドウのメニューを右クリックしてフォントを変更することができます。
+
+</li><li>
+<i>png, jpeg, gif</i>:
+<i>libgd</i>ライブラリは環境変数
+<code>GDFONTPATH</code>の中に保持されたフォントパスを使います;
+この場合、オプション <code>font</code>をフォント名に設定することだけが必要です。
+フォントファイルへの完全なパスを与えることも可能です。
+
+<p>例:
+</p>
+<p>オプション <code>font</code>はフォントファイルへの完全なパスを与えることができます:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) path: &quot;/usr/share/fonts/truetype/freefont/&quot; $
+(%i3) file: &quot;FreeSerifBoldItalic.ttf&quot; $
+(%i4) draw2d(
+        font      = concat(path, file), 
+        font_size = 20,
+        color     = red,
+        label([&quot;FreeSerifBoldItalic font, size 20&quot;,1,1]),
+        terminal  = png)$
+</pre></td></tr></table>
+
+<p>もし環境変数 <code>GDFONTPATH</code>が
+フォントファイルが配置されているパスに設定されているなら、
+グラフィックオプション <code>font</code>をフォント名に設定することが可能です。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(
+        font      = &quot;FreeSerifBoldItalic&quot;, 
+        font_size = 20,
+        color     = red,
+        label([&quot;FreeSerifBoldItalic font, size 20&quot;,1,1]),
+        terminal  = png)$
+</pre></td></tr></table>
+
+</li><li>
+<i>Postscript</i>:
+標準ポストスクリプトフォントは以下の通りです:<br>
+<code>&quot;Times-Roman&quot;</code>, <code>&quot;Times-Italic&quot;</code>, <code>&quot;Times-Bold&quot;</code>,
+<code>&quot;Times-BoldItalic&quot;</code>,<br>
+<code>&quot;Helvetica&quot;</code>, <code>&quot;Helvetica-Oblique&quot;</code>, <code>&quot;Helvetica-Bold&quot;</code>,<br>
+<code>&quot;Helvetic-BoldOblique&quot;</code>, <code>&quot;Courier&quot;</code>,
+<code>&quot;Courier-Oblique&quot;</code>, <code>&quot;Courier-Bold&quot;</code>,<br>
+<code>&quot;Courier-BoldOblique&quot;</code>。
+  
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(
+        font      = &quot;Courier-Oblique&quot;, 
+        font_size = 15,
+        label([&quot;Courier-Oblique font, size 15&quot;,1,1]),
+        terminal = eps)$
+</pre></td></tr></table>
+
+</li><li>
+<i>pdf</i>:
+<i>Postscript</i>と同じフォントを使います。
+
+</li><li>
+<i>pdfcairo</i>:
+<i>wxt</i>と同じフォントを使います。
+
+</li><li>
+<i>wxt</i>:
+<i>pango</i>ライブラリは
+<code>fontconfig</code>ユーティリティを介してフォントを見つけます。
+
+</li><li>
+<i>aqua</i>:
+デフォルトは <code>&quot;Times-Roman&quot;</code>です。
+</li></ul>
+
+<p>Gnuplotドキュメンテーションは端末とフォントに関する情報の重要なソースです。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-font_005fsize"></a>
+</p><dl>
+<dt><a name="index-font_005fsize"></a><u>グラフィックオプション:</u> <b>font_size</b></dt>
+<dd><p>デフォルト値: 10
+</p>
+<p>このオプションは、端末が使うフォントサイズを設定するために使うことができます。
+１つの書体とサイズだけがプロットの間中で使うことができます。
+オプション <code>font</code>が空の文字列に等しくない時だけ、
+<code>font_size</code>はアクティブです。
+</p>
+<p>これはグローバルグラフィックスオプションなので、
+シーン記述の位置は問題になりません。
+</p>
+<p><code>font</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-gnuplot_005ffile_005fname"></a>
+</p><dl>
+<dt><a name="index-gnuplot_005ffile_005fname"></a><u>グラフィックオプション:</u> <b>gnuplot_file_name</b></dt>
+<dd><p>デフォルト値: <code>&quot;maxout.gnuplot&quot;</code>
+</p>
+<p>これは Gnuplotで処理される必要なコマンドを含むファイルの名前です。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+関数 <code>draw</code>の引数としても使うことができます。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(
+       file_name = &quot;my_file&quot;,
+       gnuplot_file_name = &quot;my_commands_for_gnuplot&quot;,
+       data_file_name    = &quot;my_data_for_gnuplot&quot;,
+       terminal          = png,
+       explicit(x^2,x,-1,1)) $
+</pre></td></tr></table>
+
+<p><code>data_file_name</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<dl>
+<dt><a name="index-grid-1"></a><u>グラフィックオプション:</u> <b>grid</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>grid</code>が <code>true</code>なら、 <var>xy</var>平面上に格子を描きます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(grid = true,
+             explicit(exp(u),u,-2,2))$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-head_005fangle"></a>
+</p><dl>
+<dt><a name="index-head_005fangle"></a><u>グラフィックオプション:</u> <b>head_angle</b></dt>
+<dd><p>デフォルト値: 45
+</p>
+<p><code>head_angle</code>は矢印の頭と線分の間の角度を度の単位で示します。
+</p>
+<p>このオプションは <code>vector</code>オブジェクトに対してだけ有効です。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xrange      = [0,10],
+             yrange      = [0,9],
+             head_length = 0.7,
+             head_angle  = 10,
+             vector([1,1],[0,6]),
+             head_angle  = 20,
+             vector([2,1],[0,6]),
+             head_angle  = 30,
+             vector([3,1],[0,6]),
+             head_angle  = 40,
+             vector([4,1],[0,6]),
+             head_angle  = 60,
+             vector([5,1],[0,6]),
+             head_angle  = 90,
+             vector([6,1],[0,6]),
+             head_angle  = 120,
+             vector([7,1],[0,6]),
+             head_angle  = 160,
+             vector([8,1],[0,6]),
+             head_angle  = 180,
+             vector([9,1],[0,6]) )$
+</pre></td></tr></table>
+
+<p><code>head_both</code>, <code>head_length</code>, <code>head_type</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-head_005fboth"></a>
+</p><dl>
+<dt><a name="index-head_005fboth"></a><u>グラフィックオプション:</u> <b>head_both</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>head_both</code>が <code>true</code>なら、ベクトルを2つの矢先と共に描画します。
+もし <code>false</code>なら１つの矢だけが描かれます。
+</p>
+<p>このオプションは <code>vector</code>オブジェクトに対してだけ有効です。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xrange      = [0,8],
+             yrange      = [0,8],
+             head_length = 0.7,
+             vector([1,1],[6,0]),
+             head_both   = true,
+             vector([1,7],[6,0]) )$
+</pre></td></tr></table>
+
+<p><code>head_length</code>, <code>head_angle</code>, <code>head_type</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-head_005flength"></a>
+</p><dl>
+<dt><a name="index-head_005flength"></a><u>グラフィックオプション:</u> <b>head_length</b></dt>
+<dd><p>デフォルト値: 2
+</p>
+<p><code>head_length</code>は矢印の頭の長さを <var>x</var>-軸の単位で示します。
+</p>
+<p>このオプションは <code>vector</code>オブジェクトに対してだけ有効です。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xrange      = [0,12],
+             yrange      = [0,8],
+             vector([0,1],[5,5]),
+             head_length = 1,
+             vector([2,1],[5,5]),
+             head_length = 0.5,
+             vector([4,1],[5,5]),
+             head_length = 0.25,
+             vector([6,1],[5,5]))$
+</pre></td></tr></table>
+
+<p><code>head_both</code>, <code>head_angle</code>, <code>head_type</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+
+
+
+<p><a name="Item_003a-head_005ftype"></a>
+</p><dl>
+<dt><a name="index-head_005ftype"></a><u>グラフィックオプション:</u> <b>head_type</b></dt>
+<dd><p>デフォルト値: <code>filled</code>
+</p>
+<p><code>head_type</code>は矢印の頭を如何にプロットするかを指定するのに使われます。
+可能な値は以下の通りです: <code>filled</code> (閉じていて塗りつぶされた矢印の頭),
+<code>empty</code> (閉じているが塗りつぶされていない矢印の頭),
+<code>nofilled</code> (開いた矢印の頭)。
+</p>
+<p>このオプションは <code>vector</code>オブジェクトにだけ有効です。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xrange      = [0,12],
+             yrange      = [0,10],
+             head_length = 1,
+             vector([0,1],[5,5]), /* default type */
+             head_type = 'empty,
+             vector([3,1],[5,5]),
+             head_type = 'nofilled,
+             vector([6,1],[5,5]))$
+</pre></td></tr></table>
+
+<p><code>head_both</code>, <code>head_angle</code>, <code>head_length</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ip_005fgrid"></a>
+</p><dl>
+<dt><a name="index-ip_005fgrid"></a><u>グラフィックオプション:</u> <b>ip_grid</b></dt>
+<dd><p>デフォルト値: <code>[50, 50]</code>
+</p>
+<p><code>ip_grid</code>は陰的プロットでの最初のサンプリングのためにグリッドを設定します。
+</p>
+<p>このオプションは <code>implicit</code>オブジェクトに対してだけ関係があります。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-ip_005fgrid_005fin"></a>
+</p><dl>
+<dt><a name="index-ip_005fgrid_005fin"></a><u>グラフィックオプション:</u> <b>ip_grid_in</b></dt>
+<dd><p>デフォルト値: <code>[5, 5]</code>
+</p>
+<p><code>ip_gridi_in</code>は陰的プロットでの二番目のサンプリングのためにグリッドを設定します。
+</p>
+<p>このオプションは <code>implicit</code>オブジェクトに対してだけ関係があります。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-key"></a>
+</p><dl>
+<dt><a name="index-key"></a><u>グラフィックオプション:</u> <b>key</b></dt>
+<dd><p>デフォルト値: <code>&quot;&quot;</code> (empty string)
+</p>
+<p><code>key</code>は凡例の中の関数名です。
+もし <code>key</code>が空の文字列なら、関数にキーを割り当てません。
+</p>
+<p>このオプションは以下のグラフィックオブジェクトに影響します:
+</p><ul>
+<li>
+<code>gr2d</code>: <code>points</code>, <code>polygon</code>, <code>rectangle</code>,
+<code>ellipse</code>, <code>vector</code>, <code>explicit</code>, <code>implicit</code>,
+<code>parametric</code>, と<code>polar</code>。
+
+</li><li>
+<code>gr3d</code>: <code>points</code>, <code>explicit</code>, <code>parametric</code>,
+と<code>parametric_surface</code>
+</li></ul>
+
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(key   = &quot;Sinus&quot;,
+             explicit(sin(x),x,0,10),
+             key   = &quot;Cosinus&quot;,
+             color = red,
+             explicit(cos(x),x,0,10) )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-label_005falignment"></a>
+</p><dl>
+<dt><a name="index-label_005falignment"></a><u>グラフィックオプション:</u> <b>label_alignment</b></dt>
+<dd><p>デフォルト値: <code>center</code>
+</p>
+<p><code>label_alignment</code>は
+与えられた座標に関するラベルを書く場所を指定するのに使われます。
+可能な値は以下のものです: <code>center</code>, <code>left</code>, <code>right</code>.
+</p>
+<p>このオプションは <code>label</code>オブジェクトに対してだけ有効です。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xrange          = [0,10],
+             yrange          = [0,10],
+             points_joined   = true,
+             points([[5,0],[5,10]]),
+             color           = blue,
+             label([&quot;Centered alignment (default)&quot;,5,2]),
+             label_alignment = 'left,
+             label([&quot;Left alignment&quot;,5,5]),
+             label_alignment = 'right,
+             label([&quot;Right alignment&quot;,5,8]))$
+</pre></td></tr></table>
+
+<p><code>label_orientation</code>, <code>color</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-label_005forientation"></a>
+</p><dl>
+<dt><a name="index-label_005forientation"></a><u>グラフィックオプション:</u> <b>label_orientation</b></dt>
+<dd><p>デフォルト値: <code>horizontal</code>
+</p>
+<p><code>label_orientation</code>はラベルの向きを指定するのに使われます。
+可能な値は以下のものです: <code>horizontal</code>, <code>vertical</code>.
+</p>
+<p>このオプションは <code>label</code>オブジェクトに対してだけ有効です。
+</p>
+<p>例:
+</p>
+<p>この例では、ダミーの点がイメージを得るために加えられます。
+パッケージ <code>draw</code>はいつもシーンを描くのにデータを必要とします。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xrange     = [0,10],
+             yrange     = [0,10],
+             point_size = 0,
+             points([[5,5]]),
+             color      = navy,
+             label([&quot;Horizontal orientation (default)&quot;,5,2]),
+             label_orientation = 'vertical,
+             color             = &quot;#654321&quot;,
+             label([&quot;Vertical orientation&quot;,1,5]))$
+</pre></td></tr></table>
+
+<p><code>label_alignment</code>と <code>color</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-line_005ftype"></a>
+</p><dl>
+<dt><a name="index-line_005ftype"></a><u>グラフィックオプション:</u> <b>line_type</b></dt>
+<dd><p>デフォルト値: <code>solid</code>
+</p>
+<p><code>line_type</code>は線が如何に表示されるかを示します;
+可能な値は <code>solid</code>と <code>dots</code>です。
+</p>
+<p>このオプションは以下のグラフィックオブジェクトに鋭意供します:
+</p><ul>
+<li>
+<code>gr2d</code>: <code>points</code>, <code>polygon</code>, <code>rectangle</code>, <code>ellipse</code>,
+<code>vector</code>, <code>explicit</code>, <code>implicit</code>, <code>parametric</code>と
+<code>polar</code>。
+
+</li><li>
+<code>gr3d</code>: <code>points</code>, <code>explicit</code>, <code>parametric</code>と
+<code>parametric_surface</code>。
+</li></ul>
+
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(line_type = dots,
+             explicit(1 + x^2,x,-1,1),
+             line_type = solid, /* default */
+             explicit(2 + x^2,x,-1,1))$
+</pre></td></tr></table>
+
+<p><code>line_width</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-line_005fwidth"></a>
+</p><dl>
+<dt><a name="index-line_005fwidth"></a><u>グラフィックオプション:</u> <b>line_width</b></dt>
+<dd><p>デフォルト値: 1
+</p>
+<p><code>line_width</code>はプロットする線の幅です。
+値は正の数でなければいけません。
+</p>
+<p>このオプションは以下のグラフィックオブジェクトに影響します:
+</p><ul>
+<li>
+<code>gr2d</code>: <code>points</code>, <code>polygon</code>, <code>rectangle</code>, <code>ellipse</code>,
+<code>vector</code>, <code>explicit</code>, <code>implicit</code>, <code>parametric</code>と
+<code>polar</code>。
+
+</li><li>
+<code>gr3d</code>: <code>points</code>と <code>parametric</code>.
+</li></ul>
+
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(explicit(x^2,x,-1,1), /* default width */
+             line_width = 5.5,
+             explicit(1 + x^2,x,-1,1),
+             line_width = 10,
+             explicit(2 + x^2,x,-1,1))$
+</pre></td></tr></table>
+
+<p><code>line_type</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-logcb"></a>
+</p><dl>
+<dt><a name="index-logcb"></a><u>グラフィックオプション:</u> <b>logcb</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>logcb</code>が <code>true</code>なら、
+カラーボックスのチックを対数スケールで描きます。
+</p>
+<p><code>enhanced3d</code>か <code>colorbox</code>が <code>false</code>の時、オプション
+<code>logcb</code>は効果を持ちません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d (
+        enhanced3d = true,
+        color      = green,
+        logcb = true,
+        logz  = true,
+        palette = [-15,24,-9],
+        explicit(exp(x^2-y^2), x,-2,2,y,-2,2)) $
+</pre></td></tr></table>
+
+<p><code>enhanced3d</code>, <code>colorbox</code>, <code>cbrange</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<dl>
+<dt><a name="index-logx-1"></a><u>グラフィックオプション:</u> <b>logx</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>logx</code>が <code>true</code>なら <var>x</var>軸を対数スケールで描きます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(explicit(log(x),x,0.01,5),
+             logx = true)$
+</pre></td></tr></table>
+
+<p><code>logy</code>, <code>logz</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+
+<dl>
+<dt><a name="index-logy-1"></a><u>グラフィックオプション:</u> <b>logy</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>logy</code>が <code>true</code>なら <var>y</var>軸は対数スケールで描かれます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(logy = true,
+             explicit(exp(x),x,0,5))$
+</pre></td></tr></table>
+
+<p><code>logx</code>, <code>logz</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-logz"></a>
+</p><dl>
+<dt><a name="index-logz"></a><u>グラフィックオプション:</u> <b>logz</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>logz</code>が <code>true</code>なら <var>z</var>軸を対数スケールで描きます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(logz = true,
+             explicit(exp(u^2+v^2),u,-2,2,v,-2,2))$
+</pre></td></tr></table>
+
+<p><code>logx</code>, <code>logy</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<dl>
+<dt><a name="index-nticks-1"></a><u>グラフィックオプション:</u> <b>nticks</b></dt>
+<dd><p>デフォルト値: 29
+</p>
+<p>2dでは、
+<code>nticks</code>は、適応プロットルーチンが陽的オブジェクトに関して使う点の初期数を与えます。
+それはパラメトリック曲線と極座標曲線で描かれる点の数でもあります。
+</p>
+<p>このオプションは以下のグラフィックオブジェクトに影響を与えます:
+</p><ul>
+<li>
+<code>gr2d</code>: <code>ellipse</code>, <code>explicit</code>, <code>parametric</code>と <code>polar</code>。
+
+</li><li>
+<code>gr3d</code>: <code>parametric</code>。
+</li></ul>
+
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(transparent = true,
+             ellipse(0,0,4,2,0,180),
+             nticks = 5,
+             ellipse(0,0,4,2,180,180) )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<dl>
+<dt><a name="index-palette-2"></a><u>グラフィックオプション:</u> <b>palette</b></dt>
+<dd><p>デフォルト値: <code>color</code>
+</p>
+<p><code>palette</code>はグレイレベルを色成分上にマップする仕方を示します。
+3Dオブジェクトでのオプション <code>enhanced3d</code>と一緒に機能します。
+3Dオブジェクトは表面のすべての点を実数かグレイレベルに関連付けます。
+グレイイメージとも一緒に機能します。
+<code>palette</code>によってレベルは色に変換されます。
+</p>
+<p>これらの変換を定義するには2つの方法があります。
+</p>
+<p>1つ目の方法では、 <code>palette</code>は -36から +36までの範囲の成分の長さ 3のベクトルです;
+それぞれの値はそれぞれ赤、緑、青色上にレベルをマップする公式に関する添字です:
+</p><table><tr><td>&nbsp;</td><td><pre class="example"> 0: 0               1: 0.5           2: 1
+ 3: x               4: x^2           5: x^3
+ 6: x^4             7: sqrt(x)       8: sqrt(sqrt(x))
+ 9: sin(90x)       10: cos(90x)     11: |x-0.5|
+12: (2x-1)^2       13: sin(180x)    14: |cos(180x)|
+15: sin(360x)      16: cos(360x)    17: |sin(360x)|
+18: |cos(360x)|    19: |sin(720x)|  20: |cos(720x)|
+21: 3x             22: 3x-1         23: 3x-2
+24: |3x-1|         25: |3x-2|       26: (3x-1)/2 
+27: (3x-2)/2       28: |(3x-1)/2|   29: |(3x-2)/2|
+30: x/0.32-0.78125 31: 2*x-0.84     32: 4x;1;-2x+1.84;x/0.08-11.5
+33: |2*x - 0.5|    34: 2*x          35: 2*x - 0.5
+36: 2*x - 1
+</pre></td></tr></table>
+<p>負の数は負の色成分を意味します。
+<code>palette = gray</code>と <code>palette = color</code>は、それぞれ
+<code>palette = [3,3,3]</code>と <code>palette = [7,5,15]</code>のショートカットです
+</p>
+<p>2つ目の方法では、 <code>palette</code>はユーザー定義のルックアップテーブルです。
+この場合、長さ <code>n</code>のルックアップテーブルを構成するフォーマットは
+<code>palette=[color_1, color_2, ..., color_n</code>です。
+ここで、 <code>color_i</code>は <code>color_i</code>を最低のグレイレベルに割り当て、
+<code>color_n</code>を最高に割り当てるような均整のとれた色です
+(オプション <code>color</code>を参照してください)。
+残りの色は内挿されます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<p>3Dオブジェクトでのオプション <code>enhanced3d</code>と一緒に機能します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(
+        enhanced3d = [z-x+2*y,x,y,z],
+        palette = [32, -8, 17],
+        explicit(20*exp(-x^2-y^2)-10,x,-3,3,y,-3,3))$
+</pre></td></tr></table>
+
+<p>グレイイメージとも一緒に機能します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) im: apply(
+           'matrix,
+            makelist(makelist(random(200),i,1,30),i,1,30))$
+(%i3) /* palette = color, default */
+      draw2d(image(im,0,0,30,30))$
+(%i4) draw2d(palette = gray, image(im,0,0,30,30))$
+(%i5) draw2d(palette = [15,20,-4],
+             colorbox=false,
+             image(im,0,0,30,30))$
+</pre></td></tr></table>
+<p><code>palette</code>はユーザー定義のルックアップテーブルの場合があります。
+この例では、
+<code>x</code>の低いレベルは赤に割り当てられ、高いレベルは黄色に割り当てられています。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(
+         palette = [red, blue, yellow],
+         enhanced3d = x,
+         explicit(x^2+y^2,x,-1,1,y,-1,1)) $
+</pre></td></tr></table>
+
+<p><code>colorbox</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-point_005fsize"></a>
+</p><dl>
+<dt><a name="index-point_005fsize"></a><u>グラフィックオプション:</u> <b>point_size</b></dt>
+<dd><p>デフォルト値: 1
+</p>
+<p><code>point_size</code>はプロットする点のサイズを設定します。
+非負数でなければいけません。
+</p>
+<p>グラフィックオプション <code>point_type</code>が
+<code>dot</code>に設定される時このオプションは効果を持ちません。
+</p>
+<p>このオプションは以下のグラフィックオブジェクトに影響します:
+</p><ul>
+<li>
+<code>gr2d</code>: <code>points</code>.
+
+</li><li>
+<code>gr3d</code>: <code>points</code>.
+</li></ul>
+
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(points(makelist([random(20),random(50)],k,1,10)),
+        point_size = 5,
+        points(makelist(k,k,1,20),makelist(random(30),k,1,20)))$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<dl>
+<dt><a name="index-point_005ftype-1"></a><u>グラフィックオプション:</u> <b>point_type</b></dt>
+<dd><p>デフォルト値: 1
+</p>
+<p><code>point_type</code>は孤立した点をどう表示するかを示します;
+このオプションの値は、 -1以上の整数インデックスもしくは点スタイルの名前であり得ます:
+<code>$none</code> (-1), <code>dot</code> (0), <code>plus</code> (1), <code>multiply</code> (2),
+<code>asterisk</code> (3), <code>square</code> (4), <code>filled_square</code> (5),
+<code>circle</code> (6), <code>filled_circle</code> (7), <code>up_triangle</code> (8),
+<code>filled_up_triangle</code> (9), <code>down_triangle</code> (10),
+<code>filled_down_triangle</code> (11), <code>diamant</code> (12),
+<code>filled_diamant</code> (13)。
+</p>
+<p>このオプションは以下のグラフィックオブジェクトに影響します:
+</p><ul>
+<li>
+<code>gr2d</code>: <code>points</code>。
+
+</li><li>
+<code>gr3d</code>: <code>points</code>。
+</li></ul>
+
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xrange = [0,10],
+             yrange = [0,10],
+             point_size = 3,
+             point_type = diamant,
+             points([[1,1],[5,1],[9,1]]),
+             point_type = filled_down_triangle,
+             points([[1,2],[5,2],[9,2]]),
+             point_type = asterisk,
+             points([[1,3],[5,3],[9,3]]),
+             point_type = filled_diamant,
+             points([[1,4],[5,4],[9,4]]),
+             point_type = 5,
+             points([[1,5],[5,5],[9,5]]),
+             point_type = 6,
+             points([[1,6],[5,6],[9,6]]),
+             point_type = filled_circle,
+             points([[1,7],[5,7],[9,7]]),
+             point_type = 8,
+             points([[1,8],[5,8],[9,8]]),
+             point_type = filled_diamant,
+             points([[1,9],[5,9],[9,9]]) )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-points_005fjoined"></a>
+</p><dl>
+<dt><a name="index-points_005fjoined"></a><u>グラフィックオプション:</u> <b>points_joined</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>points_joined</code>が <code>true</code>の時、点を線で結びます;
+<code>false</code>の時、孤立した点が描かれます。
+このグラフィックオプションの三番目の可能な値は <code>impulses</code>です;
+この場合、点から x軸(2D)もしくは xy平面(3D)へ垂直の線分が描かれます。
+</p>
+<p>このオプションは以下のグラフィックオブジェクトに影響します:
+</p><ul>
+<li>
+<code>gr2d</code>: <code>points</code>。
+
+</li><li>
+<code>gr3d</code>: <code>points</code>。
+</li></ul>
+
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xrange        = [0,10],
+             yrange        = [0,4],
+             point_size    = 3,
+             point_type    = up_triangle,
+             color         = blue,
+             points([[1,1],[5,1],[9,1]]),
+             points_joined = true,
+             point_type    = square,
+             line_type     = dots,
+             points([[1,2],[5,2],[9,2]]),
+             point_type    = circle,
+             color         = red,
+             line_width    = 7,
+             points([[1,3],[5,3],[9,3]]) )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-proportional_005faxes"></a>
+</p><dl>
+<dt><a name="index-proportional_005faxes"></a><u>グラフィックオプション:</u> <b>proportional_axes</b></dt>
+<dd><p>デフォルト値: <code>none</code>
+</p>
+<p><code>proportional_axes</code>が <code>xy</code>か <code>xyz</code>に等しい時、
+それらの相対的な長さに比例する軸で 2Dか 3Dシーンを描きます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>このオプションは Gnuplot 4.2.6以上で機能します。
+</p>
+<p>例:
+</p>
+<p>単プロット。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(
+        ellipse(0,0,1,1,0,360),
+        transparent=true,
+        color = blue,
+        line_width = 4,
+        ellipse(0,0,2,1/2,0,360),
+        proportional_axes = xy) $
+</pre></td></tr></table>
+
+<p>多重プロット。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw(
+        terminal = wxt,
+        gr2d(proportional_axes = xy,
+             explicit(x^2,x,0,1)),
+        gr2d(explicit(x^2,x,0,1),
+             xrange = [0,1],
+             yrange = [0,2],
+             proportional_axes=xy),
+        gr2d(explicit(x^2,x,0,1))
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-surface_005fhide"></a>
+</p><dl>
+<dt><a name="index-surface_005fhide"></a><u>グラフィックオプション:</u> <b>surface_hide</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>surface_hide</code>が <code>true</code>なら、隠れた部分を 3d表面にプロットしません。
+</p>
+<p>これはグローバルグラフィックオプションなので、シーン記述での位置はかまいません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw(columns=2,
+           gr3d(explicit(exp(sin(x)+cos(x^2)),x,-3,3,y,-3,3)),
+           gr3d(surface_hide = true,
+                explicit(exp(sin(x)+cos(x^2)),x,-3,3,y,-3,3)) )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-terminal"></a>
+</p><dl>
+<dt><a name="index-terminal"></a><u>グラフィックオプション:</u> <b>terminal</b></dt>
+<dd><p>デフォルト値: <code>screen</code>
+</p>
+<p>Gnuplotが使う端末を選択します; 可能な値は:　<code>screen</code> (デフォルト), <code>png</code>, <code>pngcairo</code>, <code>jpg</code>, <code>gif</code>,
+<code>eps</code>, <code>eps_color</code>, <code>epslatex</code>, <code>epslatex_standalone</code>,
+<code>svg</code>, <code>dumb</code>, <code>dumb_file</code>, <code>pdf</code>, <code>pdfcairo</code>, <code>multipage_pdf</code>,
+<code>multipage_eps</code>, <code>multipage_eps_color</code>, and <code>aquaterm</code>。
+</p>
+<p>端末 <code>screen</code>, <code>wxt</code>,
+<code>aquaterm</code>は２つの要素を持つリストとしても定義できます:
+端末自身の名前と非負の整数。
+この形式では、それぞれ対応する番号を持つ複数のウィンドウを同時に開くことができます。
+この特長は Windowsプラットフォームでは機能しません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+関数 <code>draw</code>の引数としても使われます。
+</p>
+<p>注意せよ― pdfcairoは Gnuplot 4.3を必要とします。
+pdfは、Gnuplotをオプション
+<code>--enable-pdf</code>でコンパイルすることを必要とし、
+libpdfがインストールされていなければいけません。
+pdfライブラリは以下で入手可能です:
+<a href="http://www.pdflib.com/en/download/pdflib-family/pdflib-lite/">http://www.pdflib.com/en/download/pdflib-family/pdflib-lite/</a>
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) /* screen terminal (default) */
+      draw2d(explicit(x^2,x,-1,1))$
+(%i3) /* png file */
+      draw2d(terminal  = 'png,
+             explicit(x^2,x,-1,1))$
+(%i4) /* jpg file */
+      draw2d(terminal   = 'jpg,
+             dimensions = [300,300],
+             explicit(x^2,x,-1,1))$
+(%i5) /* eps file */
+      draw2d(file_name = &quot;myfile&quot;,
+             explicit(x^2,x,-1,1),
+             terminal  = 'eps)$
+(%i6) /* pdf file */
+      draw2d(file_name = &quot;mypdf&quot;,
+             dimensions = 100*[12.0,8.0],
+             explicit(x^2,x,-1,1),
+             terminal  = 'pdf)$
+(%i7) /* wxwidgets window */
+      draw2d(explicit(x^2,x,-1,1),
+             terminal  = 'wxt)$
+</pre></td></tr></table>
+
+<p>複数のウィンドウ。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(explicit(x^5,x,-2,2), terminal=[screen, 3])$
+(%i3) draw2d(explicit(x^2,x,-2,2), terminal=[screen, 0])$
+</pre></td></tr></table>
+
+<p>動画 gifファイル。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw(
+        delay     = 100,
+        file_name = &quot;zzz&quot;,
+        terminal  = 'animated_gif,
+        gr2d(explicit(x^2,x,-1,1)),
+        gr2d(explicit(x^3,x,-1,1)),
+        gr2d(explicit(x^4,x,-1,1)));
+End of animation sequence
+(%o2)          [gr2d(explicit), gr2d(explicit), gr2d(explicit)]
+</pre></td></tr></table>
+
+<p>オプション <code>delay</code>は動画 gifでだけ有効です;
+他のいかなる場合も無視されます。
+</p>
+<p>epsフォーマットでの多ページ出力。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw(
+        file_name = &quot;parabol&quot;,
+        terminal  = multipage_eps,
+        dimensions = 100*[10,10],
+        gr2d(explicit(x^2,x,-1,1)),
+        gr3d(explicit(x^2+y^2,x,-1,1,y,-1,1))) $
+</pre></td></tr></table>
+
+<p><code>file_name</code>, <code>dimensions</code>, <code>delay</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-title"></a>
+</p><dl>
+<dt><a name="index-title"></a><u>グラフィックオプション:</u> <b>title</b></dt>
+<dd><p>デフォルト値: <code>&quot;&quot;</code> (empty string)
+</p>
+<p>オプション <code>title</code>、文字列は、シーンのメインタイトルです。
+デフォルトではタイトルは書かれません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(explicit(exp(u),u,-2,2),
+             title = &quot;Exponential function&quot;)$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-transform"></a>
+</p><dl>
+<dt><a name="index-transform"></a><u>グラフィックオプション:</u> <b>transform</b></dt>
+<dd><p>デフォルト値: <code>none</code>
+</p>
+<p>もし <code>transform</code>が <code>none</code>なら、
+空間を変換せず、グラフィックオブジェクトを定義の通り描画します。
+空間変換を望む時、リストをオプション
+<code>transform</code>に割り当てられなければいけません。
+2Dシーンの場合、リストは形式
+<code>[f1(x,y), f2(x,y), x, y]</code>を取ります。
+3Dシーンの場合、リストは形式
+<code>[f1(x,y,z), f2(x,y,z), f3(x,y,z), x, y, z]</code>を取ります。
+リストの中で定義されている変数名は
+グラフィックオブジェクトの定義の中で使われるものと異なるかもしれません。
+</p>
+<p>例:
+</p>
+<p>2Dの回転。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) th : %pi / 4$
+(%i3) draw2d(
+        color = &quot;#e245f0&quot;,
+        proportional_axes = 'xy,
+        line_width = 8,
+        triangle([3,2],[7,2],[5,5]),
+        border     = false,
+        fill_color = yellow,
+        transform  = [cos(th)*x - sin(th)*y,
+                      sin(th)*x + cos(th)*y, x, y],
+        triangle([3,2],[7,2],[5,5]) )$
+</pre></td></tr></table>
+
+<p>3Dでの変形。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(
+        color     = &quot;#a02c00&quot;,
+        explicit(20*exp(-x^2-y^2)-10,x,-3,3,y,-3,3),
+        transform = [x+10,y+10,z+10,x,y,z],
+        color     = blue,
+        explicit(20*exp(-x^2-y^2)-10,x,-3,3,y,-3,3) )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-transparent"></a>
+</p><dl>
+<dt><a name="index-transparent"></a><u>グラフィックオプション:</u> <b>transparent</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>transparent</code>が <code>true</code>なら、
+ポリゴンの内側の領域は <code>fill_color</code>に従って塗りつぶされます。
+</p>
+<p>このオプションは以下のグラフィックオブジェクトに影響します:
+</p><ul>
+<li>
+<code>gr2d</code>: <code>polygon</code>, <code>rectangle</code>, と <code>ellipse</code>.
+</li></ul>
+
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(polygon([[3,2],[7,2],[5,5]]),
+             transparent = true,
+             color       = blue,
+             polygon([[5,2],[9,2],[7,5]]) )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-tube_005fextremes"></a>
+</p><dl>
+<dt><a name="index-tube_005fextremes"></a><u>グラフィックオプション:</u> <b>tube_extremes</b></dt>
+<dd><p>デフォルト値: <code>[open, open]</code>
+</p>
+<p>グラフィックオブジェクト <code>tube</code>の極値が開いたままか
+閉じていなければいけないかを示唆する
+2つの可能性のある要素 <code>open</code>と <code>closed</code>を持つリスト。
+デフォルトでは、どちらの極値も開いたままです。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(
+        tube_extremes = [open, closed],
+        tube(0, 0, a, 1,
+             a, 0, 8) )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-unit_005fvectors"></a>
+</p><dl>
+<dt><a name="index-unit_005fvectors"></a><u>グラフィックオプション:</u> <b>unit_vectors</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>unit_vectors</code>が <code>true</code>なら、ベクトルは単位 1でプロットされます。
+これはベクトル場をプロットするのに役に立ちます。
+もし <code>unit_vectors</code>が <code>false</code>なら、ベクトルは元の長さでプロットされます。
+</p>
+<p>このオプションは <code>vector</code>オブジェクトに対してだけ有効です。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xrange      = [-1,6],
+             yrange      = [-1,6],
+             head_length = 0.1,
+             vector([0,0],[5,2]),
+             unit_vectors = true,
+             color        = red,
+             vector([0,3],[5,2]))$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-user_005fpreamble"></a>
+</p><dl>
+<dt><a name="index-user_005fpreamble"></a><u>グラフィックオプション:</u> <b>user_preamble</b></dt>
+<dd><p>デフォルト値: <code>&quot;&quot;</code> (empty string)
+</p>
+<p>熟練 Gnuplotユーザーは、
+<code>plot</code>や <code>splot</code>コマンドの前に送られる設定を書くことで、
+このオプションを利用して、
+Gnuplotの振る舞いを微調整することができます。
+</p>
+<p>このオプションの値は文字列か(行毎に１つの)文字列のリストでなければいけません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<p><i>ダム</i>端末は、パッケージ <code>draw</code>でサポートされていませんが、
+オプション <code>user_preamble</code>の利用によって、それを設定することが可能です。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(explicit(exp(x)-1,x,-1,1),
+             parametric(cos(u),sin(u),u,0,2*%pi),
+             user_preamble=&quot;set terminal dumb&quot;)$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-view"></a>
+</p><dl>
+<dt><a name="index-view"></a><u>グラフィックオプション:</u> <b>view</b></dt>
+<dd><p>デフォルト値: <code>[60,30]</code>
+</p>
+<p>3Dシーンでビュー方向を示す度数で測られた角度の対。
+最初の角度は <var>x</var>軸回りの垂直回転であり、 <em>[0, 180]</em>の範囲です。
+二番目は <var>z</var>回りの水平回転であり、 <em>[0, 360]</em>の範囲です。
+</p>
+<p>これはグローバルグラフィックスオプションなので、
+シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(view = [170, 360],
+             explicit(sin(x^2+y^2),x,-2,2,y,-2,2) )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+
+<p><a name="Item_003a-wired_005fsurface"></a>
+</p><dl>
+<dt><a name="index-wired_005fsurface"></a><u>グラフィックオプション:</u> <b>wired_surface</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+
+<p><code>enhanced3d</code>モードでの 3D 表面が点を結合したグリッドを表示するかどうかを示します。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(
+        enhanced3d    = [sin(x),x,y],
+        wired_surface = true,
+        explicit(x^2+y^2,x,-1,1,y,-1,1)) $
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+
+<p><a name="Item_003a-x_005fvoxel"></a>
+</p><dl>
+<dt><a name="index-x_005fvoxel"></a><u>グラフィックオプション:</u> <b>x_voxel</b></dt>
+<dd><p>デフォルト値: 10
+</p>
+<p><code>x_voxel</code>は 3d
+<code>陰的</code>オブジェクトで実装された<i>マーチングキューブアルゴリズム</i>
+x方向のボクセルの数です。
+グラフィックオブジェクト <code>region</code>でも使われます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+
+<p><a name="Item_003a-xaxis"></a>
+</p><dl>
+<dt><a name="index-xaxis"></a><u>グラフィックオプション:</u> <b>xaxis</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>xaxis</code>が <code>true</code>なら、 <var>x</var>軸を描きます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(explicit(x^3,x,-1,1),
+             xaxis       = true,
+             xaxis_color = blue)$
+</pre></td></tr></table>
+
+<p><code>xaxis_width</code>, <code>xaxis_type</code>, <code>xaxis_color</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-xaxis_005fcolor"></a>
+</p><dl>
+<dt><a name="index-xaxis_005fcolor"></a><u>グラフィックオプション:</u> <b>xaxis_color</b></dt>
+<dd><p>デフォルト値: <code>&quot;black&quot;</code>
+</p>
+<p><code>xaxis_color</code>は <var>x</var>軸の色を指定します。
+色をどう定義するかを知るには <code>color</code>を参照してください。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(explicit(x^3,x,-1,1),
+             xaxis       = true,
+             xaxis_color = red)$
+</pre></td></tr></table>
+
+<p><code>xaxis</code>, <code>xaxis_width</code>, <code>xaxis_type</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-xaxis_005fsecondary"></a>
+</p><dl>
+<dt><a name="index-xaxis_005fsecondary"></a><u>グラフィックオプション:</u> <b>xaxis_secondary</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>xaxis_secondary</code>が <code>true</code>なら、
+関数値を、二番目の <var>x</var>軸に関してプロットできます。
+二番目の <var>x</var>軸はシーンのトップに描かれます。
+</p>
+<p>これは 2dプロットにだけ影響する局所的なグラフィックオプションであることに注意してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(
+         key   = &quot;Bottom x-axis&quot;,
+         explicit(x+1,x,1,2),
+         color = red,
+         key   = &quot;Above x-axis&quot;,
+         xtics_secondary = true,
+         xaxis_secondary = true,
+         explicit(x^2,x,-1,1)) $
+</pre></td></tr></table>
+
+<p><code>xrange_secondary</code>, <code>xtics_secondary</code>, <code>xtics_rotate_secondary</code>,
+<code>xtics_axis_secondary</code>, <code>xaxis_secondary</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-xaxis_005ftype"></a>
+</p><dl>
+<dt><a name="index-xaxis_005ftype"></a><u>グラフィックオプション:</u> <b>xaxis_type</b></dt>
+<dd><p>デフォルト値: <code>dots</code>
+</p>
+<p><code>xaxis_type</code>は <var>x</var>軸をどう表示するかを示します;
+可能な値は <code>solid</code>と <code>dots</code>です。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(explicit(x^3,x,-1,1),
+             xaxis       = true,
+             xaxis_type  = solid)$
+</pre></td></tr></table>
+
+<p><code>xaxis</code>, <code>xaxis_width</code>, <code>xaxis_color</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+
+<p><a name="Item_003a-xaxis_005fwidth"></a>
+</p><dl>
+<dt><a name="index-xaxis_005fwidth"></a><u>グラフィックオプション:</u> <b>xaxis_width</b></dt>
+<dd><p>デフォルト値: 1
+</p>
+<p><code>xaxis_width</code>は <var>x</var>軸の幅です。
+その値は正数でなければいけません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(explicit(x^3,x,-1,1),
+             xaxis       = true,
+             xaxis_width = 3)$
+</pre></td></tr></table>
+
+<p><code>xaxis</code>, <code>xaxis_type</code>, <code>xaxis_color</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+
+<dl>
+<dt><a name="index-xlabel-1"></a><u>グラフィックオプション:</u> <b>xlabel</b></dt>
+<dd><p>デフォルト値: <code>&quot;&quot;</code> (empty string)
+</p>
+<p>オプション<code>xlabel</code>、文字列は <var>x</var>軸のラベルです。
+デフォルトではラベルを書きません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xlabel = &quot;Time&quot;,
+             explicit(exp(u),u,-2,2),
+             ylabel = &quot;Population&quot;)$
+</pre></td></tr></table>
+
+<p><code>ylabel</code>と <code>zlabel</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-xrange"></a>
+</p><dl>
+<dt><a name="index-xrange"></a><u>グラフィックオプション:</u> <b>xrange</b></dt>
+<dd><p>デフォルト値: <code>auto</code>
+</p>
+<p>もし <code>xrange</code>が <code>auto</code>なら <var>x</var>座標の範囲を自動的に計算します。
+</p>
+<p>もしユーザーが <var>x</var>に関して特定の区間が欲しいなら、
+<code>xrange=[-2, 3]</code>のように Maximaリストとして与えられなければいけません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xrange = [-3,5],
+             explicit(x^2,x,-1,1))$
+</pre></td></tr></table>
+
+<p><code>yrange</code>と <code>zrange</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-xrange_005fsecondary"></a>
+</p><dl>
+<dt><a name="index-xrange_005fsecondary"></a><u>グラフィックオプション:</u> <b>xrange_secondary</b></dt>
+<dd><p>デフォルト値: <code>auto</code>
+</p>
+<p>もし <code>xrange_secondary</code>が <code>auto</code>なら
+二番目の <var>x</var>軸の範囲を自動的に計算します。
+</p>
+<p>もしユーザーが二番目の <var>x</var>軸の特定した区間が欲しいなら、
+<code>xrange_secondary=[-2, 3]</code>のように Maximaリストとして与えられなければいけません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p><code>xrange</code>, <code>yrange</code>, <code>zrange</code>,
+<code>yrange_secondary</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-xtics"></a>
+</p><dl>
+<dt><a name="index-xtics"></a><u>グラフィックオプション:</u> <b>xtics</b></dt>
+<dd><p>デフォルト値: <code>auto</code>
+</p>
+<p>このグラフィックオプション制御はチックマークを <var>x</var>軸上に描く方法を制御します。
+</p>
+<ul>
+<li>
+オプション <code>xtics</code>がシンボル <var>auto</var>にバインドされている時
+チックマークを自動的に描きます。
+
+</li><li>
+オプション <code>xtics</code>がシンボル <var>none</var>にバインドされている時
+チックマークを描きません。
+
+</li><li>
+オプション <code>xtics</code>が正の数にバインドされている時、
+これは２つの連続するチックマークの間の距離になります。
+
+</li><li>
+オプション <code>xtics</code>が形式
+<code>[start,incr,end]</code>の長さ３のリストにバインドされている時、
+チックマークを <code>start</code>から <code>end</code>まで長さ
+<code>incr</code>の間隔でプロットします。
+
+</li><li>
+オプション <code>xtics</code>が形式
+<code>{n1, n2, ...}</code>の数の集合にバインドされている時、チックマークを
+値 <code>n1</code>, <code>n2</code>, ...にプロットします。
+
+</li><li>
+オプション <code>xtics</code>が形式
+<code>{[&quot;label1&quot;, n1], [&quot;label2&quot;, n2], ...}</code>の対の集合にバインドされている時、値
+<code>n1</code>, <code>n2</code>, ...に対応するチックマークをそれぞれ、
+<code>&quot;label1&quot;</code>, <code>&quot;label2&quot;</code>, ...にラベルします。
+</li></ul>
+
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<p>チックをディセーブルします。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xtics = 'none,
+             explicit(x^3,x,-1,1)  )$
+</pre></td></tr></table>
+
+<p>1/4単位毎のチック。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xtics = 1/4,
+             explicit(x^3,x,-1,1)  )$
+</pre></td></tr></table>
+
+<p>-3/4から 3/4まで 1/8のステップでチック。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xtics = [-3/4,1/8,3/4],
+             explicit(x^3,x,-1,1)  )$
+</pre></td></tr></table>
+
+<p>点 -1/2, -1/4, 3/4にチック。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xtics = {-1/2,-1/4,3/4},
+             explicit(x^3,x,-1,1)  )$
+</pre></td></tr></table>
+
+<p>ラベルされたチック。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xtics = {[&quot;High&quot;,0.75],[&quot;Medium&quot;,0],[&quot;Low&quot;,-0.75]},
+             explicit(x^3,x,-1,1)  )$
+</pre></td></tr></table>
+
+<p><code>ytics</code>, <code>ztics</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-xtics_005faxis"></a>
+</p><dl>
+<dt><a name="index-xtics_005faxis"></a><u>グラフィックオプション:</u> <b>xtics_axis</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>xtics_axis</code>が <code>true</code>なら、
+チックマークとそれらのラベルを <var>x</var>軸に沿ってだけプロットします。
+もし <code>false</code>なら、チックを境界上にプロットします。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-xtics_005frotate"></a>
+</p><dl>
+<dt><a name="index-xtics_005frotate"></a><u>グラフィックオプション:</u> <b>xtics_rotate</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>xtics_rotate</code>が <code>true</code>なら、
+<var>x</var>軸上のチックマークを90度回転します。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-xtics_005frotate_005fsecondary"></a>
+</p><dl>
+<dt><a name="index-xtics_005frotate_005fsecondary"></a><u>グラフィックオプション:</u> <b>xtics_rotate_secondary</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>xtics_rotate_secondary</code>が <code>true</code>なら、
+補助的な <var>x</var>軸上のチックマークが 90度回転されます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-xtics_005fsecondary"></a>
+</p><dl>
+<dt><a name="index-xtics_005fsecondary"></a><u>グラフィックオプション:</u> <b>xtics_secondary</b></dt>
+<dd><p>デフォルト値: <code>auto</code>
+</p>
+<p>このグラフィックオプションは、二番目の <var>x</var>軸上にチックマークを描く方法を制御します。
+</p>
+<p>完全な記述に関しては <code>xtics</code>を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-xtics_005fsecondary_005faxis"></a>
+</p><dl>
+<dt><a name="index-xtics_005fsecondary_005faxis"></a><u>グラフィックオプション:</u> <b>xtics_secondary_axis</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>xtics_secondary_axis</code>が <code>true</code>なら、
+チックマークとそれらのラベルを補助的な <var>x</var>軸に沿ってだけプロットし、
+もし <code>false</code>なら境界上にプロットします。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-xu_005fgrid"></a>
+</p><dl>
+<dt><a name="index-xu_005fgrid"></a><u>グラフィックオプション:</u> <b>xu_grid</b></dt>
+<dd><p>デフォルト値: 30
+</p>
+<p><code>xu_grid</code>は
+サンプル点のグリッドを構築するための一番目の変数
+(陽での <code>x</code>、パラメトリック3d表面での <code>u</code>)の座標の数です。
+</p>
+<p>このオプションは以下のグラフィックオブジェクトに影響を与えます:
+</p><ul>
+<li>
+<code>gr3d</code>: <code>explicit</code>と <code>parametric_surface</code>。
+</li></ul>
+
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(xu_grid = 10,
+             yv_grid = 50,
+             explicit(x^2+y^2,x,-3,3,y,-3,3) )$
+</pre></td></tr></table>
+
+<p><code>yv_grid</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-xy_005ffile"></a>
+</p><dl>
+<dt><a name="index-xy_005ffile"></a><u>グラフィックオプション:</u> <b>xy_file</b></dt>
+<dd><p>デフォルト値: <code>&quot;&quot;</code> (empty string)
+</p>
+<p><code>xy_file</code>は、マウスでクリックし
+&rsquo;x&rsquo;キーを叩いた後、座標を保存するファイルの名前です。
+デフォルトでは座標を保存しません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-xyplane"></a>
+</p><dl>
+<dt><a name="index-xyplane"></a><u>グラフィックオプション:</u> <b>xyplane</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>3Dシーンの中に xy平面を配置します。
+<code>xyplane</code>が <code>false</code>の時、
+xy平面は自動的に置かれます;
+実数の時、 xy平面はこのレベルで z軸と交わります。
+このオプションは 2Dシーンでは効果を持ちません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(xyplane = %e-2,
+             explicit(x^2+y^2,x,-1,1,y,-1,1))$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-y_005fvoxel"></a>
+</p><dl>
+<dt><a name="index-y_005fvoxel"></a><u>グラフィックオプション:</u> <b>y_voxel</b></dt>
+<dd><p>デフォルト値: 10
+</p>
+<p><code>y_voxel</code>は
+3d<code>陰的</code>オブジェクトで実装された<i>マーチングキューブアルゴリズム</i>で使われる
+y方向のボクセルの数です。
+グラフィックオブジェクト <code>region</code>でも使われます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+<p><a name="Item_003a-yaxis"></a>
+</p><dl>
+<dt><a name="index-yaxis"></a><u>グラフィックオプション:</u> <b>yaxis</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>yaxis</code>が <code>true</code>なら <var>y</var>軸を描きます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(explicit(x^3,x,-1,1),
+             yaxis       = true,
+             yaxis_color = blue)$
+</pre></td></tr></table>
+
+<p><code>yaxis_width</code>, <code>yaxis_type</code>, <code>yaxis_color</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-yaxis_005fcolor"></a>
+</p><dl>
+<dt><a name="index-yaxis_005fcolor"></a><u>グラフィックオプション:</u> <b>yaxis_color</b></dt>
+<dd><p>デフォルト値: <code>&quot;black&quot;</code>
+</p>
+<p><code>yaxis_color</code>は <var>y</var>軸の色を指定します。
+色がどのように定義されているか知るには <code>color</code>を参照してください。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(explicit(x^3,x,-1,1),
+             yaxis       = true,
+             yaxis_color = red)$
+</pre></td></tr></table>
+
+<p><code>yaxis</code>, <code>yaxis_width</code>, <code>yaxis_type</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+
+<p><a name="Item_003a-yaxis_005fsecondary"></a>
+</p><dl>
+<dt><a name="index-yaxis_005fsecondary"></a><u>グラフィックオプション:</u> <b>yaxis_secondary</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>yaxis_secondary</code>が <code>true</code>なら、
+関数値を二番目の <var>y</var>軸に関してプロットできます。
+二番目の <var>y</var>軸をシーンの右側に描きます。
+</p>
+<p>これは 2dプロットにだけ影響する局所的なグラフィックオプションであることに注意してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(
+         explicit(sin(x),x,0,10),
+         yaxis_secondary = true,
+         ytics_secondary = true,
+         color = blue,
+         explicit(100*sin(x+0.1)+2,x,0,10));
+</pre></td></tr></table>
+
+<p><code>yrange_secondary</code>, <code>ytics_secondary</code>, <code>ytics_rotate_secondary</code>,
+<code>ytics_axis_secondary</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-yaxis_005ftype"></a>
+</p><dl>
+<dt><a name="index-yaxis_005ftype"></a><u>グラフィックオプション:</u> <b>yaxis_type</b></dt>
+<dd><p>デフォルト値: <code>dots</code>
+</p>
+<p><code>yaxis_type</code>は <var>y</var>軸がどのように表示されるか示します; 
+可能な値は <code>solid</code>と <code>dots</code>です。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(explicit(x^3,x,-1,1),
+             yaxis       = true,
+             yaxis_type  = solid)$
+</pre></td></tr></table>
+
+<p><code>yaxis</code>, <code>yaxis_width</code>, <code>yaxis_color</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+
+<p><a name="Item_003a-yaxis_005fwidth"></a>
+</p><dl>
+<dt><a name="index-yaxis_005fwidth"></a><u>グラフィックオプション:</u> <b>yaxis_width</b></dt>
+<dd><p>デフォルト値: 1
+</p>
+<p><code>yaxis_width</code>は <var>y</var>軸の幅です。
+その値は正の数でなければいけません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(explicit(x^3,x,-1,1),
+             yaxis       = true,
+             yaxis_width = 3)$
+</pre></td></tr></table>
+
+<p><code>yaxis</code>, <code>yaxis_type</code>, <code>yaxis_color</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+
+
+<dl>
+<dt><a name="index-ylabel-1"></a><u>グラフィックオプション:</u> <b>ylabel</b></dt>
+<dd><p>デフォルト値: <code>&quot;&quot;</code> (empty string)
+</p>
+<p>オプション<code>ylabel</code>、文字列は <var>y</var>軸のラベルです。
+デフォルトではラベルを書きません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xlabel = &quot;Time&quot;,
+             ylabel = &quot;Population&quot;,
+             explicit(exp(u),u,-2,2) )$
+</pre></td></tr></table>
+
+<p><code>xlabel</code>と <code>zlabel</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-yrange"></a>
+</p><dl>
+<dt><a name="index-yrange"></a><u>グラフィックオプション:</u> <b>yrange</b></dt>
+<dd><p>デフォルト値: <code>auto</code>
+</p>
+<p>もし <code>yrange</code>が <code>auto</code>なら、 <var>y</var>座標の範囲を自動的に計算します。
+</p>
+<p>もしユーザーが <var>y</var>の特定の区間が欲しいなら、
+<code>yrange=[-2, 3]</code>のように Maximaリストとして与えなければいけません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(yrange = [-2,3],
+             explicit(x^2,x,-1,1),
+             xrange = [-3,3])$
+</pre></td></tr></table>
+
+<p><code>xrange</code>, <code>yrange_secondary</code>, <code>zrange</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-yrange_005fsecondary"></a>
+</p><dl>
+<dt><a name="index-yrange_005fsecondary"></a><u>グラフィックオプション:</u> <b>yrange_secondary</b></dt>
+<dd><p>デフォルト値: <code>auto</code>
+</p>
+<p>もし <code>yrange_secondary</code>が <code>auto</code>なら、二番目の
+<var>y</var>軸の範囲を自動的に計算します。
+</p>
+<p>もしユーザーが二番目の <var>y</var>軸の特定の区間が欲しいなら、
+<code>yrange_secondary=[-2, 3]</code>のように Maximaリストとして与えなければいけません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(
+         explicit(sin(x),x,0,10),
+         yaxis_secondary = true,
+         ytics_secondary = true,
+         yrange = [-3, 3],
+         yrange_secondary = [-20, 20],
+         color = blue,
+         explicit(100*sin(x+0.1)+2,x,0,10)) $
+</pre></td></tr></table>
+
+<p><code>xrange</code>, <code>yrange</code>, <code>zrange</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-ytics"></a>
+</p><dl>
+<dt><a name="index-ytics"></a><u>グラフィックオプション:</u> <b>ytics</b></dt>
+<dd><p>デフォルト値: <code>auto</code>
+</p>
+<p>このグラフィックオプションは <var>y</var>軸上にチックマークを描く方法を制御します。
+</p>
+<p>完全な記述に関しては <code>xtics</code>を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ytics_005faxis"></a>
+</p><dl>
+<dt><a name="index-ytics_005faxis"></a><u>グラフィックオプション:</u> <b>ytics_axis</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>ytics_axis</code>が <code>true</code>なら、
+チックマークとそれらのラベルを <var>y</var>軸に沿ってだけプロットし、
+もし <code>false</code>なら境界上にプロットします。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ytics_005frotate"></a>
+</p><dl>
+<dt><a name="index-ytics_005frotate"></a><u>グラフィックオプション:</u> <b>ytics_rotate</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>ytics_rotate</code>が <code>true</code>なら、
+<var>y</var>軸上のチックマークを90度回転させます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-ytics_005frotate_005fsecondary"></a>
+</p><dl>
+<dt><a name="index-ytics_005frotate_005fsecondary"></a><u>グラフィックオプション:</u> <b>ytics_rotate_secondary</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>ytics_rotate_secondary</code>が <code>true</code>なら、
+補助的な <var>y</var>軸上のチックマークを 90度回転させます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ytics_005fsecondary"></a>
+</p><dl>
+<dt><a name="index-ytics_005fsecondary"></a><u>グラフィックオプション:</u> <b>ytics_secondary</b></dt>
+<dd><p>デフォルト値: <code>auto</code>
+</p>
+<p>このグラフィックオプションは、二番目の
+<var>y</var>軸上にチックマークを描く方法を制御します。
+</p>
+<p>完全な記述に関しては <code>xtics</code>を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ytics_005fsecondary_005faxis"></a>
+</p><dl>
+<dt><a name="index-ytics_005fsecondary_005faxis"></a><u>グラフィックオプション:</u> <b>ytics_secondary_axis</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>ytics_secondary_axis</code>が <code>true</code>なら、
+チックマークとそれらのラベルを補助的な <var>y</var>軸に沿ってだけプロットし、
+もし <code>false</code>なら境界上にプロットします。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-yv_005fgrid"></a>
+</p><dl>
+<dt><a name="index-yv_005fgrid"></a><u>グラフィックオプション:</u> <b>yv_grid</b></dt>
+<dd><p>デフォルト値: 30
+</p>
+<p><code>yv_grid</code>はサンプル点のグリッドを構築するための二番目の変数(陽での
+<code>y</code>、パラメトリック 3d表面での <code>v</code>)の座標の数です。
+</p>
+<p>このオプションは以下のグラフィックオブジェクトに影響を与えます:
+</p><ul>
+<li>
+<code>gr3d</code>: <code>explicit</code>と<code>parametric_surface</code>。
+</li></ul>
+
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(xu_grid = 10,
+             yv_grid = 50,
+             explicit(x^2+y^2,x,-3,3,y,-3,3) )$
+</pre></td></tr></table>
+
+<p><code>xu_grid</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-z_005fvoxel"></a>
+</p><dl>
+<dt><a name="index-z_005fvoxel"></a><u>グラフィックオプション:</u> <b>z_voxel</b></dt>
+<dd><p>デフォルト値: 10
+</p>
+<p><code>z_voxel</code>は
+3d <code>陰的</code>オブジェクトで実装された<i>マーチングキューブアルゴリズム</i>
+で使われる z方向のボクセルの数です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-zaxis"></a>
+</p><dl>
+<dt><a name="index-zaxis"></a><u>グラフィックオプション:</u> <b>zaxis</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>zaxis</code>が <code>true</code>なら、 3Dプロットで <var>z</var>軸を描きます。
+このオプションは 2Dシーンでは効果を持ちません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(explicit(x^2+y^2,x,-1,1,y,-1,1),
+             zaxis       = true,
+             zaxis_type  = solid,
+             zaxis_color = blue)$
+</pre></td></tr></table>
+
+<p><code>zaxis_width</code>, <code>zaxis_type</code>, <code>zaxis_color</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-zaxis_005fcolor"></a>
+</p><dl>
+<dt><a name="index-zaxis_005fcolor"></a><u>グラフィックオプション:</u> <b>zaxis_color</b></dt>
+<dd><p>デフォルト値: <code>&quot;black&quot;</code>
+</p>
+<p><code>zaxis_color</code>は <var>z</var>軸の色を指定します。
+色がどのように定義されているか知るには <code>color</code>を参照してください。
+このオプションは 2Dシーンでは効果を持ちません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(explicit(x^2+y^2,x,-1,1,y,-1,1),
+             zaxis       = true,
+             zaxis_type  = solid,
+             zaxis_color = red)$
+</pre></td></tr></table>
+
+<p><code>zaxis</code>, <code>zaxis_width</code>, <code>zaxis_type</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+
+<p><a name="Item_003a-zaxis_005ftype"></a>
+</p><dl>
+<dt><a name="index-zaxis_005ftype"></a><u>グラフィックオプション:</u> <b>zaxis_type</b></dt>
+<dd><p>デフォルト値: <code>dots</code>
+</p>
+<p><code>zaxis_type</code>は <var>z</var>軸がどのように表示されるか示します;
+可能な値は <code>solid</code>と <code>dots</code>です。
+このオプションは 2Dシーンでは効果を持ちません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(explicit(x^2+y^2,x,-1,1,y,-1,1),
+             zaxis       = true,
+             zaxis_type  = solid)$
+</pre></td></tr></table>
+
+<p><code>zaxis</code>, <code>zaxis_width</code>, <code>zaxis_color</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-zaxis_005fwidth"></a>
+</p><dl>
+<dt><a name="index-zaxis_005fwidth"></a><u>グラフィックオプション:</u> <b>zaxis_width</b></dt>
+<dd><p>デフォルト値: 1
+</p>
+<p><code>zaxis_width</code>は <var>z</var>軸の幅です。
+その値は正の数でなければいけません。
+このオプションは 2Dシーンでは効果を持ちません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題なりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(explicit(x^2+y^2,x,-1,1,y,-1,1),
+             zaxis       = true,
+             zaxis_type  = solid,
+             zaxis_width = 3)$
+</pre></td></tr></table>
+
+<p><code>zaxis</code>, <code>zaxis_type</code>, <code>zaxis_color</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+
+<dl>
+<dt><a name="index-zlabel-1"></a><u>グラフィックオプション:</u> <b>zlabel</b></dt>
+<dd><p>デフォルト値: <code>&quot;&quot;</code> (empty string)
+</p>
+<p>オプション <code>zlabel</code>文字列は <var>z</var>軸のラベルです。
+デフォルトではラベルを書きません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(zlabel = &quot;Z variable&quot;,
+             ylabel = &quot;Y variable&quot;,
+             explicit(sin(x^2+y^2),x,-2,2,y,-2,2),
+             xlabel = &quot;X variable&quot; )$
+</pre></td></tr></table>
+
+<p><code>xlabel</code>と <code>ylabel</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-zrange"></a>
+</p><dl>
+<dt><a name="index-zrange"></a><u>グラフィックオプション:</u> <b>zrange</b></dt>
+<dd><p>デフォルト値: <code>auto</code>
+</p>
+<p>もし <code>zrange</code>が <code>auto</code>なら、 <var>z</var>座標の範囲を自動的に計算します。
+</p>
+<p>もしユーザーが <var>z</var>の特定の区間が欲しいなら、
+<code>zrange=[-2, 3]</code>のように Maximaリストとして与えなければいけません。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(yrange = [-3,3],
+             zrange = [-2,5],
+             explicit(x^2+y^2,x,-1,1,y,-1,1),
+             xrange = [-3,3])$
+</pre></td></tr></table>
+
+<p><code>xrange</code>, <code>yrange</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p></dd></dl>
+
+
+
+<p><a name="Item_003a-ztics"></a>
+</p><dl>
+<dt><a name="index-ztics"></a><u>グラフィックオプション:</u> <b>ztics</b></dt>
+<dd><p>デフォルト値: <code>auto</code>
+</p>
+<p>このグラフィックオプションは、
+<var>z</var>軸上にチックマークを描く方法を制御します。
+</p>
+<p>完全な記述に関しては <code>xtics</code>を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-ztics_005faxis"></a>
+</p><dl>
+<dt><a name="index-ztics_005faxis"></a><u>グラフィックオプション:</u> <b>ztics_axis</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>ztics_secondary_axis</code>が <code>true</code>なら、
+チックマークとそれらのラベルを補助的な <var>z</var>軸に沿ってだけプロットし、
+もし <code>false</code>なら境界上にプロットします。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-ztics_005frotate"></a>
+</p><dl>
+<dt><a name="index-ztics_005frotate"></a><u>グラフィックオプション:</u> <b>ztics_rotate</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p>もし <code>ztics_rotate</code>が <code>true</code>なら、
+<var>z</var>軸上のチックマークを 90度回転させます。
+</p>
+<p>これはグローバルグラフィックスオプションなので、シーン記述の位置は問題になりません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<hr size="6">
+<a name="Graphics-objects"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Graphic-options" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-pictures" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#draw" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-draw" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_49.html#drawdf" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">48.2.4 Graphics objects</h3>
+
+<p><a name="Item_003a-bars"></a>
+</p><dl>
+<dt><a name="index-bars"></a><u>グラフィックオブジェクト:</u> <b>bars</b><i> ([<var>x1</var>,<var>h1</var>,<var>w1</var>], [<var>x2</var>,<var>h2</var>,<var>w2</var>, ...])</i></dt>
+<dd><p>2D内に垂直バーを描画します。
+</p>
+<p><b>2D</b>
+</p>
+<p><code>bars ([<var>x1</var>,<var>h1</var>,<var>w1</var>], [<var>x2</var>,<var>h2</var>,<var>w2</var>,
+...])</code>は値 <var>x1</var>, <var>x2</var>, ...に中心を持ち、高さ <var>h1</var>, <var>h2</var>,
+...と幅 <var>w1</var>, <var>w2</var>, ...を持つバーを描画します。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>に影響されます: <code>key</code>, 
+<code>fill_color</code>, <code>fill_density</code>, <code>line_width</code>。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(
+       key          = &quot;Group A&quot;,
+       fill_color   = blue,
+       fill_density = 0.2,
+       bars([0.8,5,0.4],[1.8,7,0.4],[2.8,-4,0.4]),
+       key          = &quot;Group B&quot;,
+       fill_color   = red,
+       fill_density = 0.6,
+       line_width   = 4,
+       bars([1.2,4,0.4],[2.2,-2,0.4],[3.2,5,0.4]),
+       xaxis = true);
+</pre></td></tr></table>
+</dd></dl>
+
+<p><a name="Item_003a-cylindrical"></a>
+</p><dl>
+<dt><a name="index-cylindrical"></a><u>グラフィックオブジェクト:</u> <b>cylindrical</b><i> (<var>radius</var>, <var>z</var>, <var>minz</var>, <var>maxz</var>, <var>azi</var>, <var>minazi</var>, <var>maxazi</var>)</i></dt>
+<dd><p>円柱座標で定義された 3D関数を描画します。
+</p>
+<p><b>3D</b>
+</p>
+<p><code>cylindrical (<var>radius</var>, <var>z</var>, <var>minz</var>, <var>maxz</var>, <var>azi</var>,
+<var>minazi</var>, <var>maxazi</var>)</code>は
+<var>minz</var>から <var>maxz</var>までの値を取る <var>z</var>と
+<var>minazi</var>から <var>maxazi</var>まで値を取る<i>方位角</i>
+<var>azi</var>を伴う円柱座標で定義された関数
+<code><var>radius</var>(<var>z</var>,<var>azi</var>)</code>をプロットします。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>に作用されます:
+<code>xu_grid</code>, <code>yv_grid</code>, <code>line_type</code>, <code>key</code>,
+<code>wired_surface</code>, <code>enhanced3d</code>, <code>color</code>。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(cylindrical(1,z,-2,2,az,0,2*%pi))$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-elevation_005fgrid"></a>
+</p><dl>
+<dt><a name="index-elevation_005fgrid"></a><u>グラフィックオブジェクト:</u> <b>elevation_grid</b><i> (<var>mat</var>,<var>x0</var>,<var>y0</var>,<var>width</var>,<var>height</var>)</i></dt>
+<dd>
+<p>3D空間に行列 <var>mat</var>を描画します。
+<var>x0</var>から <em><var>x0</var> + <var>width</var></em>までの横座標範囲と
+<var>y0</var>から <em><var>y0</var> + <var>height</var></em>までの縦座標範囲で、
+<var>z</var>値は <var>mat</var>から取られます。
+要素 <em>a(1,1)</em>は点 <em>(x0,y0+height)</em>上に射影され、
+<em>a(1,n)</em>は <em>(x0+width,y0+height)</em>上に射影され、
+<em>a(m,1)</em>は <em>(x0,y0)</em>上に射影され、
+<em>a(m,n)</em>は <em>(x0+width,y0)</em>上に射影されます。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>に作用されます: <code>line_type</code>,
+<code>line_width</code>, <code>key</code>, <code>wired_surface</code>, <code>enhanced3d</code>,
+<code>color</code>。
+</p>
+<p>Maximaの古いバージョンでは <code>elevation_grid</code>を <code>mesh</code>と呼びました。
+<code>mesh</code>も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) m: apply(
+            matrix,
+            makelist(makelist(random(10.0),k,1,30),i,1,20)) $
+(%i3) draw3d(
+         color = blue,
+         elevation_grid(m,0,0,3,2),
+         xlabel = &quot;x&quot;,
+         ylabel = &quot;y&quot;,
+         surface_hide = true);
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-ellipse"></a>
+</p><dl>
+<dt><a name="index-ellipse"></a><u>グラフィックオブジェクト:</u> <b>ellipse</b><i> (<var>xc</var>, <var>yc</var>, <var>a</var>, <var>b</var>, <var>ang1</var>, <var>ang2</var>)</i></dt>
+<dd><p>2D内で楕円や円を描画します。
+</p>
+
+<p><b>2D</b>
+</p>
+<p><code>ellipse (<var>xc</var>, <var>yc</var>, <var>a</var>, <var>b</var>, <var>ang1</var>, <var>ang2</var>)</code>は
+<code>[<var>xc</var>, <var>yc</var>]</code>を中心とし、水平と垂直半軸にそれぞれ
+<var>a</var>と <var>b</var>を持ち、角度 <var>ang1</var>から始まり、角度
+<var>ang2</var>に等しい振幅を持つ楕円をプロットします。
+</p>
+<p>このオブジェクトは以下の<i>graphic options</i>に影響されます:
+<code>nticks</code>, 
+<code>transparent</code>, <code>fill_color</code>, <code>border</code>, <code>line_width</code>, 
+<code>line_type</code>, <code>key</code>, <code>color</code>.
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(transparent = false,
+             fill_color  = red,
+             color       = gray30,
+             transparent = false,
+             line_width  = 5,
+             ellipse(0,6,3,2,270,-270),
+             /* center (x,y), a, b, start &amp; end in degrees */
+             transparent = true,
+             color       = blue,
+             line_width  = 3,
+             ellipse(2.5,6,2,3,30,-90),
+             xrange      = [-3,6],
+             yrange      = [2,9] )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-errors"></a>
+</p><dl>
+<dt><a name="index-errors"></a><u>グラフィックオブジェクト:</u> <b>errors</b><i> ([<var>x1</var>, <var>x2</var>, &hellip;], [<var>y1</var>, <var>y2</var>, &hellip;])</i></dt>
+<dd><p>オプション <code>error_type</code>の値に依存して、
+水平、垂直もしくは両方のエラーバーと共に点を描きます。
+</p>
+<p><b>2D</b>
+</p>
+<p>もし <code>error_type = x</code>なら、
+<code>errors</code>の引数は形式 <code>[x, y, xdelta]</code>か
+<code>[x, y, xlow, xhigh]</code>でなければいけません。
+もし <code>error_type = y</code>なら、
+引数は形式 <code>[x, y, ydelta]</code>か <code>[x, y, ylow, yhigh]</code>でなければいけません。
+もし <code>error_type = xy</code>か <code>error_type = boxes</code>なら、
+<code>errors</code>の引数は形式 <code>[x, y, xdelta, ydelta]</code>か
+<code>[x, y, xlow, xhigh, ylow, yhigh]</code>でなければいけません。
+</p>
+<p><code>error_type</code>も参照してください。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオブジェクト</i>によって影響されます:
+<code>error_type</code>, <code>points_joined</code>, <code>line_width</code>, <code>key</code>,
+<code>line_type</code>, <code>color</code>, <code>fill_density</code>, <code>xaxis_secondary</code>,
+<code>yaxis_secondary</code>.
+</p>
+<p>オプション <code>fill_density</code>は <code>error_type=boxes</code>の時だけ有効です。
+</p>
+<p>例:
+</p>
+<p>水平エラーバー。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(
+        error_type = y,
+        errors([[1,2,1], [3,5,3], [10,3,1], [17,6,2]]))$
+</pre></td></tr></table>
+
+<p>垂直および水平エラーバー。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(
+        error_type = xy,
+        points_joined = true,
+        color = blue,
+        errors([[1,2,1,2], [3,5,2,1], [10,3,1,1], [17,6,1/2,2]])); 
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-explicit"></a>
+</p><dl>
+<dt><a name="index-explicit"></a><u>グラフィックオブジェクト:</u> <b>explicit</b><i> (<var>fcn</var>,<var>var</var>,<var>minval</var>,<var>maxval</var>)</i></dt>
+<dt><a name="index-explicit-1"></a><u>グラフィックオブジェクト:</u> <b>explicit</b><i> (<var>fcn</var>,<var>var1</var>,<var>minval1</var>,<var>maxval1</var>,<var>var2</var>,<var>minval2</var>,<var>maxval2</var>)</i></dt>
+<dd><p>2Dおよび3Dにて陽関数を描画します。
+</p>
+<p><b>2D</b>
+</p>
+<p><code>explicit(<var>fcn</var>,<var>var</var>,<var>minval</var>,<var>maxval</var>)</code>は
+<var>minval</var>から <var>maxval</var>まで値を取る変数 <var>var</var>を伴う陽関数
+<var>fcn</var>をプロットします。
+</p>
+<p>このオブジェクトは以下の<i>graphic options</i>に作用されます:
+<code>nticks</code>, <code>adapt_depth</code>, <code>draw_realpart</code>, <code>line_width</code>,
+<code>line_type</code>, <code>key</code>, <code>filled_func</code>, <code>fill_color</code>,
+<code>color</code>。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(line_width = 3,
+             color      = blue,
+             explicit(x^2,x,-3,3) )$
+(%i3) draw2d(fill_color  = brown,
+             filled_func = true,
+             explicit(x^2,x,-3,3) )$
+</pre></td></tr></table>
+
+<p><b>3D</b>
+</p>
+<p><code>explicit(<var>fcn</var>, <var>var1</var>, <var>minval1</var>, <var>maxval1</var>, <var>var2</var>,
+<var>minval2</var>, <var>maxval2</var>)</code>は
+<var>minval1</var>から <var>maxval1</var>まで値を取る変数 <var>var1</var>と
+<var>minval2</var>から <var>maxval2</var>まで値を取る変数 <var>var2</var>を伴う陽関数
+<var>fcn</var>をプロットします。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>の影響を受けます:
+<code>draw_realpart</code>, <code>xu_grid</code>, <code>yv_grid</code>, <code>line_type</code>,
+<code>line_width</code>, <code>key</code>, <code>wired_surface</code>, <code>enhanced3d</code>,
+<code>color</code>。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(key   = &quot;Gauss&quot;,
+             color = &quot;#a02c00&quot;,
+             explicit(20*exp(-x^2-y^2)-10,x,-3,3,y,-3,3),
+             yv_grid     = 10,
+             color = blue,
+             key   = &quot;Plane&quot;,
+             explicit(x+y,x,-5,5,y,-5,5),
+             surface_hide = true)$
+</pre></td></tr></table>
+
+<p>埋められた関数に関しては <code>filled_func</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-image"></a>
+</p><dl>
+<dt><a name="index-image"></a><u>グラフィックオブジェクト:</u> <b>image</b><i> (<var>im</var>,<var>x0</var>,<var>y0</var>,<var>width</var>,<var>height</var>)</i></dt>
+<dd><p>2Dにてイメージを描写します。
+</p>
+<p><b>2D</b>
+</p>
+<p><code>image (<var>im</var>,<var>x0</var>,<var>y0</var>,<var>width</var>,<var>height</var>)</code>は
+実平面上の頂点 <code>(<var>x0</var>,<var>y0</var>)</code>から
+<code>(x0+<var>width</var>,y0+<var>height</var>)</code>までの長方形領域にイメージ
+<var>im</var>をプロットします。
+引数 <var>im</var>は実数の行列、長さ 3のベクトルの行列もしくは
+<var>picture</var>オブジェクトでなければいけません。
+</p>
+<p>もし <var>im</var>が実数の行列か
+<var>levels picture</var>オブジェクトなら、ピクセル値は -36から +36に広がる成分を持つ長さ
+3のベクトルであるグラフィックオプション <code>palette</code>に従って解釈されます;
+それぞれの値はレベルをそれぞれ赤、緑、青色にマップする公式のインデックスです。
+</p><table><tr><td>&nbsp;</td><td><pre class="example"> 0: 0               1: 0.5           2: 1
+ 3: x               4: x^2           5: x^3
+ 6: x^4             7: sqrt(x)       8: sqrt(sqrt(x))
+ 9: sin(90x)       10: cos(90x)     11: |x-0.5|
+12: (2x-1)^2       13: sin(180x)    14: |cos(180x)|
+15: sin(360x)      16: cos(360x)    17: |sin(360x)|
+18: |cos(360x)|    19: |sin(720x)|  20: |cos(720x)|
+21: 3x             22: 3x-1         23: 3x-2
+24: |3x-1|         25: |3x-2|       26: (3x-1)/2
+27: (3x-2)/2       28: |(3x-1)/2|   29: |(3x-2)/2|
+30: x/0.32-0.78125                  31: 2*x-0.84
+32: 4x;1;-2x+1.84;x/0.08-11.5
+33: |2*x - 0.5|    34: 2*x          35: 2*x - 0.5
+36: 2*x - 1
+</pre></td></tr></table>
+<p>負の数は負の色成分を意味します。
+</p>
+<p><code>palette = gray</code>と <code>palette = color</code>はそれぞれ、
+<code>palette = [3,3,3]</code>と <code>palette = [7,5,15]</code>へのショートカットです。
+</p>
+<p>もし <var>im</var>が長さ 3のベクトルの行列か
+<var>rgb picture</var>オブジェクトなら、それらは赤、緑、青の色成分として解釈されます。
+</p>
+<p>例:
+</p>
+<p>もし <var>im</var>が実数の行列なら、ピクセル値はグラフィックオプション
+<code>palette</code>に従って解釈されます。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) im: apply(
+           'matrix,
+            makelist(makelist(random(200),i,1,30),i,1,30))$
+(%i3) /* palette = color, default */
+      draw2d(image(im,0,0,30,30))$
+(%i4) draw2d(palette = gray, image(im,0,0,30,30))$
+(%i5) draw2d(palette = [15,20,-4],
+             colorbox=false,
+             image(im,0,0,30,30))$
+</pre></td></tr></table>
+
+<p><code>colorbox</code>も参照してください。
+</p>
+<p>もし <var>im</var>が長さ3のベクトルの行列なら、
+それらは赤、緑、青の色成分として解釈されます。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) im: apply(
+            'matrix,
+             makelist(
+               makelist([random(300),
+                         random(300),
+                         random(300)],i,1,30),i,1,30))$
+(%i3) draw2d(image(im,0,0,30,30))$
+</pre></td></tr></table>
+
+<p>パッケージ <code>draw</code>は自動的にパッケージ <code>picture</code>をロードします。
+この例ではレベルピクチャオブジェクトを手動で組み立て、描画します。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) im: make_level_picture([45,87,2,134,204,16],3,2);
+(%o2)       picture(level, 3, 2, {Array:  #(45 87 2 134 204 16)})
+(%i3) /* default color palette */
+      draw2d(image(im,0,0,30,30))$
+(%i4) /* gray palette */
+      draw2d(palette = gray,
+             image(im,0,0,30,30))$
+</pre></td></tr></table>
+
+<p>xpmファイルを読み込み、描写します。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) im: read_xpm(&quot;myfile.xpm&quot;)$
+(%i3) draw2d(image(im,0,0,10,7))$
+</pre></td></tr></table>
+
+<p><code>make_level_picture</code>, <code>make_rgb_picture</code>,
+<code>read_xpm</code>も参照してください。
+</p>
+<p><a href="http://www.telefonica.net/web2/biomates/maxima/gpdraw/image">http://www.telefonica.net/web2/biomates/maxima/gpdraw/image</a><br>
+には更に丹念な例があります。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-implicit"></a>
+</p><dl>
+<dt><a name="index-implicit"></a><u>グラフィックオブジェクト:</u> <b>implicit</b><i> (<var>fcn</var>,<var>x</var>,<var>xmin</var>,<var>xmax</var>,<var>y</var>,<var>ymin</var>,<var>ymax</var>)</i></dt>
+<dt><a name="index-implicit-1"></a><u>グラフィックオブジェクト:</u> <b>implicit</b><i> (<var>fcn</var>,<var>x</var>,<var>xmin</var>,<var>xmax</var>,<var>y</var>,<var>ymin</var>,<var>ymax</var>,<var>z</var>,<var>zmin</var>,<var>zmax</var>)</i></dt>
+<dd><p>2Dおよび 3Dにて陰関数を描画します。
+</p>
+<p><b>2D</b>
+</p>
+<p><code>implicit(<var>fcn</var>,<var>x</var>,<var>xmin</var>,<var>xmax</var>,<var>y</var>,<var>ymin</var>,<var>ymax</var>)</code>は
+<var>xmin</var>から <var>xmax</var>までの値を取る変数 <var>x</var>と
+<var>ymin</var>から <var>ymax</var>までの値を取る変数 <var>y</var>を伴う
+<var>fcn</var>で定義された陰関数をプロットします。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>の影響を受けます:
+<code>ip_grid</code>, <code>ip_grid_in</code>, <code>line_width</code>, <code>line_type</code>,
+<code>key</code>, <code>color</code>.
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(terminal  = eps,
+             grid      = true,
+             line_type = solid,
+             key       = &quot;y^2=x^3-2*x+1&quot;,
+             implicit(y^2=x^3-2*x+1, x, -4,4, y, -4,4),
+             line_type = dots,
+             key       = &quot;x^3+y^3 = 3*x*y^2-x-1&quot;,
+             implicit(x^3+y^3 = 3*x*y^2-x-1, x,-4,4, y,-4,4),
+             title     = &quot;Two implicit functions&quot; )$
+</pre></td></tr></table>
+
+<p><b>3D</b>
+</p>
+<p><code>implicit (<var>fcn</var>,<var>x</var>,<var>xmin</var>,<var>xmax</var>, <var>y</var>,<var>ymin</var>,<var>ymax</var>, <var>z</var>,<var>zmin</var>,<var>zmax</var>)</code>は
+<var>xmin</var>から <var>xmax</var>までの値を取る変数 <var>x</var>と
+<var>ymin</var>から <var>ymax</var>までの値を取る変数 <var>y</var>と
+<var>zmin</var>から <var>zmax</var>までの値を取る変数 <var>z</var>を伴う
+<var>fcn</var>で定義された陰表面をプロットします。
+このオブジェクトは<i>マーチングキューブアルゴリズム</i>を実装します。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>の影響を受けます:
+<code>x_voxel</code>, <code>y_voxel</code>, <code>z_voxel</code>, <code>line_width</code>,
+<code>line_type</code>, <code>key</code>, <code>wired_surface</code>, <code>enhanced3d</code>,
+<code>color</code>。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(
+        color=blue,
+        implicit((x^2+y^2+z^2-1)*(x^2+(y-1.5)^2+z^2-0.5)=0.015,
+                 x,-1,1,y,-1.2,2.3,z,-1,1),
+        surface_hide=true);
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p></dd></dl>
+
+
+<p><a name="Item_003a-label"></a>
+</p><dl>
+<dt><a name="index-label"></a><u>グラフィックオブジェクト:</u> <b>label</b><i> ([<var>string</var>,<var>x</var>,<var>y</var>],...)</i></dt>
+<dt><a name="index-label-1"></a><u>グラフィックオブジェクト:</u> <b>label</b><i> ([<var>string</var>,<var>x</var>,<var>y</var>,<var>z</var>],...)</i></dt>
+<dd><p>2Dと 3D内でラベルを書きます。
+</p>
+<p>色付けられたラベルは Gnuplot 4.3でだけ機能します。
+これはパッケージ <code>draw</code>に関して既知のバグです。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>の影響を受けます:
+<code>label_alignment</code>, <code>label_orientation</code>, <code>color</code>.
+</p>
+<p><b>2D</b>
+</p>
+<p><code>label([<var>string</var>,<var>x</var>,<var>y</var>])</code>は点
+<code>[<var>x</var>,<var>y</var>]</code>に<var>string</var>を書きます。
+</p>
+
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(yrange = [0.1,1.4],
+             color = &quot;red&quot;,
+             label([&quot;Label in red&quot;,0,0.3]),
+             color = &quot;#0000ff&quot;,
+             label([&quot;Label in blue&quot;,0,0.6]),
+             color = &quot;light-blue&quot;,
+             label([&quot;Label in light-blue&quot;,0,0.9],
+                   [&quot;Another light-blue&quot;,0,1.2])  )$
+</pre></td></tr></table>
+
+<p><b>3D</b>
+</p>
+<p><code>label([<var>string</var>,<var>x</var>,<var>y</var>,<var>z</var>])</code>は、
+点<code>[<var>x</var>,<var>y</var>,<var>z</var>]</code>に<var>string</var>を書きます。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(explicit(exp(sin(x)+cos(x^2)),x,-3,3,y,-3,3),
+             color = red,
+             label([&quot;UP 1&quot;,-2,0,3], [&quot;UP 2&quot;,1.5,0,4]),
+             color = blue,
+             label([&quot;DOWN 1&quot;,2,0,-3]) )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-mesh"></a>
+</p><dl>
+<dt><a name="index-mesh"></a><u>グラフィックオブジェクト:</u> <b>mesh</b><i> (<var>row_1</var>,<var>row_2</var>,...)</i></dt>
+<dd><p>3Dで四角形のメッシュを描画します。
+</p>
+<p><b>3D</b>
+</p>
+<p>引数 <var>row_i</var>は <code>[[x_i1,y_i1,z_i1], ...,[x_in,y_in,z_in]]</code>という形の
+<var>n</var>個の 3D 点のリストで、行すべては同じ長さです。
+これらの点すべては 3Dでの任意の表面を定義し、ある意味
+<code>elevation_grid</code>オブジェクトの一般化です。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>に作用されます:
+<code>line_type</code>, <code>line_width</code>, <code>color</code>, <code>key</code>,
+<code>wired_surface</code>, <code>enhanced3d</code>, <code>transform</code>。
+</p>
+<p>このグラフィックオブジェクトは
+<code>true</code>と <code>false</code>以外の値の <code>enhanced3d</code>値を無視します。
+</p>
+<p>例:
+</p>
+<p>簡単な例。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d( 
+         mesh([[1,1,3],   [7,3,1],[12,-2,4],[15,0,5]],
+              [[2,7,8],   [4,3,1],[10,5,8], [12,7,1]],
+              [[-2,11,10],[6,9,5],[6,15,1], [20,15,2]])) $
+</pre></td></tr></table>
+
+<p>3Dで三角形をプロット。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(
+        line_width = 2,
+        mesh([[1,0,0],[0,1,0]],
+             [[0,0,1],[0,0,1]])) $
+</pre></td></tr></table>
+
+<p>２つの四角形。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(
+        surface_hide = true,
+        line_width   = 3,
+        color = red,
+        mesh([[0,0,0], [0,1,0]],
+             [[2,0,2], [2,2,2]]),
+        color = blue,
+        mesh([[0,0,2], [0,1,2]],
+             [[2,0,4], [2,2,4]])) $
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-parametric"></a>
+</p><dl>
+<dt><a name="index-parametric"></a><u>グラフィックオブジェクト:</u> <b>parametric</b><i> (<var>xfun</var>,<var>yfun</var>,<var>par</var>,<var>parmin</var>,<var>parmax</var>)</i></dt>
+<dt><a name="index-parametric-1"></a><u>グラフィックオブジェクト:</u> <b>parametric</b><i> (<var>xfun</var>,<var>yfun</var>,<var>zfun</var>,<var>par</var>,<var>parmin</var>,<var>parmax</var>)</i></dt>
+<dd><p>2Dおよび 3Dにてパラメトリック関数を描画します。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>の影響を受けます:
+<code>nticks</code>, <code>line_width</code>, <code>line_type</code>, <code>key</code>, <code>color</code>,
+<code>enhanced3d</code>.
+</p>
+<p><b>2D</b>
+</p>
+<p>コマンド <code>parametric(<var>xfun</var>, <var>yfun</var>, <var>par</var>, <var>parmin</var>,
+<var>parmax</var>)</code>は
+<var>parmin</var>から <var>parmax</var>まで値を取るパラメータ <var>par</var>を伴う
+パラメトリック関数 <code>[<var>xfun</var>, <var>yfun</var>]</code>をプロットします。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(explicit(exp(x),x,-1,3),
+             color = red,
+             key   = &quot;This is the parametric one!!&quot;,
+             parametric(2*cos(rrr),rrr^2,rrr,0,2*%pi))$
+</pre></td></tr></table>
+
+<p><b>3D</b>
+</p>
+<p><code>parametric (<var>xfun</var>, <var>yfun</var>, <var>zfun</var>, <var>par</var>, <var>parmin</var>,
+<var>parmax</var>)</code>は <var>parmin</var>から <var>parmax</var>まで値を取るパラメータ
+<var>par</var>を伴うパラメトリック曲線
+<code>[<var>xfun</var>, <var>yfun</var>, <var>zfun</var>]</code>をプロットします。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(explicit(exp(sin(x)+cos(x^2)),x,-3,3,y,-3,3),
+             color = royalblue,
+             parametric(cos(5*u)^2,sin(7*u),u-2,u,0,2),
+             color      = turquoise,
+             line_width = 2,
+             parametric(t^2,sin(t),2+t,t,0,2),
+             surface_hide = true,
+             title = &quot;Surface &amp; curves&quot; )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-parametric_005fsurface"></a>
+</p><dl>
+<dt><a name="index-parametric_005fsurface"></a><u>グラフィックオブジェクト:</u> <b>parametric_surface</b><i> (<var>xfun</var>, <var>yfun</var>, <var>zfun</var>, <var>par1</var>, <var>par1min</var>, <var>par1max</var>, <var>par2</var>, <var>par2min</var>, <var>par2max</var>)</i></dt>
+<dd><p>3Dにおいてパラメトリックな表面を描画します。
+</p>
+<p><b>3D</b>
+</p>
+<p>コマンド <code>parametric_surface (<var>xfun</var>, <var>yfun</var>, <var>zfun</var>,
+<var>par1</var>, <var>par1min</var>, <var>par1max</var>, <var>par2</var>, <var>par2min</var>,
+<var>par2max</var>)</code>は
+<var>par1min</var>から <var>par1max</var>までを値として取るパラメータ <var>par1</var>と
+<var>par2min</var>から <var>par2max</var>までを値として取るパラメータ <var>par2</var>を伴う
+パラメトリックな表面 <code>[<var>xfun</var>, <var>yfun</var>, <var>zfun</var>]</code>をプロットします。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>の影響を受けます:
+<code>xu_grid</code>, <code>yv_grid</code>, <code>line_type</code>, <code>line_width</code>, <code>key</code>,
+<code>wired_surface</code>, <code>enhanced3d</code>, <code>color</code>。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(title          = &quot;Sea shell&quot;,
+             xu_grid        = 100,
+             yv_grid        = 25,
+             view           = [100,20],
+             surface_hide   = true,
+             parametric_surface(0.5*u*cos(u)*(cos(v)+1),
+                           0.5*u*sin(u)*(cos(v)+1),
+                           u*sin(v) - ((u+3)/8*%pi)^2 - 20,
+                           u, 0, 13*%pi, v, -%pi, %pi) )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-points"></a>
+</p><dl>
+<dt><a name="index-points"></a><u>グラフィックオブジェクト:</u> <b>points</b><i> ([[<var>x1</var>,<var>y1</var>], [<var>x2</var>,<var>y2</var>],...])</i></dt>
+<dt><a name="index-points-1"></a><u>グラフィックオブジェクト:</u> <b>points</b><i> ([<var>x1</var>,<var>x2</var>,...], [<var>y1</var>,<var>y2</var>,...])</i></dt>
+<dt><a name="index-points-2"></a><u>グラフィックオブジェクト:</u> <b>points</b><i> ([<var>y1</var>,<var>y2</var>,...])</i></dt>
+<dt><a name="index-points-3"></a><u>グラフィックオブジェクト:</u> <b>points</b><i> ([[<var>x1</var>,<var>y1</var>,<var>z1</var>], [<var>x2</var>,<var>y2</var>,<var>z2</var>],...])</i></dt>
+<dt><a name="index-points-4"></a><u>グラフィックオブジェクト:</u> <b>points</b><i> ([<var>x1</var>,<var>x2</var>,...], [<var>y1</var>,<var>y2</var>,...], [<var>z1</var>,<var>z2</var>,...])</i></dt>
+<dt><a name="index-points-5"></a><u>グラフィックオブジェクト:</u> <b>points</b><i> (<var>matrix</var>)</i></dt>
+<dt><a name="index-points-6"></a><u>グラフィックオブジェクト:</u> <b>points</b><i> (<var>1d_y_array</var>)</i></dt>
+<dt><a name="index-points-7"></a><u>グラフィックオブジェクト:</u> <b>points</b><i> (<var>1d_x_array</var>, <var>1d_y_array</var>)</i></dt>
+<dt><a name="index-points-8"></a><u>グラフィックオブジェクト:</u> <b>points</b><i> (<var>1d_x_array</var>, <var>1d_y_array</var>, <var>1d_z_array</var>)</i></dt>
+<dt><a name="index-points-9"></a><u>グラフィックオブジェクト:</u> <b>points</b><i> (<var>2d_xy_array</var>)</i></dt>
+<dt><a name="index-points-10"></a><u>グラフィックオブジェクト:</u> <b>points</b><i> (<var>2d_xyz_array</var>)</i></dt>
+<dd>
+<p>2Dや 3Dの中で点を描画します。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>の影響を受けます:
+<code>point_size</code>, <code>point_type</code>, <code>points_joined</code>, <code>line_width</code>,
+<code>key</code>, <code>line_type</code>, <code>color</code>.
+3Dモードでは <code>enhanced3d</code>の影響も受けます。
+</p>
+<p><b>2D</b>
+</p>
+<p><code>points ([[<var>x1</var>,<var>y1</var>], [<var>x2</var>,<var>y2</var>],...])</code>や
+<code>points ([<var>x1</var>,<var>x2</var>,...], [<var>y1</var>,<var>y2</var>,...])</code>は
+点 <code>[x1,y1]</code>, <code>[x2,y2]</code>,などをプロットします。
+もし横座標が与えられないなら、それらは連続する正の整数に設定されます。
+だから、<code>points ([<var>y1</var>,<var>y2</var>,...])</code>は点
+<code>[1,<var>y1</var>]</code>, <code>[2,<var>y2</var>]</code>などを描画します。
+もし <var>matrix</var>が2列または2行行列なら、
+<code>points (<var>matrix</var>)</code>は関連した点を描画します。
+もし <var>matrix</var>が 1列または 1行行列なら、横座標が自動的に割り当てられます。
+</p>
+<p>もし <var>1d_y_array</var>が数の 1Dの lisp配列なら、
+<code>points (<var>1d_y_array</var>)</code>は
+横座標を連続する正の整数に設定してそれらをプロットします。
+<code>points (<var>1d_x_array</var>, <var>1d_y_array</var>)</code>は
+引数として渡された 2つの配列から取られた座標を持つ点をプロットします。
+もし <var>2d_xy_array</var>が 2列の 2D配列なら、
+<code>points (<var>2d_xy_array</var>)</code>は平面上に対応する点をプロットします。
+</p>
+<p>例:
+</p>
+<p><code>points</code>への2種類の引数、ペアのリストと分離した座標の2つのリスト。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(
+        key = &quot;Small points&quot;,
+        points(makelist([random(20),random(50)],k,1,10)),
+        point_type    = circle,
+        point_size    = 3,
+        points_joined = true,
+        key           = &quot;Great points&quot;,
+        points(makelist(k,k,1,20),makelist(random(30),k,1,20)),
+        point_type    = filled_down_triangle,
+        key           = &quot;Automatic abscissas&quot;,
+        color         = red,
+        points([2,12,8]))$
+</pre></td></tr></table>
+
+<p>衝撃を描画。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(
+        points_joined = impulses,
+        line_width    = 2,
+        color         = red,
+        points(makelist([random(20),random(50)],k,1,10)))$
+</pre></td></tr></table>
+
+<p>座標の配列。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) a: make_array (flonum, 100) $
+(%i3) for i:0 thru 99 do a[i]: random(1.0) $
+(%i4) draw2d(points(a)) $
+</pre></td></tr></table>
+
+<p>分離した座標の 2つの配列。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) x: make_array (flonum, 100) $
+(%i3) y: make_array (fixnum, 100) $
+(%i4) for i:0 thru 99 do (
+        x[i]: float(i/100),
+        y[i]: random(10) ) $
+(%i5) draw2d(points(x, y)) $
+</pre></td></tr></table>
+
+<p>2列 2D配列。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) xy: make_array(flonum, 100, 2) $
+(%i3) for i:0 thru 99 do (
+        xy[i, 0]: float(i/100),
+        xy[i, 1]: random(10) ) $
+(%i4) draw2d(points(xy)) $
+</pre></td></tr></table>
+
+<p>関数 <code>read_array</code>で埋められた配列の描画。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) a: make_array(flonum,100) $
+(%i3) read_array (file_search (&quot;pidigits.data&quot;), a) $
+(%i4) draw2d(points(a)) $
+</pre></td></tr></table>
+
+<p><b>3D</b>
+</p>
+<p><code>points([[<var>x1</var>, <var>y1</var>, <var>z1</var>], [<var>x2</var>, <var>y2</var>, <var>z2</var>],
+...])</code> や
+<code>points([<var>x1</var>, <var>x2</var>, ...], [<var>y1</var>, <var>y2</var>, ...],
+[<var>z1</var>, <var>z2</var>, ...])</code>は
+点 <code>[<var>x1</var>, <var>y1</var>, <var>z1</var>]</code>, <code>[<var>x2</var>, <var>y2</var>,
+<var>z2</var>]</code>などをプロットします。
+もし <var>matrix</var>が 3列または 3行行列なら、
+<code>points (<var>matrix</var>)</code>は関連した点を描画します。
+</p>
+<p>引数が lisp配列の時、
+<code>points (<var>1d_x_array</var>, <var>1d_y_array</var>, <var>1d_z_array</var>)</code>は
+3つの 1D配列から座標を取ります。
+もし <var>2d_xyz_array</var>が 3列または 3行を持つ 2D配列なら、
+<code>points (<var>2d_xyz_array</var>)</code>は対応する点をプロットします。
+</p>
+<p>例:
+</p>
+<p>3次元のサンプル１つ、
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) load (numericalio)$
+(%i3) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i4) draw3d(title = &quot;Daily average wind speeds&quot;,
+             point_size = 2,
+             points(args(submatrix (s2, 4, 5))) )$
+</pre></td></tr></table>
+
+<p>3次元のサンプル２つ、
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) load (numericalio)$
+(%i3) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i4) draw3d(
+         title = &quot;Daily average wind speeds. Two data sets&quot;,
+         point_size = 2,
+         key        = &quot;Sample from stations 1, 2 and 3&quot;,
+         points(args(submatrix (s2, 4, 5))),
+         point_type = 4,
+         key        = &quot;Sample from stations 1, 4 and 5&quot;,
+         points(args(submatrix (s2, 2, 3))) )$
+</pre></td></tr></table>
+
+<p>1次元配列、
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) x: make_array (fixnum, 10) $
+(%i3) y: make_array (fixnum, 10) $
+(%i4) z: make_array (fixnum, 10) $
+(%i5) for i:0 thru 9 do (
+        x[i]: random(10),
+        y[i]: random(10),
+        z[i]: random(10) ) $
+(%i6) draw3d(points(x,y,z)) $
+</pre></td></tr></table>
+
+<p>2次元色付け配列、
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) xyz: make_array(fixnum, 10, 3) $
+(%i3) for i:0 thru 9 do (
+        xyz[i, 0]: random(10),
+        xyz[i, 1]: random(10),
+        xyz[i, 2]: random(10) ) $
+(%i4) draw3d(
+         enhanced3d = true,
+         points_joined = true,
+         points(xyz)) $
+</pre></td></tr></table>
+
+<p>ユーザーが明示的に指定した色数。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) pts: makelist([t,t^2,cos(t)], t, 0, 15)$
+(%i3) col_num: makelist(k, k, 1, length(pts))$
+(%i4) draw3d(
+        enhanced3d = ['part(col_num,k),k],
+        point_size = 3,
+        point_type = filled_circle,
+        points(pts))$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-polar"></a>
+</p><dl>
+<dt><a name="index-polar"></a><u>グラフィックオブジェクト:</u> <b>polar</b><i> (<var>radius</var>,<var>ang</var>,<var>minang</var>,<var>maxang</var>)</i></dt>
+<dd><p>極座標で定義された2D関数を描画します。
+</p>
+<p><b>2D</b>
+</p>
+<p><code>polar (<var>radius</var>,<var>ang</var>,<var>minang</var>,<var>maxang</var>)</code>は
+<var>minang</var>から <var>maxang</var>まで値を取る変数 <var>ang</var>を伴う極座標で定義された関数
+<code><var>radius</var>(<var>ang</var>)</code>をプロットします。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>の影響を受けます:
+<code>nticks</code>, <code>line_width</code>, <code>line_type</code>, <code>key</code>, <code>color</code>.
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(user_preamble = &quot;set grid polar&quot;,
+             nticks        = 200,
+             xrange        = [-5,5],
+             yrange        = [-5,5],
+             color         = blue,
+             line_width    = 3,
+             title         = &quot;Hyperbolic Spiral&quot;,
+             polar(10/theta,theta,1,10*%pi) )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-polygon"></a>
+</p><dl>
+<dt><a name="index-polygon"></a><u>グラフィックオブジェクト:</u> <b>polygon</b><i> ([[<var>x1</var>, <var>y1</var>], [<var>x2</var>, <var>y2</var>], &hellip;])</i></dt>
+<dt><a name="index-polygon-1"></a><u>グラフィックオブジェクト:</u> <b>polygon</b><i> ([<var>x1</var>, <var>x2</var>, &hellip;], [<var>y1</var>, <var>y2</var>, &hellip;])</i></dt>
+<dd><p>2D内でポリゴンを描画します。
+</p>
+<p><b>2D</b>
+</p>
+<p>コマンド <code>polygon ([[<var>x1</var>, <var>y1</var>], [<var>x2</var>, <var>y2</var>],...])</code>や
+<code>polygon ([<var>x1</var>, <var>x2</var>,...], [<var>y1</var>, <var>y2</var>,...])</code>は
+頂点 <code>[<var>x1</var>, <var>y1</var>]</code>, <code>[<var>x2</var>, <var>y2</var>]</code>などを持つポリゴンを
+平面上にプロットします。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>の影響を受けます:
+<code>transparent</code>, <code>fill_color</code>, <code>border</code>, <code>line_width</code>,
+<code>key</code>, <code>line_type</code>, <code>color</code>.
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(color      = &quot;#e245f0&quot;,
+             line_width = 8,
+             polygon([[3,2],[7,2],[5,5]]),
+             border      = false,
+             fill_color  = yellow,
+             polygon([[5,2],[9,2],[7,5]]) )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-quadrilateral"></a>
+</p><dl>
+<dt><a name="index-quadrilateral"></a><u>グラフィックオブジェクト:</u> <b>quadrilateral</b><i> (<var>point_1</var>, <var>point_2</var>, <var>point_3</var>, <var>point_4</var>)</i></dt>
+<dd><p>四辺形を描画します。
+</p>
+<p><b>2D</b>
+</p>
+<p><code>quadrilateral ([<var>x1</var>, <var>y1</var>], [<var>x2</var>, <var>y2</var>],
+[<var>x3</var>, <var>y3</var>], [<var>x4</var>, <var>y4</var>])</code>は
+頂点 <code>[<var>x1</var>, <var>y1</var>]</code>, <code>[<var>x2</var>, <var>y2</var>]</code>,
+<code>[<var>x3</var>, <var>y3</var>]</code>, <code>[<var>x4</var>, <var>y4</var>]</code>を持つ四辺形を描画します。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>の影響を受けます:<br>
+<code>transparent</code>, <code>fill_color</code>, <code>border</code>, <code>line_width</code>,
+<code>key</code>, <code>xaxis_secondary</code>, <code>yaxis_secondary</code>, <code>line_type</code>,
+<code>transform</code>, <code>color</code>.
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(
+        quadrilateral([1,1],[2,2],[3,-1],[2,-2]))$
+</pre></td></tr></table>
+
+<p><b>3D</b>
+</p>
+<p><code>quadrilateral([<var>x1</var>, <var>y1</var>, <var>z1</var>], [<var>x2</var>, <var>y2</var>,
+<var>z2</var>], [<var>x3</var>, <var>y3</var>, <var>z3</var>], [<var>x4</var>, <var>y4</var>, <var>z4</var>])</code>は
+頂点 <code>[<var>x1</var>, <var>y1</var>, <var>z1</var>]</code>, <code>[<var>x2</var>, <var>y2</var>,
+<var>z2</var>]</code>, <code>[<var>x3</var>, <var>y3</var>, <var>z3</var>]</code>, <code>[<var>x4</var>, <var>y4</var>,
+<var>z4</var>]</code>を持つ四辺形を描画します。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>の影響を受けます: <code>line_type</code>, 
+<code>line_width</code>, <code>color</code>, <code>key</code>, <code>enhanced3d</code>,
+<code>transform</code>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-rectangle"></a>
+</p><dl>
+<dt><a name="index-rectangle"></a><u>グラフィックオブジェクト:</u> <b>rectangle</b><i> ([<var>x1</var>,<var>y1</var>], [<var>x2</var>,<var>y2</var>])</i></dt>
+<dd><p>2D内で長方形を描画します。
+</p>
+<p><b>2D</b>
+</p>
+<p><code>rectangle ([<var>x1</var>,<var>y1</var>], [<var>x2</var>,<var>y2</var>])</code>は、対角頂点
+<code>[<var>x1</var>,<var>y1</var>]</code>と<code>[<var>x2</var>,<var>y2</var>]</code>を持つ長方形を描画します。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>の影響を受けます: <code>transparent</code>, 
+<code>fill_color</code>, <code>border</code>, <code>line_width</code>, <code>key</code>,
+<code>line_type</code>, <code>color</code>.
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(fill_color  = red,
+             line_width  = 6,
+             line_type   = dots,
+             transparent = false,
+             fill_color  = blue,
+             rectangle([-2,-2],[8,-1]), /* opposite vertices */
+             transparent = true,
+             line_type   = solid,
+             line_width  = 1,
+             rectangle([9,4],[2,-1.5]),
+             xrange      = [-3,10],
+             yrange      = [-3,4.5] )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+
+
+<p><a name="Item_003a-region"></a>
+</p><dl>
+<dt><a name="index-region"></a><u>グラフィックオブジェクト:</u> <b>region</b><i> (<var>expr</var>,<var>var1</var>,<var>minval1</var>,<var>maxval1</var>,<var>var2</var>,<var>minval2</var>,<var>maxval2</var>)</i></dt>
+<dd><p>平面上に不等式で定義された領域を描画します。
+</p>
+<p><b>2D</b>
+<var>expr</var>は不等式とブーリアン演算子 <code>and</code>, <code>or</code>,
+<code>not</code>で形成された式です。
+領域は <em>[<var>minval1</var>, <var>maxval1</var>]</em>と<em>[<var>minval2</var>,
+<var>maxval2</var>]</em>で定義された長方形で区切られています。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>の影響を受けます: <code>fill_color</code>, 
+<code>key</code>, <code>x_voxel</code>, <code>y_voxel</code>.
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(
+        x_voxel = 30,
+        y_voxel = 30,
+        region(x^2+y^2&lt;1 and x^2+y^2 &gt; 1/2,
+               x, -1.5, 1.5, y, -1.5, 1.5));
+</pre></td></tr></table>
+</dd></dl>
+
+
+
+
+<p><a name="Item_003a-spherical"></a>
+</p><dl>
+<dt><a name="index-spherical"></a><u>グラフィックオブジェクト:</u> <b>spherical</b><i> (<var>radius</var>, <var>azi</var>, <var>minazi</var>, <var>maxazi</var>, <var>zen</var>, <var>minzen</var>, <var>maxzen</var>)</i></dt>
+<dd><p>球座標で定義された3D関数を描画します。
+</p>
+<p><b>3D</b>
+</p>
+<p><code>spherical(<var>radius</var>, <var>azi</var>, <var>minazi</var>, <var>maxazi</var>, <var>zen</var>,
+<var>minzen</var>, <var>maxzen</var>)</code>は
+<var>minazi</var>から <var>maxazi</var>まで値を取る <i>方位角</i> <var>azi</var>と
+<var>minzen</var>から <var>maxzen</var>まで値を取る <i>天頂角</i>
+<var>zen</var>を伴う球座標で定義された関数
+<code><var>radius</var>(<var>azi</var>, <var>zen</var>)</code>を描画します。
+</p>
+
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>の影響を受けます:
+<code>xu_grid</code>, <code>yv_grid</code>, <code>line_type</code>, <code>key</code>,
+<code>wired_surface</code>, <code>enhanced3d</code>, <code>color</code>。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(spherical(1,a,0,2*%pi,z,0,%pi))$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-triangle"></a>
+</p><dl>
+<dt><a name="index-triangle"></a><u>グラフィックオブジェクト:</u> <b>triangle</b><i> (<var>point_1</var>, <var>point_2</var>, <var>point_3</var>)</i></dt>
+<dd><p>三角形を描画します。
+</p>
+<p><b>2D</b>
+</p>
+<p><code>triangle ([<var>x1</var>,<var>y1</var>], [<var>x2</var>,<var>y2</var>],
+[<var>x3</var>,<var>y3</var>])</code>は、頂点 <code>[<var>x1</var>,<var>y1</var>]</code>,
+<code>[<var>x2</var>,<var>y2</var>]</code>, <code>[<var>x3</var>,<var>y3</var>]</code>を持つ三角形を描画します。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>に影響されます:<br>
+<code>transparent</code>, <code>fill_color</code>, <code>border</code>, <code>line_width</code>,
+<code>key</code>, <code>xaxis_secondary</code>, <code>yaxis_secondary</code>, <code>line_type</code>,
+<code>transform</code>, <code>color</code>.
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(
+        triangle([1,1],[2,2],[3,-1]))$
+</pre></td></tr></table>
+
+<p><b>3D</b>
+</p>
+<p><code>triangle ([<var>x1</var>,<var>y1</var>,<var>z1</var>], [<var>x2</var>,<var>y2</var>,<var>z2</var>],
+[<var>x3</var>,<var>y3</var>,<var>z3</var>])</code>は頂点
+<code>[<var>x1</var>,<var>y1</var>,<var>z1</var>]</code>, <code>[<var>x2</var>,<var>y2</var>,<var>z2</var>]</code>,
+<code>[<var>x3</var>,<var>y3</var>,<var>z3</var>]</code>を持つ三角形を描画します。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>に影響されます:
+<code>line_type</code>, <code>line_width</code>, <code>color</code>, <code>key</code>,
+<code>enhanced3d</code>, <code>transform</code>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-tube"></a>
+</p><dl>
+<dt><a name="index-tube"></a><u>グラフィックオブジェクト:</u> <b>tube</b><i> (<var>xfun</var>,<var>yfun</var>,<var>zfun</var>,<var>rfun</var>,<var>p</var>,<var>pmin</var>,<var>pmax</var>)</i></dt>
+<dd><p>3Dにおいて径が変化する管を描画します。
+</p>
+<p><b>3D</b>
+</p>
+<p><code>[<var>xfun</var>,<var>yfun</var>,<var>zfun</var>]</code>は
+<var>pmin</var>から <var>pmax</var>まで値を取るパラメータ
+<var>p</var>を伴うパラメトリックな曲線です。
+パラメトリックな曲線上に中心を持ち、曲線と垂直な半径 <var>rfun</var>の円が置かれます。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>の影響を受けます:
+<code>xu_grid</code>, <code>yv_grid</code>, <code>line_type</code>, <code>line_width</code>, <code>key</code>,
+<code>wired_surface</code>, <code>enhanced3d</code>, <code>color</code>, <code>tube_extremes</code>。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(
+        enhanced3d = true,
+        xu_grid = 50,
+        tube(cos(a), a, 0, cos(a/10)^2,
+             a, 0, 4*%pi) )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-vector"></a>
+</p><dl>
+<dt><a name="index-vector"></a><u>グラフィックオブジェクト:</u> <b>vector</b><i> ([<var>x</var>,<var>y</var>], [<var>dx</var>,<var>dy</var>])</i></dt>
+<dt><a name="index-vector-1"></a><u>グラフィックオブジェクト:</u> <b>vector</b><i> ([<var>x</var>,<var>y</var>,<var>z</var>], [<var>dx</var>,<var>dy</var>,<var>dz</var>])</i></dt>
+<dd><p>2Dおよび 3D内でベクトルを描画します。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>の影響を受けます:
+<code>head_both</code>, <code>head_length</code>, <code>head_angle</code>, <code>head_type</code>,
+<code>line_width</code>, <code>line_type</code>, <code>key</code>, <code>color</code>.
+</p>
+<p><b>2D</b>
+</p>
+<p><code>vector([<var>x</var>,<var>y</var>], [<var>dx</var>,<var>dy</var>])</code>は
+<code>[<var>x</var>,<var>y</var>]</code>を原点とするベクトル<code>[<var>dx</var>,<var>dy</var>]</code>を
+プロットします。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw2d(xrange      = [0,12],
+             yrange      = [0,10],
+             head_length = 1,
+             vector([0,1],[5,5]), /* default type */
+             head_type = 'empty,
+             vector([3,1],[5,5]),
+             head_both = true,
+             head_type = 'nofilled,
+             line_type = dots,
+             vector([6,1],[5,5]))$
+</pre></td></tr></table>
+
+<p><b>3D</b>
+</p>
+<p><code>vector([<var>x</var>,<var>y</var>,<var>z</var>], [<var>dx</var>,<var>dy</var>,<var>dz</var>])</code>は
+<code>[<var>x</var>,<var>y</var>,<var>z</var>]</code>を原点とするベクトル
+<code>[<var>dx</var>,<var>dy</var>,<var>dz</var>]</code>をプロットします。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) draw3d(color = cyan,
+             vector([0,0,0],[1,1,1]/sqrt(3)),
+             vector([0,0,0],[1,-1,0]/sqrt(2)),
+             vector([0,0,0],[1,1,-2]/sqrt(6)) )$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-Functions-and-Variables-for-pictures"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-pictures"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Graphics-objects" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-worldmap" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#draw" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#draw" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_49.html#drawdf" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-and-Variables-for-pictures-1"></a>
+<h2 class="section">48.3 Functions and Variables for pictures</h2>
+
+<p><a name="Item_003a-get_005fpixel"></a>
+</p><dl>
+<dt><a name="index-get_005fpixel"></a><u>関数:</u> <b>get_pixel</b><i> (<var>pic</var>,<var>x</var>,<var>y</var>)</i></dt>
+<dd><p>ピクチャからピクセルを返します。
+座標 <var>x</var>と <var>y</var>は 0からそれぞれ <code>width-1</code>と
+<code>height-1</code>までの範囲を取ります。
+</p>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-make_005flevel_005fpicture"></a>
+</p><dl>
+<dt><a name="index-make_005flevel_005fpicture"></a><u>関数:</u> <b>make_level_picture</b><i> (<var>data</var>)</i></dt>
+<dt><a name="index-make_005flevel_005fpicture-1"></a><u>関数:</u> <b>make_level_picture</b><i> (<var>data</var>,<var>width</var>,<var>height</var>)</i></dt>
+<dd><p>レベル <var>picture</var>オブジェクトを返します。
+<code>make_level_picture (<var>data</var>)</code>は行列 <var>data</var>から
+<var>picture</var>オブジェクトを作ります。
+<code>make_level_picture (<var>data</var>,<var>width</var>,<var>height</var>)</code>は
+数のリストからオブジェクトを作ります;
+この場合、 <var>width</var>と <var>height</var>両方を与えなければいけません。
+</p>
+<p>返された <var>picture</var>オブジェクトは以下の4つの部分を含みます:
+</p>
+<ol>
+<li> シンボル <code>level</code>
+</li><li> イメージの幅
+</li><li> イメージの高さ
+</li><li> 0から 255までの範囲のピクセルデータを持つ整数配列
+引数 <var>data</var>は 0から 255までの数のみを含まなければいけません;
+負の数は 0に置き換えられ、 255よりも大きな数は 255に設定されます。
+</li></ol>
+
+<p>例:
+</p>
+<p>行列からのレベルピクチャ。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) make_level_picture(matrix([3,2,5],[7,-9,3000]));
+(%o2)         picture(level, 3, 2, {Array:  #(3 2 5 7 0 255)})
+</pre></td></tr></table>
+
+<p>数値リストからのレベルピクチャ
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) make_level_picture([-2,0,54,%pi],2,2);
+(%o2)            picture(level, 2, 2, {Array:  #(0 0 54 3)})
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-make_005frgb_005fpicture"></a>
+</p><dl>
+<dt><a name="index-make_005frgb_005fpicture"></a><u>関数:</u> <b>make_rgb_picture</b><i> (<var>redlevel</var>,<var>greenlevel</var>,<var>bluelevel</var>)</i></dt>
+<dd><p>rgb色付けされた <var>picture</var>オブジェクトを返します。
+3つ引数すべては赤、緑、青のレベルを持つレベルピクチャでなければいけません;
+</p>
+<p>戻り値の <var>picture</var>オブジェクトは以下の4つの部分を含みます:
+</p>
+<ol>
+<li> シンボル <code>rgb</code>
+</li><li> イメージの幅
+</li><li> イメージの高さ
+</li><li> 0から 255までの範囲のピクセルデータを持つ長さ <var>3*width*height</var>の整数配列。
+それぞれのピクセルは。3つの連続する数 (赤、緑、青)で表現されます。
+</li></ol>
+
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) red: make_level_picture(matrix([3,2],[7,260]));
+(%o2)           picture(level, 2, 2, {Array:  #(3 2 7 255)})
+(%i3) green: make_level_picture(matrix([54,23],[73,-9]));
+(%o3)           picture(level, 2, 2, {Array:  #(54 23 73 0)})
+(%i4) blue: make_level_picture(matrix([123,82],[45,32.5698]));
+(%o4)          picture(level, 2, 2, {Array:  #(123 82 45 33)})
+(%i5) make_rgb_picture(red,green,blue);
+(%o5) picture(rgb, 2, 2, 
+              {Array:  #(3 54 123 2 23 82 7 73 45 255 0 33)})
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-negative_005fpicture"></a>
+</p><dl>
+<dt><a name="index-negative_005fpicture"></a><u>関数:</u> <b>negative_picture</b><i> (<var>pic</var>)</i></dt>
+<dd><p>(<var>level</var>または<var>rgb</var>)ピクチャの反転を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p></dd></dl>
+
+
+<p><a name="Item_003a-picture_005fequalp"></a>
+</p><dl>
+<dt><a name="index-picture_005fequalp"></a><u>関数:</u> <b>picture_equalp</b><i> (<var>x</var>,<var>y</var>)</i></dt>
+<dd><p>等しいピクチャの場合 <code>true</code>を、そうでないなら <code>false</code>を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+ &middot;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-picturep"></a>
+</p><dl>
+<dt><a name="index-picturep"></a><u>関数:</u> <b>picturep</b><i> (<var>x</var>)</i></dt>
+<dd><p>もし引数が適正なイメージなら<code>true</code>を、そうでないなら <code>false</code>を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+ &middot;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-read_005fxpm"></a>
+</p><dl>
+<dt><a name="index-read_005fxpm"></a><u>関数:</u> <b>read_xpm</b><i> (<var>xpm_file</var>)</i></dt>
+<dd><p>xpm形式のファイルを読み、ピクチャオブジェクトを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-rgb2level"></a>
+</p><dl>
+<dt><a name="index-rgb2level"></a><u>関数:</u> <b>rgb2level</b><i> (<var>pic</var>)</i></dt>
+<dd><p><var>rgb</var>ピクチャを赤、緑、青チャンネルを平均することで
+<var>level</var>の１つに変換します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+
+<p><a name="Item_003a-take_005fchannel"></a>
+</p><dl>
+<dt><a name="index-take_005fchannel"></a><u>関数:</u> <b>take_channel</b><i> (<var>im</var>,<var>color</var>)</i></dt>
+<dd><p>もし引数 <var>color</var>が <code>red</code>, <code>green</code>または <code>blue</code>なら、関数
+<code>take_channel</code>はピクチャ <var>im</var>の対応する色チャンネルを返します。
+例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) red: make_level_picture(matrix([3,2],[7,260]));
+(%o2)           picture(level, 2, 2, {Array:  #(3 2 7 255)})
+(%i3) green: make_level_picture(matrix([54,23],[73,-9]));
+(%o3)           picture(level, 2, 2, {Array:  #(54 23 73 0)})
+(%i4) blue: make_level_picture(matrix([123,82],[45,32.5698]));
+(%o4)          picture(level, 2, 2, {Array:  #(123 82 45 33)})
+(%i5) make_rgb_picture(red,green,blue);
+(%o5) picture(rgb, 2, 2, 
+              {Array:  #(3 54 123 2 23 82 7 73 45 255 0 33)})
+(%i6) take_channel(%,'green);  /* simple quote!!! */
+(%o6)           picture(level, 2, 2, {Array:  #(54 23 73 0)})
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-Functions-and-Variables-for-worldmap"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-worldmap"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-pictures" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Variable-and-Functions" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#draw" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#draw" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_49.html#drawdf" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-and-Variables-for-worldmap-1"></a>
+<h2 class="section">48.4 Functions and Variables for worldmap</h2>
+
+<p>このパッケージは自動的にパッケージ <code>draw</code>をロードします。
+</p>
+
+<hr size="6">
+<a name="Variable-and-Functions"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-worldmap" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Graphic-objects" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#draw" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-worldmap" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_49.html#drawdf" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">48.4.1 Variable and Functions</h3>
+
+<p><a name="Item_003a-boundaries_005farray"></a>
+</p><dl>
+<dt><a name="index-boundaries_005farray"></a><u>グローバル変数:</u> <b>boundaries_array</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>boundaries_array</code>はグラフィックオプション
+<code>geomap</code>が境界座標を探すところです。
+</p>
+<p><code>boundaries_array</code>のそれぞれの成分は浮動小数点量の配列であり、
+多角形のセグメントかマップ境界の座標です。
+</p>
+<p><code>geomap</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-numbered_005fboundaries"></a>
+</p><dl>
+<dt><a name="index-numbered_005fboundaries"></a><u>関数:</u> <b>numbered_boundaries</b><i> (<var>nlist</var>)</i></dt>
+<dd><p>その数 (<code>boundaries_array</code>座標)でラベルされた多角形セグメント(境界)のリストを
+描画します。
+これは新しい地理的なものを作る時に非常に役立ちます。
+</p>
+<p>例:
+</p>
+<p><code>boundaries_array</code>内の成分数で境界をラベルされたヨーロッパの地図
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(worldmap)$
+(%i2) european_borders: 
+           region_boundaries(-31.81,74.92,49.84,32.06)$
+(%i3) numbered_boundaries(european_borders)$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-make_005fpoly_005fcontinent"></a>
+</p><dl>
+<dt><a name="index-make_005fpoly_005fcontinent"></a><u>関数:</u> <b>make_poly_continent</b><i> (<var>continent_name</var>)</i></dt>
+<dt><a name="index-make_005fpoly_005fcontinent-1"></a><u>関数:</u> <b>make_poly_continent</b><i> (<var>country_list</var>)</i></dt>
+<dd><p>色付けられた大陸や国のリストを描画するのに必要なポリゴンを作ります。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(worldmap)$
+(%i2) /* A continent */
+      make_poly_continent(Africa)$
+(%i3) apply(draw2d, %)$
+(%i4) /* A list of countries */
+      make_poly_continent([Germany,Denmark,Poland])$
+(%i5) apply(draw2d, %)$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+<p><a name="Item_003a-make_005fpoly_005fcountry"></a>
+</p><dl>
+<dt><a name="index-make_005fpoly_005fcountry"></a><u>関数:</u> <b>make_poly_country</b><i> (<var>country_name</var>)</i></dt>
+<dd><p>色付けられた国を描画するのに必要なポリゴンを作ります。
+もし島が存在するなら、 1つの国は複数のポリゴンで定義されることがあります。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(worldmap)$
+(%i2) make_poly_country(India)$
+(%i3) apply(draw2d, %)$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-make_005fpolygon"></a>
+</p><dl>
+<dt><a name="index-make_005fpolygon"></a><u>関数:</u> <b>make_polygon</b><i> (<var>nlist</var>)</i></dt>
+<dd><p>境界添字から <code>polygon</code>オブジェクトを返します。
+引数 <var>nlist</var>は <code>boundaries_array</code>の成分のリストです。
+</p>
+<p>例:
+</p>
+<p>ブータンは境界番号 171, 173, 1143で定義されます。
+だから、 <code>make_polygon([171,173,1143])</code>は座標
+<code>boundaries_array[171]</code>, <code>boundaries_array[173]</code>,
+<code>boundaries_array[1143]</code>の配列を付加し、
+<code>draw</code>でプロットされるのに適した <code>polygon</code>オブジェクトを返します．
+エラーメッセージを避けるには、任意の連続する配列が端で共通の
+2つの座標を持つという意味で配列は互換性がなければいけません。
+この例では、
+<code>boundaries_array[171]</code>の最初の 2つの成分は
+<code>boundaries_array[173]</code>の最後の 2つの座標と等しく、
+<code>boundaries_array[173]</code>の最初の 2つは
+<code>boundaries_array[1143]</code>の最初の 2つに等しいです;
+結論として、境界番号 171, 173,
+1143は (この順で)互換性があり、色付けられたポリゴンは描画できます。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(worldmap)$
+(%i2) Bhutan;
+(%o2)                        [[171, 173, 1143]]
+(%i3) boundaries_array[171];
+(%o3) {Array:  
+       #(88.750549 27.14727 88.806351 27.25305 88.901367 27.282221
+         88.917877 27.321039)}
+(%i4) boundaries_array[173];
+(%o4) {Array:
+       #(91.659554 27.76511 91.6008 27.66666 91.598022 27.62499
+         91.631348 27.536381 91.765533 27.45694 91.775253 27.4161 
+         92.007751 27.471939 92.11441 27.28583 92.015259 27.168051
+         92.015533 27.08083 92.083313 27.02277 92.112183 26.920271
+         92.069977 26.86194 91.997192 26.85194 91.915253 26.893881
+         91.916924 26.85416 91.8358 26.863331 91.712479 26.799999 
+         91.542191 26.80444 91.492188 26.87472 91.418854 26.873329
+         91.371353 26.800831 91.307457 26.778049 90.682457 26.77417
+         90.392197 26.903601 90.344131 26.894159 90.143044 26.75333
+         89.98996 26.73583 89.841919 26.70138 89.618301 26.72694 
+         89.636093 26.771111 89.360786 26.859989 89.22081 26.81472
+         89.110237 26.829161 88.921631 26.98777 88.873016 26.95499
+         88.867737 27.080549 88.843307 27.108601 88.750549 
+         27.14727)}
+(%i5) boundaries_array[1143];
+(%o5) {Array:  
+       #(91.659554 27.76511 91.666924 27.88888 91.65831 27.94805 
+         91.338028 28.05249 91.314972 28.096661 91.108856 27.971109
+         91.015808 27.97777 90.896927 28.05055 90.382462 28.07972
+         90.396088 28.23555 90.366074 28.257771 89.996353 28.32333
+         89.83165 28.24888 89.58609 28.139999 89.35997 27.87166 
+         89.225517 27.795 89.125793 27.56749 88.971077 27.47361
+         88.917877 27.321039)}
+(%i6) Bhutan_polygon: make_polygon([171,173,1143])$
+(%i7) draw2d(Bhutan_polygon)$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-region_005fboundaries"></a>
+</p><dl>
+<dt><a name="index-region_005fboundaries"></a><u>関数:</u> <b>region_boundaries</b><i> (<var>x1</var>,<var>y1</var>,<var>x2</var>,<var>y2</var>)</i></dt>
+<dd><p>頂点 (<var>x1</var>,<var>y1</var>) -左上- と
+(<var>x2</var>,<var>y2</var>) -右下-の長方形に完全に含まれるグローバル変数
+<code>boundaries_array</code>の多角形セグメント検出します。
+</p>
+
+<p>例:
+</p>
+<p>南イタリアをプロットするためのセグメントの数を返します。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(worldmap)$
+(%i2) region_boundaries(10.4,41.5,20.7,35.4);
+(%o2)                [1846, 1863, 1864, 1881, 1888, 1894]
+(%i3) draw2d(geomap(%))$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-region_005fboundaries_005fplus"></a>
+</p><dl>
+<dt><a name="index-region_005fboundaries_005fplus"></a><u>関数:</u> <b>region_boundaries_plus</b><i> (<var>x1</var>,<var>y1</var>,<var>x2</var>,<var>y2</var>)</i></dt>
+<dd><p>頂点 (<var>x1</var>,<var>y1</var>) -左上- と
+(<var>x2</var>,<var>y2</var>) -右下-で定義された長方形に少なくとも1つ頂点を含まれる
+グローバル変数 <code>boundaries_array</code>の多角形セグメント検出します。
+多角形セグメント検出します。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(worldmap)$
+(%i2) region_boundaries_plus(10.4,41.5,20.7,35.4);
+(%o2) [1060, 1062, 1076, 1835, 1839, 1844, 1846, 1858,
+       1861, 1863, 1864, 1871, 1881, 1888, 1894, 1897]
+(%i3) draw2d(geomap(%))$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+<hr size="6">
+<a name="Graphic-objects"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Variable-and-Functions" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_49.html#drawdf" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#draw" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-worldmap" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_49.html#drawdf" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">48.4.2 Graphic objects</h3>
+
+
+<p><a name="Item_003a-geomap"></a>
+</p><dl>
+<dt><a name="index-geomap"></a><u>グラフィックオブジェクト:</u> <b>geomap</b><i> (<var>numlist</var>)</i></dt>
+<dt><a name="index-geomap-1"></a><u>グラフィックオブジェクト:</u> <b>geomap</b><i> (<var>numlist</var>,<var>3Dprojection</var>)</i></dt>
+<dd><p>2Dと 3Dに関して地図を描画します。
+</p>
+<p><b>2D</b>
+</p>
+<p>この関数はグローバル変数 <code>boundaries_array</code>と一緒に機能します。
+</p>
+<p>引数 <var>numlist</var>は数や数のリストを含むリストです。
+これらすべての数は、グローバル配列 <code>boundaries_array</code>の成分を表す
+0以上の整数でなければいけません。
+</p>
+<p><code>boundaries_array</code>のそれぞれの成分は浮動小数点量の配列であり、
+多角形セグメントやマップ境界の座標です。
+</p>
+<p><code>geomap (<var>numlist</var>)</code>は引数を平坦化し、
+<code>boundaries_array</code>の中に関連した境界を描画します。
+</p>
+<p>このオブジェクトは以下の<i>グラフィックオプション</i>の影響を受けます:
+<code>line_width</code>, <code>line_type</code>, <code>color</code>.
+</p>
+<p>例:
+</p>
+<p>手で定義された簡単な地図:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(draw)$
+(%i2) /* Vertices of boundary #0: {(1,1),(2,5),(4,3)} */
+   ( bnd0: make_array(flonum,6),
+     bnd0[0]:1.0, bnd0[1]:1.0, bnd0[2]:2.0,
+     bnd0[3]:5.0, bnd0[4]:4.0, bnd0[5]:3.0 )$
+(%i3) /* Vertices of boundary #1: {(4,3),(5,4),(6,4),(5,1)} */
+   ( bnd1: make_array(flonum,8),
+     bnd1[0]:4.0, bnd1[1]:3.0, bnd1[2]:5.0, bnd1[3]:4.0,
+     bnd1[4]:6.0, bnd1[5]:4.0, bnd1[6]:5.0, bnd1[7]:1.0)$
+(%i4) /* Vertices of boundary #2: {(5,1), (3,0), (1,1)} */
+   ( bnd2: make_array(flonum,6),
+     bnd2[0]:5.0, bnd2[1]:1.0, bnd2[2]:3.0,
+     bnd2[3]:0.0, bnd2[4]:1.0, bnd2[5]:1.0 )$
+(%i5) /* Vertices of boundary #3: {(1,1), (4,3)} */
+   ( bnd3: make_array(flonum,4),
+     bnd3[0]:1.0, bnd3[1]:1.0, bnd3[2]:4.0, bnd3[3]:3.0)$
+(%i6) /* Vertices of boundary #4: {(4,3), (5,1)} */
+   ( bnd4: make_array(flonum,4),
+     bnd4[0]:4.0, bnd4[1]:3.0, bnd4[2]:5.0, bnd4[3]:1.0)$
+(%i7) /* Pack all together in boundaries_array */
+   ( boundaries_array: make_array(any,5),
+     boundaries_array[0]: bnd0, boundaries_array[1]: bnd1,
+     boundaries_array[2]: bnd2, boundaries_array[3]: bnd3,
+     boundaries_array[4]: bnd4 )$
+(%i8) draw2d(geomap([0,1,2,3,4]))$
+</pre></td></tr></table>
+
+<p>補助バッケージ <code>worldmap</code>はグローバル変数
+<code>boundaries_array</code>を(経度、緯度)座標で実世界境界に設定します。
+これらのデータはパブリックドメインであり、
+<a href="http://www-cger.nies.go.jp/grid-e/gridtxt/grid19.html">http://www-cger.nies.go.jp/grid-e/gridtxt/grid19.html</a>
+に由来するものです。
+</p>
+<p>パッケージ <code>worldmap</code>は、国、大陸、海岸線の境界も
+<code>boundaries_array</code>の必要な成分を持つリストとして、
+定義します。
+(更に知るにはファイル <code>share/draw/worldmap.mac</code>を参照してください)
+パッケージ <code>draw</code>は自動的に <code>worldmap</code>をロードしません。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(worldmap)$
+(%i2) c1: gr2d(geomap(Canada,United_States,
+                      Mexico,Cuba))$
+(%i3) c2: gr2d(geomap(Africa))$
+(%i4) c3: gr2d(geomap(Oceania,China,Japan))$
+(%i5) c4: gr2d(geomap(France,Portugal,Spain,
+                      Morocco,Western_Sahara))$
+(%i6) draw(columns  = 2,
+           c1,c2,c3,c4)$
+</pre></td></tr></table>
+
+<p>パッケージ <code>worldmap</code>は国をポリゴンとしてプロットする時にも役に立ちます。
+この場合、グラフィックオブジェクト <code>geomap</code>はもはや必要でなく、代わりに
+<code>polygon</code>オブジェクトが使われます。
+配列ではなくリストが現在使われているので、地図レンダリングはより遅いでしょう。
+以下のコードを理解するためには、
+<code>make_poly_country</code>と <code>make_poly_continent</code>も参照してください。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(worldmap)$
+(%i2) mymap: append(
+   [color      = white],  /* borders are white */
+   [fill_color = red],             make_poly_country(Bolivia),
+   [fill_color = cyan],            make_poly_country(Paraguay),
+   [fill_color = green],           make_poly_country(Colombia),
+   [fill_color = blue],            make_poly_country(Chile),
+   [fill_color = &quot;#23ab0f&quot;],       make_poly_country(Brazil),
+   [fill_color = goldenrod],       make_poly_country(Argentina),
+   [fill_color = &quot;midnight-blue&quot;], make_poly_country(Uruguay))$
+(%i3) apply(draw2d, mymap)$
+</pre></td></tr></table>
+
+
+<p><b>3D</b>
+</p>
+<p><code>geomap (<var>numlist</var>)</code>は地図境界を中心が (0,0,0)で半径 1の球上に射影します。
+<code>geomap (<var>numlist</var>,<var>3Dprojection</var>)</code>を使うことで、
+球や射影タイプを変えることが可能です。
+</p>
+<p>利用可能な 3D射影:
+</p>
+<ul>
+<li>
+<code>[spherical_projection,<var>x</var>,<var>y</var>,<var>z</var>,<var>r</var>]</code>:
+地図境界を中心 (<var>x</var>,<var>y</var>,<var>z</var>)、半径<var>r</var>の球上に射影します。
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(worldmap)$
+(%i2) draw3d(geomap(Australia), /* default projection */
+             geomap(Australia,
+                    [spherical_projection,2,2,2,3]))$
+</pre></td></tr></table>
+
+</li><li>
+<code>[cylindrical_projection,<var>x</var>,<var>y</var>,<var>z</var>,<var>r</var>,<var>rc</var>]</code>:
+球地図境界を中心 (<var>x</var>,<var>y</var>,<var>z</var>)の半径
+<var>r</var>の地球の極を通る軸を持ち半径 <var>rc</var>の円柱に再射影します。
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(worldmap)$
+(%i2) draw3d(geomap([America_coastlines,Eurasia_coastlines],
+                    [cylindrical_projection,2,2,2,3,4]))$
+</pre></td></tr></table>
+
+</li><li>
+<code>[conic_projection,<var>x</var>,<var>y</var>,<var>z</var>,<var>r</var>,<var>alpha</var>]</code>:
+球地図境界を中心 (<var>x</var>,<var>y</var>,<var>z</var>)の半径 <var>r</var>の地球の極を通る軸を持ち角度
+<var>alpha</var>の円錐上に再射影します。
+北円錐と南円錐両方が球に接触します。
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(worldmap)$
+(%i2) draw3d(geomap(World_coastlines,
+                    [conic_projection,0,0,0,1,90]))$
+</pre></td></tr></table>
+</li></ul>
+
+<p>更に丹念な例を見るには、
+<a href="http://www.telefonica.net/web2/biomates/maxima/gpdraw/geomap">http://www.telefonica.net/web2/biomates/maxima/gpdraw/geomap</a>
+も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-draw">Package draw</a>
+</div></p>
+</dd></dl>
+
+
+
+
+<p><a name="Item_003a-drawdf"></a>
+</p><hr size="6">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#draw" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_49.html#drawdf" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

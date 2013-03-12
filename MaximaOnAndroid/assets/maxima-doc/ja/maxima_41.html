@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on 2012年12月月12日 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Maxima 5.29.1 Manual: 41. Bernstein</title>
+
+<meta name="description" content="Maxima 5.29.1 Manual: 41. Bernstein">
+<meta name="keywords" content="Maxima 5.29.1 Manual: 41. Bernstein">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+body
+{
+    color: black;
+    background: white; 
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+h1
+{
+    margin-left: +8%;
+    font-size: 150%;
+    font-family: sans-serif
+}
+
+h2
+{
+    font-size: 125%;
+    font-family: sans-serif
+}
+
+h3
+{
+    font-size: 100%;
+    font-family: sans-serif
+}
+
+h2,h3,h4,h5,h6 { margin-left: +4%; }
+
+div.textbox
+{
+    border: solid;
+    border-width: thin;
+    /* width: 100%; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em
+}
+
+div.titlebox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: rgb(200,255,255);
+    font-family: sans-serif
+}
+
+div.synopsisbox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+     background: rgb(255,220,255);
+    /*background: rgb(200,255,255); */
+    /* font-family: fixed */
+}
+
+pre.example
+{
+    border: 1px solid gray;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    /* background: rgb(247,242,180); */ /* kind of sandy */
+    /* background: rgb(200,255,255); */ /* sky blue */
+    background-color: #F1F5F9; /* light blue-gray */
+    /* font-family: "Lucida Console", monospace */
+}
+
+div.spacerbox
+{
+    border: none;
+    padding-top: 2em;
+    padding-bottom: 2em
+}
+
+div.image
+{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+div.categorybox
+{
+    border: 1px solid gray;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: rgb(247,242,220);
+}
+
+
+-->
+</style>
+
+<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<script type="text/javascript"><!--
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-510249-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+--></script>
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="Bernstein"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="maxima_40.html#Functions-and-Variables-for-augmented_005flagrangian" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Bernstein" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_40.html#augmented_005flagrangian" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_42.html#bode" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Bernstein-1"></a>
+<h1 class="chapter">41. Bernstein</h1>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Bernstein">41.1 Functions and Variables for Bernstein</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<p><a name="Item_003a-Functions-and-Variables-for-Bernstein"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-Bernstein"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Bernstein" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_42.html#bode" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Bernstein" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Bernstein" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_42.html#bode" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-and-Variables-for-Bernstein-1"></a>
+<h2 class="section">41.1 Functions and Variables for Bernstein</h2>
+
+<p><a name="Item_003a-bernstein_005fpoly"></a>
+</p><dl>
+<dt><a name="index-bernstein_005fpoly"></a><u>関数:</u> <b>bernstein_poly</b><i> (<var>k</var>, <var>n</var>, <var>x</var>)</i></dt>
+<dd>
+<p><code>k</code>が負の整数でないと仮定すると、
+Bernstein多項式は
+<code>bernstein_poly(k,n,x) = binomial(n,k) x^k (1-x)^(n-k)</code>で定義されます;
+負の整数 <code>k</code>に対してはBernstein多項式 <code>bernstein_poly(k,n,x)</code>はゼロです。
+<code>k</code>か <code>n</code>のどちらかが非整数の時、オプション変数 <code>bernstein_explicit</code>は
+Bernstein多項式の明示形式への展開を制御します。
+例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(bernstein)$
+
+(%i2) bernstein_poly(k,n,x);
+(%o2)                bernstein_poly(k, n, x)
+(%i3) bernstein_poly(k,n,x), bernstein_explicit : true;
+                                       n - k  k
+(%o3)            binomial(n, k) (1 - x)      x
+</pre></td></tr></table>
+
+<p>Bernstein多項式は gradefプロパティと integrateプロパティの両方を持ちます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) diff(bernstein_poly(k,n,x),x);
+(%o4) (bernstein_poly(k - 1, n - 1, x)
+                                 - bernstein_poly(k, n - 1, x)) n
+(%i5) integrate(bernstein_poly(k,n,x),x);
+(%o5) 
+                                                            k + 1
+ hypergeometric([k + 1, k - n], [k + 2], x) binomial(n, k) x
+ ----------------------------------------------------------------
+                              k + 1
+</pre></td></tr></table>
+
+<p>実数と複素数両方の数値入力に対して
+Bernstein多項式は数値結果に評価されます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) bernstein_poly(5,9, 1/2 + %i);
+                        39375 %i   39375
+(%o6)                   -------- + -----
+                          128       256
+(%i7) bernstein_poly(5,9, 0.5b0 + %i);
+(%o7)           3.076171875b2 %i + 1.5380859375b2
+</pre></td></tr></table>
+
+<p><code>bernstein_poly</code>を使うには、最初に <code>load(&quot;bernstein&quot;)</code>。
+</p>
+</dd></dl>
+
+
+<p><a name="Item_003a-bernstein_005fexplicit"></a>
+</p><dl>
+<dt><a name="index-bernstein_005fexplicit"></a><u>変数:</u> <b>bernstein_explicit</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>k</code>か <code>n</code>のどちらかが非整数の時、オプション変数 <code>bernstein_explicit</code>は
+Bernstein多項式の明示形式への展開を制御します; 例えば:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) bernstein_poly(k,n,x);
+(%o1)                bernstein_poly(k, n, x)
+(%i2) bernstein_poly(k,n,x), bernstein_explicit : true;
+                                       n - k  k
+(%o2)            binomial(n, k) (1 - x)      x
+</pre></td></tr></table>
+<p><code>k</code>と <code>n</code>の両方が明示的に整数の時、
+<code>bernstein(k,n,x)</code>は <em>いつも</em>明示形式に展開されます。
+</p>
+</dd></dl>
+
+
+<p><a name="Item_003a-multibernstein_005fpoly"></a>
+</p><dl>
+<dt><a name="index-multibernstein_005fpoly"></a><u>関数:</u> <b>multibernstein_poly</b><i> (<var>[k1,k2,&hellip;, kp]</var>, <var>[n1,n2,&hellip;, np]</var>, <var>[x1,x2,&hellip;, xp]</var>)</i></dt>
+<dd>
+<p>多重 Bernstein多項式 <code>multibernstein_poly (<var>[k1, k2, ..., 
+kp]</var>, <var>[n1, n2, ..., np]</var>, <var>[x1, x2, ..., xp]</var>)</code>は
+Bernstein多項式 <code>bernstein_poly(k1, n1, x1)
+bernstein_poly(k2, n2, x2) ... bernstein_poly(kp, np, xp)</code>の積です。
+</p>
+<p><code>multibernstein_poly</code>を使うには、最初に <code>load(&quot;bernstein&quot;)</code>してください。
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-bernstein_005fapprox"></a>
+</p><dl>
+<dt><a name="index-bernstein_005fapprox"></a><u>関数:</u> <b>bernstein_approx</b><i> (<var>f</var>, <var>[x1, x1, &hellip;, xn]</var>, n)</i></dt>
+<dd>
+<p>関数 <code>(x1, x2, ..., xn) |--&gt; f</code>の <code>n</code>次の一様
+Bernstein多項式近似を返します。
+</p>
+<p>例
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) bernstein_approx(f(x),[x], 2);
+                 2       1                          2
+(%o1)      f(1) x  + 2 f(-) (1 - x) x + f(0) (1 - x)
+                         2
+(%i2) bernstein_approx(f(x,y),[x,y], 2);
+               2  2       1                2
+(%o2) f(1, 1) x  y  + 2 f(-, 1) (1 - x) x y
+                          2
+                  2  2          1   2
+ + f(0, 1) (1 - x)  y  + 2 f(1, -) x  (1 - y) y
+                                2
+       1  1                               1         2
+ + 4 f(-, -) (1 - x) x (1 - y) y + 2 f(0, -) (1 - x)  (1 - y) y
+       2  2                               2
+            2        2       1                      2
+ + f(1, 0) x  (1 - y)  + 2 f(-, 0) (1 - x) x (1 - y)
+                             2
+                  2        2
+ + f(0, 0) (1 - x)  (1 - y)
+</pre></td></tr></table>
+
+<p><code>bernstein_approx</code>を使うには、最初に <code>load(&quot;bernstein&quot;)</code>してください。
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-bernstein_005fexpand"></a>
+</p><dl>
+<dt><a name="index-bernstein_005fexpand"></a><u>関数:</u> <b>bernstein_expand</b><i> (<var>e</var>, <var>[x1, x1, &hellip;, xn]</var>)</i></dt>
+<dd>
+<p><em>多項式</em> <code>e</code>を多変数 Bernstein多項式の線形結合として厳密に表します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) bernstein_expand(x*y+1,[x,y]);
+(%o1)    2 x y + (1 - x) y + x (1 - y) + (1 - x) (1 - y)
+(%i2) expand(%);
+(%o2)                        x y + 1
+</pre></td></tr></table>
+
+<p>一番目の引数が多項式でない時 Maximaはエラーをシグナルします。
+</p>
+<p><code>bernstein_expand</code>を使うには、最初に <code>load(&quot;bernstein&quot;)</code>してください。
+</p>
+</dd></dl>
+
+
+<p><a name="Item_003a-bode"></a>
+</p><hr size="6">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Bernstein" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_42.html#bode" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

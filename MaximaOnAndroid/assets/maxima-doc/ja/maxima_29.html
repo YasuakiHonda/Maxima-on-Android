@@ -1,0 +1,1316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on 2012年12月月12日 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Maxima 5.29.1 Manual: 29. Number Theory</title>
+
+<meta name="description" content="Maxima 5.29.1 Manual: 29. Number Theory">
+<meta name="keywords" content="Maxima 5.29.1 Manual: 29. Number Theory">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+body
+{
+    color: black;
+    background: white; 
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+h1
+{
+    margin-left: +8%;
+    font-size: 150%;
+    font-family: sans-serif
+}
+
+h2
+{
+    font-size: 125%;
+    font-family: sans-serif
+}
+
+h3
+{
+    font-size: 100%;
+    font-family: sans-serif
+}
+
+h2,h3,h4,h5,h6 { margin-left: +4%; }
+
+div.textbox
+{
+    border: solid;
+    border-width: thin;
+    /* width: 100%; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em
+}
+
+div.titlebox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: rgb(200,255,255);
+    font-family: sans-serif
+}
+
+div.synopsisbox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+     background: rgb(255,220,255);
+    /*background: rgb(200,255,255); */
+    /* font-family: fixed */
+}
+
+pre.example
+{
+    border: 1px solid gray;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    /* background: rgb(247,242,180); */ /* kind of sandy */
+    /* background: rgb(200,255,255); */ /* sky blue */
+    background-color: #F1F5F9; /* light blue-gray */
+    /* font-family: "Lucida Console", monospace */
+}
+
+div.spacerbox
+{
+    border: none;
+    padding-top: 2em;
+    padding-bottom: 2em
+}
+
+div.image
+{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+div.categorybox
+{
+    border: 1px solid gray;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: rgb(247,242,220);
+}
+
+
+-->
+</style>
+
+<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<script type="text/javascript"><!--
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-510249-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+--></script>
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="Number-Theory"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="maxima_28.html#Poisson-series" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Number-Theory" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_28.html#Sums-Products-and-Series" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_30.html#Symmetries" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Number-Theory-1"></a>
+<h1 class="chapter">29. Number Theory</h1>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Number-Theory">29.1 Functions and Variables for Number Theory</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+</table>
+
+<p><a name="Item_003a-Functions-and-Variables-for-Number-Theory"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-Number-Theory"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Number-Theory" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_30.html#Symmetries" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Number-Theory" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Number-Theory" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_30.html#Symmetries" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-and-Variables-for-Number-Theory-1"></a>
+<h2 class="section">29.1 Functions and Variables for Number Theory</h2>
+
+<p><a name="bern"></a>
+<a name="Item_003a-bern"></a>
+</p><dl>
+<dt><a name="index-bern"></a><u>関数:</u> <b>bern</b><i> (<var>n</var>)</i></dt>
+<dd>
+<p>整数 <var>n</var>について <var>n</var>番目の Bernoulli数を返します。
+もし <code>zerobern</code>が <code>false</code>ならゼロに等しい Bernoulli数は抑制されます。
+</p>
+<p><code>burn</code>も参照してください。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) zerobern: true$
+(%i2) map (bern, [0, 1, 2, 3, 4, 5, 6, 7, 8]);
+                  1  1       1      1        1
+(%o2)       [1, - -, -, 0, - --, 0, --, 0, - --]
+                  2  6       30     42       30
+(%i3) zerobern: false$
+(%i4) map (bern, [0, 1, 2, 3, 4, 5, 6, 7, 8]);
+            1  1    1   5     691   7    3617  43867
+(%o4) [1, - -, -, - --, --, - ----, -, - ----, -----]
+            2  6    30  66    2730  6    510    798
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="bernpoly"></a>
+<a name="Item_003a-bernpoly"></a>
+</p><dl>
+<dt><a name="index-bernpoly"></a><u>関数:</u> <b>bernpoly</b><i> (<var>x</var>, <var>n</var>)</i></dt>
+<dd>
+<p>変数 <var>x</var>に関する <var>n</var>番目の Bernoulli多項式を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="bfzeta"></a>
+<a name="Item_003a-bfzeta"></a>
+</p><dl>
+<dt><a name="index-bfzeta"></a><u>関数:</u> <b>bfzeta</b><i> (<var>s</var>, <var>n</var>)</i></dt>
+<dd>
+<p>引数 <var>s</var>に関する Riemannのゼータ関数を返します。
+戻り値は多倍長浮動小数点です; <var>n</var>は戻り値の小数点以下の桁数です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+ &middot;<a href="maxima_99.html#Category_003a-Numerical-evaluation">Numerical evaluation</a>
+</div></p></dd></dl>
+
+<p><a name="bfhzeta"></a>
+<a name="Item_003a-bfhzeta"></a>
+</p><dl>
+<dt><a name="index-bfhzeta"></a><u>関数:</u> <b>bfhzeta</b><i> (<var>s</var>, <var>h</var>, <var>n</var>)</i></dt>
+<dd>
+<p>引数 <var>s</var>と <var>h</var>に関する Hurwitzのゼータ関数を返します。
+戻り値は多倍長浮動小数点です; <var>n</var>は戻り値の小数点以下の桁数です。
+</p>
+<p>Hurwitzゼータ関数は以下のように定義されます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">                        inf
+                        ====
+                        \        1
+         zeta (s,h)  =   &gt;    --------
+                        /            s
+                        ====  (k + h)
+                        k = 0
+</pre></td></tr></table>
+
+<p><code>load (&quot;bffac&quot;)</code>でこの関数をロードします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+ &middot;<a href="maxima_99.html#Category_003a-Numerical-evaluation">Numerical evaluation</a>
+</div></p></dd></dl>
+
+<p><a name="burn"></a>
+<a name="Item_003a-burn"></a>
+</p><dl>
+<dt><a name="index-burn"></a><u>関数:</u> <b>burn</b><i> (<var>n</var>)</i></dt>
+<dd>
+<p><var>n</var>番目の Bernoulli数の近似の有理数をを返します。
+<code>burn</code>は(有理) Bernoulli数が
+まあまあの効率で(超越的)ゼータによって近似できるという観察を利用します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">                   n - 1  1 - 2 n
+              (- 1)      2        zeta(2 n) (2 n)!
+     B(2 n) = ------------------------------------
+                                2 n
+                             %pi
+</pre></td></tr></table>
+
+<p><code>bern</code>は返す前にインデックス <var>n</var>までの Bernoulli数すべてを計算するので、
+<code>burn</code>は大きな、孤立した <var>n</var>(たぶん 105以上の <var>n</var>)に対しては
+<code>bern</code>より効率的かもしれません。
+<code>burn</code>は 255よりおおきな偶数 <var>n</var>に対しては近似を呼び出します。
+奇数と 255以下の <var>n</var>に対しては関数 <code>bern</code>が呼び出されます。
+</p>
+<p><code>load (&quot;bffac&quot;)</code>でこの関数をロードします。
+<code>bern</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="chinese"></a>
+<a name="Item_003a-chinese"></a>
+</p><dl>
+<dt><a name="index-chinese"></a><u>関数:</u> <b>chinese</b><i> ([<var>r_1</var>, &hellip;, <var>r_n</var>], [<var>m_1</var>, &hellip;, <var>m_n</var>])</i></dt>
+<dd>
+<p>連立合同式 <code>x = r_1 mod m_1</code>, &hellip;, <code>x = r_n mod m_n</code>を解きます。
+剰余 <var>r_n</var>は任意の整数が可能である一方、
+法 <var>m_n</var>は正の互いに素な整数でなければいけません。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) mods : [1000, 1001, 1003, 1007];
+(%o1)                   [1000, 1001, 1003, 1007]
+(%i2) lreduce('gcd, mods);
+(%o2)                               1
+(%i3) x : random(apply(&quot;*&quot;, mods));
+(%o3)                         685124877004
+(%i4) rems : map(lambda([z], mod(x, z)), mods);
+(%o4)                       [4, 568, 54, 624]
+(%i5) chinese(rems, mods);
+(%o5)                         685124877004
+(%i6) chinese([1, 2], [3, n]);
+(%o6)                    chinese([1, 2], [3, n])
+(%i7) %, n = 4;
+(%o7)                              10
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="cf"></a>
+<a name="Item_003a-cf"></a>
+</p><dl>
+<dt><a name="index-cf"></a><u>関数:</u> <b>cf</b><i> (<var>expr</var>)</i></dt>
+<dd>
+<p>連分数近似を計算します。
+<var>expr</var>は連分数と整数の平方根と実数リテラル(整数、有理数、通常の浮動小数点や多倍長浮動小数点)から構成される式です。
+<code>cf</code>は有理数に関して厳密な展開を計算しますが、
+通常の浮動小数点に関して展開は <code>ratepsilon</code>で丸められ、
+多倍長小数点に関して <code>10^(-fpprec)</code>で丸められます。
+</p>
+<p>式の中のオペランドは代数演算子を組み合わせられます。
+Maximaは <code>cf</code>の外側で連分数に関する演算について知りません。
+</p>
+<p><code>listarith</code>を <code>false</code>にバインドした後、
+<code>cf</code>は引数を評価します。
+<code>cf</code>はリストとして表現された連分数を返します。
+</p>
+<p>連分数 <code>a + 1/(b + 1/(c + ...))</code>はリスト <code>[a, b, c, ...]</code>で表現されます。
+リストの要素 <code>a</code>, <code>b</code>, <code>c</code>, ...は整数に評価されなければいけません。
+<var>expr</var>は <code>sqrt (n)</code>も含むかもしれません。
+<code>n</code>は整数です。
+この場合、<code>cf</code>は変数 <code>cflength</code>の値掛ける周期と同じ数の連分数の項を与えます。
+</p>
+<p><code>cfdisrep</code>が返す代数表現を評価することで、連分数は数に評価することができます。
+連分数を評価する別の方法に関しては <code>cfexpand</code>も参照してください。
+</p>
+<p><code>cfdisrep</code>, <code>cfexpand</code>, <code>cflength</code>も参照してください。
+</p>
+<p>例:
+</p>
+<ul>
+<li>
+<var>expr</var>は連分数と整数の平方根から成る式です。
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) cf ([5, 3, 1]*[11, 9, 7] + [3, 7]/[4, 3, 2]);
+(%o1)               [59, 17, 2, 1, 1, 1, 27]
+(%i2) cf ((3/17)*[1, -2, 5]/sqrt(11) + (8/13));
+(%o2)        [0, 1, 1, 1, 3, 2, 1, 4, 1, 9, 1, 9, 2]
+</pre></td></tr></table>
+
+</li><li>
+<code>cflength</code>は連分数の何周期を代数的無理数のために計算するかを制御します。
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) cflength: 1$
+(%i2) cf ((1 + sqrt(5))/2);
+(%o2)                    [1, 1, 1, 1, 2]
+(%i3) cflength: 2$
+(%i4) cf ((1 + sqrt(5))/2);
+(%o4)               [1, 1, 1, 1, 1, 1, 1, 2]
+(%i5) cflength: 3$
+(%i6) cf ((1 + sqrt(5))/2);
+(%o6)           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2]
+</pre></td></tr></table>
+
+</li><li>
+<code>cfdisrep</code>が返す代数的表現を評価することによって連分数を評価することができます。
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) cflength: 3$
+(%i2) cfdisrep (cf (sqrt (3)))$
+(%i3) ev (%, numer);
+(%o3)                   1.731707317073171
+</pre></td></tr></table>
+
+</li><li>
+Maximaは <code>cf</code>の外側で連分数に関する演算について知りません。
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) cf ([1,1,1,1,1,2] * 3);
+(%o1)                     [4, 1, 5, 2]
+(%i2) cf ([1,1,1,1,1,2]) * 3;
+(%o2)                  [3, 3, 3, 3, 3, 6]
+</pre></td></tr></table>
+
+</li></ul>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Continued-fractions">Continued fractions</a>
+</div></p></dd></dl>
+
+
+<p><a name="cfdisrep"></a>
+<a name="Item_003a-cfdisrep"></a>
+</p><dl>
+<dt><a name="index-cfdisrep"></a><u>関数:</u> <b>cfdisrep</b><i> (<var>list</var>)</i></dt>
+<dd>
+<p>連分数 <code>[a, b, c, ...]</code>のリスト表現から形式
+<code>a + 1/(b + 1/(c + ...))</code>の通常の代数式を構成し返します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) cf ([1, 2, -3] + [1, -2, 1]);
+(%o1)                     [1, 1, 1, 2]
+(%i2) cfdisrep (%);
+                                  1
+(%o2)                     1 + ---------
+                                    1
+                              1 + -----
+                                      1
+                                  1 + -
+                                      2
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Continued-fractions">Continued fractions</a>
+</div></p></dd></dl>
+
+<p><a name="cfexpand"></a>
+<a name="Item_003a-cfexpand"></a>
+</p><dl>
+<dt><a name="index-cfexpand"></a><u>関数:</u> <b>cfexpand</b><i> (<var>x</var>)</i></dt>
+<dd>
+<p>連分数 <var>x</var>のコンバージェントの最後(列1)とその１つ前(列2)の分子と分母の行列を返します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) cf (rat (ev (%pi, numer)));
+
+`rat' replaced 3.141592653589793 by 103993/33102 =3.141592653011902
+(%o1)                  [3, 7, 15, 1, 292]
+(%i2) cfexpand (%); 
+                         [ 103993  355 ]
+(%o2)                    [             ]
+                         [ 33102   113 ]
+(%i3) %[1,1]/%[2,1], numer;
+(%o3)                   3.141592653011902
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Continued-fractions">Continued fractions</a>
+</div></p></dd></dl>
+
+<p><a name="cflength"></a>
+<a name="Item_003a-cflength"></a>
+</p><dl>
+<dt><a name="index-cflength"></a><u>オプション変数:</u> <b>cflength</b></dt>
+<dd><p>デフォルト値: 1
+</p>
+<p><code>cflength</code>は、値 <code>cflength</code>掛ける周期として関数
+<code>cf</code>が与える連分数の項の数を制御します。
+従って、デフォルトは 1周期を与えます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) cflength: 1$
+(%i2) cf ((1 + sqrt(5))/2);
+(%o2)                    [1, 1, 1, 1, 2]
+(%i3) cflength: 2$
+(%i4) cf ((1 + sqrt(5))/2);
+(%o4)               [1, 1, 1, 1, 1, 1, 1, 2]
+(%i5) cflength: 3$
+(%i6) cf ((1 + sqrt(5))/2);
+(%o6)           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Continued-fractions">Continued fractions</a>
+</div></p></dd></dl>
+
+<p><a name="divsum"></a>
+<a name="Item_003a-divsum"></a>
+</p><dl>
+<dt><a name="index-divsum"></a><u>関数:</u> <b>divsum</b><i> (<var>n</var>, <var>k</var>)</i></dt>
+<dt><a name="index-divsum-1"></a><u>関数:</u> <b>divsum</b><i> (<var>n</var>)</i></dt>
+<dd>
+<p><code>divsum (<var>n</var>, <var>k</var>)</code>は <var>n</var>の約数の <var>k</var>乗した和を返します。
+</p>
+<p><code>divsum (<var>n</var>)</code>は <var>n</var>の約数の和を返します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) divsum (12);
+(%o1)                          28
+(%i2) 1 + 2 + 3 + 4 + 6 + 12;
+(%o2)                          28
+(%i3) divsum (12, 2);
+(%o3)                          210
+(%i4) 1^2 + 2^2 + 3^2 + 4^2 + 6^2 + 12^2;
+(%o4)                          210
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="euler"></a>
+<a name="Item_003a-euler"></a>
+</p><dl>
+<dt><a name="index-euler"></a><u>関数:</u> <b>euler</b><i> (<var>n</var>)</i></dt>
+<dd>
+<p>非負の整数 <var>n</var>に対して <var>n</var>番目のEuler数を返します。
+</p>
+<p>Euler-Mascheroni定数に関しては <code>%gamma</code>を参照してください。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) map (euler, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+(%o1)    [1, 0, - 1, 0, 5, 0, - 61, 0, 1385, 0, - 50521]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="factors_005fonly"></a>
+<a name="Item_003a-factors_005fonly"></a>
+</p><dl>
+<dt><a name="index-factors_005fonly"></a><u>オプション変数:</u> <b>factors_only</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code><a href="#ifactors">ifactors</a></code>.
+が返す値を制御します。
+デフォルトの <code>false</code>の時、
+<code>ifactors</code>は計算された素因数の多重性について情報を提供するようになります。
+もし <code>factors_only</code>が <code>true</code>に設定されているなら、 
+<code>ifactors</code>は素因数のリスト以外なにも返しません。
+</p>
+<p>例: <code><a href="#ifactors">ifactors</a></code>.
+を参照して下さい。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="fib"></a>
+<a name="Item_003a-fib"></a>
+</p><dl>
+<dt><a name="index-fib"></a><u>関数:</u> <b>fib</b><i> (<var>n</var>)</i></dt>
+<dd><p>第 <var>n</var>項の Fibonacci数を返します。
+<code>fib(0)</code>は 0に等しく、 <code>fib(1)</code>は 1に等しく、
+<code>fib (-<var>n</var>)</code>は <code>(-1)^(<var>n</var> + 1) * fib(<var>n</var>)</code>に等しいです。
+</p>
+<p><code>fib</code>をコールした後，
+<code>prevfib</code>は 最後に計算された１つ前の Fibonacci数
+<code>fib (<var>x</var> - 1)</code>に等しいです。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) map (fib, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+(%o1)         [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="fibtophi"></a>
+<a name="Item_003a-fibtophi"></a>
+</p><dl>
+<dt><a name="index-fibtophi"></a><u>関数:</u> <b>fibtophi</b><i> (<var>expr</var>)</i></dt>
+<dd>
+<p><var>expr</var>に関する Fibonacci数を定数 <code>%phi</code>を使って表現します。
+<code>%phi</code>は <code>(1 + sqrt(5))/2</code>, 近似的に1.61803399です。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) fibtophi (fib (n));
+                           n             n
+                       %phi  - (1 - %phi)
+(%o1)                  -------------------
+                           2 %phi - 1
+(%i2) fib (n-1) + fib (n) - fib (n+1);
+(%o2)          - fib(n + 1) + fib(n) + fib(n - 1)
+(%i3) fibtophi (%);
+            n + 1             n + 1       n             n
+        %phi      - (1 - %phi)        %phi  - (1 - %phi)
+(%o3) - --------------------------- + -------------------
+                2 %phi - 1                2 %phi - 1
+                                          n - 1             n - 1
+                                      %phi      - (1 - %phi)
+                                    + ---------------------------
+                                              2 %phi - 1
+(%i4) ratsimp (%);
+(%o4)                           0
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="ifactors"></a>
+<a name="Item_003a-ifactors"></a>
+</p><dl>
+<dt><a name="index-ifactors"></a><u>関数:</u> <b>ifactors</b><i> (<var>n</var>)</i></dt>
+<dd>
+<p>正の整数 <var>n</var>に対して <var>n</var>の素因数分解を返します。
+もし <code>n=p1^e1..pk^nk</code>が <var>n</var>の素因数への分解なら、
+ifactorsは <code>[[p1, e1], ... , [pk, ek]]</code>を返します。
+</p>
+<p>使われる素因数分解法は 9973までの素数による試行除算と、
+Pollardのロー法、p-1法、楕円曲線法です。
+</p>
+<p><code>ifactors</code>が返す値はオプション変数 <code><a href="#factors_005fonly">factors_only</a></code>
+によって制御されます。
+デフォルトの <code>false</code>の時、
+<code>ifactors</code>は計算された素因数の多重性について情報を提供するようになります。
+もし <code>factors_only</code>が <code>true</code>に設定されているなら、 
+<code>ifactors</code>は単に素因数のリストを返します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) ifactors(51575319651600);
+(%o1)     [[2, 4], [3, 2], [5, 2], [1583, 1], [9050207, 1]]
+(%i2) apply(&quot;*&quot;, map(lambda([u], u[1]^u[2]), %));
+(%o2)                        51575319651600
+(%i3) ifactors(51575319651600), factors_only : true;
+(%o3)                   [2, 3, 5, 1583, 9050207]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="igcdex"></a>
+<a name="Item_003a-igcdex"></a>
+</p><dl>
+<dt><a name="index-igcdex"></a><u>関数:</u> <b>igcdex</b><i> (<var>n</var>, <var>k</var>)</i></dt>
+<dd>
+<p>リスト <code>[<var>a</var>, <var>b</var>, <var>u</var>]</code>を返します。
+ここで、 <var>u</var>は <var>n</var>と <var>k</var>の最大公約数で、
+<var>u</var>は <code><var>a</var> <var>n</var> + <var>b</var> <var>k</var></code>に等しいです。
+引数 <var>n</var>と <var>k</var>は整数でなければいけません。
+</p>
+<p><code>igcdex</code>はユークリッドのアルゴリズムを実装します。
+<code><a href="maxima_14.html#gcdex">gcdex</a></code>.
+も参照してください。
+</p>
+<p>コマンド <code>load(gcdex)</code>でこの関数をロードします。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(gcdex)$
+
+(%i2) igcdex(30,18);
+(%o2)                      [- 1, 2, 6]
+(%i3) igcdex(1526757668, 7835626735736);
+(%o3)            [845922341123, - 164826435, 4]
+(%i4) igcdex(fib(20), fib(21));
+(%o4)                   [4181, - 2584, 1]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="inrt"></a>
+<a name="Item_003a-inrt"></a>
+</p><dl>
+<dt><a name="index-inrt"></a><u>関数:</u> <b>inrt</b><i> (<var>x</var>, <var>n</var>)</i></dt>
+<dd>
+<p><var>x</var>の絶対値の整数 <var>n</var>乗根を返します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) l: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]$
+(%i2) map (lambda ([a], inrt (10^a, 3)), l);
+(%o2) [2, 4, 10, 21, 46, 100, 215, 464, 1000, 2154, 4641, 10000]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="inv_005fmod"></a>
+<a name="Item_003a-inv_005fmod"></a>
+</p><dl>
+<dt><a name="index-inv_005fmod"></a><u>関数:</u> <b>inv_mod</b><i> (<var>n</var>, <var>m</var>)</i></dt>
+<dd>
+<p><var>m</var>を法とする <var>n</var>の逆元を計算します。
+もし <var>n</var>が <var>m</var>を法とするゼロ因子なら、
+<code>inv_mod (n,m)</code>は <code>false</code>を返します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) inv_mod(3, 41);
+(%o1)                           14
+(%i2) ratsimp(3^-1), modulus=41;
+(%o2)                           14
+(%i3) inv_mod(3, 42);
+(%o3)                          false
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="isqrt"></a>
+<a name="Item_003a-isqrt"></a>
+</p><dl>
+<dt><a name="index-isqrt"></a><u>関数:</u> <b>isqrt</b><i> (<var>x</var>)</i></dt>
+<dd>
+<p>整数 <var>x</var>の絶対値の「整数平方根」を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Mathematical-functions">Mathematical functions</a>
+</div></p></dd></dl>
+
+<p><a name="jacobi"></a>
+<a name="Item_003a-jacobi"></a>
+</p><dl>
+<dt><a name="index-jacobi"></a><u>関数:</u> <b>jacobi</b><i> (<var>p</var>, <var>q</var>)</i></dt>
+<dd>
+<p><var>p</var>と <var>q</var>の Jacobi記号を返します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) l: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]$
+(%i2) map (lambda ([a], jacobi (a, 9)), l);
+(%o2)         [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="lcm"></a>
+<a name="Item_003a-lcm"></a>
+</p><dl>
+<dt><a name="index-lcm"></a><u>関数:</u> <b>lcm</b><i> (<var>expr_1</var>, ..., <var>expr_n</var>)</i></dt>
+<dd>
+<p>引数の最小公倍数を返します。
+引数は、整数はもちろん一般式を取り得ます。
+</p>
+<p><code>load (&quot;functs&quot;)</code>でこの関数をロードします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="mod"></a>
+<a name="Item_003a-mod"></a>
+</p><dl>
+<dt><a name="index-mod"></a><u>関数:</u> <b>mod</b><i> (<var>x</var>, <var>y</var>)</i></dt>
+<dd>
+<p>もし <var>x</var>と <var>y</var>が実数で、 <var>y</var>がゼロでないなら、
+<code><var>x</var> - <var>y</var> * floor(<var>x</var> / <var>y</var>)</code>を返します。
+さらにすべての実数 <var>x</var>に関して <code>mod (<var>x</var>, 0) = <var>x</var></code>が成り立ちます。
+定義 <code>mod (<var>x</var>, 0) = <var>x</var></code>の議論に関しては、
+Graham, Knuth, Patashnik著の「コンピュータの数学」の3.4節を参照してください。
+関数 <code>mod (<var>x</var>, 1)</code> は周期が 1で
+<code>mod (1, 1) = 0</code>、<code>mod (0, 1) = 0</code>ののこぎり波関数です。
+</p>
+<p>複素数の偏角の主値（区間 <code>(-%pi, %pi]</code>での数）を見つけるためには、
+関数 <code><var>x</var> |-&gt; %pi - mod (%pi - <var>x</var>, 2*%pi)</code>を使います。
+<var>x</var>は引数です。
+</p>
+<p><var>x</var>と <var>y</var>が定数式(例えば <code>10 * %pi</code>)の時、
+<code>mod</code>は <code>floor</code>や
+<code>ceiling</code>が使うのと同じ多倍長浮動小数点評価スキームを使います。
+同様に、まれですが そんな場合には<code>mod</code>は間違った値を返すことがありえます。
+</p>
+<p>数値でない引数 <var>x</var>や <var>y</var>に関して
+<code>mod</code>はいくつかの式整理規則を知っています:
+</p>
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) mod (x, 0);
+(%o1)                           x
+(%i2) mod (a*x, a*y);
+(%o2)                      a mod(x, y)
+(%i3) mod (0, x);
+(%o3)                           0
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Mathematical-functions">Mathematical functions</a>
+</div></p></dd></dl>
+
+<p><a name="next_005fprime"></a>
+<a name="Item_003a-next_005fprime"></a>
+</p><dl>
+<dt><a name="index-next_005fprime"></a><u>関数:</u> <b>next_prime</b><i> (<var>n</var>)</i></dt>
+<dd>
+<p><var>n</var>よりも大きな最も小さな素数を返します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) next_prime(27);
+(%o1)                       29
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="partfrac"></a>
+<a name="Item_003a-partfrac"></a>
+</p><dl>
+<dt><a name="index-partfrac"></a><u>関数:</u> <b>partfrac</b><i> (<var>expr</var>, <var>var</var>)</i></dt>
+<dd>
+<p>主変数 <var>var</var>に関する部分分数式 <var>expr</var>を展開します。
+<code>partfrac</code>は完全な部分分数分解を行います。
+利用したアルゴリズムは
+部分分数展開(元の分母の因子)の分母は互いに素であるという事実に基づいています。
+分子は分母の線形結合として書けて、結果は展開されたものになります。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) 1/(1+x)^2 - 2/(1+x) + 2/(2+x);
+                      2       2        1
+(%o1)               ----- - ----- + --------
+                    x + 2   x + 1          2
+                                    (x + 1)
+(%i2) ratsimp (%);
+                                 x
+(%o2)                 - -------------------
+                         3      2
+                        x  + 4 x  + 5 x + 2
+(%i3) partfrac (%, x);
+                      2       2        1
+(%o3)               ----- - ----- + --------
+                    x + 2   x + 1          2
+                                    (x + 1)
+</pre></td></tr></table>
+</dd></dl>
+
+<p><a name="power_005fmod"></a>
+<a name="Item_003a-power_005fmod"></a>
+</p><dl>
+<dt><a name="index-power_005fmod"></a><u>関数:</u> <b>power_mod</b><i> (<var>a</var>, <var>n</var>, <var>m</var>)</i></dt>
+<dd>
+<p><code>a^n mod m</code>を計算するために剰余アルゴリズムを使います。
+ここで、 <var>a</var>と <var>n</var>は整数で、 <var>m</var>は正の整数です。
+もし <var>n</var>が負なら <code>inv_mod</code>が剰余逆元を見つけるために使われます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) power_mod(3, 15, 5);
+(%o1)                          2
+&lt;(%i2) mod(3^15,5);
+(%o2)                          2
+(%i3) power_mod(2, -1, 5);
+(%o3)                          3
+(%i4) inv_mod(2,5);
+(%o4)                          3
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="primep"></a>
+<a name="Item_003a-primep"></a>
+</p><dl>
+<dt><a name="index-primep"></a><u>関数:</u> <b>primep</b><i> (<var>n</var>)</i></dt>
+<dd>
+<p>素数テスト。
+もし <code>primep (<var>n</var>)</code>が <code>false</code>を返すなら、 <var>n</var>は合成数であり、
+もし <code>true</code>を返すなら、 <var>n</var>は非常に高い確率で素数です。
+</p>
+<p>341550071728321より小さな <var>n</var>に対しては
+Miller-Rabinのテストの決定的バージョンが使われます。
+もし <code>primep (<var>n</var>)</code>が <code>true</code>を返すなら、 <var>n</var>は素数です。
+</p>
+<p>341550071728321よりの大きな <var>n</var>に対して、
+<code>primep</code>は、
+<code>primep_number_of_tests</code>個の Miller-Rabinの疑似素数テストと
+1つの Lucasの疑似素数テストを使います。
+合成数 <var>n</var>が Miller-Rabinのテスト１つを通過する確率は 1/4より小さいです。
+<code>primep_number_of_tests</code>に関してデフォルト値 25を使うと、
+通過した <var>n</var>が合成である確率は 10^-15よりもはるかに小さいです。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
+ &middot;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="primep_005fnumber_005fof_005ftests"></a>
+<a name="Item_003a-primep_005fnumber_005fof_005ftests"></a>
+</p><dl>
+<dt><a name="index-primep_005fnumber_005fof_005ftests"></a><u>オプション変数:</u> <b>primep_number_of_tests</b></dt>
+<dd><p>デフォルト値: 25
+</p>
+<p><code>primep</code>の中で使われる Miller-Rabinのテストの回数。
+</p>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="prev_005ftime"></a>
+<a name="Item_003a-prev_005fprime"></a>
+</p><dl>
+<dt><a name="index-prev_005fprime"></a><u>関数:</u> <b>prev_prime</b><i> (<var>n</var>)</i></dt>
+<dd>
+<p><var>n</var>よりも小さな最大の素数を返します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) prev_prime(27);
+(%o1)                       23
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="qunit"></a>
+<a name="Item_003a-qunit"></a>
+</p><dl>
+<dt><a name="index-qunit"></a><u>関数:</u> <b>qunit</b><i> (<var>n</var>)</i></dt>
+<dd>
+<p>実二次数体 <code>sqrt (<var>n</var>)</code>の基本単数、すなわちノルムが 1の要素を返します。
+ここで <var>n</var>は整数です。
+これは結果的にペル方程式 <code>a^2 - <var>n</var> b^2 = 1</code>を解くことになります。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) qunit (17);
+(%o1)                     sqrt(17) + 4
+(%i2) expand (% * (sqrt(17) - 4));
+(%o2)                           1
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="totient"></a>
+<a name="Item_003a-totient"></a>
+</p><dl>
+<dt><a name="index-totient"></a><u>関数:</u> <b>totient</b><i> (<var>n</var>)</i></dt>
+<dd>
+<p><var>n</var>以下の <var>n</var>と互いに素な整数の数を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-zerobern"></a>
+</p><dl>
+<dt><a name="index-zerobern"></a><u>オプション変数:</u> <b>zerobern</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p><code>zerobern</code>が <code>false</code>の時、
+<code>bern</code>は Bernoulli数を除外し、 <code>euler</code>はゼロに等しい Euler数を除外します。
+<code>bern</code>と <code>euler</code>を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p>
+</dd></dl>
+
+<p><a name="zeta"></a>
+<a name="Item_003a-zeta"></a>
+</p><dl>
+<dt><a name="index-zeta"></a><u>関数:</u> <b>zeta</b><i> (<var>n</var>)</i></dt>
+<dd>
+<p>Riemannのゼータ関数を返します。
+もし <var>x</var>が負の整数か, 0, 1,または正の偶数なら、
+Reimannのゼータ関数は厳密な値に整理されます。
+正の偶数に対してはオプション変数
+<code>zeta%pi</code>は <code>true</code>であることも必要です。
+(<code>zeta%pi</code>を参照してください。)
+浮動小数点または多倍長浮動小数点数に対しては Reimannゼータ関数は数値的に評価されます。
+Maximaは、
+有理非整数、浮動小数点数、複素数の引数を含む他の引数すべてに対して、
+また、 <code>zeta%pi</code>が値 <code>false</code>なら偶数に対しても
+名詞形 <code>zeta (<var>n</var>)</code>を返します。
+</p>
+<p><code>zeta(1)</code>は未定義ですが、
+Maximaは上からと下からの極限 <code>limit(zeta(x), x, ,1)</code>を知っています。
+</p>
+<p><code>bfzeta</code>と <code>zeta%pi</code>も参照してください。
+</p>
+<p>例：
+</p>
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) zeta([-2, -1, 0, 0.5, 2, 3, 1+%i]);
+                                             2
+            1     1                       %pi
+(%o1) [0, - --, - -, - 1.460354508809586, ----, zeta(3), 
+            12    2                        6
+                                                    zeta(%i + 1)]
+(%i2) limit(zeta(x),x,1,plus);
+(%o2)                          inf
+(%i3) limit(zeta(x),x,1,minus);
+(%o3)                         minf
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="zeta_0025pi"></a>
+<a name="Item_003a-zeta_0025pi"></a>
+</p><dl>
+<dt><a name="index-zeta_0025pi"></a><u>オプション変数:</u> <b>zeta%pi</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p><code>zeta%pi</code>が <code>true</code>の時、
+偶数 <code>n</code>に対して <code>zeta</code>は <code>%pi^n</code>に比例する式を返します。
+そうでないなら、
+偶数 <code>n</code>に対して <code>zeta</code>は名詞形 <code>zeta (n)</code>を返します。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) zeta%pi: true$
+(%i2) zeta (4);
+                                 4
+                              %pi
+(%o2)                         ----
+                               90
+(%i3) zeta%pi: false$
+(%i4) zeta (4);
+(%o4)                        zeta(4)
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+
+<p><a name="zn_005flog"></a>
+<a name="Item_003a-zn_005flog"></a>
+</p><dl>
+<dt><a name="index-zn_005flog"></a><u>関数:</u> <b>zn_log</b><i> (<var>a</var>, <var>g</var>, <var>n</var>)</i></dt>
+<dt><a name="index-zn_005flog-1"></a><u>関数:</u> <b>zn_log</b><i> (<var>a</var>, <var>g</var>, <var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i></dt>
+<dd>
+<p>離散対数を計算します。
+(Z/<var>n</var>Z)* が巡回群、 <var>g</var>が <var>n</var>を法とする原始根とし、
+<var>a</var>がこの群の要素とします。
+そのとき、<code>zn_log (a, g, n)</code>は合同式 <code>g^x = a mod n</code>を解きます。
+</p>
+<p>採用したアルゴリズムは <code>totient(n)</code>の素因数分解を必要とします。
+この素因数分解はその上時間を消費するかもしれず、いくつかの場合、
+最初に素因数分解してそれから因数のリストを
+4番目の引数として <code>zn_log</code>に渡すのが実用的かもしれません。
+リストは、デフォルトオプション <code>factors_only : false</code>を使って
+<code>ifactors(totient(n))</code>が返すリストと同じ形式でなければいけません。
+</p>
+<p>離散対数のために、アルゴリズムは Pohlig-Hellman-縮約と Pollardのロー法を使います。
+<code>zn_log</code>の実行時間は主にtotientの最大素因数のビット長に依存します。
+</p>
+<p><code><a href="#zn_005fprimroot">zn_primroot</a></code>
+, <code><a href="#zn_005forder">zn_order</a></code>
+, <code><a href="#ifactors">ifactors</a></code>
+, <code><a href="#totient">totient</a></code>
+も参照して下さい。
+</p>
+<p>例:
+</p>
+<p><code>zn_log (a, g, n)</code> solves the congruence <code>g^x = a mod n</code>.
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) n : 22$
+(%i2) g : zn_primroot(n);
+(%o2)                               7
+(%i3) ord_7 : zn_order(7, n);
+(%o3)                              10
+(%i4) powers_7 : makelist(power_mod(g, x, n), x, 0, ord_7 - 1);
+(%o4)              [1, 7, 5, 13, 3, 21, 15, 17, 9, 19]
+(%i5) zn_log(21, g, n);
+(%o5)                               5
+(%i6) map(lambda([x], zn_log(x, g, n)), powers_7);
+(%o6)                [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</pre></td></tr></table>
+
+<p>オプションの4番目の引数は <code>ifactors(totient(n))</code>が返すリストと同じ形式でなければいけません。
+実行時間は主にtotientの最大素因数のビット長に依存します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) (p : 2^127-1, primep(p));
+(%o1)                             true
+(%i2) ifs : ifactors(p - 1)$
+(%i3) g : zn_primroot(p, ifs);
+(%o3)                              43
+(%i4) a : power_mod(g, 1234567890, p)$
+(%i5) zn_log(a, g, p, ifs);
+(%o5)                          1234567890
+(%i6) time(%o5);  
+(%o6)                            [1.204]
+(%i7) f_max : last(ifs);
+(%o7)                       [77158673929, 1]
+(%i8) slength( printf(false, &quot;~b&quot;, f_max[1]) );
+(%o8)                              37
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="zn_005forder"></a>
+<a name="Item_003a-zn_005forder"></a>
+</p><dl>
+<dt><a name="index-zn_005forder"></a><u>関数:</u> <b>zn_order</b><i> (<var>x</var>, <var>n</var>)</i></dt>
+<dt><a name="index-zn_005forder-1"></a><u>関数:</u> <b>zn_order</b><i> (<var>x</var>, <var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i></dt>
+<dd>
+<p><var>x</var>が 有限群 (Z/<var>n</var>Z)*の単位元ならその次数を返し、そうでないなら
+<code>false</code>を返します。
+<var>x</var>は<var>n</var>と互いに素なら<var>n</var>を法とする単位元です。
+</p>
+<p>採用したアルゴリズムは
+<code>totient(n)</code>の素因数分解を必要とします。
+この素因数分解はその上時間を消費するかもしれず、いくつかの場合、
+最初に素因数分解してそれから因数のリストを
+3番目の引数として <code>zn_order</code>に渡すのが実用的かもしれません。
+リストは、デフォルトオプション <code>factors_only : false</code>を使って
+<code>ifactors(totient(n))</code>が返すリストと同じ形式でなければいけません。
+</p>
+<p><code><a href="#zn_005fprimroot">zn_primroot</a></code>
+, <code><a href="#ifactors">ifactors</a></code>
+, <code><a href="#totient">totient</a></code>
+も参照して下さい。
+</p>
+<p>例:
+</p>
+<p><code>zn_order</code>は (Z/<var>n</var>Z)*の単位元 <var>x</var>の次数を計算します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) n : 22$
+(%i2) g : zn_primroot(n);
+(%o2)                               7
+(%i3) units_22 : sublist(makelist(i,i,1,21), lambda([x], gcd(x, n) = 1));
+(%o3)              [1, 3, 5, 7, 9, 13, 15, 17, 19, 21]
+(%i4) (ord_7 : zn_order(7, n)) = totient(n);
+(%o4)                            10 = 10
+(%i5) powers_7 : makelist(power_mod(g,i,n), i,0,ord_7 - 1);
+(%o5)              [1, 7, 5, 13, 3, 21, 15, 17, 9, 19]
+(%i6) map(lambda([x], zn_order(x, n)), powers_7);
+(%o6)              [1, 10, 5, 10, 5, 2, 5, 10, 5, 10]
+(%i7) map(lambda([x], ord_7/gcd(x, ord_7)), makelist(i, i,0,ord_7 - 1));
+(%o7)              [1, 10, 5, 10, 5, 2, 5, 10, 5, 10]
+(%i8) totient(totient(n));
+(%o8)                               4
+</pre></td></tr></table>
+
+<p>オプションの三番目の引数は
+<code>ifactors(totient(n))</code>が返すリストと同じ形式でなければいけません。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) (p : 2^142 + 217, primep(p));
+(%o1)                             true
+(%i2) ifs : ifactors( totient(p) )$
+(%i3) g : zn_primroot(p, ifs);
+(%o3)                               3
+(%i4) is( (ord_3 : zn_order(g, p, ifs)) = totient(p) );
+(%o4)                             true
+(%i5) map(lambda([x], ord_3/zn_order(x, p, ifs)), makelist(i,i,2,15));
+(%o5)        [22, 1, 44, 10, 5, 2, 22, 2, 8, 2, 1, 1, 20, 1]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="zn_005fprimroot"></a>
+<a name="Item_003a-zn_005fprimroot"></a>
+</p><dl>
+<dt><a name="index-zn_005fprimroot"></a><u>関数:</u> <b>zn_primroot</b><i> (<var>n</var>)</i></dt>
+<dt><a name="index-zn_005fprimroot-1"></a><u>関数:</u> <b>zn_primroot</b><i> (<var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i></dt>
+<dd>
+<p>もし乗法群 (Z/<var>n</var>Z)*が巡回的なら、
+<code>zn_primroot</code>は <var>n</var>を法とする最小の原始根を計算します。
+もし <var>n</var>が 
+<code>2</code>, <code>4</code>, <code>p^k</code> または <code>2*p^k</code>に等しいなら
+(Z/<var>n</var>Z)* は巡回的です。
+ここで <code>p</code>は素数で <code>2</code>より大きく <code>k</code>は自然数です。
+もしオプション変数 <code><a href="#zn_005fprimroot_005fpretest">zn_primroot_pretest</a></code>
+(デフォルト: <code>false</code>)が <code>true</code>に設定されているなら
+<code>zn_primroot</code>は条件付き事前テスト(according pretest)を実行します。
+どんな場合でも計算は上限 <code><a href="#zn_005fprimroot_005flimit">zn_primroot_limit</a></code>
+で制限されます。
+</p>
+<p>もし (Z/<var>n</var>Z)* が巡回的でないか
+<code>zn_primroot_limit</code>まで原始根がないなら、
+<code>zn_primroot</code>は <code>false</code>を返します。
+</p>
+<p>採用したアルゴリズムは
+<code>totient(n)</code>の素因数分解を必要とします。
+この素因数分解はその上時間を消費するかもしれず、いくつかの場合、
+最初に素因数分解してそれから因数のリストを
+3番目の引数として <code>zn_primroot</code>に渡すのが実用的かもしれません。
+</p>
+<p>リストは、デフォルトオプション <code>factors_only : false</code>を使って
+<code>ifactors(totient(n))</code>が返すリストと同じ形式でなければいけません。
+</p>
+<p><code><a href="#zn_005fprimroot_005fp">zn_primroot_p</a></code>
+, <code><a href="#zn_005forder">zn_order</a></code>
+, <code><a href="#ifactors">ifactors</a></code>
+, <code><a href="#totient">totient</a></code>
+も参照してください。
+</p>
+<p>例:
+</p>
+<p><code>zn_primroot</code>は <var>n</var>を法とする最小原始根を計算するか、
+<code>false</code>を返します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) n : 14$
+(%i2) g : zn_primroot(n);
+(%o2)                               3
+(%i3) zn_order(g, n) = totient(n);
+(%o3)                             6 = 6
+(%i4) n : 15$
+(%i5) zn_primroot(n);
+(%o5)                             false
+</pre></td></tr></table>
+
+<p>オプションの二番目の引数は　<code>ifactors(totient(n))</code>が返すリストと同じ形式でなければいけません。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) (p : 2^142 + 217, primep(p));
+(%o1)                             true
+(%i2) ifs : ifactors( totient(p) )$
+(%i3) g : zn_primroot(p, ifs);
+(%o3)                               3
+(%i4) [time(%o2), time(%o3)];
+(%o4)                    [[15.556972], [0.004]]
+(%i5) is(zn_order(g, p, ifs) = p - 1);
+(%o5)                             true
+(%i6) n : 2^142 + 216$
+(%i7) ifs : ifactors(totient(n))$
+(%i8) zn_primroot(n, ifs), 
+      zn_primroot_limit : 200, zn_primroot_verbose : true;
+`zn_primroot' stopped at zn_primroot_limit = 200
+(%o8)                             false
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="zn_005fprimroot_005flimit"></a>
+<a name="Item_003a-zn_005fprimroot_005flimit"></a>
+</p><dl>
+<dt><a name="index-zn_005fprimroot_005flimit"></a><u>オプション変数:</u> <b>zn_primroot_limit</b></dt>
+<dd><p>でフォルト値: <code>1000</code> 
+</p>
+<p>もし <code><a href="#zn_005fprimroot">zn_primroot</a></code>.
+が原始根をみつけられないなら、
+上限でやめます。
+もしオプション変数 <code><a href="#zn_005fprimroot_005fverbose">zn_primroot_verbose</a></code>.
+ (デフォルト: <code>false</code>)が
+<code>true</code>に設定されているなら、
+<code>zn_primroot_limit</code>に到達した時メッセージが表示されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="zn_005fprimroot_005fp"></a>
+<a name="Item_003a-zn_005fprimroot_005fp"></a>
+</p><dl>
+<dt><a name="index-zn_005fprimroot_005fp"></a><u>関数:</u> <b>zn_primroot_p</b><i> (<var>x</var>, <var>n</var>)</i></dt>
+<dt><a name="index-zn_005fprimroot_005fp-1"></a><u>関数:</u> <b>zn_primroot_p</b><i> (<var>x</var>, <var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i></dt>
+<dd>
+<p><var>x</var>が乗法群 (Z/<var>n</var>Z)*の原始根かチェックします。
+</p>
+<p>採用したアルゴリズムは
+<code>totient(n)</code>の素因数分解を必要とします。
+この素因数分解はその上時間を消費するかもしれず、いくつかの場合、
+最初に素因数分解してそれから因数のリストを
+3番目の引数として <code>zn_primroot_p</code>に渡すのが実用的かもしれません。
+リストは、デフォルトオプション <code>factors_only : false</code>を使って
+<code>ifactors(totient(n))</code>が返すリストと同じ形式でなければいけません。
+</p>
+<p><code><a href="#zn_005fprimroot">zn_primroot</a></code>
+, <code><a href="#zn_005forder">zn_order</a></code>
+, <code><a href="#ifactors">ifactors</a></code>
+, <code><a href="#totient">totient</a></code>
+も参照して下さい。
+</p>
+<p>例:
+</p>
+<p>述語論理関数としての<code>zn_primroot_p</code>。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) n : 14$
+(%i2) units_14 : sublist(makelist(i,i,1,13), lambda([i], gcd(i, n) = 1));
+(%o2)                     [1, 3, 5, 9, 11, 13]
+(%i3) zn_primroot_p(13, n);
+(%o3)                            false
+(%i4) sublist(units_14, lambda([x], zn_primroot_p(x, n)));
+(%o4)                            [3, 5]
+(%i5) map(lambda([x], zn_order(x, n)), units_14);
+(%o5)                      [1, 6, 6, 3, 3, 2]
+</pre></td></tr></table>
+
+<p>オプションの三番目の引数は
+<code>ifactors(totient(n))</code>が返すリストと同じ形式でなければいけません。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) (p : 2^142 + 217, primep(p));
+(%o1)                             true
+(%i2) ifs : ifactors( totient(p) )$
+(%i3) sublist(makelist(i,i,1,50), lambda([x], zn_primroot_p(x, p, ifs)));
+(%o3)      [3, 12, 13, 15, 21, 24, 26, 27, 29, 33, 38, 42, 48]
+(%i4) [time(%o2), time(%o3)];
+(%o4)                   [[7.748484], [0.036002]]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
+ &middot;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="zn_005fprimroot_005fpretest"></a>
+<a name="Item_003a-zn_005fprimroot_005fpretest"></a>
+</p><dl>
+<dt><a name="index-zn_005fprimroot_005fpretest"></a><u>オプション変数:</u> <b>zn_primroot_pretest</b></dt>
+<dd><p>デフォルト値: <code>false</code> 
+</p>
+<p>もし <var>n</var>が <code>2</code>, <code>4</code>, <code>p^k</code> か <code>2*p^k</code>なら
+乗法群 (Z/<var>n</var>Z)*は巡回的です。
+ここで <code>p</code>は素数で <code>2</code>より大きく、 <code>k</code>は自然数です。
+</p>
+<p><code>zn_primroot_pretest</code>は
+<code><a href="#zn_005fprimroot">zn_primroot</a></code>.
+が
+最小原始根を計算する前にこれらの場合の１つが起こるかどうかチェックするかどうか制御します。
+</p>
+<p><code>zn_primroot_pretest</code>が <code>true</code>に設定されているときだけ、
+これの事前テストが実行されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+<p><a name="zn_005fprimroot_005fverbose"></a>
+<a name="Item_003a-zn_005fprimroot_005fverbose"></a>
+</p><dl>
+<dt><a name="index-zn_005fprimroot_005fverbose"></a><u>オプション変数:</u> <b>zn_primroot_verbose</b></dt>
+<dd><p>デフォルト値: <code>false</code> 
+</p>
+<p><code><a href="#zn_005fprimroot_005flimit">zn_primroot_limit</a></code>.
+に達したとき、
+<code><a href="#zn_005fprimroot">zn_primroot</a></code>.
+がメッセージを表示するかどうか制御します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Number-theory">Number theory</a>
+</div></p></dd></dl>
+
+
+<p><a name="Item_003a-Symmetries"></a>
+</p><hr size="6">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Number-Theory" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_30.html#Symmetries" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

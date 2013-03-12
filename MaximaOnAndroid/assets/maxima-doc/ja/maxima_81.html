@@ -1,0 +1,675 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on 2012年12月月12日 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Maxima 5.29.1 Manual: 81. zeilberger</title>
+
+<meta name="description" content="Maxima 5.29.1 Manual: 81. zeilberger">
+<meta name="keywords" content="Maxima 5.29.1 Manual: 81. zeilberger">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+body
+{
+    color: black;
+    background: white; 
+    margin-left: 8%;
+    margin-right: 13%;
+}
+
+h1
+{
+    margin-left: +8%;
+    font-size: 150%;
+    font-family: sans-serif
+}
+
+h2
+{
+    font-size: 125%;
+    font-family: sans-serif
+}
+
+h3
+{
+    font-size: 100%;
+    font-family: sans-serif
+}
+
+h2,h3,h4,h5,h6 { margin-left: +4%; }
+
+div.textbox
+{
+    border: solid;
+    border-width: thin;
+    /* width: 100%; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em
+}
+
+div.titlebox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: rgb(200,255,255);
+    font-family: sans-serif
+}
+
+div.synopsisbox
+{
+    border: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+     background: rgb(255,220,255);
+    /*background: rgb(200,255,255); */
+    /* font-family: fixed */
+}
+
+pre.example
+{
+    border: 1px solid gray;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    /* background: rgb(247,242,180); */ /* kind of sandy */
+    /* background: rgb(200,255,255); */ /* sky blue */
+    background-color: #F1F5F9; /* light blue-gray */
+    /* font-family: "Lucida Console", monospace */
+}
+
+div.spacerbox
+{
+    border: none;
+    padding-top: 2em;
+    padding-bottom: 2em
+}
+
+div.image
+{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+div.categorybox
+{
+    border: 1px solid gray;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: rgb(247,242,220);
+}
+
+
+-->
+</style>
+
+<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<script type="text/javascript"><!--
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-510249-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+--></script>
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="zeilberger"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="maxima_80.html#Functions-and-Variables-for-Units" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-zeilberger" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_80.html#unit" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="zeilberger-1"></a>
+<h1 class="chapter">81. zeilberger</h1>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Introduction-to-zeilberger">81.1 Introduction to zeilberger</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-zeilberger">81.2 Functions and Variables for zeilberger</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<p><a name="Item_003a-Introduction-to-zeilberger"></a>
+</p><hr size="6">
+<a name="Introduction-to-zeilberger"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#zeilberger" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#The-indefinite-summation-problem" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#zeilberger" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#zeilberger" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Introduction-to-zeilberger-1"></a>
+<h2 class="section">81.1 Introduction to zeilberger</h2>
+
+<p><code>zeilberger</code>は
+超幾何定総和に関する Zeilbergerのアルゴリズムと超幾何不定総和に関する
+Gosperのアルゴリズムの実装します。
+</p>
+<p><code>zeilberger</code>は
+Axel Rieseによって開発された「フィルタリング」最適化法を利用します。
+</p>
+<p><code>zeilberger</code>は Fabrizio Carusoによって開発されました。
+</p>
+<p><code>load (zeilberger)</code>はこのパッケージをロードします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Sums-and-products">Sums and products</a>
+ &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-zeilberger">Package zeilberger</a>
+</div></p>
+<hr size="6">
+<a name="The-indefinite-summation-problem"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-zeilberger" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#The-definite-summation-problem" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#zeilberger" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-zeilberger" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h4 class="subsubsection">81.1.0.1 The indefinite summation problem</h4>
+
+<p><code>zeilberger</code>は超幾何不定総和に関する Gosperのアルゴリズムの実装します。
+<em>k</em>の超幾何項 <em>F_k</em>が与えられたとして、
+超幾何反差 (anti-difference)、すなわち、以下のような超幾何項
+<em>f_k</em>を見つけたいです。
+</p>
+<p><em>F_k = f_(k+1) - f_k</em>.
+</p>
+<hr size="6">
+<a name="The-definite-summation-problem"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#The-indefinite-summation-problem" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Verbosity-levels" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#zeilberger" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-zeilberger" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h4 class="subsubsection">81.1.0.2 The definite summation problem</h4>
+
+<p><code>zeilberger</code>は超幾何定総和に関する Gosperのアルゴリズムの実装します。
+適当な (<em>n</em>と <em>k</em>に関する)超幾何項
+<em>F_(n,k)</em>
+と正の整数 <em>d</em>が与えられたとして、
+<em>F_(n,k)</em>
+に関する (<em>n</em>に関する)多項式係数を持つ <em>d</em>次の線形漸化式と、
+<em>a_0 F_(n,k) + ... + a_d F_(n+d),k = Delta_k(R(n,k) F_(n,k))</em>,
+のような <em>n</em>と <em>k</em>に関する有理函数 <em>R</em>を見つけたいです。
+</p>
+<p>ここで、
+<em>Delta_k</em>
+は <em>k</em>-順方向差分演算子です。すなわち、
+<em>Delta_k(t_k) := t_(k+1) - t_k</em>.
+</p>
+<hr size="6">
+<a name="Verbosity-levels"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#The-definite-summation-problem" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-zeilberger" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#zeilberger" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-zeilberger" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">81.1.1 Verbosity levels</h3>
+
+<p>以下の接尾辞の 1つを追加することでコールされる出力が冗長なバージョンのコマンドもあります:
+</p>
+<dl compact="compact">
+<dt> <code>Summary</code></dt>
+<dd><p>終わりにサマリだけが表示されます。
+</p></dd>
+<dt> <code>Verbose</code></dt>
+<dd><p>中間ステップでのある情報。
+</p></dd>
+<dt> <code>VeryVerbose</code></dt>
+<dd><p>更なる情報。
+</p></dd>
+<dt> <code>Extra</code></dt>
+<dd><p>Zeilbergerのアルゴリズムでの線形系上の情報を含む更なる情報。
+</p></dd>
+</dl>
+
+<p>例えば:<br>
+<code>GosperVerbose</code>, <code>parGosperVeryVerbose</code>,
+<code>ZeilbergerExtra</code>, <code>AntiDifferenceSummary</code>.
+</p>
+
+<p><a name="Item_003a-Functions-and-Variables-for-zeilberger"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-zeilberger"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Verbosity-levels" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#General-global-variables" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#zeilberger" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#zeilberger" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-and-Variables-for-zeilberger-1"></a>
+<h2 class="section">81.2 Functions and Variables for zeilberger</h2>
+
+<p><a name="Item_003a-AntiDifference"></a>
+</p><dl>
+<dt><a name="index-AntiDifference"></a><u>関数:</u> <b>AntiDifference</b><i> (<em>F_k</em>, <var>k</var>)</i></dt>
+<dd>
+<p>もし存在するなら <em>F_k</em>の超幾何反差を返します。<br>
+そうでないなら <code>AntiDifference</code>は <code>no_hyp_antidifference</code>を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-zeilberger">Package zeilberger</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-Gosper"></a>
+</p><dl>
+<dt><a name="index-Gosper"></a><u>関数:</u> <b>Gosper</b><i> (<em>F_k</em>, <var>k</var>)</i></dt>
+<dd><p>もし存在するなら、
+<em>F_k</em>に対する有理証 (rational certificate)、
+すなわち、以下のような有理函数を返します。
+<em>F_k = R(k+1) F_(k+1) - R(k) F_k</em>,
+そうでないなら <code>Gosper</code>は <code>no_hyp_sol</code>を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-zeilberger">Package zeilberger</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-GosperSum"></a>
+</p><dl>
+<dt><a name="index-GosperSum"></a><u>関数:</u> <b>GosperSum</b><i> (<em>F_k</em>, <var>k</var>, <var>a</var>, <var>b</var>)</i></dt>
+<dd>
+<p>もし <em>F_k</em>が超幾何反差を持つなら、
+<em><var>k</var> = <var>a</var></em>から <em><var>k</var> = <var>b</var></em>までの
+<em>F_k</em>の和を返します。
+そうでないなら <code>GosperSum</code>は <code>nongosper_summable</code>を返します。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (zeilberger)$
+</pre><pre class="example">(%i2) GosperSum ((-1)^k*k / (4*k^2 - 1), k, 1, n);
+Dependent equations eliminated:  (1)
+                           3       n + 1
+                      (n + -) (- 1)
+                           2               1
+(%o2)               - ------------------ - -
+                                  2        4
+                      2 (4 (n + 1)  - 1)
+</pre><pre class="example">(%i3) GosperSum (1 / (4*k^2 - 1), k, 1, n);
+                                3
+                          - n - -
+                                2       1
+(%o3)                  -------------- + -
+                                2       2
+                       4 (n + 1)  - 1
+</pre><pre class="example">(%i4) GosperSum (x^k, k, 1, n);
+                          n + 1
+                         x          x
+(%o4)                    ------ - -----
+                         x - 1    x - 1
+</pre><pre class="example">(%i5) GosperSum ((-1)^k*a! / (k!*(a - k)!), k, 1, n);
+                                n + 1
+                a! (n + 1) (- 1)              a!
+(%o5)       - ------------------------- - ----------
+              a (- n + a - 1)! (n + 1)!   a (a - 1)!
+</pre><pre class="example">(%i6) GosperSum (k*k!, k, 1, n);
+Dependent equations eliminated:  (1)
+(%o6)                     (n + 1)! - 1
+</pre><pre class="example">(%i7) GosperSum ((k + 1)*k! / (k + 1)!, k, 1, n);
+                  (n + 1) (n + 2) (n + 1)!
+(%o7)             ------------------------ - 1
+                          (n + 2)!
+</pre><pre class="example">(%i8) GosperSum (1 / ((a - k)!*k!), k, 1, n);
+(%o8)                  NON_GOSPER_SUMMABLE
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-zeilberger">Package zeilberger</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-parGosper"></a>
+</p><dl>
+<dt><a name="index-parGosper"></a><u>関数:</u> <b>parGosper</b><i> (<em>F_(n,k)</em>, <var>k</var>, <var>n</var>, <var>d</var>)</i></dt>
+<dd>
+<p><em>F_(n,k)</em>に対して次数 <var>d</var>の漸化式を見つけようとします。
+</p>
+<p>アルゴリズムは解の列 <em>[s_1, s_2, ..., s_m]</em>をもたらします。
+解それぞれは形式
+</p>
+<p><em>[R(n, k), [a_0, a_1, ..., a_d]].</em>
+</p>
+<p>を持ちます。
+</p>
+<p>もし漸化式を見つけられないなら <code>parGosper</code>は <code>[]</code>を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-zeilberger">Package zeilberger</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-Zeilberger"></a>
+</p><dl>
+<dt><a name="index-Zeilberger"></a><u>関数:</u> <b>Zeilberger</b><i> (<em>F_(n,k)</em>, <var>k</var>, <var>n</var>)</i></dt>
+<dd>
+<p><em>F_(n,k)</em>の超幾何不定総和を計算しようとします。
+</p>
+<p><code>Zeilberger</code>は最初に <code>Gosper</code>を呼び出し、
+もしそれが解を見つけるのに失敗したら、
+次数 1, 2, 3, ..., から <code>MAX_ORD</code>までを使って
+<code>parGosper</code>を呼び出します。
+もし Zeilbergerが <code>MAX_ORD</code>に達する前に解を見つけたら、
+停止して解を返します。
+</p>
+<p>アルゴリズムは解の列 <em>[s_1, s_2, ..., s_m]</em>をもたらします。
+解それぞれは形式
+</p>
+<p><em>[R(n,k), [a_0, a_1, ..., a_d]].</em>
+</p>
+<p>を持ちます。
+</p>
+<p>もし解を見つけられなかったら、
+<code>Zeilberger</code>は <code>[]</code>を返します。
+</p>
+<p><code>Zeilberger</code>は
+<code>Gosper_in_Zeilberger</code>が <code>true</code>の時だけ
+<code>Gosper</code>を呼び出します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-zeilberger">Package zeilberger</a>
+</div></p>
+</dd></dl>
+
+
+
+<hr size="6">
+<a name="General-global-variables"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-zeilberger" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Variables-related-to-the-modular-test" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#zeilberger" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#zeilberger" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">81.3 General global variables</h2>
+
+<p><a name="Item_003a-MAX_005fORD"></a>
+</p><dl>
+<dt><a name="index-MAX_005fORD"></a><u>グローバル変数:</u> <b>MAX_ORD</b></dt>
+<dd><p>デフォルト値: 5
+</p>
+<p><code>MAX_ORD</code>は <code>Zeilberger</code>が試みる漸化式の最大次数です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-zeilberger">Package zeilberger</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-simplified_005foutput"></a>
+</p><dl>
+<dt><a name="index-simplified_005foutput"></a><u>グローバル変数:</u> <b>simplified_output</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>simplified_output</code>が <code>true</code>の時、
+<code>zeilberger</code>パッケージの関数は解の更なる整理を試みます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-zeilberger">Package zeilberger</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-linear_005fsolver"></a>
+</p><dl>
+<dt><a name="index-linear_005fsolver"></a><u>グローバル変数:</u> <b>linear_solver</b></dt>
+<dd><p>デフォルト値: <code>linsolve</code>
+</p>
+<p><code>linear_solver</code>は
+Zeilbergerのアルゴリズムで方程式系を解くのに使うソルバを指定します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-zeilberger">Package zeilberger</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-warnings"></a>
+</p><dl>
+<dt><a name="index-warnings"></a><u>グローバル変数:</u> <b>warnings</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p><code>warnings</code>が <code>true</code>の時、
+<code>zeilberger</code>パッケージの関数は実行中に警告メッッセージを印字します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-zeilberger">Package zeilberger</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-Gosper_005fin_005fZeilberger"></a>
+</p><dl>
+<dt><a name="index-Gosper_005fin_005fZeilberger"></a><u>グローバル変数:</u> <b>Gosper_in_Zeilberger</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p><code>Gosper_in_Zeilberger</code>が <code>true</code>の時、
+<code>Zeilberger</code>関数は
+<code>parGosper</code>をコールする前に
+<code>Gosper</code>をコールします。
+そうでないなら、 <code>Zeilberger</code>はすぐに <code>parGosper</code>に向かいます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-zeilberger">Package zeilberger</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-trivial_005fsolutions"></a>
+</p><dl>
+<dt><a name="index-trivial_005fsolutions"></a><u>グローバル変数:</u> <b>trivial_solutions</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p><code>trivial_solutions</code>が <code>true</code>の時、
+<code>Zeilberger</code>は
+零に等しい証を持つ解か、すべての係数が零に等しい解を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-zeilberger">Package zeilberger</a>
+</div></p>
+</dd></dl>
+
+<hr size="6">
+<a name="Variables-related-to-the-modular-test"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#General-global-variables" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#zeilberger" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#zeilberger" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">81.4 Variables related to the modular test</h2>
+
+<p><a name="Item_003a-mod_005ftest"></a>
+</p><dl>
+<dt><a name="index-mod_005ftest"></a><u>グローバル変数:</u> <b>mod_test</b></dt>
+<dd><p>デフォルト値: <code>false</code>
+</p>
+<p><code>mod_test</code>が <code>true</code>の時、
+<code>parGosper</code>は解を持たない系を除くためにモジュラーテストを実行します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-zeilberger">Package zeilberger</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-modular_005flinear_005fsolver"></a>
+</p><dl>
+<dt><a name="index-modular_005flinear_005fsolver"></a><u>グローバル変数:</u> <b>modular_linear_solver</b></dt>
+<dd><p>デフォルト値: <code>linsolve</code>
+</p>
+<p><code>modular_linear_solver</code>は
+<code>parGosper</code>でのモジュラーテストが使う線形ソルバを指定します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-zeilberger">Package zeilberger</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ev_005fpoint"></a>
+</p><dl>
+<dt><a name="index-ev_005fpoint"></a><u>グローバル変数:</u> <b>ev_point</b></dt>
+<dd><p>デフォルト値: <code>big_primes[10]</code>
+</p>
+<p><code>parGosper</code>でモジュラーテストを実行する時
+<code>ev_point</code>で変数 <var>n</var>を評価します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-zeilberger">Package zeilberger</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-mod_005fbig_005fprime"></a>
+</p><dl>
+<dt><a name="index-mod_005fbig_005fprime"></a><u>グローバル変数:</u> <b>mod_big_prime</b></dt>
+<dd><p>デフォルト値: <code>big_primes[1]</code>
+</p>
+<p><code>mod_big_prime</code>は
+<code>parGosper</code>でモジュラーテストが使う法です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-zeilberger">Package zeilberger</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-mod_005fthreshold"></a>
+</p><dl>
+<dt><a name="index-mod_005fthreshold"></a><u>グローバル変数:</u> <b>mod_threshold</b></dt>
+<dd><p>デフォルト値: 4
+</p>
+<p><code>mod_threshold</code>は
+<code>parGosper</code>でのモジュラーテストが試みられる際の最大次数です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-zeilberger">Package zeilberger</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-Function-and-Variable-Index"></a>
+</p><hr size="6">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#zeilberger" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+ </font>
+ <br>
+
+</p>
+</body>
+</html>
