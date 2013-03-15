@@ -32,8 +32,19 @@ import android.webkit.WebViewClient;
 
 public class ManualActivity extends HTMLActivity {
 	Context cont=this;
+	
+	@Override
+	public void onResume () {
+		super.onRestart();
+		Intent intent = this.getIntent();
+		boolean manLangChanged=intent.getBooleanExtra("manLangChanged", false);
+		if (manLangChanged) {
+			String newURL=intent.getStringExtra("url");
+			webview.loadUrl(newURL);
+		}
+	}
 	private class CustomWebView extends WebViewClient {
-		//ÉyÅ[ÉWÇÃì«Ç›çûÇ›äÆóπ
+		//Finish of the page loading
 		@Override
 		public void onPageFinished(WebView view, String url) {
 			Log.v("man","onPageFinished");

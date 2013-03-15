@@ -49,6 +49,11 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 	String maximaURL="file:///android_asset/index.html";
 	String oldmaximaURL="file:///android_asset/index.html";
 	String newmaximaURL="file:///android_asset/maxima.html";
+	String manjp="file:///android_asset/maxima-doc/ja/maxima.html";
+	String manen="file:///android_asset/maxima-doc/en/maxima.html";
+	String mande="file:///android_asset/maxima-doc/en/de/maxima.html";
+	String manURL=manen;
+	boolean manLangChanged=false;
 	Semaphore sem = new Semaphore(1);
 	EditText _editText;
     WebView webview;
@@ -78,16 +83,39 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 			  exitMOA();
 			  return true;
 		  case R.id.man:
-			  showManual("file:///android_asset/maxima-doc/en/de/maxima.html");
+			  showManual(manURL);
 			  return true;
-		  case R.id.manj:
-			  showManual("file:///android_asset/maxima-doc/ja/maxima.html");
+		  case R.id.jp:
+			  manURL=manjp;
+			  manLangChanged=true;
+			  return true;
+		  case R.id.en:
+			  manURL=manen;
+			  manLangChanged=true;
+			  return true;
+		  case R.id.de:
+			  manURL=mande;
+			  manLangChanged=true;
+			  return true;
+		  case R.id.save:
+			  sessionMenu("ssave();");
+			  return true;
+		  case R.id.restore:
+			  sessionMenu("srestore();");
+			  return true;
+		  case R.id.playback:
+			  sessionMenu("playback();");
 			  return true;
 		  default:
 			   return super.onOptionsItemSelected(item);
 		  }
 	 }
     
+    private void sessionMenu(String cmd) {
+		  _editText.setText(cmd);
+		  _editText.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
+		  _editText.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_ENTER));    	
+    }
       @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -364,7 +392,8 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
       	Intent intent = new Intent(this,ManualActivity.class);
       	intent.setAction(Intent.ACTION_VIEW);
       	intent.putExtra("url", url);
-      	intent.putExtra("dir", internalDir);
+      	intent.putExtra("manLangChanged", manLangChanged);
+      	manLangChanged=false;
       	this.startActivity(intent);
    	}   	
    	private void showGraph() {
