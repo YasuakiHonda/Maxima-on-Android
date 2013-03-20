@@ -281,30 +281,10 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 			}
 
    			webview.loadUrl("javascript:window.UpdateText('"+ escapeChars(cmdstr) +"<br>" +"')");
-   			String[] resArray=maximaProccess.getProcessResult().split("\n");
+   			String resString=maximaProccess.getProcessResult();
    	        maximaProccess.clearStringBuilder();
+   	        displayMaximaCmdResults(resString);
 
-  			for (int i = 0 ; i < resArray.length ; i++) {
-   				if (resArray[i].indexOf("$$") != -1) {
-   					String reststr=resArray[i];
-   					while (reststr.indexOf("$$") != -1) {
-   						int start=reststr.indexOf("$$");
-   						reststr=reststr.substring(start+2);
-   						int end=reststr.indexOf("$$");
-   						webview.loadUrl("javascript:window.UpdateMath('"+ reststr.substring(0,end) +"')");
-   						reststr=reststr.substring(end+2);
-   					}
-   					if (reststr.length()>0) {
-   	  		   			String brstr="";
-   	   		   			if (i<resArray.length-1) brstr="<br>";
-   	   		   			webview.loadUrl("javascript:window.UpdateText('"+ reststr + brstr +"')");
-   					}
-   				} else {
-   		   			String brstr="";
-   		   			if (i<resArray.length-1) brstr="<br>";
-   		   			webview.loadUrl("javascript:window.UpdateText('"+ resArray[i] + brstr +"')");
-   				}
-   			}
 			if (isGraphFile()) {
 		        List<String> list = new ArrayList<String>();
 		        list.add(internalDir+"/additions/gnuplot/bin/gnuplot");
@@ -363,6 +343,40 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    	
    	private String escapeChars(String cmd) {
    		return substitute(cmd, "'", "\\'");
+   	}
+   	
+   	private void displayMaximaCmdResults(String resString) {
+		String [] resArray=resString.split("\\$\\$");
+		for (int i = 0 ; i < resArray.length ; i++) {
+			if (i%2 == 0) {
+				/* normal text, as we are outside of $$...$$ */
+				if (resArray[i].equals("")) continue;
+				String htmlStr=substitute(resArray[i],"\n","<br>");
+				webview.loadUrl("javascript:window.UpdateText('"+ htmlStr +"')");
+			} else {
+				/* tex commands, as we are inside of $$...$$ */
+				String texStr=substCRinMBOX(resArray[i]);
+				texStr=substitute(texStr,"\n"," \\\\\\\\ ");
+				String urlstr="javascript:window.UpdateMath('"+ texStr +"')";
+				webview.loadUrl(urlstr);
+			}
+		}
+   	}
+   	
+   	private String substCRinMBOX(String str) {
+   		String resValue="";
+   		String tmpValue=str;
+   		int p;
+   		while ((p=tmpValue.indexOf("mbox{")) != -1) {
+   			resValue=resValue+tmpValue.substring(0,p)+"mbox{";
+   			int p2=tmpValue.indexOf("}",p+5);
+   			assert(p2>0);
+   			String tmp2Value=tmpValue.substring(p+5, p2);
+   			resValue=resValue+substitute(tmp2Value,"\n","}\\\\\\\\ \\\\mbox{");
+   			tmpValue=tmpValue.substring(p2,tmpValue.length());
+   		}
+   		resValue=resValue+tmpValue;
+   		return (resValue);
    	}
    	
    	static private String substitute(String input, String pattern, String replacement) {
