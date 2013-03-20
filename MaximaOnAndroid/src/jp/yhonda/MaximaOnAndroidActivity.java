@@ -343,17 +343,22 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    		 * Otherwise, semi-colon is added at the end.
    		 */
    		int i=cmd.length()-1;
+   		assert(i>=0);
+   		char c=';';
    		while (i>=0) {
-   			char c=cmd.charAt(i);
+   			c=cmd.charAt(i);
    			if (c==' ' || c=='\t') {
    				i--;
-   			} else if (c==';' || c=='$') {
-   				return(cmd);
    			} else {
-   				return(cmd.substring(0, i+1)+';');
+   				break;
    			}
    		}
-   		return(";");
+
+   		if (c==';' || c=='$') {
+   				return(cmd.substring(0, i+1));
+   		} else {
+   			return(cmd.substring(0, i+1)+';');
+   		}
    	}
    	
    	private String escapeChars(String cmd) {

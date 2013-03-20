@@ -56,9 +56,12 @@ public class CommandExec {
             int c = is.read();
             if (c == 0x04) {
             	/* 0x04‚Ío—ÍI—¹‚Ìˆó */
+            	/*
             	if (is.available()==0) {
             		break;
             	}
+            	*/
+            	break;
             } else if (c == -1) {
                 is.close();
                 break;
