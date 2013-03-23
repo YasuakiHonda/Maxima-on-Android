@@ -20,6 +20,8 @@ package jp.yhonda;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Semaphore;
@@ -36,6 +38,8 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.webkit.ConsoleMessage;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
@@ -129,7 +133,16 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         webview.getSettings().setJavaScriptEnabled(true); 
         webview.setWebViewClient(new WebViewClient() {}); 
         webview.getSettings().setBuiltInZoomControls(true);
+        webview.setWebChromeClient(new WebChromeClient() {
+        	  public boolean onConsoleMessage(ConsoleMessage cm) {
+        	    Log.d("MyApplication", cm.message() + " -- From line "
+        	                         + cm.lineNumber() + " of "
+        	                         + cm.sourceId() );
+        	    return true;
+        	  }
+        	});
         scview = (ScrollView) findViewById(R.id.scrollView1);
+        
         
         if (Build.VERSION.SDK_INT > 16) { // > JELLY_BEAN
         	maximaURL=newmaximaURL;
@@ -222,6 +235,24 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         Log.d("My Test", "Clicked!3");
                 
     }
+    
+    public void reuseByTouch(String maximacmd) {
+    	class rbttask implements Runnable {
+    		String text="";
+    		@Override
+    		public void run() {
+    			_editText.setText(text);
+    			Log.v("My Test",text);
+    		}
+    		public void settext(String tt) {
+    			text=tt;
+    		}
+    	}
+    	rbttask viewtask = new rbttask();
+    	viewtask.settext(substitute(maximacmd,"<br>",""));
+    	_editText.post(viewtask);
+    }
+    
     public void scrollToEnd() {
     	Log.v("My Test", "scrollToEnd called");
     	Handler handler = new Handler();
@@ -280,7 +311,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 				e.printStackTrace();
 			}
 
-   			webview.loadUrl("javascript:window.UpdateText('"+ escapeChars(cmdstr) +"<br>" +"')");
+   			webview.loadUrl("javascript:window.UpdateInput('"+ escapeChars(cmdstr) +"<br>" +"')");
    			String resString=maximaProccess.getProcessResult();
    	        maximaProccess.clearStringBuilder();
    	        displayMaximaCmdResults(resString);

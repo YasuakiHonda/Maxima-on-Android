@@ -121,6 +121,17 @@ Preview.callback.autoReset = true;  // make sure it can run more than once
       );
     }	
 
+    RBT=function (text) {
+      var dectext=unescape(text);
+      console.log(dectext);
+      window.MOA.reuseByTouch(dectext);
+    }
+
+    window.UpdateInput=function (text) {
+      console.log(text);
+      window.UpdateText("<span onclick=\"RBT(\'"+escape(text)+ "\')\"> "+text+" </span>");
+    }
+
     window.UpdateMath = function (TeX) {
       window.UpdateText(" $$ "+TeX+" $$ ");
     }

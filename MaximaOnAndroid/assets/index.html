@@ -45,6 +45,17 @@ under test directory. The name of the file is sample-dynamic-steps.html -->
         mathlist.innerHTML=curtext+text;
     }	
 
+    RBT=function (text) {
+      var dectext=unescape(text);
+      console.log(dectext);
+      window.MOA.reuseByTouch(dectext);
+  	}
+
+    window.UpdateInput=function (text) {
+      console.log(text);
+      window.UpdateText("<span onclick=\"RBT(\'"+escape(text)+ "\')\"> "+text+" </span>");
+    }
+
     window.UpdateText = function (text) {
     	MathJax.Hub.queue.Push(["UpdateTextList",window,text]);
     	MathJax.Hub.queue.Push(["scrollToEnd",window]);
