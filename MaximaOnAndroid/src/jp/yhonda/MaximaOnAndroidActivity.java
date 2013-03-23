@@ -30,9 +30,12 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -76,43 +79,61 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     }
       @Override
 	  public boolean onOptionsItemSelected(MenuItem item) {
+    	  boolean retval=false;
 		  switch (item.getItemId()) {
 		  case R.id.about:
 			   showHTML("file:///android_asset/docs/aboutMOA.html");
-			   return true;
+			   retval= true;
+			   break;
 		  case R.id.graph:
 			  showGraph();
-			  return true;
+			  retval= true;
+			  break;
 		  case R.id.quit:
 			  exitMOA();
-			  return true;
+			  retval= true;
+			  break;
 		  case R.id.man:
-			  showManual(manURL);
-			  return true;
+			  showManual();
+			  retval= true;
+			  break;
 		  case R.id.jp:
 			  manURL=manjp;
 			  manLangChanged=true;
-			  return true;
+			  retval= true;
+			  break;
 		  case R.id.en:
 			  manURL=manen;
 			  manLangChanged=true;
-			  return true;
+			  retval= true;
+			  break;
 		  case R.id.de:
 			  manURL=mande;
 			  manLangChanged=true;
-			  return true;
+			  retval= true;
+			  break;
 		  case R.id.save:
 			  sessionMenu("ssave();");
-			  return true;
+			  retval= true;
+			  break;
 		  case R.id.restore:
 			  sessionMenu("srestore();");
-			  return true;
+			  retval= true;
+			  break;
 		  case R.id.playback:
 			  sessionMenu("playback();");
-			  return true;
+			  retval= true;
+			  break;
 		  default:
 			   return super.onOptionsItemSelected(item);
 		  }
+		  if (manLangChanged) {
+			  SharedPreferences pref=PreferenceManager.getDefaultSharedPreferences(this);
+			  Editor edit=pref.edit();
+			  edit.putString("manURL", manURL);
+			  edit.commit();
+		  }
+		  return retval;
 	 }
     
     private void sessionMenu(String cmd) {
@@ -126,6 +147,8 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         Log.d("My Test", "Clicked!1");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        SharedPreferences pref=PreferenceManager.getDefaultSharedPreferences(this);
+        manURL=pref.getString("manURL", manen);
     	internalDir = this.getFilesDir();
     	externalDir = this.getExternalFilesDir(null);
 
@@ -438,10 +461,10 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
       	intent.putExtra("url", url);
       	this.startActivity(intent);
    	}
-   	private void showManual(String url) {
+   	private void showManual() {
       	Intent intent = new Intent(this,ManualActivity.class);
       	intent.setAction(Intent.ACTION_VIEW);
-      	intent.putExtra("url", url);
+      	intent.putExtra("url", manURL);
       	intent.putExtra("manLangChanged", manLangChanged);
       	manLangChanged=false;
       	this.startActivity(intent);
