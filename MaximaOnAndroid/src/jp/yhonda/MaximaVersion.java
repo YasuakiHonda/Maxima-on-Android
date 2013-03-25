@@ -1,5 +1,5 @@
 /*
-    Copyright 2012, Yasuaki Honda (yasuaki.honda@gmail.com)
+    Copyright 2012, 2013, Yasuaki Honda (yasuaki.honda@gmail.com)
     This file is part of MaximaOnAndroid.
 
     MaximaOnAndroid is free software: you can redistribute it and/or modify

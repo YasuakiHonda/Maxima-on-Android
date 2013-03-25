@@ -1,5 +1,5 @@
 /*
-    Copyright 2012, Yasuaki Honda (yasuaki.honda@gmail.com)
+    Copyright 2012, 2013 Yasuaki Honda (yasuaki.honda@gmail.com)
     This file is part of MaximaOnAndroid.
 
     MaximaOnAndroid is free software: you can redistribute it and/or modify
@@ -127,7 +127,7 @@ public final class MOAInstallerActivity extends Activity {
     };	    
     
     public void install(int stage) {
-    	// Install先
+    	// Where to Install
     	// maxima, init.lisp : internalDir
     	// maxima-5.X.0 : installedDir
         Intent data=null;
@@ -196,7 +196,7 @@ public final class MOAInstallerActivity extends Activity {
 
 	    		me.finish();
 	    		break;
-	    	case 10: // errorが通知された
+	    	case 10: // Error indicated
 	            data = new Intent();
 	            data.putExtra("What are these?", "These are pens.");
 	            data.putExtra("How many pens?", 3);
@@ -208,11 +208,13 @@ public final class MOAInstallerActivity extends Activity {
 		    	break;
 	    	}
 	    } catch (IOException e1) {
-			// TODO 自動生成された catch ブロック
+			Log.d("MoA","exception8");
 			e1.printStackTrace();
+			me.finish();
 		} catch (Exception e) {
-			// TODO 自動生成された catch ブロック
+			Log.d("MoA","exception9");
 			e.printStackTrace();
+			me.finish();
 		}
     }
 
@@ -258,10 +260,10 @@ public final class MOAInstallerActivity extends Activity {
 		        try {
 					sce.execCommand(list);
 				} catch (IOException e) {
-					// TODO 自動生成された catch ブロック
+					Log.d("MoA","exception10");
 					e.printStackTrace();
 				} catch (Exception e) {
-					// TODO 自動生成された catch ブロック
+					Log.d("MoA","exception11");
 					e.printStackTrace();
 				}
    			}

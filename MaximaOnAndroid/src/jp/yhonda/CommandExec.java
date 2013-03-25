@@ -1,5 +1,5 @@
 /*
-    Copyright 2012, Yasuaki Honda (yasuaki.honda@gmail.com)
+    Copyright 2012, 2013, Yasuaki Honda (yasuaki.honda@gmail.com)
     This file is part of MaximaOnAndroid.
 
     MaximaOnAndroid is free software: you can redistribute it and/or modify
@@ -23,18 +23,15 @@ import java.io.IOException;
 import java.io.OutputStream;
  
 public class CommandExec {
-	// 出力保持用
-    StringBuilder sb = new StringBuilder();
+    StringBuilder sb = new StringBuilder(); // output buffer
     ProcessBuilder builder=null;
     Process process;
     InputStream is;
     OutputStream os;
     public void execCommand(List<String> commandList) throws IOException, Exception  {
-        // プロセスビルダを構築 (コマンドセット)
     	builder = new ProcessBuilder(commandList);
-        // プロセス起動
+        // process starts
         process = builder.start();
-        // プロセスのエラーストリーム取得
         is = process.getInputStream();
         while (true) { 
             int c = is.read();
@@ -55,7 +52,7 @@ public class CommandExec {
         while (true) {
             int c = is.read();
             if (c == 0x04) {
-            	/* 0x04は出力終了の印 */
+            	/* 0x04 is the prompt indicator */
             	/*
             	if (is.available()==0) {
             		break;
@@ -65,10 +62,10 @@ public class CommandExec {
             } else if (c == -1) {
                 is.close();
                 break;
-            } else if (c == 0x5c) { // 0x5cはバックスラッシュなのでエスケープする。
+            } else if (c == 0x5c) { // 0x5c needs to be escaped by 0x5c, the backslash.
             	this.sb.append((char)c);
             	this.sb.append((char)c);
-            } else if (c == 0x27) { // 0x27はシングルクォートなのでエスケープする。
+            } else if (c == 0x27) { // 0x27 needs to be escaped as it is q single quote.
             	this.sb.append((char)0x5c);
             	this.sb.append((char)c);
             } else {
@@ -76,11 +73,11 @@ public class CommandExec {
             } 
         }
     }
-    // プロセス実行結果を取得する
+
     public String getProcessResult() {
         return (new String(this.sb));
     }
-    // 出力保持内容を削除
+
     public void clearStringBuilder() {
         this.sb.delete(0, this.sb.length());
     }

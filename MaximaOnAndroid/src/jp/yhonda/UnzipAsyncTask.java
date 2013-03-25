@@ -1,5 +1,5 @@
 /*
-    Copyright 2012, Yasuaki Honda (yasuaki.honda@gmail.com)
+    Copyright 2012, 2013, Yasuaki Honda (yasuaki.honda@gmail.com)
     This file is part of MaximaOnAndroid.
 
     MaximaOnAndroid is free software: you can redistribute it and/or modify
@@ -28,6 +28,7 @@ import java.util.zip.ZipInputStream;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
+import android.util.Log;
 
 public final class UnzipAsyncTask extends AsyncTask<Integer, Integer, Integer> {
     private final static int CHUNK_SIZE = 32 * 1024;  
@@ -39,7 +40,6 @@ public final class UnzipAsyncTask extends AsyncTask<Integer, Integer, Integer> {
     private String msg1, msg2;
 
     public UnzipAsyncTask(MOAInstallerActivity anActivity) {
-    	   // TODO 自動生成されたコンストラクター・スタブ
     	   this.activity = anActivity;
     }
     public void setParams(InputStream in, String dir, String msg1, String msg2) {
@@ -50,12 +50,12 @@ public final class UnzipAsyncTask extends AsyncTask<Integer, Integer, Integer> {
     }
     @Override
     protected void onPreExecute() {
-     //進捗ダイアログの表示
+     // progres dialog
      dialog = new ProgressDialog(activity);
      dialog.setTitle("Install in progress.");
      dialog.setMessage(msg1);
      dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-     dialog.setCancelable(false);// ProgressDialog のキャンセルが可能かどうか  
+     dialog.setCancelable(false);  
      dialog.setMax(100);
      dialog.setProgress(0);
       
@@ -69,16 +69,16 @@ public final class UnzipAsyncTask extends AsyncTask<Integer, Integer, Integer> {
 
     @Override
     protected void onPostExecute(Integer stage) {
-     // 進捗ダイアログをクローズ
+     // close the progres dialog
      if (stage==-1) {
-         activity.install(10); // エラーの通知
+         activity.install(10); // indication of error
          return;
      }
      dialog.setMessage(msg2);
      dialog.show();
-     try{
-    	 Thread.sleep(3000); //3000ミリ秒Sleepする
-    	 }catch(InterruptedException e){}
+     try {
+    	 Thread.sleep(3000);
+     } catch(InterruptedException e){}
      dialog.dismiss();
      activity.install(stage+1);
     }
@@ -119,12 +119,12 @@ public final class UnzipAsyncTask extends AsyncTask<Integer, Integer, Integer> {
 				}
 			}
 		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
+			Log.d("MoA","exception12");
 			e.printStackTrace();
 			try {
 				fos.close();
 			} catch (IOException e1) {
-				// TODO 自動生成された catch ブロック
+				Log.d("MoA","exception13");
 				e1.printStackTrace();
 				return(-1);
 			}

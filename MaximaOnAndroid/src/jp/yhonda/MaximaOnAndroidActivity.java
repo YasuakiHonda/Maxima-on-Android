@@ -1,5 +1,5 @@
 /*
-    Copyright 2012, Yasuaki Honda (yasuaki.honda@gmail.com)
+    Copyright 2012, 2013 Yasuaki Honda (yasuaki.honda@gmail.com)
     This file is part of MaximaOnAndroid.
 
     MaximaOnAndroid is free software: you can redistribute it and/or modify
@@ -144,7 +144,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
       @Override
     public void onCreate(Bundle savedInstanceState)
     {
-        Log.d("My Test", "Clicked!1");
+        Log.d("MoA", "onCreate()");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         SharedPreferences pref=PreferenceManager.getDefaultSharedPreferences(this);
@@ -233,10 +233,11 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     }
     
     private void startMaxima() {
+    	Log.d("MoA","startMaxima()");
     	try {
 			sem.acquire();
 		} catch (InterruptedException e1) {
-			// TODO 自動生成された catch ブロック
+			Log.d("MoA", "exception1");
 			e1.printStackTrace();
 		}
     	if ( ! ( new File( internalDir+"/maxima-"+mvers.versionString() ) ).exists() &&
@@ -247,16 +248,14 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         list.add(internalDir+"/maxima");
         list.add("--init-lisp="+internalDir+"/init.lisp");
         maximaProccess = new CommandExec();
-        Log.d("My Test", "Clicked!2");
         try {
             maximaProccess.execCommand(list);
         } catch (Exception e) {
-            // 例外処理
+            Log.d("MoA","exception2");
+            exitMOA();
         }
         maximaProccess.clearStringBuilder();
-        sem.release();
-        Log.d("My Test", "Clicked!3");
-                
+        sem.release();                
     }
     
     public void reuseByTouch(String maximacmd) {
@@ -265,7 +264,6 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     		@Override
     		public void run() {
     			_editText.setText(text);
-    			Log.v("My Test",text);
     		}
     		public void settext(String tt) {
     			text=tt;
@@ -277,7 +275,6 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     }
     
     public void scrollToEnd() {
-    	Log.v("My Test", "scrollToEnd called");
     	Handler handler = new Handler();
     	Runnable task = new Runnable() {
     		
@@ -287,7 +284,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 					@Override
 					public void run() {
 						scview.fullScroll(ScrollView.FOCUS_DOWN);
-						Log.v("My Test","scroll!");
+						Log.v("MoA","scroll!");
 					}
 				};
 				scview.post(viewtask);
@@ -300,8 +297,9 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    		try {
 			sem.acquire();
 		} catch (InterruptedException e1) {
-			// TODO 自動生成された catch ブロック
+			Log.d("MoA","exception3");
 			e1.printStackTrace();
+			exitMOA();
 		}
    		sem.release();
    		String cmdstr="";
@@ -327,11 +325,13 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    				cmdstr=maxima_syntax_check(cmdstr);
    				maximaProccess.maximaCmd(cmdstr+"\n");
 			} catch (IOException e) {
-				// TODO 自動生成された catch ブロック
+				Log.d("MoA","exception4");
 				e.printStackTrace();
+				exitMOA();
 			} catch (Exception e) {
-				// TODO 自動生成された catch ブロック
+				Log.d("MoA","exception5");
 				e.printStackTrace();
+				exitMOA();
 			}
 
    			webview.loadUrl("javascript:window.UpdateInput('"+ escapeChars(cmdstr) +"<br>" +"')");
@@ -347,7 +347,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 		        try {
 		        	gnuplotcom.execCommand(list);
 		        } catch (Exception e) {
-		            // 例外処理
+		            Log.d("MoA","exception6");
 		        }
 		        if ((new File("/data/data/jp.yhonda/files/maxout.html")).exists()) {
 		        	showHTML("file:///data/data/jp.yhonda/files/maxout.html");
@@ -360,7 +360,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 		        try {
 		        	qepcadcom.execCommand(list);
 		        } catch (Exception e) {
-		            // 例外処理
+		        	Log.d("MoA","exception7");
 		        }
 				
 			}
@@ -434,21 +434,17 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    	}
    	
    	static private String substitute(String input, String pattern, String replacement) {
-   	    // 置換対象文字列が存在する場所を取得
    	    int index = input.indexOf(pattern);
 
-   	    // 置換対象文字列が存在しなければ終了
    	    if(index == -1) {
    	        return input;
    	    }
 
-   	    // 処理を行うための StringBuffer
    	    StringBuffer buffer = new StringBuffer();
 
    	    buffer.append(input.substring(0, index) + replacement);
 
    	    if(index + pattern.length() < input.length()) {
-   	        // 残りの文字列を再帰的に置換
    	        String rest = input.substring(index + pattern.length(), input.length());
    	        buffer.append(substitute(rest, pattern, replacement));
    	    }
@@ -505,12 +501,13 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 			maximaProccess.maximaCmd("quit();\n");
 			finish();
 		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
+			Log.d("MoA","exception7");
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO 自動生成された catch ブロック
+			Log.d("MoA","exception8");
 			e.printStackTrace();
 		}
+   		finish();
    	}
    	@Override
    	public boolean dispatchKeyEvent(KeyEvent event) {
