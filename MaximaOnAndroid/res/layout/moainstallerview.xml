@@ -1,47 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    tools:context=".MOAInstallerActivity" >
 
     <CheckedTextView
         android:id="@+id/checkedTextView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="8dp"
         android:text="Maxima on Android installs additional 85MB of data. Please choose the install localtion and press Install." />
-	<RadioGroup android:id="@+id/radiogroup"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content">
-	    
-	    <RadioButton
-	        android:id="@+id/radioButton1"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="Internal Storage"/>
-	
-	    <RadioButton
-	        android:id="@+id/radioButton2"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="External Storage (SD Card)" />
-	</RadioGroup>
 
-	<LinearLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content" >
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
-		<Button
-		    android:id="@+id/button1"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:text="Install" />
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Internal Storage" />
 
-		<Button
-		    android:id="@+id/button2"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:text="Cancel" />
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="External Storage (SD Card)" />
+    </RadioGroup>
 
-	</LinearLayout>
-    
+    <!-- Push the button bar to the bottom -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Divider above the button bar -->
+    <View style="?attr/buttonBarDividerStyle" />
+
+    <LinearLayout
+        style="?attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/button2"
+            style="?attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cancel" />
+
+        <Button
+            android:id="@+id/button1"
+            style="?attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Install" />
+    </LinearLayout>
+
 </LinearLayout>

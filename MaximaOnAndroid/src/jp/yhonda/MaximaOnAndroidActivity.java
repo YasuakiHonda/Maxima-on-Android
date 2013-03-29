@@ -49,7 +49,7 @@ import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.webkit.JavascriptInterface;
 
 public class MaximaOnAndroidActivity extends Activity implements TextView.OnEditorActionListener
 {
@@ -172,8 +172,8 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         } else {
         	maximaURL=oldmaximaURL;
         }
-        webview.loadUrl(maximaURL);
         webview.addJavascriptInterface(this, "MOA");
+        webview.loadUrl(maximaURL);
         _editText=(EditText)findViewById(R.id.editText1);
         _editText.setOnEditorActionListener(this);
 
@@ -258,6 +258,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         sem.release();                
     }
     
+    @JavascriptInterface
     public void reuseByTouch(String maximacmd) {
     	class rbttask implements Runnable {
     		String text="";
@@ -273,7 +274,8 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     	viewtask.settext(substitute(maximacmd,"<br>",""));
     	_editText.post(viewtask);
     }
-    
+
+    @JavascriptInterface
     public void scrollToEnd() {
     	Handler handler = new Handler();
     	Runnable task = new Runnable() {
