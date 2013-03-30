@@ -73,8 +73,8 @@
    '((mequal simp) $terminal $canvas)                                           
    '((mequal simp) $file_name "/data/data/jp.yhonda/files/maxout"))             
 
-;;; /data/local/init.mac
+;;; /data/local/tmp/maxima-init.mac
 (setq $file_search_maxima                                                  
-        ($append '((mlist) "/data/local/###.{mac,mc}")                  
+        ($append '((mlist) "/data/local/tmp/###.{mac,mc}")                  
                  $file_search_maxima))                               
-(if (probe-file "/data/local/init.mac") ($load "init.mac"))
+(if (probe-file "/data/local/tmp/maxima-init.mac") ($load "/data/local/tmp/maxima-init.mac"))
