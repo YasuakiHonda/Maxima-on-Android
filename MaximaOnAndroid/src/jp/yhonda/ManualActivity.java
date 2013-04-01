@@ -35,7 +35,7 @@ public class ManualActivity extends HTMLActivity {
 	
 	@Override
 	public void onResume () {
-		super.onRestart();
+		super.onResume();
 		Intent intent = this.getIntent();
 		boolean manLangChanged=intent.getBooleanExtra("manLangChanged", false);
 		if (manLangChanged) {
