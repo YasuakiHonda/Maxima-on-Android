@@ -18,102 +18,157 @@
 
 package jp.yhonda;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.os.Bundle;
+import android.os.Parcel;
 import android.preference.PreferenceManager;
+import android.util.Base64;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class ManualActivity extends HTMLActivity {
-	Context cont=this;
+public class ManualActivity extends Activity {
+	WebView webview=null;
+	
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		Log.v("MoA", "onCreate");
+		setContentView(R.layout.htmlactivity);
+		webview = (WebView) findViewById(R.id.webViewInHTMLActivity);
+		webview.getSettings().setJavaScriptEnabled(true); 
+		webview.setWebViewClient(new WebViewClient() {}); 
+		webview.getSettings().setBuiltInZoomControls(true);
+		webview.getSettings().setUseWideViewPort(true);
+		webview.getSettings().setLoadWithOverviewMode(true);
+
+		Intent origIntent=this.getIntent();
+	    String urlinIntent=origIntent.getStringExtra("url");
+	    boolean manLangChanged=origIntent.getBooleanExtra("manLangChanged", true);
+
+	    Bundle bundle = null;
+	    SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+	    String serialized = settings.getString("parcel", null);
+
+	    if ((manLangChanged == false) && (serialized != null)) {
+	        Parcel parcel = Parcel.obtain();
+	        try {
+	            byte[] data = Base64.decode(serialized, 0);
+	            parcel.unmarshall(data, 0, data.length);
+	            parcel.setDataPosition(0);
+	            bundle = parcel.readBundle();
+	        } finally {
+	            parcel.recycle();
+	        }
+	        webview.restoreState(bundle);
+	    } else {
+		    webview.loadUrl(urlinIntent);
+	    }
+        
+		Editor edit=settings.edit();
+		edit.remove("parcel");
+		edit.commit();	        
+	}
+
+	@Override
+	public boolean onKeyDown( int keyCode, KeyEvent event ) {
+		if ( event.getAction() == KeyEvent.ACTION_DOWN
+			&& keyCode == KeyEvent.KEYCODE_BACK 
+			&& webview.canGoBack() == true ) {
+				webview.goBack();
+				return true; 
+		}
+		return super.onKeyDown( keyCode, event );
+	}
+
+    @Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.manmenu, menu);
+		return true;
+	}
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		boolean retval=false;
+		switch (item.getItemId()) {
+		case R.id.gomaxima:
+	      	Intent intent = new Intent(this,MaximaOnAndroidActivity.class);
+	      	intent.setAction(Intent.ACTION_VIEW);
+	      	this.startActivity(intent);
+			retval= true;
+			break;
+		default:
+			retval=false;
+		}
+		return retval;
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		Log.v("MoA", "onStart");
+	}
 	
 	@Override
-	public void onResume () {
+	protected void onRestart() {
+		super.onRestart();
+		Log.v("MoA", "onRestart");
+	}
+	
+	@Override
+	protected void onResume() {
 		super.onResume();
-		Intent intent = this.getIntent();
-		boolean manLangChanged=intent.getBooleanExtra("manLangChanged", false);
-		if (manLangChanged) {
-			String newURL=intent.getStringExtra("url");
-			webview.loadUrl(newURL);
-		}
-	}
-	private class CustomWebView extends WebViewClient {
-		//Finish of the page loading
-		@Override
-		public void onPageFinished(WebView view, String url) {
-			Log.v("man","onPageFinished");
-			SharedPreferences pref=PreferenceManager.getDefaultSharedPreferences(cont);
-			String targetURL=pref.getString("url", "");
-			if (!targetURL.equals(url)) return;
-			int scx=pref.getInt("scrollX", -1);
-			int scy=pref.getInt("scrollY", -1);
-			if (scx!=-1 && scy!=-1) {
-				webview.scrollTo(scx, scy);
-				//webview.loadUrl("javascript:window.scrollTo("+String.valueOf(scx)+","+String.valueOf(scy)+")");
-			}
-			Editor ed=pref.edit();
-			ed.remove("scrollX");
-			ed.remove("scrollY");
-			ed.remove("url");
-			ed.remove("scale");
-			ed.commit();
-		}
+		Log.v("MoA", "onResume");
 	}
 	
 	@Override
-	public void loadURLonCreate() {
-		webview.setWebViewClient(new CustomWebView());
-		SharedPreferences pref=PreferenceManager.getDefaultSharedPreferences(this);
-		String url=pref.getString("url", "");
-		int sc=(int) (100*pref.getFloat("scale", 0.0f));
-		if (url!="" && sc!=0) {
-			webview.setInitialScale(sc);
-			webview.loadUrl(url);
-		} else {
-			super.loadURLonCreate();
-		}
-		
+	protected void onPause() {
+		Log.v("MoA", "onPause");
+	    Bundle outState = new Bundle ();
+		webview.saveState(outState);
+	    Parcel parcel = Parcel.obtain();
+	    String serialized = null;
+	    try {
+	    	outState.writeToParcel(parcel, 0);
+
+	        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+	        bos.write(parcel.marshall());
+
+	        serialized = Base64.encodeToString(bos.toByteArray(), 0);
+	    } catch (IOException e) {
+	        Log.e(getClass().getSimpleName(), e.toString(), e);
+	    } finally {
+	        parcel.recycle();
+	    }
+	    if (serialized != null) {
+	        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+	        Editor editor = settings.edit();
+	        editor.putString("parcel", serialized);
+	        editor.commit();
+	    }
+	    super.onPause();
 	}
-		
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-	  super.onCreateOptionsMenu(menu);
-	  MenuInflater inflater = getMenuInflater();
-	  inflater.inflate(R.menu.manmenu, menu);
-
-	  return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-	  switch (item.getItemId()) {
-	  case R.id.gomaxima:
-		  float scale=webview.getScale();
-		  String url=webview.getUrl();
-		  webview.setInitialScale(100);
-		  int scy=webview.getScrollY();
-		  int scx=webview.getScrollX();
-		  SharedPreferences pref=PreferenceManager.getDefaultSharedPreferences(this);
-		  Editor ed=pref.edit();
-		  ed.putString("url", url);
-		  ed.putInt("scrollY", scy);
-		  ed.putInt("scrollX", scx);
-		  ed.putFloat("scale", scale);
-		  ed.commit();
-		  
-		  Intent intent = new Intent(this,MaximaOnAndroidActivity.class);
-		  intent.setAction(Intent.ACTION_VIEW);
-		  this.startActivity(intent);
-
-
-		  return true;
-	  default:
-		  return super.onOptionsItemSelected(item);
-	  }
-    }
+	
+	@Override
+	protected void onStop() {
+		super.onStop();
+		Log.v("MoA", "onStop");
+	}
+	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		Log.v("MoA", "onDestroy");
+	}
 }

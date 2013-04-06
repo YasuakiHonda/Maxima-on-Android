@@ -60,7 +60,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 	String manen="file:///android_asset/maxima-doc/en/maxima.html";
 	String mande="file:///android_asset/maxima-doc/en/de/maxima.html";
 	String manURL=manen;
-	boolean manLangChanged=false;
+	boolean manLangChanged=true;
 	Semaphore sem = new Semaphore(1);
 	EditText _editText;
     WebView webview;
@@ -185,6 +185,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     	if ((thisVerNo > verNo) || 
     		!((new File(internalDir+"/maxima")).exists()) || 
     		!((new File(internalDir+"/additions")).exists()) ||
+    		!((new File(internalDir+"/init.lisp")).exists()) ||
     		(!( new File( internalDir+"/maxima-"+mvers.versionString() ) ).exists() 
         	    && ! ( new File( externalDir+"/maxima-"+mvers.versionString() ) ).exists()))
     	{
@@ -255,7 +256,8 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
             exitMOA();
         }
         maximaProccess.clearStringBuilder();
-        sem.release();                
+        sem.release();        
+        Log.v("MoA","sem released.");
     }
     
     @JavascriptInterface
@@ -297,6 +299,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     
    	public boolean onEditorAction(TextView testview, int id, KeyEvent keyEvent) {
    		try {
+   			Log.v("MoA","onEditorAction");
 			sem.acquire();
 		} catch (InterruptedException e1) {
 			Log.d("MoA","exception3");
@@ -304,6 +307,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 			exitMOA();
 		}
    		sem.release();
+   		Log.v("MoA","sem released");
    		String cmdstr="";
    		if ((keyEvent == null) || (keyEvent.getAction()==KeyEvent.ACTION_UP)) {
    			try {

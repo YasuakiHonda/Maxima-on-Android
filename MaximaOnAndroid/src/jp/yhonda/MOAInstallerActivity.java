@@ -106,6 +106,13 @@ public final class MOAInstallerActivity extends Activity {
 				okB.setEnabled(false);
 				msg.setText("Maxima on Android requires additional 85MB of free storage for Maxima data installation. Unfortunately there seems no enough space found on the internal and external storage. Please press Cancel button for now and make sure you have at least 85MB of free space. Then try to run Maxima on Android again!!");
 			}
+			/* Set the default check of the radio buttons */
+			if (intStorageAvail >= limitAvail) {
+				rgroup.check(R.id.radioButton1);
+			}
+			if (extStorageAvail >= limitAvail) {
+				rgroup.check(R.id.radioButton2);
+			}
 		}
 	}
 
