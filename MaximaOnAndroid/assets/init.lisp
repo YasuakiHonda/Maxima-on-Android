@@ -1,5 +1,5 @@
 ;;; (setq *maxima-dir* "path/maxima-5.X.Y") will be added before here.
-  
+(if (not (probe-file *maxima-dir*)) (quit))
 #|
 /*
     Copyright 2012, 2013 Yasuaki Honda (yasuaki.honda@gmail.com)

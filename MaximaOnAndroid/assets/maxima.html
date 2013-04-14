@@ -9,17 +9,9 @@
 <!-- Original version of this file was in mathjax source distribution
 under test directory. The name of the file is sample-dynamic-2.html -->
 
-<meta name="viewport" content="width=device-width, initial-scale=1.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    showProcessingMessages: false,
-    tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] }
-  });
-</script>
-<script type="text/javascript" src="mathjax-MathJax-24a378e/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <script>
 var Preview = {
@@ -101,17 +93,13 @@ var Preview = {
 
 };
 
-//
-//  Cache a callback to the CreatePreview action
-//
-Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
-Preview.callback.autoReset = true;  // make sure it can run more than once
-
-</script>
+</Script>
 <script>
     window.UpdateText = function (text) {
       if (Preview.firstTime == true) {
         Preview.firstTime=false;
+        Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
+        Preview.callback.autoReset = true;  // make sure it can run more than once
         document.getElementById("MathInput").value = "(%i1) "+text;
       } else {
         document.getElementById("MathInput").value += text;
@@ -139,7 +127,7 @@ Preview.callback.autoReset = true;  // make sure it can run more than once
 </head>
 <body>
 <div style="width:100%">
-Maxima on Android 1.7.4, April 8, 2013 (JB MR1 or after)<br>
+Maxima on Android 1.7.4, May 3, 2013<br>
 written by Yasuaki Honda, <br>
 powered by MathJax 2.1 for math rendering <br>
 powered by Gnuplot 4.6 for graph drawing <br>
@@ -158,7 +146,24 @@ The function bug_report() provides bug reporting information.<br>
 <div id="MathBuffer" style="height:auto; visibility:hidden; width:100%">(%i1) </div>
 </div>
 <script>
+initSVGRenderer=function () {
+  console.log("initSVG");
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src  = "mathjax-MathJax-24a378e/MathJax.js?config=TeX-AMS-MML_SVG";
+  document.getElementsByTagName("head")[0].appendChild(script);
+};
+initHTMLRenderer=function () {
+  console.log("initHTML");
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src  = "mathjax-MathJax-24a378e/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+  document.getElementsByTagName("head")[0].appendChild(script);
+};
+
 Preview.Init();
+window.MOA.fileLoaded();
+console.log("fileLoaded() called");
 </script>
 
 </body>

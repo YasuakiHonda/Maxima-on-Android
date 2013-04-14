@@ -53,9 +53,11 @@ import android.webkit.JavascriptInterface;
 
 public class MaximaOnAndroidActivity extends Activity implements TextView.OnEditorActionListener
 {
-	String maximaURL="file:///android_asset/index.html";
-	String oldmaximaURL="file:///android_asset/index.html";
-	String newmaximaURL="file:///android_asset/maxima.html";
+	
+	String maximaURL="file:///android_asset/maxima.html";
+
+	//String maximaURL="http://192.168.0.10/~yasube/maxima.html";
+
 	String manjp="file:///android_asset/maxima-doc/ja/maxima.html";
 	String manen="file:///android_asset/maxima-doc/en/maxima.html";
 	String mande="file:///android_asset/maxima-doc/en/de/maxima.html";
@@ -166,14 +168,8 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         	});
         scview = (ScrollView) findViewById(R.id.scrollView1);
         
-        
-        if (Build.VERSION.SDK_INT > 16) { // > JELLY_BEAN
-        	maximaURL=newmaximaURL;
-        } else {
-        	maximaURL=oldmaximaURL;
-        }
         webview.addJavascriptInterface(this, "MOA");
-        webview.loadUrl(maximaURL);
+        
         _editText=(EditText)findViewById(R.id.editText1);
         _editText.setOnEditorActionListener(this);
 
@@ -241,6 +237,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 			Log.d("MoA", "exception1");
 			e1.printStackTrace();
 		}
+        webview.loadUrl(maximaURL);
     	if ( ! ( new File( internalDir+"/maxima-"+mvers.versionString() ) ).exists() &&
              	 ! ( new File( externalDir+"/maxima-"+mvers.versionString() ) ).exists()) {
              	this.finish();
@@ -296,6 +293,31 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     	};
     	handler.postDelayed(task, 1000);
     }
+
+    @JavascriptInterface
+    public void fileLoaded() {
+    	Handler handler = new Handler();
+    	Runnable task = new Runnable() {
+    		
+			@Override
+			public void run() {
+				Runnable viewtask = new Runnable() {
+					@Override
+					public void run() {
+				        if (Build.VERSION.SDK_INT > 16) { // > JELLY_BEAN
+				        	webview.loadUrl("javascript:initSVGRenderer()");
+				        } else {
+				        	webview.loadUrl("javascript:initHTMLRenderer()");
+				        }
+
+						Log.v("MoA","fileLoaded");
+					}
+				};
+				scview.post(viewtask);
+			}
+    	};
+    	handler.postDelayed(task, 1000);
+    }
     
    	public boolean onEditorAction(TextView testview, int id, KeyEvent keyEvent) {
    		try {
@@ -312,7 +334,10 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    		if ((keyEvent == null) || (keyEvent.getAction()==KeyEvent.ACTION_UP)) {
    			try {
    				cmdstr=_editText.getText().toString();
-   				if (cmdstr.equals("reload;")) {webview.loadUrl(maximaURL);return true;}
+   				if (cmdstr.equals("reload;")) {
+   					webview.loadUrl(maximaURL);
+   			        return true;
+   				}
    				if (cmdstr.equals("sc;")) {this.scrollToEnd();return true;}
    				if (cmdstr.equals("quit();")) exitMOA();
    				if (cmdstr.equals("aboutme;")) {
