@@ -35,12 +35,14 @@ import android.content.SharedPreferences.Editor;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View.MeasureSpec;
 import android.webkit.ConsoleMessage;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -51,12 +53,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.webkit.JavascriptInterface;
 
-public class MaximaOnAndroidActivity extends Activity implements TextView.OnEditorActionListener
+public class MaximaOnAndroidActivity extends Activity
 {
 	
 	String maximaURL="file:///android_asset/maxima.html";
 
-	//String maximaURL="http://192.168.0.10/~yasube/maxima.html";
+	//String maximaURL="http://192.168.0.20/~yasube/maxima.html";
 
 	String manjp="file:///android_asset/maxima-doc/ja/maxima.html";
 	String manen="file:///android_asset/maxima-doc/en/maxima.html";
@@ -64,85 +66,12 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 	String manURL=manen;
 	boolean manLangChanged=true;
 	Semaphore sem = new Semaphore(1);
-	EditText _editText;
     WebView webview;
-    ScrollView scview;
     CommandExec maximaProccess;
     File internalDir;
     File externalDir;
     MaximaVersion mvers=new MaximaVersion(5,29,1);
-
-      @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-  	  super.onCreateOptionsMenu(menu);
-  	  MenuInflater inflater = getMenuInflater();
-  	  inflater.inflate(R.menu.menu, menu);
-  	  return true;
-    }
-      @Override
-	  public boolean onOptionsItemSelected(MenuItem item) {
-    	  boolean retval=false;
-		  switch (item.getItemId()) {
-		  case R.id.about:
-			   showHTML("file:///android_asset/docs/aboutMOA.html");
-			   retval= true;
-			   break;
-		  case R.id.graph:
-			  showGraph();
-			  retval= true;
-			  break;
-		  case R.id.quit:
-			  exitMOA();
-			  retval= true;
-			  break;
-		  case R.id.man:
-			  showManual();
-			  retval= true;
-			  break;
-		  case R.id.jp:
-			  manURL=manjp;
-			  manLangChanged=true;
-			  retval= true;
-			  break;
-		  case R.id.en:
-			  manURL=manen;
-			  manLangChanged=true;
-			  retval= true;
-			  break;
-		  case R.id.de:
-			  manURL=mande;
-			  manLangChanged=true;
-			  retval= true;
-			  break;
-		  case R.id.save:
-			  sessionMenu("ssave();");
-			  retval= true;
-			  break;
-		  case R.id.restore:
-			  sessionMenu("srestore();");
-			  retval= true;
-			  break;
-		  case R.id.playback:
-			  sessionMenu("playback();");
-			  retval= true;
-			  break;
-		  default:
-			   return super.onOptionsItemSelected(item);
-		  }
-		  if (manLangChanged) {
-			  SharedPreferences pref=PreferenceManager.getDefaultSharedPreferences(this);
-			  Editor edit=pref.edit();
-			  edit.putString("manURL", manURL);
-			  edit.commit();
-		  }
-		  return retval;
-	 }
     
-    private void sessionMenu(String cmd) {
-		  _editText.setText(cmd);
-		  _editText.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
-		  _editText.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_ENTER));    	
-    }
       @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -157,22 +86,20 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         webview = (WebView) findViewById(R.id.webView1);
         webview.getSettings().setJavaScriptEnabled(true); 
         webview.setWebViewClient(new WebViewClient() {}); 
-        webview.getSettings().setBuiltInZoomControls(true);
+        //webview.getSettings().setBuiltInZoomControls(true);
         webview.setWebChromeClient(new WebChromeClient() {
         	  public boolean onConsoleMessage(ConsoleMessage cm) {
-        	    Log.d("MyApplication", cm.message() + " -- From line "
+        	    Log.d("MoA w", cm.message() + " -- From line "
         	                         + cm.lineNumber() + " of "
         	                         + cm.sourceId() );
         	    return true;
         	  }
         	});
-        scview = (ScrollView) findViewById(R.id.scrollView1);
         
         webview.addJavascriptInterface(this, "MOA");
+        Log.v("MoA","webview.loadUrl(maximaURL)");
+        webview.loadUrl(maximaURL);
         
-        _editText=(EditText)findViewById(R.id.editText1);
-        _editText.setOnEditorActionListener(this);
-
         MaximaVersion prevVers=new MaximaVersion();
         prevVers.loadVersFromSharedPrefs(this);
         long verNo = prevVers.versionInteger();
@@ -237,7 +164,6 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 			Log.d("MoA", "exception1");
 			e1.printStackTrace();
 		}
-        webview.loadUrl(maximaURL);
     	if ( ! ( new File( internalDir+"/maxima-"+mvers.versionString() ) ).exists() &&
              	 ! ( new File( externalDir+"/maxima-"+mvers.versionString() ) ).exists()) {
              	this.finish();
@@ -258,70 +184,19 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     }
     
     @JavascriptInterface
-    public void reuseByTouch(String maximacmd) {
-    	class rbttask implements Runnable {
-    		String text="";
+   	public void sendToMaxima(final String cmdstr) {
+    	// Run sendToMaximaInternal() on UI thread
+    	Handler handler=new Handler(Looper.getMainLooper());
+    	handler.post(new Runnable() {
     		@Override
     		public void run() {
-    			_editText.setText(text);
+    			sendToMaximaInternal(cmdstr);
     		}
-    		public void settext(String tt) {
-    			text=tt;
-    		}
-    	}
-    	rbttask viewtask = new rbttask();
-    	viewtask.settext(substitute(maximacmd,"<br>",""));
-    	_editText.post(viewtask);
+    	});
     }
-
-    @JavascriptInterface
-    public void scrollToEnd() {
-    	Handler handler = new Handler();
-    	Runnable task = new Runnable() {
-    		
-			@Override
-			public void run() {
-				Runnable viewtask = new Runnable() {
-					@Override
-					public void run() {
-						scview.fullScroll(ScrollView.FOCUS_DOWN);
-						Log.v("MoA","scroll!");
-					}
-				};
-				scview.post(viewtask);
-			}
-    	};
-    	handler.postDelayed(task, 1000);
-    }
-
-    @JavascriptInterface
-    public void fileLoaded() {
-    	Handler handler = new Handler();
-    	Runnable task = new Runnable() {
-    		
-			@Override
-			public void run() {
-				Runnable viewtask = new Runnable() {
-					@Override
-					public void run() {
-				        if (Build.VERSION.SDK_INT > 16) { // > JELLY_BEAN
-				        	webview.loadUrl("javascript:initSVGRenderer()");
-				        } else {
-				        	webview.loadUrl("javascript:initHTMLRenderer()");
-				        }
-
-						Log.v("MoA","fileLoaded");
-					}
-				};
-				scview.post(viewtask);
-			}
-    	};
-    	handler.postDelayed(task, 1000);
-    }
-    
-   	public boolean onEditorAction(TextView testview, int id, KeyEvent keyEvent) {
+    private void sendToMaximaInternal(String cmdstr) {
    		try {
-   			Log.v("MoA","onEditorAction");
+   			Log.v("MoA","sendToMaximaInternal");
 			sem.acquire();
 		} catch (InterruptedException e1) {
 			Log.d("MoA","exception3");
@@ -330,75 +205,53 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 		}
    		sem.release();
    		Log.v("MoA","sem released");
-   		String cmdstr="";
-   		if ((keyEvent == null) || (keyEvent.getAction()==KeyEvent.ACTION_UP)) {
-   			try {
-   				cmdstr=_editText.getText().toString();
-   				if (cmdstr.equals("reload;")) {
-   					webview.loadUrl(maximaURL);
-   			        return true;
-   				}
-   				if (cmdstr.equals("sc;")) {this.scrollToEnd();return true;}
-   				if (cmdstr.equals("quit();")) exitMOA();
-   				if (cmdstr.equals("aboutme;")) {
-   					showHTML("file:///android_asset/docs/aboutMOA.html");
-   					return true;
-   				}
-   				if (cmdstr.equals("man;")) {
-   					showHTML("file://"+internalDir+"/additions/en/maxima.html");
-   					return true;
-   				}
-   				if (cmdstr.equals("manj;")) {
-   					showHTML("file://"+internalDir+"/additions/ja/maxima.html");
-   					return true;
-   				}
-   				removeTmpFiles();
-   				cmdstr=maxima_syntax_check(cmdstr);
-   				maximaProccess.maximaCmd(cmdstr+"\n");
-			} catch (IOException e) {
-				Log.d("MoA","exception4");
-				e.printStackTrace();
-				exitMOA();
-			} catch (Exception e) {
-				Log.d("MoA","exception5");
-				e.printStackTrace();
-				exitMOA();
-			}
+		if (cmdstr.equals("reload;")) {
+			webview.loadUrl(maximaURL);
+	        return;
+		}
+		if (cmdstr.equals("quit();")) exitMOA();
+		removeTmpFiles();
+		cmdstr=maxima_syntax_check(cmdstr);
+		try {
+			maximaProccess.maximaCmd(cmdstr+"\n");
+		} catch (IOException e1) {
+			e1.printStackTrace();
+			exitMOA();
+		} catch (Exception e1) {
+			e1.printStackTrace();
+			exitMOA();
+		}
 
-   			webview.loadUrl("javascript:window.UpdateInput('"+ escapeChars(cmdstr) +"<br>" +"')");
-   			String resString=maximaProccess.getProcessResult();
-   	        maximaProccess.clearStringBuilder();
-   	        displayMaximaCmdResults(resString);
+		String resString=maximaProccess.getProcessResult();
+		maximaProccess.clearStringBuilder();
+		displayMaximaCmdResults(resString);
 
-			if (isGraphFile()) {
-		        List<String> list = new ArrayList<String>();
-		        list.add(internalDir+"/additions/gnuplot/bin/gnuplot");
-		        list.add(internalDir+"/maxout.gnuplot");
-		        CommandExec gnuplotcom = new CommandExec();
-		        try {
-		        	gnuplotcom.execCommand(list);
-		        } catch (Exception e) {
-		            Log.d("MoA","exception6");
-		        }
-		        if ((new File("/data/data/jp.yhonda/files/maxout.html")).exists()) {
-		        	showHTML("file:///data/data/jp.yhonda/files/maxout.html");
-		        }
-			}
-			if (isQepcadFile()) {
-		        List<String> list = new ArrayList<String>();
-		        list.add("/data/data/jp.yhonda/files/additions/qepcad/qepcad.sh");
-		        CommandExec qepcadcom = new CommandExec();
-		        try {
-		        	qepcadcom.execCommand(list);
-		        } catch (Exception e) {
-		        	Log.d("MoA","exception7");
-		        }
-				
-			}
+		if (isGraphFile()) {
+	        List<String> list = new ArrayList<String>();
+	        list.add(internalDir+"/additions/gnuplot/bin/gnuplot");
+	        list.add(internalDir+"/maxout.gnuplot");
+	        CommandExec gnuplotcom = new CommandExec();
+	        try {
+	        	gnuplotcom.execCommand(list);
+	        } catch (Exception e) {
+	            Log.d("MoA","exception6");
+	        }
+	        if ((new File("/data/data/jp.yhonda/files/maxout.html")).exists()) {
+	        	showHTML("file:///data/data/jp.yhonda/files/maxout.html");
+	        }
+		}
+		if (isQepcadFile()) {
+	        List<String> list = new ArrayList<String>();
+	        list.add("/data/data/jp.yhonda/files/additions/qepcad/qepcad.sh");
+	        CommandExec qepcadcom = new CommandExec();
+	        try {
+	        	qepcadcom.execCommand(list);
+	        } catch (Exception e) {
+	        	Log.d("MoA","exception7");
+	        }
+			
+		}
 
-   		}
-
-   		return true;
    	}
    	
    	private String maxima_syntax_check(String cmd) {
@@ -437,12 +290,12 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 				/* normal text, as we are outside of $$...$$ */
 				if (resArray[i].equals("")) continue;
 				String htmlStr=substitute(resArray[i],"\n","<br>");
-				webview.loadUrl("javascript:window.UpdateText('"+ htmlStr +"')");
+				webview.loadUrl("javascript:UpdateText('"+ htmlStr +"')");
 			} else {
 				/* tex commands, as we are inside of $$...$$ */
 				String texStr=substCRinMBOX(resArray[i]);
 				texStr=substitute(texStr,"\n"," \\\\\\\\ ");
-				String urlstr="javascript:window.UpdateMath('"+ texStr +"')";
+				String urlstr="javascript:UpdateMath('"+ texStr +"')";
 				webview.loadUrl(urlstr);
 			}
 		}
@@ -489,12 +342,15 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
       	this.startActivity(intent);
    	}
    	private void showManual() {
+   		webview.loadUrl("javascript:manMaxSwitch();");
+   		/*
       	Intent intent = new Intent(this,ManualActivity.class);
       	intent.setAction(Intent.ACTION_VIEW);
       	intent.putExtra("url", manURL);
       	intent.putExtra("manLangChanged", manLangChanged);
       	manLangChanged=false;
       	this.startActivity(intent);
+      	*/
    	}   	
    	private void showGraph() {
         if ((new File("/data/data/jp.yhonda/files/maxout.html")).exists()) {

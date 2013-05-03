@@ -67,6 +67,7 @@ public final class MOAInstallerActivity extends Activity {
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
+    	Log.v("MoA","MOAInstaller onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.moainstallerview);
         me=this;
@@ -240,6 +241,7 @@ public final class MOAInstallerActivity extends Activity {
 	}
    	
    	private void removeMaximaFiles() {
+   		Log.v("MoA","removeMaximaFiles");
    		MaximaVersion prevVers = new MaximaVersion();
    		prevVers.loadVersFromSharedPrefs(this);
         String maximaDirName = "/maxima-"+prevVers.versionString();
@@ -265,6 +267,7 @@ public final class MOAInstallerActivity extends Activity {
 		        list.add(filelist[i]);
 		        CommandExec sce = new CommandExec();
 		        try {
+		        	Log.v("MoA",filelist[i]);
 					sce.execCommand(list);
 				} catch (IOException e) {
 					Log.d("MoA","exception10");
