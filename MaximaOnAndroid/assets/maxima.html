@@ -5,21 +5,31 @@
     <!-- Copyright 2012, 2013 Yasuaki Honda -->
     <!-- This file is distributed under Apache License, Version 2.0. -->
     <meta name="viewport" content="width=device-width, initial-scale=1"/> 
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+
+<!--
     <link rel="stylesheet" href="jquery.mobile-1.1.2/jquery.mobile-1.1.2.min.css" />
     <script src="jquery.mobile-1.1.2/jquery.js"></script>
     <script src="jquery.mobile-1.1.2/jquery.mobile-1.1.2.min.js"></script>
-    <link rel="stylesheet" href="maxima.css" />
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
+-->
     <script src="maxima.js"></script>
+    <link rel="stylesheet" href="maxima.css" />
   </head>
   
-  <body> 
-
-    <div id="page1" data-role="page" data-disable-page-zoom="false">
-      <div id="c1" data-role="content" data-disable-page-zoom="false">	
+  <body>
+    <div id="mainpage" data-role="page" data-title="Maxima on Android">
+      <div id="c1" data-role="content">
 	Maxima on Android 1.7.4, May 3, 2013<br>
 	written by Yasuaki Honda, <br>
 	powered by MathJax 2.1 for math rendering <br>
-	powered by JQuery 1.9.1 and JQuery Mobile 1.3.1 for GUI <br>
+	powered by JQuery 1.9.1 and JQuery Mobile 1.1.2 for GUI <br>
 	powered by Gnuplot 4.6 for graph drawing <br>
 	<br>
 	Use menu for <i>about MoA / quit / man / redraw graph / Session / Settings</i><br>
@@ -36,24 +46,59 @@
 	(%i1)
       </div><!-- /content -->
 
-      <div data-role="footer" data-position="fixed" data-disable-page-zoom="false">
+      <div data-role="footer" data-tap-toggle="false">
 	<div class='ui-grid-a'>
 	  <div id='maximaInputBlock' class='ui-block-a'><input id="maximaInput" type="text"/></div>
 	  <div id='optionMenuBtnBlock' class='ui-block-b'>
-	    <button id='optionMenuBtn' data-icon="gear" data-iconpos="notext"></button>
+	    <a href="#menu" data-role="button" data-icon="gear" data-iconpos="notext" data-transition="pop"></a>
 	  </div>
 	</div>
       </div><!-- /footer -->
-
     </div><!-- /page -->
-    <div data-role="page">
-      <div data-role="content">
-	tako
+
+    <div id="aboutMoA" data-role="page" data-title="About Maxima on Android">
+      <div data-role="header" data-position="fixed">
+	<h1>About Maxima on Android</h1>
+	<a href="#" class="backToMaxima">Back</a>
+      </div><!-- header -->
+      <div data-role="content" class="iframeContainer">
+	<iframe src="docs/aboutMoA.html" class="iframeContainer" id="aboutIFR"></iframe>
       </div>
-      <div data-role="footer">
-	ika
+    </div><!-- /page -->
+
+    <div data-role="page" id="menu" data-native-menu="false" data-title="Menu">
+      <div data-role="controlgroup" > 
+	<a href="#aboutMoA" data-role="button">About MoA</a>
+	<a href="#manpage" data-role="button">Manual</a>
+	<select id="man-lang-select">
+	  <option value="maxima-doc/en/maxima.html" selected>English</option>
+	  <option value="maxima-doc/ja/maxima.html">Japanese</option>
+	  <option value="maxima-doc/en/de/maxima.html">Germany</option>
+	</select>
+	<button id="quit-btn">Quit</button>
+	<a href="#mainpage" data-role="button">Back to Maxima</a>
+      </div><!-- controlgroup -->
+      <div data-role="collapsible-set" data-inset="false" >
+	<div data-role="collapsible">
+          <h4>Session</h4>
+          <ul data-role="listview" data-inset="false">
+            <li><a href="#" id="ssave">Save</a></li>
+            <li><a href="#" id="srestore">Restore</a></li>
+            <li><a href="#" id="playback">Playback</a></li>
+          </ul>
+	</div><!-- collapsible -->
+      </div><!-- collapsible-set -->
+    </div> <!-- /page -->
+
+    <div data-role="page" id="manpage" class="iframeContainer" data-title="Maxima Manual">
+      <div data-role="header" data-position="fixed"  data-disable-page-zoom="false">
+	<h1>Maxima manual</h1>
+	<a href="#" class="backToMaxima">Back</a>
+      </div><!-- header -->
+      <div data-role="content" class="iframeContainer">
+	<iframe id="maniframe" src="maxima-doc/en/maxima.html" class="iframeContainer"></iframe>
       </div>
-    </div>
+    </div><!-- page -->
 
   </body>
 </html>

@@ -56,9 +56,9 @@ import android.webkit.JavascriptInterface;
 public class MaximaOnAndroidActivity extends Activity
 {
 	
-	String maximaURL="file:///android_asset/maxima.html";
+	//String maximaURL="file:///android_asset/maxima.html";
 
-	//String maximaURL="http://192.168.0.20/~yasube/maxima.html";
+	String maximaURL="http://192.168.0.20/~yasube/maxima.html";
 
 	String manjp="file:///android_asset/maxima-doc/ja/maxima.html";
 	String manen="file:///android_asset/maxima-doc/en/maxima.html";
@@ -86,7 +86,7 @@ public class MaximaOnAndroidActivity extends Activity
         webview = (WebView) findViewById(R.id.webView1);
         webview.getSettings().setJavaScriptEnabled(true); 
         webview.setWebViewClient(new WebViewClient() {}); 
-        //webview.getSettings().setBuiltInZoomControls(true);
+        webview.getSettings().setBuiltInZoomControls(true);
         webview.setWebChromeClient(new WebChromeClient() {
         	  public boolean onConsoleMessage(ConsoleMessage cm) {
         	    Log.d("MoA w", cm.message() + " -- From line "
@@ -205,6 +205,10 @@ public class MaximaOnAndroidActivity extends Activity
 		}
    		sem.release();
    		Log.v("MoA","sem released");
+   		if (cmdstr.startsWith("toast: ")) {
+   			Toast.makeText(this, cmdstr.substring("toast: ".length()), Toast.LENGTH_LONG).show();
+   			return;
+   		}
 		if (cmdstr.equals("reload;")) {
 			webview.loadUrl(maximaURL);
 	        return;
@@ -401,8 +405,11 @@ public class MaximaOnAndroidActivity extends Activity
    	    if (event.getAction()==KeyEvent.ACTION_DOWN) {
    	        switch (event.getKeyCode()) {
    	        case KeyEvent.KEYCODE_BACK:
-   				Toast.makeText(this, "Use Quit in the menu.", Toast.LENGTH_LONG).show();        	
-   	            return true;
+   	    		webview.loadUrl("javascript:BackButton();");
+   	    		return true;
+   	        case KeyEvent.KEYCODE_MENU:
+   	    		webview.loadUrl("javascript:MenuButton();");
+   	    		return true;
    	        }
    	    }
    	    return super.dispatchKeyEvent(event);

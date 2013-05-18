@@ -7,6 +7,8 @@ var UpdateMath = function (TeX) {
 		MathJax.Hub.Typeset(newNode);
 		document.getElementById('c1').appendChild(newNode);
 		// scroll to bottom
+	$('#maximaInput').trigger( "updatelayout" );
+	$('#c1').trigger( "updatelayout" );
 		$(document).scrollTop(10000000);
     };
     MathJax.Hub.Queue([updateMathFunction, MathJax.Hub]);
@@ -19,6 +21,8 @@ var UpdateText = function (text) {
 		var newNode=document.createElement("span");
 		newNode.innerHTML=text;
 		document.getElementById('c1').appendChild(newNode);
+	$('#maximaInput').trigger( "updatelayout" );
+	$('#c1').trigger( "updatelayout" );
 		// scroll to bottom
 		$(document).scrollTop(10000000);
     };
@@ -34,13 +38,74 @@ var RBT=function (text) {
     console.log('RBT '+text);
     var dectext=unescape(text);
     $('#maximaInput').val(dectext);
+    $('#maximaInput').focus();
 };
 
+/* Simple History */
+var myHistory = new Object();
+myHistory.record = new Array();
+myHistory.counter = 0;
+
+var myPushHistory = function (url) {
+    console.log('myPushHistory '+url);
+    myHistory.record[myHistory.counter++]=url;
+};
+
+var myPopHistory = function () {
+    var newURL = myHistory.record[--(myHistory.counter)];
+    console.log('myPopHistory '+newURL);
+    // $.mobile.changePage(newURL); /* ここ間違っている。iframeの中でページ遷移させる必要がある */
+    document.getElementById('maniframe').src=newURL;
+};
+
+var BackButton = function () {
+    console.log("BackButton "+$.mobile.activePage.attr('id'));
+    var currentPageId=$.mobile.activePage.attr('id');
+    if (currentPageId == 'mainpage') {
+	window.MOA.sendToMaxima("toast: Please use Quit menu to quit.");
+    } else if (currentPageId == 'menu') {
+	console.log('in menu');
+	$.mobile.changePage('#mainpage');
+    } else {
+	console.log("other case");
+	if (myHistory.counter == 0) {
+	    console.log('no history. back to maxima');
+	    $.mobile.changePage('#mainpage');
+	} else {
+	    console.log('counter = '+myHistory.counter);
+	    myPopHistory();
+	}
+    }
+    /*
+    if (currentPageId == 'aboutMoA') {
+	console.log("page is aboutMoA");
+	var winObj=document.getElementById('aboutIFR').contentWindow;
+	if (winObj.history.length>0) {
+	    console.log("page is aboutMoA page back");
+	    window.history.back();
+	} else {
+	    console.log("page is aboutMoA window back");
+	    window.history.back();
+	}
+    }
+    */
+	
+};
+
+var MenuButton = function () {
+    console.log('MenuButton');
+    $.mobile.changePage("#menu");
+};
+
+$(document).bind("mobileinit", function(){
+    console.log('mobileinit');
+});
 
 $(document).ready(function (){
-    $('#optionMenuBtn').bind('click',function(ev) {
-	$('#panel1').panel('toggle');
-    });
+    $.mobile.ajaxEnabled = false;
+    $.mobile.hashListeningEnabled = false;
+    $.mobile.pushStateEnabled = false;
+    // main page event handler
     $('#maximaInput').keypress(function(ev) {
 	$('#maximaInput').trigger( "updatelayout" );
 	$('#c1').trigger( "updatelayout" );
@@ -82,5 +147,60 @@ $(document).ready(function (){
     } else {
     	initHTMLRenderer();
     }
+    $(document).scrollTop(10000000);
+
+    // Menu page handler
+    $("#man-lang-select").change(function() {
+	var newVal = $(this).val();
+	$("#maniframe").attr('src', newVal);
+	console.log("man lang select "+$("#maniframe").attr('src'));
+    });
+    $("#quit-btn").click(function() {
+	console.log("Quit");
+	if (window.MOA != null) {
+	    window.MOA.sendToMaxima("quit();");
+	}
+    });
+    $('#ssave').click(function() {
+	var cmd="ssave();";
+	console.log(cmd);
+	if (window.MOA != null) {
+	    UpdateInput(cmd);
+	    window.MOA.sendToMaxima(cmd);
+	}
+	$.mobile.changePage("#mainpage");
+    });
+    $('#srestore').click(function() {
+	var cmd="srestore();";
+	console.log(cmd);
+	if (window.MOA != null) {
+	    UpdateInput(cmd);
+	    window.MOA.sendToMaxima(cmd);
+	}
+	$.mobile.changePage("#mainpage");
+    });
+    $('#playback').click(function() {
+	var cmd="playback();";
+	console.log(cmd);
+	if (window.MOA != null) {
+	    UpdateInput(cmd);
+	    window.MOA.sendToMaxima(cmd);
+	}
+	$.mobile.changePage("#mainpage");
+    });
+
+    // Manual event handler
+    $('#maniframe').load(function () {
+	console.log('maniframe loaded');
+	console.log(document.getElementById('maniframe').contentWindow.location);
+	myPushHistory(document.getElementById('maniframe').contentWindow.location);
+	$('#maniframe').contents().find('body').css('margin','8px 2px 8px 2px');
+	$('#maniframe').contents().find('dd').css('margin','2px 2px 2px 2px');
+    });
+    $('.backToMaxima').click(function() {
+	console.log("back "+$.mobile.activePage.attr('id'));
+	//window.history.back();
+	$.mobile.navigate('#mainpage',true);
+    });
 
 });
