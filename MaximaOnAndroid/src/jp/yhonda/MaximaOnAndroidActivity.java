@@ -54,7 +54,7 @@ import android.webkit.JavascriptInterface;
 public class MaximaOnAndroidActivity extends Activity implements TextView.OnEditorActionListener
 {
 	
-	String maximaURL="file:///android_asset/maxima.html";
+	String maximaURL=null;
 
 	//String maximaURL="http://192.168.0.10/~yasube/maxima.html";
 
@@ -148,6 +148,13 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     {
         Log.d("MoA", "onCreate()");
         super.onCreate(savedInstanceState);
+        
+        if (Build.VERSION.SDK_INT > 16) { // > JELLY_BEAN
+        	maximaURL="file:///android_asset/maxima.html";
+        } else {
+        	maximaURL="file:///android_asset/index.html";
+        }
+
         setContentView(R.layout.main);
         SharedPreferences pref=PreferenceManager.getDefaultSharedPreferences(this);
         manURL=pref.getString("manURL", manen);
