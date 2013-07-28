@@ -67,7 +67,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 	String manjp="file:///android_asset/maxima-doc/ja/maxima.html";
 	String manen="file:///android_asset/maxima-doc/en/maxima.html";
 	String mande="file:///android_asset/maxima-doc/en/de/maxima.html";
-	String manURL=manen;
+	String manURL;
 	boolean manLangChanged=true;
 	boolean allExampleFinished=false;
 	Semaphore sem = new Semaphore(1);
@@ -165,10 +165,23 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         } else {
         	maximaURL="file:///android_asset/index.html";
         }
+        
+        SharedPreferences pref=PreferenceManager.getDefaultSharedPreferences(this);
+        if (new File("/data/local/tmp/maxima-doc").exists()) {
+        	manjp="file:///data/local/tmp/maxima-doc/ja/maxima.html";
+        	manen="file:///data/local/tmp/maxima-doc/en/maxima.html";
+        	mande="file:///data/local/tmp/maxima-doc/en/de/maxima.html";
+            manURL=pref.getString("manURL", manen);
+            if (manURL.startsWith("file:///android_asset")) {
+  			  Editor edit=pref.edit();
+  			  edit.putString("manURL", manen);
+  			  edit.commit();
+            }
+        } else {
+            manURL=pref.getString("manURL", manen);        	
+        }
 
         setContentView(R.layout.main);
-        SharedPreferences pref=PreferenceManager.getDefaultSharedPreferences(this);
-        manURL=pref.getString("manURL", manen);
     	internalDir = this.getFilesDir();
     	externalDir = this.getExternalFilesDir(null);
 
