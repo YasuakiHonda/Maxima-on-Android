@@ -417,6 +417,9 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    		if ((keyEvent == null) || (keyEvent.getAction()==KeyEvent.ACTION_UP)) {
    			try {
    				cmdstr=_editText.getText().toString();
+   				if (cmdstr.equals("")) {
+   					return true;
+   				}
    				if (cmdstr.equals("reload;")) {
    					webview.loadUrl(maximaURL);
    			        return true;
