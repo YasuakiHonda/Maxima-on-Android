@@ -21,12 +21,14 @@ package jp.yhonda;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+import android.webkit.JsResult;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Parcel;
 import android.preference.PreferenceManager;
 import android.util.Base64;
@@ -35,22 +37,51 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.webkit.ConsoleMessage;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 public class ManualActivity extends Activity {
 	WebView webview=null;
+	String curURL="";
+	Activity thisActivity;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Log.v("MoA", "onCreate");
+		Log.v("MoAMan", "onCreate");
+		thisActivity = this;
 		setContentView(R.layout.htmlactivity);
 		webview = (WebView) findViewById(R.id.webViewInHTMLActivity);
 		webview.getSettings().setJavaScriptEnabled(true); 
-		webview.setWebViewClient(new WebViewClient() {}); 
 		webview.getSettings().setBuiltInZoomControls(true);
 		webview.getSettings().setUseWideViewPort(true);
 		webview.getSettings().setLoadWithOverviewMode(true);
+		webview.setWebViewClient(new WebViewClient() {
+			public void onPageFinished (WebView view, String url) {
+				Log.v("MoAMan","onPageFinished");
+				addJSforCopyExample();
+			}
+		});
+		webview.setWebChromeClient(new WebChromeClient() {
+			public boolean onConsoleMessage(ConsoleMessage cm) {
+				/*
+				 * When cm.message() starts with "CECB:", it is not a log message, 
+				 * but a string containing manual examples. This is first processed
+				 * by the copyExampleCallback() function, then displayed as log.
+				 */
+				String msg=cm.message();
+				if (msg.startsWith("CECB:")) {
+					copyExampleCallback(msg.substring("CECB:".length()));
+				}
+				Log.d("MyApplication", cm.message() + " -- From line "
+						+ cm.lineNumber() + " of "
+						+ cm.sourceId() );
+				return true;
+			}
+		});
 
 		Intent origIntent=this.getIntent();
 	    String urlinIntent=origIntent.getStringExtra("url");
@@ -83,10 +114,17 @@ public class ManualActivity extends Activity {
 	@Override
 	public boolean onKeyDown( int keyCode, KeyEvent event ) {
 		if ( event.getAction() == KeyEvent.ACTION_DOWN
-			&& keyCode == KeyEvent.KEYCODE_BACK 
-			&& webview.canGoBack() == true ) {
+			&& keyCode == KeyEvent.KEYCODE_BACK ) {
+			
+			if ( webview.canGoBack() == true ) {
 				webview.goBack();
-				return true; 
+				return true;
+			} else {
+		    	Intent intent = new Intent(this,MaximaOnAndroidActivity.class);
+		    	setResult(RESULT_OK,intent);
+		    	intent.putExtra("sender", "manualActivity");
+		    	finish();
+			}
 		}
 		return super.onKeyDown( keyCode, event );
 	}
@@ -104,8 +142,9 @@ public class ManualActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.gomaxima:
 	      	Intent intent = new Intent(this,MaximaOnAndroidActivity.class);
-	      	intent.setAction(Intent.ACTION_VIEW);
-	      	this.startActivity(intent);
+	      	setResult(RESULT_OK, intent);
+	      	intent.putExtra("sender", "ManualActivity");
+	      	finish();
 			retval= true;
 			break;
 		default:
@@ -113,28 +152,36 @@ public class ManualActivity extends Activity {
 		}
 		return retval;
 	}
+	
+	private void addJSforCopyExample() {
+		String mcmd="var scm=document.createElement('script');" +
+				"scm.type='text/javascript';" +
+				"scm.src='file:///android_asset/copyExample.js';" +
+				"document.getElementsByTagName('head')[0].appendChild(scm);";
+		webview.loadUrl("javascript:"+mcmd);
+	}
 
 	@Override
 	protected void onStart() {
 		super.onStart();
-		Log.v("MoA", "onStart");
+		Log.v("MoAMan", "onStart");
 	}
 	
 	@Override
 	protected void onRestart() {
 		super.onRestart();
-		Log.v("MoA", "onRestart");
+		Log.v("MoAMan", "onRestart");
 	}
 	
 	@Override
 	protected void onResume() {
 		super.onResume();
-		Log.v("MoA", "onResume");
+		Log.v("MoAMan", "onResume");
 	}
 	
 	@Override
 	protected void onPause() {
-		Log.v("MoA", "onPause");
+		Log.v("MoAMan", "onPause");
 	    Bundle outState = new Bundle ();
 		webview.saveState(outState);
 	    Parcel parcel = Parcel.obtain();
@@ -163,12 +210,43 @@ public class ManualActivity extends Activity {
 	@Override
 	protected void onStop() {
 		super.onStop();
-		Log.v("MoA", "onStop");
+		Log.v("MoAMan", "onStop");
 	}
 	
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		Log.v("MoA", "onDestroy");
+		Log.v("MoAMan", "onDestroy");
 	}
+	
+	public void copyExampleCallback(String maximacmd) {
+    	Log.v("MoAMan","copyExampleCallback()");
+    	if (! maximacmd.startsWith("(%i")) {
+    		String msg="This is not an execution script example.";
+			Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+			return;
+    	}
+    	final Intent intent = new Intent(this,MaximaOnAndroidActivity.class);
+    	setResult(RESULT_OK,intent);
+    	intent.putExtra("maxima command", maximacmd);
+    	intent.putExtra("sender", "manualActivity");
+    	
+    	/*
+    	 * 0.5 second after this method call is returned, the Manual activity
+    	 * will receive the finish() method, which will send the intent and 
+    	 * terminate the manual activity.
+    	 */
+    	class ActivityFinisher implements Runnable {
+    		Intent theIntent=intent;
+    		@Override
+    		public void run() {
+    			thisActivity.finish();
+    		}
+    	}
+    	Handler handle=new Handler();
+    	ActivityFinisher af = new ActivityFinisher();
+    	handle.postDelayed(af,500);
+    	Log.v("MoAMan","end of copyExampleCallback()");
+
+    }
 }

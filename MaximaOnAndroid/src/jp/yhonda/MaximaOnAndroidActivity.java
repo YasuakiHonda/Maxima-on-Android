@@ -28,10 +28,12 @@ import java.util.concurrent.Semaphore;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Instrumentation;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -41,10 +43,12 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.ConsoleMessage;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -53,6 +57,8 @@ import android.webkit.JavascriptInterface;
 
 public class MaximaOnAndroidActivity extends Activity implements TextView.OnEditorActionListener
 {
+	String[] mcmdArray=null; /* manual example input will be stored. */
+	int mcmdArrayIndex=0;
 	
 	String maximaURL=null;
 
@@ -63,8 +69,10 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 	String mande="file:///android_asset/maxima-doc/en/de/maxima.html";
 	String manURL=manen;
 	boolean manLangChanged=true;
+	boolean allExampleFinished=false;
 	Semaphore sem = new Semaphore(1);
 	EditText _editText;
+	Button enterB;
     WebView webview;
     ScrollView scview;
     CommandExec maximaProccess;
@@ -94,6 +102,9 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 		  case R.id.quit:
 			  exitMOA();
 			  retval= true;
+			  break;
+		  case R.id.nextexample:
+			  copyExampleInputToInputArea();
 			  break;
 		  case R.id.man:
 			  showManual();
@@ -179,6 +190,15 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         
         _editText=(EditText)findViewById(R.id.editText1);
         _editText.setOnEditorActionListener(this);
+        
+        enterB=(Button)findViewById(R.id.enterB);
+        enterB.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+      		  _editText.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
+    		  _editText.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_ENTER));    	                
+            }
+        });
+
 
         MaximaVersion prevVers=new MaximaVersion();
         prevVers.loadVersFromSharedPrefs(this);
@@ -210,33 +230,89 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
-    	if (resultCode==RESULT_OK) {
-    		/* everything is installed properly. */
-    		mvers.saveVersToSharedPrefs(this);
-       		// startMaxima();
-       		
-       		new Thread(new Runnable() {
-       			@Override
-       			public void run() {
-       				startMaxima();
-       			}
-       		}).start();
-       		
-    	} else {
-    		new AlertDialog.Builder(this)
-    		.setTitle("MaximaOnAndroid Installer")
-    		.setMessage("The installation NOT completed. Please uninstall this apk and try to re-install again.")
-    		.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-            		finish();
-            	}
-            	})
-    		.show();
+    	Log.v("MoA","onActivityResult()");
+    	super.onActivityResult(requestCode, resultCode, data);
+    	String sender=data.getStringExtra("sender");
+    	Log.v("MoA","sender = "+sender);
+    	if (sender.equals("manualActivity")) {
+    		if (resultCode==RESULT_OK) {
+    			String mcmd=data.getStringExtra("maxima command");
+    			if (mcmd != null) {
+    				copyExample(mcmd);
+    			}
+    		}
+    	} else if (sender.equals("MOAInstallerActivity")) {
+    		if (resultCode==RESULT_OK) {
+    			/* everything is installed properly. */
+    			mvers.saveVersToSharedPrefs(this);
+    			// startMaxima();
+
+    			new Thread(new Runnable() {
+    				@Override
+    				public void run() {
+    					startMaxima();
+    				}
+    			}).start();
+
+    		} else {
+    			new AlertDialog.Builder(this)
+    			.setTitle("MaximaOnAndroid Installer")
+    			.setMessage("The installation NOT completed. Please uninstall this apk and try to re-install again.")
+    			.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+    				@Override
+    				public void onClick(DialogInterface dialog, int which) {
+    					finish();
+    				}
+    			})
+    			.show();
+    		}
     	}
     }
     
-    private void startMaxima() {
+    private void copyExample(String mcmd) {
+		Log.d("MoA","copyExample()");
+		String[] mcmd2 = mcmd.split("\n\\(%");
+		mcmd2[0]=mcmd2[0].replaceFirst("^\\(%", "");
+		for (int i=0; i<mcmd2.length; i++) {
+			mcmd2[i]=mcmd2[i].replaceAll("\n", " ");
+		}
+		
+		int j=0;
+		for (int i=0; i<mcmd2.length; i++) {
+			if (mcmd2[i].startsWith("i")) {
+				j++;
+			}
+		}
+		mcmdArray = new String[j];
+		j=0;
+		for (int i=0; i<mcmd2.length; i++) {
+			if (mcmd2[i].startsWith("i")) {
+				int a=mcmd2[i].indexOf(" ");
+				mcmdArray[j]=mcmd2[i].substring(a+1);
+				a=mcmdArray[j].indexOf(";");
+				if (a>0) {
+					mcmdArray[j]=mcmdArray[j].substring(0, a);
+				}
+				j++;
+			}
+		}
+		mcmdArrayIndex=0;
+		copyExampleInputToInputArea();
+	}
+    
+	private void copyExampleInputToInputArea() {
+		if (mcmdArray == null) return;
+		Log.d("MoA","copyExampleInputToInputArea()");
+		_editText.setText(mcmdArray[mcmdArrayIndex]);
+		_editText.setSelection(mcmdArray[mcmdArrayIndex].length());
+		_editText.requestFocus();
+		mcmdArrayIndex++;
+		if (mcmdArrayIndex == mcmdArray.length) {
+			allExampleFinished = true;
+			mcmdArrayIndex=0;
+		}
+	}
+	private void startMaxima() {
     	Log.d("MoA","startMaxima()");
     	try {
 			sem.acquire();
@@ -453,6 +529,10 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 				webview.loadUrl(urlstr);
 			}
 		}
+		if (allExampleFinished == true) {
+			Toast.makeText(this, "All examples are executed.", Toast.LENGTH_LONG).show();
+			allExampleFinished = false;
+		}
    	}
    	
    	private String substCRinMBOX(String str) {
@@ -501,7 +581,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
       	intent.putExtra("url", manURL);
       	intent.putExtra("manLangChanged", manLangChanged);
       	manLangChanged=false;
-      	this.startActivity(intent);
+      	this.startActivityForResult(intent, 0);
    	}   	
    	private void showGraph() {
         if ((new File("/data/data/jp.yhonda/files/maxout.html")).exists()) {

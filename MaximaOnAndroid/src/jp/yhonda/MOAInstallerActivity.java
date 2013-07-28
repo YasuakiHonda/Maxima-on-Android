@@ -197,16 +197,14 @@ public final class MOAInstallerActivity extends Activity {
 		        sce.execCommand(list);
 
 		        data = new Intent();
-	            data.putExtra("What are these?", "These are pens.");
-	            data.putExtra("How many pens?", 3);
+	            data.putExtra("sender", "MOAInstallerActivity");
 	            setResult(RESULT_OK, data);
 
 	    		me.finish();
 	    		break;
 	    	case 10: // Error indicated
 	            data = new Intent();
-	            data.putExtra("What are these?", "These are pens.");
-	            data.putExtra("How many pens?", 3);
+	            data.putExtra("sender", "MOAInstallerActivity");
 	            setResult(RESULT_CANCELED, data);
 
 	    		me.finish();
