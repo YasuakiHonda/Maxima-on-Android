@@ -78,7 +78,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     CommandExec maximaProccess;
     File internalDir;
     File externalDir;
-    MaximaVersion mvers=new MaximaVersion(5,29,2);
+    MaximaVersion mvers=new MaximaVersion(5,30,0);
 
       @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -302,9 +302,14 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 			if (mcmd2[i].startsWith("i")) {
 				int a=mcmd2[i].indexOf(" ");
 				mcmdArray[j]=mcmd2[i].substring(a+1);
-				a=mcmdArray[j].indexOf(";");
+				a=mcmdArray[j].lastIndexOf(";");
 				if (a>0) {
-					mcmdArray[j]=mcmdArray[j].substring(0, a);
+					mcmdArray[j]=mcmdArray[j].substring(0, a+1); /* to include ; */
+				} else {
+					a=mcmdArray[j].lastIndexOf("$");
+					if (a>0) {
+						mcmdArray[j]=mcmdArray[j].substring(0, a+1); /* to include $ */
+					}
 				}
 				j++;
 			}
@@ -341,6 +346,11 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         List<String> list = new ArrayList<String>();
         list.add(internalDir+"/maxima");
         list.add("--init-lisp="+internalDir+"/init.lisp");
+        /*
+        list.add(internalDir+"/maxima");
+        list.add("-eval '(load \"" + internalDir + "/init.lisp\")'");
+        */
+        
         maximaProccess = new CommandExec();
         try {
             maximaProccess.execCommand(list);

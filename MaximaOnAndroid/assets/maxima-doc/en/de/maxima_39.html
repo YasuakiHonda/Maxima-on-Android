@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on Dezember, 10 2012 by texi2html 1.76 -->
+<!-- Created on April, 2 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -342,13 +342,76 @@ with categorical value <code>a</code> is taken,
 </tr></table>
 <h2 class="section"> 39.2 Functions and Variables for data manipulation </h2>
 
+
+<dl>
+<dt><u>Function:</u> <b>build_sample</b><i> (<var>list</var>)</i>
+<a name="IDX1582"></a>
+</dt>
+<dt><u>Function:</u> <b>build_sample</b><i> (<var>matrix</var>)</i>
+<a name="IDX1583"></a>
+</dt>
+<dd><p>Builds a sample from a table of absolute frequencies.
+The input table can be a matrix or a list of lists, all of
+them of equal size. The number of columns or the length of
+the lists must be greater than 1. The last element of each
+row or list is interpreted as the absolute frequency.
+The output is always a sample in matrix form.
+</p>
+<p>Examples:
+</p>
+<p>Univariate frequency table.
+</p>
+<pre class="example">(%i1) load (descriptive)$
+(%i2) sam1: build_sample([[6,1], [j,2], [2,1]]);
+                       [ 6 ]
+                       [   ]
+                       [ j ]
+(%o2)                  [   ]
+                       [ j ]
+                       [   ]
+                       [ 2 ]
+(%i3) mean(sam1);
+                      2 j + 8
+(%o3)                [-------]
+                         4
+(%i4) barsplot(sam1) $
+</pre>
+<p>Multivariate frequency table.
+</p>
+<pre class="example">(%i1) load (descriptive)$
+(%i2) sam2: build_sample([[6,3,1], [5,6,2], [u,2,1],[6,8,2]]) ;
+                           [ 6  3 ]
+                           [      ]
+                           [ 5  6 ]
+                           [      ]
+                           [ 5  6 ]
+(%o2)                      [      ]
+                           [ u  2 ]
+                           [      ]
+                           [ 6  8 ]
+                           [      ]
+                           [ 6  8 ]
+(%i3) cov(sam2);
+       [   2                 2                            ]
+       [  u  + 158   (u + 28)     2 u + 174   11 (u + 28) ]
+       [  -------- - ---------    --------- - ----------- ]
+(%o3)  [     6          36            6           12      ]
+       [                                                  ]
+       [ 2 u + 174   11 (u + 28)            21            ]
+       [ --------- - -----------            --            ]
+       [     6           12                 4             ]
+(%i4) barsplot(sam2, grouping=stacked) $
+</pre></dd></dl>
+
+
+
 <p><a name="continuous_005ffreq"></a>
 </p><dl>
 <dt><u>Function:</u> <b>continuous_freq</b><i> (<var>list</var>)</i>
-<a name="IDX1582"></a>
+<a name="IDX1584"></a>
 </dt>
 <dt><u>Function:</u> <b>continuous_freq</b><i> (<var>list</var>, <var>m</var>)</i>
-<a name="IDX1583"></a>
+<a name="IDX1585"></a>
 </dt>
 <dd><p>The argument of <code>continuous_freq</code> must be a list of numbers.
 Divides the range in intervals and counts how many values
@@ -395,7 +458,7 @@ the interval <code>[0, 1.8]</code>, 24 digits in <code>(1.8, 3.6]</code>, and so
 <p><a name="discrete_005ffreq"></a>
 </p><dl>
 <dt><u>Function:</u> <b>discrete_freq</b><i> (<var>list</var>)</i>
-<a name="IDX1584"></a>
+<a name="IDX1586"></a>
 </dt>
 <dd><p>Counts absolute frequencies in discrete samples, both numeric and categorical.
 Its unique argument is a list,
@@ -414,10 +477,10 @@ understand the last input.
 <p><a name="subsample"></a>
 </p><dl>
 <dt><u>Function:</u> <b>subsample</b><i> (<var>data_matrix</var>, <var>predicate_function</var>)</i>
-<a name="IDX1585"></a>
+<a name="IDX1587"></a>
 </dt>
 <dt><u>Function:</u> <b>subsample</b><i> (<var>data_matrix</var>, <var>predicate_function</var>, <var>col_num1</var>, <var>col_num2</var>, &hellip;)</i>
-<a name="IDX1586"></a>
+<a name="IDX1588"></a>
 </dt>
 <dd><p>This is a sort of variant of the Maxima <code>submatrix</code> function.  The first 
 argument is the data matrix, the second is a predicate function and optional 
@@ -557,10 +620,10 @@ loss of information.
 <p><a name="mean"></a>
 </p><dl>
 <dt><u>Function:</u> <b>mean</b><i> (<var>list</var>)</i>
-<a name="IDX1587"></a>
+<a name="IDX1589"></a>
 </dt>
 <dt><u>Function:</u> <b>mean</b><i> (<var>matrix</var>)</i>
-<a name="IDX1588"></a>
+<a name="IDX1590"></a>
 </dt>
 <dd><p>This is the sample mean, defined as
 </p><pre class="example">                       n
@@ -589,10 +652,10 @@ loss of information.
 <p><a name="var"></a>
 </p><dl>
 <dt><u>Function:</u> <b>var</b><i> (<var>list</var>)</i>
-<a name="IDX1589"></a>
+<a name="IDX1591"></a>
 </dt>
 <dt><u>Function:</u> <b>var</b><i> (<var>matrix</var>)</i>
-<a name="IDX1590"></a>
+<a name="IDX1592"></a>
 </dt>
 <dd><p>This is the sample variance, defined as
 </p><pre class="example">                     n
@@ -616,10 +679,10 @@ loss of information.
 <p><a name="var1"></a>
 </p><dl>
 <dt><u>Function:</u> <b>var1</b><i> (<var>list</var>)</i>
-<a name="IDX1591"></a>
+<a name="IDX1593"></a>
 </dt>
 <dt><u>Function:</u> <b>var1</b><i> (<var>matrix</var>)</i>
-<a name="IDX1592"></a>
+<a name="IDX1594"></a>
 </dt>
 <dd><p>This is the sample variance, defined as
 </p><pre class="example">                     n
@@ -647,10 +710,10 @@ loss of information.
 <p><a name="std"></a>
 </p><dl>
 <dt><u>Function:</u> <b>std</b><i> (<var>list</var>)</i>
-<a name="IDX1593"></a>
+<a name="IDX1595"></a>
 </dt>
 <dt><u>Function:</u> <b>std</b><i> (<var>matrix</var>)</i>
-<a name="IDX1594"></a>
+<a name="IDX1596"></a>
 </dt>
 <dd><p>This is the the square root of function <code>var</code>, the variance with 
 denominator <em>n</em>.
@@ -672,10 +735,10 @@ denominator <em>n</em>.
 <p><a name="std1"></a>
 </p><dl>
 <dt><u>Function:</u> <b>std1</b><i> (<var>list</var>)</i>
-<a name="IDX1595"></a>
+<a name="IDX1597"></a>
 </dt>
 <dt><u>Function:</u> <b>std1</b><i> (<var>matrix</var>)</i>
-<a name="IDX1596"></a>
+<a name="IDX1598"></a>
 </dt>
 <dd><p>This is the the square root of function <code>var1</code>, the variance with 
 denominator <em>n-1</em>.
@@ -697,10 +760,10 @@ denominator <em>n-1</em>.
 <p><a name="noncentral_005fmoment"></a>
 </p><dl>
 <dt><u>Function:</u> <b>noncentral_moment</b><i> (<var>list</var>, <var>k</var>)</i>
-<a name="IDX1597"></a>
+<a name="IDX1599"></a>
 </dt>
 <dt><u>Function:</u> <b>noncentral_moment</b><i> (<var>matrix</var>, <var>k</var>)</i>
-<a name="IDX1598"></a>
+<a name="IDX1600"></a>
 </dt>
 <dd><p>The non central moment of order <em>k</em>, defined as
 </p><pre class="example">                       n
@@ -728,10 +791,10 @@ denominator <em>n-1</em>.
 <p><a name="central_005fmoment"></a>
 </p><dl>
 <dt><u>Function:</u> <b>central_moment</b><i> (<var>list</var>, <var>k</var>)</i>
-<a name="IDX1599"></a>
+<a name="IDX1601"></a>
 </dt>
 <dt><u>Function:</u> <b>central_moment</b><i> (<var>matrix</var>, <var>k</var>)</i>
-<a name="IDX1600"></a>
+<a name="IDX1602"></a>
 </dt>
 <dd><p>The central moment of order <em>k</em>, defined as
 </p><pre class="example">                    n
@@ -759,10 +822,10 @@ denominator <em>n-1</em>.
 <p><a name="cv"></a>
 </p><dl>
 <dt><u>Function:</u> <b>cv</b><i> (<var>list</var>)</i>
-<a name="IDX1601"></a>
+<a name="IDX1603"></a>
 </dt>
 <dt><u>Function:</u> <b>cv</b><i> (<var>matrix</var>)</i>
-<a name="IDX1602"></a>
+<a name="IDX1604"></a>
 </dt>
 <dd><p>The variation coefficient is the quotient between the sample standard deviation 
 (<code>std</code>) and the <code>mean</code>,
@@ -782,10 +845,10 @@ denominator <em>n-1</em>.
 <p><a name="mini"></a>
 </p><dl>
 <dt><u>Function:</u> <b>mini</b><i> (<var>list</var>)</i>
-<a name="IDX1603"></a>
+<a name="IDX1605"></a>
 </dt>
 <dt><u>Function:</u> <b>mini</b><i> (<var>matrix</var>)</i>
-<a name="IDX1604"></a>
+<a name="IDX1606"></a>
 </dt>
 <dd><p>This is the minimum value of the sample <var>list</var>,
 </p>
@@ -803,10 +866,10 @@ denominator <em>n-1</em>.
 <p><a name="maxi"></a>
 </p><dl>
 <dt><u>Function:</u> <b>maxi</b><i> (<var>list</var>)</i>
-<a name="IDX1605"></a>
+<a name="IDX1607"></a>
 </dt>
 <dt><u>Function:</u> <b>maxi</b><i> (<var>matrix</var>)</i>
-<a name="IDX1606"></a>
+<a name="IDX1608"></a>
 </dt>
 <dd><p>This is the maximum value of the sample <var>list</var>,
 </p>
@@ -824,10 +887,10 @@ denominator <em>n-1</em>.
 <p><a name="range"></a>
 </p><dl>
 <dt><u>Function:</u> <b>range</b><i> (<var>list</var>)</i>
-<a name="IDX1607"></a>
+<a name="IDX1609"></a>
 </dt>
 <dt><u>Function:</u> <b>range</b><i> (<var>matrix</var>)</i>
-<a name="IDX1608"></a>
+<a name="IDX1610"></a>
 </dt>
 <dd><p>The range is the difference between the extreme values.
 </p>
@@ -845,10 +908,10 @@ denominator <em>n-1</em>.
 <p><a name="quantile"></a>
 </p><dl>
 <dt><u>Function:</u> <b>quantile</b><i> (<var>list</var>, <var>p</var>)</i>
-<a name="IDX1609"></a>
+<a name="IDX1611"></a>
 </dt>
 <dt><u>Function:</u> <b>quantile</b><i> (<var>matrix</var>, <var>p</var>)</i>
-<a name="IDX1610"></a>
+<a name="IDX1612"></a>
 </dt>
 <dd><p>This is the <var>p</var>-quantile, with <var>p</var> a number in <em>[0, 1]</em>, of the 
 sample <var>list</var>.  Although there are several definitions for the sample 
@@ -871,10 +934,10 @@ interpolation is implemented in package <code>descriptive</code>.
 <p><a name="median"></a>
 </p><dl>
 <dt><u>Function:</u> <b>median</b><i> (<var>list</var>)</i>
-<a name="IDX1611"></a>
+<a name="IDX1613"></a>
 </dt>
 <dt><u>Function:</u> <b>median</b><i> (<var>matrix</var>)</i>
-<a name="IDX1612"></a>
+<a name="IDX1614"></a>
 </dt>
 <dd><p>Once the sample is ordered, if the sample size is odd the median is the central 
 value, otherwise it is the mean of the two central values.
@@ -899,10 +962,10 @@ value, otherwise it is the mean of the two central values.
 <p><a name="qrange"></a>
 </p><dl>
 <dt><u>Function:</u> <b>qrange</b><i> (<var>list</var>)</i>
-<a name="IDX1613"></a>
+<a name="IDX1615"></a>
 </dt>
 <dt><u>Function:</u> <b>qrange</b><i> (<var>matrix</var>)</i>
-<a name="IDX1614"></a>
+<a name="IDX1616"></a>
 </dt>
 <dd><p>The interquartilic range is the difference between the third and first 
 quartiles, <code>quantile(<var>list</var>,3/4) - quantile(<var>list</var>,1/4)</code>,
@@ -924,10 +987,10 @@ quartiles, <code>quantile(<var>list</var>,3/4) - quantile(<var>list</var>,1/4)</
 <p><a name="mean_005fdeviation"></a>
 </p><dl>
 <dt><u>Function:</u> <b>mean_deviation</b><i> (<var>list</var>)</i>
-<a name="IDX1615"></a>
+<a name="IDX1617"></a>
 </dt>
 <dt><u>Function:</u> <b>mean_deviation</b><i> (<var>matrix</var>)</i>
-<a name="IDX1616"></a>
+<a name="IDX1618"></a>
 </dt>
 <dd><p>The mean deviation, defined as
 </p><pre class="example">                     n
@@ -957,10 +1020,10 @@ quartiles, <code>quantile(<var>list</var>,3/4) - quantile(<var>list</var>,1/4)</
 <p><a name="median_005fdeviation"></a>
 </p><dl>
 <dt><u>Function:</u> <b>median_deviation</b><i> (<var>list</var>)</i>
-<a name="IDX1617"></a>
+<a name="IDX1619"></a>
 </dt>
 <dt><u>Function:</u> <b>median_deviation</b><i> (<var>matrix</var>)</i>
-<a name="IDX1618"></a>
+<a name="IDX1620"></a>
 </dt>
 <dd><p>The median deviation, defined as
 </p><pre class="example">                 n
@@ -990,10 +1053,10 @@ quartiles, <code>quantile(<var>list</var>,3/4) - quantile(<var>list</var>,1/4)</
 <p><a name="harmonic_005fmean"></a>
 </p><dl>
 <dt><u>Function:</u> <b>harmonic_mean</b><i> (<var>list</var>)</i>
-<a name="IDX1619"></a>
+<a name="IDX1621"></a>
 </dt>
 <dt><u>Function:</u> <b>harmonic_mean</b><i> (<var>matrix</var>)</i>
-<a name="IDX1620"></a>
+<a name="IDX1622"></a>
 </dt>
 <dd><p>The harmonic mean, defined as
 </p><pre class="example">                  n
@@ -1023,10 +1086,10 @@ quartiles, <code>quantile(<var>list</var>,3/4) - quantile(<var>list</var>,1/4)</
 <p><a name="geometric_005fmean"></a>
 </p><dl>
 <dt><u>Function:</u> <b>geometric_mean</b><i> (<var>list</var>)</i>
-<a name="IDX1621"></a>
+<a name="IDX1623"></a>
 </dt>
 <dt><u>Function:</u> <b>geometric_mean</b><i> (<var>matrix</var>)</i>
-<a name="IDX1622"></a>
+<a name="IDX1624"></a>
 </dt>
 <dd><p>The geometric mean, defined as
 </p><pre class="example">                 /  n      \ 1/n
@@ -1054,10 +1117,10 @@ quartiles, <code>quantile(<var>list</var>,3/4) - quantile(<var>list</var>,1/4)</
 <p><a name="kurtois"></a>
 </p><dl>
 <dt><u>Function:</u> <b>kurtosis</b><i> (<var>list</var>)</i>
-<a name="IDX1623"></a>
+<a name="IDX1625"></a>
 </dt>
 <dt><u>Function:</u> <b>kurtosis</b><i> (<var>matrix</var>)</i>
-<a name="IDX1624"></a>
+<a name="IDX1626"></a>
 </dt>
 <dd><p>The kurtosis coefficient, defined as
 </p><pre class="example">                    n
@@ -1086,10 +1149,10 @@ quartiles, <code>quantile(<var>list</var>,3/4) - quantile(<var>list</var>,1/4)</
 <p><a name="skewness"></a>
 </p><dl>
 <dt><u>Function:</u> <b>skewness</b><i> (<var>list</var>)</i>
-<a name="IDX1625"></a>
+<a name="IDX1627"></a>
 </dt>
 <dt><u>Function:</u> <b>skewness</b><i> (<var>matrix</var>)</i>
-<a name="IDX1626"></a>
+<a name="IDX1628"></a>
 </dt>
 <dd><p>The skewness coefficient, defined as
 </p><pre class="example">                    n
@@ -1117,10 +1180,10 @@ quartiles, <code>quantile(<var>list</var>,3/4) - quantile(<var>list</var>,1/4)</
 <p><a name="pearson_005fskewness"></a>
 </p><dl>
 <dt><u>Function:</u> <b>pearson_skewness</b><i> (<var>list</var>)</i>
-<a name="IDX1627"></a>
+<a name="IDX1629"></a>
 </dt>
 <dt><u>Function:</u> <b>pearson_skewness</b><i> (<var>matrix</var>)</i>
-<a name="IDX1628"></a>
+<a name="IDX1630"></a>
 </dt>
 <dd><p>Pearson's skewness coefficient, defined as 
 </p><pre class="example">                _
@@ -1146,10 +1209,10 @@ quartiles, <code>quantile(<var>list</var>,3/4) - quantile(<var>list</var>,1/4)</
 <p><a name="quarile_005fskewness"></a>
 </p><dl>
 <dt><u>Function:</u> <b>quartile_skewness</b><i> (<var>list</var>)</i>
-<a name="IDX1629"></a>
+<a name="IDX1631"></a>
 </dt>
 <dt><u>Function:</u> <b>quartile_skewness</b><i> (<var>matrix</var>)</i>
-<a name="IDX1630"></a>
+<a name="IDX1632"></a>
 </dt>
 <dd><p>The quartile skewness coefficient, defined as 
 </p><pre class="example">               c    - 2 c    + c
@@ -1197,7 +1260,7 @@ quartiles, <code>quantile(<var>list</var>,3/4) - quantile(<var>list</var>,1/4)</
 <p><a name="cov"></a>
 </p><dl>
 <dt><u>Function:</u> <b>cov</b><i> (<var>matrix</var>)</i>
-<a name="IDX1631"></a>
+<a name="IDX1633"></a>
 </dt>
 <dd><p>The covariance matrix of the multivariate sample, defined as
 </p><pre class="example">              n
@@ -1231,7 +1294,7 @@ quartiles, <code>quantile(<var>list</var>,3/4) - quantile(<var>list</var>,1/4)</
 <p><a name="cov1"></a>
 </p><dl>
 <dt><u>Function:</u> <b>cov1</b><i> (<var>matrix</var>)</i>
-<a name="IDX1632"></a>
+<a name="IDX1634"></a>
 </dt>
 <dd><p>The covariance matrix of the multivariate sample, defined as
 </p><pre class="example">              n
@@ -1265,10 +1328,10 @@ quartiles, <code>quantile(<var>list</var>,3/4) - quantile(<var>list</var>,1/4)</
 <p><a name="global_005fvariance"></a>
 </p><dl>
 <dt><u>Function:</u> <b>global_variances</b><i> (<var>matrix</var>)</i>
-<a name="IDX1633"></a>
+<a name="IDX1635"></a>
 </dt>
 <dt><u>Function:</u> <b>global_variances</b><i> (<var>matrix</var>, <var>logical_value</var>)</i>
-<a name="IDX1634"></a>
+<a name="IDX1636"></a>
 </dt>
 <dd><p>Function <code>global_variances</code> returns a list of global variance measures:
 </p>
@@ -1317,10 +1380,10 @@ but the covariance matrix, avoiding its recalculation,
 <p><a name="cor"></a>
 </p><dl>
 <dt><u>Function:</u> <b>cor</b><i> (<var>matrix</var>)</i>
-<a name="IDX1635"></a>
+<a name="IDX1637"></a>
 </dt>
 <dt><u>Function:</u> <b>cor</b><i> (<var>matrix</var>, <var>logical_value</var>)</i>
-<a name="IDX1636"></a>
+<a name="IDX1638"></a>
 </dt>
 <dd><p>The correlation matrix of the multivariate sample.
 </p>
@@ -1366,10 +1429,10 @@ but the covariance matrix, avoiding its recalculation,
 <p><a name="list_005fcorrelations"></a>
 </p><dl>
 <dt><u>Function:</u> <b>list_correlations</b><i> (<var>matrix</var>)</i>
-<a name="IDX1637"></a>
+<a name="IDX1639"></a>
 </dt>
 <dt><u>Function:</u> <b>list_correlations</b><i> (<var>matrix</var>, <var>logical_value</var>)</i>
-<a name="IDX1638"></a>
+<a name="IDX1640"></a>
 </dt>
 <dd><p>Function <code>list_correlations</code> returns a list of correlation measures:
 </p>
@@ -1464,10 +1527,10 @@ but the covariance matrix, avoiding its recalculation.
 <a name="barsplot_005fdescription"></a>
 </p><dl>
 <dt><u>Function:</u> <b>barsplot</b><i> (<var>data1</var>, <var>data2</var>, &hellip;, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
-<a name="IDX1639"></a>
+<a name="IDX1641"></a>
 </dt>
 <dt><u>Function:</u> <b>barsplot_description</b><i> (&hellip;)</i>
-<a name="IDX1640"></a>
+<a name="IDX1642"></a>
 </dt>
 <dd><p>Plots bars diagrams for discrete statistical variables, both for one or
 multiple samples.
@@ -1622,13 +1685,13 @@ See also functions <code><a href="#histogram">histogram</a></code>
 <a name="boxplot_005fdescription"></a>
 </p><dl>
 <dt><u>Function:</u> <b>boxplot</b><i> (<var>data</var>)</i>
-<a name="IDX1641"></a>
+<a name="IDX1643"></a>
 </dt>
 <dt><u>Function:</u> <b>boxplot</b><i> (<var>data</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
-<a name="IDX1642"></a>
+<a name="IDX1644"></a>
 </dt>
 <dt><u>Function:</u> <b>boxplot_description</b><i> (&hellip;)</i>
-<a name="IDX1643"></a>
+<a name="IDX1645"></a>
 </dt>
 <dd><p>This function plots box-and-whishker diagrams.  Argument <var>data</var> can be a
 list, which is not of great interest, since these diagrams are mainly used for
@@ -1694,25 +1757,25 @@ creating embedded histograms in interfaces wxMaxima and iMaxima.
 <a name="histogram_005fdescription"></a>
 </p><dl>
 <dt><u>Function:</u> <b>histogram</b><i> (<var>list</var>)</i>
-<a name="IDX1644"></a>
-</dt>
-<dt><u>Function:</u> <b>histogram</b><i> (<var>list</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
-<a name="IDX1645"></a>
-</dt>
-<dt><u>Function:</u> <b>histogram</b><i> (<var>one_column_matrix</var>)</i>
 <a name="IDX1646"></a>
 </dt>
-<dt><u>Function:</u> <b>histogram</b><i> (<var>one_column_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
+<dt><u>Function:</u> <b>histogram</b><i> (<var>list</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
 <a name="IDX1647"></a>
 </dt>
-<dt><u>Function:</u> <b>histogram</b><i> (<var>one_row_matrix</var>)</i>
+<dt><u>Function:</u> <b>histogram</b><i> (<var>one_column_matrix</var>)</i>
 <a name="IDX1648"></a>
 </dt>
-<dt><u>Function:</u> <b>histogram</b><i> (<var>one_row_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
+<dt><u>Function:</u> <b>histogram</b><i> (<var>one_column_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
 <a name="IDX1649"></a>
 </dt>
-<dt><u>Function:</u> <b>histogram_description</b><i> (&hellip;)</i>
+<dt><u>Function:</u> <b>histogram</b><i> (<var>one_row_matrix</var>)</i>
 <a name="IDX1650"></a>
+</dt>
+<dt><u>Function:</u> <b>histogram</b><i> (<var>one_row_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
+<a name="IDX1651"></a>
+</dt>
+<dt><u>Function:</u> <b>histogram_description</b><i> (&hellip;)</i>
+<a name="IDX1652"></a>
 </dt>
 <dd><p>This function plots an histogram from a continuous sample.
 Sample data must be stored in a list of numbers or a one dimensional matrix.
@@ -1801,25 +1864,25 @@ the <code>xrange</code> and adding an explicit curve into the scene:
 <p><a name="piechart"></a>
 </p><dl>
 <dt><u>Function:</u> <b>piechart</b><i> (<var>list</var>)</i>
-<a name="IDX1651"></a>
-</dt>
-<dt><u>Function:</u> <b>piechart</b><i> (<var>list</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
-<a name="IDX1652"></a>
-</dt>
-<dt><u>Function:</u> <b>piechart</b><i> (<var>one_column_matrix</var>)</i>
 <a name="IDX1653"></a>
 </dt>
-<dt><u>Function:</u> <b>piechart</b><i> (<var>one_column_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
+<dt><u>Function:</u> <b>piechart</b><i> (<var>list</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
 <a name="IDX1654"></a>
 </dt>
-<dt><u>Function:</u> <b>piechart</b><i> (<var>one_row_matrix</var>)</i>
+<dt><u>Function:</u> <b>piechart</b><i> (<var>one_column_matrix</var>)</i>
 <a name="IDX1655"></a>
 </dt>
-<dt><u>Function:</u> <b>piechart</b><i> (<var>one_row_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
+<dt><u>Function:</u> <b>piechart</b><i> (<var>one_column_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
 <a name="IDX1656"></a>
 </dt>
-<dt><u>Function:</u> <b>piechart_description</b><i> (&hellip;)</i>
+<dt><u>Function:</u> <b>piechart</b><i> (<var>one_row_matrix</var>)</i>
 <a name="IDX1657"></a>
+</dt>
+<dt><u>Function:</u> <b>piechart</b><i> (<var>one_row_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
+<a name="IDX1658"></a>
+</dt>
+<dt><u>Function:</u> <b>piechart_description</b><i> (&hellip;)</i>
+<a name="IDX1659"></a>
 </dt>
 <dd><p>Similar to <code><a href="#barsplot">barsplot</a></code>,
  but plots sectors instead of rectangles.
@@ -1875,19 +1938,19 @@ creating embedded histograms in interfaces wxMaxima and iMaxima.
 <p><a name="scatterplot"></a>
 </p><dl>
 <dt><u>Function:</u> <b>scatterplot</b><i> (<var>list</var>)</i>
-<a name="IDX1658"></a>
-</dt>
-<dt><u>Function:</u> <b>scatterplot</b><i> (<var>list</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
-<a name="IDX1659"></a>
-</dt>
-<dt><u>Function:</u> <b>scatterplot</b><i> (<var>matrix</var>)</i>
 <a name="IDX1660"></a>
 </dt>
-<dt><u>Function:</u> <b>scatterplot</b><i> (<var>matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
+<dt><u>Function:</u> <b>scatterplot</b><i> (<var>list</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
 <a name="IDX1661"></a>
 </dt>
-<dt><u>Function:</u> <b>scatterplot_description</b><i> (&hellip;)</i>
+<dt><u>Function:</u> <b>scatterplot</b><i> (<var>matrix</var>)</i>
 <a name="IDX1662"></a>
+</dt>
+<dt><u>Function:</u> <b>scatterplot</b><i> (<var>matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
+<a name="IDX1663"></a>
+</dt>
+<dt><u>Function:</u> <b>scatterplot_description</b><i> (&hellip;)</i>
+<a name="IDX1664"></a>
 </dt>
 <dd><p>Plots scatter diagrams both for univariate (<var>list</var>) and multivariate 
 (<var>matrix</var>) samples.
@@ -1951,10 +2014,10 @@ see <code><a href="maxima_42.html#points">points</a></code>.
 <a name="starplot_005fdescription"></a>
 </p><dl>
 <dt><u>Function:</u> <b>starplot</b><i> (<var>data1</var>, <var>data2</var>, &hellip;, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
-<a name="IDX1663"></a>
+<a name="IDX1665"></a>
 </dt>
 <dt><u>Function:</u> <b>starplot_description</b><i> (&hellip;)</i>
-<a name="IDX1664"></a>
+<a name="IDX1666"></a>
 </dt>
 <dd><p>Plots star diagrams for discrete statistical variables, both for one or
 multiple samples.
@@ -2028,10 +2091,10 @@ creating embedded histograms in interfaces wxMaxima and iMaxima.
 <p><a name="stemplot"></a>
 </p><dl>
 <dt><u>Function:</u> <b>stemplot</b><i> (<var>data</var>)</i>
-<a name="IDX1665"></a>
+<a name="IDX1667"></a>
 </dt>
 <dt><u>Function:</u> <b>stemplot</b><i> (<var>data</var>, <var>option</var>)</i>
-<a name="IDX1666"></a>
+<a name="IDX1668"></a>
 </dt>
 <dd><p>Plots stem and leaf diagrams.  Unique available option is:
 </p>
@@ -2097,7 +2160,7 @@ key: 6|3 =  6.3
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>Dezember, 10 2012</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

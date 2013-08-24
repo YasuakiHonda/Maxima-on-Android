@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on January, 4 2013 by texi2html 1.76 -->
+<!-- Created on April, 2 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Maxima 5.29.1 Manual: 71. plotdf</title>
+<title>Maxima 5.30.0 Manual: 71. romberg</title>
 
-<meta name="description" content="Maxima 5.29.1 Manual: 71. plotdf">
-<meta name="keywords" content="Maxima 5.29.1 Manual: 71. plotdf">
+<meta name="description" content="Maxima 5.30.0 Manual: 71. romberg">
+<meta name="keywords" content="Maxima 5.30.0 Manual: 71. romberg">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -141,339 +141,263 @@ div.categorybox
 
 <body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="plotdf"></a>
-<a name="SEC334"></a>
+<a name="romberg"></a>
+<a name="SEC337"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_70.html#SEC333" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC335" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_70.html#SEC336" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC338" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_70.html#SEC325" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_70.html#SEC328" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC337" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC339" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC380" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter"> 71. plotdf </h1>
+<h1 class="chapter"> 71. romberg </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC335">71.1 Introduction to plotdf</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC336">71.2 Functions and Variables for plotdf</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC338">71.1 Functions and Variables for romberg</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Introduction-to-plotdf"></a>
+<p><a name="Item_003a-Functions-and-Variables-for-romberg"></a>
 </p><hr size="6">
-<a name="Introduction-to-plotdf"></a>
-<a name="SEC335"></a>
+<a name="Functions-and-Variables-for-romberg"></a>
+<a name="SEC338"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC334" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC336" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC337" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC339" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC334" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC334" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC337" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC337" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC337" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC339" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC380" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 71.1 Introduction to plotdf </h2>
+<h2 class="section"> 71.1 Functions and Variables for romberg </h2>
 
-<p>The function <code>plotdf</code> creates a plot of the direction field (also
-called slope field) for a first-order Ordinary Differential Equation
-(ODE) or a system of two autonomous first-order ODE's.
+
+<dl>
+<dt><u>Function:</u> <b>romberg</b><i> (<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</i>
+<a name="IDX2589"></a>
+</dt>
+<dt><u>Function:</u> <b>romberg</b><i> (<var>F</var>, <var>a</var>, <var>b</var>)</i>
+<a name="IDX2590"></a>
+</dt>
+<dd><p>Computes a numerical integration by Romberg's method.
 </p>
-<p>Plotdf requires Xmaxima. It can be used from the console or any other
-interface to Maxima, but the resulting file will be sent to Xmaxima for
-plotting. Please make sure you have installed Xmaxima before trying to
-use plotdf.
+<p><code>romberg(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>
+returns an estimate of the integral <code>integrate(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>.
+<var>expr</var> must be an expression which evaluates to a floating point value
+when <var>x</var> is bound to a floating point value.
 </p>
-<p>To plot the direction field of a single ODE, the ODE must be written in
-the form:
-</p><pre class="example">       dy
-       -- = F(x,y)
-       dx
+<p><code>romberg(<var>F</var>, <var>a</var>, <var>b</var>)</code>
+returns an estimate of the integral <code>integrate(<var>F</var>(x), x, <var>a</var>, <var>b</var>)</code>
+where <code>x</code> represents the unnamed, sole argument of <var>F</var>;
+the actual argument is not named <code>x</code>.
+<var>F</var> must be a Maxima or Lisp function which returns a floating point value
+when the argument is a floating point value.
+<var>F</var> may name a translated or compiled Maxima function.
+</p>
+<p>The accuracy of <code>romberg</code> is governed by the global variables
+<code>rombergabs</code> and <code>rombergtol</code>.
+<code>romberg</code> terminates successfully when
+the absolute difference between successive approximations is less than <code>rombergabs</code>,
+or the relative difference in successive approximations is less than <code>rombergtol</code>.
+Thus when <code>rombergabs</code> is 0.0 (the default)
+only the relative error test has any effect on <code>romberg</code>.
+</p>
+<p><code>romberg</code> halves the stepsize at most <code>rombergit</code> times before it gives up;
+the maximum number of function evaluations is therefore <code>2^rombergit</code>.
+If the error criterion established by <code>rombergabs</code> and <code>rombergtol</code>
+is not satisfied, <code>romberg</code> prints an error message.
+<code>romberg</code> always makes at least <code>rombergmin</code> iterations;
+this is a heuristic intended to prevent spurious termination when the integrand is oscillatory.
+</p>
+<p><code>romberg</code> repeatedly evaluates the integrand after binding the variable
+of integration to a specific value (and not before).
+This evaluation policy makes it possible to nest calls to <code>romberg</code>,
+to compute multidimensional integrals.
+However, the error calculations do not take the errors of nested integrations
+into account, so errors may be underestimated.
+Also, methods devised especially for multidimensional problems may yield
+the same accuracy with fewer function evaluations.
+</p>
+<p><code>load(romberg)</code> loads this function.
+</p>
+<p>See also <code>QUADPACK</code>, a collection of numerical integration functions.
+</p>
+<p>Examples:
+</p>
+<p>A 1-dimensional integration.
+</p>
+<pre class="example">(%i1) load (romberg);
+(%o1)    /usr/share/maxima/5.11.0/share/numeric/romberg.lisp
+(%i2) f(x) := 1/((x - 1)^2 + 1/100) + 1/((x - 2)^2 + 1/1000)
+              + 1/((x - 3)^2 + 1/200);
+                    1                 1                1
+(%o2) f(x) := -------------- + --------------- + --------------
+                     2    1           2    1            2    1
+              (x - 1)  + ---   (x - 2)  + ----   (x - 3)  + ---
+                         100              1000              200
+(%i3) rombergtol : 1e-6;
+(%o3)                 9.9999999999999995E-7
+(%i4) rombergit : 15;
+(%o4)                          15
+(%i5) estimate : romberg (f(x), x, -5, 5);
+(%o5)                   173.6730736617464
+(%i6) exact : integrate (f(x), x, -5, 5);
+(%o6) 10 sqrt(10) atan(70 sqrt(10))
+ + 10 sqrt(10) atan(30 sqrt(10)) + 10 sqrt(2) atan(80 sqrt(2))
+ + 10 sqrt(2) atan(20 sqrt(2)) + 10 atan(60) + 10 atan(40)
+(%i7) abs (estimate - exact) / exact, numer;
+(%o7)                7.5527060865060088E-11
 </pre>
-<p>and the function <var>F</var> should be given as the argument for
-<code>plotdf</code>. If the independent and dependent variables are not <var>x</var>,
-and <var>y</var>, as in the equation above, then those two variables should
-be named explicitly in a list given as an argument to the plotdf command
-(see the examples).
+<p>A 2-dimensional integration, implemented by nested calls to <code>romberg</code>.
 </p>
-<p>To plot the direction field of a set of two autonomous ODE's, they must
-be written in the form
-</p><pre class="example">       dx             dy
-       -- = G(x,y)    -- = F(x,y) 
-       dt             dt
+<pre class="example">(%i1) load (romberg);
+(%o1)    /usr/share/maxima/5.11.0/share/numeric/romberg.lisp
+(%i2) g(x, y) := x*y / (x + y);
+                                    x y
+(%o2)                   g(x, y) := -----
+                                   x + y
+(%i3) rombergtol : 1e-6;
+(%o3)                 9.9999999999999995E-7
+(%i4) estimate : romberg (romberg (g(x, y), y, 0, x/2), x, 1, 3);
+(%o4)                   0.81930239628356
+(%i5) assume (x &gt; 0);
+(%o5)                        [x &gt; 0]
+(%i6) integrate (integrate (g(x, y), y, 0, x/2), x, 1, 3);
+                                          3
+                                    2 log(-) - 1
+                    9                     2        9
+(%o6)       - 9 log(-) + 9 log(3) + ------------ + -
+                    2                    6         2
+(%i7) exact : radcan (%);
+                    26 log(3) - 26 log(2) - 13
+(%o7)             - --------------------------
+                                3
+(%i8) abs (estimate - exact) / exact, numer;
+(%o8)                1.3711979871851024E-10
 </pre>
-<p>and the argument for <code>plotdf</code> should be a list with the two
-functions <var>G</var> and <var>F</var>, in that order; namely, the first
-expression in the list will be taken to be the time derivative of the
-variable represented on the horizontal axis, and the second expression
-will be the time derivative of the variable represented on the vertical
-axis. Those two variables do not have to be <var>x</var> and <var>y</var>, but if
-they are not, then the second argument given to plotdf must be another
-list naming the two variables, first the one on the horizontal axis and
-then the one on the vertical axis.
-</p>
-<p>If only one ODE is given, <code>plotdf</code> will implicitly admit
-<code>x=t</code>, and <code>G(x,y)=1</code>, transforming the non-autonomous
-equation into a system of two autonomous equations.
-</p>
 <div class=categorybox>
 
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Differential-equations">Differential equations</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-romberg">Package romberg</a>
  &middot;
-<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;
-<a href="maxima_99.html#Category_003a-Package-plotdf">Package plotdf</a>
+<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
 </p>
 </div>
 
 
-<p><a name="Item_003a-Functions-and-Variables-for-plotdf"></a>
-</p><hr size="6">
-<a name="Functions-and-Variables-for-plotdf"></a>
-<a name="SEC336"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC335" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC337" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC334" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC334" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC337" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 71.2 Functions and Variables for plotdf </h2>
+</dd></dl>
 
-
-<dl>
-<dt><u>Function:</u> <b>plotdf</b><i> (<var>dydx</var>, ...options...)</i>
-<a name="IDX2582"></a>
+<p><a name="Item_003a-rombergabs"></a>
+</p><dl>
+<dt><u>Option variable:</u> <b>rombergabs</b>
+<a name="IDX2591"></a>
 </dt>
-<dt><u>Function:</u> <b>plotdf</b><i> (<var>dvdu</var>, <code>[</code><var>u</var>,<var>v</var><code>]</code>, ...options...)</i>
-<a name="IDX2583"></a>
-</dt>
-<dt><u>Function:</u> <b>plotdf</b><i> (<code>[</code><var>dxdt</var>,<var>dydt</var><code>]</code>, ...options...)</i>
-<a name="IDX2584"></a>
-</dt>
-<dt><u>Function:</u> <b>plotdf</b><i> (<code>[</code><var>dudt</var>,<var>dvdt</var><code>]</code>, <code>[</code><var>u</var>,<var>v</var><code>]</code>, ...options...)</i>
-<a name="IDX2585"></a>
-</dt>
-<dd><p>Displays a direction field in two dimensions <var>x</var> and <var>y</var>.
+<dd><p>Default value: 0.0
 </p>
-<p><var>dydx</var>, <var>dxdt</var> and <var>dydt</var> are expressions that depend on
-<var>x</var> and <var>y</var>. <var>dvdu</var>, <var>dudt</var> and <var>dvdt</var> are
-expressions that depend on <var>u</var> and <var>v</var>. In addition to those two
-variables, the expressions can also depend on a set of parameters, with
-numerical values given with the <code>parameters</code> option (the option
-syntax is given below), or with a range of allowed values specified by a
-<var>sliders</var> option.
+<p>The accuracy of <code>romberg</code> is governed by the global variables
+<code>rombergabs</code> and <code>rombergtol</code>.
+<code>romberg</code> terminates successfully when
+the absolute difference between successive approximations is less than <code>rombergabs</code>,
+or the relative difference in successive approximations is less than <code>rombergtol</code>.
+Thus when <code>rombergabs</code> is 0.0 (the default)
+only the relative error test has any effect on <code>romberg</code>.
 </p>
-<p>Several other options can be given within the command, or selected in
-the menu. Integral curves can be obtained by clicking on the plot, or
-with the option <code>trajectory_at</code>. The direction of the integration
-can be controlled with the <code>direction</code> option, which can have
-values of <em>forward</em>, <em>backward</em> or <em>both</em>. The number of
-integration steps is given by <code>nsteps</code> and the time interval
-between them is set up with the <code>tstep</code> option. The Adams Moulton
-method is used for the integration; it is also possible to switch to an
-adaptive Runge-Kutta 4th order method.
+<p>See also <code>rombergit</code> and <code>rombergmin</code>.
 </p>
-<p><b>Plot window menu:</b>
-</p>
-<p>The menu in the plot window has the following options: <em>Zoom</em>, will
-change the behavior of the mouse so that it will allow you to zoom in on
-a region of the plot by clicking with the left button. Each click near a
-point magnifies the plot, keeping the center at the point where you
-clicked. Holding the <kbd>Shift</kbd> key while clicking, zooms out to the
-previous magnification. To resume computing trajectories when you click
-on a point, select <em>Integrate</em> from the menu.
-</p>
-<p>The option <em>Config</em> in the menu can be used to change the ODE(s) in
-use and various other settings. After configuration changes are made,
-the menu option <em>Replot</em> should be selected, to activate the new
-settings.  If a pair of coordinates are entered in the field
-<em>Trajectory at</em> in the <em>Config</em> dialog menu, and the
-<kbd>enter</kbd> key is pressed, a new integral curve will be shown, in
-addition to the ones already shown. When <em>Replot</em> is selected, only
-the last integral curve entered will be shown.
-</p>
-<p>Holding the right mouse button down while the cursor is moved, can be
-used to drag the plot sideways or up and down. Additional
-parameters such as the number of steps, the initial value of <var>t</var>
-and the x and y centers and radii, may be set in the Config menu.
-</p>
-<p>A copy of the plot can be saved as a postscript file, using the menu
-option <em>Save</em>.
-</p>
-<p><b>Plot options:</b>
-</p>
-<p>The <code>plotdf</code> command may include several commands, each command is
-a list of two or more items.  The first item is the name of the option,
-and the remainder comprises the value or values assigned to the option.
-</p>
-<p>The options which are recognized by <code>plotdf</code> are the following:
-</p>
-<ul>
-<li>
-<em>tstep</em> defines the length of the increments on the
-independent variable <var>t</var>, used to compute an integral curve. If only
-one expression <var>dydx</var> is given to <code>plotdf</code>, the <var>x</var>
-variable will be directly proportional to <var>t</var>.
-The default value is 0.1.
-
-</li><li>
-<em>nsteps</em> defines the number of steps of length <code>tstep</code>
-that will be used for the independent variable, to compute an integral
-curve.
-The default value is 100.
-
-</li><li>
-<em>direction</em> defines the direction of the independent
-variable that will be followed to compute an integral curve. Possible
-values are <code>forward</code>, to make the independent variable increase
-<code>nsteps</code> times, with increments <code>tstep</code>, <code>backward</code>, to
-make the independent variable decrease, or <code>both</code> that will lead to
-an integral curve that extends <code>nsteps</code> forward, and <code>nsteps</code>
-backward. The keywords <code>right</code> and <code>left</code> can be used as
-synonyms for <code>forward</code> and <code>backward</code>.
-The default value is <code>both</code>.
-
-</li><li>
-<em>tinitial</em> defines the initial value of variable <var>t</var> used
-to compute integral curves. Since the differential equations are
-autonomous, that setting will only appear in the plot of the curves as
-functions of <var>t</var>. 
-The default value is 0.
-
-</li><li>
-<em>versus_t</em> is used to create a second plot window, with a
-plot of an integral curve, as two functions <var>x</var>, <var>y</var>, of the
-independent variable <var>t</var>. If <code>versus_t</code> is given any value
-different from 0, the second plot window will be displayed. The second
-plot window includes another menu, similar to the menu of the main plot
-window.
-The default value is 0.
-
-</li><li>
-<em>trajectory_at</em> defines the coordinates <var>xinitial</var> and
-<var>yinitial</var> for the starting point of an integral curve.
-The option is empty by default.
-
-</li><li>
-<em>parameters</em> defines a list of parameters, and their
-numerical values, used in the definition of the differential
-equations. The name and values of the parameters must be given in a
-string with a comma-separated sequence of pairs <code>name=value</code>.
-
-</li><li>
-<em>sliders</em> defines a list of parameters that will be changed
-interactively using slider buttons, and the range of variation of those
-parameters. The names and ranges of the parameters must be given in a
-string with a comma-separated sequence of elements <code>name=min:max</code>
-
-</li><li>
-<em>xfun</em> defines a string with semi-colon-separated sequence
-of functions of <var>x</var> to be displayed, on top of the direction field.
-Those functions will be parsed by Tcl and not by Maxima.
-
-</li><li>
-<em>x</em> should be followed by two numbers, which will set up the minimum
-and maximum values shown on the horizontal axis. If the variable on the
-horizontal axis is not <var>x</var>, then this option should have the name of
-the variable on the horizontal axis.
-The default horizontal range is from -10 to 10.
-
-</li><li>
-<em>y</em> should be followed by two numbers, which will set up the minimum
-and maximum values shown on the vertical axis. If the variable on the
-vertical axis is not <var>y</var>, then this option should have the name of
-the variable on the vertical axis.
-The default vertical range is from -10 to 10.
-</li></ul>
-
-<p><strong>Examples:</strong>
-</p>
-<ul>
-<li>
-To show the direction field of the differential equation <em>y' = exp(-x) + y</em> and the solution that goes through <em>(2, -0.1)</em>:
-<pre class="example">(%i1) plotdf(exp(-x)+y,[trajectory_at,2,-0.1])$
-</pre>
-<p><div class="image"><img src="./figures/plotdf1.gif" alt="figures/plotdf1"></div>
-</p>
-</li><li>
-To obtain the direction field for the equation <em>diff(y,x) = x - y^2</em> and the solution with initial condition <em>y(-1) = 3</em>, we can use the command:
-<pre class="example">(%i1) plotdf(x-y^2,[xfun,&quot;sqrt(x);-sqrt(x)&quot;],
-         [trajectory_at,-1,3], [direction,forward],
-         [y,-5,5], [x,-4,16])$
-</pre>
-<p>The graph also shows the function <em>y = sqrt(x)</em>. 
-</p>
-<p><div class="image"><img src="./figures/plotdf2.gif" alt="figures/plotdf2"></div>
-</p>
-</li><li>
-The following example shows the direction field of a harmonic oscillator,
-defined by the two equations <em>dz/dt = v</em> and <em>dv/dt = -k*z/m</em>,
-and the integral curve through <em>(z,v) = (6,0)</em>, with a slider that
-will allow you to change the value of <em>m</em> interactively (<em>k</em> is
-fixed at 2):
-<pre class="example">(%i1) plotdf([v,-k*z/m], [z,v], [parameters,&quot;m=2,k=2&quot;],
-           [sliders,&quot;m=1:5&quot;], [trajectory_at,6,0])$
-</pre>
-<p><div class="image"><img src="./figures/plotdf3.gif" alt="figures/plotdf3"></div>
-</p>
-</li><li>
-To plot the direction field of the Duffing equation, <em>m*x&quot;+c*x'+k*x+b*x^3 = 0</em>, we introduce the variable <em>y=x'</em> and use:
-<pre class="example">(%i1) plotdf([y,-(k*x + c*y + b*x^3)/m],
-             [parameters,&quot;k=-1,m=1.0,c=0,b=1&quot;],
-             [sliders,&quot;k=-2:2,m=-1:1&quot;],[tstep,0.1])$
-</pre>
-<p><div class="image"><img src="./figures/plotdf4.gif" alt="figures/plotdf4"></div>
-</p>
-</li><li>
-The direction field for a damped pendulum, including the
-solution for the given initial conditions, with a slider that
-can be used to change the value of the mass <em>m</em>, and with a plot of
-the two state variables as a function of time:
-
-<pre class="example">(%i1) plotdf([w,-g*sin(a)/l - b*w/m/l], [a,w],
-        [parameters,&quot;g=9.8,l=0.5,m=0.3,b=0.05&quot;],
-        [trajectory_at,1.05,-9],[tstep,0.01],
-        [a,-10,2], [w,-14,14], [direction,forward],
-        [nsteps,300], [sliders,&quot;m=0.1:1&quot;], [versus_t,1])$
-</pre>
-<p><div class="image"><img src="./figures/plotdf5.gif" alt="figures/plotdf5"></div><div class="image"><img src="./figures/plotdf6.gif" alt="figures/plotdf6"></div>
-</p>
-</li></ul>
-
 <div class=categorybox>
 
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-plotdf">Package plotdf</a>
- &middot;
-<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
- &middot;
-<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-romberg">Package romberg</a>
+</p>
+</div>
+
+
+</dd></dl>
+
+<p><a name="Item_003a-rombergit"></a>
+</p><dl>
+<dt><u>Option variable:</u> <b>rombergit</b>
+<a name="IDX2592"></a>
+</dt>
+<dd><p>Default value: 11
+</p>
+<p><code>romberg</code> halves the stepsize at most <code>rombergit</code> times before it gives up;
+the maximum number of function evaluations is therefore <code>2^rombergit</code>.
+<code>romberg</code> always makes at least <code>rombergmin</code> iterations;
+this is a heuristic intended to prevent spurious termination when the integrand is oscillatory.
+</p>
+<p>See also <code>rombergabs</code> and <code>rombergtol</code>.
+</p>
+<div class=categorybox>
+
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-romberg">Package romberg</a>
+</p>
+</div>
+
+
+</dd></dl>
+
+<p><a name="Item_003a-rombergmin"></a>
+</p><dl>
+<dt><u>Option variable:</u> <b>rombergmin</b>
+<a name="IDX2593"></a>
+</dt>
+<dd><p>Default value: 0
+</p>
+<p><code>romberg</code> always makes at least <code>rombergmin</code> iterations;
+this is a heuristic intended to prevent spurious termination when the integrand is oscillatory.
+</p>
+<p>See also <code>rombergit</code>, <code>rombergabs</code>, and <code>rombergtol</code>.
+</p>
+<div class=categorybox>
+
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-romberg">Package romberg</a>
+</p>
+</div>
+
+
+</dd></dl>
+
+<p><a name="Item_003a-rombergtol"></a>
+</p><dl>
+<dt><u>Option variable:</u> <b>rombergtol</b>
+<a name="IDX2594"></a>
+</dt>
+<dd><p>Default value: 1e-4
+</p>
+<p>The accuracy of <code>romberg</code> is governed by the global variables
+<code>rombergabs</code> and <code>rombergtol</code>.
+<code>romberg</code> terminates successfully when
+the absolute difference between successive approximations is less than <code>rombergabs</code>,
+or the relative difference in successive approximations is less than <code>rombergtol</code>.
+Thus when <code>rombergabs</code> is 0.0 (the default)
+only the relative error test has any effect on <code>romberg</code>.
+</p>
+<p>See also <code>rombergit</code> and <code>rombergmin</code>.
+</p>
+<div class=categorybox>
+
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-romberg">Package romberg</a>
 </p>
 </div>
 
@@ -481,11 +405,11 @@ the two state variables as a function of time:
 </dd></dl>
 
 
-<p><a name="Item_003a-romberg"></a>
+<p><a name="Item_003a-simplex"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC334" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC337" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC337" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC339" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -493,12 +417,12 @@ the two state variables as a function of time:
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC380" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>本田 康晃</em> on <em>January, 4 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

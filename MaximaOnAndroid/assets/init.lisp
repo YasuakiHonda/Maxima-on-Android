@@ -28,12 +28,45 @@
 (set-pathnames)                     
 (setq *prompt-suffix* (code-char 4))
 
-(defun tex-char (x) (if (equal x #\ ) "\\:" x))
+(defun tex-char (x) 
+  (cond ((equal x #\ ) "\\space ")
+        ((equal x #\_) "\\_ ")
+        (t x)))
+
+(defprop mlessp ("\\lt ") texsym)
+(defprop mgreaterp ("\\gt ") texsym)
 
 (defun tex-string (x)
   (cond ((equal x "") "")
 	((eql (elt x 0) #\\) x)
-	(t (concatenate 'string "\\mbox{" x "}"))))
+	(t (concatenate 'string "\\text{" x "}"))))
+
+;;; Don't know why, but fib(n) returns 0 regardless n value.
+;;; The followings fix this.
+(defmfun $fib (n)
+  (cond ((fixnump n) (ffib n))
+    (t (setq $prevfib `(($fib) ,(add2* n -1)))
+       `(($fib) ,n))))
+
+(defun ffib (%n)
+  (declare (fixnum %n))
+  (cond ((= %n -1)
+     (setq $prevfib -1)
+     1)
+    ((zerop %n)
+     (setq $prevfib 1)
+     0)
+    (t
+     (let* ((f2 (ffib (ash (logandc2 %n 1) -1))) ; f2 = fib(n/2) or fib((n-1)/2)
+        (x (+ f2 $prevfib))
+        (y (* $prevfib $prevfib))
+        (z (* f2 f2)))
+       (setq f2 (- (* x x) y)
+         $prevfib (+ y z))
+       (when (oddp %n)
+         (psetq $prevfib f2
+            f2 (+ f2 $prevfib)))
+       f2))))
 
 ;;; qepcad support
 (let ((top (pop $file_search_lisp))) 
@@ -66,6 +99,8 @@
   ((mlist) $gnuplot_term $canvas)
   ((mlist) $gnuplot_out_file "/data/data/jp.yhonda/files/maxout.html"))
   $plot_options))
+  
+(setq $display2d '$imaxima)
 
 ($load '$draw)
 
@@ -78,3 +113,6 @@
         ($append '((mlist) "/data/local/tmp/###.{mac,mc}")                  
                  $file_search_maxima))                               
 (if (probe-file "/data/local/tmp/maxima-init.mac") ($load "/data/local/tmp/maxima-init.mac"))
+
+;;; lisp-utils/defsystem.lisp must be loaded.
+($load "lisp-utils/defsystem")
