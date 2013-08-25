@@ -67,6 +67,9 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 	String manjp="file:///android_asset/maxima-doc/ja/maxima.html";
 	String manen="file:///android_asset/maxima-doc/en/maxima.html";
 	String mande="file:///android_asset/maxima-doc/en/de/maxima.html";
+	String manes="file:///android_asset/maxima-doc/en/es/maxima.html";
+	String manpt="file:///android_asset/maxima-doc/en/pt/maxima.html";
+	String manptbr="file:///android_asset/maxima-doc/en/pt_BR/maxima.html";
 	String manURL;
 	boolean manLangChanged=true;
 	boolean allExampleFinished=false;
@@ -125,6 +128,21 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 			  manLangChanged=true;
 			  retval= true;
 			  break;
+		  case R.id.es:
+			  manURL=manes;
+			  manLangChanged=true;
+			  retval= true;
+			  break;
+		  case R.id.pt:
+			  manURL=manpt;
+			  manLangChanged=true;
+			  retval= true;
+			  break;
+		  case R.id.ptbr:
+			  manURL=manptbr;
+			  manLangChanged=true;
+			  retval= true;
+			  break;
 		  case R.id.save:
 			  sessionMenu("ssave();");
 			  retval= true;
@@ -171,6 +189,9 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         	manjp="file:///data/local/tmp/maxima-doc/ja/maxima.html";
         	manen="file:///data/local/tmp/maxima-doc/en/maxima.html";
         	mande="file:///data/local/tmp/maxima-doc/en/de/maxima.html";
+        	manes="file:///data/local/tmp/maxima-doc/en/es/maxima.html";
+        	manpt="file:///data/local/tmp/maxima-doc/en/pt/maxima.html";
+        	manptbr="file:///data/local/tmp/maxima-doc/en/pt_BR/maxima.html";
             manURL=pref.getString("manURL", manen);
             if (manURL.startsWith("file:///android_asset")) {
   			  Editor edit=pref.edit();
