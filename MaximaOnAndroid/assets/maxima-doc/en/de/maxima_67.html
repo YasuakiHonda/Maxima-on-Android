@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 1 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -191,10 +191,10 @@ div.categorybox
 <p><a name="function_005fromberg"></a>
 </p><dl>
 <dt><u>Function:</u> <b>romberg</b><i> (<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</i>
-<a name="IDX2550"></a>
+<a name="IDX2559"></a>
 </dt>
 <dt><u>Function:</u> <b>romberg</b><i> (<var>F</var>, <var>a</var>, <var>b</var>)</i>
-<a name="IDX2551"></a>
+<a name="IDX2560"></a>
 </dt>
 <dd><p>Computes a numerical integration by Romberg's method.
 </p>
@@ -212,8 +212,7 @@ compiled Maxima function.
 </p>
 <p>The accuracy of <code>romberg</code> is governed by the global variables
 <code><a href="#rombergabs">rombergabs</a></code>
- and <code><a href="#rombergtol">rombergtol</a></code>.
-  <code>romberg</code> terminates
+<code><a href="#rombergtol">rombergtol</a></code>.
 successfully when the absolute difference between successive approximations is
 less than <code>rombergabs</code>, or the relative difference in successive
 approximations is less than <code>rombergtol</code>.  Thus when <code>rombergabs</code> is
@@ -221,12 +220,10 @@ approximations is less than <code>rombergtol</code>.  Thus when <code>rombergabs
 <code>romberg</code>.
 </p>
 <p><code>romberg</code> halves the stepsize at most <code><a href="#rombergit">rombergit</a></code>
- times before it
 gives up; the maximum number of function evaluations is therefore
 <code>2^rombergit</code>.  If the error criterion established by <code>rombergabs</code>
 and <code>rombergtol</code> is not satisfied, <code>romberg</code> prints an error message.
 <code>romberg</code> always makes at least <code><a href="#rombergmin">rombergmin</a></code>
- iterations; this is a
 heuristic intended to prevent spurious termination when the integrand is
 oscillatory.
 </p>
@@ -300,14 +297,12 @@ functions.
 <p><a name="rombergabs"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>rombergabs</b>
-<a name="IDX2552"></a>
+<a name="IDX2561"></a>
 </dt>
 <dd><p>Default value: <code>0.0</code>
 </p>
 <p>The accuracy of <code><a href="#SEC356">romberg</a></code>
- is governed by the global variables
 <code>rombergabs</code> and <code><a href="#rombergtol">rombergtol</a></code>.
-  <code>romberg</code> terminates
 successfully when the absolute difference between successive approximations is
 less than <code>rombergabs</code>, or the relative difference in successive
 approximations is less than <code>rombergtol</code>.  Thus when <code>rombergabs</code> is
@@ -315,68 +310,59 @@ approximations is less than <code>rombergtol</code>.  Thus when <code>rombergabs
 <code>romberg</code>.
 </p>
 <p>See also <code><a href="#rombergit">rombergit</a></code>
- and <code><a href="#rombergmin">rombergmin</a></code>.
-</p>
-</dd></dl>
+<code><a href="#rombergmin">rombergmin</a></code>.
+</p></dd></dl>
 
 <p><a name="rombergit"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>rombergit</b>
-<a name="IDX2553"></a>
+<a name="IDX2562"></a>
 </dt>
 <dd><p>Default value: <code>11</code>
 </p>
 <p><code><a href="#SEC356">romberg</a></code>
- halves the stepsize at most <code>rombergit</code> times before it
 gives up; the maximum number of function evaluations is therefore
 <code>2^rombergit</code>.  <code>romberg</code> always makes at least <code><a href="#rombergmin">rombergmin</a></code>
-
 iterations; this is a heuristic intended to prevent spurious termination when
 the integrand is oscillatory.
 </p>
 <p>See also <code><a href="#rombergabs">rombergabs</a></code>
- and <code><a href="#rombergtol">rombergtol</a></code>.
-</p>
-</dd></dl>
+<code><a href="#rombergtol">rombergtol</a></code>.
+</p></dd></dl>
 
 <p><a name="rombergmin"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>rombergmin</b>
-<a name="IDX2554"></a>
+<a name="IDX2563"></a>
 </dt>
 <dd><p>Default value: <code>0</code>
 </p>
 <p><code><a href="#SEC356">romberg</a></code>
- always makes at least <code>rombergmin</code> iterations; this is a
 heuristic intended to prevent spurious termination when the integrand is
 oscillatory.
 </p>
 <p>See also <code><a href="#rombergit">rombergit</a></code>,
- <code><a href="#rombergabs">rombergabs</a></code>,
- and <code><a href="#rombergtol">rombergtol</a></code>.
-</p>
-</dd></dl>
+<code><a href="#rombergabs">rombergabs</a></code>,
+<code><a href="#rombergtol">rombergtol</a></code>.
+</p></dd></dl>
 
 <p><a name="rombergtol"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>rombergtol</b>
-<a name="IDX2555"></a>
+<a name="IDX2564"></a>
 </dt>
 <dd><p>Default value: <code>1e-4</code>
 </p>
 <p>The accuracy of <code><a href="#SEC356">romberg</a></code>
- is governed by the global variables
 <code><a href="#rombergabs">rombergabs</a></code>
- and <code>rombergtol</code>.  <code>romberg</code> terminates successfully
 when the absolute difference between successive approximations is less than
 <code>rombergabs</code>, or the relative difference in successive approximations is
 less than <code>rombergtol</code>.  Thus when <code>rombergabs</code> is <code>0.0</code> (the
 default) only the relative error test has any effect on <code>romberg</code>.
 </p>
 <p>See also <code><a href="#rombergit">rombergit</a></code>
- and <code><a href="#rombergmin">rombergmin</a></code>.
-</p>
-</dd></dl>
+<code><a href="#rombergmin">rombergmin</a></code>.
+</p></dd></dl>
 
 
 
@@ -396,7 +382,7 @@ default) only the relative error test has any effect on <code>romberg</code>.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>September, 1 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

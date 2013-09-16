@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2012年12月月12日 by texi2html 1.82
+<!-- Created on 2013年9月月4日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.29.1 Manual: 22. Numerical</title>
+<title>Maxima 5.31.0 Manual: 22. Numerical</title>
 
-<meta name="description" content="Maxima 5.29.1 Manual: 22. Numerical">
-<meta name="keywords" content="Maxima 5.29.1 Manual: 22. Numerical">
+<meta name="description" content="Maxima 5.31.0 Manual: 22. Numerical">
+<meta name="keywords" content="Maxima 5.31.0 Manual: 22. Numerical">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -138,6 +138,7 @@ div.categorybox
 </style>
 
 <link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+
 <script type="text/javascript"><!--
 
   var _gaq = _gaq || [];
@@ -169,7 +170,7 @@ div.categorybox
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <a name="Numerical-1"></a>
@@ -179,9 +180,11 @@ div.categorybox
 </td></tr>
 <tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-fast-Fourier-transform">22.2 Functions and Variables for fast Fourier transform</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Introduction-to-Fourier-series">22.3 Introduction to Fourier series</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Functions-for-numerical-solution-of-equations">22.3 Functions for numerical solution of equations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Fourier-series">22.4 Functions and Variables for Fourier series</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Introduction-to-numerical-solution-of-differential-equations">22.4 Introduction to numerical solution of differential equations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Functions-for-numerical-solution-of-differential-equations">22.5 Functions for numerical solution of differential equations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -201,7 +204,7 @@ div.categorybox
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <a name="Introduction-to-fast-Fourier-transform-1"></a>
@@ -209,10 +212,10 @@ div.categorybox
 
 <p><code>fft</code>パッケージは高速Fourier変換の（数式計算ではなく）数値計算に関する関数を含みます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Fourier-transform">Fourier transform</a>
- &middot;<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a>
- &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-fft">Package fft</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Fourier-transform">Fourier transform</a>
+ &middot;<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
+ &middot;<a href="maxima_98.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_98.html#Category_003a-Package-fft">Package fft</a>
 </div></p>
 
 <p><a name="Item_003a-Functions-and-Variables-for-fast-Fourier-transform"></a>
@@ -220,7 +223,7 @@ div.categorybox
 <a name="Functions-and-Variables-for-fast-Fourier-transform"></a>
 <table cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Introduction-to-fast-Fourier-transform" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-Fourier-series" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-for-numerical-solution-of-equations" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="#Numerical" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Numerical" title="Up section">上</a>]</td>
@@ -231,7 +234,7 @@ div.categorybox
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <a name="Functions-and-Variables-for-fast-Fourier-transform-1"></a>
@@ -259,8 +262,8 @@ b = r sin(t)
 <p><code>load(fft)</code>はこの関数をロードします。
 <code>fft</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fft">Package fft</a>
- &middot;<a href="maxima_99.html#Category_003a-Complex-variables">Complex variables</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-fft">Package fft</a>
+ &middot;<a href="maxima_98.html#Category_003a-Complex-variables">Complex variables</a>
 </div></p></dd></dl>
 
 <p><a name="recttopolar"></a>
@@ -287,8 +290,8 @@ t = atan2(b, a)
 <p><code>load(fft)</code>はこの関数をロードします。
 <code>fft</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fft">Package fft</a>
- &middot;<a href="maxima_99.html#Category_003a-Complex-variables">Complex variables</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-fft">Package fft</a>
+ &middot;<a href="maxima_98.html#Category_003a-Complex-variables">Complex variables</a>
 </div></p></dd></dl>
 
 <p><a name="inverse_005ffft"></a>
@@ -312,7 +315,7 @@ t = atan2(b, a)
 <code>x</code>を逆変換の出力とします。
 <code>j</code>が0から <code>n - 1</code>まで変わる中、
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">x[j] = sum(y[k] exp(+2 %i %pi j k / n), k, 0, n - 1)
+<table><tr><td>&nbsp;</td><td><pre class="example">x[j] = sum(y[k] exp(-2 %i %pi j k / n), k, 0, n - 1)
 </pre></td></tr></table>
 
 <p><code>load(fft)</code>はこの関数をロードします。
@@ -354,7 +357,7 @@ t = atan2(b, a)
 (%o6)                       6.841L-17
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fft">Package fft</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-fft">Package fft</a>
 </div></p></dd></dl>
 
 <p><a name="fft"></a>
@@ -378,7 +381,7 @@ t = atan2(b, a)
 <code>y</code>を変換の出力とします。
 <code>k</code>が0から <code>n - 1</code>まで変わる中、
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">y[k] = (1/n) sum(x[j] exp(-2 %i %pi j k / n), j, 0, n - 1)
+<table><tr><td>&nbsp;</td><td><pre class="example">y[k] = (1/n) sum(x[j] exp(+2 %i %pi j k / n), j, 0, n - 1)
 </pre></td></tr></table>
 
 <p>データ <var>x</var>が実数の時、
@@ -473,8 +476,30 @@ b[n/2] = 0
 (%o18)      [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0]
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fft">Package fft</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-fft">Package fft</a>
 </div></p></dd></dl>
+
+<p><a name="Item_003a-Functions-for-numerical-solution-of-equations"></a>
+</p><hr size="6">
+<a name="Functions-for-numerical-solution-of-equations"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-fast-Fourier-transform" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-numerical-solution-of-differential-equations" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Numerical" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Numerical" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_23.html#Matrices-and-Linear-Algebra" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-for-numerical-solution-of-equations-1"></a>
+<h2 class="section">22.3 Functions for numerical solution of equations</h2>
 
 <p><a name="horner"></a>
 <a name="Item_003a-horner"></a>
@@ -494,21 +519,21 @@ b[n/2] = 0
 </p>
 <table><tr><td>&nbsp;</td><td><pre class="example">(%i1) expr: 1e-155*x^2 - 5.5*x + 5.2e155;
                            2
-(%o1)            1.0E-155 x  - 5.5 x + 5.2E+155
+(%o1)             1.e-155 x  - 5.5 x + 5.2e+155
 (%i2) expr2: horner (%, x), keepfloat: true;
-(%o2)            (1.0E-155 x - 5.5) x + 5.2E+155
+(%o2)         1.0 ((1.e-155 x - 5.5) x + 5.2e+155)
 (%i3) ev (expr, x=1e155);
 Maxima encountered a Lisp error:
 
- floating point overflow
+ arithmetic error FLOATING-POINT-OVERFLOW signalled
 
 Automatically continuing.
-To reenable the Lisp debugger set *debugger-hook* to nil.
+To enable the Lisp debugger set *debugger-hook* to nil.
 (%i4) ev (expr2, x=1e155);
-(%o4)                       7.0E+154
+(%o4)                 7.00000000000001e+154
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
 </div></p></dd></dl>
 
 <p><a name="find_005froot"></a>
@@ -549,10 +574,10 @@ To reenable the Lisp debugger set *debugger-hook* to nil.
 これらのキーワード引数は形式 <code>key=val</code>を取ります。
 キーワード引数は
 </p><dl compact="compact">
-<dt> <var>abserr</var></dt>
+<dt> <code>abserr</code></dt>
 <dd><p>根での関数値の望まれる絶対エラー。デフォルトは <code>find_root_abs</code>です。
 </p></dd>
-<dt> <var>relerr</var></dt>
+<dt> <code>relerr</code></dt>
 <dd><p>根の望まれる相対エラー。デフォルトは <code>find_root_rel</code>です。
 </p></dd>
 </dl>
@@ -607,8 +632,8 @@ To reenable the Lisp debugger set *debugger-hook* to nil.
 (%o11)                  2.3025850929940456840179914546844b0
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Algebraic-equations">Algebraic equations</a>
- &middot;<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
+ &middot;<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
 </div></p>
 </dd></dl>
 
@@ -637,30 +662,30 @@ Newton法による <code><var>expr</var> = 0</code>の近似解を返します�
 <p>例:
 </p>
 <table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (newton1);
-(%o1) /usr/share/maxima/5.10.0cvs/share/numeric/newton1.mac
+(%o1)  /maxima/share/numeric/newton1.mac
 (%i2) newton (cos (u), u, 1, 1/100);
 (%o2)                   1.570675277161251
 (%i3) ev (cos (u), u = %);
-(%o3)                 1.2104963335033528E-4
+(%o3)                 1.2104963335033529e-4
 (%i4) assume (a &gt; 0);
 (%o4)                        [a &gt; 0]
 (%i5) newton (x^2 - a^2, x, a/2, a^2/100);
 (%o5)                  1.00030487804878 a
 (%i6) ev (x^2 - a^2, x = %);
                                            2
-(%o6)                6.098490481853958E-4 a
+(%o6)                6.098490481853958e-4 a
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Algebraic-equations">Algebraic equations</a>
- &middot;<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
+ &middot;<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
 </div></p></dd></dl>
 
-<p><a name="Item_003a-Introduction-to-Fourier-series"></a>
+<p><a name="Item_003a-Introduction-to-numerical-solution-of-differential-equations"></a>
 </p><hr size="6">
-<a name="Introduction-to-Fourier-series"></a>
+<a name="Introduction-to-numerical-solution-of-differential-equations"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-fast-Fourier-transform" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Fourier-series" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#Functions-for-numerical-solution-of-equations" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-for-numerical-solution-of-differential-equations" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="#Numerical" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Numerical" title="Up section">上</a>]</td>
@@ -671,26 +696,41 @@ Newton法による <code><var>expr</var> = 0</code>の近似解を返します�
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-Fourier-series-1"></a>
-<h2 class="section">22.3 Introduction to Fourier series</h2>
+<a name="Introduction-to-numerical-solution-of-differential-equations-1"></a>
+<h2 class="section">22.4 Introduction to numerical solution of differential equations</h2>
 
-<p><code>fourie</code>パッケージは Fourier級数のシンボル計算のための関数を含みます。
+<p>このセクションで関数が解く常微分方程式(ODE)は以下の形でなければいけません。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">       dy
+       -- = F(x,y)
+       dx
+</pre></td></tr></table>
+<p>つまり一階ODEです。
+<var>n</var>階の高階微分方程式は <var>n</var>個の一階微分方程式系で書かなくてはいけません。
+例えば、二階ODEは以下の2つの方程式系で書かれなくてはいけません。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">       dx               dy
+       -- = G(x,y,t)    -- = F(x,y,t) 
+       dt               dt
+</pre></td></tr></table>
+
+<p>関数の一番目の引数はODEの右辺の式のリストです。
+それらの式が導関数を表す変数は二番目のリストに与えます。
+上の例の場合、それらの変数は<var>x</var>と <var>y</var>です。
+上の例では <var>t</var>に該当する独立変数は別のオプションの中に与えます。
+もし与えられた式がその独立変数に依存しないなら系は自律的と呼ばれます。
 </p>
-<p><code>fourie</code>パッケージの中には
-Fourier積分係数を計算する関数や式の操作のためのいくつかの関数があります。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Fourier-transform">Fourier transform</a>
- &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-fourie">Package fourie</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Differential-equations">Differential equations</a>
+ &middot;<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
+ &middot;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p>
-<p><a name="Item_003a-Functions-and-Variables-for-Fourier-series"></a>
+
+<p><a name="Item_003a-Functions-for-numerical-solution-of-differential-equations"></a>
 </p><hr size="6">
-<a name="Functions-and-Variables-for-Fourier-series"></a>
+<a name="Functions-for-numerical-solution-of-differential-equations"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-Fourier-series" title="Previous section in reading order"> &lt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-numerical-solution-of-differential-equations" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima_23.html#Matrices-and-Linear-Algebra" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="#Numerical" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
@@ -702,216 +742,313 @@ Fourier積分係数を計算する関数や式の操作のためのいくつか�
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-Fourier-series-1"></a>
-<h2 class="section">22.4 Functions and Variables for Fourier series</h2>
-
-
-<p><a name="equalp"></a>
-<a name="Item_003a-equalp"></a>
+<a name="Functions-for-numerical-solution-of-differential-equations-1"></a>
+<h2 class="section">22.5 Functions for numerical solution of differential equations</h2>
+<p><a name="Item_003a-plotdf"></a>
 </p><dl>
-<dt><a name="index-equalp"></a><u>関数:</u> <b>equalp</b><i> (<var>x</var>, <var>y</var>)</i></dt>
+<dt><a name="index-plotdf"></a><u>関数:</u> <b>plotdf</b><i> (<var>dydx</var>, ...options...)</i></dt>
+<dt><a name="index-plotdf-1"></a><u>関数:</u> <b>plotdf</b><i> (<var>dvdu</var>, <code>[</code><var>u</var>,<var>v</var><code>]</code>, ...options...)</i></dt>
+<dt><a name="index-plotdf-2"></a><u>関数:</u> <b>plotdf</b><i> (<code>[</code><var>dxdt</var>,<var>dydt</var><code>]</code>, ...options...)</i></dt>
+<dt><a name="index-plotdf-3"></a><u>関数:</u> <b>plotdf</b><i> (<code>[</code><var>dudt</var>,<var>dvdt</var><code>]</code>, <code>[</code><var>u</var>,<var>v</var><code>]</code>, ...options...)</i></dt>
 <dd>
-<p>もし <code>equal (<var>x</var>, <var>y</var>)</code>なら <code>true</code>を返し、
-そうでないなら <code>false</code>を返します。
- (この場合 <code>equal (x, y)</code>がするようなエラーメッセージを与えません。)
+<p>関数<code>plotdf</code>は、 一階常微分方程式(ODE)や2つの自律 一階
+ODE系の方向場(勾配場とも呼ばれる)のプロットを生成します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
+<p>たとえコンソールのMaximaセッションから走らせても、plotdfは Xmaximaを必要とします。
+XmaximaのTkスクリプトがプロットを生成するためです。
+Xmaximaがインストールされていないなら、plotdfは動きません。
+</p>
+<p><var>dydx</var>, <var>dxdt</var>, <var>dydt</var>は <var>x</var>と <var>y</var>に依存する式です。
+<var>dvdu</var>, <var>dudt</var>, <var>dvdt</var>は <var>u</var>と <var>v</var>に依存する式です。
+それら 2つの変数に加えて、
+<code>parameters</code>オプションで与えられる数値を持つか
+(オプション構文法は以下に与えられます)、
+<var>sliders</var>オプションで指定される許される値の範囲のパラメータ一式にも、
+式は依存するかもしれません。
+</p>
+<p>コマンド内やメニューで選択して、いくつかの他のオプションを与えることができます。
+プロット上でクリックしたり、オプション
+<code>trajectory_at</code>を使って積分曲線を得ることができます。
+<code>direction</code>オプションを使って積分の方向を制御できます。
+オプションは、 <em>forward</em>, <em>backward</em>,
+<em>both</em>のいずれかの値を取り得ます。
+積分ステップの数は<code>nsteps</code>で与えます。
+それぞれの積分ステップで時間増分は、プロットウィンドウのサイズより十分小さい置き換えを生成するように自動的に調整されます。
+使われる数値法は可変時間ステップの4次の適応 Runge-Kutta法です。
+</p>
+<p><b>プロットウィンドウメニュー:</b>
+</p>
+<p>プロットウィンドウのメニューバーは以下の7つのアイコンを持ちます:
+</p>
+<p>X。プロットウィンドウを閉じるのに使えます。
+</p>
+<p>レンチとドライバ。使用中のODEと様々な設定を表示する欄を持つ設定メニューを開きます。
+欄 <em>Trajectory at</em>に座標の組を入力して &lt;enter&gt;キーを押すと、既に表示されたものに加えて新しい積分曲線を表示します。
+</p>
+<p>円に続く2つの矢印。設定メニューで定義された新しい設定で方向場を再プロットし、以前にプロットされた最後の積分曲線だけを再プロットします。
+</p>
+<p>矢印付きハードディスクドライブ。アイコンをクリックした時現れるボックス欄で指定したファイルにプロットのコピーをポストスクリプト形式で保存するのに使います。
+</p>
+<p>プラス記号付き拡大鏡。プロットをズームします。
+</p>
+<p>マイナス記号付き拡大鏡。プロットをズームアウトします。
+マウスの右ボタンを押したままマウスを動かすことでプロットを置き換えることができます。
+</p>
+<p>プロットアイコン。最後にプロットされた積分曲線の2つの変数の時間プロットを含む別のウィンドウを開きます。
+</p>
+<p><b>プロットオプション:</b>
+</p>
+<p>オプションを <code>plotdf</code>自身に与えることもできます。
+それぞれは複数の要素のリストです。
+それぞれのオプションの最初の要素はオプション名で、残りはオプションに割り当てられる値です。
+</p>
+<p><code>plotdf</code>が認識するオプションは以下の通りです:
+</p>
+<ul>
+<li>
+<em>nsteps</em>は、積分曲線を計算するのに、独立変数に対して使われる長さ
+<code>tstep</code>のステップ回数を定義します。
+デフォルト値は 100です。
 
-<p><a name="remfun"></a>
-<a name="Item_003a-remfun"></a>
+</li><li>
+<em>direction</em>は積分曲線を計算する際に従う独立変数の方向を定義します。
+可能な値は、
+<code>forward</code>―これは増分 <code>tstep</code>で独立変数を <code>nsteps</code>回増やします―
+<code>backward</code>―これは独立変数を減らします―
+または <code>both</code>―これは
+<code>nsteps</code>回前進、 <code>nsteps</code>回後進で拡げた積分曲線に導きます―
+キーワード <code>right</code>と <code>left</code>を、
+<code>forward</code>と <code>backward</code>の別称として使うことができます。
+デフォルト値は <code>both</code>です。
+
+</li><li>
+<em>tinitial</em>は積分曲線を計算するために使われる変数 <var>t</var>の初期値です。
+微分方程式が自律なので、その設定は <var>t</var>の関数として曲線のプロットでだけ現れます。
+デフォルト値は 0です。
+
+</li><li>
+<em>versus_t</em>は独立変数 <var>t</var>の 2つの関数 <var>x</var>,
+<var>y</var>としての積分曲線のプロットを使って二番目のプロットウィンドウを生成するために
+使われます。
+もし <code>versus_t</code>が 0と異なる任意の値を与えられたら、
+二番目のプロットウィンドウが表示されます。
+二番目のプロットウィンドウはメインプロットウィンドウのメニューに似た別のメニューを含みます。
+デフォルト値は 0です。
+
+</li><li>
+<em>trajectory_at</em>は積分曲線の開始点のための座標 <var>xinitial</var>と
+<var>yinitial</var>を定義します。
+オプションはデフォルトで空です。
+
+</li><li>
+<em>parameters</em>は
+微分方程式の定義の中で使われるパラメータとその数値のリストを定義します。
+パラメータの名前と値は、コンマで分離された組
+<code>name=value</code>の列を持つ文字列で与えなければいけません。
+
+</li><li>
+<em>sliders</em>はスライダーボタンを使って対話的に変更されるパラメータと
+それらのパラメータの変動範囲のリストです。
+パラメータの名前と範囲は、コンマで分離された要素
+<code>name=min:max</code>の列を持つ文字列で与えなければいけません。
+
+</li><li>
+<em>xfun</em>は方向場の上にセミコロンで分離された表示される
+<var>x</var>の関数の列を持つ文字列を定義します。
+これらの関数は Maximaではなく Tclでパースされます。
+
+</li><li>
+<em>x</em>には2つの数が続かなければいけません。
+2つの数は水平軸上で表示される最小値と最大値を設定します。
+もし水平軸上の変数が <var>x</var>でないなら、
+このオプションは水平軸上の変数名を持たなければいけません。
+デフォルトの水平範囲は -10から 10です。
+
+</li><li>
+<em>y</em>には 2つの数が続かなければいけません。
+2つの数は垂直軸上で表示される最小値と最大値を設定します。
+もし垂直軸上の変数が <var>y</var>でないなら、
+このオプションは垂直軸上の変数名を持たなければいけません。
+デフォルトの垂直範囲は -10から 10です。
+
+</li><li>
+<em>xaxislabel</em>は水平軸を特定するのに使われます。
+デフォルト値は一番目の状態変数名です。
+
+</li><li>
+<em>yaxislabel</em>を垂直軸を特定するのに使われます。
+デフォルト値は二番目の状態変数名です。
+
+</li></ul>
+
+<p><strong>例:</strong>
+</p>
+<ul>
+<li>
+微分方程式 <em>y&rsquo; = exp(-x) + y</em>の方向場と
+<em>(2, -0.1)</em>を通過する解を表示するために:
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plotdf(exp(-x)+y,[trajectory_at,2,-0.1])$
+</pre></td></tr></table>
+
+<img src="figures/plotdf1.gif" alt="figures/plotdf1">
+
+</li><li>
+方程式 <em>diff(y,x) = x - y^2</em>の方向場と初期条件
+<em>y(-1) = 3</em>の解を得るために以下のコマンドを使うことができます:
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plotdf(x-y^2,[xfun,&quot;sqrt(x);-sqrt(x)&quot;],
+         [trajectory_at,-1,3], [direction,forward],
+         [y,-5,5], [x,-4,16])$
+</pre></td></tr></table>
+
+<p>グラフは関数 <em>y = sqrt(x)</em>も表示します。
+</p>
+<img src="figures/plotdf2.gif" alt="figures/plotdf2">
+
+</li><li>
+以下の例は、2つの方程式 <em>dz/dt = v</em>と
+<em>dv/dt = -k*z/m</em>で定義される調和振動子の方向場と、
+<em>(z,v) = (6,0)</em>を通る積分曲線を、
+(<em>k</em>は 2に固定で) <em>m</em>の値を対話的に変えられるスライダーと一緒に、
+表示します。
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plotdf([v,-k*z/m], [z,v], [parameters,&quot;m=2,k=2&quot;],
+           [sliders,&quot;m=1:5&quot;], [trajectory_at,6,0])$
+</pre></td></tr></table>
+
+<img src="figures/plotdf3.gif" alt="figures/plotdf3">
+
+</li><li>
+Duffing方程式 <em>m*x&rdquo;+c*x&rsquo;+k*x+b*x^3 = 0</em>の方向場をプロットするために変数
+<em>y=x&rsquo;</em>を導入し、以下のように使います:
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plotdf([y,-(k*x + c*y + b*x^3)/m],
+             [parameters,&quot;k=-1,m=1.0,c=0,b=1&quot;],
+             [sliders,&quot;k=-2:2,m=-1:1&quot;],[tstep,0.1])$
+</pre></td></tr></table>
+
+<img src="figures/plotdf4.gif" alt="figures/plotdf4">
+
+</li><li>
+質量 <em>m</em>の値を変更するのに使うことができるスライダーと一緒に
+与えられた初期条件の解と減衰振り子の方向場と
+時間の関数として2つの状態変数のプロットを一緒に:
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plotdf([w,-g*sin(a)/l - b*w/m/l], [a,w],
+        [parameters,&quot;g=9.8,l=0.5,m=0.3,b=0.05&quot;],
+        [trajectory_at,1.05,-9],[tstep,0.01],
+        [a,-10,2], [w,-14,14], [direction,forward],
+        [nsteps,300], [sliders,&quot;m=0.1:1&quot;], [versus_t,1])$
+</pre></td></tr></table>
+
+<img src="figures/plotdf5.gif" alt="figures/plotdf5"><img src="figures/plotdf6.gif" alt="figures/plotdf6">
+
+</li></ul>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Differential-equations">Differential equations</a>
+ &middot;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+ &middot;<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ploteq"></a>
 </p><dl>
-<dt><a name="index-remfun"></a><u>関数:</u> <b>remfun</b><i> (<var>f</var>, <var>expr</var>)</i></dt>
-<dt><a name="index-remfun-1"></a><u>関数:</u> <b>remfun</b><i> (<var>f</var>, <var>expr</var>, <var>x</var>)</i></dt>
+<dt><a name="index-ploteq"></a><u>関数:</u> <b>ploteq</b><i> (<var>exp</var>, ...options...)</i></dt>
 <dd>
-<p><code>remfun (<var>f</var>, <var>expr</var>)</code>は
-<var>expr</var>の中の <code><var>f</var> (<var>arg</var>)</code>すべてを <var>arg</var>で置き換えます。
+<p><var>exp</var>の等電位曲線をプロットします。
+<var>exp</var>は二変数に依存する式です。
+曲線は直交切線を定義する微分方程式を与えられた式の勾配から得られる自律系の解に積分することで得られます。
+プロットは勾配系の積分曲線(オプションfieldlines)を見せることもできます。
 </p>
-<p><code>remfun (<var>f</var>, <var>expr</var>, <var>x</var>)</code>は
-<var>expr</var>の中の <code><var>f</var> (<var>arg</var>)</code>を
-<var>arg</var>が変数 <var>x</var>を含むときだけ
-<var>arg</var>で置き換えます。
+<p>このプログラムも、たとえコンソールのMaximaセッションから走らせても、 Xmaximaを必要とします。
+XmaximaのTkスクリプトがプロットを生成するためです。
+デフォルトでは、ユーザーがある点をクリックする(か設定メニューかtrajectory_atオプションで座標を与える)まで、プロット領域は空です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
+<p>plotdfがほとんどのオプションはploteqでも使うことができ、
+プロットインターフェースはplotdfで記述したものと同じです。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) V: 900/((x+1)^2+y^2)^(1/2)-900/((x-1)^2+y^2)^(1/2)$
+(%i2) ploteq(V,[x,-2,2],[y,-2,2],[fieldlines,&quot;blue&quot;])$
+</pre></td></tr></table>
 
-<p><a name="funp"></a>
-<a name="Item_003a-funp"></a>
+<p>ある点をクリックすると、その点(赤)と直交切線(青)を通る等電位曲線をプロットします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Differential-equations">Differential equations</a>
+ &middot;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+ &middot;<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-rk"></a>
 </p><dl>
-<dt><a name="index-funp"></a><u>関数:</u> <b>funp</b><i> (<var>f</var>, <var>expr</var>)</i></dt>
-<dt><a name="index-funp-1"></a><u>関数:</u> <b>funp</b><i> (<var>f</var>, <var>expr</var>, <var>x</var>)</i></dt>
+<dt><a name="index-rk"></a><u>関数:</u> <b>rk</b><i> (<var>ODE</var>, <var>var</var>, <var>initial</var>, <var>domain</var>)</i></dt>
+<dt><a name="index-rk-1"></a><u>関数:</u> <b>rk</b><i> ([<var>ODE1</var>,...,<var>ODEm</var>], [<var>v1</var>,...,<var>vm</var>], [<var>init1</var>,...,<var>initm</var>], <var>domain</var>)</i></dt>
 <dd>
-<p>もし <var>expr</var>が関数 <var>f</var>を含むなら
-<code>funp (<var>f</var>, <var>expr</var>)</code>は <code>true</code>を返します。
+<p>4次の Runge-Kutta法を使って、
+最初の形式は一階常微分方程式一つを数値的に解き、二番目の形式はそれら
+m個の方程式系を解きます。
+<var>var</var>は従属変数を表します。
+<var>ODE</var>は独立変数と従属変数にだけ依存する式でなければいけません。
+そして、独立変数に関する従属変数の導関数を定義します。
 </p>
-<p>もし <var>expr</var>が関数 <var>f</var>を含み、変数
-<var>x</var>が <var>f</var>のインスタンスの１つの引数のどこかにあるなら、
-<code>funp (<var>f</var>, <var>expr</var>, <var>x</var>)</code>は <code>true</code>を返します。
+<p>独立変数は <code>domain</code>で指定されます。
+それは 4つの要素のリストでなければいけません。
+例えば:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">[t, 0, 10, 0.1]
+</pre></td></tr></table>
+<p>リストの最初の要素は独立変数を特定し、二番目と三番目の要素はその変数の初期値と最終値であり、
+最後の要素はその区間内で使用されるべき増加分を設定します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
-
-<p><a name="absint"></a>
-<a name="Item_003a-absint"></a>
-</p><dl>
-<dt><a name="index-absint"></a><u>関数:</u> <b>absint</b><i> (<var>f</var>, <var>x</var>, <var>halfplane</var>)</i></dt>
-<dt><a name="index-absint-1"></a><u>関数:</u> <b>absint</b><i> (<var>f</var>, <var>x</var>)</i></dt>
-<dt><a name="index-absint-2"></a><u>関数:</u> <b>absint</b><i> (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>)</i></dt>
-<dd>
-<p><code>absint (<var>f</var>, <var>x</var>, <var>halfplane</var>)</code>は、
-与えられた半平面 (<code>pos</code>, <code>neg</code>, または<code>both</code>)での
-<var>f</var>の <var>x</var>に関する不定積分を返します。
-<var>f</var>は形式
-<code>abs (x)</code>, <code>abs (sin (x))</code>,
-<code>abs (a) * exp (-abs (b) * abs (x))</code>の式を含むことができます。
+<p>もし <var>m</var>この方程式が解かれようとしているなら、
+<var>m</var>個の従属変数 <var>v1</var>, <var>v2</var>, ..., <var>vm</var>が存在しなければいけません。
+それらの変数の初期値は <var>init1</var>, <var>init2</var>, ..., <var>initm</var>となります。
+以前の場合と同様、 <code>domain</code>で定義されたただ 1つの独立変数が残っています。
+<var>ODE1</var>, ..., <var>ODEm</var>は独立変数に関する従属変数それぞれの導関数を定義する式です。
+それらの式に現れるかもしれない変数は独立変数と任意の従属変数だけです。
+従属変数と厳密に同じ順序でリストの中に導関数
+<var>ODE1</var>, ..., <var>ODEm</var>を与えることが重要です;
+例えば、リストの三番目の要素は三番目の従属変数の導関数と解釈されます。
 </p>
-<p><code>absint (<var>f</var>, <var>x</var>)</code>は
-<code>absint (<var>f</var>, <var>x</var>, pos)</code>と同値です。
+<p>プログラムは
+方程式を独立変数の初期値から最終値まで一定の増加分を使って積分しようとします。
+もしあるステップで従属変数の1つが大きすぎる絶対値を取ったら、積分はその点で中断されます。
+結果は、なされた繰り返しの回数と同じ数の要素を持つリストです。
+結果リストの中のそれぞれの要素は、それ自身 <var>m</var>+1個の要素を持つもう一つのリストです:
+独立変数の値にその点に対応する従属変数の値が続きます。
 </p>
-<p><code>absint (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>は
-<var>x</var>に関する <var>f</var>の <var>a</var>から<var>b</var>までの定積分を返します。
+<p>以下の微分方程式を数値的に解く。
 </p>
+<table><tr><td>&nbsp;</td><td><pre class="example">          dx/dt = t - x^2
+</pre></td></tr></table>
 
-<p><var>f</var>は絶対値を含むことができます。
+<p>初期値は x(t=0) = 1で、tの区間は0から8まで、tの増分は0.1。
+コマンドは:
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fourie">Package fourie</a>
- &middot;<a href="maxima_99.html#Category_003a-Integral-calculus">Integral calculus</a>
-</div></p></dd></dl>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) results: rk(t-x^2,x,1,[t,0,8,0.1])$
+(%i2) plot2d ([discrete, results])$
+</pre></td></tr></table>
 
-
-<p><a name="fourier"></a>
-<a name="Item_003a-fourier"></a>
-</p><dl>
-<dt><a name="index-fourier"></a><u>関数:</u> <b>fourier</b><i> (<var>f</var>, <var>x</var>, <var>p</var>)</i></dt>
-<dd>
-<p>区間 <code>[-p, p]</code>上で定義された <code><var>f</var>(<var>x</var>)</code>の
-Fourier係数のリストを返します。
+<p>結果はリスト <code>results</code>に保存され、プロットは、水平軸に <var>t</var>、垂直軸に <var>x</var>で得られた解を表示します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
-
-
-<p><a name="foursimp"></a>
-<a name="Item_003a-foursimp"></a>
-</p><dl>
-<dt><a name="index-foursimp"></a><u>関数:</u> <b>foursimp</b><i> (<var>l</var>)</i></dt>
-<dd>
-<p>もし <code>sinnpiflag</code>が <code>true</code>なら <code>sin (n %pi)</code>を0に整理します。
-もし <code>cosnpiflag</code>が <code>true</code>なら <code>cos (n %pi)</code>を
-<code>(-1)^n</code>に整理します。
+<p>以下の系を数値的に解く。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fourie">Package fourie</a>
- &middot;<a href="maxima_99.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Simplification-functions">Simplification functions</a>
-</div></p></dd></dl>
+<table><tr><td>&nbsp;</td><td><pre class="example">        dx/dt = 4-x^2-4*y^2     dy/dt = y^2-x^2+1
+</pre></td></tr></table>
 
-<p><a name="sinnpiflag"></a>
-<a name="Item_003a-sinnpiflag"></a>
-</p><dl>
-<dt><a name="index-sinnpiflag"></a><u>オプション変数:</u> <b>sinnpiflag</b></dt>
-<dd><p>デフォルト値: <code>true</code>
+<p>tは0から4の間、t=0でxが-1.25、yが0.75という条件:
 </p>
-<p><code>foursimp</code>を参照してください。
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) sol: rk([4-x^2-4*y^2,y^2-x^2+1],[x,y],[-1.25,0.75],[t,0,4,0.02])$
+(%i2) plot2d ([discrete,makelist([p[1],p[3]],p,sol)], [xlabel,&quot;t&quot;],[ylabel,&quot;y&quot;])$
+</pre></td></tr></table>
+
+<p>プロットは <var>t</var>の関数として変数 <var>y</var>を表示します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
-
-<p><a name="cosnpiflag"></a>
-<a name="Item_003a-cosnpiflag"></a>
-</p><dl>
-<dt><a name="index-cosnpiflag"></a><u>オプション変数:</u> <b>cosnpiflag</b></dt>
-<dd><p>デフォルト値: <code>true</code>
-</p>
-<p><code>foursimp</code>を参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
-
-
-<p><a name="fourexpand"></a>
-<a name="Item_003a-fourexpand"></a>
-</p><dl>
-<dt><a name="index-fourexpand"></a><u>関数:</u> <b>fourexpand</b><i> (<var>l</var>, <var>x</var>, <var>p</var>, <var>limit</var>)</i></dt>
-<dd>
-<p>Fourier係数 <var>l</var>のリストから
-<var>limit</var>項までのFourier級数を構成して返します。
-(<var>limit</var>は　<code>inf</code>も取り得ます。)
-<var>x</var>と <var>p</var>は <code>fourier</code>におけるものと同じ意味を持ちます。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
-
-
-<p><a name="fourcos"></a>
-<a name="Item_003a-fourcos"></a>
-</p><dl>
-<dt><a name="index-fourcos"></a><u>関数:</u> <b>fourcos</b><i> (<var>f</var>, <var>x</var>, <var>p</var>)</i></dt>
-<dd>
-<p><code>[0, <var>p</var>]</code>上で定義された
-<code><var>f</var>(<var>x</var>)</code>の Fourierコサイン係数を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
-
-
-<p><a name="foursin"></a>
-<a name="Item_003a-foursin"></a>
-</p><dl>
-<dt><a name="index-foursin"></a><u>関数:</u> <b>foursin</b><i> (<var>f</var>, <var>x</var>, <var>p</var>)</i></dt>
-<dd>
-<p><code>[0, <var>p</var>]</code>上で定義された
-<code><var>f</var>(<var>x</var>)</code>の Fourierサイン係数を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
-
-
-<p><a name="totalfourier"></a>
-<a name="Item_003a-totalfourier"></a>
-</p><dl>
-<dt><a name="index-totalfourier"></a><u>関数:</u> <b>totalfourier</b><i> (<var>f</var>, <var>x</var>, <var>p</var>)</i></dt>
-<dd>
-<p><code>fourexpand (foursimp (fourier (<var>f</var>, <var>x</var>, <var>p</var>)),
-<var>x</var>, <var>p</var>, 'inf)</code>を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
-
-
-<p><a name="fourint"></a>
-<a name="Item_003a-fourint"></a>
-</p><dl>
-<dt><a name="index-fourint"></a><u>関数:</u> <b>fourint</b><i> (<var>f</var>, <var>x</var>)</i></dt>
-<dd>
-<p><code>[minf, inf]</code>上で定義された
-<code><var>f</var>(<var>x</var>)</code>の Fourier積分係数のリストを構成して返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
-
-
-<p><a name="fourintcos"></a>
-<a name="Item_003a-fourintcos"></a>
-</p><dl>
-<dt><a name="index-fourintcos"></a><u>関数:</u> <b>fourintcos</b><i> (<var>f</var>, <var>x</var>)</i></dt>
-<dd><p><code>[0, inf]</code>上の <code><var>f</var>(<var>x</var>)</code>の Fourierコサイン積分係数を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
-
-
-<p><a name="forintsin"></a>
-<a name="Item_003a-fourintsin"></a>
-</p><dl>
-<dt><a name="index-fourintsin"></a><u>関数:</u> <b>fourintsin</b><i> (<var>f</var>, <var>x</var>)</i></dt>
-<dd><p><code>[0, inf]</code>上の <code><var>f</var>(<var>x</var>)</code>の Fourierサイン積分係数を返します。
-</p>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Differential-equations">Differential equations</a>
+ &middot;<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div></p>
+</dd></dl>
 
 <p><a name="Item_003a-Matrices-and-Linear-Algebra"></a>
 </p><hr size="6">
@@ -925,12 +1062,12 @@ Fourier係数のリストを返します。
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2013年9月月4日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

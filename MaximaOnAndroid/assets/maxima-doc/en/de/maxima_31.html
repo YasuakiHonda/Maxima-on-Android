@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 1 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -199,7 +199,6 @@ terms, the <code>abs_integrate</code> package determines an antiderivative
 that is continuous on the entire real line.  Additionally, for an
 integrand that involves one or more parameters, the function
 <code><a href="#conditional_005fintegrate">conditional_integrate</a></code>
- tries to determine an antiderivative that
 is valid for all parameter values.
 </p>
 <p>Examples: 
@@ -214,7 +213,6 @@ is valid for all parameter values.
 </pre>
 <p>To convert (%o2) into an expression involving the absolute value function,
 apply <code><a href="#signum_005fto_005fabs">signum_to_abs</a></code>
-; thus
 </p>
 <pre class="example">(%i3) signum_to_abs(%);
                             x abs(x)
@@ -235,11 +233,9 @@ for example
 </pre>
 <p>Additionally, <code>abs_integrate</code> is able to find antiderivatives of some
 integrands involving <code><a href="maxima_10.html#max">max</a></code>,
- <code><a href="maxima_10.html#min">min</a></code>,
- <code><a href="maxima_10.html#signum">signum</a></code>,
- and
+<code><a href="maxima_10.html#min">min</a></code>,
+<code><a href="maxima_10.html#signum">signum</a></code>,
 <code><a href="maxima_65.html#unit_005fstep">unit_step</a></code>,
- examples:
 </p>
 <pre class="example">(%i5) integrate(max(x,x^2),x);
            3      2                                        3    2
@@ -309,13 +305,12 @@ located at<br>
 <p><a name="extra_005fintegration_005fmethods"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>extra_integration_methods</b>
-<a name="IDX1528"></a>
+<a name="IDX1537"></a>
 </dt>
 <dd><p>Default value: <code>['signum_int, 'abs_integrate_use_if]</code>
 </p>
 <p>The list <code>extra_integration_methods</code> is a list of functions for
 integration.  When <code><a href="maxima_16.html#integrate">integrate</a></code>
- is unable to find an
 antiderivative, Maxima uses the methods in
 <code>extra_integration_methods</code> to attempt to determine an
 antiderivative.
@@ -381,20 +376,18 @@ a conditional expression; for example
 </pre>
 <p>Related options <code><a href="#extra_005fdefinite_005fintegration_005fmethods">extra_definite_integration_methods</a></code>.
 </p>
-
 <p>To use <code>load(abs_integrate)</code>
 </p></dd></dl>
 
 <p><a name="extra_005fdefinite_005fintegration_005fmethods"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>extra_definite_integration_methods</b>
-<a name="IDX1529"></a>
+<a name="IDX1538"></a>
 </dt>
 <dd><p>Default value: <code>['abs_defint]</code>
 </p>
 <p>The list <code>extra_definite_integration_methods</code> is a list of extra
 functions for <i>definite</i> integration.  When <code><a href="maxima_16.html#integrate">integrate</a></code>
- is
 unable to find a definite integral, Maxima uses the methods in
 <code>extra_definite_integration_methods</code> to attempt to determine an
 antiderivative.
@@ -412,14 +405,13 @@ that does not fail (or a pure noun form if all methods fail).
 </p>
 <p>Related options <code><a href="#extra_005fintegration_005fmethods">extra_integration_methods</a></code>.
 </p>
-
 <p>To use <code>load(abs_integrate)</code>.
 </p></dd></dl>
 
 <p><a name="intfudu"></a>
 </p><dl>
 <dt><u>Function:</u> <b>intfudu</b><i> (<var>e</var>, <var>x</var>)</i>
-<a name="IDX1530"></a>
+<a name="IDX1539"></a>
 </dt>
 <dd><p>This function uses the derivative divides rule for integrands of the
 form <em>f(w(x)) * diff(w(x),x)</em>.  When <code>infudu</code> is unable to find
@@ -454,7 +446,6 @@ fact to the hash table, say <em>integrate(f) = g</em>, do this:
 </pre>
 <p>An alternative to calling <code>intfudu</code> directly is to use the 
 <code><a href="#extra_005fintegration_005fmethods">extra_integration_methods</a></code>
- mechanism; an example:
 </p>
 
 <pre class="example">(%i1) load(abs_integrate)$
@@ -480,13 +471,12 @@ fact to the hash table, say <em>integrate(f) = g</em>, do this:
 <a href="http://www.cs.berkeley.edu/~fateman/papers/partition.pdf">http://www.cs.berkeley.edu/~fateman/papers/partition.pdf</a>.
 </p>
 <p>Related functions <code><a href="#intfugudu">intfugudu</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="intfugudu"></a>
 </p><dl>
 <dt><u>Function:</u> <b>intfugudu</b><i> (<var>e</var>, <var>x</var>)</i>
-<a name="IDX1531"></a>
+<a name="IDX1540"></a>
 </dt>
 <dd><p>This function uses the derivative divides rule for integrands of the
 form <em>f(w(x)) * g(w(x)) * diff(w(x),x)</em>.  When <code>infugudu</code> is
@@ -517,13 +507,12 @@ see the documentation for <code>intfudu</code>.
 <a href="http://www.cs.berkeley.edu/~fateman/papers/partition.pdf">http://www.cs.berkeley.edu/~fateman/papers/partition.pdf</a>
 </p>
 <p>Related functions <code><a href="#intfudu">intfudu</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="signum_005fto_005fabs"></a>
 </p><dl>
 <dt><u>Function:</u> <b>signum_to_abs</b><i> (<var>e</var>)</i>
-<a name="IDX1532"></a>
+<a name="IDX1541"></a>
 </dt>
 <dd><p>This function replaces subexpressions of the form <em>q signum(q)</em> by
 <em>abs(q)</em>.  Before it does these substitutions, it replaces
@@ -543,7 +532,7 @@ subexpressions of the form <em>signum(p) * signum(q)</em> by
 <p><a name="simp_005fassuming"></a>
 </p><dl>
 <dt><u>Macro:</u> <b>simp_assuming</b><i> (<var>e</var>, <var>f_1</var>, <var>f_2</var>, &hellip;, <var>f_n</var>)</i>
-<a name="IDX1533"></a>
+<a name="IDX1542"></a>
 </dt>
 <dd><p>Appended the facts <em>f_1, f_2, &hellip;, f_n</em> to the current context and
 simplify <em>e</em>.  The facts are removed before returning the simplified
@@ -571,7 +560,7 @@ is arguments; this allows
 <p><a name="conditional_005fintegrate"></a>
 </p><dl>
 <dt><u>Function:</u> <b>conditional_integrate</b><i> (<var>e</var>, <var>x</var>)</i>
-<a name="IDX1534"></a>
+<a name="IDX1543"></a>
 </dt>
 <dd><p>For an integrand with one or more parameters, this function tries to determine
 an antiderivative that is valid for all parameter values.  When successful, this
@@ -614,7 +603,7 @@ sin(2 x) + 2 x
 <p><a name="convert_005fto_005fsignum"></a>
 </p><dl>
 <dt><u>Function:</u> <b>convert_to_signum</b><i> (<var>e</var>)</i>
-<a name="IDX1535"></a>
+<a name="IDX1544"></a>
 </dt>
 <dd><p>This function replaces subexpressions of the form <code>abs(q), unit_step(q),
 min(q1, q2, ..., qn)</code> and <code>max(q1, q2, ..., qn)</code> by equivalent
@@ -632,14 +621,12 @@ min(q1, q2, ..., qn)</code> and <code>max(q1, q2, ..., qn)</code> by equivalent
                 2                               2
 </pre>
 <p>To convert <code><a href="maxima_65.html#unit_005fstep">unit_step</a></code>
- to signum form, the function
 <code>convert_to_signum</code> uses <em>unit_step(x) = (1 + signum(x))/2</em>.
 </p>
 <p>To use <code>load(abs_integrate)</code>.
 </p>
 <p>Related functions <code><a href="#signum_005fto_005fabs">signum_to_abs</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 
 
@@ -659,7 +646,7 @@ min(q1, q2, ..., qn)</code> and <code>max(q1, q2, ..., qn)</code> by equivalent
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>September, 1 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

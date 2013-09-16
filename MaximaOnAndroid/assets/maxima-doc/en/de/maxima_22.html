@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 1 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -300,7 +300,7 @@ parabolic_cylinder_d (v,z)     Parabolische Zylinderfunktion D
 <p><a name="bessel_005fj"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>bessel_j</b><i> (<var>v</var>, <var>z</var>)</i>
-<a name="IDX1223"></a>
+<a name="IDX1232"></a>
 </dt>
 <dd><p>Die Bessel-Funktion der ersten Art der Ordnung <em>v</em> mit dem Argument
 <em>z</em>.  <code>bessel_j</code> ist definiert als
@@ -321,15 +321,13 @@ Rechnen geeignet.
 <p>Maxima berechnet <code>bessel_j</code> numerisch f&uuml;r reelle und komplexe
 Gleitkommazahlen als Argumente f&uuml;r <em>v</em> und <em>z</em>.  Mit der Funktion
 <code><a href="maxima_5.html#float">float</a></code>
- oder der Optionsvariablen <code><a href="maxima_5.html#numer">numer</a></code>
- kann die numerische
+<code><a href="maxima_5.html#numer">numer</a></code>
 Auswertung erzwungen werden, wenn die Argumente ganze oder rationale Zahlen
 sind.  Die numerische Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen ist nicht
 implementiert.  In diesem Fall gibt Maxima eine Substantivform zur&uuml;ck.
 </p>
 <p><code>bessel_j</code> hat die folgenden Eigenschaften, die mit mit der Funktion
 <code><a href="maxima_11.html#properties">properties</a></code>
- angezeigt werden und auf das symbolische Rechnen Einfluss
 haben:
 </p>
 <dl compact="compact">
@@ -337,7 +335,6 @@ haben:
 <dd><p><code>bessel_j</code> hat Spiegelsymmetrie, wenn das Argument <var>z</var> keine negative
 reelle Zahl ist.  Die Spiegelsymmetrie wird zum Beispiel von der Funktion
 <code><a href="maxima_10.html#conjugate">conjugate</a></code>
- f&uuml;r die Vereinfachung eines Ausdrucks genutzt.
 </p></dd>
 <dt> <code>complex characteristic</code></dt>
 <dd><p>Maxima kennt den Realteil und den Imagin&auml;rteil von <code>bessel_j</code> f&uuml;r
@@ -362,26 +359,22 @@ Optionsvariablen kontrolliert:
 <dl compact="compact">
 <dt> <code>distribute_over</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>
- den Wert <code>true</code> und sind
 die Argumente von <code>bessel_j</code> eine Matrix, Liste oder Gleichung wird die
 Funktion auf die Elemente oder beiden Seiten der Gleichung angewendet.  Der
 Standardwert ist <code>true</code>.
 </p></dd>
 <dt> <code>besselexpand</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#besselexpand">besselexpand</a></code>
- den Wert <code>true</code>, wird
 <code>bessel_j</code> mit einer halbzahligen Ordnung <em>v</em> als Sinus- und
 Kosinusfunktionen entwickelt.
 </p></dd>
 <dt> <code>bessel_reduce</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#bessel_005freduce">bessel_reduce</a></code>
- den Wert <code>true</code>, wird
 <code>bessel_j</code> mit einer ganzzahligen Ordnung <em>n</em> nach Bessel-Funktionen
 <code>bessel_j</code> mit der niedrigsten Ordnung <code>0</code> und <code>1</code> entwickelt.
 </p></dd>
 <dt> <code>hypergeometric_representation</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#hypergeometric_005frepresentation">hypergeometric_representation</a></code>
- den Wert
 <code>true</code>, dann wird <code>bessel_j</code> als hypergeometrische Funktion
 dargestellt.
 </p></dd>
@@ -392,12 +385,10 @@ dargestellt.
 <code>bessel_j(-n, z)</code> zu <code>(-1)^n bessel_j(n, z)</code>.
 </p>
 <p>Maxima kennt noch die Funktion <code><a href="maxima_65.html#spherical_005fbessel_005fj">spherical_bessel_j</a></code>,
- die im Paket
 <code>orthopoly</code> definiert ist.   Siehe auch die anderen Bessel-Funktionen
 <code><a href="#bessel_005fy">bessel_y</a></code>,
- <code><a href="#bessel_005fi">bessel_i</a></code>
- und <code><a href="#bessel_005fk">bessel_k</a></code>
- sowie die
+<code><a href="#bessel_005fi">bessel_i</a></code>
+<code><a href="#bessel_005fk">bessel_k</a></code>
 weiteren mit den Bessel-Funktionen verwandten Funktionen wie die
 Hankel-Funktionen in <a href="#SEC166">Hankel-Funktionen</a>, Airy-Funktionen in
 <a href="#SEC167">Airy-Funktionen</a> und Struve-Funktionen in <a href="#SEC168">Struve-Funktionen</a>.
@@ -431,7 +422,6 @@ und <code>bessel_reduce</code>.
 die Laplace-Transformation der Bessel-Funktion mit der Funktion
 <code><a href="maxima_16.html#laplace">laplace</a></code>.
 </p>
-
 <pre class="example">(%i5) diff(bessel_j(2,x), x);
                  bessel_j(1, x) - bessel_j(3, x)
 (%o5)            -------------------------------
@@ -481,7 +471,7 @@ Ordnung.
 <p><a name="bessel_005fy"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>bessel_y</b><i> (<var>v</var>, <var>z</var>)</i>
-<a name="IDX1224"></a>
+<a name="IDX1233"></a>
 </dt>
 <dd><p>Die Bessel-Funktion der zweiten Art der Ordnung <em>v</em> mit dem Argument
 <em>z</em>.  <code>bessel_y</code> ist definiert als
@@ -504,15 +494,13 @@ Rechnen geeignet.
 <p>Maxima berechnet <code>bessel_y</code> numerisch f&uuml;r reelle und komplexe
 Gleitkommazahlen als Argumente f&uuml;r <em>v</em> und <em>z</em>.  Mit der Funktion
 <code><a href="maxima_5.html#float">float</a></code>
- oder der Optionsvariablen <code><a href="maxima_5.html#numer">numer</a></code>
- kann die numerische
+<code><a href="maxima_5.html#numer">numer</a></code>
 Auswertung erzwungen werden, wenn die Argumente ganze oder rationale Zahlen
 sind.  Die numerische Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen ist nicht
 implementiert.  In diesem Fall gibt Maxima eine Substantivform zur&uuml;ck.
 </p>
 <p><code>bessel_y</code> hat die folgenden Eigenschaften, die mit mit der Funktion
 <code><a href="maxima_11.html#properties">properties</a></code>
- angezeigt werden und auf das symbolische Rechnen Einfluss
 haben:
 </p>
 <dl compact="compact">
@@ -520,7 +508,6 @@ haben:
 <dd><p><code>bessel_y</code> hat Spiegelsymmetrie, wenn das Argument <var>z</var> keine negative
 reelle Zahl ist.  Die Spiegelsymmetrie wird zum Beispiel von der Funktion
 <code><a href="maxima_10.html#conjugate">conjugate</a></code>
- f&uuml;r die Vereinfachung eines Ausdrucks genutzt.
 </p></dd>
 <dt> <code>complex characteristic</code></dt>
 <dd><p>Maxima kennt den Realteil und den Imagin&auml;rteil von <code>bessel_y</code> f&uuml;r
@@ -545,26 +532,22 @@ Optionsvariablen kontrolliert:
 <dl compact="compact">
 <dt> <code>distribute_over</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>
- den Wert <code>true</code> und sind
 die Argumente von <code>bessel_y</code> eine Matrix, Liste oder Gleichung wird die
 Funktion auf die Elemente oder beiden Seiten der Gleichung angewendet.  Der
 Standardwert ist <code>true</code>.
 </p></dd>
 <dt> <code>besselexpand</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#besselexpand">besselexpand</a></code>
- den Wert <code>true</code>, wird
 <code>bessel_y</code> mit einer halbzahligen Ordnung <em>v</em> als Sinus- und
 Kosinusfunktionen entwickelt.
 </p></dd>
 <dt> <code>bessel_reduce</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#bessel_005freduce">bessel_reduce</a></code>
- den Wert <code>true</code>, wird
 <code>bessel_y</code> mit einer ganzzahligen Ordnung <em>n</em> nach Bessel-Funktionen
 <code>bessel_y</code> mit der niedrigsten Ordnung <code>0</code> und <code>1</code> entwickelt.
 </p></dd>
 <dt> <code>hypergeometric_representation</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#hypergeometric_005frepresentation">hypergeometric_representation</a></code>
- den Wert
 <code>true</code>, dann wird <code>bessel_y</code> als hypergeometrische Funktion
 dargestellt.  Es ist zu beachten, dass die hypergeometrische Funktion nur f&uuml;r
 eine nicht ganzzahlige Ordnung <em>v</em> g&uuml;ltig ist.
@@ -576,24 +559,21 @@ eine nicht ganzzahlige Ordnung <em>v</em> g&uuml;ltig ist.
 <code>bessel_y(-n, z)</code> zu <code>(-1)^n bessel_y(n, z)</code>.
 </p>
 <p>Maxima kennt noch die Funktion <code><a href="maxima_65.html#spherical_005fbessel_005fy">spherical_bessel_y</a></code>,
- die im Paket
 <code>orthopoly</code> definiert ist.   Siehe auch die anderen Bessel-Funktionen
 <code><a href="#bessel_005fj">bessel_j</a></code>,
- <code><a href="#bessel_005fi">bessel_i</a></code>
- und <code><a href="#bessel_005fk">bessel_k</a></code>
- sowie die
+<code><a href="#bessel_005fi">bessel_i</a></code>
+<code><a href="#bessel_005fk">bessel_k</a></code>
 weiteren mit den Bessel-Funktionen verwandten Funktionen wie die
 Hankel-Funktionen in <a href="#SEC166">Hankel-Funktionen</a>, Airy-Funktionen in
 <a href="#SEC167">Airy-Funktionen</a> und Struve-Funktionen in <a href="#SEC168">Struve-Funktionen</a>.
 </p>
 <p>Siehe die Funktion <code><a href="#bessel_005fj">bessel_j</a></code>
- f&uuml;r Beispiele mit Bessel-Funktionen.
 </p></dd></dl>
 
 <p><a name="bessel_005fi"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>bessel_i</b><i> (<var>v</var>, <var>z</var>)</i>
-<a name="IDX1225"></a>
+<a name="IDX1234"></a>
 </dt>
 <dd><p>Die modifizierte Bessel-Funktion der ersten Art der Ordnung <em>v</em> mit dem 
 Argument <em>v</em>.  <code>bessel_i</code> ist definiert als
@@ -614,15 +594,13 @@ Rechnen geeignet.
 <p>Maxima berechnet <code>bessel_i</code> numerisch f&uuml;r reelle und komplexe
 Gleitkommazahlen als Argumente f&uuml;r <em>v</em> und <em>z</em>.  Mit der Funktion
 <code><a href="maxima_5.html#float">float</a></code>
- oder der Optionsvariablen <code><a href="maxima_5.html#numer">numer</a></code>
- kann die numerische
+<code><a href="maxima_5.html#numer">numer</a></code>
 Auswertung erzwungen werden, wenn die Argumente ganze oder rationale Zahlen
 sind.  Die numerische Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen ist nicht
 implementiert.  In diesem Fall gibt Maxima eine Substantivform zur&uuml;ck.
 </p>
 <p><code>bessel_i</code> hat die folgenden Eigenschaften, die mit mit der Funktion
 <code><a href="maxima_11.html#properties">properties</a></code>
- angezeigt werden und auf das symbolische Rechnen Einfluss
 haben:
 </p>
 <dl compact="compact">
@@ -630,7 +608,6 @@ haben:
 <dd><p><code>bessel_i</code> hat Spiegelsymmetrie, wenn das Argument <var>z</var> keine negative
 reelle Zahl ist.  Die Spiegelsymmetrie wird zum Beispiel von der Funktion
 <code><a href="maxima_10.html#conjugate">conjugate</a></code>
- f&uuml;r die Vereinfachung eines Ausdrucks genutzt.
 </p></dd>
 <dt> <code>complex characteristic</code></dt>
 <dd><p>Maxima kennt den Realteil und den Imagin&auml;rteil von <code>bessel_i</code> f&uuml;r
@@ -655,26 +632,22 @@ Optionsvariablen kontrolliert:
 <dl compact="compact">
 <dt> <code>distribute_over</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>
- den Wert <code>true</code> und sind
 die Argumente von <code>bessel_i</code> eine Matrix, Liste oder Gleichung wird die
 Funktion auf die Elemente oder beiden Seiten der Gleichung angewendet.  Der
 Standardwert ist <code>true</code>.
 </p></dd>
 <dt> <code>besselexpand</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#besselexpand">besselexpand</a></code>
- den Wert <code>true</code>, wird
 <code>bessel_i</code> mit einer halbzahligen Ordnung <em>v</em> als Hyperbelfunktionen
 entwickelt.
 </p></dd>
 <dt> <code>bessel_reduce</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#bessel_005freduce">bessel_reduce</a></code>
- den Wert <code>true</code>, wird
 <code>bessel_i</code> mit einer ganzzahligen Ordnung <em>n</em> nach Bessel-Funktionen
 <code>bessel_i</code> mit der niedrigsten Ordnung <code>0</code> und <code>1</code> entwickelt.
 </p></dd>
 <dt> <code>hypergeometric_representation</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#hypergeometric_005frepresentation">hypergeometric_representation</a></code>
- den Wert
 <code>true</code>, dann wird <code>bessel_i</code> als hypergeometrische Funktion
 dargestellt.
 </p></dd>
@@ -685,22 +658,19 @@ dargestellt.
 <code>bessel_i(-n, z)</code> zu <code>bessel_i(n, z)</code>.
 </p>
 <p>Siehe auch die anderen Bessel-Funktionen <code><a href="#bessel_005fj">bessel_j</a></code>,
-
 <code><a href="#bessel_005fy">bessel_y</a></code>
- und <code><a href="#bessel_005fk">bessel_k</a></code>
- sowie die weiteren mit den Bessel-Funktionen
+<code><a href="#bessel_005fk">bessel_k</a></code>
 verwandten Funktionen wie die Hankel-Funktionen in <a href="#SEC166">Hankel-Funktionen</a>,
 Airy-Funktionen in <a href="#SEC167">Airy-Funktionen</a> und Struve-Funktionen in
 <a href="#SEC168">Struve-Funktionen</a>.
 </p>
 <p>Siehe die Funktion <code><a href="#bessel_005fj">bessel_j</a></code>
- f&uuml;r Beispiele mit Bessel-Funktionen.
 </p></dd></dl>
 
 <p><a name="bessel_005fk"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>bessel_k</b><i> (<var>v</var>, <var>z</var>)</i>
-<a name="IDX1226"></a>
+<a name="IDX1235"></a>
 </dt>
 <dd><p>Die modifizierte Bessel-Funktion der zweiten Art der Ordnung <em>v</em> mit dem
 Argument <em>z</em>.  <code>bessel_k</code> ist definiert als
@@ -723,15 +693,13 @@ Rechnen geeignet.
 <p>Maxima berechnet <code>bessel_k</code> numerisch f&uuml;r reelle und komplexe
 Gleitkommazahlen als Argumente f&uuml;r <em>v</em> und <em>z</em>.  Mit der Funktion
 <code><a href="maxima_5.html#float">float</a></code>
- oder der Optionsvariablen <code><a href="maxima_5.html#numer">numer</a></code>
- kann die numerische
+<code><a href="maxima_5.html#numer">numer</a></code>
 Auswertung erzwungen werden, wenn die Argumente ganze oder rationale Zahlen
 sind.  Die numerische Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen ist nicht
 implementiert.  In diesem Fall gibt Maxima eine Substantivform zur&uuml;ck.
 </p>
 <p><code>bessel_k</code> hat die folgenden Eigenschaften, die mit mit der Funktion
 <code><a href="maxima_11.html#properties">properties</a></code>
- angezeigt werden und auf das symbolische Rechnen Einfluss
 haben:
 </p>
 <dl compact="compact">
@@ -739,7 +707,6 @@ haben:
 <dd><p><code>bessel_k</code> hat Spiegelsymmetrie, wenn das Argument <var>z</var> keine negative
 reelle Zahl ist.  Die Spiegelsymmetrie wird zum Beispiel von der Funktion
 <code><a href="maxima_10.html#conjugate">conjugate</a></code>
- f&uuml;r die Vereinfachung eines Ausdrucks genutzt.
 </p></dd>
 <dt> <code>complex characteristic</code></dt>
 <dd><p>Maxima kennt den Realteil und den Imagin&auml;rteil von <code>bessel_k</code> f&uuml;r
@@ -764,26 +731,22 @@ Optionsvariablen kontrolliert:
 <dl compact="compact">
 <dt> <code>distribute_over</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>
- den Wert <code>true</code> und sind
 die Argumente von <code>bessel_k</code> eine Matrix, Liste oder Gleichung wird die
 Funktion auf die Elemente oder beiden Seiten der Gleichung angewendet.  Der
 Standardwert ist <code>true</code>.
 </p></dd>
 <dt> <code>besselexpand</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#besselexpand">besselexpand</a></code>
- den Wert <code>true</code>, wird
 <code>bessel_k</code> mit einer halbzahligen Ordnung <em>v</em> als Exponentialfunktion
 entwickelt.
 </p></dd>
 <dt> <code>bessel_reduce</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#bessel_005freduce">bessel_reduce</a></code>
- den Wert <code>true</code>, wird
 <code>bessel_k</code> mit einer ganzzahligen Ordnung <em>n</em> nach Bessel-Funktionen
 <code>bessel_k</code> mit der niedrigsten Ordnung <code>0</code> und <code>1</code> entwickelt.
 </p></dd>
 <dt> <code>hypergeometric_representation</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#hypergeometric_005frepresentation">hypergeometric_representation</a></code>
- den Wert
 <code>true</code>, dann wird <code>bessel_k</code> als hypergeometrische Funktion
 dargestellt.  Es ist zu beachten, dass die hypergeometrische Funktion nur f&uuml;r
 eine nicht ganzzahlige Ordnung <em>v</em> g&uuml;ltig ist.
@@ -795,21 +758,18 @@ eine nicht ganzzahlige Ordnung <em>v</em> g&uuml;ltig ist.
 <code>bessel_k(-n, z)</code> zu <code>bessel_y(n, z)</code>.
 </p>
 <p>Siehe auch die anderen Bessel-Funktionen <code><a href="#bessel_005fj">bessel_j</a></code>,
- <code><a href="#bessel_005fy">bessel_y</a></code>
-</p>
-<p>und <code><a href="#bessel_005fi">bessel_i</a></code>
- sowie die weiteren mit den Bessel-Funktionen verwandten
+<code><a href="#bessel_005fy">bessel_y</a></code>
+und <code><a href="#bessel_005fi">bessel_i</a></code>
 Funktionen wie die Hankel-Funktionen in <a href="#SEC166">Hankel-Funktionen</a>, Airy-Funktionen
 in <a href="#SEC167">Airy-Funktionen</a> und Struve-Funktionen in <a href="#SEC168">Struve-Funktionen</a>.
 </p>
 <p>Siehe die Funktion <code><a href="#bessel_005fj">bessel_j</a></code>
- f&uuml;r Beispiele mit Bessel-Funktionen.
 </p></dd></dl>
 
 <p><a name="bessel_005freduce"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>bessel_reduce</b>
-<a name="IDX1227"></a>
+<a name="IDX1236"></a>
 </dt>
 <dd><p>Standardwert: <code>false</code>
 </p>
@@ -821,7 +781,7 @@ mit der niedrigsten Ordnung <em>0</em> und <em>1</em> entwickelt.
 <p><a name="besselexpand"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>besselexpand</b>
-<a name="IDX1228"></a>
+<a name="IDX1237"></a>
 </dt>
 <dd><p>Standardwert: <code>false</code>
 </p>
@@ -830,12 +790,10 @@ Bessel-Funktion mit einer halbzahligen Ordnung <em>v</em> als Sinus-,
 Kosinus-, Hyperbel- oder Exponentialfunktionen entwickelt.  Die Optionsvariable
 <code>besselexpand</code> kontrolliert auch die Entwicklung der Hankel-Funktionen
 <code><a href="#hankel_005f1">hankel_1</a></code>
- und <code><a href="#hankel_005f2">hankel_2</a></code>
- sowie der Struve-Funktionen <code><a href="#struve_005fh">struve_h</a></code>
+<code><a href="#hankel_005f2">hankel_2</a></code>
+<code><a href="#struve_005fh">struve_h</a></code>
+und <code><a href="#struve_005fl">struve_l</a></code>.
 </p>
-<p>und <code><a href="#struve_005fl">struve_l</a></code>.
-</p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) besselexpand: false$
@@ -855,10 +813,8 @@ Kosinus-, Hyperbel- oder Exponentialfunktionen entwickelt.  Die Optionsvariable
                             sqrt(%pi)
 </pre>
 <p>Weitere Beispiele f&uuml;r die Entwicklungen der Funktionen <code><a href="#bessel_005fk">bessel_k</a></code>
- und
 <code><a href="#struve_005fh">struve_h</a></code>.
 </p>
-
 <pre class="example">(%i5) bessel_k(3/2, z);
                                 1        - z
                      sqrt(%pi) (- + 1) %e
@@ -877,7 +833,7 @@ Kosinus-, Hyperbel- oder Exponentialfunktionen entwickelt.  Die Optionsvariable
 <p><a name="scaled_005fbessel_005fi"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>scaled_bessel_i</b><i> (<var>v</var>, <var>z</var>) </i>
-<a name="IDX1229"></a>
+<a name="IDX1238"></a>
 </dt>
 <dd><p>Die skalierte modifizierte Bessel-Funktion der ersten Art der Ordnung
 <em>v</em> mit dem Argument <em>z</em>.  Diese ist definiert als
@@ -892,12 +848,10 @@ soll.  Ganze, rationale oder gro&szlig;e Gleitkommazahlen werden in
 Gleitkommazahlen mit doppelter Genauigkeit umgewandelt.  Sind die Argumente
 keine Zahlen, wird ein vereinfachter Ausdruck mit der Funktion
 <code><a href="#bessel_005fi">bessel_i</a></code>
- zur&uuml;ckgegeben.
 </p>
 <p><code>scaled_bessel_i</code> ist eine Verbfunktion, die nicht f&uuml;r das symbolische
 Rechnen geeignet ist.  F&uuml;r das symbolische Rechnen ist die Funktion
 <code><a href="#bessel_005fi">bessel_i</a></code>
- zu verwenden.
 </p>
 <p>Beispiele:
 </p>
@@ -913,20 +867,18 @@ Rechnen geeignet ist.  F&uuml;r das symbolische Rechnen ist die Funktion
 <p><a name="scaled_005fbessel_005fi0"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>scaled_bessel_i0</b><i> (<var>z</var>)</i>
-<a name="IDX1230"></a>
+<a name="IDX1239"></a>
 </dt>
 <dd><p>Entspricht <code>scaled_bessel_i(0,z)</code>.  Siehe <code><a href="#scaled_005fbessel_005fi">scaled_bessel_i</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="scaled_005fbessel_005fi1"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>scaled_bessel_i1</b><i> (<var>z</var>) </i>
-<a name="IDX1231"></a>
+<a name="IDX1240"></a>
 </dt>
 <dd><p>Entspricht <code>scaled_bessel_i(1,z)</code>.  Siehe <code><a href="#scaled_005fbessel_005fi">scaled_bessel_i</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <hr size="6">
 <a name="Hankel_002dFunktionen"></a>
@@ -952,7 +904,7 @@ Rechnen geeignet ist.  F&uuml;r das symbolische Rechnen ist die Funktion
 <p><a name="hankel_005f1"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>hankel_1</b><i> (<var>v</var>, <var>z</var>)</i>
-<a name="IDX1232"></a>
+<a name="IDX1241"></a>
 </dt>
 <dd><p>Die Hankel-Funktion der ersten Art der Ordnung <em>v</em> mit dem Argument
 <em>z</em>.  Siehe A &amp; S 9.1.3.  <code>hankel_1</code> ist definiert als
@@ -966,14 +918,12 @@ Rechnen geeignet.
 <p>Maxima berechnet <code>hankel_1</code> numerisch f&uuml;r reelle und komplexe
 Gleitkommazahlen als Argumente f&uuml;r <em>v</em> und <em>z</em>.  Mit der Funktion
 <code><a href="maxima_5.html#float">float</a></code>
- oder der Optionsvariablen <code><a href="maxima_5.html#numer">numer</a></code>
- kann die numerische
+<code><a href="maxima_5.html#numer">numer</a></code>
 Auswertung erzwungen werden, wenn die Argumente Zahlen sind.  Die numerische
 Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen ist nicht implementiert.  In diesem
 Fall gibt Maxima eine Substantivform zur&uuml;ck.
 </p>
 <p>Hat die Optionsvariable <code><a href="#besselexpand">besselexpand</a></code>
- den Wert <code>true</code>, werden
 Hankel-Funktionen <code>hankel_1</code> mit einer halbzahligen Ordnung <em>v</em> als
 Sinus- und Kosinusfunktionen entwickelt.
 </p>
@@ -981,7 +931,6 @@ Sinus- und Kosinusfunktionen entwickelt.
 Argument <code>z</code>.
 </p>
 <p>Siehe auch die Funktion <code><a href="#hankel_005f2">hankel_2</a></code>
- sowie die Bessel-Funktionen in
 <a href="#SEC165">Bessel-Funktionen</a>.
 </p>
 <p>Beispiele:
@@ -1024,7 +973,7 @@ Substantivform zur&uuml;ck.
 <p><a name="hankel_005f2"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>hankel_2</b><i> (<var>v</var>, <var>z</var>)</i>
-<a name="IDX1233"></a>
+<a name="IDX1242"></a>
 </dt>
 <dd><p>Die Hankel-Funktion der zweiten Art der Ordnung <em>v</em> mit dem Argument
 <em>z</em>.  Siehe A &amp; S 9.1.4.  <code>hankel_2</code> ist definiert als
@@ -1038,14 +987,12 @@ Rechnen geeignet.
 <p>Maxima berechnet <code>hankel_2</code> numerisch f&uuml;r reelle und komplexe
 Gleitkommazahlen als Argumente f&uuml;r <em>v</em> und <em>z</em>.  Mit der Funktion
 <code><a href="maxima_5.html#float">float</a></code>
- oder der Optionsvariablen <code><a href="maxima_5.html#numer">numer</a></code>
- kann die numerische
+<code><a href="maxima_5.html#numer">numer</a></code>
 Auswertung erzwungen werden, wenn die Argumente Zahlen sind.  Die numerische
 Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen ist nicht implementiert.  In diesem
 Fall gibt Maxima eine Substantivform zur&uuml;ck.
 </p>
 <p>Hat die Optionsvariable <code><a href="#besselexpand">besselexpand</a></code>
- den Wert <code>true</code>, werden
 Hankel-Funktionen <code>hankel_2</code> mit einer halbzahligen Ordnung <em>v</em> als
 Sinus- und Kosinusfunktionen entwickelt.
 </p>
@@ -1053,7 +1000,6 @@ Sinus- und Kosinusfunktionen entwickelt.
 Argument <code>z</code>.
 </p>
 <p>F&uuml;r Beispiele siehe <code><a href="#hankel_005f1">hankel_1</a></code>.
-  Siehe auch die Bessel-Funktionen in
 <a href="#SEC165">Bessel-Funktionen</a>.
 </p></dd></dl>
 
@@ -1092,7 +1038,7 @@ L&ouml;sungen der Airy-Differentialgleichung.
 <p><a name="airy_005fai"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>airy_ai</b><i> (<var>z</var>)</i>
-<a name="IDX1234"></a>
+<a name="IDX1243"></a>
 </dt>
 <dd><p>Die Airy-Funktion <em>Ai(z)</em> (A &amp; S 10.4.2).
 </p>
@@ -1100,8 +1046,7 @@ L&ouml;sungen der Airy-Differentialgleichung.
 Rechnen geeignet.  Ist das Argument <code>z</code> eine reelle oder komplexe
 Gleitkommazahl, wird <code>airy_ai</code> numerisch berechnet.  Mit der
 Optionsvariablen <code><a href="maxima_5.html#numer">numer</a></code>
- oder der Funktion <code><a href="maxima_5.html#float">float</a></code>
- kann die
+<code><a href="maxima_5.html#float">float</a></code>
 numerische Berechnung erzwungen werden, wenn das Argument eine ganze oder
 rationale Zahl ist.  Die numerische Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen
 ist nicht implementiert.
@@ -1112,17 +1057,14 @@ ist nicht implementiert.
 <code>airy_ai</code> auf die Elemente der Liste oder beide Seiten der Gleichung
 angewendet.  Siehe auch <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>Die Ableitung <code>diff(airy_ai(z), z)</code> ist als <code>airy_dai(z)</code>
 implementiert.  Siehe die Funktion <code><a href="#airy_005fdai">airy_dai</a></code>.
 </p>
-
 <p>Weiterhin kennt Maxima das Integral der Airy-Funktion <code>airy_ai</code>.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#airy_005fbi">airy_bi</a></code>
- und <code><a href="#airy_005fdbi">airy_dbi</a></code>.
+<code><a href="#airy_005fdbi">airy_dbi</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Numerische Berechnung f&uuml;r Gleitkommazahlen.  F&uuml;r ganze und rationale Zahlen
@@ -1171,17 +1113,15 @@ f&uuml;r das Argument <code>0</code>.
 <p><a name="airy_005fdai"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>airy_dai</b><i> (<var>z</var>)</i>
-<a name="IDX1235"></a>
+<a name="IDX1244"></a>
 </dt>
 <dd><p>Die Ableitung der Airy-Funktion <code><a href="#airy_005fai">airy_ai</a></code>.
 </p>
-
 <p>Die Ableitung der Airy-Funktion <code>airy_dai</code> ist f&uuml;r das symbolische und
 numerische Rechnen geeignet.  Ist das Argument <var>z</var> eine reelle oder
 komplexe Gleitkommazahl, wird <code>airy_dai</code> numerisch berechnet.  Mit der
 Optionsvariablen <code><a href="maxima_5.html#numer">numer</a></code>
- oder der Funktion <code><a href="maxima_5.html#float">float</a></code>
- kann die
+<code><a href="maxima_5.html#float">float</a></code>
 numerische Berechnung erzwungen werden, wenn das Argument eine ganze oder
 rationale Zahl ist.  Die numerische Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen
 ist nicht implementiert.
@@ -1192,21 +1132,18 @@ ist nicht implementiert.
 <code>airy_dai</code> auf die Elemente der Liste oder beide Seiten der Gleichung
 angewendet.  Siehe auch <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>Maxima kennt die Ableitung und das Integral der Funktion <code>airy_dai</code>.
 </p>
 <p>Siehe auch die Airy-Funktionen <code><a href="#airy_005fbi">airy_bi</a></code>
- und <code><a href="#airy_005fdbi">airy_dbi</a></code>.
+<code><a href="#airy_005fdbi">airy_dbi</a></code>.
 </p>
-
 <p>F&uuml;r Beispiele siehe die Funktion <code><a href="#airy_005fai">airy_ai</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="airy_005fbi"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>airy_bi</b><i> (<var>z</var>)</i>
-<a name="IDX1236"></a>
+<a name="IDX1245"></a>
 </dt>
 <dd><p>Die Airy-Funktion Bi(z) (A &amp; S 10.4.3).
 </p>
@@ -1214,8 +1151,7 @@ angewendet.  Siehe auch <code><a href="maxima_9.html#distribute_005fover">distri
 Rechnen geeignet.  Ist das Argument <code>z</code> eine reelle oder komplexe
 Gleitkommazahl, wird <code>airy_bi</code> numerisch berechnet.  Mit der
 Optionsvariablen <code><a href="maxima_5.html#numer">numer</a></code>
- oder der Funktion <code><a href="maxima_5.html#float">float</a></code>
- kann die
+<code><a href="maxima_5.html#float">float</a></code>
 numerische Berechnung erzwungen werden, wenn das Argument eine ganze oder
 rationale Zahl ist.  Die numerische Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen
 ist nicht implementiert.
@@ -1226,35 +1162,29 @@ ist nicht implementiert.
 <code>airy_bi</code> auf die Elemente der Liste oder beide Seiten der Gleichung
 angewendet.  Siehe auch <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>Die Ableitung <code>diff(airy_bi(z), z)</code> ist als <code>airy_dbi(z)</code>
 implementiert.  Siehe die Funktion <code><a href="#airy_005fdbi">airy_dbi</a></code>.
 </p>
-
 <p>Weiterhin kennt Maxima das Integral der Airy-Funktion <code>airy_bi</code>.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#airy_005fai">airy_ai</a></code>
- und <code><a href="#airy_005fdai">airy_dai</a></code>.
+<code><a href="#airy_005fdai">airy_dai</a></code>.
 </p>
-
 <p>F&uuml;r Beispiele siehe die Funktion <code><a href="#airy_005fai">airy_ai</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="airy_005fdbi"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>airy_dbi</b><i> (<var>z</var>)</i>
-<a name="IDX1237"></a>
+<a name="IDX1246"></a>
 </dt>
 <dd><p>Die Ableitung der Airy-Funktion <code><a href="#airy_005fbi">airy_bi</a></code>.
 </p>
-
 <p>Die Ableitung der Airy-Funktion <code>airy_dbi</code> ist f&uuml;r das symbolische und
 numerische Rechnen geeignet.  Ist das Argument <var>z</var> eine reelle oder
 komplexe Gleitkommazahl, wird <code>airy_dbi</code> numerisch berechnet.  Mit der
 Optionsvariablen <code><a href="maxima_5.html#numer">numer</a></code>
- oder der Funktion <code><a href="maxima_5.html#float">float</a></code>
- kann die
+<code><a href="maxima_5.html#float">float</a></code>
 numerische Berechnung erzwungen werden, wenn das Argument eine ganze oder
 rationale Zahl ist.  Die numerische Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen
 ist nicht implementiert.
@@ -1265,16 +1195,13 @@ ist nicht implementiert.
 <code>airy_dbi</code> auf die Elemente der Liste oder beide Seiten der Gleichung
 angewendet.  Siehe auch <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>Maxima kennt die Ableitung und das Integral der Funktion <code>airy_dbi</code>.
 </p>
 <p>Siehe auch die Airy-Funktionen <code><a href="#airy_005fai">airy_ai</a></code>
- und <code><a href="#airy_005fdai">airy_dai</a></code>.
+<code><a href="#airy_005fdai">airy_dai</a></code>.
 </p>
-
 <p>F&uuml;r Beispiele siehe die Funktion <code><a href="#airy_005fai">airy_ai</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <hr size="6">
 <a name="Struve_002dFunktionen"></a>
@@ -1300,7 +1227,7 @@ angewendet.  Siehe auch <code><a href="maxima_9.html#distribute_005fover">distri
 <p><a name="struve_005fh"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>struve_h</b><i> (<var>v</var>, <var>z</var>)</i>
-<a name="IDX1238"></a>
+<a name="IDX1247"></a>
 </dt>
 <dd><p>Die Struve-Funktion <em>H</em> der Ordnung <em>v</em> mit dem Argument
 <em>z</em>.  Siehe Abramowitz und Stegun, Handbook of Mathematical Functions,
@@ -1316,20 +1243,17 @@ Kapitel 12.  Die Definition ist
 </pre>
 <p>Die Struve-Funktion <code>struve_h</code> ist f&uuml;r das numerische und symbolische
 Rechnen geeignet.  Im Unterschied zu den <a href="#SEC165">Bessel-Funktionen</a>
- ist jedoch
 die Implementation der Funktion <code>struve_h</code> weniger vollst&auml;ndig.
 </p>
 <p>Maxima berechnet <code>struve_h</code> numerisch f&uuml;r reelle und komplexe
 Gleitkommazahlen als Argumente f&uuml;r <em>v</em> und <em>z</em>.  Mit der Funktion
 <code><a href="maxima_5.html#float">float</a></code>
- oder der Optionsvariablen <code><a href="maxima_5.html#numer">numer</a></code>
- kann die numerische
+<code><a href="maxima_5.html#numer">numer</a></code>
 Auswertung erzwungen werden, wenn die Argumente Zahlen sind.  Die numerische
 Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen ist nicht implementiert.  In diesem
 Fall gibt Maxima eine Substantivform zur&uuml;ck.
 </p>
 <p>Hat die Optionsvariable <code><a href="#besselexpand">besselexpand</a></code>
- den Wert <code>true</code>, wird die
 Struve-Funktion <code>struve_h</code> mit einer halbzahligen Ordnung <em>v</em> als
 Sinus- und Kosinusfunktionen entwickelt.
 </p>
@@ -1338,7 +1262,6 @@ Argument <em>z</em>.
 </p>
 <p>Siehe auch die Struve-Funktion <code><a href="#struve_005fl">struve_l</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) struve_h(1, 0.5);
@@ -1364,7 +1287,7 @@ Argument <em>z</em>.
 <p><a name="struve_005fl"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>struve_l</b><i> (<var>v</var>, <var>z</var>)</i>
-<a name="IDX1239"></a>
+<a name="IDX1248"></a>
 </dt>
 <dd><p>Die modifizierte Struve-Funktion <em>L</em> der Ordnung <em>v</em> mit dem Argument
 <em>z</em>.  Siehe Abramowitz und Stegun, Handbook of Mathematical Functions, 
@@ -1380,20 +1303,17 @@ Kapitel 12.  Die Definition ist
 </pre>
 <p>Die Struve-Funktion <code>struve_l</code> ist f&uuml;r das numerische und symbolische
 Rechnen geeignet.  Im Unterschied zu den <a href="#SEC165">Bessel-Funktionen</a>
- ist jedoch
 die Implementation der Funktion <code>struve_l</code> weniger vollst&auml;ndig.
 </p>
 <p>Maxima berechnet <code>struve_l</code> numerisch f&uuml;r reelle und komplexe
 Gleitkommazahlen als Argumente f&uuml;r <em>v</em> und <em>z</em>.  Mit der Funktion
 <code><a href="maxima_5.html#float">float</a></code>
- oder der Optionsvariablen <code><a href="maxima_5.html#numer">numer</a></code>
- kann die numerische
+<code><a href="maxima_5.html#numer">numer</a></code>
 Auswertung erzwungen werden, wenn die Argumente Zahlen sind.  Die numerische
 Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen ist nicht implementiert.  In diesem
 Fall gibt Maxima eine Substantivform zur&uuml;ck.
 </p>
 <p>Hat die Optionsvariable <code><a href="#besselexpand">besselexpand</a></code>
- den Wert <code>true</code>, wird die
 Struve-Funktion <code>struve_l</code> mit einer halbzahligen Ordnung <em>v</em> als
 Sinus- und Kosinusfunktionen entwickelt.
 </p>
@@ -1402,7 +1322,6 @@ Argument <em>z</em>.
 </p>
 <p>Siehe auch die Struve-Funktion <code><a href="#struve_005fh">struve_h</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) struve_l(1, 0.5);
@@ -1453,7 +1372,7 @@ unvollst&auml;ndige Gammafunktion sind definiert in Abramowitz and Stegun,
 <p><a name="bffac"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>bffac</b><i> (<var>x</var>, <var>fpprec</var>)</i>
-<a name="IDX1240"></a>
+<a name="IDX1249"></a>
 </dt>
 <dd><p>Berechnet die Fakult&auml;t f&uuml;r gro&szlig;e Gleitkommazahlen.  Das Argument <var>x</var>
 muss eine gro&szlig;e Gleitkommazahl sein.  Das zweite Argument <var>fpprec</var> ist
@@ -1462,14 +1381,12 @@ ist eine gro&szlig;e Gleitkommazahl.
 </p>
 <p>F&uuml;r das symbolische Rechnen mit der Fakult&auml;t und der Gammafunktion siehe die
 entsprechenden Funktionen <code><a href="maxima_10.html#factorial">factorial</a></code>
- und <code><a href="#gamma">gamma</a></code>.
-  Maxima ruft
+<code><a href="#gamma">gamma</a></code>.
 intern die Funktion <code>bffac</code> auf, um die Fakult&auml;t <code>factorial</code> und
 die Gammafunktion <code>gamma</code> f&uuml;r eine gro&szlig;e Gleitkommazahl numerisch zu
 berechnen.
 </p>
 <p>Siehe auch die Funktion <code><a href="#cbffac">cbffac</a></code>
- f&uuml;r die Berechnung der Fakult&auml;t f&uuml;r
 komplexe gro&szlig;e Gleitkommazahlen.
 </p>
 <p>Beispiel:
@@ -1484,10 +1401,10 @@ komplexe gro&szlig;e Gleitkommazahlen.
 <p><a name="bfpsi"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>bfpsi</b><i> (<var>n</var>, <var>x</var>, <var>fpprec</var>)</i>
-<a name="IDX1241"></a>
+<a name="IDX1250"></a>
 </dt>
 <dt><u>Funktion:</u> <b>bfpsi0</b><i> (<var>x</var>, <var>fpprec</var>)</i>
-<a name="IDX1242"></a>
+<a name="IDX1251"></a>
 </dt>
 <dd><p><code>bfpsi</code> ist die Polygammafunktion f&uuml;r ein reelles Argument <var>x</var> und
 einer ganzzahligen Ordnung <var>n</var>.  <code>bfpsi0</code> ist die Digammafunktion.
@@ -1501,7 +1418,6 @@ gro&szlig;e Gleitkommazahl.
 </p>
 <p>F&uuml;r das symbolische Rechnen mit der Polygammafunktion siehe die Funktion
 <code><a href="#psi">psi</a></code>.
-  Maxima ruft intern die Funktion <code>bfpsi</code> auf, um die
 Polygammafunktion f&uuml;r gro&szlig;e Gleitkommazahlen numerisch zu berechnen.
 </p>
 <p>Beispiel:
@@ -1517,7 +1433,7 @@ Polygammafunktion f&uuml;r gro&szlig;e Gleitkommazahlen numerisch zu berechnen.
 <p><a name="cbffac"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>cbffac</b><i> (<var>z</var>, <var>fpprec</var>)</i>
-<a name="IDX1243"></a>
+<a name="IDX1252"></a>
 </dt>
 <dd><p>Berechnet die Fakult&auml;t f&uuml;r komplexe gro&szlig;e Gleitkommazahlen.  Das
 Argument <var>z</var> ist eine komplexe gro&szlig;e Gleitkommazahl.  Das zweite
@@ -1526,20 +1442,18 @@ berechnet wird.  Das Ergebnis ist eine komplexe gro&szlig;e Gleitkommazahl.
 </p>
 <p>F&uuml;r das symbolische Rechnen mit der Fakult&auml;t und der Gammafunktion siehe die
 entsprechenden Funktionen <code><a href="maxima_10.html#factorial">factorial</a></code>
- und <code><a href="#gamma">gamma</a></code>.
-  Maxima ruft
+<code><a href="#gamma">gamma</a></code>.
 intern die Funktion <code>cbffac</code> auf, um die Fakult&auml;t <code>factorial</code> und
 die Gammafunktion <code>gamma</code> f&uuml;r eine komplexe gro&szlig;e Gleitkommazahl
 numerisch zu berechnen.
 </p>
 <p>Siehe auch die Funktion <code><a href="#bffac">bffac</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="gamma"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>gamma</b><i> (<var>z</var>)</i>
-<a name="IDX1244"></a>
+<a name="IDX1253"></a>
 </dt>
 <dd><p>Die Definition der Gammafunktion ist (A &amp; S 6.1.1)
 </p>
@@ -1557,11 +1471,9 @@ wird die Gammafunktion vereinfacht.  F&uuml;r halbzahlige rationale Zahlen ist d
 Ergebnis der Vereinfachung eine rationale Zahl multipliziert mit
 <code>sqrt(%pi)</code>.  Die Vereinfachung f&uuml;r ganze Zahlen wird von der
 Optionsvariablen <code><a href="maxima_10.html#factlim">factlim</a></code>
- kontrolliert.  F&uuml;r ganze Zahlen, die
 gr&ouml;&szlig;er als <code>factlim</code> sind, kann es zu einem &Uuml;berlauf bei der
 Berechnung der Gammafunktion kommen.  Entsprechend wird die Vereinfachung f&uuml;r
 rationale Zahlen von der Optionsvariablen <code><a href="#gammalim">gammalim</a></code>
- kontrolliert.
 </p>
 <p>F&uuml;r negative ganze Zahlen ist die Gammafunktion <code>gamma</code> nicht definiert.
 </p>
@@ -1571,19 +1483,16 @@ rationale Zahlen von der Optionsvariablen <code><a href="#gammalim">gammalim</a>
 <p><code>gamma</code> hat Spiegelsymmetrie.
 </p>
 <p>Hat die Optionsvariable <code><a href="#gamma_005fexpand">gamma_expand</a></code>
- den Wert <code>true</code>, entwickelt
 Maxima die Gammafunktion f&uuml;r Argumente der Form <code>z+n</code> und <code>z-n</code>,
 wobei <var>n</var> eine ganze Zahl ist.
 </p>
 <p>Maxima kennt die Ableitung der Gammafunktion <code>gamma</code>.
 </p>
 <p>Siehe auch die Funktion <code><a href="#makegamma">makegamma</a></code>,
- um Fakult&auml;ten und
 Betafunktionen in einem Ausdruck durch die Gammafunktion zu ersetzen.
 </p>
 <p>Die Euler-Mascheroni-Konstante ist <code><a href="maxima_5.html#g_t_0025gamma">%gamma</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Vereinfachung f&uuml;r ganze Zahlen und rationale Zahlen.
@@ -1635,14 +1544,12 @@ Optionsvariable <code>gamma_expand</code> den Wert <code>true</code> hat.
 <p><a name="gamma_005fexpand"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>gamma_expand</b>
-<a name="IDX1245"></a>
+<a name="IDX1254"></a>
 </dt>
 <dd><p>Standardwert: <code>false</code>
 </p>
 <p>Kontrolliert die Vereinfachung der Gammafunktion <code><a href="#gamma">gamma</a></code>
- und verwandte
 Funktionen wie <code><a href="#gamma_005fincomplete">gamma_incomplete</a></code>
- f&uuml;r den Fall, dass das Argument die
 Form <code>z+n</code> oder <code>z-n</code> hat.  Dabei ist <code>z</code> ist ein beliebiges
 Argument und <code>n</code> ist eine ganze Zahl.
 </p>
@@ -1652,7 +1559,7 @@ Argument und <code>n</code> ist eine ganze Zahl.
 <p><a name="log_005fgamma"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>log_gamma</b><i> (<var>z</var>)</i>
-<a name="IDX1246"></a>
+<a name="IDX1255"></a>
 </dt>
 <dd><p>Der Logarithmus der Gammafunktion.
 </p></dd></dl>
@@ -1660,7 +1567,7 @@ Argument und <code>n</code> ist eine ganze Zahl.
 <p><a name="gamma_005fincomplete"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>gamma_incomplete</b><i> (<var>a</var>, <var>z</var>)</i>
-<a name="IDX1247"></a>
+<a name="IDX1256"></a>
 </dt>
 <dd><p>Die unvollst&auml;ndige Gammafunktion (A &amp; S 6.5.2) die definiert ist als
 </p>
@@ -1676,7 +1583,7 @@ Argument und <code>n</code> ist eine ganze Zahl.
 <p><a name="gamma_005fincomplete_005fregularized"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>gamma_incomplete_regularized</b><i> (<var>a</var>, <var>z</var>)</i>
-<a name="IDX1248"></a>
+<a name="IDX1257"></a>
 </dt>
 <dd><p>Regularisierte unvollst&auml;ndige Gammafunktion (A &amp; S 6.5.1)
 </p>
@@ -1688,7 +1595,7 @@ Argument und <code>n</code> ist eine ganze Zahl.
 <p><a name="gamma_005fincomplete_005fgeneralized"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>gamma_incomplete_generalized</b><i> (<var>a</var>, <var>z1</var>, <var>z2</var>)</i>
-<a name="IDX1249"></a>
+<a name="IDX1258"></a>
 </dt>
 <dd><p>Verallgemeinerte unvollst&auml;ndige Gammafunktion
 </p>
@@ -1704,7 +1611,7 @@ Argument und <code>n</code> ist eine ganze Zahl.
 <p><a name="gammalim"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>gammalim</b>
-<a name="IDX1250"></a>
+<a name="IDX1259"></a>
 </dt>
 <dd><p>Standardwert: 1000000
 </p>
@@ -1715,21 +1622,18 @@ die Berechnung der Gammafunktion zu einem &Uuml;berlauf f&uuml;hrt und mit einem
 Fehler abbricht.
 </p>
 <p>Siehe auch die Optionsvariable <code><a href="maxima_10.html#factlim">factlim</a></code>,
- um die Vereinfachung f&uuml;r
 ganze Zahlen zu kontrollieren.
 </p></dd></dl>
 
 <p><a name="makegamma"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>makegamma</b><i> (<var>expr</var>)</i>
-<a name="IDX1251"></a>
+<a name="IDX1260"></a>
 </dt>
 <dd><p>Ersetzt Fakult&auml;ten sowie Binomial- und Betafunktionen durch die Gammafunktion
 <code><a href="#gamma">gamma</a></code>
- im Ausdruck <var>expr</var>.
 </p>
 <p>Siehe auch die Funktion <code><a href="#makefact">makefact</a></code>,
- um stattdessen Fakult&auml;ten in den
 Ausdruck einzusetzen.
 </p>
 <p>Beispiel:
@@ -1747,7 +1651,7 @@ Ausdruck einzusetzen.
 <p><a name="beta"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>beta</b><i> (<var>a</var>, <var>b</var>)</i>
-<a name="IDX1252"></a>
+<a name="IDX1261"></a>
 </dt>
 <dd><p>Die Betafunktion ist definiert als <code>gamma(a) gamma(b)/gamma(a+b)</code>
 (A &amp; S 6.2.1).
@@ -1755,7 +1659,6 @@ Ausdruck einzusetzen.
 <p>Maxima vereinfacht die Betafunktion f&uuml;r positive ganze Zahlen <var>a</var> und
 <var>b</var> sowie rationale Zahlen, deren Summe <code><var>a</var> + <var>b</var></code> eine ganze
 Zahl ist.  Hat die Optionsvariable <code><a href="#beta_005fargs_005fsum_005fto_005finteger">beta_args_sum_to_integer</a></code>
- den Wert
 <code>true</code>, vereinfacht Maxima die Betafunktion f&uuml;r allgemeine Ausdr&uuml;cke
 <var>a</var> und <var>b</var>, deren Summe eine ganze Zahl ist.
 </p>
@@ -1775,7 +1678,6 @@ Ausdr&uuml;cke wie <code>beta(a+n, b</code> und <code>beta(a-n, b)</code> oder
 <p>Maxima berechnet die Betafunktion f&uuml;r reelle und komplexe Gleitkommazahlen
 numerisch.  F&uuml;r die numerische Berechnung nutzt Maxima die Funktion
 <code><a href="#log_005fgamma">log_gamma</a></code>
-:
 </p>
 <pre class="example">           - log_gamma(b + a) + log_gamma(b) + log_gamma(a)
          %e
@@ -1787,9 +1689,7 @@ symmetrisch und hat Spiegelsymmetrie.
 <var>b</var>.
 </p>
 <p>Mit der Funktion <code><a href="#makegamma">makegamma</a></code>
- kann die Betafunktion durch Gammafunktionen
 ersetzt werden.  Entsprechend ersetzt die Funktion <code><a href="#makefact">makefact</a></code>
-
 Betafunktionen in einem Ausdruck durch Fakult&auml;ten.
 </p>
 <p>Beispiele:
@@ -1875,7 +1775,7 @@ beta: expected nonzero arguments; found 0, b
 <p><a name="beta_005fincomplete"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>beta_incomplete</b><i> (<var>a</var>, <var>b</var>, <var>z</var>)</i>
-<a name="IDX1253"></a>
+<a name="IDX1262"></a>
 </dt>
 <dd><p>Die Definition der unvollst&auml;ndigen Betafunktion ist (A &amp; S 6.6.1)
 </p>
@@ -1926,7 +1826,6 @@ Gleitkommazahlen als Argumente.  F&uuml;r die numerische Berechnung nutzt Maxima
 eine Entwicklung der unvollst&auml;ndigen Betafunktion als Kettenbruch.
 </p>
 <p>Hat die Optionsvariable <code><a href="#beta_005fexpand">beta_expand</a></code>
- den Wert <code>true</code>, entwickelt
 Maxima Ausdr&uuml;cke der Form <code>beta_incomplete(a+n, b, z)</code> und
 <code>beta_incomplete(a-n, b, z)</code>, wobei <code>n</code> eine ganze Zahl ist.
 </p>
@@ -2032,7 +1931,7 @@ f&uuml;r diesem Fall.
 <p><a name="beta_005fincomplete_005fregularized"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>beta_incomplete_regularized</b><i> (<var>a</var>, <var>b</var>, <var>z</var>)</i>
-<a name="IDX1254"></a>
+<a name="IDX1263"></a>
 </dt>
 <dd>
 <p>Die regularisierte unvollst&auml;ndige Beta Funktion (A &amp; S 6.6.2), die definiert
@@ -2044,7 +1943,6 @@ ist als
 </pre>
 
 <p>Wie bei der Funktion <code><a href="#beta_005fincomplete">beta_incomplete</a></code>
- ist diese Definition nicht
 vollst&auml;ndig.  Siehe <a href="functions.wolfram.com">functions.wolfram.com</a> f&uuml;r eine vollst&auml;ndige
 Definition der Funktion.
 </p>
@@ -2065,7 +1963,6 @@ Gleitkommazahlen als Argumente numerisch.
 where n is an integer.
 </p>
 <p>Hat die Optionsvariable <code><a href="#beta_005fexpand">beta_expand</a></code>
- den Wert <code>true</code>, expandiert
 Maxima <code>beta_incomplete_regularized</code> f&uuml;r Argumente <em>a+n</em> oder
 <em>a-n</em>, wobei <var>n</var> eine ganze Zahl ist.
 </p>
@@ -2151,7 +2048,7 @@ Argument <var>z</var>.
 <p><a name="beta_005fincomplete_005fgeneralized"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>beta_incomplete_generalized</b><i> (<var>a</var>, <var>b</var>, <var>z1</var>, <var>z2</var>)</i>
-<a name="IDX1255"></a>
+<a name="IDX1264"></a>
 </dt>
 <dd>
 <p>Die Definition der verallgemeinerten unvollst&auml;ndigen Betafunktion ist
@@ -2172,19 +2069,16 @@ Argumente <var>a</var> und <var>b</var>.
 <p>Ist <em>realpart(a)&gt;0</em> und <em>z1=0</em> oder <em>z2=0</em>, vereinfacht Maxima
 <code>beta_incomplete_generalized</code> zu der Funktion
 <code><a href="#beta_005fincomplete">beta_incomplete</a></code>.
-  Ist <em>realpart(b)&gt;0</em> und <em>z1=1</em> oder
 <var>z2=1</var>, vereinfacht Maxima zu einem Ausdruck mit der Funktion
 <code><a href="#beta">beta</a></code>
- und <code><a href="#beta_005fincomplete">beta_incomplete</a></code>.
+<code><a href="#beta_005fincomplete">beta_incomplete</a></code>.
 </p>
-
 
 <p>Maxima berechnet <code>beta_incomplete_regularized</code> numerisch f&uuml;r reelle und
 komplexe Gleitkommazahlen in doppelter und beliebiger Genauigkeit.
 </p>
 
 <p>Hat die Optionsvariable <code><a href="#beta_005fexpand">beta_expand</a></code>
- den Wert <code>true</code>, dann expandiert
 Maxima <code>beta_incomplete_generalized</code> f&uuml;r Argumente <em>a+n</em> und
 <em>a-n</em>, wobei <var>n</var> eine positive ganze Zahl ist.
 </p>
@@ -2295,7 +2189,7 @@ Integrationsvariablen <var>z1</var> und <var>z2</var>.
 <p><a name="beta_005fexpand"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>beta_expand</b>
-<a name="IDX1256"></a>
+<a name="IDX1265"></a>
 </dt>
 <dd><p>Standardwert: <code>false</code>
 </p>
@@ -2308,7 +2202,7 @@ Integrationsvariablen <var>z1</var> und <var>z2</var>.
 <p><a name="beta_005fargs_005fsum_005fto_005finteger"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>beta_args_sum_to_integer</b>
-<a name="IDX1257"></a>
+<a name="IDX1266"></a>
 </dt>
 <dd><p>Standardwert: <code>false</code>
 </p>
@@ -2316,14 +2210,13 @@ Integrationsvariablen <var>z1</var> und <var>z2</var>.
 <p>Hat die Optionsvariable <code>beta_args_sum_to_integer</code> den Wert <code>true</code>,
 vereinfacht Maxima die Funktion <code>beta(a,b)</code>, wenn sich die Argumente
 <var>a</var> und <var>b</var> zu einer ganzen Zahlen summieren.  Siehe auch <code><a href="#beta">beta</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 
 <p><a name="psi"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>psi</b><i> [<var>n</var>](<var>x</var>)</i>
-<a name="IDX1258"></a>
+<a name="IDX1267"></a>
 </dt>
 <dd>
 <p>Ist definiert als die Ableitung der Funktion <code>log(gamma(<var>x</var>))</code> der
@@ -2334,38 +2227,32 @@ Ordnung <code><var>n</var>+1</code>.  <code>psi[0](<var>x</var>)</code> ist die 
 <p>Maxima kann numerische Werte f&uuml;r reelle Gleitkommazahlen berechnen.  Weiterhin
 kann Maxima die Funktion <code>psi</code> f&uuml;r rationale Argumente zu exakten Werten
 vereinfachen.  Die Optionsvariablen <code><a href="#maxpsiposint">maxpsiposint</a></code>,
-
 <code><a href="#maxpsinegint">maxpsinegint</a></code>,
- <code><a href="#maxpsifracnum">maxpsifracnum</a></code>
- und <code>maxpsifracdenom</code>
+<code><a href="#maxpsifracnum">maxpsifracnum</a></code>
 kontrollieren, den Wertebereich der Argumente f&uuml;r den die Funktion <code>psi</code>
 vereinfacht.
 </p>
 
 <p>Die Funktion <code><a href="#bfpsi">bfpsi</a></code>
- des <code>bffac</code>-Package kann numerische Werte der
 Funktion <code>psi</code> berechnen.
 </p></dd></dl>
 
 <p><a name="maxpsiposint"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>maxpsiposint</b>
-<a name="IDX1259"></a>
+<a name="IDX1268"></a>
 </dt>
 <dd><p>Standardwert: <code>20</code>
 </p>
 <p>Die Optionsvariable <code>maxpsiposint</code> kontrolliert die Vereinfachung der
 Funktion <code><a href="#psi">psi</a></code>
- und enth&auml;lt eine obere positive Schranke.  Ist das
 Argument <var>x</var> der Funktion <code>psi</code> gr&ouml;&szlig;er als <code>maxpsiposint</code>,
 dann versucht Maxima nicht <code>psi[<var>n</var>](<var>x</var>)</code> zu vereinfachen.
 </p>
 <p>Siehe auch <code><a href="#maxpsifracdenom">maxpsifracdenom</a></code>,
- <code><a href="#maxpsifracnum">maxpsifracnum</a></code>
- und
+<code><a href="#maxpsifracnum">maxpsifracnum</a></code>
 <code><a href="#maxpsinegint">maxpsinegint</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%o1)                          20
@@ -2387,22 +2274,19 @@ dann versucht Maxima nicht <code>psi[<var>n</var>](<var>x</var>)</code> zu verei
 <p><a name="maxpsinegint"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>maxpsinegint</b>
-<a name="IDX1260"></a>
+<a name="IDX1269"></a>
 </dt>
 <dd><p>Standardwert: <code>-10</code>
 </p>
 <p>Die Optionsvariable <code>maxpsinegint</code> kontrolliert die Vereinfachung der
 Funktion <code><a href="#psi">psi</a></code>
- und enth&auml;lt eine untere negative Schranke.  Ist das
 Argument <var>x</var> der Funktion <code>psi</code> kleiner als <code>maxpsinegint</code>,
 dann versucht Maxima nicht <code>psi[<var>n</var>](<var>x</var>)</code> zu vereinfachen.
 </p>
 <p>Siehe auch <code><a href="#maxpsifracdenom">maxpsifracdenom</a></code>,
- <code><a href="#maxpsifracnum">maxpsifracnum</a></code>
- und
+<code><a href="#maxpsifracnum">maxpsifracnum</a></code>
 <code><a href="#maxpsiposint">maxpsiposint</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) maxpsinegint:-10;
@@ -2424,23 +2308,20 @@ dann versucht Maxima nicht <code>psi[<var>n</var>](<var>x</var>)</code> zu verei
 <p><a name="maxpsifracnum"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>maxpsifracnum</b>
-<a name="IDX1261"></a>
+<a name="IDX1270"></a>
 </dt>
 <dd><p>Standardwert: <code>6</code>
 </p>
 <p>Die Optionsvariable <code>maxpsifracnum</code> kontrolliert die Vereinfachung der
 Funktion <code><a href="#psi">psi</a></code>.
-  Ist das Argument <var>x</var> der Funktion <code>psi</code> eine
 rationale Zahl kleiner als eins mit <code>p/q</code> und ist der Z&auml;hler <code>p</code>
 gr&ouml;&szlig;er als <code>maxpsifracnum</code>, dann versucht Maxima nicht
 <code>psi[<var>n</var>](<var>x</var>)</code> zu vereinfachen.
 </p>
 <p>Siehe auch <code><a href="#maxpsifracdenom">maxpsifracdenom</a></code>,
- <code><a href="#maxpsiposint">maxpsiposint</a></code>
- und
+<code><a href="#maxpsiposint">maxpsiposint</a></code>
 <code><a href="#maxpsinegint">maxpsinegint</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) maxpsifracnum: 6;
@@ -2460,23 +2341,20 @@ gr&ouml;&szlig;er als <code>maxpsifracnum</code>, dann versucht Maxima nicht
 <p><a name="maxpsifracdenom"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>maxpsifracdenom</b>
-<a name="IDX1262"></a>
+<a name="IDX1271"></a>
 </dt>
 <dd><p>Standardwert: <code>6</code>
 </p>
 <p>Die Optionsvariable <code>maxpsifracdenom</code> kontrolliert die Vereinfachung der
 Funktion <code><a href="#psi">psi</a></code>.
-  Ist das Argument <var>x</var> der Funktion <code>psi</code> eine
 rationale Zahl kleiner als eins mit <code>p/q</code> und ist der Nenner <code>q</code>
 gr&ouml;&szlig;er als <code>maxpsifracdenom</code>, dann versucht Maxima nicht
 <code>psi[<var>n</var>](<var>x</var>)</code> zu vereinfachen.
 </p>
 <p>Siehe auch <code><a href="#maxpsifracnum">maxpsifracnum</a></code>,
- <code><a href="#maxpsiposint">maxpsiposint</a></code>
- und
+<code><a href="#maxpsiposint">maxpsiposint</a></code>
 <code><a href="#maxpsinegint">maxpsinegint</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) maxpsifracdenom: 6;
@@ -2505,20 +2383,19 @@ gr&ouml;&szlig;er als <code>maxpsifracdenom</code>, dann versucht Maxima nicht
 <p><a name="makefact"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>makefact</b><i> (<var>expr</var>)</i>
-<a name="IDX1263"></a>
+<a name="IDX1272"></a>
 </dt>
 <dd><p>Ersetzt Binomial-, Gamma- und Beta-Funktionen, die im Ausdruck <var>expr</var>
 auftreten, durch Fakult&auml;ten.
 </p>
 <p>Siehe auch die Funktion <code><a href="#makegamma">makegamma</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 
 <p><a name="numfactor"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>numfactor</b><i> (<var>expr</var>)</i>
-<a name="IDX1264"></a>
+<a name="IDX1273"></a>
 </dt>
 <dd><p>Gibt einen numerischen Faktor des Produktes <var>expr</var> zur&uuml;ck.  Ist <var>expr</var>
 kein Produkt oder enth&auml;lt das Produkt keinen numerischen Faktor ist die
@@ -2563,7 +2440,7 @@ Abramowitz und Stegun, <i>Handbook of Mathematical Functions</i>, Kapitel 5.
 <p><a name="expintegral_005fe1"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>expintegral_e1</b><i> (<var>z</var>)</i>
-<a name="IDX1265"></a>
+<a name="IDX1274"></a>
 </dt>
 <dd><p>Das Exponentielle Integral <code>E1(z)</code> (A&amp;S 5.1.1).
 </p></dd></dl>
@@ -2571,7 +2448,7 @@ Abramowitz und Stegun, <i>Handbook of Mathematical Functions</i>, Kapitel 5.
 <p><a name="expintegral_005fei"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>expintegral_ei</b><i> (<var>z</var>)</i>
-<a name="IDX1266"></a>
+<a name="IDX1275"></a>
 </dt>
 <dd><p>Das Exponentielle Integral <code>Ei(z)</code> (A&amp;S 5.1.2).
 </p></dd></dl>
@@ -2579,7 +2456,7 @@ Abramowitz und Stegun, <i>Handbook of Mathematical Functions</i>, Kapitel 5.
 <p><a name="expintegral_005fli"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>expintegral_li</b><i> (<var>n</var>,<var>z</var>)</i>
-<a name="IDX1267"></a>
+<a name="IDX1276"></a>
 </dt>
 <dd><p>Das Exponentielle Integral <code>Li(z)</code> (A&amp;S 5.1.3).
 </p></dd></dl>
@@ -2587,7 +2464,7 @@ Abramowitz und Stegun, <i>Handbook of Mathematical Functions</i>, Kapitel 5.
 <p><a name="expintegral_005fe"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>expintegral_e</b><i> (<var>n</var>, <var>z</var>)</i>
-<a name="IDX1268"></a>
+<a name="IDX1277"></a>
 </dt>
 <dd><p>Das Exponentielle Integral <code>E[n](z)</code> (A&amp;S 5.1.4).
 </p></dd></dl>
@@ -2595,7 +2472,7 @@ Abramowitz und Stegun, <i>Handbook of Mathematical Functions</i>, Kapitel 5.
 <p><a name="expintegral_005fsi"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>expintegral_si</b><i> (<var>z</var>)</i>
-<a name="IDX1269"></a>
+<a name="IDX1278"></a>
 </dt>
 <dd><p>Das Exponentielle Integral <code>Si(z)</code> (A&amp;S 5.2.1).
 </p></dd></dl>
@@ -2603,7 +2480,7 @@ Abramowitz und Stegun, <i>Handbook of Mathematical Functions</i>, Kapitel 5.
 <p><a name="expintegral_005fci"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>expintegral_ci</b><i> (<var>z</var>)</i>
-<a name="IDX1270"></a>
+<a name="IDX1279"></a>
 </dt>
 <dd><p>Das Exponentielle Integral <code>Ci(z)</code> (A&amp;S 5.2.2).
 </p></dd></dl>
@@ -2611,7 +2488,7 @@ Abramowitz und Stegun, <i>Handbook of Mathematical Functions</i>, Kapitel 5.
 <p><a name="expintegral_005fshi"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>expintegral_shi</b><i> (<var>z</var>)</i>
-<a name="IDX1271"></a>
+<a name="IDX1280"></a>
 </dt>
 <dd><p>Das Exponentielle Integral <code>Shi(z)</code> (A&amp;S 5.2.3).
 </p></dd></dl>
@@ -2619,7 +2496,7 @@ Abramowitz und Stegun, <i>Handbook of Mathematical Functions</i>, Kapitel 5.
 <p><a name="expintegral_005fchi"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>expintegral_chi</b><i> (<var>z</var>)</i>
-<a name="IDX1272"></a>
+<a name="IDX1281"></a>
 </dt>
 <dd><p>Das Exponentielle Integral <code>Chi(z)</code> (A&amp;S 5.2.4).
 </p></dd></dl>
@@ -2627,39 +2504,33 @@ Abramowitz und Stegun, <i>Handbook of Mathematical Functions</i>, Kapitel 5.
 <p><a name="expintrep"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>expintrep</b>
-<a name="IDX1273"></a>
+<a name="IDX1282"></a>
 </dt>
 <dd><p>Standardwert: <code>false</code>
 </p>
 <p>Wechselt die Darstellung eines Exponentiellen Integrals in eine der anderen
 Funktionen <code><a href="#gamma_005fincomplete">gamma_incomplete</a></code>,
- <code><a href="#expintegral_005fe1">expintegral_e1</a></code>,
-
+<code><a href="#expintegral_005fe1">expintegral_e1</a></code>,
 <code><a href="#expintegral_005fei">expintegral_ei</a></code>,
- <code><a href="#expintegral_005fli">expintegral_li</a></code>,
-
+<code><a href="#expintegral_005fli">expintegral_li</a></code>,
 <code><a href="#expintegral_005fsi">expintegral_si</a></code>,
- <code><a href="#expintegral_005fci">expintegral_ci</a></code>,
-
+<code><a href="#expintegral_005fci">expintegral_ci</a></code>,
 <code><a href="#expintegral_005fshi">expintegral_shi</a></code>,
- oder <code><a href="#expintegral_005fchi">expintegral_chi</a></code>.
-</p>
-</dd></dl>
+<code><a href="#expintegral_005fchi">expintegral_chi</a></code>.
+</p></dd></dl>
 
 <p><a name="expintexpand"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>expintexpand</b>
-<a name="IDX1274"></a>
+<a name="IDX1283"></a>
 </dt>
 <dd><p>Standardwert: <code>false</code>
 </p>
 <p>Expandiert das Exponentielle Integral <code>E[n](z)</code> f&uuml;r halbzahlige, gerade
 Ordnung <var>n</var> nach den Funktionen <code><a href="#erfc">erfc</a></code>
- und <code><a href="#erf">erf</a></code>.
- sowie f&uuml;r
+<code><a href="#erf">erf</a></code>.
 positive ganze Zahlen nach der Funktion <code><a href="#expintegral_005fei">expintegral_ei</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <hr size="6">
 <a name="Fehlerfunktionen"></a>
@@ -2688,18 +2559,17 @@ und Stegun, <i>Handbook of Mathematical Functions</i>, Kapitel 7.
 <p><a name="erf"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>erf</b><i> (<var>z</var>)</i>
-<a name="IDX1275"></a>
+<a name="IDX1284"></a>
 </dt>
 <dd><p>Die Fehlerfunktion <code>erf(z)</code> (A&amp;S 7.1.1).
 </p>
 <p>Siehe auch die Optionsvariable <code><a href="maxima_16.html#erfflag">erfflag</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="erfc"></a>
 </p><dl>
 <dt><u>Function:</u> <b>erfc</b><i> (<var>z</var>)</i>
-<a name="IDX1276"></a>
+<a name="IDX1285"></a>
 </dt>
 <dd><p>Die komplement&auml;re Fehlerfunktion <code>erfc(z) = 1 - erf(z)</code> (A &amp; S 7.1.2).
 </p></dd></dl>
@@ -2707,7 +2577,7 @@ und Stegun, <i>Handbook of Mathematical Functions</i>, Kapitel 7.
 <p><a name="erfi"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>erfi</b><i> (<var>z</var>)</i>
-<a name="IDX1277"></a>
+<a name="IDX1286"></a>
 </dt>
 <dd><p>Die imagin&auml;re Fehlerfunktion <code>erfi(z) = -%i*erf(%i*z)</code>.
 </p></dd></dl>
@@ -2715,7 +2585,7 @@ und Stegun, <i>Handbook of Mathematical Functions</i>, Kapitel 7.
 <p><a name="erf_005fgeneralized"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>erf_generalized</b><i> (<var>z1</var>, <var>z2</var>)</i>
-<a name="IDX1278"></a>
+<a name="IDX1287"></a>
 </dt>
 <dd><p>Die verallgemeinerte Fehlerfunktion <em>Erf(z1, z2)</em>.
 </p></dd></dl>
@@ -2723,7 +2593,7 @@ und Stegun, <i>Handbook of Mathematical Functions</i>, Kapitel 7.
 <p><a name="fresnel_005fc"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>fresnel_c</b><i> (<var>z</var>)</i>
-<a name="IDX1279"></a>
+<a name="IDX1288"></a>
 </dt>
 <dd><p>Das Fresnel-Integral, das definiert ist als (A &amp; S 7.3.1):
 </p>
@@ -2736,25 +2606,21 @@ und Stegun, <i>Handbook of Mathematical Functions</i>, Kapitel 7.
            0
 </pre>
 <p>Hat die Optionsvariable <code><a href="maxima_10.html#trigsign">trigsign</a></code>
- den Wert <code>true</code>, vereinfacht
 Maxima <code>fresnel_c(-x)</code> zu <code>-fresnel_c(x)</code>.
 </p>
 <p>Hat die Optionsvariable <code><a href="maxima_10.html#g_t_0025iargs">%iargs</a></code>
- den Wert <code>true</code>, vereinfacht 
 Maxima <code>fresnel_c(%i*x)</code> zu <code>%i*fresnel_c(x)</code>.
 </p>
 <p>Siehe auch die Optionsvariable <code><a href="#hypergeometric_005frepresentation">hypergeometric_representation</a></code>,
- um
 die Fresnelfunktion in eine hypergeometrische Darstellung zu transformieren,
 und die Optionsvariable <code><a href="#erf_005frepresentation">erf_representation</a></code>
- f&uuml;r eine Darstellung als
 Fehlerfunktion.
 </p></dd></dl>
 
 <p><a name="fresnel_005fs"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>fresnel_s</b><i> (<var>z</var>)</i>
-<a name="IDX1280"></a>
+<a name="IDX1289"></a>
 </dt>
 <dd><p>Das Fresnel-Integral, das definiert ist als (A &amp; S 7.3.2):
 </p>
@@ -2767,51 +2633,43 @@ Fehlerfunktion.
            0
 </pre>
 <p>Hat die Optionsvariable <code><a href="maxima_10.html#trigsign">trigsign</a></code>
- den Wert <code>true</code>, vereinfacht
 Maxima <code>fresnel_s(-x)</code> zu <code>-fresnel_s(x)</code>.
 </p>
 <p>Hat die Optionsvariable <code><a href="maxima_10.html#g_t_0025iargs">%iargs</a></code>
- den Wert <code>true</code>, vereinfacht 
 Maxima <code>fresnel_s(%i*x)</code> zu <code>%i*fresnel_s(x)</code>.
 </p>
 <p>Siehe auch die Optionsvariable <code><a href="#hypergeometric_005frepresentation">hypergeometric_representation</a></code>,
- um
 die Fresnelfunktion in eine hypergeometrische Darstellung zu transformieren,
 und die Optionsvariable <code><a href="#erf_005frepresentation">erf_representation</a></code>
- f&uuml;r eine Darstellung als
 Fehlerfunktion.
 </p></dd></dl>
 
 <p><a name="erf_005frepresentation"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>erf_representation</b>
-<a name="IDX1281"></a>
+<a name="IDX1290"></a>
 </dt>
 <dd><p>Standarwert: <code>false</code>
 </p>
 <p>Hat die Optionsvariable <code>erf_representation</code> den Wert <code>true</code>, werden
 die Funktionen <code><a href="#erfc">erfc</a></code>,
- <code><a href="#erfi">erfi</a></code>,
-
+<code><a href="#erfi">erfi</a></code>,
 <code><a href="#erf_005fgeneralized">erf_generalized</a></code>,
- <code><a href="#fresnel_005fs">fresnel_s</a></code>
- und <code><a href="#fresnel_005fc">fresnel_c</a></code>
- in eine
+<code><a href="#fresnel_005fs">fresnel_s</a></code>
+<code><a href="#fresnel_005fc">fresnel_c</a></code>
 Darstellung mit der Funktion <code><a href="#erf">erf</a></code>
- transformiert.
 </p></dd></dl>
 
 <p><a name="hypergeometric_005frepresentation"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>hypergeometric_representation</b>
-<a name="IDX1282"></a>
+<a name="IDX1291"></a>
 </dt>
 <dd><p>Standardwert: <code>false</code>
 </p>
 <p>Hat die Optionsvariable <code>hypergeometric_representation</code> den Wert
 <code>true</code>, werden die Funktionen <code><a href="#fresnel_005fs">fresnel_s</a></code>
- und <code><a href="#fresnel_005fc">fresnel_c</a></code>
- in
+<code><a href="#fresnel_005fc">fresnel_c</a></code>
 eine hypergeometrische Funktion transformiert.
 </p></dd></dl>
 
@@ -2981,168 +2839,168 @@ License (GPL).
 
 <dl>
 <dt><u>Funktion:</u> <b>jacobi_sn</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1283"></a>
+<a name="IDX1292"></a>
 </dt>
 <dd><p>Die Jacobische elliptische Funktion <em>sn(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>jacobi_cn</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1284"></a>
+<a name="IDX1293"></a>
 </dt>
 <dd><p>Die Jacobische elliptische Funktion <em>cn(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>jacobi_dn</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1285"></a>
+<a name="IDX1294"></a>
 </dt>
 <dd><p>Die Jacobische elliptische Funktion <em>dn(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>jacobi_ns</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1286"></a>
+<a name="IDX1295"></a>
 </dt>
 <dd><p>Die Jacobische elliptische Funktion <em>ns(u,m) = 1/sn(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>jacobi_sc</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1287"></a>
+<a name="IDX1296"></a>
 </dt>
 <dd><p>Die Jacobische elliptische Funktion <em>sc(u,m) = sn(u,m)/cn(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>jacobi_sd</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1288"></a>
+<a name="IDX1297"></a>
 </dt>
 <dd><p>Die Jacobische elliptische Funktion <em>sd(u,m) = sn(u,m)/dn(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>jacobi_nc</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1289"></a>
+<a name="IDX1298"></a>
 </dt>
 <dd><p>Die Jacobische elliptische Funktion <em>nc(u,m) = 1/cn(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>jacobi_cs</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1290"></a>
+<a name="IDX1299"></a>
 </dt>
 <dd><p>Die Jacobische elliptische Funktion <em>cs(u,m) = cn(u,m)/sn(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>jacobi_cd</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1291"></a>
+<a name="IDX1300"></a>
 </dt>
 <dd><p>Die Jacobische elliptische Funktion <em>cd(u,m) = cn(u,m)/dn(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>jacobi_nd</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1292"></a>
+<a name="IDX1301"></a>
 </dt>
 <dd><p>Die Jacobische elliptische Funktion <em>nc(u,m) = 1/cn(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>jacobi_ds</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1293"></a>
+<a name="IDX1302"></a>
 </dt>
 <dd><p>Die Jacobische elliptische Funktion <em>ds(u,m) = dn(u,m)/sn(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>jacobi_dc</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1294"></a>
+<a name="IDX1303"></a>
 </dt>
 <dd><p>Die Jacobische elliptische Funktion <em>dc(u,m) = dn(u,m)/cn(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>inverse_jacobi_sn</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1295"></a>
+<a name="IDX1304"></a>
 </dt>
 <dd><p>Die inverse Jacobische elliptische Funktion <em>sn(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>inverse_jacobi_cn</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1296"></a>
+<a name="IDX1305"></a>
 </dt>
 <dd><p>Die inverse Jacobische elliptische Funktion <em>cn(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>inverse_jacobi_dn</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1297"></a>
+<a name="IDX1306"></a>
 </dt>
 <dd><p>Die inverse Jacobische elliptische Funktion <em>dn(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>inverse_jacobi_ns</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1298"></a>
+<a name="IDX1307"></a>
 </dt>
 <dd><p>Die inverse Jacobische elliptische Funktion <em>ns(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>inverse_jacobi_sc</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1299"></a>
+<a name="IDX1308"></a>
 </dt>
 <dd><p>Die inverse Jacobische elliptische Funktion <em>sc(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>inverse_jacobi_sd</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1300"></a>
+<a name="IDX1309"></a>
 </dt>
 <dd><p>Die inverse Jacobische elliptische Funktion <em>sd(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>inverse_jacobi_nc</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1301"></a>
+<a name="IDX1310"></a>
 </dt>
 <dd><p>Die inverse Jacobische elliptische Funktion <em>nc(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>inverse_jacobi_cs</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1302"></a>
+<a name="IDX1311"></a>
 </dt>
 <dd><p>Die inverse Jacobische elliptische Funktion <em>cs(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>inverse_jacobi_cd</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1303"></a>
+<a name="IDX1312"></a>
 </dt>
 <dd><p>Die inverse Jacobische elliptische Funktion <em>cd(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>inverse_jacobi_nd</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1304"></a>
+<a name="IDX1313"></a>
 </dt>
 <dd><p>Die inverse Jacobische elliptische Funktion <em>nc(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>inverse_jacobi_ds</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1305"></a>
+<a name="IDX1314"></a>
 </dt>
 <dd><p>Die inverse Jacobische elliptische Funktion <em>ds(u,m)</em>.
 </p></dd></dl>
 
 <dl>
 <dt><u>Funktion:</u> <b>inverse_jacobi_dc</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1306"></a>
+<a name="IDX1315"></a>
 </dt>
 <dd><p>Die inverse Jacobische elliptische Funktion <em>dc(u,m)</em>.
 </p></dd></dl>
@@ -3171,7 +3029,7 @@ License (GPL).
 <p><a name="elliptic_005ff"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>elliptic_f</b><i> (<var>phi</var>, <var>m</var>)</i>
-<a name="IDX1307"></a>
+<a name="IDX1316"></a>
 </dt>
 <dd><p>Das unvollst&auml;ndige elliptische Integral der ersten Art, das definiert ist als
 </p>
@@ -3179,28 +3037,26 @@ License (GPL).
 </p>
 
 <p>Siehe auch <code><a href="#elliptic_005fe">elliptic_e</a></code>
- und <code><a href="#elliptic_005fkc">elliptic_kc</a></code>.
-</p>
-</dd></dl>
+<code><a href="#elliptic_005fkc">elliptic_kc</a></code>.
+</p></dd></dl>
 
 <p><a name="elliptic_005fe"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>elliptic_e</b><i> (<var>phi</var>, <var>m</var>)</i>
-<a name="IDX1308"></a>
+<a name="IDX1317"></a>
 </dt>
 <dd><p>Das unvollst&auml;ndige elliptische Integral der zweiten Art, das definiert ist als
 </p>
 <p><em>elliptic_e(phi, m) = integrate(sqrt(1 - m*sin(x)^2), x, 0, phi)</em>
 </p>
 <p>Siehe auch <code><a href="#elliptic_005fe">elliptic_e</a></code>
- und <code><a href="#elliptic_005fec">elliptic_ec</a></code>.
-</p>
-</dd></dl>
+<code><a href="#elliptic_005fec">elliptic_ec</a></code>.
+</p></dd></dl>
 
 <p><a name="elliptic_005feu"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>elliptic_eu</b><i> (<var>u</var>, <var>m</var>)</i>
-<a name="IDX1309"></a>
+<a name="IDX1318"></a>
 </dt>
 <dd><p>Das unvollst&auml;ndige elliptische Integral der zweiten Art, das definiert ist als
 </p>
@@ -3213,13 +3069,12 @@ License (GPL).
 <p><em>elliptic_eu(u, m) = elliptic_e(asin(sn(u,m)),m)</em>
 </p>
 <p>Siehe auch <code><a href="#elliptic_005fe">elliptic_e</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="elliptic_005fpi"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>elliptic_pi</b><i> (<var>n</var>, <var>phi</var>, <var>m</var>)</i>
-<a name="IDX1310"></a>
+<a name="IDX1319"></a>
 </dt>
 <dd><p>Das unvollst&auml;ndige elliptische Integral der dritten Art, das definiert ist als
 </p>
@@ -3231,7 +3086,7 @@ License (GPL).
 <p><a name="elliptic_005fkc"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>elliptic_kc</b><i> (<var>m</var>)</i>
-<a name="IDX1311"></a>
+<a name="IDX1320"></a>
 </dt>
 <dd><p>Das vollst&auml;ndige elliptische Integral der ersten Art, das definiert ist als
 </p>
@@ -3240,15 +3095,13 @@ License (GPL).
 
 <p>F&uuml;r einige spezielle Argumente <var>m</var> kennt Maxima Werte mit der
 Gammafunktion <code><a href="#gamma">gamma</a></code>.
-  Die Werte k&ouml;nnen mit der Funktion
 <code><a href="#makegamma">makegamma</a></code>
- berechnet werden.
 </p></dd></dl>
 
 <p><a name="elliptic_005fec"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>elliptic_ec</b><i> (<var>m</var>)</i>
-<a name="IDX1312"></a>
+<a name="IDX1321"></a>
 </dt>
 <dd><p>Das vollst&auml;ndige elliptische Integral der zweiten Art, das definiert ist als
 </p>
@@ -3257,9 +3110,7 @@ Gammafunktion <code><a href="#gamma">gamma</a></code>.
 
 <p>F&uuml;r einige spezielle Argumente <var>m</var> kennt Maxima Werte mit der
 Gammafunktion <code><a href="#gamma">gamma</a></code>.
-  Die Werte k&ouml;nnen mit der Funktion
 <code><a href="#makegamma">makegamma</a></code>
- berechnet werden.
 </p></dd></dl>
 
 <hr size="6">
@@ -3288,7 +3139,7 @@ Gammafunktion <code><a href="#gamma">gamma</a></code>.
 <p><a name="g_t_0025m"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>%m</b><i> [<var>k</var>, <var>u</var>] (<var>z</var>)</i>
-<a name="IDX1313"></a>
+<a name="IDX1322"></a>
 </dt>
 <dd><p>Ist die Whittaker M Funktion
 <code>M[k,u](z) = exp(-z/2) * z^(1/2+u) * M(1/2+u-k, 1+2*u, z)</code>.
@@ -3298,7 +3149,7 @@ Siehe A &amp; S 13.1.32 f&uuml;r die Definition.
 <p><a name="g_t_0025w"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>%w</b><i> [<var>k</var>, <var>u</var>] (<var>z</var>)</i>
-<a name="IDX1314"></a>
+<a name="IDX1323"></a>
 </dt>
 <dd><p>Ist die Whittaker W Funktion.  Siehe A &amp; S 13.1.33 f&uuml;r die Definition.
 </p></dd></dl>
@@ -3306,7 +3157,7 @@ Siehe A &amp; S 13.1.32 f&uuml;r die Definition.
 <p><a name="g_t_0025f"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>%f</b><i> [<var>p</var>,<var>q</var>] (<var>[a], [b], z</var>) </i>
-<a name="IDX1315"></a>
+<a name="IDX1324"></a>
 </dt>
 <dd>
 <p>Ist die hypergeometrische Funktion
@@ -3318,13 +3169,12 @@ mit den <var>q</var>-Elementen <var>b_i</var>.
 <p><a name="hypergeometric"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>hypergeometric</b><i> ([<var>a_1</var>, &hellip;, <var>a_p</var>], [<var>b_1</var>, &hellip; ,<var>b_q</var>], z)</i>
-<a name="IDX1316"></a>
+<a name="IDX1325"></a>
 </dt>
 <dd>
 <p>Ist die hypergeometrische Funktion.  Im Unterschied zu den Funktionen
 <code><a href="#g_t_0025f">%f</a></code>
- und <code><a href="#hgfred">hgfred</a></code>,
- ist die Funktion <code>hypergeometric</code> eine
+<code><a href="#hgfred">hgfred</a></code>,
 vereinfachende Funktion.  <code>hypergeometric</code> unterst&uuml;tzt die Berechnung
 von numerischen Werten f&uuml;r reelle und komplexe Gleitkommazahlen in doppelter
 und mit beliebiger Genauigkeit.  F&uuml;r die Gau&szlig;sche hypergeometrische
@@ -3366,7 +3216,7 @@ Optionsvariable <code>expand_hypergeometric</code> den Wert <code>true</code> ha
 <p><a name="parabolic_005fcylinder_005fd"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>parabolic_cylinder_d</b><i> (<var>v</var>, <var>z</var>)</i>
-<a name="IDX1317"></a>
+<a name="IDX1326"></a>
 </dt>
 <dd>
 <p>Die parabolische Zylinderfunktion <code>parabolic_cylinder_d(v,z)</code>.
@@ -3378,7 +3228,6 @@ Optionsvariable <code>expand_hypergeometric</code> den Wert <code>true</code> ha
 
 <p>Die parabolischen Zylinderfunktionen k&ouml;nnen als Ergebnis der Funktion
 <code><a href="#hgfred">hgfred</a></code>
- auftreten.  Maxima kennt keine weiteren Eigenschaften.
 </p></dd></dl>
 
 <hr size="6">
@@ -3405,7 +3254,7 @@ Optionsvariable <code>expand_hypergeometric</code> den Wert <code>true</code> ha
 <p><a name="li"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>li</b><i> [<var>s</var>] (<var>z</var>)</i>
-<a name="IDX1318"></a>
+<a name="IDX1327"></a>
 </dt>
 <dd>
 <p>Ist der Polylogarithmus der Ordnung <var>s</var> mit dem Argument <var>z</var>.  Der
@@ -3471,7 +3320,7 @@ vereinfacht Maxima den Di- oder Trilogarithmus zu einer Gleitkommazahl.
 <p><a name="specint"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>specint</b><i> (exp(- s*<var>t</var>) * <var>expr</var>, <var>t</var>)</i>
-<a name="IDX1319"></a>
+<a name="IDX1328"></a>
 </dt>
 <dd>
 <p>Berechnet die Laplace-Transformation des Ausdrucks <var>expr</var> f&uuml;r die
@@ -3482,22 +3331,15 @@ Funktionen der Mathematik enthalten.
 
 <p>Die folgenden speziellen Funktionen k&ouml;nnen als Integrand auftreten: die
 unvollst&auml;ndige Gammafunkion <code><a href="#gamma_005fincomplete">gamma_incomplete</a></code>,
- die
 Fehlerfunktionen <code><a href="#erf">erf</a></code>
- und <code><a href="#erfc">erfc</a></code>,
- nicht jedoch die Funktion
+<code><a href="#erfc">erfc</a></code>,
 <code><a href="#erfi">erfi</a></code>,
- die jedoch in eine andere Fehlerfunktion transformiert werden
 kann, die Exponentiellen Integrale wie zum Beispiel <code><a href="#expintegral_005fe1">expintegral_e1</a></code>,
-</p>
-<p>die Bessel-Funktionen wie zum Beispiel <code><a href="#bessel_005fj">bessel_j</a></code>,
- einschlie&szlig;lich
+die Bessel-Funktionen wie zum Beispiel <code><a href="#bessel_005fj">bessel_j</a></code>,
 der Produkte von Bessel-Funktionen, Hankel-Funktionen wie zum Beispiel
 <code><a href="#hankel_005f1">hankel_1</a></code>,
- Hermite <code><a href="maxima_65.html#hermite">hermite</a></code>
- und Laguerre Polynome
+<code><a href="maxima_65.html#hermite">hermite</a></code>
 <code><a href="maxima_65.html#laguerre">laguerre</a></code>.
-  Weiterhin kann <code>specint</code> Integranden mit der
 Hypergeometrische Funktion <code>%f[p,q]([],[],z)</code>, die Whittaker Funktion der
 ersten Art <code>%m[u,k](z)</code> und die der zweiten Art <code>%w[u,k](z)</code>
 integrieren.
@@ -3508,7 +3350,6 @@ enthalten.
 </p>
 
 <p>Kann die Funktion <code><a href="maxima_16.html#laplace">laplace</a></code>
- keine Laplace-Transformation finden, wird
 <code>specint</code> aufgerufen.  Da die Funktion <code>laplace</code> einige allgemeine
 Regeln kennt, um die Laplace-Transformation zu finden, ist es von Vorteil
 die Laplace-Transformation mit der Funktion <code>laplace</code> zu berechnen.
@@ -3589,7 +3430,7 @@ mit dem Exponentiellen Integral <code>expintegral_e1</code>.
 <p><a name="hgfred"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>hgfred</b><i> (<var>a</var>, <var>b</var>, <var>z</var>)</i>
-<a name="IDX1320"></a>
+<a name="IDX1329"></a>
 </dt>
 <dd>
 <p>Vereinfacht die Hypergeometrische Funktion zu einfacheren Funktionen, wie
@@ -3644,7 +3485,7 @@ eine Substantivform <code>%f[p,q]([a], [b], z)</code> zur&uuml;ckgegeben.
 <p><a name="lambert_005fw"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>lambert_w</b><i> (<var>z</var>)</i>
-<a name="IDX1321"></a>
+<a name="IDX1330"></a>
 </dt>
 <dd><p>Der Hauptzweig der Lambert W Funktion, die L&ouml;sung von
 <code>z = W(z) * exp(W(z))</code>.
@@ -3653,7 +3494,7 @@ eine Substantivform <code>%f[p,q]([a], [b], z)</code> zur&uuml;ckgegeben.
 <p><a name="nzeta"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>nzeta</b><i> (<var>z</var>)</i>
-<a name="IDX1322"></a>
+<a name="IDX1331"></a>
 </dt>
 <dd><p>Die Plasma Dispersion Funktion
 <code>nzeta(z) = %i*sqrt(%pi)*exp(-z^2)*(1-erf(-%i*z))</code>.
@@ -3662,7 +3503,7 @@ eine Substantivform <code>%f[p,q]([a], [b], z)</code> zur&uuml;ckgegeben.
 <p><a name="nzetar"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>nzetar</b><i> (<var>z</var>)</i>
-<a name="IDX1323"></a>
+<a name="IDX1332"></a>
 </dt>
 <dd><p>Gibt  <code>realpart(nzeta(z))</code> zur&uuml;ck.
 </p></dd></dl>
@@ -3670,7 +3511,7 @@ eine Substantivform <code>%f[p,q]([a], [b], z)</code> zur&uuml;ckgegeben.
 <p><a name="nzetai"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>nzetai</b><i> (<var>z</var>)</i>
-<a name="IDX1324"></a>
+<a name="IDX1333"></a>
 </dt>
 <dd><p>Gibt <code>imagpart(nzeta(z))</code> zur&uuml;ck.
 </p></dd></dl>
@@ -3678,7 +3519,7 @@ eine Substantivform <code>%f[p,q]([a], [b], z)</code> zur&uuml;ckgegeben.
 <p><a name="g_t_0025s"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>%s</b><i> [<var>u</var>,<var>v</var>] (<var>z</var>)</i>
-<a name="IDX1325"></a>
+<a name="IDX1334"></a>
 </dt>
 <dd><p>Lommels kleine Funktion <code>s[u,v](z)</code>.  Siehe Gradshteyn &amp; Ryzhik 8.570.1.
 </p></dd></dl>
@@ -3701,7 +3542,7 @@ eine Substantivform <code>%f[p,q]([a], [b], z)</code> zur&uuml;ckgegeben.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>September, 1 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

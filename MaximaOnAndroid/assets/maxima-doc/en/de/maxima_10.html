@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 1 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -211,16 +211,13 @@ komplexe Zahl wird der Betrag berechnet.  Wenn m&ouml;glich werden allgemeine
 Ausdr&uuml;cke mit der Betragsfunktion vereinfacht.  Maxima kann Ausdr&uuml;cke mit
 der Betragsfunktion integrieren und ableiten sowie Grenzwerte von Ausdr&uuml;cken
 mit der Betragsfunktion ermitteln.  Das Paket <code><a href="maxima_31.html#SEC216">abs_integrate</a></code>
- erweitert
 Maximas M&ouml;glichkeiten, Integrale mit der Betragsfunktion zu l&ouml;sen.
 </p>
 <p>Die Betragsfunktion wird automatisch auf die Elemente von Listen und Matrizen
 sowie auf die beiden Seiten von Gleichungen angewendet.  Siehe
 <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>Siehe die Funktion <code><a href="#cabs">cabs</a></code>,
- um den Betrag eines komplexen Ausdrucks
 oder einer Funktion zu berechnen.
 </p>
 <p>Beispiele:
@@ -256,11 +253,9 @@ Betragsfunktion von Maxima auf die Elemente einer Liste angewendet wird.
 </pre>
 <p>Ableitung und Integrale mit der Betragsfunktion.  Wird das Paket
 <a href="maxima_31.html#SEC216">abs_integrate</a>
- geladen, k&ouml;nnen weitere Integrale mit der Betragsfunktion
 gel&ouml;st werden.  Das letzte Beispiel zeigt die Laplacetransformation der
 Betragsfunktion.  Siehe <code><a href="maxima_16.html#laplace">laplace</a></code>.
 </p>
-
 <pre class="example">(%i9) diff(x*abs(x),x),expand;
 (%o9)                       2 abs(x)
 
@@ -315,7 +310,6 @@ Ausdruck in eine gro&szlig;e Gleitkommazahl umgewandelt, auf die die Funktion
 in Gleitkommazahlen kann es zu Fehlern bei der Berechnung von <code>ceiling</code>
 kommen.  Um diese zu minimieren, wird die Anzahl der Stellen
 <code><a href="maxima_5.html#fpprec">fpprec</a></code>
- f&uuml;r die Berechnung von <code>ceiling</code> um drei Stellen erh&ouml;ht.
 </p>
 <p>Ist das Argument <var>expr</var> der Funktion ein komplexer Ausdruck, wird eine
 Substantivform zur&uuml;ckgegeben.
@@ -324,8 +318,7 @@ Substantivform zur&uuml;ckgegeben.
 vereinfacht.  Maxima kennt insbesondere Vereinfachungen f&uuml;r den Fall, dass
 das Argument der Funktion <code>ceiling</code> ein Ausdruck mit den Funktionen
 <code><a href="#floor">floor</a></code>
- oder <code><a href="#round">round</a></code>
- ist.  Weiterhin werden f&uuml;r die Vereinfachung
+<code><a href="#round">round</a></code>
 die Aussagen und Fakten der aktiven Kontexte herangezogen.  Siehe 
 <a href="maxima_11.html#SEC77">Funktionen und Variablen f&uuml;r Fakten</a>.
 </p>
@@ -333,11 +326,9 @@ die Aussagen und Fakten der aktiven Kontexte herangezogen.  Siehe
 sowie auf die beiden Seiten von Gleichungen angewendet.  Siehe
 <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>Siehe auch die Funktionen <code><a href="#floor">floor</a></code>
- und <code><a href="#round">round</a></code>.
+<code><a href="#round">round</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) ceiling(ceiling(x));
@@ -353,9 +344,7 @@ sowie auf die beiden Seiten von Gleichungen angewendet.  Siehe
 </pre>
 <p>Sind die Werte einer Funktion eine Teilmenge der ganzen Zahlen, kann diese als
 <code><a href="maxima_11.html#integervalued">integervalued</a></code>
- deklariert werden.  Die Funktionen <code>ceiling</code> und
 <code><a href="#floor">floor</a></code>
- k&ouml;nnen diese Information nutzen, um Ausdr&uuml;cke zu vereinfachen.
 </p>
 <pre class="example">(%i1) declare (f, integervalued)$
 (%i2) floor (f(x));
@@ -378,8 +367,7 @@ sowie auf die beiden Seiten von Gleichungen angewendet.  Siehe
 </dt>
 <dd><p><code>entier</code> ist eine andere Bezeichnung f&uuml;r die Funktion <code>floor</code>.
 Siehe <code><a href="#floor">floor</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="floor"></a>
 </p><dl>
@@ -400,7 +388,6 @@ Ausdruck in eine gro&szlig;e Gleitkommazahl umgewandelt, auf die die Funktion
 in Gleitkommazahlen kann es zu Fehlern bei der Berechnung von <code>floor</code>
 kommen.  Um diese zu minimieren, wird die Anzahl der Stellen
 <code><a href="maxima_5.html#fpprec">fpprec</a></code>
- f&uuml;r die Berechnung von <code>floor</code> um drei Stellen erh&ouml;ht.
 </p>
 <p>Ist das Argument <var>x</var> der Funktion ein komplexer Ausdruck, wird eine
 Substantivform zur&uuml;ckgegeben.
@@ -409,8 +396,7 @@ Substantivform zur&uuml;ckgegeben.
 vereinfacht.  Maxima kennt insbesondere Vereinfachungen f&uuml;r den Fall, dass
 das Argument der Funktion <code>floor</code> ein Ausdruck mit den Funktionen
 <code><a href="#ceiling">ceiling</a></code>
- oder <code><a href="#round">round</a></code>
- ist.  Weiterhin werden f&uuml;r die Vereinfachung
+<code><a href="#round">round</a></code>
 die Aussagen und Fakten der aktiven Kontexte herangezogen.  Siehe
 <a href="maxima_11.html#SEC77">Funktionen und Variablen f&uuml;r Fakten</a>.
 </p>
@@ -418,11 +404,9 @@ die Aussagen und Fakten der aktiven Kontexte herangezogen.  Siehe
 sowie auf die beiden Seiten von Gleichungen angewendet.  Siehe
 <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>Siehe auch die Funktionen <code><a href="#ceiling">ceiling</a></code>
- und <code><a href="#round">round</a></code>.
+<code><a href="#round">round</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) floor(ceiling(x));
@@ -439,8 +423,7 @@ sowie auf die beiden Seiten von Gleichungen angewendet.  Siehe
 </pre>
 <p>Sind die Werte einer Funktion eine Teilmenge der ganzen Zahlen, kann diese als
 <code><a href="maxima_11.html#integervalued">integervalued</a></code>
- deklariert werden.  Die Funktionen <code><a href="#ceiling">ceiling</a></code>
- und
+<code><a href="#ceiling">ceiling</a></code>
 <code>floor</code> k&ouml;nnen diese Information nutzen, um Ausdr&uuml;cke zu vereinfachen.
 </p>
 <pre class="example">(%i1) declare (f, integervalued)$
@@ -464,8 +447,7 @@ sowie auf die beiden Seiten von Gleichungen angewendet.  Siehe
 </dt>
 <dd><p><code>fix</code> ist eine andere Bezeichnung f&uuml;r die Funktion <code>floor</code>.  Siehe
 <code><a href="#floor">floor</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="lmax"></a>
 </p><dl>
@@ -473,7 +455,6 @@ sowie auf die beiden Seiten von Gleichungen angewendet.  Siehe
 <a name="IDX338"></a>
 </dt>
 <dd><p>Ist das Argument <var>L</var> eine Liste oder Menge, wird die Funktion <code><a href="#max">max</a></code>
- auf
 die Elemente der Liste oder Menge angewendet und das Ergebnis zur&uuml;ckgegeben.
 Ist <var>L</var> keine Liste oder Menge, signalisiert Maxima einen Fehler.
 </p>
@@ -491,7 +472,6 @@ Ist <var>L</var> keine Liste oder Menge, signalisiert Maxima einen Fehler.
 <a name="IDX339"></a>
 </dt>
 <dd><p>Ist das Argument <var>L</var> eine Liste oder Menge, wird die Funktion <code><a href="#min">min</a></code>
- auf
 die Elemente der Liste oder Menge angewendet und das Ergebnis zur&uuml;ckgegeben.
 Ist <var>L</var> keine Liste oder Menge, signalisiert Maxima einen Fehler.
 </p>
@@ -513,13 +493,11 @@ Ausdr&uuml;cke wie zum Beispiel <code>1+%e</code> oder <code>sin(1)</code>, dann
 gr&ouml;&szlig;te Zahlenwert zur&uuml;ckgegeben.  Sind symbolische Variablen oder
 allgemeine Ausdr&uuml;cke unter den Argumenten, gibt Maxima einen vereinfachten
 Ausdruck zur&uuml;ck.  Die unendliche Gr&ouml;&szlig;en <code><a href="maxima_5.html#inf">inf</a></code>
- und <code><a href="maxima_5.html#minf">minf</a></code>
-
+<code><a href="maxima_5.html#minf">minf</a></code>
 k&ouml;nnen als Argument auftreten.
 </p>
 <p>Die Vereinfachung der Funktion <code>max</code> kann kontrolliert werden, in dem mit
 der Funktion <code><a href="maxima_11.html#put">put</a></code>
- dem Symbol <code>trylevel</code> zu der Eigenschaft
 <code>maxmin</code> ein Wert zwischen 1 bis 3 gegeben wird.  Folgende Werte k&ouml;nnen 
 mit der Funktion <code>put</code> gesetzt werden:
 </p>
@@ -541,7 +519,6 @@ wird zum Beispiel <code>max(x, 2*x, 3*x)</code> zu <code>max(x, 3*x)</code> vere
 <p>Mit dem Kommando <code>get(trylevel, maxmin)</code> wird der aktuelle Wert f&uuml;r
 das Symbol <code>trylevel</code> angezeigt.  Siehe die Funktion <code><a href="maxima_11.html#get">get</a></code>.
 </p>
-
 <p><code>max</code> ber&uuml;cksichtigt bei der Vereinfachung von Ausdr&uuml;cken die
 Aussagen und Fakten der aktiven Kontexte.  Siehe das Kapitel
 <a href="maxima_11.html#SEC77">Funktionen und Variablen f&uuml;r Fakten</a>.
@@ -576,13 +553,11 @@ Ausdr&uuml;cke wie zum Beispiel <code>1+%e</code> oder <code>sin(1)</code>, dann
 kleinste Zahlenwert zur&uuml;ckgegeben.  Sind symbolische Variablen oder
 allgemeine Ausdr&uuml;cke unter den Argumenten, gibt Maxima einen vereinfachten
 Ausdruck zur&uuml;ck.  Die unendliche Gr&ouml;&szlig;en <code><a href="maxima_5.html#inf">inf</a></code>
- und <code><a href="maxima_5.html#minf">minf</a></code>
-
+<code><a href="maxima_5.html#minf">minf</a></code>
 k&ouml;nnen als Argument auftreten.
 </p>
 <p>Die Vereinfachung der Funktion <code>min</code> kann kontrolliert werden, in dem mit
 der Funktion <code><a href="maxima_11.html#put">put</a></code>
- dem Symbol <code>trylevel</code> zu der Eigenschaft
 <code>maxmin</code> ein Wert zwischen 1 bis 3 gegeben wird.  Folgende Werte k&ouml;nnen
 mit der Funktion <code>put</code> gesetzt werden:
 </p>
@@ -604,12 +579,10 @@ wird zum Beispiel <code>min(x, 2*x, 3*x)</code> zu <code>min(x, 3*x)</code> vere
 <p>Mit dem Kommando <code>get(trylevel, maxmin)</code> wird der aktuelle Wert f&uuml;r
 das Symbol <code>trylevel</code> angezeigt.  Siehe die Funktion <code><a href="maxima_11.html#get">get</a></code>.
 </p>
-
 <p><code>min</code> ber&uuml;cksichtigt bei der Vereinfachung von Ausdr&uuml;cken die
 Aussagen und Fakten der aktiven Kontexte.  Siehe das Kapitel
 <a href="maxima_11.html#SEC77">Funktionen und Variablen f&uuml;r Fakten</a>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) min(1.6, 3/2, 1);
@@ -650,7 +623,6 @@ Ausdruck in eine gro&szlig;e Gleitkommazahl umgewandelt, auf die die Funktion
 in Gleitkommazahlen kann es zu Fehlern bei der Berechnung von <code>round</code>
 kommen.  Um diese zu minimieren, wird die Anzahl der Stellen
 <code><a href="maxima_5.html#fpprec">fpprec</a></code>
- f&uuml;r die Berechnung von <code>round</code> um drei Stellen erh&ouml;ht.
 </p>
 <p>Ist das Argument <var>x</var> der Funktion ein komplexer Ausdruck, wird eine
 Substantivform zur&uuml;ckgegeben.
@@ -659,8 +631,7 @@ Substantivform zur&uuml;ckgegeben.
 vereinfacht.  Maxima kennt insbesondere Vereinfachungen f&uuml;r den Fall, dass
 das Argument der Funktion <code>round</code> ein Ausdruck mit den Funktionen
 <code><a href="#ceiling">ceiling</a></code>
- oder <code><a href="#floor">floor</a></code>
- ist.  Weiterhin werden f&uuml;r die Vereinfachung
+<code><a href="#floor">floor</a></code>
 die Aussagen und Fakten der aktiven Kontexte herangezogen.  Siehe 
 <a href="maxima_11.html#SEC77">Funktionen und Variablen f&uuml;r Fakten</a>.
 </p>
@@ -668,11 +639,9 @@ die Aussagen und Fakten der aktiven Kontexte herangezogen.  Siehe
 sowie auf die beiden Seiten von Gleichungen angewendet.  Siehe
 <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>Siehe auch die Funktionen <code><a href="#ceiling">ceiling</a></code>
- und <code><a href="#floor">floor</a></code>.
+<code><a href="#floor">floor</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) round(floor(x));
@@ -686,7 +655,6 @@ sowie auf die beiden Seiten von Gleichungen angewendet.  Siehe
 </pre>
 <p>Sind die Werte einer Funktion eine Teilmenge der ganzen Zahlen, kann diese als
 <code><a href="maxima_11.html#integervalued">integervalued</a></code>
- deklariert werden.  Die Funktion <code>round</code> kann diese
 Information nutzen, um Ausdr&uuml;cke zu vereinfachen.
 </p>
 <pre class="example">(%i1) declare(f, integervalued);
@@ -712,21 +680,18 @@ ein konstanter Ausdruck wie <code>%pi</code> oder <code>1+%e</code> sein.  Ist d
 <p>Ist das Argument <var>z</var> keine Zahl oder kein konstanter Ausdruck, versucht
 Maxima den Ausdruck zu vereinfachen.  Maxima kann die Funktion <code>signum</code>
 differenzieren.  Wird das Paket <a href="maxima_31.html#SEC216">abs_integrate</a>
- geladen, kann Maxima
 Integrale mit der Funktion <code>signum</code> l&ouml;sen.
 </p>
 <p><code>signum</code> wird automatisch auf die Elemente von Listen und Matrizen
 sowie auf die beiden Seiten von Gleichungen angewendet.  Siehe
 <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Ergebnisse f&uuml;r verschiedene Zahlen und konstante Ausdr&uuml;cke.  Die Beispiele
 zeigen, dass das Ergebnis der Signumfunktion den Typ der Zahl erh&auml;lt.  Die
 unendlichen Gr&ouml;&szlig;en <code><a href="maxima_5.html#minf">minf</a></code>
- und <code><a href="maxima_5.html#inf">inf</a></code>
- k&ouml;nnen als Argument
+<code><a href="maxima_5.html#inf">inf</a></code>
 auftreten.
 </p>
 <pre class="example">(%i1) signum([-1.5, 0, 0.0, 1.5, 1.5b0, %e, sin(1), cos(4)]);
@@ -746,7 +711,6 @@ auftreten.
 (%o4)                      - signum(x)
 </pre>
 <p>Wird das Paket <a href="maxima_31.html#SEC216">abs_integrate</a>
- geladen, kann Maxima Integrale mit der
 Signumfunktion l&ouml;sen.  Ausdr&uuml;cke mit der Signumfunktion k&ouml;nnen
 differenziert werden.
 </p>
@@ -790,7 +754,6 @@ differenziert werden.
 </dt>
 <dd><p>Berechnet den Betrag eines komplexen Ausdrucks <var>expr</var>.  Im Unterschied
 zu der Funktion <code><a href="#abs">abs</a></code>,
- zerlegt die Funktion <code>cabs</code> einen komplexen
 Ausdruck immer in einen Realteil und Imagin&auml;rteil, um den komplexen Betrag zu
 berechnen.  Sind <var>x</var> und <var>y</var> zwei reelle Variablen oder Ausdr&uuml;cke,
 berechnet die Funktion <code>cabs</code> den Betrag des komplexen Ausdrucks
@@ -802,7 +765,6 @@ berechnet die Funktion <code>cabs</code> den Betrag des komplexen Ausdrucks
 Eigenschaften komplexer Funktionen, um den Betrag eines Ausdrucks zu berechnen.
 Sind solche Eigenschaften f&uuml;r eine Funktion vorhanden, k&ouml;nnen diese mit der
 Funktion <code><a href="maxima_11.html#properties">properties</a></code>
- angezeigt werden.  Eigenschaften, die das Ergebnis
 der Funktion <code>cabs</code> bestimmen, sind: <code>mirror symmetry</code>,
 <code>conjugate function</code> und <code>complex characteristic</code>.
 </p>
@@ -812,30 +774,23 @@ Ableitung von Ausdr&uuml;cken mit der Betragsfunktion muss die Funktion <code>ab
 verwendet werden.
 </p>
 <p>Das Ergebnis der Funktion <code>cabs</code> kann die Betragsfunktion <code><a href="#abs">abs</a></code>
- und
 den Arkustangens <code><a href="#atan2">atan2</a></code>
- enthalten.
 </p>
 <p><code>cabs</code> wird automatisch auf die Elemente von Listen und Matrizen sowie auf
 die beiden Seiten von Gleichungen angewendet.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#rectform">rectform</a></code>,
- <code><a href="#realpart">realpart</a></code>,
-
+<code><a href="#realpart">realpart</a></code>,
 <code><a href="#imagpart">imagpart</a></code>,
- <code><a href="#carg">carg</a></code>,
- <code><a href="#conjugate">conjugate</a></code>,
- und 
+<code><a href="#carg">carg</a></code>,
+<code><a href="#conjugate">conjugate</a></code>,
 <code><a href="#polarform">polarform</a></code>
- f&uuml;r das Rechnen mit komplexen Zahlen.
 </p>
 <p>Beispiele:
 </p>
 <p>Zwei Beispiele mit der Wurzelfunktion <code><a href="#sqrt">sqrt</a></code>
- und der Sinusfunktion
 <code><a href="#sin">sin</a></code>.
 </p>
-
 <pre class="example">(%i1) cabs(sqrt(1+%i*x));
                              2     1/4
 (%o1)                      (x  + 1)
@@ -844,7 +799,6 @@ die beiden Seiten von Gleichungen angewendet.
 (%o2)       sqrt(cos (x) sinh (y) + sin (x) cosh (y))
 </pre>
 <p>Die Funktion <code><a href="maxima_22.html#erf">erf</a></code>
- hat Spiegelsymmetrie, die hier f&uuml;r die Berechnung des
 komplexen Betrages angewendet wird.
 </p>
 <pre class="example">(%i3) cabs(erf(x+%i*y));
@@ -861,7 +815,6 @@ komplexen Betrages angewendet wird.
 Betrag zu vereinfachen.  Dies ist ein Beispiel f&uuml;r die Besselfunktion
 <code><a href="maxima_22.html#bessel_005fj">bessel_j</a></code>.
 </p>
-
 <pre class="example">(%i4) cabs(bessel_j(1,%i));
 (%o4)                 abs(bessel_j(1, %i))
 </pre></dd></dl>
@@ -876,28 +829,22 @@ Argument ist ein Winkel <code>theta</code> im Intervall <code>(-%pi, %pi)</code>
 dass <var>expr</var> = <code>r exp (theta %i)</code> gilt, wobei <code>r</code> den Betrag des
 komplexen Ausdrucks <var>expr</var> bezeichnet.  Das ist die Polarform des Ausdrucks,
 wie sie auch von der Funktion <code><a href="#polarform">polarform</a></code>
- zur&uuml;ckgegeben wird.  Der Betrag
 des komplexen Ausdrucks kann mit der Funktion <code><a href="#cabs">cabs</a></code>
- berechnet werden.
 </p>
 <p>Das Ergebnis der Funktion <code>carg</code> kann die Funktion <code><a href="#atan2">atan2</a></code>
- enthalten.
 </p>
 <p><code>carg</code> wird automatisch auf die Elemente von Listen und Matrizen sowie auf
 die beiden Seiten von Gleichungen angewendet.  Siehe <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>Die Funktion <code>carg</code> ist eine Verbfunktion, mit der nicht symbolisch
 gerechnet werden kann.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#rectform">rectform</a></code>,
- <code><a href="#realpart">realpart</a></code>
- und
+<code><a href="#realpart">realpart</a></code>
 <code><a href="#imagpart">imagpart</a></code>
- sowie die Funktionen <code><a href="#cabs">cabs</a></code>
- und <code><a href="#conjugate">conjugate</a></code>.
+<code><a href="#cabs">cabs</a></code>
+<code><a href="#conjugate">conjugate</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) carg (1);
@@ -942,7 +889,6 @@ Symmetrieeigenschaften und komplexe Eigenschaften von Funktionen, um den
 konjugierten Wert mit diesen Funktionen zu vereinfachen.  Sind solche
 Eigenschaften f&uuml;r eine Funktion vorhanden, k&ouml;nnen diese mit der
 Funktion <code><a href="maxima_11.html#properties">properties</a></code>
- angezeigt werden.  Eigenschaften, die das Ergebnis
 der Funktion <code>conjugate</code> bestimmen, sind: <code>mirror symmetry</code>,
 <code>conjugate function</code> und <code>complex characteristic</code>.
 </p>
@@ -950,14 +896,12 @@ der Funktion <code>conjugate</code> bestimmen, sind: <code>mirror symmetry</code
 auf die beiden Seiten von Gleichungen angewendet.  Siehe
 <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>F&uuml;r das Rechnen mit komplexen Ausdr&uuml;cken siehe auch die Funktionen
 <code><a href="#cabs">cabs</a></code>
- und <code><a href="#carg">carg</a></code>
- sowie <code><a href="#rectform">rectform</a></code>
- und <code><a href="#polarform">polarform</a></code>.
+<code><a href="#carg">carg</a></code>
+<code><a href="#rectform">rectform</a></code>
+<code><a href="#polarform">polarform</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Beispiele mit reellen, imagin&auml;ren und komplexen Variablen.
@@ -975,10 +919,8 @@ auf die beiden Seiten von Gleichungen angewendet.  Siehe
 </pre>
 <p>Im Folgenden nutzt Maxima Symmetrieeigenschaften, um den konjugiert komplexen
 Wert der Funktionen <code><a href="maxima_22.html#gamma">gamma</a></code>
- und <code><a href="#sin">sin</a></code>
- zu berechnen.  Die
+<code><a href="#sin">sin</a></code>
 Logarithmusfunktion <code><a href="#log">log</a></code>
- hat Spiegelsymmetrie, wenn das Argument einen
 positiven Realteil hat.
 </p>
 <pre class="example">(%i5) conjugate(gamma(x+%i*y));
@@ -998,7 +940,6 @@ positiven Realteil hat.
 </dt>
 <dd><p>Gibt den Imagin&auml;rteil des Ausrucks <var>expr</var> zur&uuml;ck.  Intern berechnet
 Maxima den Imagin&auml;rteil mit der Funktion <code><a href="#rectform">rectform</a></code>,
- die einen
 Ausdruck in den Realteil und in den Imagin&auml;rteil zerlegt.  Daher treffen die
 Ausf&uuml;hrungen zu <code>rectform</code> auch auf die Funktion <code>imagpart</code> zu.
 </p>
@@ -1009,24 +950,18 @@ Verbfunktion, mit der nicht symbolisch gerechnet werden kann.
 auf die beiden Seiten von Gleichungen angewendet.  Siehe
 <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>Mit der Funktion <code><a href="#realpart">realpart</a></code>
- wird der Realteil eines Ausdrucks berechnet.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#cabs">cabs</a></code>,
- <code><a href="#carg">carg</a></code>
- und
+<code><a href="#carg">carg</a></code>
 <code><a href="#conjugate">conjugate</a></code>
- f&uuml;r das Rechnen mit komplexen Zahlen.  Mit der Funktion
 <code><a href="#polarform">polarform</a></code>
- kann ein komplexer Ausdruck in die Polarform gebracht werden.
 </p>
 <p>Beispiele:
 </p>
 <p>F&uuml;r weitere Erl&auml;uterungen dieser Beispiele siehe auch die Funktion
 <code><a href="#rectform">rectform</a></code>.
 </p>
-
 <pre class="example">(%i1) imagpart((2-%i)/(1-%i));
                                 1
 (%o1)                           -
@@ -1049,37 +984,28 @@ auf die beiden Seiten von Gleichungen angewendet.  Siehe
 <dd><p>Gibt den Ausdruck <var>expr</var> in der Polarform <code>r %e^(%i theta)</code> zur&uuml;ck.
 <code>r</code> ist der Betrag des komplexen Ausdrucks, wie er auch mit der Funktion
 <code><a href="#cabs">cabs</a></code>
- berechnet werden kann.  <code>theta</code> ist das Argument des komplexen
 Ausdrucks, das mit der Funktion <code><a href="#carg">carg</a></code>
- berechnet werden kann.
 </p>
 <p>Maxima kennt komplexe Eigenschaften von Funktionen, die bei der Berechnung der
 Polarform angewendet werden.  Siehe die Funktion <code><a href="#cabs">cabs</a></code>
- f&uuml;r weitere
 Erl&auml;uterungen.
 </p>
 <p>Wenn mit komplexen Ausdr&uuml;cken in der Polarform gerechnet werden soll, ist es
 hilfreich die Optionsvariable <code><a href="#g_t_0025emode">%emode</a></code>
- auf den Wert <code>false</code> zu setzen.
 Damit wird verhindert, dass Maxima komplexe Ausdr&uuml;cke mit der
 Exponentialfunktion <code><a href="#exp">exp</a></code>
- automatisch in die Standardform vereinfacht.
 </p>
 <p><code>polarform</code> wird automatisch auf die Elemente von Listen und Matrizen sowie
 auf die beiden Seiten von Gleichungen angewendet.  Siehe
 <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>Die Funktion <code>polarform</code> ist eine Verbfunktion, mit der nicht symbolisch
 gerechnet werden kann.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#cabs">cabs</a></code>,
- <code><a href="#carg">carg</a></code>
- und
+<code><a href="#carg">carg</a></code>
 <code><a href="#conjugate">conjugate</a></code>
- f&uuml;r das Rechnen mit komplexen Zahlen.  Mit der Funktion
 <code><a href="#rectform">rectform</a></code>
- kann ein komplexer Ausdruck in die Standardform gebracht werden.
 </p>
 <p>Beispiele:
 </p>
@@ -1104,10 +1030,8 @@ Variablen <var>x</var>.
 </pre>
 <p>Wenn in der Polarform gerechnet werden soll, ist es hilfreich die
 Optionsvariable <code><a href="#g_t_0025emode">%emode</a></code>
- auf den Wert <code>false</code> zu setzen.  Damit wird
 verhindert, dass Maxima komplexe Ausdr&uuml;cke mit der Exponentialfunktion 
 <code><a href="#exp">exp</a></code>
- automatisch in eine Standardform vereinfacht.
 </p>
 <pre class="example">(%i4) z:polarform(1+%i);
                                   %i %pi
@@ -1134,7 +1058,6 @@ verhindert, dass Maxima komplexe Ausdr&uuml;cke mit der Exponentialfunktion
 </dt>
 <dd><p>Gibt den Realteil des Ausdrucks <var>expr</var> zur&uuml;ck.  Intern berechnet Maxima
 den Realteil mit der Funktion <code><a href="#rectform">rectform</a></code>,
- die einen Ausdruck in den
 Realteil und in den Imagin&auml;rteil zerlegt.  Daher treffen die Ausf&uuml;hrungen
 zu <code>rectform</code> auch auf die Funktion <code>realpart</code> zu.
 </p>
@@ -1145,25 +1068,19 @@ Verbfunktion, mit der nicht symbolisch gerechnet werden kann.
 auf die beiden Seiten von Gleichungen angewendet.  Siehe
 <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>Mit der Funktion <code><a href="#imagpart">imagpart</a></code>
- wird der Imagin&auml;rteil eines Ausdrucks
 berechnet.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#cabs">cabs</a></code>,
- <code><a href="#carg">carg</a></code>
- und
+<code><a href="#carg">carg</a></code>
 <code><a href="#conjugate">conjugate</a></code>
- f&uuml;r das Rechnen mit komplexen Zahlen.  Mit der Funktion
 <code><a href="#polarform">polarform</a></code>
- kann ein komplexer Ausdruck in die Polarform gebracht werden.
 </p>
 <p>Beispiele:
 </p>
 <p>F&uuml;r weitere Erl&auml;uterungen dieser Beispiele siehe auch die Funktion
 <code><a href="#rectform">rectform</a></code>.
 </p>
-
 <pre class="example">(%i1) realpart((2-%i)/(1-%i));
                                 3
 (%o1)                           -
@@ -1191,7 +1108,6 @@ zur&uuml;ck.
 Eigenschaften komplexer Funktionen, um den Realteil und Imagin&auml;rteil eines
 komplexen Ausdrucks zu berechnen.  Sind solche Eigenschaften f&uuml;r eine Funktion
 vorhanden, k&ouml;nnen diese mit der Funktion <code><a href="maxima_11.html#properties">properties</a></code>
- angezeigt werden.
 Eigenschaften, die das Ergebnis der Funktion <code>rectform</code> bestimmen, sind:
 <code>mirror symmetry</code>, <code>conjugate function</code> und
 <code>complex characteristic</code>.
@@ -1203,24 +1119,18 @@ geeignet ist.
 auf die beiden Seiten von Gleichungen angewendet.  Siehe
 <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>Die Funktionen <code><a href="#realpart">realpart</a></code>
- und <code><a href="#imagpart">imagpart</a></code>
- geben jeweils allein den
+<code><a href="#imagpart">imagpart</a></code>
 Realteil und den Imagin&auml;rteil eines Ausdrucks zur&uuml;ck.  Um einen Ausdruck in
 die Polarform zu bringen, kann die Funktion <code><a href="#polarform">polarform</a></code>
- verwendet werden.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#cabs">cabs</a></code>,
- <code><a href="#carg">carg</a></code>
- und
+<code><a href="#carg">carg</a></code>
 <code><a href="#conjugate">conjugate</a></code>
- f&uuml;r das Rechnen mit komplexen Zahlen.
 </p>
 <p>Beispiele:
 </p>
 <p>Zerlegung eines komplexen Ausdrucks und der Sinusfunktion <code><a href="#sin">sin</a></code>
- in den
 Realteil und Imagin&auml;rteil.  Maxima kennt komplexe Eigenschaften der
 trigonometrischen Funktionen, um den Realteil und den Imagin&auml;rteil zu
 bestimmen.
@@ -1234,9 +1144,7 @@ bestimmen.
 </pre>
 <p>Bei der Zerlegung in einen Realteil und einen Imagin&auml;rteil nutzt Maxima die
 Spiegelsymmetrie der Gammfunktion <code><a href="maxima_22.html#gamma">gamma</a></code>.
-  Die Eigenschaft der 
 Spiegelsymmetrie wird mit der Funktion <code><a href="maxima_11.html#properties">properties</a></code>
- angezeigt, der Eintrag
 lautet <code>mirror symmetry</code>.
 </p>
 <pre class="example">(%i3) properties(gamma);
@@ -1252,7 +1160,6 @@ lautet <code>mirror symmetry</code>.
 </pre>
 <p>Maxima kennt komplexe Eigenschaften der Besselfunktionen.  Die Besselfunktion
 <code><a href="maxima_22.html#bessel_005fj">bessel_j</a></code>
- ist f&uuml;r eine ganzzahlige Ordnung und einem imagin&auml;ren
 Argument rein imagin&auml;r.
 </p>
 <pre class="example">(%i5) rectform(bessel_j(1,%i));
@@ -1290,17 +1197,14 @@ Argument rein imagin&auml;r.
 <p>F&uuml;r eine positive ganze Zahl <code>n</code>, wird <code>n!!</code> zu dem Produkt
 <code>n (n-2) (n-4) (n-6) ... (n - 2 (k-1))</code> vereinfacht, wobei <code>k</code> gleich
 <code>floor(n/2)</code> ist und <code><a href="#floor">floor</a></code>
- die gr&ouml;&szlig;te ganze Zahl als Ergebnis
 hat, die kleiner oder gleich <code>n/2</code> ist.
 </p>
 <p>F&uuml;r ein Argument <code>n</code>, das keine ganze positive Zahl ist, gibt <code>n!!</code>
 die Substantivform <code>genfact(n, n/2,2)</code> zur&uuml;ck.  Siehe die Funktion
 <code><a href="#genfact">genfact</a></code>.
 </p>
-
 <p>Die Verallgemeinerung der doppelten Fakult&auml;t f&uuml;r reelle und komplexe Zahlen
 ist als die Funktion <code><a href="#double_005ffactorial">double_factorial</a></code>
- implementiert.
 </p>
 <p>Beispiele:
 </p>
@@ -1332,15 +1236,13 @@ Binominialkoeffizient zu einer ganzen Zahl vereinfacht.  Sind die Argumente
 <var>x</var> und <var>y</var> reelle oder komplexe Gleitkommazahlen, wird der
 Binominialkoeffizient mit der entsprechenden verallgemeinerten Fakult&auml;t
 berechnet.  Siehe auch <code><a href="#factorial">factorial</a></code>
- und <code><a href="maxima_22.html#gamma">gamma</a></code>.
+<code><a href="maxima_22.html#gamma">gamma</a></code>.
 </p>
-
 <p>Ist das Argument <var>y</var> oder die Differenz <var>x-y</var> eine ganz Zahl, wird
 der Binominialkoeffizient zu einem Polynom vereinfacht.
 </p>
 <p>Mit den Funktionen <code><a href="maxima_22.html#makefact">makefact</a></code>
- oder <code><a href="maxima_22.html#makegamma">makegamma</a></code>
- werden
+<code><a href="maxima_22.html#makegamma">makegamma</a></code>
 Binominialkoeffizienten in einem Ausdruck durch &auml;quivalente Ausdr&uuml;cke mit
 der Fakult&auml;t oder der Gammafunktion ersetzt.
 </p>
@@ -1387,13 +1289,11 @@ Gleitkommazahl, eine gro&szlig;e Gleitkommazahl oder eine komplexe Gleitkommazah
 dann wird ein numerisches Ergebnis berechnet.  F&uuml;r eine positive ganze Zahl
 ist das Ergebnis gleich dem Ergebnis des Operators der doppelten Fakult&auml;t
 <code><a href="#g_t_0021_0021">!!</a></code>
-.  F&uuml;r rationale Zahlen ist das Ergebnis eine Substantivform.
 </p>
 <p>F&uuml;r negative gerade ganze Zahlen ist die Funktion <code>double_factorial</code>
 nicht definiert.
 </p>
 <p>Hat die Optionsvariable <code><a href="#factorial_005fexpand">factorial_expand</a></code>
- den Wert <code>true</code>, 
 vereinfacht Maxima <code>double_factorial</code> f&uuml;r das Argument <code>n-1</code> und
 f&uuml;r Argumente <code>n+2*k</code>, wobei <code>k</code> eine ganze Zahl ist.
 </p>
@@ -1403,7 +1303,6 @@ f&uuml;r Argumente <code>n+2*k</code>, wobei <code>k</code> eine ganze Zahl ist.
 Matrizen sowie auf die beiden Seiten von Gleichungen angewendet.  Siehe
 <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Numerische Ergebnisse f&uuml;r ganze Zahlen, Gleitkommazahlen und komplexen
@@ -1418,7 +1317,6 @@ Gleitkommazahlen.
 4.186422526242633b-1 - 7.218816624466641b-1 %i]
 </pre>
 <p>Vereinfachungen, wenn die Optionsvariable <code><a href="#factorial_005fexpand">factorial_expand</a></code>
- den Wert
 <code>true</code> hat.
 </p>
 <pre class="example">(%i3) factorial_expand:true;
@@ -1454,9 +1352,7 @@ Gleitkommazahlen.
 wird <code>(n+1)*n!</code> zu <code>(n+1)!</code> zusammengefasst.
 </p>
 <p>Hat die Optionsvariable <code><a href="#sumsplitfact">sumsplitfact</a></code>
- den Wert <code>false</code>, wird nach
 der Vereinfachung mit <code>factcomb</code> die Funktion <code><a href="#minfactorial">minfactorial</a></code>
- auf den 
 Ausdruck <var>expr</var> angewendet.
 </p>
 <p>Beispiele:
@@ -1493,45 +1389,34 @@ Zahlen von 1 bis einschlie&szlig;lich <code>n</code>.  <code>0!</code> vereinfac
 F&uuml;r reelle und komplexe Gleitkommazahlen wird <code>z!</code> mit der
 Verallgemeinerung <code>gamma(z+1)</code> berechnet.  Siehe die Funktion
 <code><a href="maxima_22.html#gamma">gamma</a></code>.
-  F&uuml;r eine halbzahlige rationale Zahl <code>n/2</code>, vereinfacht
 <code>(n/2)!</code> zu einem rationalen Faktor multipliziert mit <code>sqrt(%pi)</code>.
 </p>
 <p>Die Optionsvariable <code><a href="#factlim">factlim</a></code>
- enth&auml;lt die gr&ouml;&szlig;te Zahl, f&uuml;r die
 die Fakult&auml;t einer ganzen Zahl numerisch berechnet wird.  Ist das Argument
 der Fakult&auml;t eine rationale Zahl, wird von Maxima die Funktion
 <code><a href="maxima_22.html#gamma">gamma</a></code>
- f&uuml;r die numerische Berechnung aufgerufen.  In diesem Fall ist
 <code>gammalim - 1</code> der gr&ouml;&szlig;te Nenner, f&uuml;r den die Fakult&auml;t vereinfacht
 wird.  Siehe <code><a href="maxima_22.html#gammalim">gammalim</a></code>.
 </p>
-
 <p>Hat die Optionsvariable <code><a href="#factorial_005fexpand">factorial_expand</a></code>
- den Wert <code>true</code>, wird die
 Fakult&auml;t von Argumenten der Form <code>(n+k)!</code> oder <code>(n-k)!</code> vereinfacht,
 wobei <code>k</code> eine ganze Zahl ist.
 </p>
 <p>Mit den Funktionen <code><a href="#minfactorial">minfactorial</a></code>
- und <code><a href="#factcomb">factcomb</a></code>
- k&ouml;nnen Fakult&auml;ten
+<code><a href="#factcomb">factcomb</a></code>
 in Ausdr&uuml;cken vereinfacht werden.
 </p>
 <p>Die Funktion <code><a href="maxima_22.html#makegamma">makegamma</a></code>
- ersetzt Fakult&auml;ten in einem Ausdruck durch die
 Gammafunktion <code><a href="maxima_22.html#gamma">gamma</a></code>.
-  Umgekehrt ersetzt die Funktion
 <code><a href="maxima_22.html#makefact">makefact</a></code>
- Binomialkoeffizienten und die Gammafunktion in einem Ausdruck
 durch Fakult&auml;ten.
 </p>
 <p>Maxima kennt die Ableitung der Fakult&auml;t und die Grenzwerte der Fakult&auml;t
 f&uuml;r spezielle Werte wie negative ganze Zahlen.
 </p>
 <p>Siehe auch die Gammfunktion <code><a href="maxima_22.html#gamma">gamma</a></code>
- und den Binomialkoeffizienten
 <code><a href="#binomial">binomial</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Die Fakult&auml;t einer ganzen Zahl wird zu einer exakten Zahl vereinfacht, wenn
@@ -1564,7 +1449,6 @@ ausgewertet werden kann.
 <p>Fakult&auml;ten werden vereinfacht und nicht ausgewertet.  Daher wird die
 Fakult&auml;t auch dann berechnet, wenn die Auswertung mit dem
 <a href="maxima_8.html#g_t_0027">Quote-Operator</a>
- <code>'</code> unterdr&uuml;ckt ist.
 </p>
 <pre class="example">(%i1) '([0!, (7/2)!, 4.77!, 8!, 20!]);
             105 sqrt(%pi)
@@ -1595,8 +1479,7 @@ Vereinfachung von Ausdr&uuml;cken, die die Fakult&auml;t enthalten.
 f&uuml;r die die Fakult&auml;t einer ganzen Zahl numerisch berechnet wird.  Hat
 <code>factlim</code> den Wert -1, wird die Fakult&auml;t f&uuml;r jede ganze Zahl
 berechnet.  Siehe die Funktion <code><a href="#factorial">factorial</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="factorial_005fexpand"></a>
 </p><dl>
@@ -1608,11 +1491,9 @@ berechnet.  Siehe die Funktion <code><a href="#factorial">factorial</a></code>.
 <p>Die Optionsvariable <code>factorial_expand</code> kontrolliert die Vereinfachung von
 Ausdr&uuml;cken wie <code>(n+k)!</code> oder <code>(n-k)!</code>, wobei <code>k</code> eine
 ganze Zahl ist.  Siehe <code><a href="#factorial">factorial</a></code>
- f&uuml;r ein Beispiel.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#minfactorial">minfactorial</a></code>
- und <code><a href="#factcomb">factcomb</a></code>
- f&uuml;r die
+<code><a href="#factcomb">factcomb</a></code>
 Vereinfachung von Ausdr&uuml;cken mit der Fakult&auml;t.
 </p></dd></dl>
 
@@ -1626,12 +1507,10 @@ Vereinfachung von Ausdr&uuml;cken mit der Fakult&auml;t.
 entspricht <code>genfact(x, x, 1)</code> der Fakult&auml;t <code>x!</code> und 
 <code>genfact(x, x/2, 2)</code> der doppelten Fakult&auml;t <code>x!!</code>.  Siehe auch die 
 Funktionen <code><a href="#factorial">factorial</a></code>
- und <code><a href="#double_005ffactorial">double_factorial</a></code>
- sowie die Operatoren
+<code><a href="#double_005ffactorial">double_factorial</a></code>
 <code><a href="#g_t_0021">!</a></code>
- und <code><a href="#g_t_0021_0021">!!</a></code>.
-</p>
-</dd></dl>
+<code><a href="#g_t_0021_0021">!!</a></code>.
+</p></dd></dl>
 
 <p><a name="minfactorial"></a>
 </p><dl>
@@ -1639,13 +1518,10 @@ Funktionen <code><a href="#factorial">factorial</a></code>
 <a name="IDX360"></a>
 </dt>
 <dd><p>Die Funktion <code>minfactorial</code> vereinfacht Fakult&auml;ten <code><a href="#factorial">factorial</a></code>
- in
 dem Ausdruck <var>epxr</var>, die sich um eine ganze Zahl voneinander unterscheiden.
 Siehe auch die Funktion <code><a href="#factcomb">factcomb</a></code>,
- um Fakult&auml;ten zusammenzufassen,
 sowie die Optionsvariable <code><a href="#factorial_005fexpand">factorial_expand</a></code>.
 </p>
-
 <pre class="example">(%i1) n!/(n+2)!;
                                n!
 (%o1)                       --------
@@ -1666,9 +1542,7 @@ sowie die Optionsvariable <code><a href="#factorial_005fexpand">factorial_expand
 <p>Hat die Optionsvariable <code>sumsplitfact</code> den Wert <code>false</code>, wird von
 der Funktion <code>factcomb</code> nach der Zusammenfassung von Fakult&auml;ten die
 Funktion <code><a href="#minfactorial">minfactorial</a></code>
- angewendet.  Siehe die Funktion
 <code><a href="#factcomb">factcomb</a></code>
- f&uuml;r ein Beispiel.
 </p></dd></dl>
 
 <hr size="6">
@@ -1701,11 +1575,9 @@ Funktion <code><a href="#minfactorial">minfactorial</a></code>
 </p>
 <p>Hat die Optionsvariable <code>%e_to_numlog</code> den Wert <code>true</code>, wird ein 
 Ausdruck mit der Exponentialfunktion <code><a href="#exp">exp</a></code>
- der Form <code>%e^(r*log(x))</code>
 zu <code>x^r</code> vereinfacht, wenn <code>r</code> eine rationale Zahl ist.  Ist <code>r</code>
 eine ganze Zahl, wird die Vereinfachung von der Optionsvariablen
 <code><a href="#logsimp">logsimp</a></code>
- kontrolliert.
 </p>
 <p>Beispiel:
 </p>
@@ -1727,7 +1599,6 @@ eine ganze Zahl, wird die Vereinfachung von der Optionsvariablen
 </p>
 <p>Die Optionsvariable <code>%emode</code> kontrolliert die Vereinfachung von
 Ausdr&uuml;cken mit der Exponentialfunktion <code><a href="#exp">exp</a></code>
- der Form
 <code>%e^(%pi %i x)</code>.
 </p>
 <p>Ist das Argument <var>x</var> eine ganze Zahl oder eine rationale Zahl, die ein
@@ -1769,7 +1640,6 @@ f&uuml;r den Ausdruck <code>%e^(%pi %i x)</code> vorgenommen.
 </p>
 <p>Hat <code>%enumer</code> den Wert <code>true</code>, wird die Konstante <code>%e</code> immer dann
 durch ihren nummerischen Wert ersetzt, wenn die Optionsvariable <code><a href="maxima_5.html#numer">numer</a></code>
- den
 Wert <code>true</code> hat.
 </p>
 <p>Hat <code>%enumer</code> den Wert <code>false</code>, wird die Konstante <code>%e</code> nur dann
@@ -1777,9 +1647,8 @@ durch ihren nummerischen Wert ersetzt, wenn der Exponent von <code>%e^x</code> z
 einer Gleitkommazahl ausgewertet wird.
 </p>
 <p>Siehe auch <code><a href="maxima_8.html#ev">ev</a></code>
- und <code><a href="maxima_5.html#numer">numer</a></code>.
+<code><a href="maxima_5.html#numer">numer</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) %enumer:true;
@@ -1801,7 +1670,6 @@ einer Gleitkommazahl ausgewertet wird.
 sofort zu <code>%e^<var>z</var></code> vereinfacht und tritt in vereinfachten
 Ausdr&uuml;cken nicht auf.  Maxima vereinfacht die Exponentialfunktion daher wie
 die allgemeine Exponentiation <code><a href="maxima_7.html#g_t_005e">^</a></code>.
-  Dar&uuml;berhinaus kennt Maxima
 spezielle Regeln f&uuml;r die Vereinfachung der Exponentialfunktion.
 </p>
 <p>Ist das Argument <var>z</var> der Exponentialfunktion eine ganze oder rationale
@@ -1815,16 +1683,12 @@ Exponentialfunktion:
 <dl compact="compact">
 <dt> <code>%enumer</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#g_t_0025enumer">%enumer</a></code>
- den Wert <code>true</code>, vereinfacht Maxima
 die Eulersche Zahl <code><a href="maxima_5.html#g_t_0025e">%e</a></code>
- immer dann zu ihrem numerischen Wert, wenn die
 Optionsvariable <code><a href="maxima_5.html#numer">numer</a></code>
- auch den Wert <code>true</code> hat.
 </p>
 </dd>
 <dt> <code>%emode</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#g_t_0025emode">%emode</a></code>
- den Wert <code>true</code>, wendet Maxima
 Regeln an, um Ausdr&uuml;cke der Form <code>%e^(x*%i*%pi)</code> zu vereinfachen.
 Der Standardwert von <code>%emode</code> ist <code>true</code>.  Wenn mit komplexen Zahlen
 in der Polarform gerechnet wird, kann es hilfreich sein, die Optionsvariable
@@ -1833,17 +1697,14 @@ in der Polarform gerechnet wird, kann es hilfreich sein, die Optionsvariable
 </dd>
 <dt> <code>%e_to_numlog</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#g_t_0025e_005fto_005fnumlog">%e_to_numlog</a></code>
- den Wert <code>true</code>, vereinfacht
 Maxima einen Ausdruck <code>%e^(r*log(x)</code> zu <code>x^r</code>, wobei <var>r</var>
 eine rationale Zahl ist.  Ist <var>r</var> eine ganze Zahl wird diese Vereinfachung
 von der Optionsvariablen <code><a href="#logsimp">logsimp</a></code>
- kontrolliert.  F&uuml;r reelle oder
 komplexe Gleitkommazahlen wird diese Vereinfachung nicht ausgef&uuml;hrt.
 </p>
 </dd>
 <dt> <code>radexpand</code></dt>
 <dd><p>Die Optionsvariable <code><a href="maxima_9.html#radexpand">radexpand</a></code>
- kontrolliert die Vereinfachung von
 Ausdr&uuml;cken der Form <code>(%e^a)^b</code>.  Ist <var>a</var> ein reelles Argument
 vereinfacht Maxima immer zu einem Ausdruck <code>%e^(a*b)</code>.  Ist <var>a</var> ein
 komplexes Argument, wird die Vereinfachung <code>%e^(a*b)</code> dann ausgef&uuml;hrt,
@@ -1852,27 +1713,22 @@ wenn die Optionsvariable <code>radexpand</code> den Wert <code>all</code> hat.
 </dd>
 <dt> <code>logsimp</code></dt>
 <dd><p>Die Optionsvariable <code><a href="#logsimp">logsimp</a></code>
- kontrolliert die Vereinfachung der 
 Exponentialfunktion f&uuml;r den Fall, dass im Argument <var>expr</var> die
 Logarithmusfunktion <code><a href="#log">log</a></code>
- auftritt.  Hat die <code>logsimp</code> den Wert
 <code>true</code>, wird ein Ausdruck <code>%e^(n*log(x)</code> zu <code>x^n</code> vereinfacht,
 wenn <var>n</var> eine ganze Zahl ist.  Mit der Optionsvariablen
 <code><a href="#g_t_0025e_005fto_005fnumlog">%e_to_numlog</a></code>
- wird diese Vereinfachung f&uuml;r eine rationale Zahl <var>n</var>
 kontrolliert.
 </p>
 </dd>
 <dt> <code>demoivre</code></dt>
 <dd><p>Ist eine Optionsvariable und eine Funktion, die auch als Auswertungsschalter
 <code><a href="maxima_8.html#evflag">evflag</a></code>
- definiert ist.  Hat die Optionsvariable <code><a href="maxima_9.html#demoivre">demoivre</a></code>
- den Wert
+<code><a href="maxima_9.html#demoivre">demoivre</a></code>
 <code>true</code>, wird ein Ausdruck <code>%e^(x + %i y)</code> zu
 <code>%e^x (cos(y) + %i sin(y))</code> vereinfacht.  Siehe auch die Optionsvariable
 <code><a href="maxima_9.html#exponentialize">exponentialize</a></code>.
-</p>
-</dd>
+</p></dd>
 </dl>
 
 <p>Maxima kennt viele spezielle unbestimmte und bestimmte Integrale mit der 
@@ -1916,7 +1772,6 @@ obigen Vereinfachungen ausgeschaltet.
 <dt> <code>logsimp</code></dt>
 <dd><p>Hat die Optionsvariable <code>logsimp</code> den Wert <code>false</code>, werden 
 Exponentialfunktionen <code><a href="#exp">exp</a></code>,
- die Logarithmusfunktionen im Exponenten
 enthalten, nicht vereinfacht.
 </p>
 </dd>
@@ -1937,7 +1792,6 @@ eine rationale Zahl und <code>x</code> ein beliebiger Ausdruck.  Die Funktion
 Matrizen sowie auf die beiden Seiten von Gleichungen angewendet.  Siehe
 <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Verschiedene Beispiele mit der Logarithmusfunktion.
@@ -2038,7 +1892,6 @@ die Optionsvariable <code>logarc</code> gesetzt wird.
 <p>Der Optionsvariablen <code>logconcoeffp</code> kann eine Aussagefunktion mit einem
 Argument zugewiesen werden, die kontrolliert, welche Koeffizienten von
 der Funktion <code><a href="#logcontract">logcontract</a></code>
- zusammengezogen werden.  Sollen zum Beispiel
 Wurzeln generiert werden, kann folgende Aussagefunktion definiert werden:
 </p>
 <pre class="example">logconcoeffp:'logconfun$ 
@@ -2069,7 +1922,6 @@ werden, sind in diesem Fall die Zahl 2 und die Variable <var>n</var>, welche
 die folgende Aussage erf&uuml;llen <code>featurep(coeff, integer)</code>.
 Der Nutzer kann kontrollieren, welche Koeffizienten zusammengezogen werden.
 Dazu wird der Optionsvariablen <code><a href="#logconcoeffp">logconcoeffp</a></code>
- eine Aussagefunktion mit 
 einem Argument zugewiesen.  Sollen zum Beispiel Wurzeln generiert werden, kann 
 folgende Definition verwendet: <code>logconcoeffp: 'logconfun$ logconfun(m) :=
 featurep(m,integer) or ratnump(m)$</code>.  Dann hat das Kommando
@@ -2086,7 +1938,6 @@ featurep(m,integer) or ratnump(m)$</code>.  Dann hat das Kommando
 <p>Die Optionsvariable <code>logexpand</code> kontrolliert die Vereinfachung der
 Logarithmusfunktion <code><a href="#log">log</a></code>.
 </p>
-
 <p>Hat <code>logexpand</code> den Wert <code>true</code>, wird <code>log(a^b)</code> zu
 <code>b*log(a)</code> vereinfacht.  Hat <code>logexpand</code> den Wert <code>all</code>, wird
 zus&auml;tzlich <code>log(a*b)</code> zu <code>log(a)+log(b)</code> vereinfacht.  Mit dem Wert
@@ -2117,7 +1968,6 @@ ausgeschaltet.
 </p>
 <p>Hat die Optionsvariable <code>logsimp</code> den Wert <code>false</code>, werden 
 Exponentialfunktionen <code><a href="#exp">exp</a></code>,
- die Logarithmusfunktionen im Exponenten
 enthalten, nicht vereinfacht.
 </p></dd></dl>
 
@@ -2139,7 +1989,6 @@ enthalten, nicht vereinfacht.
 </p>
 <p><code>rootsconmode</code> kontrolliert das Verhalten der Funktion 
 <code>rootscontract</code>.  Siehe die Funktion <code><a href="#rootscontract">rootscontract</a></code>
- f&uuml;r Details.
 </p></dd></dl>
 
 <p><a name="rootscontract"></a>
@@ -2151,14 +2000,11 @@ enthalten, nicht vereinfacht.
 <code>rootscontract(sqrt(x)*y^(3/2))</code> das Ergebnis <code>sqrt(x*y^3)</code>.
 </p>
 <p>Hat die Optionsvariable <code><a href="maxima_9.html#radexpand">radexpand</a></code>
- den Wert <code>true</code> und die
 Optionsvariable <code><a href="maxima_9.html#domain">domain</a></code>
- den Wert <code>real</code>, das sind die Standardwerte,
 wird <code>abs(x)</code> zu <code>sqrt(x^2)</code> vereinfacht.  Zum Beispiel hat
 <code>rootscontract(abs(x) * sqrt(y))</code> das Ergebnis <code>sqrt(x^2*y)</code>.
 </p>
 <p>Die Optionsvariable <code><a href="#rootsconmode">rootsconmode</a></code>
- kontrolliert das Ergebnis
 folgenderma&szlig;en:
 </p>
 <pre class="example">Problem             Wert             Ergebnis 
@@ -2177,10 +2023,8 @@ nur Faktoren mit rationalen Exponenten, die den gleichen Nenner haben.  Hat
 des Nenners der Faktoren verwendet, um die Faktoren zusammenzufassen.
 </p>
 <p>&Auml;hnlich wie bei der Funktion <code><a href="#logcontract">logcontract</a></code>
- werden von
 <code>rootscontract</code> die Argumente unter der Wurzel mit der Funktion 
 <code><a href="maxima_17.html#ratsimp">ratsimp</a></code>
- vereinfacht.
 </p>
 <p>Beispiele:
 </p>
@@ -2226,19 +2070,15 @@ Ist das Argument <var>z</var> der Wurzelfunktion eine Gleitkommazahl, wird ein
 numerisches Ergebnis zur&uuml;ckgegeben.  F&uuml;r ganze und rationale Zahlen wird
 die Wurzelfunktion vereinfacht.  Die numerische Berechnung kann mit den 
 Optionsvariablen und Auswertungsschaltern <code><a href="maxima_5.html#numer">numer</a></code>
- und
 <code><a href="maxima_5.html#float">float</a></code>
- kontrolliert werden.
 </p>
 <p>Hat die Optionsvariable <code><a href="maxima_9.html#radexpand">radexpand</a></code>
- den Wert <code>true</code>, werden die
 n-ten Wurzeln von Faktoren unter einer Wurzel aus der Wurzel herausgezogen.
 So wird zum Beispiel <code>sqrt(16*x^2)</code> nur dann zu <code>4*x</code> vereinfacht,
 wenn <code>radexpand</code> den Wert <code>true</code> hat.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#rootscontract">rootscontract</a></code>
- und <code><a href="maxima_69.html#sqrtdenest">sqrtdenest</a></code>
- f&uuml;r die
+<code><a href="maxima_69.html#sqrtdenest">sqrtdenest</a></code>
 Vereinfachung von Ausdr&uuml;cken, die die Wurzelfunktion enthalten.
 </p>
 <p>Beispiele:
@@ -2390,8 +2230,7 @@ Ist das Argument eine ganze oder rationale Zahl, werden die inversen
 Winkelfunktionen nicht numerisch berechnet, sondern vereinfacht.  Die numerische
 Berechnung kann mit den Optionsvariablen und Auswertungsschaltern
 <code><a href="maxima_5.html#numer">numer</a></code>
- und <code><a href="maxima_5.html#float">float</a></code>
- erzwungen werden.
+<code><a href="maxima_5.html#float">float</a></code>
 </p>
 <p>Die inversen Winkelfunktionen sind bis auf die Funktionen <code>acos</code> und
 <code>asec</code> als ungerade definiert.  Die Funktionen <code>acos</code> und <code>asec</code>
@@ -2404,7 +2243,6 @@ komplexe Argument <code>x+%i*y</code> einen Realteil <code>abs(x)&lt;1</code> ha
 inversen Winkelfunktionen auf die Elemente der Matrix, der Liste oder auf die
 beiden Seiten der Gleichung angewendet.  Dieses Verhalten wird von der
 Optionsvariablen <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>
- kontrolliert.
 </p>
 <p>Inverse Winkelfunktionen k&ouml;nnen f&uuml;r das symbolische Rechnen verwendet
 werden.  Maxima kann Ausdr&uuml;cke mit inversen Winkelfunktionen differenzieren
@@ -2421,7 +2259,6 @@ inversen Winkelfunktionen:
 <dl compact="compact">
 <dt> <code>distribute_over</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>
- den Wert <code>true</code> und ist das
 Argument der inversen Winkelfunktion eine Matrix, Liste oder Gleichung wird die
 Funktion auf die Elemente oder beiden Seiten der Gleichung angewendet.  Der
 Standardwert ist <code>true</code>.
@@ -2429,14 +2266,12 @@ Standardwert ist <code>true</code>.
 </dd>
 <dt> <code>%piargs</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#g_t_0025piargs">%piargs</a></code>
- den Wert <code>true</code>, werden die
 inversen Winkelfunktionen f&uuml;r spezielle Werte als Argument vereinfacht.
 Der Standardwert ist <code>true</code>.
 </p>
 </dd>
 <dt> <code>%iargs</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#g_t_0025iargs">%iargs</a></code>
- den Wert <code>true</code> und ist das Argument
 der inversen Winkelfunktion ein Vielfaches der imagin&auml;ren Einheit <code>%i</code>
 werden die inversen Winkelfunktionen zu inversen Hyperbelfunktionen vereinfacht.
 Der Standardwert ist <code>true</code>.
@@ -2444,7 +2279,6 @@ Der Standardwert ist <code>true</code>.
 </dd>
 <dt> <code>triginverses</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#triginverses">triginverses</a></code>
- den Wert <code>all</code> und ist das
 Argument die entsprechende Winkelfunktion vereinfachen die inversen
 Winkelfunktionen, zum Beispiel vereinfacht <code>asin(sin(x))</code> zu <code>x</code>.
 Der Standardwert ist <code>true</code> und die Vereinfachung wird nicht vorgenommen.
@@ -2452,7 +2286,6 @@ Der Standardwert ist <code>true</code> und die Vereinfachung wird nicht vorgenom
 </dd>
 <dt> <code>logarc</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#logarc">logarc</a></code>
- den Wert <code>true</code>, werden inverse
 Winkelfunktionen durch Logarithmusfunktionen ersetzt.  Der Standardwert von
 <code>logarc</code> ist <code>false</code>.
 </p></dd>
@@ -2498,7 +2331,6 @@ Optionsvariablen kontrolliert:
 <dl compact="compact">
 <dt> <code>distribute_over</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>
- den Wert <code>true</code> und ist das
 Argument des Arkustangens eine Matrix, Liste oder Gleichung wird die Funktion
 auf die Elemente oder beiden Seiten der Gleichung angewendet.  Der Standardwert
 ist <code>true</code>.
@@ -2506,14 +2338,12 @@ ist <code>true</code>.
 </dd>
 <dt> <code>trigsign</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#trigsign">trigsign</a></code>
- den Wert <code>true</code>, vereinfacht
 Maxima <code>atan2(-y, x)</code> zu <code>- atan2(y, x)</code>.  Der Standardwert ist
 <code>true</code>.
 </p>
 </dd>
 <dt> <code>logarc</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#logarc">logarc</a></code>
- den Wert <code>true</code>, wird der
 Arkustangens durch einen Ausdruck mit der Logarithmusfunktionen ersetzt.
 Der Standardwert von <code>logarc</code> ist <code>false</code>.
 </p></dd>
@@ -2581,8 +2411,7 @@ doppelter und in beliebiger Genauigkeit berechnet werden.  Ist das Argument
 eine ganze oder rationale Zahl, werden die Winkelfunktionen nicht numerisch
 berechnet, sondern vereinfacht.  Die numerische Berechnung kann mit den
 Optionsvariablen und Auswertungsschaltern <code><a href="maxima_5.html#numer">numer</a></code>
- und <code><a href="maxima_5.html#float">float</a></code>
-
+<code><a href="maxima_5.html#float">float</a></code>
 erzwungen werden.
 </p>
 <p>Die Winkelfunktionen sind gerade oder ungerade und haben Spiegelsymmetrie.
@@ -2593,7 +2422,6 @@ von Ausdr&uuml;cken mit Winkelfunktionen an.
 Winkelfunktionen auf die Elemente der Matrix, der Liste oder auf die beiden
 Seiten der Gleichung angewendet.  Dieses Verhalten wird von der Optionsvariablen
 <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>
- kontrolliert.
 </p>
 <p>Winkelfunktionen k&ouml;nnen f&uuml;r das symbolische Rechnen verwendet werden.
 Maxima kann Ausdr&uuml;cke mit Winkelfunktionen differenzieren und integrieren,
@@ -2610,7 +2438,6 @@ Winkelfunktionen:
 <dl compact="compact">
 <dt> <code>distribute_over</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>
- den Wert <code>true</code> und ist das
 Argument der Winkelfunktion eine Matrix, Liste oder Gleichung wird die Funktion
 auf die Elemente oder beiden Seiten der Gleichung angewendet.  Der Standardwert
 ist <code>true</code>.
@@ -2618,14 +2445,12 @@ ist <code>true</code>.
 </dd>
 <dt> <code>%piargs</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#g_t_0025piargs">%piargs</a></code>
- den Wert <code>true</code>, werden die
 Winkelfunktionen f&uuml;r ganzzahlige und halbzahlige Vielfache der Konstanten
 <code>%pi</code> zu speziellen Werten vereinfacht.  Der Standardwert ist <code>true</code>.
 </p>
 </dd>
 <dt> <code>%iargs</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#g_t_0025iargs">%iargs</a></code>
- den Wert <code>true</code> und ist das Argument
 der Winkelfunktion ein Vielfaches der imagin&auml;ren Einheit <code>%i</code> werden die
 Winkelfunktionen zu Hyperbelfunktionen vereinfacht.  Der Standardwert ist
 <code>true</code>.
@@ -2633,14 +2458,12 @@ Winkelfunktionen zu Hyperbelfunktionen vereinfacht.  Der Standardwert ist
 </dd>
 <dt> <code>trigsign</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#trigsign">trigsign</a></code>
- den Wert <code>true</code>, werden die gerade
 oder ungerade Symmetrie der Winkelfunktionen bei der Vereinfachung angewendet.
 Der Standardwert ist <code>true</code>.
 </p>
 </dd>
 <dt> <code>triginverses</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#triginverses">triginverses</a></code>
- den Wert <code>true</code> und ist das
 Argument eine inverse Winkelfunktion vereinfachen die Winkelfunktionen zu einem
 einfachen algebraischen Ausdruck, zum Beispiel vereinfacht <code>sin(acos(x))</code>
 zu <code>sqrt(1-x^2)</code>.  Der Standardwert ist <code>true</code>.
@@ -2648,21 +2471,18 @@ zu <code>sqrt(1-x^2)</code>.  Der Standardwert ist <code>true</code>.
 </dd>
 <dt> <code>trigexpand</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#trigexpand">trigexpand</a></code>
- den Wert <code>true</code>, dann werden die
 Winkelfunktionen f&uuml;r ein Argument expandiert, das eine Summe oder ein Produkt
 mit einer ganzen Zahl ist.  Der Standardwert ist <code>false</code>.
 </p>
 </dd>
 <dt> <code>exponentialize</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="maxima_9.html#exponentialize">exponentialize</a></code>
- den Wert <code>true</code>, dann werden
 die Winkelfunktionen in eine Exponentialform transformiert.  Der Standardwert
 ist <code>false</code>.
 </p>
 </dd>
 <dt> <code>halfangles</code></dt>
 <dd><p>Hat die Optionsvariable <code><a href="#halfangles">halfangles</a></code>
- den Wert <code>true</code>, dann werden die
 Winkelfunktionen f&uuml;r halbzahlige Argumente zu einem &auml;quivalenten Ausdruck
 transformiert.  Der Standardwert ist <code>false</code>.
 </p></dd>
@@ -2932,7 +2752,6 @@ wie zum Beispiel <code>sin(2 x)</code>, vereinfacht.
 </p>
 <p><code>trigexpandplus</code> kontrolliert die Vereinfachung von Winkelfunktionen mit
 der Funktion <code><a href="#trigexpand">trigexpand</a></code>
- f&uuml;r den Fall, dass Winkelfunktionen mit Summen
 als Argumente auftreten.  Hat <code>trigexpandplus</code> den Wert <code>true</code>,
 werden zum Beispiel Winkelfunktionen wie <code>sin(x+y)</code> vereinfacht.
 </p></dd></dl>
@@ -2946,7 +2765,6 @@ werden zum Beispiel Winkelfunktionen wie <code>sin(x+y)</code> vereinfacht.
 </p>
 <p><code>trigexpandtimes</code> kontrolliert die Vereinfachung von Winkelfunktionen mit
 der Funktion <code><a href="#trigexpand">trigexpand</a></code>
- f&uuml;r den Fall, dass Winkelfunktionen mit
 Produkten als Argumente auftreten.  Hat <code>trigexpandtimes</code> den Wert 
 <code>true</code>, werden zum Beispiel Winkelfunktionen wie <code>sin(2 x)</code> 
 vereinfacht.
@@ -2989,7 +2807,6 @@ Variablen im Ausdruck <code>expr</code> betrachtet.
 </p>
 <p>Siehe auch <code><a href="maxima_15.html#poissimp">poissimp</a></code>.
 </p>
-
 <pre class="example">(%i1) trigreduce(-sin(x)^2+3*cos(x)^2+x);
                cos(2 x)      cos(2 x)   1        1
 (%o1)          -------- + 3 (-------- + -) + x - -
@@ -3022,10 +2839,8 @@ zu Ausdr&uuml;cken mit den Funktionen <code>sin</code>, <code>cos</code>, <code>
 <code>cosh</code> zu vereinfachen.
 </p>
 <p>Die Anwendung von Funktionen wie <code><a href="#trigreduce">trigreduce</a></code>,
- <code><a href="maxima_17.html#ratsimp">ratsimp</a></code>
- und
+<code><a href="maxima_17.html#ratsimp">ratsimp</a></code>
 <code><a href="maxima_9.html#radcan">radcan</a></code>
- kann den Ausdruck weiter vereinfachen.
 </p>
 <p>Das Kommando <code>demo(trgsmp)</code> zeigt einige Beispiele.
 </p></dd></dl>
@@ -3352,7 +3167,7 @@ MT 19937.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>September, 1 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

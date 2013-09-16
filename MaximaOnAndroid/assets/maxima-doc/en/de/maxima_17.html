@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 1 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -194,8 +194,7 @@ div.categorybox
 Darstellung (CRE - Cannonical Rational Expressions) gespeichert.  Die 
 CRE-Darstellung ist die Standardform f&uuml;r Operationen mit Polynomen und wird
 intern von Funktionen wie <code><a href="#factor">factor</a></code>
- oder <code><a href="#ratsimp">ratsimp</a></code>
- verwendet.
+<code><a href="#ratsimp">ratsimp</a></code>
 </p>
 <p>Ausdr&uuml;cke in einer CRE-Form sind besonders f&uuml;r die Darstellung von Polynomen
 und rationalen Funktionen geeignet.  Die CRE-Form nimmt eine Ordnung der
@@ -215,7 +214,6 @@ CRE-Darstellung als &quot;Variable&quot; angenommen.  Zum Beispiel sind <code>x<
 <code>sqrt(x)</code> und <code>sin(x+1)</code> die CRE-Variablen des Ausdrucks
 <code>x+sin(x+1)+2*SQRT(x)+1</code>.  Wird vom Nutzer keine abweichende Ordnung der 
 Variablen mit der Funktion <code><a href="#ratvars">ratvars</a></code>
- definiert, nimmt Maxima eine 
 alphabetische Ordnung der Variablen an.
 </p>
 <p>Im Allgemeinen werden rationale Funktionen in einer CRE-Form dargestellt, die
@@ -225,13 +223,10 @@ Diesem Paar geht eine Liste mit der Ordnung der Variablen im Ausdruck voraus.
 Ein Ausdruck in einer CRE-Form oder der CRE-Formen enth&auml;lt, wird in der 
 Ausgabe mit dem Symbol <code>/R/</code> gekennzeichnet.  Mit der Funktion
 <code><a href="#rat">rat</a></code>
- k&ouml;nnen allgemeine Ausdr&uuml;cke in eine CRE-Form transformiert
 werden.  Umgekehrt wird ein Ausdruck in einer CRE-Form mit der Funktion
 <code><a href="#ratdisrep">ratdisrep</a></code>
- in eine allgemeine Form transformiert.
 </p>
 <p>F&uuml;r die Darstellung von Taylor-Polynomen der Funktion <code><a href="maxima_15.html#taylor">taylor</a></code>
- wird eine
 erweiterte CRE-Form verwendet.  In dieser Darstellung k&ouml;nnen die Exponenten
 von Polynomen auch rationale Zahlen sein.  Weiterhin k&ouml;nnen die Koeffizienten
 rationale Funktionen sein.  Die erweiterte CRE-Form enth&auml;lt auch Informationen
@@ -301,7 +296,6 @@ um den Nenner frei von der algebraischen Zahl <code>sqrt(2)</code> zu machen.
 </p>
 <p>Hat die Optionsvariable <code>berlefact</code> den Wert <code>false</code>, dann wird der
 Kronecker-Algorithmus von der Funktion <code><a href="#factor">factor</a></code>
- f&uuml;r die
 Faktorisierung genutzt.  Ansonsten wird der Berlekamp-Algorithmus genutzt.  Der
 Standardwert ist <code>true</code>.
 </p></dd></dl>
@@ -315,7 +309,6 @@ Standardwert ist <code>true</code>.
 mit der unabh&auml;ngigen Variablen <var>x</var>.  Die Determinante der Sylvestermatrix
 ist die Resultante der Polynome.  Die Resultante kann auch sofort mit der
 Funktion <code><a href="#resultant">resultant</a></code>
- berechnet werden.
 </p>
 <p>Beispiele:
 </p>
@@ -345,7 +338,6 @@ gilt <code><var>expr</var> = A * <var>x</var> + B</code>.
 </p>
 <p>Siehe auch die Funktion <code><a href="#coeff">coeff</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) bothcoeff(a*x+2, x);
@@ -395,7 +387,6 @@ Funktion auf die Elemente oder beide Seiten der Gleichung angewendet.
 </p>
 <p>Siehe auch die Funktion <code><a href="#bothcoef">bothcoef</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p><code>coeff</code> gibt den Koeffizienten von <code><var>x</var>^<var>n</var></code> des Ausdrucks
@@ -467,17 +458,21 @@ auf die beiden Seiten angewendet.
 </pre>
 <p>Die folgende Definition der Funktion <code>coeff_list</code> liefert eine Liste mit
 den Koeffizienten, die in einem Polynom auftreten.  Neben der Funktion
-<code>coeff</code> kommt die Funktion <code><a href="#hipow">hipow</a></code>
- zum Einsatz, um den h&ouml;chsten
-Exponenten zu ermitteln und <code><a href="maxima_5.html#reverse">reverse</a></code>
-, um die Liste (falls gew&uuml;nscht) 
-herum zu drehen.
+<code>coeff</code> kommt hier die Funktion <code><a href="#hipow">hipow</a></code>
+Exponenten zu ermitteln. <code><a href="#rat">rat</a></code>
+<code><a href="#ratdisrep">ratdisrep</a></code>
+um das Polynom zwischenzeitlich in die kanonische Form (CRE) zu bringen.
 </p>
-<pre class="example">coeff_list(a, x) := 
-   reverse( makelist(coeff(a, x, i), i,0, hipow(a, x)) )$
-</pre>
-<pre class="example">(%i1) coeff_list(2*x^4+3*x^2+1,x);
-(%o1)                    [2, 0, 3, 0, 1]
+<pre class="example">(%i1) b : (x-y)^2;
+                                       2
+(%o1)                           (x - y)
+(%i2) coeff_list(a, x) := (
+   a : rat(a),
+   reverse( makelist(ratdisrep(coeff(a, x, i)), i,0, hipow(a, x)) ))$
+
+(%i3) coeff_list(b, x);
+                                         2
+(%o3)                        [1, - 2 y, y ]
 </pre></dd></dl>
 
 <p><a name="content"></a>
@@ -491,7 +486,6 @@ und dessen zweites Element das durch den gr&ouml;&szlig;ten gemeinsamen Teiler
 dividierte Polynom ist.  Die anderen Argumente <var>x_1</var>, &hellip;, <var>x_n-1</var>
 haben dieselbe Bedeutung wie f&uuml;r die Funktion <code><a href="#ratvars">ratvars</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) content(2*x*y + 4*x^2*y^2, y);
@@ -511,7 +505,6 @@ zur&uuml;ckgegeben.
 <p>Die Funktion <code>denom</code> wertet das Argument aus.  Siehe auch die Funktion
 <code><a href="#num">num</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) denom(x^2/(x+1));
@@ -527,14 +520,12 @@ zur&uuml;ckgegeben.
 das Polynom <var>p_2</var> f&uuml;r die Variable <var>x_n</var>.  Die anderen Argumente
 <var>x_1</var>, &hellip;, <var>x_n-1</var> haben dieselbe Bedeutung wie f&uuml;r die Funktion
 <code><a href="#ratvars">ratvars</a></code>.
-  Das Ergebnis ist eine Liste, wobei das erste Element der
 Quotient und das zweite Element der Rest ist.
 </p>
 <p>Die Argumente der Funktion <code>divide</code> k&ouml;nnen auch ganze Zahlen sein.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#quotient">quotient</a></code>
- und <code><a href="#remainder">remainder</a></code>,
- die jeweils
+<code><a href="#remainder">remainder</a></code>,
 den Quotienten und den Rest der Polynomdivision zur&uuml;ckgegeben.
 </p>
 <p>Beispiele:
@@ -635,12 +626,10 @@ gr&ouml;&szlig;te gemeinsame Teiler wird immer mit dem <code>ezgcd</code>-Algori
 bestimmt.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#gcd">gcd</a></code>,
- <code><a href="#gcdex">gcdex</a></code>
- <code><a href="maxima_69.html#gcdivide">gcdivide</a></code>
- und
+<code><a href="#gcdex">gcdex</a></code>
+<code><a href="maxima_69.html#gcdivide">gcdivide</a></code>
 <code><a href="maxima_51.html#poly_005fgcd">poly_gcd</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <p>Die drei Polynome haben den gr&ouml;&szlig;ten gemeinsamen Teiler <code>2*x-3</code>.
@@ -674,7 +663,6 @@ berechnet.  Dann wird das Ergebnis der Funktion <code>ezgcd</code> gezeigt.
 </p>
 <p>Die Optionsvariable <code>facexpand</code> kontrolliert, ob die irreduziblen Faktoren
 der Faktorisierung mit <code><a href="#factor">factor</a></code>
- in einer expandierten oder in einer
 rekursiven (CRE-Form) vorliegen.  Der Standard ist, dass die Faktoren expandiert
 werden.
 </p></dd></dl>
@@ -696,18 +684,15 @@ K&ouml;rper der rationalen Zahlen, der um die Nullstellen des minimalen Polynoms
 </p>
 
 <p><code>factor</code> ruft die Funktion <code><a href="maxima_21.html#ifactors">ifactors</a></code>
- auf, um ganze Zahlen zu 
 faktorisieren.
 </p>
 
 <p>Hat die Optionsvariable <code><a href="#factorflag">factorflag</a></code>
- den Wert <code>false</code>, wird die
 Faktorisierung von ganzen Zahlen unterdr&uuml;ckt, die im Nenner einer rationalen
 Funktion auftreten.
 </p>
 
 <p>Der Optionsvariablen <code><a href="#dontfactor">dontfactor</a></code>
- kann eine Liste mit den Variablen
 zugewiesen werden, bez&uuml;glich der ein Ausdruck nicht faktorisiert werden soll.
 Weiterhin wird nicht bez&uuml;glich von Variablen faktorisiert, die gem&auml;&szlig;
 der kanonischen Ordnung der Variablen von geringerer Bedeutung sind als die
@@ -715,19 +700,16 @@ Variablen in der Liste <code>dontfactor</code>.
 </p>
 
 <p>Hat die Optionsvariable <code><a href="#savefactors">savefactors</a></code>
- den Wert <code>true</code>, versuchen
 einige Funktionen bei der Vereinfachung eine bereits vorhandene Faktorisierung
 zu erhalten, um weitere Vereinfachungen zu beschleunigen.
 </p>
 
 <p>Hat die Optionsvariable <code><a href="#berlefact">berlefact</a></code>
- den Wert <code>false</code>, dann wird der
 Kronecker-Algorithmus f&uuml;r die Faktorisierung genutzt.  Ansonsten wird
 der Berlekamp-Algorithmus genutzt.  Der Standardwert ist <code>true</code>.
 </p>
 
 <p>Hat die Optionsvariable <code><a href="#intfaclim">intfaclim</a></code>
- den Wert <code>true</code>, gibt Maxima
 die Faktorisierung von ganzen Zahlen auf, wenn keine Faktorisierung durch
 Anwendung der Methode der Probedivision und der Pollard-Rho-Methode gefunden
 werden konnten.  Hat <code>intfaclim</code> den Wert <code>false</code>, versucht Maxima
@@ -837,7 +819,6 @@ erweitert, ist die Faktorisierung m&ouml;glich.  Die Nullstellen des minimalen
 Polynoms sind die imagin&auml;re Einheit <code>%i</code> und <code>-%i</code>.  Das Ergebnis
 entspricht der Faktorisierung mit der Funktion <code><a href="#gfactor">gfactor</a></code>.
 </p>
-
 <pre class="example">(%i1) factor(x^4+1);
                               4
 (%o1)                        x  + 1
@@ -955,7 +936,6 @@ Sind <code>n_1</code> und <code>n_2</code> jeweils der Grad der Polynome <var>p_
 
 
 <p>Die Funktion <code>fullratsimp</code> wendet die Funktion <code><a href="#ratsimp">ratsimp</a></code>
- auf das
 Argument <var>expr</var> solange wiederholt an, bis sich das Ergebnis nicht mehr
 &auml;ndert.  Nach jeder Anwendung von <code>ratsimp</code> wird der Ausdruck
 zus&auml;tzlich vereinfacht.
@@ -969,7 +949,6 @@ f&uuml;r solche Falle gedacht.
 <p>Die weiteren Argumente <var>x_1</var>, &hellip;, <var>x_n</var> entsprechen denen der
 Funktionen <code>ratsimp</code> und <code><a href="#rat">rat</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) expr: (x^(a/2) + 1)^2*(x^(a/2) - 1)^2/(x^a - 1);
@@ -1005,14 +984,12 @@ Funktionen <code>ratsimp</code> und <code><a href="#rat">rat</a></code>.
 
 
 <p>Entspricht der Funktion <code><a href="#ratsubst">ratsubst</a></code>
- mit dem Unterschied, dass die Funktion
 solange rekursiv ausgef&uuml;hrt wird, bis sich das Ergebnis nicht mehr &auml;ndert.
 Diese Funktion kann n&uuml;tzlich sein, wenn der Ausdruck, der eingesetzt wird,
 und der zu ersetzende Ausdruck mehrere Variablen gemeinsam haben.
 </p>
 <p><code>fullratsubst</code> akzeptiert auch Argumente im Format der Funktion
 <code><a href="#lratsubst">lratsubst</a></code>.
-  Das erste Argument kann also auch eine einzelne oder eine
 Liste von Gleichungen sein.  Das zweite Argument ist in diesem Fall der
 Ausdruck in dem die Ersetzungen durchgef&uuml;hrt werden.
 </p>
@@ -1025,7 +1002,6 @@ und <code>lratsubst</code> geladen.
 </pre>
 
 <p><code><a href="maxima_6.html#subst">subst</a></code>
- kann mehrfache Substitutionen ausf&uuml;hren.  Die Funktion
 <code>lratsubst</code> funktioniert analog zu der Funktion <code>subst</code>.
 </p>
 <pre class="example">(%i2) subst ([a = b, c = d], a + c);
@@ -1082,7 +1058,6 @@ Gleichung als erstes Argument.
 <p>Gibt den gr&ouml;&szlig;ten gemeinsamen Teiler der Polynome <var>p_1</var> und <var>p_2</var>
 zur&uuml;ck.  Die Argumente <var>x_1</var>, &hellip; sind optional und haben dieselbe
 Bedeutung wie f&uuml;r die Funktion <code><a href="#ratvars">ratvars</a></code>.
-  Die Optionsvariable 
 <code>gcd</code> kontrolliert, welcher Algorithmus verwendet wird und kann die
 folgenden Werte annehmen:
 </p>
@@ -1106,12 +1081,10 @@ folgenden Werte annehmen:
 
 
 <p>Siehe auch die <code><a href="#ezgcd">ezgcd</a></code>,
- <code><a href="#gcdex">gcdex</a></code>,
- <code><a href="maxima_69.html#gcdivide">gcdivide</a></code>,
- und
+<code><a href="#gcdex">gcdex</a></code>,
+<code><a href="maxima_69.html#gcdivide">gcdivide</a></code>,
 <code><a href="maxima_51.html#poly_005fgcd">poly_gcd</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) p1:6*x^3+19*x^2+19*x+6; 
@@ -1131,7 +1104,6 @@ folgenden Werte annehmen:
 </pre>
 
 <p>Die Funktion <code><a href="#ezgcd">ezgcd</a></code>
- gibt als Ergebnis eine Liste zur&uuml;ck, die als erstes
 Element den gr&ouml;&szlig;ten gemeinsamen Teiler und als weitere Elemente die durch
 den gr&ouml;&szlig;ten gemeinsamen Teiler dividierten Polynome enth&auml;lt.
 </p>
@@ -1160,21 +1132,17 @@ Parametern <var>u</var>, <var>s</var> und <var>t</var> als Ergebnis zur&uuml;ck.
 </p>
 
 <p>Siehe auch die Funktionen <code><a href="#ezgcd">ezgcd</a></code>,
- <code><a href="#gcd">gcd</a></code>
- und <code><a href="maxima_69.html#gcdivide">gcdivide</a></code>.
+<code><a href="#gcd">gcd</a></code>
+<code><a href="maxima_69.html#gcdivide">gcdivide</a></code>.
 </p>
-
 <p>Die Argumente <var>f</var> und <var>g</var> k&ouml;nnen ganze Zahlen sein.  In diesem Falle
 wird die Funktion <code><a href="maxima_21.html#igcdex">igcdex</a></code>
- von der Funktion <code>gcdex</code> aufgerufen.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#ezgcd">ezgcd</a></code>,
- <code><a href="#gcd">gcd</a></code>,
-
+<code><a href="#gcd">gcd</a></code>,
 <code><a href="maxima_69.html#gcdivide">gcdivide</a></code>
- und <code><a href="maxima_51.html#poly_005fgcd">poly_gcd</a></code>.
+<code><a href="maxima_51.html#poly_005fgcd">poly_gcd</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) gcdex (x^2 + 1, x^3 + 4);
@@ -1235,7 +1203,6 @@ die Faktorisierung &uuml;ber den K&ouml;rper der ganzen Zahlen, der um das Eleme
 <code><var>a</var>^2+1</code>, das die Nullstelle <code>%i</code> hat.  Siehe auch
 <code><a href="#factor">factor</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) gfactor(x^4 - 1);
@@ -1252,10 +1219,8 @@ die Faktorisierung &uuml;ber den K&ouml;rper der ganzen Zahlen, der um das Eleme
 </dt>
 <dd>
 <p>Entspricht der Funktion <code><a href="#factorsum">factorsum</a></code>
- mit den Unterschied, dass anstatt der
 Funktion <code><a href="#factor">factor</a></code>
- die Funktion <code><a href="#gfactor">gfactor</a></code>
- angewendet wird, um den
+<code><a href="#gfactor">gfactor</a></code>
 Ausdruck <var>expr</var> zu faktorisieren.
 </p></dd></dl>
 
@@ -1274,9 +1239,8 @@ k&ouml;nnen die Ausdr&uuml;cke <code>expand(<var>expr</var>)</code> und <var>exp
 verschiedenes Ergebnis haben.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#lopow">lopow</a></code>
- und <code><a href="#coeff">coeff</a></code>.
+<code><a href="#coeff">coeff</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) hipow (y^3 * x^2 + x * y^4, x);
@@ -1305,7 +1269,6 @@ verschiedenes Ergebnis haben.
    
       
 <p>Hat die Optionsvariable <code><a href="#intfaclim">intfaclim</a></code>
- den Wert <code>true</code>, gibt Maxima
 die Faktorisierung von ganzen Zahlen auf, wenn keine Faktorisierung durch
 Anwendung der Methode der Probedivision und der Pollard-Rho-Methode gefunden
 werden konnten.
@@ -1313,9 +1276,8 @@ werden konnten.
 <p>Hat <code>intfaclim</code> den Wert <code>false</code>, versucht Maxima eine ganze Zahl
 vollst&auml;ndig zu faktorisieren.  <code>intfaclim</code> wird von den Funktionen
 <code><a href="maxima_14.html#divisors">divisors</a></code>,
- <code><a href="maxima_21.html#divsum">divsum</a></code>
- und <code><a href="maxima_21.html#totient">totient</a></code>
- auf den Wert <code>false</code>
+<code><a href="maxima_21.html#divsum">divsum</a></code>
+<code><a href="maxima_21.html#totient">totient</a></code>
 gesetzt.
 </p>
 <p>Der Wert der Optionsvariablen <code>intfaclim</code> wird von der Funktion
@@ -1339,7 +1301,6 @@ Gleitkommazahlen nicht in rationale Zahlen umgewandelt, wenn Ausdr&uuml;cke mit
 Gleitkommazahlen in eine CRE-Form umgewandelt werden.
 </p>
 <p>Die Funktion <code><a href="maxima_18.html#solve">solve</a></code>
- und Funktionen, die <code>solve</code> aufrufen, beachten
 den Wert von <code>keepfloat</code> nicht.
 </p>
 <p>Beispiele:
@@ -1379,9 +1340,8 @@ k&ouml;nnen die Ausdr&uuml;cke <code>expand(<var>expr</var>)</code> und <var>exp
 verschiedenes Ergebnis haben.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#hipow">hipow</a></code>
- und <code><a href="#coeff">coeff</a></code>.
+<code><a href="#coeff">coeff</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) lopow ((x+y)^2 + (x+y)^a, x+y);
@@ -1397,8 +1357,7 @@ verschiedenes Ergebnis haben.
 <dd>
 <p>Ist analog zum Kommando <code>subst (<var>L</var>, <var>expr</var>)</code> mit dem Unterschied,
 dass anstatt der Funktion <code><a href="maxima_6.html#subst">subst</a></code>
- die Funktion <code><a href="#ratsubst">ratsubst</a></code>
- genutzt
+<code><a href="#ratsubst">ratsubst</a></code>
 wird.
 </p>
 
@@ -1411,7 +1370,6 @@ nach rechts ausgef&uuml;hrt.
 <p>Mit dem Kommando <code>lrats</code> werden die Funktionen <code>fullratsubst</code> und
 <code>lratsubst</code> geladen.  Siehe auch die Funktion <code><a href="#fullratsubst">fullratsubst</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) load (lrats)$
@@ -1443,7 +1401,6 @@ als erstes Argument angegeben werden.
    
 <p>Hat die Optionsvariable <code>modulus</code> eine positive Zahl <var>p</var> als Wert,
 werden Operationen f&uuml;r rationale Zahlen, wie von der Funktion <code><a href="#rat">rat</a></code>
- und
 verwandte Funktionen, modulo <var>p</var> ausgef&uuml;hrt.
 </p>
 <p><code><var>n</var></code> mod <var>p</var> ist definiert als eine ganze Zahl, die f&uuml;r ungerade
@@ -1504,7 +1461,6 @@ zur&uuml;ckgegeben.
 <p>Die Funktion <code>num</code> wertet das Argument aus.  Siehe auch die Funktion
 <code><a href="#denom">denom</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) num(x^2/(x+1));
@@ -1622,8 +1578,7 @@ dem aktuellen Modul.  Das Modul ist der Wert der Variablen <code>modulus</code>.
 </p>
 
 <p>Siehe auch <code><a href="#modulus">modulus</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="powers"></a>
 </p><dl>
@@ -1651,14 +1606,11 @@ Ausdruck <var>expr</var> auftreten.
 <var>x_n</var>.  Die anderen Variablen <var>x_1</var>, &hellip;, <var>x_n-1</var> haben dieselbe
 Bedeutung wie f&uuml;r die Funktion <code><a href="#ratvars">ratvars</a></code>.
 </p>
-
 <p><code>quotient</code> gibt das erste Element des Ergebnisses der Funktion
 <code><a href="#divide">divide</a></code>
- zur&uuml;ck.
 </p>
 <p>Siehe auch die Funktion <code><a href="#remainder">remainder</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) poly1 : x^3-2*x^2-5*x+7;
@@ -1686,9 +1638,7 @@ expandiert und gruppiert, dass alle Terme einen gemeinsamen Nenner haben und
 der gr&ouml;&szlig;te gemeinsame Teiler gek&uuml;rzt ist.  Weiterhin werden
 Gleitkommazahlen in rationale Zahlungen umgewandelt.  Die Toleranz der
 Umwandlung wird von der Optionsvariablen <code><a href="maxima_5.html#ratepsilon">ratepsilon</a></code>
- kontrolliert.  Die
 Variablen im Ausdruck werden entsprechend der Funktion <code><a href="#ratvars">ratvars</a></code>
-
 gem&auml;&szlig; der angegebenen Argumente <var>x_1</var>, &hellip;, <var>x_n</var> angeordnet.
 </p>
 
@@ -1696,7 +1646,6 @@ gem&auml;&szlig; der angegebenen Argumente <var>x_1</var>, &hellip;, <var>x_n</v
 <code>+</code>, Subtraktion <code>-</code>, Multiplikation <code>*</code>, Division <code>/</code>
 und die Exponentiation <code>^</code> mit einer ganzen Zahl.  Dagegen f&uuml;hrt die
 Funktion <code><a href="#ratsimp">ratsimp</a></code>
- auch weitere Vereinfachungen aus.  Variablen und Zahlen
 in einer CRE-Form sind nicht identisch mit denen in der Standardform.  Zum
 Beispiel hat <code>rat(x)- x</code> das Ergebnis <code>rat(0)</code>, welches eine 
 andere interne Darstellung als <code>0</code> hat.
@@ -1705,7 +1654,6 @@ andere interne Darstellung als <code>0</code> hat.
 
 
 <p>Hat die Optionsvariable <code><a href="#ratfac">ratfac</a></code>
- den Wert <code>true</code>, wird ein Ausdruck
 von der Funktion <code>rat</code> nur teilweise faktorisiert.  Bei der Ausf&uuml;hrung
 von Operationen wird bleibt der Ausdruck so vollst&auml;ndig als m&ouml;glich in
 seiner faktorisierten Form, ohne dass eine Faktorisierung ausgef&uuml;hrt wird.
@@ -1713,21 +1661,17 @@ Damit kann Rechenzeit eingespart werden.
 </p>
 
 <p>Hat die Optionsvariable <code><a href="#ratprint">ratprint</a></code>
- den Wert <code>false</code>, werden
 Meldungen unterdr&uuml;ckt, wenn eine Gleitkommazahl in eine rationale
 umgewandelt wird.
 </p>
 
 <p>Hat die Optionsvariable <code><a href="#keepfloat">keepfloat</a></code>
- den Wert <code>true</code>, werden
 Gleitkommazahlen nicht in rationale Zahlen umgewandelt.
 </p>
 
 <p>Siehe auch die Funktionen <code><a href="#ratexpand">ratexpand</a></code>
- und <code><a href="#ratsimp">ratsimp</a></code>,
- um
+<code><a href="#ratsimp">ratsimp</a></code>,
 Ausdr&uuml;cke zu vereinfachen, sowie die Funktion <code><a href="#ratdisrep">ratdisrep</a></code>,
- um einen
 Ausdruck von einer CRE-Form in eine allgemeine Form zu transformieren.
 </p>
 <p>Beispiele:
@@ -1760,7 +1704,6 @@ Ausdruck von einer CRE-Form in eine allgemeine Form zu transformieren.
 Maxima den Nenner beim Auftreten von Wurzeln rational zu machen.
 <code>ratalgdenom</code> wirkt sich nur aus, wenn die Optionsvariable
 <code><a href="#algebraic">algebraic</a></code>
- den Wert <code>true</code> hat und der Ausdruck in einer CRE-Form
 vorliegt.
 </p>
 <p>Beispiele:
@@ -1808,7 +1751,6 @@ der Wert zu <code>1</code> angenommen.
    
 <p><code>ratcoef</code> expandiert und vereinfacht das Argument <var>expr</var>.  Daher kann
 <code>ratcoef</code> ein anderes Ergebnis als die Funktion <code><a href="#coeff">coeff</a></code>
- haben, die
 keine Vereinfachungen ausf&uuml;hrt.  Daher <code>ratcoef((x + 1)/y + x, x)</code> das
 Ergebnis <code>(y + 1)/y</code> und nicht das Ergebnis <code>1</code> wie es von der
 Funktion <code>coeff</code> zur&uuml;ckgegeben wird.
@@ -1835,13 +1777,11 @@ den Ausdruck zuerst in eine CRE-Form um und gibt das Ergebnis in einer
 CRE-Form zur&uuml;ck.
 </p>
 <p>Das Argument <var>expr</var> wird von der Funktion <code><a href="#rat">rat</a></code>
- in eine CRE-Form
 gebracht, falls <var>expr</var> nicht bereits in einer CRE-Form vorliegt.  Diese
 Transformation kann den Ausdruck <var>expr</var> ver&auml;ndern, da alle Terme &uuml;ber
 einen gemeinsamen Nenner zusammengefasst werden.
 </p>
 <p>Die Funktion <code><a href="#denom">denom</a></code>
- ist vergleichbar.  <code>denom</code> wandelt den Ausdruck
 jedoch nicht eine CRE-Form um und hat als Ergebnis einen Ausdruck in der
 Standardform.  Daher k&ouml;nnen sich die Ergebnisse von <code>ratdenom</code> und 
 <code>denom</code> voneinander unterscheiden.
@@ -1869,7 +1809,6 @@ Standardform.  Daher k&ouml;nnen sich die Ergebnisse von <code>ratdenom</code> u
 
 <p>Hat die Optionsvariable <code>ratdenomdivide</code> den Wert <code>true</code>, expandiert
 die Funktion <code><a href="#ratexpand">ratexpand</a></code>
- einen Quotienten der im Z&auml;hler eine Summe hat,
 in eine Summe der Quotienten.  Ansonsten werden die Terme &uuml;ber einen
 gemeinsamen Nenner zusammengefasst.
 </p>
@@ -1922,7 +1861,6 @@ gemeinsamen Nenner zusammengefasst.
 </p>
 
 <p>Das Ergebnis ist &auml;quivalent zum Ergebnis der Funktion <code><a href="maxima_16.html#diff">diff</a></code>,
-
 kann aber eine andere Form haben.  F&uuml;r rationale Funktionen kann die
 Funktion <code>ratdiff</code> schneller sein.
 </p>
@@ -1933,7 +1871,6 @@ in einer CRE-Form vorliegt.  Ansonsten ist das Ergebnis in der Standardform.
 
 <p><code>ratdiff</code> beachtet nur die Abh&auml;ngigkeit des Ausdrucks von der Variablen
 <var>x</var>.  Abh&auml;ngigkeiten die mit der Funktion <code><a href="maxima_16.html#depends">depends</a></code>
- definiert werden,
 werden von der Funktion <code>ratdiff</code> ignoriert.
 </p>
 
@@ -1983,8 +1920,7 @@ Ausdruck von der CRE-Form in einen allgemeinen Ausdruck umzuwandeln.
 </p>
 
 <p>Siehe auch die Funktion <code><a href="#totaldisrep">totaldisrep</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="ratexpand"></a>
 </p><dl>
@@ -2016,17 +1952,13 @@ nur bez&uuml;glich der Hauptvariablen ausmultipliziert.  Zum Beispiel hat
 <code>(x + 1) y + x + 1</code>.  Siehe auch die Funktion <code><a href="#ratsimp">ratsimp</a></code>.
 </p>
 
-
 <p>Hat die Optionsvariable <code><a href="#ratdenomdivide">ratdenomdivide</a></code>
- den Wert <code>true</code>, expandiert
 die Funktion <code><a href="#ratexpand">ratexpand</a></code>
- einen Quotienten der im Z&auml;hler eine Summe hat,
 in eine Summe der Quotienten.  Ansonsten werden die Terme &uuml;ber einen
 gemeinsamen Nenner zusammengefasst.
 </p>
 
 <p>Hat die Optionsvariable <code><a href="#keepfloat">keepfloat</a></code>
- den Wert <code>true</code>, werden
 Gleitkommazahlen im Argument <var>expr</var> nicht in rationale Zahlen umgewandelt,
 wenn der Ausdruck in eine CRE-Form umgewandelt wird.
 </p>
@@ -2068,14 +2000,12 @@ in einer CRE-Form nur teilweise faktorisiert.  Bei der Ausf&uuml;hrung
 von Operationen bleibt der Ausdruck so vollst&auml;ndig als m&ouml;glich in
 seiner faktorisierten Form, ohne dass eine Faktorisierung mit der Funktion
 <code><a href="#factor">factor</a></code>
- ausgef&uuml;hrt wird.  Auf diese Weise kann Rechenzeit eingespart
 werden.
 </p>
 
 
 
 <p>Der <code><a href="#ratweight">ratweight</a></code>
--Mechanismus ist nicht kompatibel mit dem Setzen der
 Variablen <code>ratfac</code>.
 </p> 
 </dd></dl>
@@ -2092,14 +2022,12 @@ CRE-Form zur&uuml;ck.
 </p>
    
 <p>Das Argument <var>expr</var> wird von der Funktion <code><a href="#rat">rat</a></code>
- in eine CRE-Form
 gebracht, falls <var>expr</var> nicht bereits in einer CRE-Form vorliegt.  Diese
 Transformation kann den Ausdruck <var>expr</var> ver&auml;ndern, da alle Terme &uuml;ber
 einen gemeinsamen Nenner zusammengefasst werden.
 </p>
 
 <p>Die Funktion <code><a href="#num">num</a></code>
- ist vergleichbar.  <code>num</code> wandelt den Ausdruck
 jedoch nicht eine CRE-Form um und hat als Ergebnis einen Ausdruck in der
 Standardform.  Daher k&ouml;nnen sich die Ergebnisse von <code>ratnumer</code> und 
 <code>num</code> voneinander unterscheiden.
@@ -2117,9 +2045,7 @@ CRE-Form oder einer erweiterten CRE-Form vorliegt.
 </p>
 
 <p>CRE-Formen werden von der Funktion <code><a href="#rat">rat</a></code>
- und verwandten Funktionen erzeugt.
 Erweiterte CRE-Formen werden von der Funktion <code><a href="maxima_15.html#taylor">taylor</a></code>
- und verwandten
 Funktionen erzeugt.
 </p></dd></dl>
 
@@ -2171,17 +2097,14 @@ Variablen.  Variable k&ouml;nnen auch nicht-rationale Ausdr&uuml;cke wie
 
 <p><code>ratsimp(<var>expr</var>, <var>x_1</var>, ..., <var>x_n</var>)</code> vereinfacht einen Ausdruck
 mit einer Ordnung der Variablen wie sie von der Funktion <code><a href="#ratvars">ratvars</a></code>
-
 definiert wird.
 </p>
 
 <p>Hat die Optionsvariable <code><a href="#ratsimpexpons">ratsimpexpons</a></code>
- den Wert <code>true</code>, wird
 <code>ratsimp</code> auch auf die Exponenten von Ausdr&uuml;cke angewendet.
 </p>
 
 <p>Siehe auch die Funktion <code><a href="#ratexpand">ratexpand</a></code>.
-  Die Funktion <code>ratsimp</code> wird
 auch von einigen Schaltern kontrolliert, die Einfluss auf <code>ratexpand</code>
 haben.
 </p>
@@ -2256,7 +2179,6 @@ haben.
 
 <p>Hat <code>radsubstflag</code> den Wert <code>true</code>, werden Wurzeln von der Funktion
 <code><a href="#ratsubst">ratsubst</a></code>
- auch dann substituiert, wenn diese nicht explizit im Ausdruck
 enthalten sind.
 </p>
 <p>Beispiel:
@@ -2281,7 +2203,6 @@ der Substitution zur&uuml;ck.
 </p>
    
 <p>Im Unterschied zu <code><a href="maxima_6.html#subst">subst</a></code>
- kann <code>ratsubst</code> auch Teilausdr&uuml;cke im
 Ausdruck <var>c</var> substituieren.  So hat <code>subst(a, x + y, x + y + z)</code> das
 Ergebnis <code>x + y + z</code> und <code>ratsubst</code> das Ergebnis <code>z + a</code>.
 </p>
@@ -2358,7 +2279,6 @@ Argumente <code>ratvars()</code> l&ouml;scht die Systemvariable <code>ratvars</c
 <p>Weist der Variablen <var>x_i</var> ein Gewicht <var>w_i</var> zu.  Hat ein Term einer
 rationalen Funktion ein gr&ouml;&szlig;eres Gewicht als der Wert der Variablen
 <code><a href="#ratwtlvl">ratwtlvl</a></code>
- wird der Term durch <code>0</code> ersetzt.  Das Gewicht eines Terms
 wird anhand der mit <code>ratweight</code> den Variablen zugewiesenen Gewichte
 ermittelt.  Die Gewichte der Variablen in einem Term werden mit der Potenz
 der Variablen multipliziert und dann addiert.  Zum Beispiel hat der Term
@@ -2370,7 +2290,6 @@ Funktionen in einer CRE-Form multipliziert oder potenziert werden.
 </p>
 
 <p>Der <code><a href="#ratweight">ratweight</a></code>
--Mechanismus ist nicht kompatibel mit dem Setzen der
 Variablen <code>ratfac</code>.
 </p>
 <p>Beispiele:
@@ -2396,7 +2315,6 @@ Variablen <code>ratfac</code>.
 
 <p>Die Systemvariable <code>ratweights</code> enth&auml;lt die Liste der Gewichte die
 Variablen mit der Funktion <code><a href="#ratweights">ratweights</a></code>
- zugewiesen sind.
 </p>
    
 <p>Die Gewichte k&ouml;nnen mit dem Kommando <code>kill(ratweights)</code> gel&ouml;scht
@@ -2412,7 +2330,6 @@ werden.
 </p>
 
 <p>Die Optionsvariable wird im Zusammenhang mit den <code><a href="#ratweight">ratweight</a></code>
--Mechanismus
 genutzt und kontrolliert das Entfernen von Termen einer rationalen Funktion in
 einer CRE-Form, wenn deren Gewicht den Wert von <code>ratwtlvl</code> &uuml;bersteigt.
 Mit dem Standardwert <code>false</code> werden keine Terme entfernt.
@@ -2430,14 +2347,11 @@ Mit dem Standardwert <code>false</code> werden keine Terme entfernt.
 Variable <var>x_n</var>.  Die anderen Variablen <var>x_1</var>, &hellip;, <var>x_n-1</var>
 haben dieselbe Bedeutung wie f&uuml;r die Funktion <code><a href="#ratvars">ratvars</a></code>.
 </p>
-
 <p><code>remainder</code> gibt das zweite Element des Ergebnisses der Funktion
 <code><a href="#divide">divide</a></code>
- zur&uuml;ck.
 </p>
 <p>Siehe auch die Funktion <code><a href="#quotient">quotient</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) poly1 : x^3-2*x^2-5*x+7;
@@ -2471,9 +2385,7 @@ die Berechnung der Resultante von Maxima genutzt wird.  Siehe die
 Optionsvariable <code><a href="#option_005fresultant">resultant</a></code>.
 </p>
 
-
 <p>Die Funktion <code><a href="#bezout">bezout</a></code>
- berechnet die Sylvestermatrix der Polynome
 <var>p_1</var> und <var>p_2</var>.  Die Determinante der Sylvestermatrix ist die
 Resultante.
 </p>
@@ -2507,7 +2419,6 @@ Resultante.
 
 <p>Die Optionsvariable <code>resultant</code> kontrolliert, welcher Algorithmus f&uuml;r die
 Berechnung der Resultante mit der Funktion <code><a href="#resultant">resultant</a></code>
- von Maxima genutzt
 wird.  Die m&ouml;glichen Werte sind:
 </p>
 <dl compact="compact">
@@ -2549,8 +2460,7 @@ zu erhalten, um weitere Vereinfachungen zu beschleunigen.
 Ausdruck liegt in einer CRE-Form vor.
 </p>
 <p>Siehe auch die Funktion <code><a href="#ratvars">ratvars</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 
 <p><a name="sqfr"></a>
@@ -2562,7 +2472,6 @@ Ausdruck liegt in einer CRE-Form vor.
 
 
 <p>Entspricht der Funktion <code><a href="#factor">factor</a></code>
- mit dem Unterschied, dass faktorisierte
 Polynome quadratfrei sind.
 </p>
 <p>Beispiel:
@@ -2595,7 +2504,6 @@ Variable <var>x</var> mit dem Wert <code>0</code> substituiert wird.
 </p>
 
 <p>Die Optionsvariable <code><a href="#algebraic">algebraic</a></code>
- muss den Wert <code>true</code> haben, damit
 die Vereinfachungen von algebraischen Zahlen ausgef&uuml;hrt wird.
 </p>
 
@@ -2604,7 +2512,6 @@ die Wurzeln der ganzen Zahlen.
 </p>
 
 <p>Die Funktion <code><a href="#untellrat">untellrat</a></code>
- entfernt die Eigenschaften, die mit der Funktion
 <code>tellrat</code> definiert wurden.
 </p>
 
@@ -2686,7 +2593,7 @@ der Funktion <code>tellrat</code> zugewiesen wurden.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>September, 1 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

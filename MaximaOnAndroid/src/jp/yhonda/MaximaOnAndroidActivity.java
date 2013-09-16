@@ -62,8 +62,6 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 	
 	String maximaURL=null;
 
-	//String maximaURL="http://192.168.0.10/~yasube/maxima.html";
-
 	String manjp="file:///android_asset/maxima-doc/ja/maxima.html";
 	String manen="file:///android_asset/maxima-doc/en/maxima.html";
 	String mande="file:///android_asset/maxima-doc/en/de/maxima.html";
@@ -81,7 +79,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     CommandExec maximaProccess;
     File internalDir;
     File externalDir;
-    MaximaVersion mvers=new MaximaVersion(5,30,0);
+    MaximaVersion mvers=new MaximaVersion(5,31,0);
 
       @Override
     public boolean onCreateOptionsMenu(Menu menu) {

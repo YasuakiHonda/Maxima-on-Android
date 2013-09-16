@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 1 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -239,9 +239,7 @@ the GNU General Public License (GPL).
                  2             2
 </pre>
 <p>To express this as a sum of powers of <var>x</var>, apply <code><a href="maxima_17.html#ratsimp">ratsimp</a></code>
- or
 <code><a href="maxima_17.html#rat">rat</a></code>
- to the result.
 </p>
 <pre class="example">(%i2) [ratsimp (%), rat (%)];
                         3           3
@@ -269,7 +267,6 @@ center and <var>r</var> is the radius of the interval.  Since Maxima does not su
 arithmetic on intervals, in some situations, such as graphics, you want to
 suppress the error and output only the center of the interval.  To do this, set
 the option variable <code><a href="#orthopoly_005freturns_005fintervals">orthopoly_returns_intervals</a></code>
- to <code>false</code>.
 </p>
 <pre class="example">(%i1) orthopoly_returns_intervals : false;
 (%o1)                         false
@@ -279,7 +276,6 @@ the option variable <code><a href="#orthopoly_005freturns_005fintervals">orthopo
 <p>Refer to the section <a href="#Floating-point-Evaluation">Floating point Evaluation</a> for more information.
 </p>
 <p>Most functions in <code>orthopoly</code> have a <code><a href="maxima_16.html#gradef">gradef</a></code>
- property; thus
 </p>
 <pre class="example">(%i1) diff (hermite (n, x), x);
 (%o1)                     2 n H     (x)
@@ -311,9 +307,7 @@ argument
 </pre>
 <p>Generally, functions in <code>orthopoly</code> map over lists and matrices.  For
 the mapping to fully evaluate, the option variables <code><a href="maxima_19.html#doallmxops">doallmxops</a></code>
- and
 <code><a href="maxima_5.html#listarith">listarith</a></code>
- must both be <code>true</code> (the defaults).
 To illustrate the mapping over matrices, consider
 </p>
 <pre class="example">(%i1) hermite (2, x);
@@ -427,7 +421,6 @@ of the function arguments floating point numbers.  By doing that,
 specialized floating point algorithms are used for evaluation.
 </p>
 <p>Maxima's <code><a href="maxima_5.html#float">float</a></code>
- function is somewhat indiscriminate; if you apply
 <code>float</code> to an expression involving an orthogonal polynomial with a
 symbolic degree or order parameter, these parameters may be 
 converted into floats; after that, the expression will not evaluate 
@@ -449,9 +442,7 @@ fully.  Consider
 <p>The expression in (%o3) will not evaluate to a float; <code>orthopoly</code> doesn't
 recognize floating point values where it requires an integer.  Similarly, 
 numerical evaluation of the <code><a href="#pochhammer">pochhammer</a></code>
- function for orders that
 exceed <code><a href="#pochhammer_005fmax_005findex">pochhammer_max_index</a></code>
- can be troublesome; consider
 </p>
 <pre class="example">(%i1) x :  pochhammer (1, 10), pochhammer_max_index : 5;
 (%o1)                         (1)
@@ -610,7 +601,6 @@ must do two things:
 </p><ol>
 <li> 
 Set the option variable <code><a href="#orthopoly_005freturns_005fintervals">orthopoly_returns_intervals</a></code>
- to <code>false</code>,
 </li><li>
 Quote any calls to <code>orthopoly</code> functions.
 </li></ol>
@@ -652,12 +642,10 @@ than just quoting the function name using <code>'legendre_p (5, <var>x</var>)</c
 <p>The <code>orthopoly</code> package defines the Pochhammer symbol and a unit step
 function.  <code>orthopoly</code> uses the Kronecker delta function and the unit step
 function in <code><a href="maxima_16.html#gradef">gradef</a></code>
- statements.
 </p>
 <p>To convert Pochhammer symbols into quotients of gamma functions,
 use <code><a href="maxima_22.html#makegamma">makegamma</a></code>.
 </p>
-
 <pre class="example">(%i1) makegamma (pochhammer (x, n));
                           gamma(x + n)
 (%o1)                     ------------
@@ -668,7 +656,6 @@ use <code><a href="maxima_22.html#makegamma">makegamma</a></code>.
                             sqrt(%pi)
 </pre>
 <p>Derivatives of the Pochhammer symbol are given in terms of the <code><a href="maxima_22.html#psi">psi</a></code>
-
 function.
 </p>
 <pre class="example">(%i1) diff (pochhammer (x, n), x);
@@ -710,7 +697,6 @@ as a quotient of gamma functions.  Consider
 </pre>
 <p>If you need a unit step function that is neither left or right continuous
 at zero, define your own using <code><a href="maxima_10.html#signum">signum</a></code>,
- for example,
 </p>
 <pre class="example">(%i1) xunit_step (x) := (1 + signum (x))/2$
 
@@ -720,7 +706,6 @@ at zero, define your own using <code><a href="maxima_10.html#signum">signum</a><
                                 2
 </pre>
 <p>Do not redefine <code><a href="#unit_005fstep">unit_step</a></code>
- itself; some code in <code>orthopoly</code>
 requires that the unit step function be left-continuous.
 </p>
 <hr size="6">
@@ -781,7 +766,7 @@ the half-integer Bessel functions are evaluated using the SLATEC code.
 <p><a name="assoc_005flegendre_005fp"></a>
 </p><dl>
 <dt><u>Function:</u> <b>assoc_legendre_p</b><i> (<var>n</var>, <var>m</var>, <var>x</var>)</i>
-<a name="IDX2523"></a>
+<a name="IDX2532"></a>
 </dt>
 <dd><p>The associated Legendre function of the first kind of degree <var>n</var> and
 order <var>m</var>.
@@ -793,7 +778,7 @@ order <var>m</var>.
 <p><a name="assoc_005flegendre_005fq"></a>
 </p><dl>
 <dt><u>Function:</u> <b>assoc_legendre_q</b><i> (<var>n</var>, <var>m</var>, <var>x</var>)</i>
-<a name="IDX2524"></a>
+<a name="IDX2533"></a>
 </dt>
 <dd><p>The associated Legendre function of the second kind of degree <var>n</var>
 and order <var>m</var>.
@@ -804,7 +789,7 @@ and order <var>m</var>.
 <p><a name="chebyshev_005ft"></a>
 </p><dl>
 <dt><u>Function:</u> <b>chebyshev_t</b><i> (<var>n</var>, <var>x</var>)</i>
-<a name="IDX2525"></a>
+<a name="IDX2534"></a>
 </dt>
 <dd><p>The Chebyshev function of the first kind.
 </p>
@@ -814,7 +799,7 @@ and order <var>m</var>.
 <p><a name="chebyshev_005fu"></a>
 </p><dl>
 <dt><u>Function:</u> <b>chebyshev_u</b><i> (<var>n</var>, <var>x</var>)</i>
-<a name="IDX2526"></a>
+<a name="IDX2535"></a>
 </dt>
 <dd><p>The Chebyshev function of the second kind.
 </p>
@@ -824,7 +809,7 @@ and order <var>m</var>.
 <p><a name="gen_005flaguerre"></a>
 </p><dl>
 <dt><u>Function:</u> <b>gen_laguerre</b><i> (<var>n</var>, <var>a</var>, <var>x</var>)</i>
-<a name="IDX2527"></a>
+<a name="IDX2536"></a>
 </dt>
 <dd><p>The generalized Laguerre polynomial of degree <var>n</var>.
 </p>
@@ -834,7 +819,7 @@ and order <var>m</var>.
 <p><a name="hermite"></a>
 </p><dl>
 <dt><u>Function:</u> <b>hermite</b><i> (<var>n</var>, <var>x</var>)</i>
-<a name="IDX2528"></a>
+<a name="IDX2537"></a>
 </dt>
 <dd><p>The Hermite polynomial.
 </p>
@@ -844,7 +829,7 @@ and order <var>m</var>.
 <p><a name="intervalp"></a>
 </p><dl>
 <dt><u>Function:</u> <b>intervalp</b><i> (<var>e</var>)</i>
-<a name="IDX2529"></a>
+<a name="IDX2538"></a>
 </dt>
 <dd><p>Return <code>true</code> if the input is an interval and return false if it isn't.
 </p></dd></dl>
@@ -852,7 +837,7 @@ and order <var>m</var>.
 <p><a name="jacobi_005fp"></a>
 </p><dl>
 <dt><u>Function:</u> <b>jacobi_p</b><i> (<var>n</var>, <var>a</var>, <var>b</var>, <var>x</var>)</i>
-<a name="IDX2530"></a>
+<a name="IDX2539"></a>
 </dt>
 <dd><p>The Jacobi polynomial.
 </p>
@@ -867,7 +852,7 @@ however, the Jacobi polynomial weight
 <p><a name="laguerre"></a>
 </p><dl>
 <dt><u>Function:</u> <b>laguerre</b><i> (<var>n</var>, <var>x</var>)</i>
-<a name="IDX2531"></a>
+<a name="IDX2540"></a>
 </dt>
 <dd><p>The Laguerre polynomial.
 </p>
@@ -877,7 +862,7 @@ however, the Jacobi polynomial weight
 <p><a name="legendre_005fp"></a>
 </p><dl>
 <dt><u>Function:</u> <b>legendre_p</b><i> (<var>n</var>, <var>x</var>)</i>
-<a name="IDX2532"></a>
+<a name="IDX2541"></a>
 </dt>
 <dd><p>The Legendre polynomial of the first kind.
 </p>
@@ -887,7 +872,7 @@ however, the Jacobi polynomial weight
 <p><a name="legendre_005fq"></a>
 </p><dl>
 <dt><u>Function:</u> <b>legendre_q</b><i> (<var>n</var>, <var>x</var>)</i>
-<a name="IDX2533"></a>
+<a name="IDX2542"></a>
 </dt>
 <dd><p>The Legendre polynomial of the first kind.
 </p>
@@ -897,7 +882,7 @@ however, the Jacobi polynomial weight
 <p><a name="orthopoly_005frecur"></a>
 </p><dl>
 <dt><u>Function:</u> <b>orthopoly_recur</b><i> (<var>f</var>, <var>args</var>)</i>
-<a name="IDX2534"></a>
+<a name="IDX2543"></a>
 </dt>
 <dd><p>Returns a recursion relation for the orthogonal function family <var>f</var> with
 arguments <var>args</var>.  The recursion is with respect to the polynomial degree.
@@ -929,7 +914,7 @@ A recursion relation for foo isn't known to Maxima
 <p><a name="orthopoly_005freturns_005fintervals"></a>
 </p><dl>
 <dt><u>Variable:</u> <b>orthopoly_returns_intervals</b>
-<a name="IDX2535"></a>
+<a name="IDX2544"></a>
 </dt>
 <dd><p>Default value: <code>true</code>
 </p>
@@ -942,7 +927,7 @@ complex number; in that case, the interval is a disk in the complex plane.
 <p><a name="orthopoly_005fweight"></a>
 </p><dl>
 <dt><u>Function:</u> <b>orthopoly_weight</b><i> (<var>f</var>, <var>args</var>)</i>
-<a name="IDX2536"></a>
+<a name="IDX2545"></a>
 </dt>
 <dd><p>Returns a three element list; the first element is 
 the formula of the weight for the orthogonal polynomial family
@@ -964,7 +949,7 @@ signals an error.
 <p><a name="pochhammer"></a>
 </p><dl>
 <dt><u>Function:</u> <b>pochhammer</b><i> (<var>n</var>, <var>x</var>)</i>
-<a name="IDX2537"></a>
+<a name="IDX2546"></a>
 </dt>
 <dd><p>The Pochhammer symbol. For nonnegative integers <var>n</var> with
 <code><var>n</var> &lt;= pochhammer_max_index</code>, the expression
@@ -983,7 +968,6 @@ signals an error.
 </pre>
 <p>To convert a Pochhammer symbol into a quotient of gamma functions,
 (see Abramowitz and Stegun, equation 6.1.22) use <code><a href="maxima_22.html#makegamma">makegamma</a></code>,
- for
 example 
 </p>
 <pre class="example">(%i1) makegamma (pochhammer (x, n));
@@ -992,7 +976,6 @@ example
                             gamma(x)
 </pre>
 <p>When <var>n</var> exceeds <code><a href="#pochhammer_005fmax_005findex">pochhammer_max_index</a></code>
- or when <var>n</var> is symbolic,
 <code>pochhammer</code> returns a noun form.
 </p>
 <pre class="example">(%i1) pochhammer (x, n);
@@ -1003,7 +986,7 @@ example
 <p><a name="pochhammer_005fmax_005findex"></a>
 </p><dl>
 <dt><u>Variable:</u> <b>pochhammer_max_index</b>
-<a name="IDX2538"></a>
+<a name="IDX2547"></a>
 </dt>
 <dd><p>Default value: 100
 </p>
@@ -1024,7 +1007,7 @@ example
 <p><a name="spherical_005fbessel_005fj"></a>
 </p><dl>
 <dt><u>Function:</u> <b>spherical_bessel_j</b><i> (<var>n</var>, <var>x</var>)</i>
-<a name="IDX2539"></a>
+<a name="IDX2548"></a>
 </dt>
 <dd><p>The spherical Bessel function of the first kind.
 </p>
@@ -1035,7 +1018,7 @@ page 439.
 <p><a name="spherical_005fbessel_005fy"></a>
 </p><dl>
 <dt><u>Function:</u> <b>spherical_bessel_y</b><i> (<var>n</var>, <var>x</var>)</i>
-<a name="IDX2540"></a>
+<a name="IDX2549"></a>
 </dt>
 <dd><p>The spherical Bessel function of the second kind.
 </p>
@@ -1046,7 +1029,7 @@ page 439.
 <p><a name="spherical_005fhankel1"></a>
 </p><dl>
 <dt><u>Function:</u> <b>spherical_hankel1</b><i> (<var>n</var>, <var>x</var>)</i>
-<a name="IDX2541"></a>
+<a name="IDX2550"></a>
 </dt>
 <dd><p>The spherical Hankel function of the first kind.
 </p>
@@ -1056,7 +1039,7 @@ page 439.
 <p><a name="spherical_005fhankel2"></a>
 </p><dl>
 <dt><u>Function:</u> <b>spherical_hankel2</b><i> (<var>n</var>, <var>x</var>)</i>
-<a name="IDX2542"></a>
+<a name="IDX2551"></a>
 </dt>
 <dd><p>The spherical Hankel function of the second kind.
 </p>
@@ -1066,7 +1049,7 @@ page 439.
 <p><a name="spherical_005fharmonic"></a>
 </p><dl>
 <dt><u>Function:</u> <b>spherical_harmonic</b><i> (<var>n</var>, <var>m</var>, <var>x</var>, <var>y</var>)</i>
-<a name="IDX2543"></a>
+<a name="IDX2552"></a>
 </dt>
 <dd><p>The spherical harmonic function.
 </p>
@@ -1076,7 +1059,7 @@ page 439.
 <p><a name="unit_005fstep"></a>
 </p><dl>
 <dt><u>Function:</u> <b>unit_step</b><i> (<var>x</var>)</i>
-<a name="IDX2544"></a>
+<a name="IDX2553"></a>
 </dt>
 <dd><p>The left-continuous unit step function; thus <code>unit_step (<var>x</var>)</code> vanishes
 for <code><var>x</var> &lt;= 0</code> and equals 1 for <code><var>x</var> &gt; 0</code>.
@@ -1088,7 +1071,7 @@ for <code><var>x</var> &lt;= 0</code> and equals 1 for <code><var>x</var> &gt; 0
 <p><a name="ultraspherical"></a>
 </p><dl>
 <dt><u>Function:</u> <b>ultraspherical</b><i> (<var>n</var>, <var>a</var>, <var>x</var>)</i>
-<a name="IDX2545"></a>
+<a name="IDX2554"></a>
 </dt>
 <dd><p>The ultraspherical polynomial (also known as the Gegenbauer polynomial).
 </p>
@@ -1113,7 +1096,7 @@ for <code><var>x</var> &lt;= 0</code> and equals 1 for <code><var>x</var> &gt; 0
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>September, 1 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

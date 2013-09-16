@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 8 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Maxima 5.30.0 Manual: 10. Mathematical Functions</title>
+<title>Maxima 5.31.0 Manual: 10. Mathematical Functions</title>
 
-<meta name="description" content="Maxima 5.30.0 Manual: 10. Mathematical Functions">
-<meta name="keywords" content="Maxima 5.30.0 Manual: 10. Mathematical Functions">
+<meta name="description" content="Maxima 5.31.0 Manual: 10. Mathematical Functions">
+<meta name="keywords" content="Maxima 5.31.0 Manual: 10. Mathematical Functions">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -219,7 +219,6 @@ Maxima's ability to calculate integrals involving the abs function. See
 the terms. Similarly, it distributes over both sides of an
 equation. To alter this behaviour, see the variable <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <p>Examples:
 </p>
 <p>Calculation of <code>abs</code> for real and complex numbers, including numerical
@@ -256,7 +255,6 @@ integrals involving the <code>abs</code> function can be performed, if the
 <code>abs_integrate</code> package is loaded. The last example shows the Laplace
 transform of <code>abs</code>: see <code><a href="maxima_18.html#laplace">laplace</a></code>.
 </p>
-
 <pre class="example">(%i9) diff(x*abs(x),x),expand;
 (%o9)                       2 abs(x)
 
@@ -293,12 +291,9 @@ transform of <code>abs</code>: see <code><a href="maxima_18.html#laplace">laplac
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="ceiling"></a>
 <a name="Item_003a-ceiling"></a>
@@ -316,7 +311,6 @@ floating point evaluation, it's possible, although unlikely, that <code>ceiling<
 could return an erroneous value for constant inputs.  To guard against errors,
 the floating point evaluation is done using three values for <code><a href="maxima_5.html#fpprec">fpprec</a></code>.
 </p>
-
 <p>For non-constant inputs, <code>ceiling</code> tries to return a simplified value.
 Here are examples of the simplifications that <code>ceiling</code> knows about:
 </p>
@@ -340,7 +334,6 @@ a noun form.
 </p>
 <p>If the range of a function is a subset of the integers, it can be declared to
 be <code>integervalued</code>.  Both the <code>ceiling</code> and <code><a href="#floor">floor</a></code>
- functions
 can use this information; for example:
 </p>
 <pre class="example">(%i1) declare (f, integervalued)$
@@ -349,14 +342,45 @@ can use this information; for example:
 (%i3) ceiling (f(x) - 1);
 (%o3)                       f(x) - 1
 </pre>
+<p>Example use:
+</p>
+<pre class="example">(%i1) unitfrac(r) := block([uf : [], q],
+    if not(ratnump(r)) then
+       error(&quot;unitfrac: argument must be a rational number&quot;),
+    while r # 0 do (
+        uf : cons(q : 1/ceiling(1/r), uf),
+        r : r - q),
+    reverse(uf))$
+(%i2) unitfrac (9/10);
+                            1  1  1
+(%o2)                      [-, -, --]
+                            2  3  15
+(%i3) apply (&quot;+&quot;, %);
+                               9
+(%o3)                          --
+                               10
+(%i4) unitfrac (-9/10);
+                                  1
+(%o4)                       [- 1, --]
+                                  10
+(%i5) apply (&quot;+&quot;, %);
+                                9
+(%o5)                         - --
+                                10
+(%i6) unitfrac (36/37);
+                        1  1  1  1    1
+(%o6)                  [-, -, -, --, ----]
+                        2  3  8  69  6808
+(%i7) apply (&quot;+&quot;, %);
+                               36
+(%o7)                          --
+                               37
+</pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="entier"></a>
 <a name="Item_003a-entier"></a>
@@ -366,17 +390,13 @@ can use this information; for example:
 </dt>
 <dd><p>Returns the largest integer less than or equal to <var>x</var> where <var>x</var> is
 numeric.  <code><a href="#fix">fix</a></code>
- (as in <code>fixnum</code>) is a synonym for this, so
 <code>fix(<var>x</var>)</code> is precisely the same.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="floor"></a>
 <a name="Item_003a-floor"></a>
@@ -394,7 +414,6 @@ it's possible, although unlikely, that <code>floor</code> could return an errone
 value for constant inputs.  To guard against errors, the floating point
 evaluation is done using three values for <code><a href="maxima_5.html#fpprec">fpprec</a></code>.
 </p>
-
 <p>For non-constant inputs, <code>floor</code> tries to return a simplified value.  Here
 are examples of the simplifications that <code>floor</code> knows about:
 </p>
@@ -418,7 +437,6 @@ a noun form.
 </p>
 <p>If the range of a function is a subset of the integers, it can be declared to
 be <code>integervalued</code>.  Both the <code><a href="#ceiling">ceiling</a></code>
- and <code>floor</code> functions
 can use this information; for example:
 </p>
 <pre class="example">(%i1) declare (f, integervalued)$
@@ -429,12 +447,9 @@ can use this information; for example:
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="fix"></a>
 <a name="Item_003a-fix"></a>
@@ -446,12 +461,9 @@ can use this information; for example:
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="lmax"></a>
 <a name="Item_003a-lmax"></a>
@@ -462,21 +474,17 @@ can use this information; for example:
 <dd><p>When <var>L</var> is a list or a set, return <code>apply ('max, args (<var>L</var>))</code>.
 When <var>L</var> is not a list or a set, signal an error.
 See also <code><a href="#lmin">lmin</a></code>
- and <code><a href="#max">max</a></code>.
+<code><a href="#max">max</a></code>.
 </p>
-
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Mathematical-functions">Mathematical functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Lists">Lists</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Sets">Sets</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Lists">Lists</a>
+
+<a href="maxima_98.html#Category_003a-Sets">Sets</a>
+</div>
+</p></dd></dl>
 
 <p><a name="lmin"></a>
 <a name="Item_003a-lmin"></a>
@@ -487,21 +495,17 @@ See also <code><a href="#lmin">lmin</a></code>
 <dd><p>When <var>L</var> is a list or a set, return <code>apply ('min, args (<var>L</var>))</code>.
 When <var>L</var> is not a list or a set, signal an error.
 See also <code><a href="#lmax">lmax</a></code>
- and <code><a href="#min">min</a></code>.
+<code><a href="#min">min</a></code>.
 </p>
-
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Mathematical-functions">Mathematical functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Lists">Lists</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Sets">Sets</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Lists">Lists</a>
+
+<a href="maxima_98.html#Category_003a-Sets">Sets</a>
+</div>
+</p></dd></dl>
 
 <p><a name="max"></a>
 <a name="Item_003a-max"></a>
@@ -518,17 +522,13 @@ expressions that are between two other arguments; for example,
 to 2, use <code>put (trylevel, 2, maxmin)</code>.
 </p>
 <p>See also <code><a href="#min">min</a></code>
- and <code><a href="#lmax">lmax</a></code>.
+<code><a href="#lmax">lmax</a></code>.
 </p>
-
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="min"></a>
 <a name="Item_003a-min"></a>
@@ -545,17 +545,13 @@ expressions that are between two other arguments; for example,
 to 2, use <code>put (trylevel, 2, maxmin)</code>.
 </p>
 <p>See also <code><a href="#max">max</a></code>
- and <code><a href="#lmin">lmin</a></code>.
+<code><a href="#lmin">lmin</a></code>.
 </p>
-
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="round"></a>
 <a name="Item_003a-round"></a>
@@ -566,17 +562,13 @@ to 2, use <code>put (trylevel, 2, maxmin)</code>.
 <dd><p>When <var>x</var> is a real number, returns the closest integer to <var>x</var>.
 Multiples of 1/2 are rounded to the nearest even integer.  Evaluation of
 <var>x</var> is similar to <code><a href="#floor">floor</a></code>
- and <code><a href="#ceiling">ceiling</a></code>.
+<code><a href="#ceiling">ceiling</a></code>.
 </p>
-
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="signum"></a>
 <a name="Item_003a-signum"></a>
@@ -598,15 +590,11 @@ gives <code>-signum(x)</code>) and multiplicative identity (<code>signum(x*y)</c
 <p>The <code>signum</code> function distributes over a list, a matrix, or an
 equation.  See <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>.
 </p>
-
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-Functions-for-Complex-Numbers"></a>
 </p><hr size="6">
@@ -638,7 +626,6 @@ equation.  See <code><a href="maxima_9.html#distribute_005fover">distribute_over
 </dt>
 <dd><p>Calculates the absolute value of an expression representing a complex
 number.  Unlike the function <code><a href="#abs">abs</a></code>,
- the <code>cabs</code> function always
 decomposes its argument into a real and an imaginary part.  If <code>x</code> and
 <code>y</code> represent real variables or expressions, the <code>cabs</code> function
 calculates the absolute value of <code>x + %i*y</code> as
@@ -656,31 +643,26 @@ calculations.  For such calculations (including integration,
 differentiation and taking limits of expressions containing absolute
 values), use <code><a href="#abs">abs</a></code>.
 </p>
-
 <p>The result of <code>cabs</code> can include the absolute value function,
 <code><a href="#abs">abs</a></code>,
- and the arc tangent, <code><a href="#atan2">atan2</a></code>.
+<code><a href="#atan2">atan2</a></code>.
 </p>
-
 <p>When applied to a list or matrix, <code>cabs</code> automatically distributes over
 the terms.  Similarly, it distributes over both sides of an equation.
 </p>
 <p>For further ways to compute with complex numbers, see the functions
 <code><a href="#rectform">rectform</a></code>,
- <code><a href="#realpart">realpart</a></code>,
- <code><a href="#imagpart">imagpart</a></code>,
-
+<code><a href="#realpart">realpart</a></code>,
+<code><a href="#imagpart">imagpart</a></code>,
 <code><a href="#carg">carg</a></code>,
- <code><a href="#conjugate">conjugate</a></code>
- and <code><a href="#polarform">polarform</a></code>.
+<code><a href="#conjugate">conjugate</a></code>
+<code><a href="#polarform">polarform</a></code>.
 </p>
-
 <p>Examples:
 </p>
 <p>Examples with <code><a href="#sqrt">sqrt</a></code>
- and <code><a href="#sin">sin</a></code>.
+<code><a href="#sin">sin</a></code>.
 </p>
-
 <pre class="example">(%i1) cabs(sqrt(1+%i*x));
                              2     1/4
 (%o1)                      (x  + 1)
@@ -689,7 +671,6 @@ the terms.  Similarly, it distributes over both sides of an equation.
 (%o2)       sqrt(cos (x) sinh (y) + sin (x) cosh (y))
 </pre>
 <p>The error function, <code><a href="maxima_15.html#erf">erf</a></code>,
- has mirror symmetry, which is used here in
 the calculation of the absolute value with a complex argument:
 </p>
 <pre class="example">(%i3) cabs(erf(x+%i*y));
@@ -706,18 +687,14 @@ the calculation of the absolute value with a complex argument:
 it to compute the absolute value for complex arguments.  Here is an
 example for <code><a href="maxima_15.html#bessel_005fj">bessel_j</a></code>.
 </p>
-
 <pre class="example">(%i4) cabs(bessel_j(1,%i));
 (%o4)                 abs(bessel_j(1, %i))
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Complex-variables">Complex variables</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="carg"></a>
 <a name="Item_003a-carg"></a>
@@ -732,13 +709,11 @@ where <code>r</code> is the magnitude of <var>z</var>.
 <p><code>carg</code> is a computational function, not a simplifying function.
 </p>
 <p>See also <code><a href="#abs">abs</a></code>
- (complex magnitude), <code><a href="#polarform">polarform</a></code>,
-
+<code><a href="#polarform">polarform</a></code>,
 <code><a href="#rectform">rectform</a></code>,
- <code><a href="#realpart">realpart</a></code>,
- and <code><a href="#imagpart">imagpart</a></code>.
+<code><a href="#realpart">realpart</a></code>,
+<code><a href="#imagpart">imagpart</a></code>.
 </p>
-
 <p>Examples:
 </p>
 <pre class="example">(%i1) carg (1);
@@ -760,12 +735,9 @@ where <code>r</code> is the magnitude of <var>z</var>.
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Complex-variables">Complex variables</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="conjugate"></a>
 <a name="Item_003a-conjugate"></a>
@@ -793,12 +765,9 @@ where <code>r</code> is the magnitude of <var>z</var>.
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Complex-variables">Complex variables</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="imagpart"></a>
 <a name="Item_003a-imagpart"></a>
@@ -811,21 +780,16 @@ where <code>r</code> is the magnitude of <var>z</var>.
 <p><code>imagpart</code> is a computational function, not a simplifying function.
 </p>
 <p>See also <code><a href="#abs">abs</a></code>,
- <code><a href="#carg">carg</a></code>,
- <code><a href="#polarform">polarform</a></code>,
-
+<code><a href="#carg">carg</a></code>,
+<code><a href="#polarform">polarform</a></code>,
 <code><a href="#rectform">rectform</a></code>,
- and <code><a href="#realpart">realpart</a></code>.
+<code><a href="#realpart">realpart</a></code>.
 </p>
-
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Complex-variables">Complex variables</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 
 <p><a name="polarform"></a>
@@ -839,14 +803,11 @@ such that <code>r</code> and <code>theta</code> are purely real.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Complex-variables">Complex variables</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="realpart"></a>
@@ -856,18 +817,14 @@ such that <code>r</code> and <code>theta</code> are purely real.
 <a name="IDX343"></a>
 </dt>
 <dd><p>Returns the real part of <var>expr</var>.  <code>realpart</code> and <code><a href="#imagpart">imagpart</a></code>
- will
 work on expressions involving trigonometric and hyperbolic functions,
 as well as square root, logarithm, and exponentiation.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Complex-variables">Complex variables</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 
 <p><a name="rectform"></a>
@@ -881,12 +838,9 @@ such that <var>a</var> and <var>b</var> are purely real.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Complex-variables">Complex variables</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-Combinatorial-Functions"></a>
 </p><hr size="6">
@@ -933,14 +887,11 @@ yields a noun form <code>genfact (n, n/2, 2)</code>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Operators">Operators</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Operators">Operators</a>
+</div>
+</p></dd></dl>
 
 <p><a name="binomial"></a>
 <a name="Item_003a-binomial"></a>
@@ -972,12 +923,9 @@ binomial coefficient is expressed as a polynomial.
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Number-theory">Number theory</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="factcomb"></a>
 <a name="Item_003a-factcomb"></a>
@@ -990,18 +938,14 @@ with the factorials themselves by converting, for example, <code>(n + 1)*n!</cod
 into <code>(n + 1)!</code>.
 </p>
 <p><code><a href="#sumsplitfact">sumsplitfact</a></code>
- if set to <code>false</code> will cause <code><a href="#minfactorial">minfactorial</a></code>
- to be
+<code><a href="#minfactorial">minfactorial</a></code>
 applied after a <code>factcomb</code>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="g_t_0021"></a>
 <a name="factorial"></a>
@@ -1027,35 +971,29 @@ an odd integer, <code>x!</code> simplifies to a rational factor times
 <code>sqrt (%pi)</code> (since <code>gamma (1/2)</code> is equal to <code>sqrt (%pi)</code>).
 </p>
 <p>The option variables <code><a href="#factlim">factlim</a></code>
- and <code><a href="maxima_15.html#gammalim">gammalim</a></code>
- control the numerical
+<code><a href="maxima_15.html#gammalim">gammalim</a></code>
 evaluation of factorials for integer and rational arguments.  The functions 
 <code><a href="#minfactorial">minfactorial</a></code>
- and <code><a href="#factcomb">factcomb</a></code>
- simplifies expressions containing
+<code><a href="#factcomb">factcomb</a></code>
 factorials.
 </p>
 <p>The functions <code><a href="maxima_15.html#gamma">gamma</a></code>,
- <code><a href="maxima_15.html#bffac">bffac</a></code>,
- and <code><a href="maxima_15.html#cbffac">cbffac</a></code>
- are
+<code><a href="maxima_15.html#bffac">bffac</a></code>,
+<code><a href="maxima_15.html#cbffac">cbffac</a></code>
 varieties of the gamma function.  <code>bffac</code> and <code>cbffac</code> are called
 internally by <code>gamma</code> to evaluate the gamma function for real and complex
 numbers in bigfloat precision.
 </p>
 <p><code><a href="maxima_15.html#makegamma">makegamma</a></code>
- substitutes <code>gamma</code> for factorials and related functions.
 </p>
 <p>Maxima knows the derivative of the factorial function and the limits for 
 specific values like negative integers.
 </p>
 <p>The option variable <code><a href="#factorial_005fexpand">factorial_expand</a></code>
- controls the simplification of
 expressions like <code>(n+x)!</code>, where <code>n</code> is an integer.
 </p>
 <p>See also <code><a href="#binomial">binomial</a></code>.
 </p>
-
 <p>The factorial of an integer is simplified to an exact number unless the operand 
 is greater than <code>factlim</code>.  The factorial for real and complex numbers is 
 evaluated in float or bigfloat precision.
@@ -1109,14 +1047,11 @@ simplification of expressions with the factorial function.
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Operators">Operators</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Operators">Operators</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="factlim"></a>
@@ -1132,12 +1067,9 @@ automatically expanded.  If it is -1 then all integers are expanded.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="factorial_005fexpand"></a>
 <a name="Item_003a-factorial_005fexpand"></a>
@@ -1150,16 +1082,12 @@ automatically expanded.  If it is -1 then all integers are expanded.
 <p>The option variable <code>factorial_expand</code> controls the simplification of 
 expressions like <code>(n+1)!</code>, where <code>n</code> is an integer.
 See <code><a href="#factorial">factorial</a></code>
- for an example.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 
 <p><a name="genfact"></a>
@@ -1174,12 +1102,9 @@ See <code><a href="#factorial">factorial</a></code>
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="minfactorial"></a>
 <a name="Item_003a-minfactorial"></a>
@@ -1203,12 +1128,9 @@ which differ by an integer.
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Number-theory">Number theory</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="sumsplitfact"></a>
 <a name="Item_003a-sumsplitfact"></a>
@@ -1220,19 +1142,15 @@ which differ by an integer.
 </p>
 <p>When <code>sumsplitfact</code> is <code>false</code>,
 <code><a href="#minfactorial">minfactorial</a></code>
- is applied after a <code><a href="#factcomb">factcomb</a></code>.
+<code><a href="#factcomb">factcomb</a></code>.
 </p>
-
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-Root-Exponential-and-Logarithmic-Functions"></a>
 </p><hr size="6">
@@ -1272,14 +1190,11 @@ command &quot;contracts&quot; expressions containing <code>log</code>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="g_t_0025emode"></a>
 <a name="Item_003a-_0025emode"></a>
@@ -1305,14 +1220,11 @@ such that <code>abs(y) &lt; 1</code>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="g_t_0025enumer"></a>
 <a name="Item_003a-_0025enumer"></a>
@@ -1329,19 +1241,15 @@ such that <code>abs(y) &lt; 1</code>.
 only if the exponent in <code>%e^x</code> evaluates to a number.
 </p>
 <p>See also <code><a href="maxima_8.html#ev">ev</a></code>
- and <code><a href="maxima_5.html#numer">numer</a></code>.
+<code><a href="maxima_5.html#numer">numer</a></code>.
 </p>
-
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Evaluation-flags">Evaluation flags</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Evaluation-flags">Evaluation flags</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="exp"></a>
@@ -1358,23 +1266,17 @@ expressions.
 <code>%e^(a (cos(b) + %i sin(b)))</code> if <code>b</code> is free of <code>%i</code>.
 See <code><a href="maxima_9.html#demoivre">demoivre</a></code>.
 </p>
-
 <p><code>%emode</code>, when <code>true</code>, causes <code>%e^(%pi %i x)</code> to be simplified.
 See <code><a href="#g_t_0025emode">%emode</a></code>.
 </p>
-
 <p><code>%enumer</code>, when <code>true</code> causes <code>%e</code> to be replaced by
 2.718&hellip; whenever <code>numer</code> is <code>true</code>.  See <code><a href="#g_t_0025enumer">%enumer</a></code>.
 </p>
-
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 
 <p><a name="li"></a>
@@ -1442,12 +1344,9 @@ or the <code>numer</code> evaluation flag is present.
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="log"></a>
 <a name="Item_003a-log"></a>
@@ -1493,12 +1392,9 @@ command &quot;contracts&quot; expressions containing <code>log</code>.
 
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="logabs"></a>
 <a name="Item_003a-logabs"></a>
@@ -1517,16 +1413,13 @@ endpoints is often needed.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Integral-calculus">Integral calculus</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Global-flags">Global flags</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Integral-calculus">Integral calculus</a>
+
+<a href="maxima_98.html#Category_003a-Global-flags">Global flags</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="logarc"></a>
@@ -1549,16 +1442,13 @@ without setting the global variable <code>logarc</code>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-functions">Simplification functions</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+
+<a href="maxima_98.html#Category_003a-Simplification-functions">Simplification functions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="logconcoeffp"></a>
 <a name="Item_003a-logconcoeffp"></a>
@@ -1577,14 +1467,11 @@ logconfun(m):=featurep(m,integer) or ratnump(m)$</code> .  Then
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="logcontract"></a>
 <a name="Item_003a-logcontract"></a>
@@ -1613,12 +1500,9 @@ logconfun(m):=featurep(m,integer) or ratnump(m)$</code> .  Then
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="logexpand"></a>
 <a name="Item_003a-logexpand"></a>
@@ -1637,14 +1521,11 @@ is set to <code>false</code>, all of these simplifications will be turned off.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="lognegint"></a>
 <a name="Item_003a-lognegint"></a>
@@ -1659,14 +1540,11 @@ is set to <code>false</code>, all of these simplifications will be turned off.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="logsimp"></a>
 <a name="Item_003a-logsimp"></a>
@@ -1681,14 +1559,11 @@ power containing <code>log</code>'s is done.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="plog"></a>
 <a name="Item_003a-plog"></a>
@@ -1701,14 +1576,11 @@ logarithm with <code>-%pi</code> &lt; <code>carg(<var>x</var>)</code> &lt;= <cod
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Complex-variables">Complex variables</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Complex-variables">Complex variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="sqrt"></a>
 <a name="Item_003a-sqrt"></a>
@@ -1726,12 +1598,9 @@ which are powers of n to be pulled outside of the radical, e.g.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-Trigonometric-Functions"></a>
@@ -1803,12 +1672,9 @@ for details.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
-</p>
 </div>
-
-
+</p>
 <p><a name="Item_003a-Functions-and-Variables-for-Trigonometric"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-Trigonometric"></a>
@@ -1885,14 +1751,11 @@ an integer variable.
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="g_t_0025iargs"></a>
 <a name="Item_003a-_0025iargs"></a>
@@ -1928,16 +1791,13 @@ Maxima considers only whether the argument is a literal multiple of <em>%i</em>.
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
+
+<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-acos"></a>
 </p><dl>
@@ -1948,12 +1808,9 @@ Maxima considers only whether the argument is a literal multiple of <em>%i</em>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-acosh"></a>
 </p><dl>
@@ -1964,12 +1821,9 @@ Maxima considers only whether the argument is a literal multiple of <em>%i</em>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-acot"></a>
 </p><dl>
@@ -1980,12 +1834,9 @@ Maxima considers only whether the argument is a literal multiple of <em>%i</em>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-acoth"></a>
 </p><dl>
@@ -1996,12 +1847,9 @@ Maxima considers only whether the argument is a literal multiple of <em>%i</em>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-acsc"></a>
 </p><dl>
@@ -2012,12 +1860,9 @@ Maxima considers only whether the argument is a literal multiple of <em>%i</em>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-acsch"></a>
 </p><dl>
@@ -2028,12 +1873,9 @@ Maxima considers only whether the argument is a literal multiple of <em>%i</em>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-asec"></a>
 </p><dl>
@@ -2044,12 +1886,9 @@ Maxima considers only whether the argument is a literal multiple of <em>%i</em>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-asech"></a>
 </p><dl>
@@ -2060,12 +1899,9 @@ Maxima considers only whether the argument is a literal multiple of <em>%i</em>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-asin"></a>
 </p><dl>
@@ -2076,12 +1912,9 @@ Maxima considers only whether the argument is a literal multiple of <em>%i</em>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-asinh"></a>
 </p><dl>
@@ -2092,12 +1925,9 @@ Maxima considers only whether the argument is a literal multiple of <em>%i</em>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-atan"></a>
 </p><dl>
@@ -2108,12 +1938,9 @@ Maxima considers only whether the argument is a literal multiple of <em>%i</em>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="atan2"></a>
 <a name="Item_003a-atan2"></a>
@@ -2126,12 +1953,9 @@ to <code>%pi</code>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-atanh"></a>
 </p><dl>
@@ -2142,12 +1966,9 @@ to <code>%pi</code>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-atrig1"></a>
@@ -2164,14 +1985,11 @@ Do <code>load(atrig1);</code> to use them.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Package-atrig1">Package atrig1</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Package-atrig1">Package atrig1</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-cos"></a>
 </p><dl>
@@ -2182,12 +2000,9 @@ Do <code>load(atrig1);</code> to use them.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-cosh"></a>
 </p><dl>
@@ -2198,12 +2013,9 @@ Do <code>load(atrig1);</code> to use them.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-cot"></a>
 </p><dl>
@@ -2214,12 +2026,9 @@ Do <code>load(atrig1);</code> to use them.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-coth"></a>
 </p><dl>
@@ -2230,12 +2039,9 @@ Do <code>load(atrig1);</code> to use them.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-csc"></a>
 </p><dl>
@@ -2246,12 +2052,9 @@ Do <code>load(atrig1);</code> to use them.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-csch"></a>
 </p><dl>
@@ -2262,12 +2065,9 @@ Do <code>load(atrig1);</code> to use them.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="halfangles"></a>
 <a name="Item_003a-halfangles"></a>
@@ -2329,14 +2129,11 @@ arguments <var>z</var>:
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-ntrig"></a>
@@ -2351,14 +2148,11 @@ used to simplify trigonometric function whose arguments are of the form
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Package-ntrig">Package ntrig</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Package-ntrig">Package ntrig</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-sec"></a>
 </p><dl>
@@ -2369,12 +2163,9 @@ used to simplify trigonometric function whose arguments are of the form
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-sech"></a>
 </p><dl>
@@ -2385,12 +2176,9 @@ used to simplify trigonometric function whose arguments are of the form
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="sin"></a>
 <a name="Item_003a-sin"></a>
@@ -2402,12 +2190,9 @@ used to simplify trigonometric function whose arguments are of the form
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-sinh"></a>
 </p><dl>
@@ -2418,12 +2203,9 @@ used to simplify trigonometric function whose arguments are of the form
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-tan"></a>
 </p><dl>
@@ -2434,12 +2216,9 @@ used to simplify trigonometric function whose arguments are of the form
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-tanh"></a>
 </p><dl>
@@ -2450,12 +2229,9 @@ used to simplify trigonometric function whose arguments are of the form
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 
 <p><a name="trigexpand"></a>
@@ -2504,14 +2280,11 @@ expansion of products (e.g. <code>sin(2 x)</code>) will take place only if
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-functions">Simplification functions</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-functions">Simplification functions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="trigexpandplus"></a>
 <a name="Item_003a-trigexpandplus"></a>
@@ -2529,14 +2302,11 @@ expansion of products (e.g. <code>sin(2 x)</code>) will take place only if
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="trigexpandtimes"></a>
 <a name="Item_003a-trigexpandtimes"></a>
@@ -2553,14 +2323,11 @@ will take place only if <code>trigexpandtimes</code> is <code>true</code>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="triginverses"></a>
 <a name="Item_003a-triginverses"></a>
@@ -2587,14 +2354,11 @@ simplifications are turned off.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="trigreduce"></a>
 <a name="Item_003a-trigreduce"></a>
@@ -2620,14 +2384,11 @@ denominators.  If <var>x</var> is omitted then all variables in <var>expr</var> 
 
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-functions">Simplification functions</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-functions">Simplification functions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="trigsign"></a>
 <a name="Item_003a-trigsign"></a>
@@ -2643,14 +2404,11 @@ arguments to trigonometric functions.  E.g., <code>sin(-x)</code> will become
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="trigsimp"></a>
 <a name="Item_003a-trigsimp"></a>
@@ -2669,14 +2427,11 @@ able to further simplify the result.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-functions">Simplification functions</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-functions">Simplification functions</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="trigrat"></a>
@@ -2746,14 +2501,11 @@ Addison-Wesley), section 1.5.5, Morley theorem.
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-functions">Simplification functions</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-functions">Simplification functions</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-Random-Numbers"></a>
@@ -2812,12 +2564,9 @@ of the random number generator.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Random-numbers">Random numbers</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="set_005frandom_005fstate"></a>
 <a name="Item_003a-set_005frandom_005fstate"></a>
@@ -2831,12 +2580,9 @@ of the random number generator.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Random-numbers">Random numbers</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="random"></a>
 <a name="Item_003a-random"></a>
@@ -2886,14 +2632,11 @@ MT 19937.
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Random-numbers">Random numbers</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-Maximas-Database"></a>
@@ -2913,7 +2656,7 @@ MT 19937.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>本田 康晃</em> on <em>September, 8 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

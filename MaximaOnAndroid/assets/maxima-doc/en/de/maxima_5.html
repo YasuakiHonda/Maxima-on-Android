@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 1 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -284,8 +284,7 @@ zur&uuml;ckgegeben.  Dies wird auch f&uuml;r gro&szlig;e Gleitkommazahlen ausgef
 </pre>
 
 <p>Mit den Funktionen <code><a href="#float">float</a></code>
- und <code><a href="#bfloat">bfloat</a></code>
- werden Zahlen in
+<code><a href="#bfloat">bfloat</a></code>
 Gleitkommazahlen und gro&szlig;e Gleitkommazahlen umgewandelt:
 </p>
 <pre class="example">(%i1) float([2,1/2,1/3,2.0b0]);
@@ -309,7 +308,6 @@ Gleitkommazahlen und gro&szlig;e Gleitkommazahlen umgewandelt:
 <p>Maxima kennt keinen eigenen Typ f&uuml;r komplexe Zahlen.  Komplexe Zahlen werden 
 von Maxima intern als die Addition von Realteil und dem mit der Imagin&auml;ren 
 Einheit <code><a href="#g_t_0025i">%i</a></code>
- multiplizierten Imagin&auml;rteil dargestellt.  Zum Beispiel sind
 die komplexen Zahlen <code>2 + 3*%i</code> und <code>2 - 3*%i</code> die Wurzeln der 
 Gleichung <code>x^2 - 4*x + 13 = 0</code>.
 </p>
@@ -317,7 +315,6 @@ Gleichung <code>x^2 - 4*x + 13 = 0</code>.
 komplexen Zahlen nicht automatisch zu einer komplexen Zahl.  Um Produkte mit
 komplexen Zahlen zu vereinfachen, kann der Ausdruck mit der Funktion 
 <code><a href="maxima_9.html#expand">expand</a></code>
- expandiert werden.
 </p>
 <p>Funktionen f&uuml;r komplexe Zahlen:
 </p>
@@ -353,17 +350,13 @@ komplexen Zahlen zu vereinfachen, kann der Ausdruck mit der Funktion
 <dd><p>Konvertiert alle Zahlen im Ausdruck <var>expr</var> in gro&szlig;e Gleitkommazahlen.
 Die Anzahl der Stellen wird durch die Optionsvariable 
 <code><a href="#fpprec">fpprec</a></code>
- spezifiziert.
 </p>
 <p>Hat die Optionsvariable <code><a href="#float2bf">float2bf</a></code>
- den Wert <code>false</code>, gibt Maxima eine
 Warnung aus, wenn eine Gleitkommazahl mit doppelter Genauigkeit in eine 
 gro&szlig;e Gleitkommazahl umgewandelt wird.
 </p>
 <p>Siehe auch die Funktion und den Auswertungsschalter <code><a href="#float">float</a></code>
- sowie die
 Optionsvariable <code><a href="#numer">numer</a></code>
- f&uuml;r die Umwandlung von Zahlen in Gleitkommazahlen
 mit doppelter Genauigkeit.
 </p>
 <p>Beispiele:
@@ -385,12 +378,10 @@ mit doppelter Genauigkeit.
 gro&szlig;e Gleitkommazahl ist, ansonsten den Wert <code>false</code>.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#numberp">numberp</a></code>,
- <code><a href="#floatnump">floatnump</a></code>,
-
+<code><a href="#floatnump">floatnump</a></code>,
 <code><a href="#ratnump">ratnump</a></code>
- und <code><a href="#integerp">integerp</a></code>.
+<code><a href="#integerp">integerp</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) bfloatp(1.5b0);
@@ -414,14 +405,12 @@ gro&szlig;e Gleitkommazahl ist, ansonsten den Wert <code>false</code>.
 Gleitkommazahlen in rationale Zahlen.  Hat <code>bftorat</code> den Wert <code>false</code>,
 wird die Genauigkeit der Umwandlung von der Optionsvariablen
 <code><a href="#ratepsilon">ratepsilon</a></code>
- kontrolliert.  Hat dagegen <code>bftorat</code> den Wert
 <code>true</code>, wird die gro&szlig;e Gleitkommazahl exakt durch die rationale Zahl 
 repr&auml;sentiert.
 </p>
 <p>Hinweis: <code>bftorat</code> hat keinen Einfluss auf die Umwandlung in rationale
 Zahlen mit der Funktion <code><a href="#rationalize">rationalize</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) ratepsilon:1e-4;
@@ -472,7 +461,6 @@ zur&uuml;ckgegeben.  In allen anderen F&auml;llen wird <code>false</code> zur&uu
 zur&uuml;ck, auch wenn das Symbol als gerade ganze Zahl deklariert ist oder der 
 Ausdruck eine gerade ganze Zahl repr&auml;sentiert.  Siehe die Funktion
 <code><a href="maxima_11.html#featurep">featurep</a></code>,
- um zu testen, ob ein Symbol oder Ausdruck eine gerade
 ganze Zahl repr&auml;sentiert.
 </p>
 <p>Beispiele:
@@ -503,7 +491,6 @@ mit doppelter Genauigkeit.
 </p>
 <p><code>float</code> ist auch eine Optionsvariable mit dem Standardwert <code>false</code> und
 ein Auswertungsschalter f&uuml;r die Funktion <code><a href="maxima_8.html#ev">ev</a></code>.
-  Erh&auml;lt die
 Optionsvariable <code>float</code> den Wert <code>true</code>, werden rationale und
 gro&szlig;e Gleitkommazahlen sofort in Gleitkommazahlen umgewandelt.  Als
 Auswertungsschalter der Funktion <code>ev</code> hat <code>float</code> denselben Effekt,
@@ -515,7 +502,6 @@ umgewandelt.  Daher k&ouml;nnen die beiden Kommandos <code>ev(expr, float)</code
 </p>
 <p>Siehe auch die Optionsvariable <code><a href="#numer">numer</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>In den ersten zwei Beispielen werden die Zahlen <code>1/2</code> und <code>1</code> in eine
@@ -569,12 +555,10 @@ Gleitkommazahl ist.  Ansonsten wird <code>false</code> zur&uuml;ckgegeben.  Auch
 <var>number</var> eine gro&szlig;e Gleitkommazahl ist, ist das Ergebnis <code>false</code>.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#numberp">numberp</a></code>,
- <code><a href="#bfloatp">bfloatp</a></code>,
-
+<code><a href="#bfloatp">bfloatp</a></code>,
 <code><a href="#ratnump">ratnump</a></code>
- und <code><a href="#integerp">integerp</a></code>.
+<code><a href="#integerp">integerp</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) floatnump(1.5);
@@ -593,10 +577,8 @@ Gleitkommazahl ist.  Ansonsten wird <code>false</code> zur&uuml;ckgegeben.  Auch
 <p><code>ffprec</code> ist die Zahl der Stellen f&uuml;r das Rechnen mit gro&szlig;en 
 Gleitkommazahlen.  <code>ffprec</code> hat keinen Einflu&szlig; auf das Rechnen mit
 Gleitkommazahlen in doppelter Genauigkeit.  Siehe auch <code><a href="#bfloat">bfloat</a></code>
- und 
 <code><a href="#fpprintprec">fpprintprec</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) fpprec:16;
@@ -628,7 +610,6 @@ angezeigten Stellen f&uuml;r einfache Gleitkommazahlen gleich dem Wert von
 </p>
 <p>Hat f&uuml;r gro&szlig;e Gleitkommazahlen <code>fpprintprec</code> einen Wert zwischen 2 
 und <code><a href="#fpprec">fpprec</a></code>,
- ist die Anzahl der angezeigten Stellen gleich
 <code>fpprintprec</code>.  Ist der Wert von <code>fpprintprec</code> gleich 0 oder 
 gr&ouml;&szlig;er als <code>fpprec</code> werden <code>fpprec</code> Stellen angezeigt.
 </p>
@@ -672,7 +653,6 @@ zur&uuml;ck.
 <p><code>integerp</code> gibt f&uuml;r Symbole oder Ausdr&uuml;cke immer den Wert <code>false</code> 
 zur&uuml;ck, auch wenn das Symbol als ganze Zahl deklariert ist oder der Ausdruck 
 eine ganze Zahl repr&auml;sentiert.  Siehe die Funktion <code><a href="maxima_11.html#featurep">featurep</a></code>,
- um zu
 testen, ob ein Symbol oder Ausdruck eine ganze Zahl repr&auml;sentiert.
 </p>
 <p>Beispiele:
@@ -698,7 +678,6 @@ testen, ob ein Symbol oder Ausdruck eine ganze Zahl repr&auml;sentiert.
 <p>Die Optionsvariable <code>m1pbranch</code> kontrolliert die Vereinfachung der
 Exponentiation von <code>-1</code> f&uuml;r den Fall, dass die Optionsvariable
 <code><a href="maxima_9.html#domain">domain</a></code>
- den Wert <code>complex</code> hat.  Hat <code>m1pbranch</code> f&uuml;r diesen
 Fall den Wert <code>true</code>, wird die Exponentiation von <code>-1</code> zu einem
 Ausdruck vereinfacht, der dem Hauptwert entspricht.  Die Auswirkung der
 Optionsvariable <code>m1pbranch</code> ist in der folgenden Tabelle gezeigt.
@@ -715,8 +694,7 @@ m1pbranch:false          m1pbranch:true
 (-1)^(1/4)              sqrt(2)/2+%i*sqrt(2)/2
 </pre>
 <p>Siehe auch die Optionsvariable <code><a href="#numer_005fpbranch">numer_pbranch</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="nonnegintegerp"></a>
 </p><dl>
@@ -726,7 +704,6 @@ m1pbranch:false          m1pbranch:true
 <dd><p>Gibt den Wert <code>true</code> zur&uuml;ck, wenn <code>number</code> eine ganze positive Zahl
 oder Null ist.  Siehe auch <code><a href="#integerp">integerp</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) nonnegintegerp(2);
@@ -747,12 +724,10 @@ Ergebnis <code>false</code>.
 <p><code>numberp</code> gibt f&uuml;r ein Symbol immer das Ergebnis <code>false</code> zur&uuml;ck.
 Dies ist auch dann der Fall, wenn das Symbol eine numerische Konstante wie 
 <code><a href="#g_t_0025pi">%pi</a></code>
- ist oder wenn das Symbol mit der Funktion <code><a href="maxima_11.html#declare">declare</a></code>
- eine 
+<code><a href="maxima_11.html#declare">declare</a></code>
 Eigenschaft wie <code><a href="maxima_11.html#integer">integer</a></code>,
- <code><a href="maxima_11.html#real">real</a></code>
- oder <code><a href="maxima_11.html#complex">complex</a></code>
- erhalten
+<code><a href="maxima_11.html#real">real</a></code>
+<code><a href="maxima_11.html#complex">complex</a></code>
 hat.
 </p>
 <p>Beispiele:
@@ -783,24 +758,20 @@ hat.
 <p>Hat die Optionsvariable <code>numer</code> den Wert <code>true</code>, werden rationale
 Zahlen und gro&szlig;e Gleitkommazahlen in Gleitkommazahlen umgewandelt.
 Weiterhin werden Konstante wie zum Beispiel <code><a href="#g_t_0025pi">%pi</a></code>,
- die einen
 numerischen Wert haben, durch diesen ersetzt.  Mathematische Funktionen mit
 numerischen Argumenten vereinfachen zu einer Gleitkommazahl.  Wird die
 Optionsvariable <code>numer</code> gesetzt, erh&auml;lt die Optionsvariable
 <code><a href="#float">float</a></code>
- denselben Wert.  Im Unterschied zur Optionsvariablen <code>float</code>
 vereinfachen auch mathematische Funktionen mit einem ganzzahligen Wert wie zum
 Beispiel <code>sin(1)</code> zu einem numerischen Wert.
 </p>
 <p><code>numer</code> ist auch ein Auswertungsschalter der Funktion <code><a href="maxima_8.html#ev">ev</a></code>.
-  Der
 Auswertungsschalter hat die gleiche Funktionsweise wie die Optionsvariable,
 ohne dass die Optionsvariable ihren Wert &auml;ndert.
 </p>
 <p>Siehe auch <code><a href="#float">float</a></code>
- und <code><a href="maxima_10.html#g_t_0025enumer">%enumer</a></code>.
+<code><a href="maxima_10.html#g_t_0025enumer">%enumer</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Erh&auml;lt <code>numer</code> den Wert <code>true</code>, werden rationale Zahlen, Konstante
@@ -842,12 +813,10 @@ die Kurzschreibweise der Funktion <code>ev</code> verwendet.
 Exponentiation einer negativen ganzen, rationalen oder Gleitkommazahl.
 Hat <code>numer_pbranch</code> den Wert <code>true</code> und ist der Exponent eine 
 Gleitkommazahl oder hat die Optionsvariable <code><a href="#numer">numer</a></code>
- den Wert <code>true</code>, 
 dann berechnet Maxima den Hauptwert der Exponentiation.  Ansonsten wird ein 
 vereinfachter Ausdruck, aber nicht numerischer Wert zur&uuml;ckgegeben.  Siehe auch
 die Optionsvariable <code><a href="#m1pbranch">m1pbranch</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) (-2)^0.75;
@@ -875,9 +844,8 @@ die Optionsvariable <code><a href="#m1pbranch">m1pbranch</a></code>.
 <var>val_1</var>, &hellip;, <code>val_n</code>.  Die numerischen Werte werden immer dann
 f&uuml;r die Variablen in Ausdr&uuml;cke eingesetzt, wenn die Optionsvariable 
 <code><a href="#numer">numer</a></code>
- den Wert <code>true</code> hat.  Siehe auch <code><a href="maxima_8.html#ev">ev</a></code>.
+<code><a href="maxima_8.html#ev">ev</a></code>.
 </p>
-
 <p>Die Argumente <var>val_1</var>, &hellip;, <var>val_n</var> k&ouml;nnen auch beliebige 
 Ausdr&uuml;cke sein, die wie numerische Werte f&uuml;r Variablen eingesetzt werden.
 </p>
@@ -906,7 +874,6 @@ ist.  In allen anderen F&auml;llen wird <code>false</code> zur&uuml;ckgegeben.
 zur&uuml;ck, auch wenn das Symbol als ungerade ganze Zahl deklariert ist oder der 
 Ausdruck eine ungerade ganze Zahl repr&auml;sentiert.  Siehe die Funktion 
 <code><a href="maxima_11.html#featurep">featurep</a></code>,
- um zu testen, ob ein Symbol oder Ausdruck eine ungerade 
 ganze Zahl repr&auml;sentiert.
 </p>
 <p>Beispiele:
@@ -934,8 +901,7 @@ ganze Zahl repr&auml;sentiert.
 Gleitkommazahlen in rationale Zahlen umgewandelt werden, wenn die
 Optionsvariable <code>bftorat</code> den Wert <code>false</code> hat.  F&uuml;r ein Beispiel
 siehe die Optionsvariable <code><a href="#bftorat">bftorat</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="rationalize"></a>
 </p><dl>
@@ -951,11 +917,9 @@ gebrochene Zahl <code>1/10</code> in der internen Darstellung als bin&auml;re Za
 endliche Darstellung hat.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#float">float</a></code>
- und <code><a href="#bfloat">bfloat</a></code>
- sowie die
+<code><a href="#bfloat">bfloat</a></code>
 Auswertungsschalter <code><a href="#float">float</a></code>
- und <code><a href="#numer">numer</a></code>,
- um eine rationale Zahl
+<code><a href="#numer">numer</a></code>,
 in eine Gleitkommazahl umzuwandeln.
 </p>
 <p>Beispiele:
@@ -995,12 +959,10 @@ in eine Gleitkommazahl umzuwandeln.
 In allen anderen F&auml;llen ist das Ergebnis <code>false</code>.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#numberp">numberp</a></code>,
- <code><a href="#integerp">integerp</a></code>,
-
+<code><a href="#integerp">integerp</a></code>,
 <code><a href="#floatnump">floatnump</a></code>
- und <code><a href="#bfloatp">bfloatp</a></code>.
+<code><a href="#bfloatp">bfloatp</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) ratnump(1/2);
@@ -1064,7 +1026,6 @@ In allen anderen F&auml;llen ist das Ergebnis <code>false</code>.
 <p>Zeichenketten werden bei der Eingabe in Anf&uuml;hrungszeichen gesetzt.  Sie werden 
 standardm&auml;&szlig;ig ohne Anf&uuml;hrungszeichen ausgegeben.  Hat die 
 Optionsvariable <code><a href="#stringdisp">stringdisp</a></code>
- den Wert <code>true</code>, werden Zeichenketten mit
 Anf&uuml;hrungszeichen dargestellt.
 </p>
 <p>Zeichenketten k&ouml;nnen jedes Zeichen einschlie&szlig;lich Tabulator-, 
@@ -1143,10 +1104,8 @@ Der R&uuml;ckgabewert ist ein Symbol, wenn das erste Argument ein Symbol ist.
 Ansonsten wird eine Zeichenkette zur&uuml;ckgegeben.
 </p>
 <p><code>concat</code> wertet die Argumente aus.  Der <a href="maxima_8.html#g_t_0027">Quote-Operator</a>
- <code>'</code>
 verhindert die Auswertung.  Siehe auch die Funktion <code><a href="#sconcat">sconcat</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) y: 7$
@@ -1186,7 +1145,6 @@ werden und es kann in Ausdr&uuml;cken auftreten.
 </dt>
 <dd><p>Verkettet die Argumente <var>arg_1</var>, <var>arg_2</var>, &hellip; zu einer Zeichenkette.
 Im Unterschied zu der Funktion <code><a href="#concat">concat</a></code>
- m&uuml;ssen die Argumente <i>nicht</i> 
 Atome sein.  Der R&uuml;ckgabewert ist eine Zeichenkette.
 </p>
 <p>Beispiel:
@@ -1208,8 +1166,7 @@ genutzt werden.
 <p>Beispiele:
 </p>
 <p>Die hier verwendete Funktion <code><a href="maxima_73.html#stringp">stringp</a></code>
- ist im Paket <code><a href="maxima_73.html#SEC380">stringproc</a></code>
-
+<code><a href="maxima_73.html#SEC380">stringproc</a></code>
 definiert und wird automatisch geladen.
 </p>
 <pre class="example">(%i1) stringdisp:true;
@@ -1284,15 +1241,12 @@ genannt.  Der numerische Wert der Konstanten als Gleitkommazahl mit doppelter
 Genauigkeit ist 2.718281828459045d0.
 </p>
 <p>Die Funktion <code><a href="#bfloat">bfloat</a></code>
- kann <code>%e</code> mit einer beliebigen Genauigkeit
 berechnen.
 </p>
 <p>Hat die Optionsvariable <code><a href="#numer">numer</a></code>
- den Wert <code>true</code>, wird <code>%e</code> durch
 den numerischen Wert ersetzt, aber nicht, wenn <code>%e</code> die Basis der
 Exponentiation mit einem symbolischen Exponenten ist.  Hat zus&auml;tzlich die
 Optionsvariable <code><a href="maxima_10.html#g_t_0025enumer">%enumer</a></code>
- den Wert <code>true</code>, dann wird <code>%e</code> in
 einem Ausdruck immer durch den numerischen Wert ersetzt.
 </p>
 <p>Beispiel:
@@ -1317,7 +1271,6 @@ Ersetzen von <code>%e</code> durch den numerischen Wert.
 </pre>
 <p>Im ersten Beispiel vereinfacht die Reihe zu <code>%e</code>.  F&uuml;r die Vereinfachung
 der Reihe wird die Funktion <code><a href="maxima_70.html#simplify_005fsum">simplify_sum</a></code>
- geladen.  Im zweiten Beispiel
 ist <code>%e</code> der Grenzwert.
 </p>
 <pre class="example">(%i1) load(simplify_sum)$
@@ -1348,12 +1301,10 @@ ist <code>%e</code> der Grenzwert.
 <p>Maxima kennt keinen eigenen Typ f&uuml;r komplexe Zahlen.  Komplexe Zahlen werden 
 von Maxima intern als die Addition von Realteil und dem mit der imagin&auml;ren 
 Einheit <code><a href="#g_t_0025i">%i</a></code>
- multiplizierten Imagin&auml;rteil dargestellt.  Zum Beispiel sind
 die komplexen Zahlen <code>2 + 3*%i</code> und <code>2 - 3*%i</code> die Wurzeln der 
 Gleichung <code>x^2 - 4*x + 13 = 0</code>.  Siehe auch das Kapitel
 <a href="#SEC20">Zahlen</a>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Einige Beispiele f&uuml;r das Rechnen mit der imagin&auml;ren Einheit.
@@ -1377,7 +1328,6 @@ Gleichung <code>x^2 - 4*x + 13 = 0</code>.  Siehe auch das Kapitel
 von Maxima durch die Lisp-Konstante <code>NIL</code> dargestellt.
 </p>
 <p>Siehe auch <code><a href="#true">true</a></code>
- f&uuml;r den logischen Wert <code>wahr</code>.
 </p></dd></dl>
 
 <p><a name="g_t_0025gamma"></a>
@@ -1389,11 +1339,9 @@ von Maxima durch die Lisp-Konstante <code>NIL</code> dargestellt.
 Gleitkommazahl in doppelter Genauigkeit.
 </p>
 <p>Die Funktion <code><a href="#bfloat">bfloat</a></code>
- kann <code>%gamma</code> mit einer beliebigen Genauigkeit
 berechnen.
 </p>
 <p>Hat die Optionsvariable <code><a href="#numer">numer</a></code>
- den Wert <code>true</code>, wird die Konstante
 <code>%gamma</code> durch ihren numerischen Wert ersetzt.  
 </p>
 <p>Beispiele:
@@ -1419,10 +1367,8 @@ berechnen.
 <a name="IDX114"></a>
 </dt>
 <dd><p><code>ind</code> repr&auml;sentiert ein unbestimmtes Ergebnis.  Siehe auch <code><a href="#und">und</a></code>
-
 und die Funktion <code><a href="maxima_16.html#limit">limit</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) limit(sin(1/x), x, 0);
@@ -1436,21 +1382,17 @@ und die Funktion <code><a href="maxima_16.html#limit">limit</a></code>.
 </dt>
 <dd><p><code>inf</code> repr&auml;sentiert einen positiven unendlich gro&szlig;en Wert.  Siehe
 auch <code><a href="#minf">minf</a></code>
- und <code><a href="#infinity">infinity</a></code>.
+<code><a href="#infinity">infinity</a></code>.
 </p>
-
 <p>Die unendlichen Gr&ouml;&szlig;en, aber auch die unbestimmten Gr&ouml;&szlig;en
 <code><a href="#ind">ind</a></code>
- und <code><a href="#und">und</a></code>,
- eignen sich nicht f&uuml;r das arithmetische
+<code><a href="#und">und</a></code>,
 Rechnen.  Diese Gr&ouml;&szlig;en werden von Maxima in Rechnungen
 wie Symbole behandelt, was zu fehlerhaften Ergebnissen f&uuml;hrt.  Daher sollten
 unendliche Gr&ouml;&szlig;en nur im Zusammenhang mit Grenzwerten
 <code><a href="maxima_16.html#limit">limit</a></code>,
- bestimmten Integralen <code><a href="maxima_16.html#integrate">integrate</a></code>
- oder Reihen
+<code><a href="maxima_16.html#integrate">integrate</a></code>
 <code><a href="maxima_15.html#sum">sum</a></code>
- verwendet werden.
 </p></dd></dl>
 
 <p><a name="infinity"></a>
@@ -1460,21 +1402,17 @@ unendliche Gr&ouml;&szlig;en nur im Zusammenhang mit Grenzwerten
 </dt>
 <dd><p><code>infinity</code> repr&auml;sentiert einen komplexen unendlichen Wert.  Siehe
 auch <code><a href="#inf">inf</a></code>
- und <code><a href="#minf">minf</a></code>.
+<code><a href="#minf">minf</a></code>.
 </p>
-
 <p>Die unendlichen Gr&ouml;&szlig;en, aber auch die unbestimmten Gr&ouml;&szlig;en 
 <code><a href="#ind">ind</a></code>
- und <code><a href="#und">und</a></code>,
- eignen sich nicht f&uuml;r das arithmetische 
+<code><a href="#und">und</a></code>,
 Rechnen.  Diese Gr&ouml;&szlig;en werden von Maxima in Rechnungen
 wie Symbole behandelt, was zu fehlerhaften Ergebnissen f&uuml;hrt.  Daher sollten
 unendliche Gr&ouml;&szlig;en nur im Zusammenhang mit Grenzwerten
 <code><a href="maxima_16.html#limit">limit</a></code>,
- bestimmten Integralen <code><a href="maxima_16.html#integrate">integrate</a></code>
- oder Reihen
+<code><a href="maxima_16.html#integrate">integrate</a></code>
 <code><a href="maxima_15.html#sum">sum</a></code>
- verwendet werden.
 </p></dd></dl>
 
 <p><a name="minf"></a>
@@ -1484,21 +1422,17 @@ unendliche Gr&ouml;&szlig;en nur im Zusammenhang mit Grenzwerten
 </dt>
 <dd><p><code>minf</code> repr&auml;sentiert einen negativen unendlichen Wert.  Siehe
 auch <code><a href="#inf">inf</a></code>
- und <code><a href="#infinity">infinity</a></code>.
+<code><a href="#infinity">infinity</a></code>.
 </p>
-
 <p>Die unendlichen Gr&ouml;&szlig;en, aber auch die unbestimmten Gr&ouml;&szlig;en 
 <code><a href="#ind">ind</a></code>
- und <code><a href="#und">und</a></code>,
- eignen sich nicht f&uuml;r das arithmetische 
+<code><a href="#und">und</a></code>,
 Rechnen.  Diese Gr&ouml;&szlig;en werden von Maxima in Rechnungen
 wie Symbole behandelt, was zu fehlerhaften Ergebnissen f&uuml;hrt.  Daher sollten
 unendliche Gr&ouml;&szlig;en nur im Zusammenhang mit Grenzwerten 
 <code><a href="maxima_16.html#limit">limit</a></code>,
- bestimmten Integralen <code><a href="maxima_16.html#integrate">integrate</a></code>
- oder Reihen
+<code><a href="maxima_16.html#integrate">integrate</a></code>
 <code><a href="maxima_15.html#sum">sum</a></code>
- verwendet werden.
 </p></dd></dl>
 
 <p><a name="g_t_0025phi"></a>
@@ -1510,17 +1444,13 @@ unendliche Gr&ouml;&szlig;en nur im Zusammenhang mit Grenzwerten
 Wert als Gleitkommazahl in doppelter Genauigkeit ist 1.618033988749895d0.
 </p>
 <p>Die Funktion <code><a href="maxima_21.html#fibtophi">fibtophi</a></code>
- dr&uuml;ckt Fibonacci-Zahlen <code>fib(n)</code> durch die
 Goldene Zahl <code>%phi</code> aus.  Standardm&auml;&szlig;ig kennt Maxima keine
 algebraischen Eigenschaften der Konstanten <code>%phi</code>.  Mit den Eingaben
 <code>tellrat(%phi^2-%phi-1)</code> und <code>algebraic: true</code> kann die Funktion
 <code><a href="maxima_17.html#ratsimp">ratsimp</a></code>
- einige Vereinfachungen ausf&uuml;hren.
 </p>
 <p>Die Funktion <code><a href="#bfloat">bfloat</a></code>
- kann <code>%phi</code> mit einer beliebigen Genauigkeit
 berechnen.  Hat die Optionsvariable <code><a href="#numer">numer</a></code>
- den Wert <code>true</code>, wird
 die Konstante <code>%phi</code> durch ihren numerischen Wert ersetzt.
 </p>
 <p>Beispiele:
@@ -1581,9 +1511,7 @@ ausf&uuml;hren, die <code>%phi</code> enthalten.
 Gleitkommazahl in doppelter Genauigkeit ist <code>3.141592653589793d0</code>.
 </p>
 <p>Die Funktion <code><a href="#bfloat">bfloat</a></code>
- kann <code>%pi</code> mit einer beliebigen Genauigkeit
 berechnen.  Hat die Optionsvariable <code><a href="#numer">numer</a></code>
- den Wert <code>true</code>, wird die
 Konstante <code>%pi</code> durch ihren numerischen Wert ersetzt.
 </p>
 <p>Beispiele:
@@ -1637,7 +1565,6 @@ Konstante <code>%pi</code> durch ihren numerischen Wert ersetzt.
 <code>true</code> als die Lisp-Konstante <code>T</code> implementiert.
 </p>
 <p>Siehe auch <code><a href="#false">false</a></code>
- f&uuml;r den logischen Wert <code>falsch</code>.
 </p></dd></dl>
 
 <p><a name="und"></a>
@@ -1647,9 +1574,8 @@ Konstante <code>%pi</code> durch ihren numerischen Wert ersetzt.
 </dt>
 <dd><p><code>und</code> repr&auml;sentiert ein nicht definiertes Ergebnis.  Siehe auch 
 <code><a href="#ind">ind</a></code>
- und die Funktion <code><a href="maxima_16.html#limit">limit</a></code>.
+<code><a href="maxima_16.html#limit">limit</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) limit (x*sin(x), x, inf);
@@ -1666,9 +1592,8 @@ kann in Ausdr&uuml;cken benutzt werden.  Die Funktion <code>limit</code> vereinf
 Ausdr&uuml;cke, die infinitesimale Gr&ouml;&szlig;en enthalten.
 </p>
 <p>Siehe auch <code><a href="#zerob">zerob</a></code>
- und <code><a href="maxima_16.html#limit">limit</a></code>.
+<code><a href="maxima_16.html#limit">limit</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p><code>limit</code> vereinfacht Ausdr&uuml;cke, die infinitesimale Gr&ouml;&szlig;en enthalten.
@@ -1689,9 +1614,8 @@ kann in Ausdr&uuml;cken benutzt werden.  Die Funktion <code>limit</code> vereinf
 Ausdr&uuml;cke, die infinitesimale Gr&ouml;&szlig;en enthalten.
 </p>
 <p>Siehe auch <code><a href="#zeroa">zeroa</a></code>
- und <code><a href="maxima_16.html#limit">limit</a></code>.
-</p>
-</dd></dl>
+<code><a href="maxima_16.html#limit">limit</a></code>.
+</p></dd></dl>
 
 
 
@@ -1759,17 +1683,13 @@ sein, wodurch verschachtelte Listen entstehen:
                  2
 </pre>
 <p>Mit den Funktionen <code><a href="#makelist">makelist</a></code>
- und <code><a href="#create_005flist">create_list</a></code>
- k&ouml;nnen Listen aus
+<code><a href="#create_005flist">create_list</a></code>
 Ausdr&uuml;cken generiert werden.  Die Funktion <code><a href="#copylist">copylist</a></code>
- erzeugt eine Kopie
 einer Liste.  Auf einzelne Elemente oder Teile von Listen kann mit den
 Funktionen <code><a href="#first">first</a></code>,
- <code><a href="#rest">rest</a></code>
- oder <code><a href="#last">last</a></code>
- zugegriffen werden.
+<code><a href="#rest">rest</a></code>
+<code><a href="#last">last</a></code>
 Mit der Aussagefunktion <code><a href="#listp">listp</a></code>
- kann getestet werden, ob eine Liste
 vorliegt.  F&uuml;r das Arbeiten mit Listen kennt Maxima die folgenden Funktionen:
 </p>
 <pre class="verbatim">   append        assoc     cons      copylist
@@ -1794,10 +1714,9 @@ und <code>$C</code> sind die Argumente des Operators.  Alle Funktionen f&uuml;r 
 die nur auf die Argumente wirken, k&ouml;nnen auch auf allgemeine Ausdr&uuml;cke
 angewendet werden.  Im folgenden werden zum Beispiel die Funktionen
 <code><a href="#first">first</a></code>,
- <code><a href="#last">last</a></code>,
- <code><a href="#cons">cons</a></code>
- und <code><a href="#delete">delete</a></code>
- auf eine
+<code><a href="#last">last</a></code>,
+<code><a href="#cons">cons</a></code>
+<code><a href="#delete">delete</a></code>
 Addition angewendet:
 </p>
 <pre class="example">(%i1) expr: a + b + c;
@@ -1839,7 +1758,6 @@ eine Fehlermeldung aus.  Im Folgenden werden Beispiele gezeigt:
 </pre>
 <p>Listen k&ouml;nnen auch als Argument einer Funktion auftreten.  Hat die Funktion
 die Eigenschaft <code><a href="maxima_9.html#distribute_005fover">distribute_over</a></code>,
- dann wird die Funktion auf die
 Elemente der Liste angewendet.  Dies funktioniert auch f&uuml;r Funktionen mit
 mehreren Argumenten.
 </p>
@@ -1928,8 +1846,7 @@ So hat zum Beispiel <code>append(f(a,b), f(c,d,e))</code> das Ergebnis
 f&uuml;r beide Ausdr&uuml;cke identisch sein, ansonsten meldet Maxima einen Fehler.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#cons">cons</a></code>
- und <code><a href="#endcons">endcons</a></code>,
- um ein Element
+<code><a href="#endcons">endcons</a></code>,
 einer Liste hinzuzuf&uuml;gen.
 </p>
 <p>Beispiele:
@@ -2005,9 +1922,7 @@ In diesem Fall wird dem Hauptoperator des Arguments <var>list</var> der Ausdruck
 <var>expr</var> als erstes Argument hinzugef&uuml;gt.
 </p>
 <p>Siehe auch die Funktion <code><a href="#endcons">endcons</a></code>,
- um ein Element an das Ende einer
 Liste anzuh&auml;ngen sowie die Funktion <code><a href="#append">append</a></code>,
- um zwei Listen
 zusammenzuf&uuml;gen.
 </p>
 <p>Beispiele:
@@ -2034,7 +1949,6 @@ zusammenzuf&uuml;gen.
 </p>
 <p>Im Unterschied zur Funktion <code>copylist</code> wird mit dem Zuweisungsoperator
 <code><a href="maxima_7.html#g_t_003a">:</a></code>
- keine Kopie, sondern eine Referenz auf das Original zugewiesen.  Das
 folgende Beispiel zeigt den Unterschied f&uuml;r den Fall, dass das Original
 modifiziert wird.
 </p>
@@ -2107,7 +2021,6 @@ werden sollen.  <code>delete</code> gibt eine neue Liste zur&uuml;ck.  Das Argum
 <var>list</var> wird nicht modifiziert.
 </p>
 <p>Die Gleichheit wird mit dem Operator <code><a href="maxima_7.html#g_t_003d">=</a></code>
- gepr&uuml;ft.  Daher werden nur
 Ausdr&uuml;cke als gleich erkannt, die syntaktisch &uuml;bereinstimmen.  &Auml;quivalente
 Ausdr&uuml;cke, die syntaktisch voneinander verschieden sind, werden nicht aus der
 Liste entfernt.  Zum Beispiel sind die Ausdr&uuml;cke <code>x^2-1</code> und
@@ -2176,9 +2089,7 @@ angenommen.
 Ausdruck <var>expr</var> als letztes Argument hinzugef&uuml;gt.
 </p>
 <p>Siehe auch die Funktion <code><a href="#cons">cons</a></code>,
- um ein Element am Anfang einer
 Liste einzuf&uuml;gen sowie die Funktion <code><a href="#append">append</a></code>,
- um zwei Listen
 zusammenzuf&uuml;gen.
 </p>
 <p>Beispiele:
@@ -2207,16 +2118,13 @@ zusammenzuf&uuml;gen.
 der Term einer Summe, der Faktor eines Produktes oder die erste Spalte einer
 Matrix sein.  Die Funktion <code>first</code> und verwandte Funktionen wie
 <code><a href="#last">last</a></code>
- oder <code><a href="#rest">rest</a></code>
- arbeiten mit der externen Darstellung eines
+<code><a href="#rest">rest</a></code>
 Ausdrucks, wie sie in der Anzeige erscheint.  Dies kann mit der Optionsvariablen
 <code><a href="maxima_6.html#inflag">inflag</a></code>
- kontrolliert werden.  Hat die Optionsvariable <code>inflag</code> den
 Wert <code>true</code>, wird von diesen Funktionen die interne Darstellung betrachtet.
 </p>
 <p>Die Funktionen <code><a href="#second">second</a></code>
- bis <code><a href="#tenth">tenth</a></code>
- geben jeweils das 2. bis 10. 
+<code><a href="#tenth">tenth</a></code>
 Element zur&uuml;ck.
 </p>
 <p>Beispiele:
@@ -2267,7 +2175,6 @@ l&auml;ngeren Liste ignoriert.
 </p>
 <p>Das Argument <var>list</var> kann auch ein allgemeiner Ausdruck sein.  Siehe
 <code><a href="#first">first</a></code>
- f&uuml;r weitere Erl&auml;uterungen.
 </p>
 <p>Beispiele:
 </p>
@@ -2292,7 +2199,6 @@ l&auml;ngeren Liste ignoriert.
 anderen Funktionen f&uuml;r Listen wird auch von der Funktion <code>length</code> die
 externe Darstellung eines Ausdrucks betrachtet, wie sie f&uuml;r die Ausgabe
 vorliegt.  Die Optionsvariable <code><a href="maxima_6.html#inflag">inflag</a></code>
- hat daher Einfluss auf das Ergebnis
 der Funktion <code>length</code>.
 </p>
 <p>Beispiele:
@@ -2365,7 +2271,6 @@ Liste <var>list</var> als Argument &uuml;bergeben werden.  In diesem Fall nimmt 
 Variable <var>i</var> nacheinander die Werte der Liste <var>list</var> an.
 </p>
 <p>Siehe auch die Funktion <code><a href="#create_005flist">create_list</a></code>,
- um eine Liste zu generieren.
 </p>
 <p>Beispiele:
 </p>
@@ -2383,10 +2288,8 @@ Variable <var>i</var> nacheinander die Werte der Liste <var>list</var> an.
 <dd><p>Gibt <code>true</code> zur&uuml;ck, wenn der Ausdruck <var>expr</var> gleich einem Element in
 der Liste <var>list</var> ist.  Die Gleichheit wird dem Operator
 <code><a href="maxima_7.html#g_t_003d">=</a></code>
- festgestellt.
 </p>
 <p>Die Gleichheit wird mit dem Operator <code><a href="maxima_7.html#g_t_003d">=</a></code>
- gepr&uuml;ft.  Daher werden nur
 Ausdr&uuml;cke als gleich erkannt, die syntaktisch &uuml;bereinstimmen.  &Auml;quivalente
 Ausdr&uuml;cke, die syntaktisch voneinander verschieden sind, werden nicht aus der
 Liste entfernt.  Zum Beispiel sind die Ausdr&uuml;cke <code>x^2-1</code> und
@@ -2397,7 +2300,6 @@ die Argumente des Hauptoperators betrachtet.
 </p>
 <p>Siehe auch die Funktion <code><a href="maxima_14.html#elementp">elementp</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) member (8, [8, 8.0, 8b0]);
@@ -2433,7 +2335,6 @@ zugewiesen wurde, und kann nicht selbst eine Liste sein.
 Fehlermeldung aus.
 </p>
 <p>Siehe auch die Funktion <code><a href="#push">push</a></code>
- f&uuml;r Beispiele.
 </p>
 <p>Mit dem Kommando <code>load(basic)</code> wird die Funktion geladen.
 </p></dd></dl>
@@ -2453,7 +2354,6 @@ sein.
 Fehlermeldung aus.
 </p>
 <p>Siehe auch die Funktion <code><a href="#pop">pop</a></code>,
- um das erste Element einer Liste zu
 entfernen.
 </p>
 <p>Mit dem Kommando <code>load(basic)</code> wird die Funktion geladen.
@@ -2500,9 +2400,8 @@ Elemente von der Liste entfernt und der Rest als Ergebnis zur&uuml;ckgegeben.
 <p>Das Argument <var>list</var> kann auch ein allgemeiner Ausdruck sein.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#first">first</a></code>
- und <code><a href="#last">last</a></code>.
+<code><a href="#last">last</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) rest([a,b,c]);
@@ -2568,8 +2467,7 @@ Ausdruck sein.
 </dt>
 <dd><p>Die Funktionen <code>second</code> bis <code>tenth</code> geben das 2. bis 10. Element eines
 Ausdrucks oder einer Liste <var>list</var> zur&uuml;ck.  Siehe <code><a href="#first">first</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="sort"></a>
 </p><dl>
@@ -2585,17 +2483,12 @@ eine Ordnung der Elemente definiert.  Die Aussagefunktion kann eine Funktion,
 ein bin&auml;rer Operator oder ein Lambda-Ausdruck sein.  Wird kein Argument
 <var>P</var> angegeben, werden die Elemente der Liste mit der Aussagefunktion
 <code><a href="maxima_6.html#orderlessp">orderlessp</a></code>
- geordnet.
 </p>
 <p>Die Aussagefunktion <code><a href="maxima_6.html#orderlessp">orderlessp</a></code>
- sortiert eine List aufsteigend.  Mit der
 Aussagefunktion <code><a href="maxima_6.html#ordergreatp">ordergreatp</a></code>
- kann die Liste absteigend sortiert werden.
 Die Aussagefunktion <code><a href="maxima_6.html#ordermagnitudep">ordermagnitudep</a></code>
- sortiert Maxima Zahlen, Konstante 
 oder Ausdr&uuml;cke, die zu einer Zahl oder Konstanten ausgewertet werden k&ouml;nnen,
 nach der Gr&ouml;&szlig;e.  Mit dem Operator <code><a href="maxima_7.html#g_t_003c">&lt;</a></code>
- kann auch nach der Gr&ouml;&szlig;e
 sortiert werden.  Im Unterschied zur Aussagefunktion <code>ordermagnitudep</code> ist
 die Ordnung nicht vollst&auml;ndig, wenn einzelne Elemente der Liste nicht
 vergleichbar unter dem Operator <code>&lt;</code> sind.
@@ -2642,9 +2535,8 @@ Alle anderen Elemente werden aufsteigend sortiert.
 Aussagefunktion <code>P</code> das Ergebnis <code>true</code> hat.  <code>P</code> ist eine
 Funktion mit einem Argument wie zum Beispiel die Funktion
 <code><a href="#integerp">integerp</a></code>.
-  Siehe auch die Funktion <code><a href="#sublist_005findices">sublist_indices</a></code>.
+<code><a href="#sublist_005findices">sublist_indices</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) L: [1, 2, 3, 4, 5, 6];
@@ -2662,9 +2554,8 @@ Funktion mit einem Argument wie zum Beispiel die Funktion
 Aussagefunktion <code>P</code> das Ergebnis <code>true</code> hat.  <code>P</code> ist eine
 Funktion mit einem Argument wie zum Beispiel die Funktion
 <code><a href="#integerp">integerp</a></code>.
-  Siehe auch die Funktion <code><a href="#sublist">sublist</a></code>.
+<code><a href="#sublist">sublist</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) sublist_indices ('[a, b, b, c, 1, 2, b, 3, b],
@@ -2760,7 +2651,6 @@ es sind auch Symbole und Ausdr&uuml;cke als Index m&ouml;glich.  Nicht-deklarier
 Arrays wachsen dynamisch mit der Zuweisung von Werten an die Elemente.  Im 
 Folgenden wird ein nicht-deklariertes Array <code>a</code> durch Zuweisung von Werten
 erzeugt.  Die Elemente des Arrays werden mit der Funktion <code><a href="#listarray">listarray</a></code>
-
 angezeigt.
 </p>
 <pre class="example">(%i1) a[1,2]: 99;
@@ -2777,9 +2667,7 @@ Diese haben bis zu 5 Dimensionen und k&ouml;nnen einen Typ wie <code>fixnum</cod
 <code>flonum</code> erhalten.  Maxima unterscheidet zun&auml;chst zwei verschiedene Arten
 von deklarierten Arrays.  Zum einen kann ein Symbol mit der Funktion
 <code><a href="#array">array</a></code>
- als ein deklariertes Array definiert werden.  Eine andere 
 M&ouml;glichkeit ist, mit der Funktion <code><a href="#make_005farray">make_array</a></code>
- ein Lisp-Array zu 
 deklarieren, dass einem Symbol zugewiesen wird.
 </p>
 <p>Das erste Beispiel zeigt die Deklaration eines Symbols <code>a</code> als ein Array.
@@ -2792,7 +2680,6 @@ zugewiesen wird.
 (%o2)              {Array:  #2A((0 0) (0 0))}
 </pre>
 <p>Erh&auml;lt die Optionsvariable <code><a href="#use_005ffast_005farrays">use_fast_arrays</a></code>
- den Wert <code>true</code>, werden
 ausschlie&szlig;lich Lisp-Arrays erzeugt.  Im Folgenden wird auch von der Funktion
 <code>array</code> ein Lisp-Array erzeugt, dass dem Symbol <code>c</code> zugewiesen wird.
 Die Implementation der Funktionalit&auml;t der Funktion <code>array</code> ist jedoch
@@ -2884,10 +2771,8 @@ deklariertes Array umgewandelt werden.  Wenn das deklarierte einen Typ erhalten
 soll, m&uuml;ssen alle Elemente des nicht-deklarierten Arrays von diesem Typ sein.
 </p>
 <p>Siehe auch die Funktion <code><a href="#make_005farray">make_array</a></code>,
- um ein Lisp-Array zu erzeugen,
 sowie die Optionsvariable <code><a href="#use_005ffast_005farrays">use_fast_arrays</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Es werden zwei verschiedene Arrays definiert.  Im ersten Fall erh&auml;lt das Array
@@ -2935,18 +2820,14 @@ Symbol <code>#####</code> initialisiert.  Im zweiten Fall ist das Array vom Typ
 und <var>i_1</var>, &hellip;, <var>i_n</var> die Indizes eines Array-Elementes sind.
 </p>
 <p>Siehe auch die Funktion <code><a href="#subvar">subvar</a></code>,
- die die gleiche Funktionalit&auml;t hat,
 sowie die Funktion <code><a href="#arraymake">arraymake</a></code>,
- die die Referenz auf das Array-Element
 nicht auswertet.
 </p>
 <p>Beispiele:
 </p>
 <p>Die Funktion <code>arrayapply</code> wertet die Referenz auf ein Array-Element aus.
 Im Unterschied dazu wertet die Funktion <code><a href="#arraymake">arraymake</a></code>
- die Referenz nicht aus.
 Die Funktion <code><a href="#subvar">subvar</a></code>
- hat die gleiche Funktionalit&auml;t wie
 <code>arrayapply</code>.
 </p>
 <pre class="example">(%i1) a[1,2]: 12;
@@ -2979,31 +2860,25 @@ oder eine indizierte Funktion sein.
 <p>F&uuml;r ein deklarierte Array gibt <code>arrayinfo</code> eine Liste zur&uuml;ck, die 
 <code>declared</code>, die Zahl der Dimensionen und die Gr&ouml;&szlig;e der Dimensionen 
 enth&auml;lt.  Die Elemente des Arrays werden von der Funktion <code><a href="#listarray">listarray</a></code>
-
 zur&uuml;ckgegeben.
 </p>
 <p>F&uuml;r ein nicht-deklariertes Array (Hashed-Array) gibt <code>arrayinfo</code> eine
 Liste zur&uuml;ck, die <code>hashed</code>, die Zahl der Indizes und die Indizes
 enth&auml;lt, deren Elemente einen Wert haben.  Die Werte der Elemente werden mit
 der Funktion <code><a href="#listarray">listarray</a></code>
- zur&uuml;ckgegeben.
 </p>
 <p>F&uuml;r Array-Funktionen gibt <code>arrayinfo</code> eine Liste zur&uuml;ck, die 
 <code>hashed</code> die Zahl der Indizes und die Indizes enth&auml;lt, f&uuml;r die 
 Funktionen im Array enthalten sind.  Die Funktionen werden mit der Funktion 
 <code><a href="#listarray">listarray</a></code>
- angezeigt.
 </p>
 <p>F&uuml;r indizierte Funktionen gibt <code>arrayinfo</code> eine Liste zur&uuml;ck, die 
 <code>hashed</code>, die Zahl der Indizes und die Indizes enth&auml;lt, f&uuml;r die 
 Lambda-Ausdr&uuml;cke vorhanden sind.  Die <code><a href="maxima_25.html#lambda">lambda</a></code>
--Ausdr&uuml;cke werden von der
 Funktion <code><a href="#listarray">listarray</a></code>
- angezeigt.
 </p>
 <p>Die Funktion <code>arrayinfo</code> kann auch f&uuml;r Lisp-Arrays angewendet werden,
 die mit der Funktion <code><a href="#make_005farray">make_array</a></code>
- erzeugt werden.
 </p>
 <p>Beispiele:
 </p>
@@ -3085,15 +2960,12 @@ Array.
 Ergebnis ist eine nicht ausgewertete Referenz auf ein Element des Arrays
 <var>A</var>.  <code>arraymake</code> ist vergleichbar mit der Funktion <code><a href="maxima_25.html#funmake">funmake</a></code>.
 </p>
-
 <p>Ist das Array <var>A</var> ein Lisp-Array, wie es mit der Funktion 
 <code><a href="#make_005farray">make_array</a></code>
- erzeugt wird, dann gibt <code>arraymake</code> einen Lisp-Fehler
 zur&uuml;ck.  Das ist ein Programmfehler.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#arrayapply">arrayapply</a></code>
- und <code><a href="#subvar">subvar</a></code>,
- die die
+<code><a href="#subvar">subvar</a></code>,
 Referenz auswerten.
 </p>
 <p>Beispiele:
@@ -3142,17 +3014,12 @@ Referenz auswerten.
 <dd><p>Standardwert: <code>[]</code>
 </p>
 <p><code>arrays</code> ist eine Informationsliste <code><a href="maxima_4.html#infolists">infolists</a></code>
- der vom Nutzer 
 definierten Arrays.  Die Liste enth&auml;lt deklarierte Arrays, nicht-deklarierte
 Arrays und Array-Funktionen, die der Nutzer mit dem Operator <code><a href="maxima_7.html#g_t_003a_003d">:=</a></code>
- oder der
 Funktion <code><a href="maxima_25.html#define">define</a></code>
- definiert hat.  Dagegen sind Arrays, die mit
 <code><a href="#make_005farray">make_array</a></code>
- definiert sind, nicht in der Liste enthalten.
 </p>
 <p>Siehe auch die Funktion <code><a href="#array">array</a></code>,
- um ein Array zu definieren.
 </p>
 <p>Beispiele:
 </p>
@@ -3191,8 +3058,7 @@ restlichen Elemente mit dem letzten Wert von <var>B</var> aufgef&uuml;llt.
 <p><code>fillarray</code> gibt das erste Argument zur&uuml;ck.
 </p>
 <p>Siehe die Funktionen <code><a href="#array">array</a></code>
- und <code><a href="#make_005farray">make_array</a></code>,
- um ein Array
+<code><a href="#make_005farray">make_array</a></code>,
 zu definieren.
 </p>
 <p>Beispiele:
@@ -3245,12 +3111,10 @@ indizierte Funktion sein.
 <p>Die Elemente werden zeilenweise ausgegeben.  F&uuml;r nicht-deklarierte Arrays mit
 Indizes, die keine ganze Zahlen sind, wird die Sortierung von der
 Aussagefunktion <code><a href="maxima_6.html#orderlessp">orderlessp</a></code>
- bestimmt.
 </p>
 <p>F&uuml;r nicht-deklarierte Arrays, Array-Funktionen und indizierte Funktionen
 werden die Elemente in der Reihenfolge wie von der Funktion 
 <code><a href="#arrayinfo">arrayinfo</a></code>
- zur&uuml;ckgegeben.
 </p>
 <p>Elemente von deklarierten Arrays, denen noch kein Wert zugewiesen wurde und die
 keinen Typ haben, werden als <code>#####</code> zur&uuml;ckgegeben.  Elemente von
@@ -3259,13 +3123,11 @@ und 0.0 f&uuml;r den Typ <code>flonum</code> zur&uuml;ck.
 </p>
 <p>Ist das Argument <var>A</var> ein Lisp-Array, wie es von der Funktion
 <code><a href="#make_005farray">make_array</a></code>
- erzeugt wird, generiert Maxima einen Lisp-Fehler.  Das ist ein
 Programmfehler.
 </p>
 <p>Beispiele:
 </p>
 <p>Anwendung der Funktionen <code>listarray</code> und <code><a href="#arrayinfo">arrayinfo</a></code>
- f&uuml;r ein
 deklariertes Array.
 </p>
 <pre class="example">(%i1) array (aa, 2, 3);
@@ -3281,7 +3143,6 @@ deklariertes Array.
 (%o5)                 [declared, 2, [2, 3]]
 </pre>
 <p>Anwendung der Funktionen <code>listarray</code> und <code><a href="#arrayinfo">arrayinfo</a></code>
- f&uuml;r ein
 nicht-deklariertes Array.
 </p>
 <pre class="example">(%i1) bb [FOO] : (a + b)^2;
@@ -3297,7 +3158,6 @@ nicht-deklariertes Array.
 (%o4)               [hashed, 1, [BAR], [FOO]]
 </pre>
 <p>Anwendung der Funktionen <code>listarray</code> und <code><a href="#arrayinfo">arrayinfo</a></code>
- f&uuml;r eine
 Array-Funktion.
 </p>
 <pre class="example">(%i1) cc [x, y] := y / x;
@@ -3320,7 +3180,6 @@ Array-Funktion.
 (%o5)              [hashed, 2, [4, z], [u, v]]
 </pre>
 <p>Anwendung der Funktionen <code>listarray</code> und <code><a href="#arrayinfo">arrayinfo</a></code>
- f&uuml;r ein
 indizierte Funktion.
 </p>
 <pre class="example">(%i1) dd [x] (y) := y ^ x;
@@ -3353,17 +3212,14 @@ einschlie&szlig;lich <em><var>dim_i</var>-1</em>.
 
 <p>Die meisten Funktionen, die auf ein Array angewendet werden k&ouml;nnen, das mit
 der Funktion <code><a href="#array">array</a></code>
- definiert wurde, k&ouml;nnen auch auf Lisp-Arrays
 angewendet werden.  Einige Funktionalit&auml;ten stehen jedoch nicht zur
 Verf&uuml;gung.  Dies ist auf eine unzureichende Implementation der Lisp-Arrays
 zur&uuml;ckzuf&uuml;hren und kann als Programmfehler betrachtet werden.  Hinweise auf
 Einschr&auml;nkungen sind bei den einzelnen Funktionen f&uuml;r Arrays zu finden.
 </p>
 <p>Erh&auml;lt die Optionsvariable <code><a href="#use_005ffast_005farrays">use_fast_arrays</a></code>
- den Wert <code>true</code>,
 erzeugt Maxima ausschlie&szlig;lich Lisp-Arrays.  Dies trifft auch auf die
 Funktion <code><a href="#array">array</a></code>
- zu.  Wie bereits oben erl&auml;utert, ist in diesem Fall
 jedoch mit einer eingeschr&auml;nkten Funktionalit&auml;t zu rechnen.
 </p>
 <p>Beispiele:
@@ -3414,8 +3270,7 @@ entsprechend dem Typ des Arrays mit <code>false</code>, <code>0.0</code> oder <c
 aufgef&uuml;llt.
 </p>
 <p>Siehe die Funktionen <code><a href="#array">array</a></code>
- und <code><a href="#make_005farray">make_array</a></code>,
- um ein Array
+<code><a href="#make_005farray">make_array</a></code>,
 zu definieren.
 </p>
 <p>Beispiel:
@@ -3448,7 +3303,6 @@ sowie Array-Funktionen und indizierte Funktionen sein.
 </p>
 <p><code>remarray(all)</code> entfernt alle Arrays, die in der Informationsliste
 <code><a href="#arrays">arrays</a></code>
- enthalten sind.
 </p>
 <p><code>remarray</code> gibt eine Liste der Arrays zur&uuml;ck, die entfernt wurden.
 <code>remarray</code> wertet die Argumente nicht aus.
@@ -3463,9 +3317,7 @@ sowie Array-Funktionen und indizierte Funktionen sein.
 <code>subvar</code> wertet die Argumente aus.
 </p>
 <p>Siehe die Funktion <code><a href="#arrayapply">arrayapply</a></code>,
- die dieselbe Funktionalit&auml;t hat, und
 die Funktion <code><a href="#arraymake">arraymake</a></code>,
- die eine Referenz auf das Array-Element
 zur&uuml;ckgibt, ohne diese auszuwerten.
 </p>
 <p>Beispiele:
@@ -3502,12 +3354,9 @@ Beispiel <code>a[i]</code> ist.
 <dd><p>Standardwert: <code>false</code>
 </p>
 <p>Erh&auml;lt die Optionsvariable <code><a href="#use_005ffast_005farrays">use_fast_arrays</a></code>
- den Wert <code>true</code>,
 erzeugt Maxima ausschlie&szlig;lich Lisp-Arrays, wie sie auch von der Funktion
 <code><a href="#make_005farray">make_array</a></code>
- erzeugt werden.  Dies trifft auch auf die Funktion 
 <code><a href="#array">array</a></code>
- zu.  Der Vorteil der Lisp-Arrays ist, dass diese effizienter sind.
 </p>
 <p>Die Implementation der Lisp-Arrays ist jedoch nicht vollst&auml;ndig ausgef&uuml;hrt,
 so dass es zu einer eingeschr&auml;nkten Funktionalit&auml;t kommt.  Dies ist ein 
@@ -3515,7 +3364,6 @@ Programmfehler.  Hinweise auf einzelne Einschr&auml;nkungen sind bei den einzeln
 Funktionen zu finden.
 </p>
 <p>Siehe die Funktion <code><a href="#make_005farray">make_array</a></code>
- f&uuml;r weitere Ausf&uuml;hrungen zu
 Lisp-Arrays.
 </p></dd></dl>
 
@@ -3581,13 +3429,9 @@ sein.
 </p>
 
 <p>Eine Struktur wird mit der Funktion <code><a href="#defstruct">defstruct</a></code>
- definiert.  Die
 Informationsliste <code><a href="#structures">structures</a></code>
- enth&auml;lt die vom Nutzer definierten
 Strukturen.  Die Funktion <code><a href="#new">new</a></code>
- generiert eine neue Instanz einer
 Struktur.  Mit dem Operator <code><a href="#g_t_0040">@</a></code>
- wird auf die Felder einer Struktur
 zugegriffen.  Mit dem Kommando <code>kill(<var>S</var>)</code> wird die Definition der
 Struktur <code>S</code> gel&ouml;scht.  Mit dem Kommando <code>kill(<var>x</var>@<var>a</var>)</code>
 wird das Feld <var>a</var> der Instanz <var>x</var> einer Struktur gel&ouml;scht.
@@ -3598,7 +3442,6 @@ Gleichung angezeigt.  Die linke Seite der Gleichung ist der Feldname und die
 rechte Seite der Gleichung ist der Wert des Feldes.  Die Gleichungen werden
 nur in der Anzeige gezeigt und werden nicht als Teil der Struktur gespeichert.
 In der 1D-Anzeige und bei der Ausgabe mit der Funktion <code><a href="maxima_4.html#grind">grind</a></code>
- werden
 nur die Werte der Felder ausgegeben.
 </p>
 
@@ -3638,7 +3481,6 @@ werden.
 <dd>
 <p><code>structures</code> ist eine Informationsliste, die die vom Benutzer mit der
 Funktion <code><a href="#defstruct">defstruct</a></code>
- definierten Strukturen enth&auml;lt.
 </p></dd></dl>
 
 <p><a name="defstruct"></a>
@@ -3657,7 +3499,6 @@ die die Werte der Felder sind.  Mit dem Kommando <code>new(<var>S</var></code> w
 neue Instanz einer Struktur <var>S</var> generiert.  Siehe auch <code><a href="#new">new</a></code>.
 </p>
 
-
 <p>Mit einem Symbol <var>a</var> als Argument wird der Name eines Feldes bezeichnet.
 Mit einer Gleichung <code><var>a</var> = <var>v</var></code> wird der Name des Feldes als
 <var>a</var> bezeichnet und ein Standardwert <var>v</var> definiert.  Der Standardwert
@@ -3666,7 +3507,6 @@ Mit einer Gleichung <code><var>a</var> = <var>v</var></code> wird der Name des F
 
 <p><code>defstruct</code> legt die Definition der Struktur <var>S</var> in der
 Informationsliste <code><a href="#structures">structures</a></code>
- ab.
 </p>
 
 <p>Mit dem Kommando <code>kill(<var>S</var>)</code> wird die Definition einer Struktur
@@ -3706,7 +3546,6 @@ gel&ouml;scht und von der Informationsliste <code>structures</code> entfernt.
 
 <p>Das Kommando <code>new(<var>S</var>)</code> erzeugt eine neue Instanz der Struktur <var>S</var>,
 die mit der Funktion <code><a href="#defstruct">defstruct</a></code>
- definiert wurde.  Die Felder werden mit
 den Standardwerten belegt, wenn die Definition der Struktur Standardwerte
 enth&auml;lt.  Ansonsten erhalten die Felder keine Werte.
 </p>
@@ -3801,7 +3640,7 @@ einer Struktur.  Der Feldname wird nicht ausgewertet.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>September, 1 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

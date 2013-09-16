@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 1 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -213,15 +213,12 @@ div.categorybox
 <h3 class="subsection"> 25.1.1 Gew&ouml;hnliche Funktionen </h3>
 
 <p>Eine Maxima-Funktion wird mit dem Operator <code><a href="maxima_7.html#g_t_003a_003d">:=</a></code>
- oder der Funktion
 <code><a href="#define">define</a></code>
- definiert.  Im folgenden wird die Funktion <code>f</code> mit
 dem Operator <code>:=</code> definiert:
 </p>
 <pre class="example">f(x) := sin(x)
 </pre>
 <p>Funktionen, die mit der Funktion <code><a href="#lambda">lambda</a></code>
- definiert werden, sind anonyme 
 Funktionen, die keinen Namen haben.  Diese werden auch <code>lambda</code>-Ausdr&uuml;cke
 genannt:
 </p>
@@ -253,10 +250,8 @@ Ergebnis der Funktion ist der Wert des letzten Ausdrucks <code>exprn</code>:
 <pre class="example">f(x) := (expr1, expr2, ...., exprn);
 </pre>
 <p>Ein R&uuml;cksprung mit der Anweisung <code><a href="maxima_27.html#return">return</a></code>
- aus einer Funktion ist 
 m&ouml;glich, wenn die Definition der Funktion in einen Block eingef&uuml;gt wird.
 Ein Block wird mit der <code><a href="maxima_27.html#block">block</a></code>
--Anweisung definiert.  Das folgende Beispiel 
 hat entweder den Wert <code>a</code> oder den Wert des Ausdrucks <var>exprn</var> als 
 Ergebnis:
 </p>
@@ -293,9 +288,7 @@ Variable behandelt.  Die folgende Definition
 </pre>
 <p>Soll die rechte Seite einer Funktionsdefinition ausgewertet werden,
 kann die Funktionen <code><a href="#define">define</a></code>
- f&uuml;r die Definition der Funktion verwendet
 werden.  Mit der Funktion <code><a href="#buildq">buildq</a></code>
- kann die Definition einer Funktion
 konstruiert werden, wobei die Auswertung gezielt kontrolliert werden kann.
 </p>
 <p><a name="Array_002dFunktionen"></a>
@@ -344,16 +337,12 @@ Evaluation took 23.9250 seconds (26.0790 elapsed) using 3829.778 MB.
 Evaluation took 0.0000 seconds (0.0000 elapsed) using 0 bytes. 
 </pre>
 <p>Die Namen der Array-Funktionen werden in die Informationsliste <code><a href="maxima_5.html#arrays">arrays</a></code>
-
 und nicht in die Liste <code><a href="#functions">functions</a></code>
- eingetragen.  <code><a href="maxima_5.html#arrayinfo">arrayinfo</a></code>
- gibt eine
+<code><a href="maxima_5.html#arrayinfo">arrayinfo</a></code>
 Liste der Argumente zur&uuml;ck, f&uuml;r die Werte gespeichert sind und 
 <code><a href="maxima_5.html#listarray">listarray</a></code>
- gibt die Werte zur&uuml;ck.  Die Funktionen <code><a href="#dispfun">dispfun</a></code>
- und
+<code><a href="#dispfun">dispfun</a></code>
 <code><a href="#fundef">fundef</a></code>
- geben die Definition der Array-Funktion zur&uuml;ck.
 </p>
 <p>Beispiele:
 </p>
@@ -369,24 +358,17 @@ Liste der Argumente zur&uuml;ck, f&uuml;r die Werte gespeichert sind und
 (%o7)                         [%t7]
 </pre>
 <p><code><a href="maxima_5.html#arraymake">arraymake</a></code>
- erzeugt den Aufruf einer Array-Funktion.  Dies ist analog zu
 der Funktion <code><a href="#funmake">funmake</a></code>
- f&uuml;r gew&ouml;hnliche Funktionen.
 <code><a href="maxima_5.html#arrayapply">arrayapply</a></code>
- wendet eine Array-Funktion auf die Argumente an.  Dies
 entspricht der Funktion <code><a href="#apply">apply</a></code>
- f&uuml;r gew&ouml;hnliche Funktionen.  Die
 Funktion <code><a href="#map">map</a></code>
- hat keine Entsprechung f&uuml;r Array-Funktionen.
 Vergleichbare Konstruktionen sind
 <code>map(lambda([<var>x</var>], <var>a</var>[<var>x</var>]), <var>L</var>)</code> oder 
 <code>makelist(<var>a</var>[<var>x</var>], <var>x</var>, <var>L</var>)</code>, wobei <var>L</var> eine Liste
 ist.
 </p>
 <p><code><a href="maxima_5.html#remarray">remarray</a></code>
- entfernt die Definition einer Array-Funktion einschlie&szlig;lich 
 der gespeicherten Werte.  Dies entspricht <code><a href="#remfunction">remfunction</a></code>
- f&uuml;r gew&ouml;hnliche
 Funktionen.
 </p>
 <p><code>kill(<var>a</var>[<var>x</var>])</code> entfernt den f&uuml;r das Argument <var>x</var> 
@@ -421,7 +403,7 @@ der Funktion.
 <p><a name="buildq"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>buildq</b><i> (<var>L</var>, <var>expr</var>)</i>
-<a name="IDX1390"></a>
+<a name="IDX1399"></a>
 </dt>
 <dd><p>Die Variablen der Liste <var>L</var> werden in den Ausdruck <var>expr</var> substituiert.
 Die Substitution wird parallel ausgef&uuml;hrt.  Das Ergebnis der Substitution wird
@@ -441,7 +423,6 @@ Ausdruck <var>expr</var> substituiert.
 Variable <var>x</var> eine Liste sein.  Die Liste wird in den Ausdruck eingef&uuml;gt.
 Siehe auch <code><a href="#splice">splice</a></code>.
 </p>
-
 <p>Variablen in in dem Ausdruck <var>expr</var>, die nicht in <var>L</var> enthalten sind,
 werden nicht durch einen Wert ersetzt, auch wenn es eine globale Variable mit
 demselben Namen gibt, da der Ausdruck nicht ausgewertet wird.
@@ -452,7 +433,6 @@ demselben Namen gibt, da der Ausdruck nicht ausgewertet wird.
 den globalen Wert.  Die Variable <code>c</code> hat keinen Wert.  Das Ergebnis ist
 ein nicht ausgewerteter Ausdruck.  Die Auswertung wird mit dem 
 <a href="maxima_8.html#g_t_0027_0027">Quote-Quote-Operator</a>
- <code>''</code> erzwungen.
 </p>
 <pre class="example">(%i1) (a: 17, b: 29, c: 1729)$
 (%i2) buildq ([a: x, b], a + b + c);
@@ -481,7 +461,6 @@ beiden folgenden Beispiele dasselbe Ergebnis.
 das erste Ergebnis <code>foo(b,b)</code>.  Substitutionen werden parallel 
 ausgef&uuml;hrt.  Im Gegensatz dazu werden die Substitutionen mit der Funktion 
 <code><a href="maxima_6.html#subst">subst</a></code>
- nacheinander ausgef&uuml;hrt.
 </p>
 <pre class="example">(%i1) buildq ([a: b, b: a], foo (a, b));
 (%o1)                       foo(b, a)
@@ -495,7 +474,6 @@ ausgef&uuml;hrt.  Im Gegensatz dazu werden die Substitutionen mit der Funktion
 <p>Konstruktion einer Liste mit Gleichungen mit Variablen oder Ausdr&uuml;cken auf 
 der linken Seite und deren Werten auf der rechten Seite.  Die Funktion
 <code><a href="#macroexpand">macroexpand</a></code>
- expandiert das Makro <code>show_values</code>.
 </p>
 <pre class="example">(%i1) show_values ([L]) ::= buildq ([L], map (&quot;=&quot;, 'L, L))$
 (%i2) (a: 17, b: 29, c: 1729)$
@@ -517,7 +495,7 @@ der linken Seite und deren Werten auf der rechten Seite.  Die Funktion
 <p><a name="macroexpand"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>macroexpand</b><i> (<var>expr</var>)</i>
-<a name="IDX1391"></a>
+<a name="IDX1400"></a>
 </dt>
 <dd><p>Ist das Argument <var>expr</var> ein Makro, wird das Makro expandiert, ohne dass es 
 ausgewertet wird.  Ansonsten wird <var>expr</var> zur&uuml;ckgegeben.
@@ -529,9 +507,8 @@ expandiert.
 des Makros Seiteneffekte, dann werden diese ausgef&uuml;hrt.
 </p>
 <p>Siehe auch <code><a href="maxima_7.html#g_t_003a_003a_003d">::=</a></code>
- und <code><a href="#macroexpand1">macroexpand1</a></code>.
+<code><a href="#macroexpand1">macroexpand1</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) g (x) ::= x / 99;
@@ -555,7 +532,7 @@ des Makros Seiteneffekte, dann werden diese ausgef&uuml;hrt.
 <p><a name="macroexpand1"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>macroexpand1</b><i> (<var>expr</var>)</i>
-<a name="IDX1392"></a>
+<a name="IDX1401"></a>
 </dt>
 <dd><p>Gibt die Makro-Expansion von <var>expr</var> zur&uuml;ck, ohne das Ergebnis auszuwerten.
 Ist <var>expr</var> keine Makro-Funktion gibt <code>macroexpand1</code> das Argument
@@ -568,9 +545,8 @@ Seiteneffekte, dann werden diese ausgef&uuml;hrt.
 zur Funktion <code>macroexpand</code> nicht expandiert.
 </p>
 <p>Siehe auch <code><a href="maxima_7.html#g_t_003a_003a_003d">::=</a></code>
- und <code><a href="#macroexpand">macroexpand</a></code>.
+<code><a href="#macroexpand">macroexpand</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) g (x) ::= x / 99;
@@ -590,7 +566,7 @@ zur Funktion <code>macroexpand</code> nicht expandiert.
 
 <dl>
 <dt><u>Optionsvariable:</u> <b>macroexpansion</b>
-<a name="IDX1393"></a>
+<a name="IDX1402"></a>
 </dt>
 <dd><p>Standardwert: <code>false</code>
 </p>
@@ -729,30 +705,26 @@ x + 99 is equal to x
 <p><a name="macros"></a>
 </p><dl>
 <dt><u>Systemvariable:</u> <b>macros</b>
-<a name="IDX1394"></a>
+<a name="IDX1403"></a>
 </dt>
 <dd><p>Standardwert: <code>[]</code>
 </p>
 <p>Die Systemvariable <code>macros</code> ist eine Informationsliste, die die vom Nutzer
 mit dem Operator <code><a href="maxima_7.html#g_t_003a_003a_003d">::=</a></code>
- definierten Makros enth&auml;lt.  Wird das Makro mit
 einer der Funktionen <code><a href="maxima_4.html#kill">kill</a></code>,
- <code><a href="maxima_11.html#remove">remove</a></code>
- oder <code><a href="#remfunction">remfunction</a></code>
-</p>
-<p>gel&ouml;scht, wird der Eintrag aus der Informationsliste entfernt.  Siehe auch die
+<code><a href="maxima_11.html#remove">remove</a></code>
+<code><a href="#remfunction">remfunction</a></code>
+gel&ouml;scht, wird der Eintrag aus der Informationsliste entfernt.  Siehe auch die
 Systemvariable <code><a href="maxima_4.html#infolists">infolists</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="splice"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>splice</b><i> (<var>a</var>)</i>
-<a name="IDX1395"></a>
+<a name="IDX1404"></a>
 </dt>
 <dd><p>Die Funktion <code>splice</code> kann nur im Zusammenhang mit der Funktion 
 <code><a href="#buildq">buildq</a></code>
- verwendet werden.  Das Argument <var>a</var> bezeichnet eine Liste, die
 an Stelle von <code>splice(a)</code> in einen Ausdruck eingef&uuml;gt wird.  <var>a</var> kann
 nicht selbst eine Liste oder ein Ausdruck sein, der zu einer Liste auswertet.
 </p>
@@ -796,7 +768,7 @@ nicht selbst eine Liste oder ein Ausdruck sein, der zu einer Liste auswertet.
 <p><a name="apply"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>apply</b><i> (<var>F</var>, [<var>x_1</var>, &hellip;, <var>x_n</var>])</i>
-<a name="IDX1396"></a>
+<a name="IDX1405"></a>
 </dt>
 <dd><p>Konstruiert den Ausdruck <code><var>F</var>(<var>arg_1</var>, ..., <var>arg_n</var>)</code> und 
 wertet diesen aus.
@@ -804,14 +776,12 @@ wertet diesen aus.
 <p><code>apply</code> versucht nicht Array-Funktionen von gew&ouml;hnlichen Funktionen zu
 unterscheiden.  Ist <var>F</var> der Name eine Array-Funktion, wertet <code>apply</code>
 den Ausdruck <code><var>F</var>(...)</code> aus.  <code><a href="maxima_5.html#arrayapply">arrayapply</a></code>
- entspricht der 
 Funktion <code>apply</code>, wenn <var>F</var> eine Array-Funktion ist.
 </p>
 <p>Beispiele:
 </p>
 <p><code>apply</code> wertet die Argumente aus.  In diesem Beispiel wird die Funktion
 <code><a href="maxima_10.html#min">min</a></code>
- auf die Liste <code>L</code> angewendet.
 </p>
 <pre class="example">(%i1) L : [1, 5, -10.2, 4, 3];
 (%o1)                 [1, 5, - 10.2, 4, 3]
@@ -845,9 +815,7 @@ fname is not the name of a user function.
 </pre>
 <p><code>apply</code> wertet den Namen der Funktion <var>F</var> aus.  Mit dem
 <a href="maxima_8.html#g_t_0027">Quote-Operator</a>
- <code>'</code> wird die Auswertung unterdr&uuml;ckt.
 <code><a href="maxima_9.html#demoivre">demoivre</a></code>
- ist der Name einer globalen Optionsvariable und einer Funktion.
 </p>
 <pre class="example">(%i1) demoivre;
 (%o1)                         false
@@ -864,19 +832,19 @@ Improper name or value in functional position.
 <p><a name="define"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>define</b><i> (<var>f</var>(<var>x_1</var>, &hellip;, <var>x_n</var>), <var>expr</var>)</i>
-<a name="IDX1397"></a>
+<a name="IDX1406"></a>
 </dt>
 <dt><u>Funktion:</u> <b>define</b><i> (<var>f</var>[<var>x_1</var>, &hellip;, <var>x_n</var>], <var>expr</var>)</i>
-<a name="IDX1398"></a>
+<a name="IDX1407"></a>
 </dt>
 <dt><u>Funktion:</u> <b>define</b><i> (funmake (<var>f</var>, [<var>x_1</var>, &hellip;, <var>x_n</var>]), <var>expr</var>)</i>
-<a name="IDX1399"></a>
+<a name="IDX1408"></a>
 </dt>
 <dt><u>Funktion:</u> <b>define</b><i> (arraymake (<var>f</var>, [<var>x_1</var>, &hellip;, <var>x_n</var>]), <var>expr</var>)</i>
-<a name="IDX1400"></a>
+<a name="IDX1409"></a>
 </dt>
 <dt><u>Funktion:</u> <b>define</b><i> (ev (<var>expr_1</var>), <var>expr_2</var>)</i>
-<a name="IDX1401"></a>
+<a name="IDX1410"></a>
 </dt>
 <dd><p>Definiert eine Funktion mit dem Namen <var>f</var> und den Argumenten <var>x1</var>, 
 &hellip;, <var>x_n</var> und der Funktionsdefinition <var>expr</var>.  <code>define</code>
@@ -896,9 +864,8 @@ bereits eine Funktion mit dem Namen <var>f</var> gibt.
 </p>
 <p>Das erste Argument wird dann ausgewertet, wenn es ein Ausdruck mit den 
 Funktionen <code><a href="#funmake">funmake</a></code>,
- <code><a href="maxima_5.html#arraymake">arraymake</a></code>
- oder <code><a href="maxima_8.html#ev">ev</a></code>
- ist.
+<code><a href="maxima_5.html#arraymake">arraymake</a></code>
+<code><a href="maxima_8.html#ev">ev</a></code>
 </p>
 <p>Alle Funktionsdefinitionen treten in demselben Namensraum auf.  Die Definition
 einer Funktion <code>g</code> innerhalb einer Funktion <code>f</code> f&uuml;hrt nicht 
@@ -906,15 +873,13 @@ automatisch zu einer lokalen Definition.  Um eine lokale Funktion zu erhalten,
 kann <code>lokal(g)</code> innerhalb der Funktion <code>f</code> ausgef&uuml;hrt werden.
 Siehe auch <code><a href="maxima_27.html#local">local</a></code>.
 </p>
-
 <p>Ist eines der Argumente <var>x_k</var> nach der Auswertung ein quotiertes Symbol,
 wertet die mit <code>define</code> definierte Funktion das Argument nicht aus.
 Alle weiteren Argumente der Funktion werden ausgewertet.
 </p>
 <p>Siehe auch <code><a href="maxima_7.html#g_t_003a_003d">:=</a></code>
- und <code><a href="maxima_7.html#g_t_003a_003a_003d">::=</a></code>.
+<code><a href="maxima_7.html#g_t_003a_003a_003d">::=</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p><code>define</code> wertet das zweite Argument aus.
@@ -970,7 +935,7 @@ Argumenten.
 <p><a name="define_005fvariable"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>define_variable</b><i> (<var>name</var>, <var>default_value</var>, <var>mode</var>)</i>
-<a name="IDX1402"></a>
+<a name="IDX1411"></a>
 </dt>
 <dd><p>Definiert eine globale Variable in der Maxima-Umgebung.  <code>define_variable</code>
 ist n&uuml;tzlich f&uuml;r das Schreiben von Paketen, die h&auml;ufig &uuml;bersetzt oder 
@@ -980,7 +945,6 @@ kompiliert werden.  <code>define_variable</code> f&uuml;hrt die folgenden Schrit
 <li>
 <code>mode_declare(<var>name</var>, <var>mode</var>)</code> deklariert den Typ der Variablen
 <var>name</var> f&uuml;r den &Uuml;bersetzer.  Siehe <code><a href="maxima_28.html#mode_005fdeclare">mode_declare</a></code>
- f&uuml;r eine Liste 
 der m&ouml;glichen Typen.
 
 </li><li>
@@ -1073,10 +1037,10 @@ Cannot assign to `baz_quux'.
 <p><a name="dispfun"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>dispfun</b><i> (<var>f_1</var>, &hellip;, <var>f_n</var>)</i>
-<a name="IDX1403"></a>
+<a name="IDX1412"></a>
 </dt>
 <dt><u>Funktion:</u> <b>dispfun</b><i> (all)</i>
-<a name="IDX1404"></a>
+<a name="IDX1413"></a>
 </dt>
 <dd><p>Zeigt die Definitionen der nutzerdefinierten Funktionen <var>f_1</var>, &hellip;, 
 <var>f_n</var> an.  Die Argumente k&ouml;nnen gew&ouml;hnliche Funktionen, Makros, 
@@ -1084,15 +1048,12 @@ Array-Funktionen oder indizierte Funktionen sein.
 </p>
 <p><code>dispfun(all)</code> zeigt die Definitionen aller nutzerdefinierten Funktionen
 an, die in den Informationslisten <code><a href="#functions">functions</a></code>,
- <code><a href="maxima_5.html#arrays">arrays</a></code>
- oder
+<code><a href="maxima_5.html#arrays">arrays</a></code>
 <code><a href="#macros">macros</a></code>
- enthalten sind.
 </p>
 <p><code>dispfun</code> erzeugt Zwischenmarken <code>%t</code> f&uuml;r jede einzelne anzuzeigende
 Funktion und weist die Funktionsdefinitionen den Zwischenmarken zu.  Im 
 Gegensatz dazu, zeigt die Funktion <code><a href="#fundef">fundef</a></code>
- die Funktionsdefinition ohne
 Zwischenmarken an.
 </p>
 <p><code>dispfun</code> wertet die Argumente nicht aus.  <code>dispfun</code> gibt eine Liste
@@ -1161,10 +1122,9 @@ mit den Zwischenmarken zur&uuml;ck, die zu den angezeigten Funktionen geh&ouml;r
 <p><a name="fullmap"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>fullmap</b><i> (<var>f</var>, <var>expr_1</var>, &hellip;)</i>
-<a name="IDX1405"></a>
+<a name="IDX1414"></a>
 </dt>
 <dd><p>Die Funktion <code>fullmap</code> ist vergleichbar mit der Funktion <code><a href="#map">map</a></code>.
-
 Im  Unterschied zu der Funktion <code>map</code> kann <code>fullmap</code> auf
 verschachtelte Ausdr&uuml;cke angewendet werden.
 </p>
@@ -1186,10 +1146,9 @@ aufgerufen wurde.
 <p><a name="fullmapl"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>fullmapl</b><i> (<var>f</var>, <var>list_1</var>, &hellip;)</i>
-<a name="IDX1406"></a>
+<a name="IDX1415"></a>
 </dt>
 <dd><p>Die Funktion <code>fullmapl</code> ist vergleichbar mit <code><a href="#fullmap">fullmap</a></code>.
-
 <code>fullmapl</code> kann jedoch nur auf Matrizen und Listen angewendet werden kann.
 </p>
 <p>Beispiele:
@@ -1201,21 +1160,18 @@ aufgerufen wurde.
 <p><a name="functions"></a>
 </p><dl>
 <dt><u>Systemvariable:</u> <b>functions</b>
-<a name="IDX1407"></a>
+<a name="IDX1416"></a>
 </dt>
 <dd><p>Standardwert: <code>[]</code>
 </p>
 <p><code>functions</code> ist eine Informationsliste, die die vom Nutzer mit dem
 Operator <code><a href="maxima_7.html#g_t_003a_003d">:=</a></code>
- oder der Funktion <code><a href="#define">define</a></code>
- definierten Funktionen
+<code><a href="#define">define</a></code>
 enth&auml;lt.  Siehe auch die Systemvariable <code><a href="maxima_4.html#infolists">infolists</a></code>.
 </p>
-
 <p>Array-Funktionen und indizierte Funktionen werden nicht in die Informationsliste
 <code><a href="#functions">functions</a></code>,
- sondern in die Informationsliste <code><a href="maxima_5.html#arrays">arrays</a></code>
-
+<code><a href="maxima_5.html#arrays">arrays</a></code>
 eingetragen.
 </p>
 <p>Beispiele:
@@ -1251,7 +1207,7 @@ eingetragen.
 <p><a name="fundef"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>fundef</b><i> (<var>f</var>)</i>
-<a name="IDX1408"></a>
+<a name="IDX1417"></a>
 </dt>
 <dd><p>Gibt die Definition der Funktion <var>f</var> zur&uuml;ck.
 </p>
@@ -1259,13 +1215,12 @@ eingetragen.
 Array-Funktion oder eine indizierte Funktion sein.
 </p>
 <p><code>fundef</code> wertet das Argument aus.  Siehe auch <code><a href="#dispfun">dispfun</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="funmake"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>funmake</b><i> (<var>F</var>, [<var>arg_1</var>, &hellip;, <var>arg_n</var>])</i>
-<a name="IDX1409"></a>
+<a name="IDX1418"></a>
 </dt>
 <dd><p>Gibt den Ausdruck <code><var>F</var>(<var>arg_1</var>, ..., <var>arg_n</var>)</code> zur&uuml;ck.  Die
 R&uuml;ckgabe wird vereinfacht, aber nicht ausgewertet.  Die Funktion <var>F</var> wird
@@ -1275,7 +1230,6 @@ also nicht aufgerufen, auch wenn diese existiert.
 unterscheiden.  Ist <var>F</var> der Name einer Array-Funktion, dann gibt
 <code>funmake</code> einen Ausdruck der Form <code><var>F</var>(...)</code> zur&uuml;ck.
 F&uuml;r Array-Funktionen kann die Funktion <code><a href="maxima_5.html#arraymake">arraymake</a></code>
- verwendet werden.
 </p>
 <p><code>funmake</code> wertet die Argumente aus.
 </p>
@@ -1355,13 +1309,13 @@ repr&auml;sentiert.
 <p><a name="lambda"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>lambda</b><i> ([<var>x_1</var>, &hellip;, <var>x_m</var>], <var>expr_1</var>, &hellip;, <var>expr_n</var>)</i>
-<a name="IDX1410"></a>
+<a name="IDX1419"></a>
 </dt>
 <dt><u>Funktion:</u> <b>lambda</b><i> ([[<var>L</var>]], <var>expr_1</var>, &hellip;, <var>expr_n</var>)</i>
-<a name="IDX1411"></a>
+<a name="IDX1420"></a>
 </dt>
 <dt><u>Funktion:</u> <b>lambda</b><i> ([<var>x_1</var>, &hellip;, <var>x_m</var>, [<var>L</var>]], <var>expr_1</var>, &hellip;, <var>expr_n</var>)</i>
-<a name="IDX1412"></a>
+<a name="IDX1421"></a>
 </dt>
 <dd><p>Definiert einen Lambda-Ausdruck, der auch als anonyme Funktion bezeichnet wird,
 und gibt diesen zur&uuml;ck.  Die Funktion kann Argumente <var>x_1</var>, &hellip;,
@@ -1385,16 +1339,12 @@ Maxima-Umgebung.
 &hellip;, <var>expr_n</var> nacheinander ausgewertet.  Die Systemvariable <code>%%</code>,
 welche das Ergebnis eines vorhergehendes Ausdrucks enth&auml;lt, kann verwendet 
 werden.  In einem Lambda-Ausdruck k&ouml;nnen die Anweisungen <code><a href="maxima_27.html#catch">catch</a></code>
- und
 <code><a href="maxima_27.html#throw">throw</a></code>
- verwendet werden.
 </p>
 <p>Die <code><a href="maxima_27.html#return">return</a></code>
--Anweisung kann in einem Lambda-Ausdruck nur verwendet werden,
 wenn sie von einer <code>block</code>-Anweisung eingeschlossen wird.  Die 
 <code>return</code>-Anweisung definiert jedoch den R&uuml;ckgabewert des Blocks und nicht 
 des Lambda-Ausdrucks.  Auch die <code><a href="maxima_27.html#go">go</a></code>
--Anweisung kann in einem
 Lambda-Ausdrucks nur in einem Block verwendet werden.
 </p>
 <p><code>lambda</code> wertet die Argumente nicht aus.
@@ -1461,7 +1411,6 @@ Lambda-Ausdr&uuml;cken, au&szlig;er diese werden wieder als lokal erkl&auml;rt.
 <p>Da <code>lambda</code> die Argumente nicht auswertet, definiert der unten angegebene
 Ausdruck <code>i</code> keine Funktion &quot;multipliziere mit <code>a</code>&quot;.  Solch eine
 Funktion kann mit Hilfe der Funktion <code><a href="#buildq">buildq</a></code>
- definiert werden.
 </p>
 <pre class="example">(%i16) i: lambda ([a], lambda ([x], a*x));
 (%o16)            lambda([a], lambda([x], a x))
@@ -1494,7 +1443,7 @@ letzte Argument eine Liste mit einem Element ist.
 <p><a name="map"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>map</b><i> (<var>f</var>, <var>expr_1</var>, &hellip;, <var>expr_n</var>)</i>
-<a name="IDX1413"></a>
+<a name="IDX1422"></a>
 </dt>
 <dd><p>Gibt einen Ausdruck zur&uuml;ck, dessen Hauptoperator derselbe ist, wie der der
 Argumente <var>expr_1</var>, &hellip;, <var>expr_n</var> aber dessen Operanden das Ergebnis
@@ -1503,7 +1452,6 @@ der Anwendung des Operators <var>f</var> auf die Teilausdr&uuml;cke des Ausdruck
 ein Lambda-Ausdruck mit <em>n</em> Argumenten.
 </p>
 <p>Hat <code><a href="#maperror">maperror</a></code>
- den Wert <code>false</code>, wird die Anwendung der Funktion
 <var>f</var> gestoppt, (1) wenn die Anwendung auf den k&uuml;rzesten Ausdruck 
 <var>expr_i</var> beendet ist und die Ausdr&uuml;cke nicht alle dieselbe L&auml;nge haben 
 oder (2) wenn die Ausdr&uuml;cke <var>expr_i</var> einen verschiedenen Typ haben.  Hat 
@@ -1534,7 +1482,7 @@ Fehlermeldung ausgegeben.
 <p><a name="mapatom"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>mapatom</b><i> (<var>expr</var>)</i>
-<a name="IDX1414"></a>
+<a name="IDX1423"></a>
 </dt>
 <dd><p>Gibt den Wert <code>true</code> zur&uuml;ck, wenn der Ausdruck <var>expr</var> von Funktionen 
 die auf Argumente angewendete werden, als ein Atom betrachtet wird.  Als Atome
@@ -1545,7 +1493,7 @@ Gleitkommazahlen, Symbole und indizierte Symbole betrachtet.
 <p><a name="maperror"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>maperror</b>
-<a name="IDX1415"></a>
+<a name="IDX1424"></a>
 </dt>
 <dd><p>Standardwert: <code>true</code>
 </p>
@@ -1560,15 +1508,14 @@ Fehlermeldung ausgegeben.
 <p><a name="mapprint"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>mapprint</b>
-<a name="IDX1416"></a>
+<a name="IDX1425"></a>
 </dt>
 <dd><p>Standardwert: <code>true</code>
 </p>
 <p>Hat <code>mapprint</code> den Wert <code>true</code>, werden verschiedene Informationen von
 den Funktionen <code><a href="#map">map</a></code>,
- <code><a href="#maplist">maplist</a></code>
- und <code><a href="#fullmap">fullmap</a></code>
- ausgegeben.
+<code><a href="#maplist">maplist</a></code>
+<code><a href="#fullmap">fullmap</a></code>
 Dies ist der Fall, wenn die Funktion <code>map</code> die Funktion <code>apply</code>
 aufruft oder wenn f&uuml;r die Funktion <code>map</code> die Argumente eine verschiedene
 L&auml;nge haben.
@@ -1579,21 +1526,20 @@ L&auml;nge haben.
 <p><a name="maplist"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>maplist</b><i> (<var>f</var>, <var>expr_1</var>, &hellip;, <var>expr_n</var>)</i>
-<a name="IDX1417"></a>
+<a name="IDX1426"></a>
 </dt>
 <dd><p>Wendet die Funktion <var>f</var> auf die Ausdr&uuml;cke <var>expr_1</var>, &hellip;, 
 <var>expr_n</var> an und gibt das Ergebnis als eine Liste zur&uuml;ck.  <var>f</var> ist der 
 Name einer Funktion oder ein lambda-Ausdruck.
 </p>
 <p>Im Unterschied zu <code>maplist</code> gibt die Funktion <code><a href="#map">map</a></code>
- einen Ausdruck
 zur&uuml;ck, der denselben Hauptoperator wie die Ausdr&uuml;cke <var>expr_i</var> hat.
 </p></dd></dl>
 
 <p><a name="outermap"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>outermap</b><i> (<var>f</var>, <var>a_1</var>, &hellip;, <var>a_n</var>)</i>
-<a name="IDX1418"></a>
+<a name="IDX1427"></a>
 </dt>
 <dd><p>Wendet die Funktion <var>f</var> auf jedes Element des &auml;u&szlig;eren Produktes der
 Argumente <var>a_1</var> <code>x</code> <var>a_2</var> <code>x</code> &hellip; <code>x</code> <var>a_n</var> an. 
@@ -1607,10 +1553,9 @@ sein.
 <p><code>outermap</code> wertet die Argumente aus.
 </p>
 <p>Siehe auch <code><a href="#map">map</a></code>,
- <code><a href="#maplist">maplist</a></code>
- und <code><a href="#apply">apply</a></code>.
+<code><a href="#maplist">maplist</a></code>
+<code><a href="#apply">apply</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Einfaches Beispiel f&uuml;r <code>outermap</code>.  Die Funktion <code>F</code> ist 
@@ -1708,18 +1653,16 @@ Liste und jedes Element der Liste ist eine Matrix.
 <p><a name="remfunction"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>remfunction</b><i> (<var>f_1</var>, &hellip;, <var>f_n</var>)</i>
-<a name="IDX1419"></a>
+<a name="IDX1428"></a>
 </dt>
 <dt><u>Funktion:</u> <b>remfunction</b><i> (all)</i>
-<a name="IDX1420"></a>
+<a name="IDX1429"></a>
 </dt>
 <dd><p>Hebt die Bindung der Symbole <var>f_1</var>, &hellip;, <var>f_n</var> an ihre
 Funktionsdefinitionen auf.  Die Argumente k&ouml;nnen die Namen von Funktionen 
 sein, die mit dem Operator <code><a href="maxima_7.html#g_t_003a_003d">:=</a></code>
- oder der Funktion <code><a href="#define">define</a></code>
- definiert
+<code><a href="#define">define</a></code>
 wurden sowie Makro-Funktionen, die mit dem Operator <code><a href="maxima_7.html#g_t_003a_003a_003d">::=</a></code>
- definiert wurden.
 </p>
 <p><code>remfunction(all)</code> entfernt alle Bindungen von Funktionsdefinitionen.
 </p>
@@ -1731,17 +1674,16 @@ zur&uuml;ckgegeben, f&uuml;r die es keine Funktionsdefinition gibt.
 </p>
 <p><code>remfunction</code> kann nicht auf Array-Funktionen und indizierte Funktionen
 angewendet werden.  F&uuml;r diese Funktionen kann <code><a href="maxima_5.html#remarray">remarray</a></code>
- verwendet
 werden.
 </p></dd></dl>
 
 <p><a name="scanmap"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>scanmap</b><i> (<var>f</var>, <var>expr</var>)</i>
-<a name="IDX1421"></a>
+<a name="IDX1430"></a>
 </dt>
 <dt><u>Funktion:</u> <b>scanmap</b><i> (<var>f</var>, <var>expr</var>, bottomup)</i>
-<a name="IDX1422"></a>
+<a name="IDX1431"></a>
 </dt>
 <dd><p>Wendet die Funktion <var>f</var> rekursiv auf alle Teilausdr&uuml;cke in <var>expr</var> an.
 Dies kann zum Beispiel verwendet werden, um einen Ausdruck vollst&auml;ndig zu 
@@ -1795,7 +1737,7 @@ scanmap(f,a*x+b,bottomup) -&gt; f(a)*f(x)+f(b)
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>September, 1 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2012年12月月12日 by texi2html 1.82
+<!-- Created on 2013年9月月4日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.29.1 Manual: 74. simplification</title>
+<title>Maxima 5.31.0 Manual: 74. solve_rec</title>
 
-<meta name="description" content="Maxima 5.29.1 Manual: 74. simplification">
-<meta name="keywords" content="Maxima 5.29.1 Manual: 74. simplification">
+<meta name="description" content="Maxima 5.31.0 Manual: 74. solve_rec">
+<meta name="keywords" content="Maxima 5.31.0 Manual: 74. solve_rec">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -138,6 +138,7 @@ div.categorybox
 </style>
 
 <link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+
 <script type="text/javascript"><!--
 
   var _gaq = _gaq || [];
@@ -155,992 +156,363 @@ div.categorybox
 
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="simplification"></a>
+<a name="solve_005frec"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_73.html#Functions-and-Variables-for-simplex" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-simplification" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_73.html#Package-sqdnst" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-solve_005frec" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_73.html#simplex" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_73.html#simplification" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#solve_005frec" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_75.html#stats" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="simplification-1"></a>
-<h1 class="chapter">74. simplification</h1>
+<a name="solve_005frec-1"></a>
+<h1 class="chapter">74. solve_rec</h1>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-simplification">74.1 Introduction to simplification</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Introduction-to-solve_005frec">74.1 Introduction to solve_rec</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Package-absimp">74.2 Package absimp</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#Package-facexp">74.3 Package facexp</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#Package-functs">74.4 Package functs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#Package-ineq">74.5 Package ineq</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#Package-rducon">74.6 Package rducon</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#Package-scifac">74.7 Package scifac</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#Package-sqdnst">74.8 Package sqdnst</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-solve_005frec">74.2 Functions and Variables for solve_rec</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Introduction-to-simplification"></a>
+<p><a name="Item_003a-Introduction-to-solve_005frec"></a>
 </p><hr size="6">
-<a name="Introduction-to-simplification"></a>
+<a name="Introduction-to-solve_005frec"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#simplification" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Package-absimp" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#solve_005frec" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-solve_005frec" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#simplification" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#simplification" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#solve_005frec" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#solve_005frec" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#solve_005frec" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_75.html#stats" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-simplification-1"></a>
-<h2 class="section">74.1 Introduction to simplification</h2>
+<a name="Introduction-to-solve_005frec-1"></a>
+<h2 class="section">74.1 Introduction to solve_rec</h2>
 
-<p>ディレクトリ <code>maxima/share/simplification</code>は整理ルールと整理関数を実装する
-いくつかのスクリプトと整理に関係しないいくつかの関数を含みます。
+<p><code>solve_rec</code>は多項式係数を持つ線形漸化式を解くためのパッケージです。
 </p>
-
-<p><a name="Item_003a-Package-absimp"></a>
-</p><hr size="6">
-<a name="Package-absimp"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-simplification" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Package-facexp" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#simplification" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#simplification" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#solve_005frec" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<a name="Package-absimp-1"></a>
-<h2 class="section">74.2 Package absimp</h2>
-
-<p><code>absimp</code>パッケージは <code>abs</code>と
-<code>signum</code>関数のために組み込み整理ルールを拡張するパターンマッチングルールを含みます。
-<code>absimp</code>は、組み込み <code>assume</code>関数で確立された関係や、偶数や奇数に関する
-<code>modedeclare (m, even, n, odd)</code>のような宣言によって確立された関係を考慮します。
-</p>
-<p><code>absimp</code>は <code>abs</code>と <code>signum</code>を使って
-<code>unitramp</code>と <code>unitstep</code>関数を定義します。
-</p>
-<p><code>load (absimp)</code>はこのパッケージをロードします。
-<code>demo (absimp)</code>はこのパッケージのデモを表示します。
+<p>デモが <code>demo(solve_rec);</code>で利用可能です。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (absimp)$
-(%i2) (abs (x))^2;
-                                       2
-(%o2)                                 x
-(%i3) diff (abs (x), x);
-                                      x
-(%o3)                               ------
-                                    abs(x)
-(%i4) cosh (abs (x));
-(%o4)                               cosh(x)
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;solve_rec&quot;)$
+</pre><pre class="example">(%i2) solve_rec((n+4)*s[n+2] + s[n+1] - (n+1)*s[n], s[n]);
+                                    n
+                 %k  (2 n + 3) (- 1)          %k
+                   1                            2
+(%o2)       s  = -------------------- + ---------------
+             n     (n + 1) (n + 2)      (n + 1) (n + 2)
 </pre></td></tr></table>
 
-
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Simplification-functions">Simplification functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Rules-and-patterns">Rules and patterns</a>
- &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-absimp">Package absimp</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Linear-recurrences">Linear recurrences</a>
+ &middot;<a href="maxima_98.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_98.html#Category_003a-Package-solve_005frec">Package solve_rec</a>
 </div></p>
-
-<p><a name="Item_003a-Package-facexp"></a>
+<p><a name="Item_003a-Functions-and-Variables-for-solve_005frec"></a>
 </p><hr size="6">
-<a name="Package-facexp"></a>
+<a name="Functions-and-Variables-for-solve_005frec"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Package-absimp" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Package-functs" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-solve_005frec" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_75.html#stats" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#simplification" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#simplification" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#solve_005frec" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#solve_005frec" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#solve_005frec" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_75.html#stats" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Package-facexp-1"></a>
-<h2 class="section">74.3 Package facexp</h2>
+<a name="Functions-and-Variables-for-solve_005frec-1"></a>
+<h2 class="section">74.2 Functions and Variables for solve_rec</h2>
 
-<p><code>facexp</code>パッケージは、
-制御された展開によって式を構造化する能力をユーザーに与えるいくつかの関連関数を含みます。
-式が物理的意味を持つ変数を含むとき、この能力は特に役に立ちます。
-そんな式の最も簡潔な形式は、それらの変数に関して式を完全に展開し、
-その後係数を因数分解することで得られることがしばしばあるからです。
-この手続きは標準の Maxima関数を使って実行することは難しくありませんが、
-追加の微調整も望まれていて、これらの仕上げは適用するのが更に難しくなることがあります。
-</p>
-<p>関数 <code>facsum</code>とその関連形式は、
-この方法で式の構造を制御するための便利な手段を提供します。
-別の関数 <code>collectterms</code>は、この形式に既に整理された複数の式を
-式全体を再整理することなく、足し合わせるのに使うことができます。
-式が非常に大きいとき、この関数は役に立つかもしれません。
-</p>
-
-<p><code>load (facexp)</code>はこのパッケージをロードします。
-<code>demo (facexp)</code>はこのパッケージのデモを見せます。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
- &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-facexp">Package facexp</a>
-</div></p>
-
-<p><a name="Item_003a-facsum"></a>
+<p><a name="Item_003a-reduce_005forder"></a>
 </p><dl>
-<dt><a name="index-facsum"></a><u>関数:</u> <b>facsum</b><i> (<var>expr</var>, <var>arg_1</var>, ..., <var>arg_n</var>)</i></dt>
-<dd><p>引数 <var>arg_1</var>, ..., <var>arg_n</var>に依存する
-<var>expr</var>の形式を返します。
-引数は <code>ratvars</code>に適した任意の形式か、そんな形式のリストを取り得ます。
-もし引数がリストでないなら、
-返される形式は、引数に関して完全に展開され、引数の係数は因数分解されます。
-これらの係数は、非合理的な意味合いを除いて引数に依存しません。
+<dt><a name="index-reduce_005forder"></a><u>関数:</u> <b>reduce_order</b><i> (<var>rec</var>, <var>sol</var>, <var>var</var>)</i></dt>
+<dd>
+<p>特殊解 <var>sol</var>が知られている時、線形漸化式 <var>rec</var>の次数を減らします。
 </p>
-<p>引数のいずれかがリストなら、リストすべてを 1つのリストに結合し、
-<code>facsum</code>は、
-引数の係数に対して <code>factor</code>をコールする代わりに
-これらの係数に対して自分自身をコールします。
-この再帰コールに関しては、上記で新しく構成されたリストを新しい引数リストとして使います。
-この処理は、リストの中に望まれた要素を入れ子にすることで、
-任意の深さまで繰り返すことができます。
+<p>例:
 </p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) rec: x[n+2] = x[n+1] + x[n]/n;
+                                      x
+                                       n
+(%o3)               x      = x      + --
+                     n + 2    n + 1   n
+</pre><pre class="example">(%i4) solve_rec(rec, x[n]);
+WARNING: found some hypergeometrical solutions! 
+(%o4)                    x  = %k  n
+                          n     1
+</pre><pre class="example">(%i5) reduce_order(rec, n, x[n]);
+(%t5)                    x  = n %z
+                          n       n
 
-<p><code>log (x + y)</code>のような、より複雑な部分式に関して
-<code>facsum</code>したいかも知れません。
-そんな引数も許されています。
-</p>
+                           n - 1
+                           ====
+                           \
+(%t6)                %z  =  &gt;     %u
+                       n   /        %j
+                           ====
+                           %j = 0
 
-<p>時々、ユーザーは
-式に関して、先頭演算子によってのみ指定された上記形式いずれかが欲しいかもしれません。
-例えば、すべての <code>log</code>に関して <code>facsum</code>したかもしれません。
-この場合、この方法で扱われる特定の <code>log</code>か、代わりに式
-<code>operator (log)</code>や <code>'operator (log)</code>を引数に含むことができます。
-もし演算子 <var>op_1</var>, ..., <var>op_n</var>に関して
-式 <var>expr</var>を <code>facsum</code>したいなら、
-<code>facsum (<var>expr</var>, operator (<var>op_1</var>, ..., <var>op_n</var>))</code>を評価します。
-<code>operator</code>形式はリスト引数の中でも可能です。
-</p>
-<p>更に、スイッチ <code>facsum_combine</code>と <code>nextlayerfactor</code>の設定は
-<code>facsum</code>の結果に影響するかもしれません。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-facexp">Package facexp</a>
- &middot;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
+(%o6)             (- n - 2) %u     - %u
+                              n + 1     n
+</pre><pre class="example">(%i6) solve_rec((n+2)*%u[n+1] + %u[n], %u[n]);
+                                     n
+                            %k  (- 1)
+                              1
+(%o6)                 %u  = ----------
+                        n    (n + 1)!
+
+だから一般解は以下の通りです。
+
+             n - 1
+             ====        j
+             \      (- 1)
+       %k  n  &gt;    -------- + %k  n
+         2   /     (j + 1)!     1
+             ====
+             j = 0
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-solve_005frec">Package solve_rec</a>
 </div></p>
 </dd></dl>
 
-<p><a name="Item_003a-nextlayerfactor"></a>
+<p><a name="Item_003a-simplify_005fproducts"></a>
 </p><dl>
-<dt><a name="index-nextlayerfactor"></a><u>グローバル変数:</u> <b>nextlayerfactor</b></dt>
-<dd><p>デフォルト値: <code>false</code>
-</p>
-<p><code>nextlayerfactor</code>が <code>true</code>の時、引数の係数の因数分解された形式の因子に
-<code>facsum</code>の再帰コールを適用します。
-</p>
-<p><code>false</code>の時、 <code>facsum</code>の再帰コールが起こる時はいつでも、
-全体としてそれぞれの係数に<code>facsum</code>を適用します。
-</p>
-
-<p><code>facsum</code>の引数リストにアトム <code>nextlayerfactor</code>を入れると、
-<code>nextlayerfactor: true</code>の効果がありますが、
-式の次のレベル<i>だけ</i>に関してです。
-</p>
-<p><code>nextlayerfactor</code>はいつも
-<code>true</code>か <code>false</code>にバインドされているので、
-<code>facsum</code>の引数リストの中に現れる時はいつでも、
-シングルクォートで表さなければいけません。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-facexp">Package facexp</a>
- &middot;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-facsum_005fcombine"></a>
-</p><dl>
-<dt><a name="index-facsum_005fcombine"></a><u>グローバル変数:</u> <b>facsum_combine</b></dt>
+<dt><a name="index-simplify_005fproducts"></a><u>オプション変数:</u> <b>simplify_products</b></dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
-<p>引数が多項式の商の時、
-<code>facsum_combine</code>は <code>facsum</code>が返す最終結果の形式を制御します。
-もし <code>facsum_combine</code>が <code>false</code>なら、
-形式は既に記述したような完全に展開された和として返されますが、
-もし <code>true</code>なら、返される式は既に記述した形式の多項式の比です。
+<p>もし <code>simplify_products</code>が <code>true</code>なら、
+<code>solve_rec</code>は答えの積を整理しようとします。
 </p>
-<p>有理式の分子と分母両方を
-<code>facsum</code>したいが、分母が分子の項ずつに掛けられたくない時、このスイッチの
-<code>true</code>設定が役に立ちます。
+<p>以下も参照してください: <code>solve_rec</code>.
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-facexp">Package facexp</a>
- &middot;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-solve_005frec">Package solve_rec</a>
 </div></p>
 </dd></dl>
 
-<p><a name="Item_003a-factorfacsum"></a>
+<p><a name="Item_003a-simplify_005fsum"></a>
 </p><dl>
-<dt><a name="index-factorfacsum"></a><u>関数:</u> <b>factorfacsum</b><i> (<var>expr</var>, <var>arg_1</var>, ... <var>arg_n</var>)</i></dt>
-<dd><p><var>expr</var>の因子に関して引数として
-<var>arg_1</var>, ... <var>arg_n</var>を付けて <code>facsum</code>をコールすることで得られる
-<var>expr</var>の形式を返します。
-もし <var>expr</var>の因子のいずれかがべきに累乗されるなら、
-因子と指数と両方がこの方法で処理されます。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-facexp">Package facexp</a>
- &middot;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="collectterms"></a>
-<a name="Item_003a-collectterms"></a>
-</p><dl>
-<dt><a name="index-collectterms"></a><u>関数:</u> <b>collectterms</b><i> (<var>expr</var>, <var>arg_1</var>, ..., <var>arg_n</var>)</i></dt>
+<dt><a name="index-simplify_005fsum"></a><u>関数:</u> <b>simplify_sum</b><i> (<var>expr</var>)</i></dt>
 <dd>
-<p>もしいくつかの式が <code>facsum</code>か <code>factorfacsum</code>, <code>factenexpand</code>,
-<code>facexpten</code>, <code>factorfacexpten</code>で整理されていて、
-それらが一緒に加算されているなら、関数
-<code>collectterms</code>を使ってそれらを結合することが望まれる場合があります。
-<code>collectterms</code>は
-<code>nextlayerfactor</code>を除いてこれらの他の関連した関数に渡すことができる引数すべてを
-引数として取ることができます。
-<code>collectterms</code>の利点は <code>facsum</code>と似た形式を返すことです。
-しかし、既に <code>facsum</code>で処理された加算形式なのでこの処理を繰り返す必要はありません。
-この能力は加算する式が非常に大きい時特に役立ちます。
+<p><var>expr</var>に現れるすべての和を閉形式に整理しようとします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-facexp">Package facexp</a>
- &middot;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
-</div></p></dd></dl>
-
-
-<p><a name="Item_003a-Package-functs"></a>
-</p><hr size="6">
-<a name="Package-functs"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Package-facexp" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Package-ineq" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#simplification" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#simplification" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#solve_005frec" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<a name="Package-functs-1"></a>
-<h2 class="section">74.4 Package functs</h2>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
-</div></p>
-<p><a name="Item_003a-rempart"></a>
-</p><dl>
-<dt><a name="index-rempart"></a><u>関数:</u> <b>rempart</b><i> (<var>expr</var>, <var>n</var>)</i></dt>
-<dd><p>式 <var>expr</var>からパーツ <var>n</var>を削除します。
-</p>
-<p>もし <var>n</var>が形式 <code>[<var>l</var>, <var>m</var>]</code>のリストなら、パーツ
-<var>l</var>から <var>m</var>までを削除します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-wronskian"></a>
-</p><dl>
-<dt><a name="index-wronskian"></a><u>関数:</u> <b>wronskian</b><i> ([<var>f_1</var>, ..., <var>f_n</var>], <var>x</var>)</i></dt>
-<dd><p>変数 <var>x</var>に関する式のリスト[<var>f_1</var>, ..., <var>f_n</var>]の
-Wronskian行列を返します。
-Wronskian行列の行列式は式のリストの Wronskian行列式です。
-</p>
-<p><code>wronskian</code>を使うには最初に <code>load(functs)</code>してください。例えば:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(functs)$
-(%i2) wronskian([f(x), g(x)],x);
-(%o2) matrix([f(x),g(x)],['diff(f(x),x,1),'diff(g(x),x,1)])
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Differential-calculus">Differential calculus</a>
-</div></p>
-</dd></dl>
-
-
-<p><a name="Item_003a-tracematrix"></a>
-</p><dl>
-<dt><a name="index-tracematrix"></a><u>関数:</u> <b>tracematrix</b><i> (<var>M</var>)</i></dt>
-<dd><p>行列 <var>M</var>の跡(対角要素の和)を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Matrices">Matrices</a>
-</div></p>
-</dd></dl>
-
-
-<dl>
-<dt><a name="index-rational-1"></a><u>関数:</u> <b>rational</b><i> (<code>z</code>)</i></dt>
-<dd><p>分母を有理化するように、
-<var>z</var>の分子と分母に分母の複素共役を掛けます。
-もし与えられたものが正準有理式 (CRE)形式なら、正準有理式 (CRE)形式を返し、
-そうでないなら、一般形式を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>を書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-logand"></a>
-</p><dl>
-<dt><a name="index-logand"></a><u>関数:</u> <b>logand</b><i> (<code>x</code>,<code>y</code>)</i></dt>
-<dd><p>引数 x, yの(ビット)論理&quot;積&quot;を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-logor"></a>
-</p><dl>
-<dt><a name="index-logor"></a><u>関数:</u> <b>logor</b><i> (<code>x</code>,<code>y</code>)</i></dt>
-<dd><p>引数 x, yの(ビット)論理&quot;和&quot;を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-logxor"></a>
-</p><dl>
-<dt><a name="index-logxor"></a><u>関数:</u> <b>logxor</b><i> (<code>x</code>,<code>y</code>)</i></dt>
-<dd><p>引数 x, yの(ビット)&quot;排他的論理和&quot;を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div></p>
-</dd></dl>
-
-
-
-<p><a name="Item_003a-nonzeroandfreeof"></a>
-</p><dl>
-<dt><a name="index-nonzeroandfreeof"></a><u>関数:</u> <b>nonzeroandfreeof</b><i> (<var>x</var>, <var>expr</var>)</i></dt>
-<dd><p>もし <var>expr</var>がゼロでなく、
-<code>freeof (<var>x</var>, <var>expr</var>)</code>が<code>true</code>を返すなら、
-<code>true</code>を返します。
-そうでないなら <code>false</code>を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
-</div></p>
-</dd></dl>
-
-
-<dl>
-<dt><a name="index-linear-1"></a><u>関数:</u> <b>linear</b><i> (<var>expr</var>, <var>x</var>)</i></dt>
-<dd><p><var>expr</var>が変数 <var>x</var>に関して線形の式の時、
-<code>linear</code>は <code><var>a</var>*<var>x</var> + <var>b</var></code>を返します。
-ここで、 <var>a</var>はゼロでなく、 <var>a</var>と <var>b</var>は <var>x</var>に依存しません。
-そうでないなら、 <code>linear</code>は <var>expr</var>を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="gcdivide"></a>
-<a name="Item_003a-gcdivide"></a>
-</p><dl>
-<dt><a name="index-gcdivide"></a><u>関数:</u> <b>gcdivide</b><i> (<var>p</var>, <var>q</var>)</i></dt>
-<dd>
-<p><code>takegcd</code>が <code>true</code>の時、
-<code>gcdivide</code>は多項式 <var>p</var>と
-<var>q</var>を最大公約多項式で割り、結果の比を返します。
-</p>
-<p><code>takegcd</code>が <code>false</code>の時、
-<code>gcdivide</code>は比 <code><var>p</var>/<var>q</var></code>を返します。
-</p>
-<p>この関数を使うには最初に<code>load(functs)</code>と書いてください。
-</p>
-<p><code><a href="maxima_14.html#ezgcd">ezgcd</a></code>
-, <code><a href="maxima_14.html#gcd">gcd</a></code>
-, <code><a href="maxima_14.html#gcdex">gcdex</a></code>
-, <code><a href="maxima_57.html#poly_005fgcd">poly_gcd</a></code>
-も参照してください。
+<p>この関数を初めて使うには、
+<code>load(simplify_sum)</code>で
+<code>simplify_sum</code>パッケージをロードしてください。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(functs)$
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;simplify_sum&quot;)$
+</pre><pre class="example">(%i2) sum(binomial(n+k,k)/2^k,k,1,n)+sum(binomial(2*n,2*k),k,1,n);
+        n                          n
+       ====                       ====
+       ¥     binomial(n + k, k)   ¥
+(%o2)   &gt;    ------------------ +  &gt;    binomial(2 n, 2 k)
+       /              k           /
+       ====          2            ====
+       k = 1                      k = 1
+</pre><pre class="example">(%i3) simplify_sum(%);
 
-(%i2) p1:6*x^3+19*x^2+19*x+6; 
-                        3       2
-(%o2)                6 x  + 19 x  + 19 x + 6
-(%i3) p2:6*x^5+13*x^4+12*x^3+13*x^2+6*x;
-                  5       4       3       2
-(%o3)          6 x  + 13 x  + 12 x  + 13 x  + 6 x
-(%i4) gcdivide(p1, p2);
-                             x + 1
-(%o4)                        ------
-                              3
-                             x  + x
-(%i5) takegcd:false;
-(%o5)                         false
-(%i6) gcdivide(p1, p2);
-                       3       2
-                    6 x  + 19 x  + 19 x + 6
-(%o6)          ----------------------------------
-                  5       4       3       2
-               6 x  + 13 x  + 12 x  + 13 x  + 6 x
-(%i7) ratsimp(%);
-                             x + 1
-(%o7)                        ------
-                              3
-                             x  + x
+                         2 n - 1    n
+(%o3)                   2        + 2  - 2
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
-
-
-<p><a name="Item_003a-arithmetic"></a>
-</p><dl>
-<dt><a name="index-arithmetic"></a><u>関数:</u> <b>arithmetic</b><i> (<var>a</var>, <var>d</var>, <var>n</var>)</i></dt>
-<dd><p>算術級数 <code><var>a</var>, <var>a</var> + <var>d</var>, <var>a</var> + 2*<var>d</var>, ...,
-<var>a</var> + (<var>n</var> - 1)*<var>d</var></code>の第 <var>n</var>項を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Sums-and-products">Sums and products</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-solve_005frec">Package solve_rec</a>
+ &middot;<a href="maxima_98.html#Category_003a-Sums-and-products">Sums and products</a>
+ &middot;<a href="maxima_98.html#Category_003a-Simplification-functions">Simplification functions</a>
 </div></p>
 </dd></dl>
 
-<p><a name="Item_003a-geometric"></a>
-</p><dl>
-<dt><a name="index-geometric"></a><u>関数:</u> <b>geometric</b><i> (<var>a</var>, <var>r</var>, <var>n</var>)</i></dt>
-<dd><p>幾何級数 <code><var>a</var>, <var>a</var>*<var>r</var>, <var>a</var>*<var>r</var>^2, ...,
-<var>a</var>*<var>r</var>^(<var>n</var> - 1)</code>の第 <var>n</var>項を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Sums-and-products">Sums and products</a>
-</div></p>
-</dd></dl>
 
-<p><a name="Item_003a-harmonic"></a>
-</p><dl>
-<dt><a name="index-harmonic"></a><u>関数:</u> <b>harmonic</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>n</var>)</i></dt>
-<dd><p>調和級数 <code><var>a</var>/<var>b</var>, <var>a</var>/(<var>b</var> + <var>c</var>),
-<var>a</var>/(<var>b</var> + 2*<var>c</var>), ..., <var>a</var>/(<var>b</var> + (<var>n</var> - 1)*<var>c</var>)</code>の第 <var>n</var>項を返します。
+<dl>
+<dt><a name="index-solve_005frec"></a><u>関数:</u> <b>solve_rec</b><i> (<var>eqn</var>, <var>var</var>, [<var>init</var>])</i></dt>
+<dd><p>変数 <var>var</var>に関して多項式係数を持つ線形漸化式 <var>eqn</var>の超幾何解について解きます。
+オプション引数 <var>init</var>は初期条件です。
 </p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
+<p><code>solve_rec</code>は定数係数の線形漸化式を解くことができ、
+多項式係数の斉次線形漸化式の超幾何解と多項式係数の有理解を見つけ、
+Ricatti型漸化式を解くことができます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Sums-and-products">Sums and products</a>
-</div></p>
-</dd></dl>
+<p>超幾何解を見つけるのに使われるアルゴリズムの実行時間は主係数と最小次数
+(trailing)係数の次数に関して指数的であることに注意してください。
+</p>
+<p>この関数を使うには最初に <code>load(solve_rec);</code>で
+<code>solve_rec</code>パッケージをロードしてください。
+</p>
 
-<p><a name="Item_003a-arithsum"></a>
-</p><dl>
-<dt><a name="index-arithsum"></a><u>関数:</u> <b>arithsum</b><i> (<var>a</var>, <var>d</var>, <var>n</var>)</i></dt>
-<dd><p>算術級数の 1から <var>n</var>までの和を返します。
+<p>定係数の線形漸化式の例:
 </p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Sums-and-products">Sums and products</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-geosum"></a>
-</p><dl>
-<dt><a name="index-geosum"></a><u>関数:</u> <b>geosum</b><i> (<var>a</var>, <var>r</var>, <var>n</var>)</i></dt>
-<dd><p>幾何級数の 1から <var>n</var>までの和を返します。
-もし <var>n</var>が無限大 (<code>inf</code>)なら、
-<var>r</var>の絶対値が 1未満でのみ、和は有限です。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Sums-and-products">Sums and products</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-gaussprob"></a>
-</p><dl>
-<dt><a name="index-gaussprob"></a><u>関数:</u> <b>gaussprob</b><i> (<var>x</var>)</i></dt>
-<dd><p>Gaussian確率函数 <code>%e^(-<var>x</var>^2/2) / sqrt(2*%pi)</code>を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-gd"></a>
-</p><dl>
-<dt><a name="index-gd"></a><u>関数:</u> <b>gd</b><i> (<var>x</var>)</i></dt>
-<dd><p>Gudermannian函数 <code>2*atan(%e^x)-%pi/2</code>を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-agd"></a>
-</p><dl>
-<dt><a name="index-agd"></a><u>関数:</u> <b>agd</b><i> (<var>x</var>)</i></dt>
-<dd><p>逆 Gudermannian函数 <code>log (tan (%pi/4 + x/2)))</code>を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-vers"></a>
-</p><dl>
-<dt><a name="index-vers"></a><u>関数:</u> <b>vers</b><i> (<var>x</var>)</i></dt>
-<dd><p>正矢(せいし) <code>1 - cos (x)</code>を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-covers"></a>
-</p><dl>
-<dt><a name="index-covers"></a><u>関数:</u> <b>covers</b><i> (<var>x</var>)</i></dt>
-<dd><p>余矢(よし) <code>1 - sin (<var>x</var>)</code>を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-exsec"></a>
-</p><dl>
-<dt><a name="index-exsec"></a><u>関数:</u> <b>exsec</b><i> (<var>x</var>)</i></dt>
-<dd><p>外正割 (exsecant) <code>sec (<var>x</var>) - 1</code>を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-hav"></a>
-</p><dl>
-<dt><a name="index-hav"></a><u>関数:</u> <b>hav</b><i> (<var>x</var>)</i></dt>
-<dd><p>半正矢 <code>(1 - cos(x))/2</code>を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-combination"></a>
-</p><dl>
-<dt><a name="index-combination"></a><u>関数:</u> <b>combination</b><i> (<var>n</var>, <var>r</var>)</i></dt>
-<dd><p>一度に <var>r</var>個を取る <var>n</var>個のオブジェクトの組み合わせの数を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-permutation"></a>
-</p><dl>
-<dt><a name="index-permutation"></a><u>関数:</u> <b>permutation</b><i> (<var>n</var>, <var>r</var>)</i></dt>
-<dd><p><var>n</var>個のオブジェクトの集合から選択された <var>r</var>個のオブジェクトの置換の数を返します。
-</p>
-<p>この関数を使うには最初に <code>load(functs)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-functs">Package functs</a>
- &middot;<a href="maxima_99.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-Package-ineq"></a>
-</p><hr size="6">
-<a name="Package-ineq"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Package-functs" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Package-rducon" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#simplification" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#simplification" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#solve_005frec" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<a name="Package-ineq-1"></a>
-<h2 class="section">74.5 Package ineq</h2>
-
-<p><code>ineq</code>パッケージは不等式の整理規則を含みます。
-</p>
-<p>セッション例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(ineq)$
-Warning: Putting rules on '+' or '*' is inefficient, and may not work.
-Warning: Putting rules on '+' or '*' is inefficient, and may not work.
-Warning: Putting rules on '+' or '*' is inefficient, and may not work.
-Warning: Putting rules on '+' or '*' is inefficient, and may not work.
-Warning: Putting rules on '+' or '*' is inefficient, and may not work.
-Warning: Putting rules on '+' or '*' is inefficient, and may not work.
-Warning: Putting rules on '+' or '*' is inefficient, and may not work.
-Warning: Putting rules on '+' or '*' is inefficient, and may not work.
-(%i2) a&gt;=4;  /* a sample inequality */
-(%o2)                               a &gt;= 4
-(%i3) (b&gt;c)+%; /* add a second, strict inequality */
-(%o3)                            b + a &gt; c + 4
-(%i4) 7*(x&lt;y); /* multiply by a positive number */
-(%o4)                              7 x &lt; 7 y
-(%i5) -2*(x&gt;=3*z); /* multiply by a negative number */
-(%o5)                           - 2 x &lt;= - 6 z
-(%i6) (1+a^2)*(1/(1+a^2)&lt;=1); /* Maxima knows that 1+a^2 &gt; 0 */
-                                        2
-(%o6)                             1 &lt;= a  + 1
-(%i7) assume(x&gt;0)$ x*(2&lt;3); /* assuming x&gt;0 */
-(%o7)                              2 x &lt; 3 x
-(%i8) a&gt;=b; /* another inequality */
-(%o8)                               a &gt;= b
-(%i9) 3+%; /* add something */
-(%o9)                           a + 3 &gt;= b + 3
-(%i10) %-3; /* subtract it out */
-(%o10)                              a &gt;= b
-(%i11) a&gt;=c-b; /* yet another inequality */
-(%o11)                            a &gt;= c - b
-(%i12) b+%; /* add b to both sides */
-(%o12)                            b + a &gt;= c
-(%i13) %-c; /* subtract c from both sides */
-(%o13)                         - c + b + a &gt;= 0
-(%i14) -%;  /* multiply by -1 */
-(%o14)                          c - b - a &lt;= 0
-(%i15) (z-1)^2&gt;-2*z; /* determining truth of assertion */
-                                      2
-(%o15)                         (z - 1)  &gt; - 2 z
-(%i16) expand(%)+2*z; /* expand this and add 2*z to both sides */
-                                   2
-(%o16)                            z  + 1 &gt; 0
-(%i17) %,pred;
-(%o17)                               true
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) solve_rec(a[n]=a[n-1]+a[n-2]+n/2^n, a[n]);
+                        n          n
+           (sqrt(5) - 1)  %k  (- 1)
+                            1           n
+(%o2) a  = ------------------------- - ----
+       n               n                  n
+                      2                5 2
+                                                n
+                                   (sqrt(5) + 1)  %k
+                                                    2    2
+                                 + ------------------ - ----
+                                            n              n
+                                           2            5 2
 </pre></td></tr></table>
 
-<p>不等式の回りで括弧を使うことについて注意してください;
-ユーザーが <code>(A &gt; B) + (C = 5)</code>と入力した時、
-結果は <code>A + C &gt; B + 5</code>ですが、 <code>A &gt; B + C = 5</code>は構文エラーであり、
-<code>(A &gt; B + C) = 5</code>は完全に何か他のものです。
+<p>多項式係数の線形漸化式の例:
 </p>
-<p>規則定義の完全なリストを見るには、 <code>disprule (all)</code>を実行してください。
-</p>
-<p>Maximaが不等式に掛けられる量の符号を決定できない時、
-ユーザーは問い合わせを受けるでしょう。
-</p>
-<p>最もありふれた仕様の欠陥を以下に例示します:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) eq: a &gt; b;
-(%o1)                              a &gt; b
-(%i2) 2*eq;
-(%o2)                            2 (a &gt; b)
-(%i3) % - eq;
-(%o3)                              a &gt; b
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i7) 2*x*(x+1)*y[x] - (x^2+3*x-2)*y[x+1] + (x-1)*y[x+2];
+                         2
+(%o7) (x - 1) y      - (x  + 3 x - 2) y      + 2 x (x + 1) y
+               x + 2                   x + 1                x
+</pre><pre class="example">(%i8) solve_rec(%, y[x], y[1]=1, y[3]=3);
+                              x
+                           3 2    x!
+(%o9)                 y  = ---- - --
+                       x    4     2
 </pre></td></tr></table>
 
-<p>別の問題は 0掛ける不等式です;
-これを 0にするデフォルト動作はそのままです。
-しかし、もし <code>X*<var>some_inequality</var></code>とタイプして、
-Maximaが <code>X</code>の符号を尋ね、
-<code>zero</code> (または <code>z</code>)と答えたなら、
-プログラムは <code>X*<var>some_inequality</var></code>を返し、
-<code>X</code>が 0という情報を使いません。
-そんな時は、データベースは、決定の際、
-<code>X</code>を評価する目的ではなく、比較目的のためだけに使われるので、
-<code>ev (%, x: 0)</code>を実行すべきです。
+<p>Ricatti型漸化式の例:
 </p>
-<p>パッケージがロードされた時、
-整理器が、パッケージなしよりたくさんの規則を検証するよう強制されるので、
-ユーザーはより遅い応答に気がつくかもしれません。
-だから、これらを利用した後、規則を取り除きたいかもしれません。
-(あなたが定義したかもしれないものすべてを含み)規則すべてを消すには、
-<code>kill (rules)</code>してください;
-もしくは、もっと選択的にそれらのうちのいくつかだけ消すかもしれません;
-もしくは、特定の規則に <code>remrule</code>を使ってください。
-</p>
-<p>もし自分の規則を定義した後、このパッケージをロードするなら、
-同じ名前を持つあなたの規則をつぶすでしょう。
-このパッケージの規則は以下の通りです:
-<code>*rule1</code>, ..., <code>*rule8</code>,
-<code>+rule1</code>, ..., <code>+rule18</code>,
-そして、それを参照するには、
-<code>&quot;+&quot;</code>に関する最初の規則を限定して取り除くための
-<code>remrule (&quot;+&quot;, &quot;+rule1&quot;)</code>とか、
-二番目の乗法規則の定義を表示するための <code>disprule (&quot;*rule2&quot;)</code>とか、
-規則名を引用符で囲まなければいけません。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Simplification-functions">Simplification functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Rules-and-patterns">Rules and patterns</a>
- &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-ineq">Package ineq</a>
-</div></p>
-
-
-<p><a name="Item_003a-Package-rducon"></a>
-</p><hr size="6">
-<a name="Package-rducon"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Package-ineq" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Package-scifac" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#simplification" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#simplification" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#solve_005frec" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<a name="Package-rducon-1"></a>
-<h2 class="section">74.6 Package rducon</h2>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
- &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-rducon">Package rducon</a>
-</div></p>
-
-<p><a name="Item_003a-reduce_005fconsts"></a>
-</p><dl>
-<dt><a name="index-reduce_005fconsts"></a><u>関数:</u> <b>reduce_consts</b><i> (<var>expr</var>)</i></dt>
-<dd><p><var>expr</var>の定部分式を構成された定アトムで置き換え、
-これら構成された定数すべての定義を等式のリスト <code>const_eqns</code>に保存し、修正された
-<var>expr</var>を返します。
-<var>expr</var>のそれらのパーツは、関数 <code>constantp</code>が施された時
-<code>true</code>を返す定数です。
-それゆえ、 <code>reduce_consts</code>を呼び出す前に、
-</p><table><tr><td>&nbsp;</td><td><pre class="example">declare ([<var>objects to be given the constant property</var>], constant)$
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) x*y[x+1]*y[x] - y[x+1]/(x+2) + y[x]/(x-1) = 0;
+                            y         y
+                             x + 1     x
+(%o2)         x y  y      - ------ + ----- = 0
+                 x  x + 1   x + 2    x - 1
+</pre><pre class="example">(%i3) solve_rec(%, y[x], y[3]=5)$
+</pre><pre class="example">(%i4) ratsimp(minfactorial(factcomb(%)));
+                                   3
+                               30 x  - 30 x
+(%o4) y  = - -------------------------------------------------
+       x        6      5       4       3       2
+             5 x  - 3 x  - 25 x  + 15 x  + 20 x  - 12 x - 1584
 </pre></td></tr></table>
-<p>をして、自分の式に現れる定数量のデータベースを設定すべきです。
+
+
+<p>以下も参照してください: <code>solve_rec_rat</code>, <code>simplify_products</code>,
+<code>product_use_gamma</code>。
 </p>
-<p>もしこれらの数式計算の後、 Fortran出力を生成する予定があるなら、
-最初のコードセクションの 1つはすべての定数の計算であるべきです。
-このコードセグメントを生成するには、
-</p><table><tr><td>&nbsp;</td><td><pre class="example">map ('fortran, const_eqns)$
-</pre></td></tr></table>
-<p>を実行してください。
-</p>
-<p><code>reduce_consts</code>に影響する <code>const_eqns</code>を除いた変数は以下の通りです:
-<code>const_prefix</code> (デフォルト値: <code>xx</code>)
-定部分式を表すために
-<code>reduce_consts</code>が生成するシンボルすべてに接頭として付けるのに使われる文字列です。
-</p>
-<p><code>const_counter</code> (デフォルト値: 1)は
-<code>reduce_consts</code>が見つける定部分式それぞれを表すためのユニークなシンボルを生成するのに使われる整数添字です。
-</p>
-<p><code>load (rducon)</code>はこの関数をロードします。
-<code>demo (rducon)</code>はこの関数のデモを見せます。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-rducon">Package rducon</a>
- &middot;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-solve_005frec">Package solve_rec</a>
 </div></p>
 </dd></dl>
 
-
-<p><a name="Item_003a-Package-scifac"></a>
-</p><hr size="6">
-<a name="Package-scifac"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Package-rducon" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Package-sqdnst" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#simplification" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#simplification" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#solve_005frec" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<a name="Package-scifac-1"></a>
-<h2 class="section">74.7 Package scifac</h2>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
- &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-scifac">Package scifac</a>
-</div></p>
-
-<p><a name="Item_003a-gcfac"></a>
+<p><a name="Item_003a-solve_005frec_005frat"></a>
 </p><dl>
-<dt><a name="index-gcfac"></a><u>関数:</u> <b>gcfac</b><i> (<var>expr</var>)</i></dt>
-<dd><p><code>gcfac</code>は、科学者が式をより簡単にしようとする時に適用するのと同じ発見的方法の適用を
-試みる因数分解関数です。
-<code>gcfac</code>は単項式タイプの因数分解に限られます。
-和に関しては <code>gcfac</code>は以下を行います:
+<dt><a name="index-solve_005frec_005frat"></a><u>関数:</u> <b>solve_rec_rat</b><i> (<var>eqn</var>, <var>var</var>, [<var>init</var>])</i></dt>
+<dd>
+<p>線形漸化式の有理解について解きます。
+引数の記述については solve_recを参照してください。
 </p>
-<ol>
-<li>
-整数上で素因数分解します。
-</li><li>
-項の複雑さに関わらず、生じる項の最大の冪を係数として因数分解します。
-</li><li>
-項の隣同士の対を因数分解する時に、(1)と(2)を使います。
-</li><li>
-式がもはや変化しなくなるまで、
-これらのテクニックを繰り返し、再帰的に適用します。
-</li></ol>
-
-<p>対のすべての可能な再配列の中から最も簡潔な対因数分解された結果を産むものを見つけることの
-組み合わせ的に困難な性質のため、
-項目(3)は必ずしも、対での因数分解の最善の仕事をしません。
+<p>この関数を使うには最初に
+<code>load(solve_rec);</code>で <code>solve_rec</code>パッケージをロードしてください。
 </p>
-<p><code>load (scifac)</code>はこの関数をロードします。
-<code>demo (scifac)</code>はこの関数のデモを見せます。
+<p>例:
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-scifac">Package scifac</a>
- &middot;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-Package-sqdnst"></a>
-</p><hr size="6">
-<a name="Package-sqdnst"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Package-scifac" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#solve_005frec" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#simplification" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#simplification" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#solve_005frec" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<a name="Package-sqdnst-1"></a>
-<h2 class="section">74.8 Package sqdnst</h2>
-
-<p><a name="Item_003a-sqrtdenest"></a>
-</p><dl>
-<dt><a name="index-sqrtdenest"></a><u>関数:</u> <b>sqrtdenest</b><i> (<var>expr</var>)</i></dt>
-<dd><p>可能なら、簡単で、数値的で、二項無理数 (binomial surds)の <code>sqrt</code>を denestします。
-</p>
-<p>例えば、
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (sqdnst)$
-(%i2) sqrt(sqrt(3)/2+1)/sqrt(11*sqrt(2)-12);
-                                    sqrt(3)
-                               sqrt(------- + 1)
-                                       2
-(%o2)                        ---------------------
-                             sqrt(11 sqrt(2) - 12)
-(%i3) sqrtdenest(%);
-                                  sqrt(3)   1
-                                  ------- + -
-                                     2      2
-(%o3)                            -------------
-                                    1/4    3/4
-                                 3 2    - 2
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) (x+4)*a[x+3] + (x+3)*a[x+2] - x*a[x+1] + (x^2-1)*a[x];
+(%o1)  (x + 4) a      + (x + 3) a      - x a
+                x + 3            x + 2      x + 1
+                                                   2
+                                               + (x  - 1) a
+                                                            x
+</pre><pre class="example">(%i2) solve_rec_rat(% = (x+2)/(x+1), a[x]);
+                       1
+(%o2)      a  = ---------------
+            x   (x - 1) (x + 1)
 </pre></td></tr></table>
 
-<p>時々、
-<code>(19601-13860 sqrt(2))^(7/4)</code>に対してのように、
-<code>sqrtdenest</code>を複数回適用することが役立ちます。
+
+<p>以下も参照してください: <code>solve_rec</code>。
 </p>
-<p><code>load (sqdnst)</code>はこの関数をロードします。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
- &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-sqdnst">Package sqdnst</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-solve_005frec">Package solve_rec</a>
 </div></p>
 </dd></dl>
 
+<p><a name="Item_003a-product_005fuse_005fgamma"></a>
+</p><dl>
+<dt><a name="index-product_005fuse_005fgamma"></a><u>オプション変数:</u> <b>product_use_gamma</b></dt>
+<dd><p>デフォルト値: <code>true</code>
+</p>
+<p>積を整理する時、もし <code>product_use_gamma</code>が <code>true</code>なら、
+<code>solve_rec</code>は式の中にガンマ函数を導入します。
+</p>
 
-<p><a name="Item_003a-solve_005frec"></a>
+<p>以下も参照してください: <code>simplify_products</code>, <code>solve_rec</code>。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-solve_005frec">Package solve_rec</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-summand_005fto_005frec"></a>
+</p><dl>
+<dt><a name="index-summand_005fto_005frec"></a><u>関数:</u> <b>summand_to_rec</b><i> (<var>summand</var>, <var>k</var>, <var>n</var>)</i></dt>
+<dt><a name="index-summand_005fto_005frec-1"></a><u>関数:</u> <b>summand_to_rec</b><i> (<var>summand</var>, [<var>k</var>, <var>lo</var>, <var>hi</var>], <var>n</var>)</i></dt>
+<dd>
+<p>和
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">     hi
+    ====
+    \
+     &gt;     summand
+    /
+    ====
+  k = lo
+</pre></td></tr></table>
+
+<p>が満たす漸化式を返します。
+ここで、被和 (summand)は <var>k</var>と <var>n</var>に対して超幾何的です。
+もし <var>lo</var>と <var>hi</var>が省略されたら、
+それらは <code>lo = -inf</code>、<code>hi = inf</code>と仮定されます。
+</p>
+<p>この関数を初めて使うには
+<code>load(simplify_sum)</code>で
+<code>simplify_sum</code>パッケージをロードしてください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;simplify_sum&quot;)$
+</pre><pre class="example">(%i2) summand: binom(n,k);
+(%o2)                           binomial(n, k)
+</pre><pre class="example">(%i3) summand_to_rec(summand,k,n);
+(%o3)                      2 sm  - sm      = 0
+                               n     n + 1
+</pre><pre class="example">(%i7) summand: binom(n, k)/(k+1);
+                                binomial(n, k)
+(%o7)                           --------------
+                                    k + 1
+</pre><pre class="example">(%i8) summand_to_rec(summand, [k, 0, n], n);
+(%o8)               2 (n + 1) sm  - (n + 2) sm      = - 1
+                                n             n + 1
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-solve_005frec">Package solve_rec</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-stats"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#simplification" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#solve_005frec" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#solve_005frec" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_75.html#stats" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -1148,12 +520,12 @@ Maximaが <code>X</code>の符号を尋ね、
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2013年9月月4日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 8 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Maxima 5.30.0 Manual: 20. Equations</title>
+<title>Maxima 5.31.0 Manual: 20. Equations</title>
 
-<meta name="description" content="Maxima 5.30.0 Manual: 20. Equations">
-<meta name="keywords" content="Maxima 5.30.0 Manual: 20. Equations">
+<meta name="description" content="Maxima 5.31.0 Manual: 20. Equations">
+<meta name="keywords" content="Maxima 5.31.0 Manual: 20. Equations">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -193,14 +193,13 @@ div.categorybox
 <a name="Item_003a-_0025rnum_005flist"></a>
 </p><dl>
 <dt><u>System variable:</u> <b>%rnum_list</b>
-<a name="IDX856"></a>
+<a name="IDX859"></a>
 </dt>
 <dd><p>Default value: <code>[]</code>
 </p>
 <p><code>%rnum_list</code> is the list of variables introduced in solutions by
 <code><a href="#solve">solve</a></code>
- and <code><a href="#algsys">algsys</a></code>.
-  <code>%r</code> variables are added to
+<code><a href="#algsys">algsys</a></code>.
 <code>%rnum_list</code> in the order they are created.  This is convenient for doing
 substitutions into the solution later on.
 It's recommended to use this list rather than doing <code>concat ('%r, j)</code>.
@@ -221,48 +220,38 @@ It's recommended to use this list rather than doing <code>concat ('%r, j)</code>
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="algepsilon"></a>
 <a name="Item_003a-algepsilon"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>algepsilon</b>
-<a name="IDX857"></a>
+<a name="IDX860"></a>
 </dt>
 <dd><p>Default value: 10^8
 </p>
 <p><code>algepsilon</code> is used by <code><a href="#algsys">algsys</a></code>.
 </p>
-
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="algexact"></a>
 <a name="Item_003a-algexact"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>algexact</b>
-<a name="IDX858"></a>
+<a name="IDX861"></a>
 </dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p><code>algexact</code> affects the behavior of <code><a href="#algsys">algsys</a></code>
- as follows:
 </p>
 <p>If <code>algexact</code> is <code>true</code>, <code>algsys</code> always calls <code><a href="#solve">solve</a></code>
- and
 then uses <code><a href="#realroots">realroots</a></code>
- on <code>solve</code>'s failures.
 </p>
 <p>If <code>algexact</code> is <code>false</code>, <code>solve</code> is called only if the
 eliminant was not univariate, or if it was a quadratic or biquadratic.
@@ -274,21 +263,18 @@ only yield approximations when all else fails.
 
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="algsys"></a>
 <a name="Item_003a-algsys"></a>
 </p><dl>
 <dt><u>Function:</u> <b>algsys</b><i> ([<var>expr_1</var>, &hellip;, <var>expr_m</var>], [<var>x_1</var>, &hellip;, <var>x_n</var>])</i>
-<a name="IDX859"></a>
+<a name="IDX862"></a>
 </dt>
 <dt><u>Function:</u> <b>algsys</b><i> ([<var>eqn_1</var>, &hellip;, <var>eqn_m</var>], [<var>x_1</var>, &hellip;, <var>x_n</var>])</i>
-<a name="IDX860"></a>
+<a name="IDX863"></a>
 </dt>
 <dd><p>Solves the simultaneous polynomials <var>expr_1</var>, &hellip;, <var>expr_m</var> or
 polynomial equations <var>eqn_1</var>, &hellip;, <var>eqn_m</var> for the variables
@@ -305,7 +291,6 @@ an empty list <code>[]</code> is returned.
 represent arbitrary parameters in the solution; these variables are also
 appended to the list <code><a href="#g_t_0025rnum_005flist">%rnum_list</a></code>.
 </p>
-
 <p>The method is as follows:
 </p>
 <ol>
@@ -324,7 +309,6 @@ The process now returns to (1).
 Eventually, a subsystem consisting of a single equation is obtained.  If the
 equation is multivariate and no approximations in the form of floating point
 numbers have been introduced, then <code><a href="#solve">solve</a></code>
- is called to find an exact
 solution.
 
 <p>In some cases, <code>solve</code> is not be able to find a solution, or if it does
@@ -335,15 +319,12 @@ then again <code>solve</code> is called if no approximations have been introduce
 If approximations have been introduced or the equation is not univariate and
 neither linear, quadratic, or biquadratic, then if the switch
 <code><a href="#realonly">realonly</a></code>
- is <code>true</code>, the function <code><a href="#realroots">realroots</a></code>
- is called to find
+<code><a href="#realroots">realroots</a></code>
 the real-valued solutions.  If <code>realonly</code> is <code>false</code>, then
 <code><a href="#allroots">allroots</a></code>
- is called which looks for real and complex-valued solutions.
 </p>
 <p>If <code>algsys</code> produces a solution which has fewer significant digits than
 required, the user can change the value of <code><a href="#algepsilon">algepsilon</a></code>
- to a higher value.
 </p>
 <p>If <code>algexact</code> is set to <code>true</code>, <code>solve</code> will always be called.
 </p>
@@ -359,12 +340,10 @@ equations and instead prints the message:
 &quot;<code>algsys</code> cannot solve - system too complicated.&quot;
 </p>
 <p>Interactions with <code><a href="maxima_9.html#radcan">radcan</a></code>
- can produce large or complicated expressions.
 In that case, it may be possible to isolate parts of the result with
 <code><a href="maxima_6.html#pickapart">pickapart</a></code>
- or <code><a href="maxima_6.html#reveal">reveal</a></code>.
+<code><a href="maxima_6.html#reveal">reveal</a></code>.
 </p>
-
 <p>Occasionally, <code>radcan</code> may introduce an imaginary unit <code>%i</code> into a
 solution which is actually real-valued.
 </p>
@@ -401,27 +380,23 @@ solution which is actually real-valued.
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="allroots"></a>
 <a name="Item_003a-allroots"></a>
 </p><dl>
 <dt><u>Function:</u> <b>allroots</b><i> (<var>expr</var>)</i>
-<a name="IDX861"></a>
+<a name="IDX864"></a>
 </dt>
 <dt><u>Function:</u> <b>allroots</b><i> (<var>eqn</var>)</i>
-<a name="IDX862"></a>
+<a name="IDX865"></a>
 </dt>
 <dd><p>Computes numerical approximations of the real and complex roots of the
 polynomial <var>expr</var> or polynomial equation <var>eqn</var> of one variable.
 </p>
 <p>The flag <code><a href="#polyfactor">polyfactor</a></code>
- when <code>true</code> causes <code>allroots</code> to factor
 the polynomial over the real numbers if the polynomial is real, or over the
 complex numbers, if the polynomial is complex.
 </p>
@@ -476,23 +451,20 @@ x = - .9659625152196369 %i - .4069597231924075, x = 1.0]
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Polynomials">Polynomials</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div>
+</p></dd></dl>
 
 <p><a name="bfallroots"></a>
 <a name="Item_003a-bfallroots"></a>
 </p><dl>
 <dt><u>Function:</u> <b>bfallroots</b><i> (<var>expr</var>)</i>
-<a name="IDX863"></a>
+<a name="IDX866"></a>
 </dt>
 <dt><u>Function:</u> <b>bfallroots</b><i> (<var>eqn</var>)</i>
-<a name="IDX864"></a>
+<a name="IDX867"></a>
 </dt>
 <dd><p>Computes numerical approximations of the real and complex roots of the
 polynomial <var>expr</var> or polynomial equation <var>eqn</var> of one variable.
@@ -500,30 +472,25 @@ polynomial <var>expr</var> or polynomial equation <var>eqn</var> of one variable
 <p>In all respects, <code>bfallroots</code> is identical to <code>allroots</code> except
 that <code>bfallroots</code> computes the roots using bigfloats.  See 
 <code><a href="#allroots">allroots</a></code>
- for more information.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Polynomials">Polynomials</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div>
+</p></dd></dl>
 
 <p><a name="backsubst"></a>
 <a name="Item_003a-backsubst"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>backsubst</b>
-<a name="IDX865"></a>
+<a name="IDX868"></a>
 </dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>When <code>backsubst</code> is <code>false</code>, prevents back substitution in
 <code><a href="#linsolve">linsolve</a></code>
- after the equations have been triangularized.  This may
 be helpful in very big problems where back substitution would cause
 the generation of extremely large expressions.
 </p>
@@ -539,29 +506,24 @@ the generation of extremely large expressions.
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="breakup"></a>
 <a name="Item_003a-breakup"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>breakup</b>
-<a name="IDX866"></a>
+<a name="IDX869"></a>
 </dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>When <code>breakup</code> is <code>true</code>, <code><a href="#solve">solve</a></code>
- expresses solutions of cubic
 and quartic equations in terms of common subexpressions, which are assigned to
 intermediate expression labels (<code>%t1</code>, <code>%t2</code>, etc.).
 Otherwise, common subexpressions are not identified.
 </p>
 <p><code>breakup: true</code> has an effect only when <code><a href="#programmode">programmode</a></code>
- is <code>false</code>.
 </p>
 <p>Examples:
 </p>
@@ -625,21 +587,18 @@ Solution:
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="dimension"></a>
 <a name="Item_003a-dimension"></a>
 </p><dl>
 <dt><u>Function:</u> <b>dimension</b><i> (<var>eqn</var>)</i>
-<a name="IDX867"></a>
+<a name="IDX870"></a>
 </dt>
 <dt><u>Function:</u> <b>dimension</b><i> (<var>eqn_1</var>, &hellip;, <var>eqn_n</var>)</i>
-<a name="IDX868"></a>
+<a name="IDX871"></a>
 </dt>
 <dd><p><code>dimen</code> is a package for dimensional analysis.
 <code>load (&quot;dimen&quot;)</code> loads this package.
@@ -647,18 +606,15 @@ Solution:
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Share-packages">Share packages</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="dispflag"></a>
 <a name="Item_003a-dispflag"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>dispflag</b>
-<a name="IDX869"></a>
+<a name="IDX872"></a>
 </dt>
 <dd><p>Default value: <code>true</code>
 </p>
@@ -669,21 +625,18 @@ Termination of the <code>block</code> with a dollar sign, $, sets <code>dispflag
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="funcsolve"></a>
 <a name="Item_003a-funcsolve"></a>
 </p><dl>
 <dt><u>Function:</u> <b>funcsolve</b><i> (<var>eqn</var>, <var>g</var>(<var>t</var>))</i>
-<a name="IDX870"></a>
+<a name="IDX873"></a>
 </dt>
 <dd><p>Returns <code>[<var>g</var>(<var>t</var>) = ...]</code>  or <code>[]</code>, depending on whether
 or not there exists a rational function <code><var>g</var>(<var>t</var>)</code> satisfying
@@ -707,35 +660,29 @@ and obvious generalizations are missing.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="globalsolve"></a>
 <a name="Item_003a-globalsolve"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>globalsolve</b>
-<a name="IDX871"></a>
+<a name="IDX874"></a>
 </dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>When <code>globalsolve</code> is <code>true</code>, solved-for variables are assigned the
 solution values found by <code>linsolve</code>, and by <code><a href="#solve">solve</a></code>
- when solving two
 or more linear equations.
 </p>
 <p>When <code>globalsolve</code> is <code>false</code>, solutions found by <code><a href="#linsolve">linsolve</a></code>
- and
 by <code>solve</code> when solving two or more linear equations are expressed as
 equations, and the solved-for variables are not assigned.
 </p>
 <p>When solving anything other than two or more linear equations, <code>solve</code>
 ignores <code>globalsolve</code>.  Other functions which solve equations (e.g.,
 <code><a href="#algsys">algsys</a></code>
-) always ignore <code>globalsolve</code>.
 </p>
 <p>Examples:
 </p>
@@ -779,12 +726,9 @@ Solution
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Linear-equations">Linear equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 
 
@@ -792,7 +736,7 @@ Solution
 <a name="Item_003a-ieqn"></a>
 </p><dl>
 <dt><u>Function:</u> <b>ieqn</b><i> (<var>ie</var>, <var>unk</var>, <var>tech</var>, <var>n</var>, <var>guess</var>)</i>
-<a name="IDX872"></a>
+<a name="IDX875"></a>
 </dt>
 <dd><p><code>inteqn</code> is a package for solving integral equations.
 <code>load (&quot;inteqn&quot;)</code> loads this package.
@@ -825,24 +769,20 @@ to use <code><var>f</var>(<var>x</var>)</code> as an initial guess.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Integral-equations">Integral equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="ieqnprint"></a>
 <a name="Item_003a-ieqnprint"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>ieqnprint</b>
-<a name="IDX873"></a>
+<a name="IDX876"></a>
 </dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p><code>ieqnprint</code> governs the behavior of the result returned by the
 <code><a href="#ieqn">ieqn</a></code>
- command.  When <code>ieqnprint</code> is <code>false</code>, the lists returned
 by the <code>ieqn</code> function are of the form
 </p>
 <p>   [<var>solution</var>, <var>technique used</var>, <var>nterms</var>, <var>flag</var>]
@@ -856,18 +796,15 @@ the n given to <code>ieqn</code> if an error prevented generation of further ter
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Integral-equations">Integral equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="lhs"></a>
 <a name="Item_003a-lhs"></a>
 </p><dl>
 <dt><u>Function:</u> <b>lhs</b><i> (<var>expr</var>)</i>
-<a name="IDX874"></a>
+<a name="IDX877"></a>
 </dt>
 <dd><p>Returns the left-hand side (that is, the first argument) of the expression
 <var>expr</var>, when the operator of <var>expr</var> is one of the relational operators
@@ -875,13 +812,11 @@ the n given to <code>ieqn</code> if an error prevented generation of further ter
 one of the assignment operators <code>:= ::= : ::</code>, or a user-defined binary
 infix operator, as declared by <code><a href="maxima_7.html#infix">infix</a></code>.
 </p>
-
 <p>When <var>expr</var> is an atom or its operator is something other than the ones
 listed above, <code>lhs</code> returns <var>expr</var>.
 </p>
 <p>See also <code><a href="#rhs">rhs</a></code>.
 </p>
-
 <p>Examples:
 </p>
 <pre class="example">(%i1) e: aa + bb = cc;
@@ -913,42 +848,34 @@ listed above, <code>lhs</code> returns <var>expr</var>.
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 
 <p><a name="linsolve"></a>
 <a name="Item_003a-linsolve"></a>
 </p><dl>
 <dt><u>Function:</u> <b>linsolve</b><i> ([<var>expr_1</var>, &hellip;, <var>expr_m</var>], [<var>x_1</var>, &hellip;, <var>x_n</var>])</i>
-<a name="IDX875"></a>
+<a name="IDX878"></a>
 </dt>
 <dd><p>Solves the list of simultaneous linear equations for the list of variables.
 The expressions must each be polynomials in the variables and may be equations.
 </p>
 <p>When <code><a href="#globalsolve">globalsolve</a></code>
- is <code>true</code>, each solved-for variable is bound to
 its value in the solution of the equations.
 </p>
 <p>When <code><a href="#backsubst">backsubst</a></code>
- is <code>false</code>, <code>linsolve</code> does not carry out back
 substitution after the equations have been triangularized.  This may be
 necessary in very big problems where back substitution would cause the
 generation of extremely large expressions.
 </p>
 <p>When <code><a href="#linsolve_005fparams">linsolve_params</a></code>
- is <code>true</code>, <code>linsolve</code> also generates the
 <code>%r</code> symbols used to represent arbitrary parameters described in the manual
 under <code><a href="#algsys">algsys</a></code>.
-  Otherwise, <code>linsolve</code> solves an under-determined
 system of equations with some variables expressed in terms of others.
 </p>
 <p>When <code><a href="#programmode">programmode</a></code>
- is <code>false</code>, <code>linsolve</code> displays the solution
 with intermediate expression (<code>%t</code>) labels, and returns the list of labels.
 </p>
 <pre class="example">(%i1) e1: x + z = y;
@@ -999,89 +926,73 @@ Solution
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Linear-equations">Linear equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 
 <p><a name="linsolvewarn"></a>
 <a name="Item_003a-linsolvewarn"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>linsolvewarn</b>
-<a name="IDX876"></a>
+<a name="IDX879"></a>
 </dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>When <code>linsolvewarn</code> is <code>true</code>, <code><a href="#linsolve">linsolve</a></code>
- prints a message
 &quot;Dependent equations eliminated&quot;.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Linear-equations">Linear equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="linsolve_005fparams"></a>
 <a name="Item_003a-linsolve_005fparams"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>linsolve_params</b>
-<a name="IDX877"></a>
+<a name="IDX880"></a>
 </dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>When <code>linsolve_params</code> is <code>true</code>, <code><a href="#linsolve">linsolve</a></code>
- also generates
 the <code>%r</code> symbols used to represent arbitrary parameters described in
 the manual under <code><a href="#algsys">algsys</a></code>.
-  Otherwise, <code>linsolve</code> solves an
 under-determined system of equations with some variables expressed in terms of
 others.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Linear-equations">Linear equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="multiplicities"></a>
 <a name="Item_003a-multiplicities"></a>
 </p><dl>
 <dt><u>System variable:</u> <b>multiplicities</b>
-<a name="IDX878"></a>
+<a name="IDX881"></a>
 </dt>
 <dd><p>Default value: <code>not_set_yet</code>
 </p>
 <p><code>multiplicities</code> is set to a list of the multiplicities of the individual
 solutions returned by <code><a href="#solve">solve</a></code>
- or <code><a href="#realroots">realroots</a></code>.
+<code><a href="#realroots">realroots</a></code>.
 </p>
-
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Polynomials">Polynomials</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 <p><a name="nroots"></a>
 <a name="Item_003a-nroots"></a>
 </p><dl>
 <dt><u>Function:</u> <b>nroots</b><i> (<var>p</var>, <var>low</var>, <var>high</var>)</i>
-<a name="IDX879"></a>
+<a name="IDX882"></a>
 </dt>
 <dd><p>Returns the number of real roots of the real univariate polynomial <var>p</var> in
 the half-open interval <code>(<var>low</var>, <var>high</var>]</code>.  The endpoints of the
@@ -1095,51 +1006,42 @@ interval may be <code>minf</code> or <code>inf</code>.
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Polynomials">Polynomials</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="nthroot"></a>
 <a name="Item_003a-nthroot"></a>
 </p><dl>
 <dt><u>Function:</u> <b>nthroot</b><i> (<var>p</var>, <var>n</var>)</i>
-<a name="IDX880"></a>
+<a name="IDX883"></a>
 </dt>
 <dd><p>where <var>p</var> is a polynomial with integer coefficients and <var>n</var> is a
 positive integer returns <code>q</code>, a polynomial over the integers, such that
 <code>q^n = p</code> or prints an error message indicating that <var>p</var> is not a
 perfect nth power.  This routine is much faster than <code><a href="maxima_14.html#factor">factor</a></code>
- or even
 <code><a href="maxima_14.html#sqfr">sqfr</a></code>.
 </p>
-
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Polynomials">Polynomials</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="polyfactor"></a>
 <a name="Item_003a-polyfactor"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>polyfactor</b>
-<a name="IDX881"></a>
+<a name="IDX884"></a>
 </dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>The option variable <code>polyfactor</code> when <code>true</code> causes
 <code><a href="#allroots">allroots</a></code>
- and <code><a href="#bfallroots">bfallroots</a></code>
- to factor the polynomial over the real
+<code><a href="#bfallroots">bfallroots</a></code>
 numbers if the polynomial is real, or over the complex numbers, if the
 polynomial is complex.
 </p>
@@ -1147,32 +1049,26 @@ polynomial is complex.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Polynomials">Polynomials</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div>
+</p></dd></dl>
 
 <p><a name="programmode"></a>
 <a name="Item_003a-programmode"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>programmode</b>
-<a name="IDX882"></a>
+<a name="IDX885"></a>
 </dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>When <code>programmode</code> is <code>true</code>, <code><a href="#solve">solve</a></code>,
-
 <code><a href="#realroots">realroots</a></code>,
- <code><a href="#allroots">allroots</a></code>,
- and <code><a href="#linsolve">linsolve</a></code>
- return solutions
+<code><a href="#allroots">allroots</a></code>,
+<code><a href="#linsolve">linsolve</a></code>
 as elements in a list.
 (Except when <code><a href="#backsubst">backsubst</a></code>
- is set to <code>false</code>, in which case
 <code>programmode: false</code> is assumed.)
 </p>
 <p>When <code>programmode</code> is <code>false</code>, <code>solve</code>, etc. create intermediate
@@ -1180,50 +1076,43 @@ expression labels <code>%t1</code>, <code>t2</code>, etc., and assign the soluti
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Polynomials">Polynomials</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 <p><a name="realonly"></a>
 <a name="Item_003a-realonly"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>realonly</b>
-<a name="IDX883"></a>
+<a name="IDX886"></a>
 </dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>When <code>realonly</code> is <code>true</code>, <code><a href="#algsys">algsys</a></code>
- returns only those solutions
 which are free of <code>%i</code>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="realroots"></a>
 <a name="Item_003a-realroots"></a>
 </p><dl>
 <dt><u>Function:</u> <b>realroots</b><i> (<var>expr</var>, <var>bound</var>)</i>
-<a name="IDX884"></a>
+<a name="IDX887"></a>
 </dt>
 <dt><u>Function:</u> <b>realroots</b><i> (<var>eqn</var>, <var>bound</var>)</i>
-<a name="IDX885"></a>
+<a name="IDX888"></a>
 </dt>
 <dt><u>Function:</u> <b>realroots</b><i> (<var>expr</var>)</i>
-<a name="IDX886"></a>
+<a name="IDX889"></a>
 </dt>
 <dt><u>Function:</u> <b>realroots</b><i> (<var>eqn</var>)</i>
-<a name="IDX887"></a>
+<a name="IDX890"></a>
 </dt>
 <dd><p>Computes rational approximations of the real roots of the polynomial <var>expr</var>
 or polynomial equation <var>eqn</var> of one variable, to within a tolerance of
@@ -1233,23 +1122,19 @@ symbol constants such as <code>%pi</code> are rejected.
 <p><code>realroots</code> assigns the multiplicities of the roots it finds
 to the global variable <code><a href="#multiplicities">multiplicities</a></code>.
 </p>
-
 <p><code>realroots</code> constructs a Sturm sequence to bracket each root, and then
 applies bisection to refine the approximations.  All coefficients are converted
 to rational equivalents before searching for roots, and computations are carried
 out by exact rational arithmetic.  Even if some coefficients are floating-point
 numbers, the results are rational (unless coerced to floats by the
 <code><a href="maxima_5.html#float">float</a></code>
- or <code><a href="maxima_5.html#numer">numer</a></code>
- flags).
+<code><a href="maxima_5.html#numer">numer</a></code>
 </p>
 <p>When <var>bound</var> is less than 1, all integer roots are found exactly.
 When <var>bound</var> is unspecified, it is assumed equal to the global variable
 <code><a href="#rootsepsilon">rootsepsilon</a></code>.
 </p>
-
 <p>When the global variable <code><a href="#programmode">programmode</a></code>
- is <code>true</code>, <code>realroots</code>
 returns a list of the form <code>[x = <var>x_1</var>, x = <var>x_2</var>, ...]</code>.
 When <code>programmode</code> is <code>false</code>, <code>realroots</code> creates intermediate
 expression labels <code>%t1</code>, <code>%t2</code>, &hellip;,
@@ -1275,20 +1160,17 @@ assigns the results to them, and returns the list of labels.
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Polynomials">Polynomials</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div>
+</p></dd></dl>
 
 <p><a name="rhs"></a>
 <a name="Item_003a-rhs"></a>
 </p><dl>
 <dt><u>Function:</u> <b>rhs</b><i> (<var>expr</var>)</i>
-<a name="IDX888"></a>
+<a name="IDX891"></a>
 </dt>
 <dd><p>Returns the right-hand side (that is, the second argument) of the expression
 <var>expr</var>, when the operator of <var>expr</var> is one of the relational operators
@@ -1296,13 +1178,11 @@ assigns the results to them, and returns the list of labels.
 one of the assignment operators <code>:= ::= : ::</code>, or a user-defined binary
 infix operator, as declared by <code><a href="maxima_7.html#infix">infix</a></code>.
 </p>
-
 <p>When <var>expr</var> is an atom or its operator is something other than the ones
 listed above, <code>rhs</code> returns 0.
 </p>
 <p>See also <code><a href="#lhs">lhs</a></code>.
 </p>
-
 <p>Examples:
 </p>
 <pre class="example">(%i1) e: aa + bb = cc;
@@ -1334,56 +1214,46 @@ listed above, <code>rhs</code> returns 0.
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="rootsconmode"></a>
 <a name="Item_003a-rootsconmode"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>rootsconmode</b>
-<a name="IDX889"></a>
+<a name="IDX892"></a>
 </dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p><code>rootsconmode</code> governs the behavior of the <code>rootscontract</code> command.
 See <code><a href="#rootscontract">rootscontract</a></code>
- for details.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="rootscontract"></a>
 <a name="Item_003a-rootscontract"></a>
 </p><dl>
 <dt><u>Function:</u> <b>rootscontract</b><i> (<var>expr</var>)</i>
-<a name="IDX890"></a>
+<a name="IDX893"></a>
 </dt>
 <dd><p>Converts products of roots into roots of products.  For example,
 <code>rootscontract (sqrt(x)*y^(3/2))</code> yields <code>sqrt(x*y^3)</code>.
 </p>
 <p>When <code><a href="maxima_9.html#radexpand">radexpand</a></code>
- is <code>true</code> and <code><a href="maxima_9.html#domain">domain</a></code>
- is <code>real</code>,
+<code><a href="maxima_9.html#domain">domain</a></code>
 <code>rootscontract</code> converts <code><a href="maxima_10.html#abs">abs</a></code>
- into <code><a href="maxima_10.html#sqrt">sqrt</a></code>
-, e.g.,
+<code><a href="maxima_10.html#sqrt">sqrt</a></code>
 <code>rootscontract (abs(x)*sqrt(y))</code> yields <code>sqrt(x^2*y)</code>.
 </p>
 <p>There is an option <code><a href="#rootsconmode">rootsconmode</a></code>
- affecting <code>rootscontract</code> as
 follows:
 </p>
 <pre class="example">Problem            Value of        Result of applying
@@ -1403,10 +1273,8 @@ but not into 3.  <code>rootsconmode: all</code> involves taking the least common
 multiple of the denominators of the exponents.
 </p>
 <p><code>rootscontract</code> uses <code><a href="maxima_14.html#ratsimp">ratsimp</a></code>
- in a manner similar to
 <code><a href="maxima_10.html#logcontract">logcontract</a></code>.
 </p>
-
 <p>Examples:
 </p>
 <pre class="example">(%i1) rootsconmode: false$
@@ -1439,48 +1307,41 @@ multiple of the denominators of the exponents.
 </pre>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Simplification-functions">Simplification functions</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="rootsepsilon"></a>
 <a name="Item_003a-rootsepsilon"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>rootsepsilon</b>
-<a name="IDX891"></a>
+<a name="IDX894"></a>
 </dt>
 <dd><p>Default value: 1.0e-7
 </p>
 <p><code>rootsepsilon</code> is the tolerance which establishes the confidence interval
 for the roots found by the <code><a href="#realroots">realroots</a></code>
- function.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Polynomials">Polynomials</a>
- &middot;
-<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
-</p>
-</div>
 
-</dd></dl>
+<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="solve"></a>
 <a name="Item_003a-solve"></a>
 </p><dl>
 <dt><u>Function:</u> <b>solve</b><i> (<var>expr</var>, <var>x</var>)</i>
-<a name="IDX892"></a>
+<a name="IDX895"></a>
 </dt>
 <dt><u>Function:</u> <b>solve</b><i> (<var>expr</var>)</i>
-<a name="IDX893"></a>
+<a name="IDX896"></a>
 </dt>
 <dt><u>Function:</u> <b>solve</b><i> ([<var>eqn_1</var>, &hellip;, <var>eqn_n</var>], [<var>x_1</var>, &hellip;, <var>x_n</var>])</i>
-<a name="IDX894"></a>
+<a name="IDX897"></a>
 </dt>
 <dd><p>Solves the algebraic equation <var>expr</var> for the variable <var>x</var> and returns a
 list of solution equations in <var>x</var>.  If <var>expr</var> is not an equation, the
@@ -1510,25 +1371,19 @@ result <var>C</var>), then the equation <code>F(X)=C</code> can be solved for <v
 provided the inverse of the function <var>F</var> is known.
 </p>
 <p><code><a href="#breakup">breakup</a></code>
- if <code>false</code> will cause <code>solve</code> to express the solutions
 of cubic or quartic equations as single expressions rather than as made
 up of several common subexpressions which is the default.
 </p>
 <p><code><a href="#multiplicities">multiplicities</a></code>
- - will be set to a list of the multiplicities of the
 individual solutions returned by <code>solve</code>, <code><a href="#realroots">realroots</a></code>,
- or
 <code><a href="#allroots">allroots</a></code>.
-  Try <code>apropos (solve)</code> for the switches which affect
 <code>solve</code>.  <code><a href="maxima_3.html#describe">describe</a></code>
- may then by used on the individual switch names
 if their purpose is not clear.
 </p>
 <p><code>solve ([<var>eqn_1</var>, ..., <var>eqn_n</var>], [<var>x_1</var>, ..., <var>x_n</var>])</code>
 solves a system of simultaneous (linear or non-linear) polynomial equations by
 calling <code><a href="#linsolve">linsolve</a></code>
- or <code><a href="#algsys">algsys</a></code>
- and returns a list of the solution
+<code><a href="#algsys">algsys</a></code>
 lists in the variables.  In the case of <code>linsolve</code> this list would contain
 a single list of solutions.  It takes two lists as arguments.  The first list
 represents the equations to be solved; the second list is a
@@ -1538,11 +1393,9 @@ second argument-list may be omitted.
 </p>
 
 <p>When <code><a href="#programmode">programmode</a></code>
- is <code>false</code>, <code>solve</code> displays solutions with
 intermediate expression (<code>%t</code>) labels, and returns the list of labels.
 </p>
 <p>When <code><a href="#globalsolve">globalsolve</a></code>
- is <code>true</code> and the problem is to solve two or more
 linear equations, each solved-for variable is bound to its value in the solution
 of the equations.
 </p>
@@ -1643,149 +1496,121 @@ solve: dependent equations eliminated: (2)
 (%o1)                      [[x = 1 - %r1, y = %r1]]
 </pre>
 <p>See <code><a href="#algsys">algsys</a></code>
- and <code><a href="#g_t_0025rnum_005flist">%rnum_list</a></code>
- for more information.
+<code><a href="#g_t_0025rnum_005flist">%rnum_list</a></code>
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="Item_003a-solvedecomposes"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>solvedecomposes</b>
-<a name="IDX895"></a>
+<a name="IDX898"></a>
 </dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>When <code>solvedecomposes</code> is <code>true</code>, <code>solve</code> calls
 <code><a href="maxima_14.html#polydecomp">polydecomp</a></code>
- if asked to solve polynomials.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="solveexplicit"></a>
 <a name="Item_003a-solveexplicit"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>solveexplicit</b>
-<a name="IDX896"></a>
+<a name="IDX899"></a>
 </dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>When <code>solveexplicit</code> is <code>true</code>, inhibits <code><a href="#solve">solve</a></code>
- from returning
 implicit solutions, that is, solutions of the form <code>F(x) = 0</code> where
 <code>F</code> is some function.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="solvefactors"></a>
 <a name="Item_003a-solvefactors"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>solvefactors</b>
-<a name="IDX897"></a>
+<a name="IDX900"></a>
 </dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>When <code>solvefactors</code> is <code>false</code>, <code><a href="#solve">solve</a></code>
- does not try to factor
 the expression.  The <code>false</code> setting may be desired in some cases where
 factoring is not necessary.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="solvenullwarn"></a>
 <a name="Item_003a-solvenullwarn"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>solvenullwarn</b>
-<a name="IDX898"></a>
+<a name="IDX901"></a>
 </dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>When <code>solvenullwarn</code> is <code>true</code>, <code><a href="#solve">solve</a></code>
- prints a warning message
 if called with either a null equation list or a null variable list.  For
 example, <code>solve ([], [])</code> would print two warning messages and return
 <code>[]</code>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="solveradcan"></a>
 <a name="Item_003a-solveradcan"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>solveradcan</b>
-<a name="IDX899"></a>
+<a name="IDX902"></a>
 </dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>When <code>solveradcan</code> is <code>true</code>, <code><a href="#solve">solve</a></code>
- calls <code><a href="maxima_9.html#radcan">radcan</a></code>
-
+<code><a href="maxima_9.html#radcan">radcan</a></code>
 which makes <code>solve</code> slower but will allow certain problems containing
 exponentials and logarithms to be solved.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="solvetrigwarn"></a>
 <a name="Item_003a-solvetrigwarn"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>solvetrigwarn</b>
-<a name="IDX900"></a>
+<a name="IDX903"></a>
 </dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>When <code>solvetrigwarn</code> is <code>true</code>, <code><a href="#solve">solve</a></code>
- may print a message
 saying that it is using inverse trigonometric functions to solve the equation,
 and thereby losing solutions.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Algebraic-equations">Algebraic equations</a>
-</p>
 </div>
-
-</dd></dl>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-Differential-Equations"></a>
@@ -1805,7 +1630,7 @@ and thereby losing solutions.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>本田 康晃</em> on <em>September, 8 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

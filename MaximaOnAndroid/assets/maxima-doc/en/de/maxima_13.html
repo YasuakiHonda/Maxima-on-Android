@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 1 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -281,14 +281,12 @@ Begrenzungszeichen <code>/*</code> und <code>*/</code> m&uuml;ssen paarweise auf
 <a name="IDX556"></a>
 </dt>
 <dd><p>Startet wie die Funktion <code><a href="#writefile">writefile</a></code>
- eine Aufzeichnung aller Ein- und 
 Ausgaben der Konsole.  Die Ein- und Ausgaben werden in die Datei <var>filename</var> 
 geschrieben.  Im Unterschied zu <code>writefile</code> werden die Daten immer an eine 
 existierende Datei angeh&auml;ngt, wenn diese existiert.  Existiert die Datei 
 nicht, wird diese angelegt.
 </p>
 <p>Die Funktion <code><a href="#closefile">closefile</a></code>
- beendet die Aufzeichnung.
 </p></dd></dl>
 
 <p><a name="batch"></a>
@@ -303,32 +301,25 @@ nicht, wird diese angelegt.
 <var>filename</var> ein, wertet diese aus und gibt die Ergebnisse auf der Konsole 
 aus.  <code>batch</code> sucht die Datei <var>filename</var> in den Verzeichnissen, die in 
 der Liste <code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code>
- enthalten sind.  Siehe auch die Funktion
 <code><a href="#file_005fsearch">file_search</a></code>.
 </p>
-
 <p><code>batch(<var>filename</var>, <code>demo</code>)</code> entspricht dem Kommando
 <code>demo(<var>filename</var>)</code>.  <code>batch</code> sucht f&uuml;r diesen Fall die Datei in
 der Liste der Verzeichnisse <code><a href="#file_005fsearch_005fdemo">file_search_demo</a></code>.
-  Siehe auch die Funktion
 <code><a href="maxima_3.html#demo">demo</a></code>.
 </p>
-
 <p><code>batch(<var>filename</var>, <code>test</code>)</code> entspricht dem Kommando
 <code><a href="maxima_2.html#run_005ftestsuite">run_testsuite</a></code>
- mit der Option <code>display_all=true</code>.  Im Unterschied zur
 Funktion <code>run_testsuite</code> sucht die Funktion <code>batch</code> die Datei 
 <var>filename</var> in den Verzeichnissen der Liste <code>file_search_maxima</code> und 
 nicht in der Liste <code><a href="#file_005fsearch_005ftests">file_search_tests</a></code>.
 </p>
-
 <p>Die Maxima-Ausdr&uuml;cke in der Datei werden wie auf der Konsole mit den 
 Zeichen <code>;</code> oder <code>$</code> beendet.  Die Systemvariable <code>%</code> und die
 Funktion <code>%th</code> beziehen sich auf vorhergehende Zeilen in der Datei.  Die
 Datei kann <code>:lisp</code>-Unterbrechungskommandos enthalten.  Leerzeichen, 
 Tabulatoren, Zeilenschaltungen und Kommentare werden ignoriert.  Eine geeignete 
 Datei kann mit einem Texteditor oder der Funktion <code><a href="#stringout">stringout</a></code>
- erstellt 
 werden.
 </p>
 <p>Den Ein- und Ausgaben werden jeweils Ein- und Ausgabemarken zugewiesen.  Tritt 
@@ -349,12 +340,10 @@ oder eine Liste, die <var>filename</var> und die Nummern der fehlgeschlagenen Te
 enth&auml;lt.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#load">load</a></code>
- und <code><a href="#batchload">batchload</a></code>,
- um Dateien
+<code><a href="#batchload">batchload</a></code>,
 zu laden, sowie die Funktionen <code><a href="maxima_2.html#run_005ftestsuite">run_testsuite</a></code>
- und <code><a href="maxima_3.html#demo">demo</a></code>.
-</p>
-</dd></dl>
+<code><a href="maxima_3.html#demo">demo</a></code>.
+</p></dd></dl>
 
 <p><a name="batchload"></a>
 </p><dl>
@@ -373,8 +362,7 @@ geladen wird, keine <code>:lisp</code>-Unterbrechungskommandos enthalten.
 </p>
 <p><code>batchload</code> gibt eine Zeichenkette mit dem Pfad der Datei <var>filename</var> 
 zur&uuml;ck.  Siehe auch die Funktionen <code><a href="#batch">batch</a></code>
- und <code><a href="#load">load</a></code>,
- um 
+<code><a href="#load">load</a></code>,
 Dateien zu laden.
 </p></dd></dl>
 
@@ -384,9 +372,7 @@ Dateien zu laden.
 <a name="IDX560"></a>
 </dt>
 <dd><p>Beendet eine Aufzeichnung, die von den Funktionen <code><a href="#writefile">writefile</a></code>
- oder 
 <code><a href="#appendfile">appendfile</a></code>
- gestartet wurde, und schlie&szlig;t die Ausgabedatei.
 </p></dd></dl>
 
 <p><a name="file_005foutput_005fappend"></a>
@@ -398,17 +384,15 @@ Dateien zu laden.
 </p>
 <p>Die Optionsvariable <code>file_output_append</code> kontrolliert, ob die Funktionen 
 <code><a href="#save">save</a></code>,
- <code><a href="#stringout">stringout</a></code>
- oder <code><a href="#with_005fstdout">with_stdout</a></code>,
- die in eine Datei 
+<code><a href="#stringout">stringout</a></code>
+<code><a href="#with_005fstdout">with_stdout</a></code>,
 schreiben, diese l&ouml;schen und neu anlegen oder die Daten anh&auml;ngen.  Wenn 
 <code>file_output_append</code> den Wert <code>true</code> hat, werden die Daten an die 
 existierende Datei angeh&auml;ngt.  Ansonsten wird eine neue Datei erstellt.
 </p>
 <p>Plot-Funktionen und der &Uuml;bersetzer erstellen grunds&auml;tzlich neue Dateien und
 die Funktionen <code><a href="#tex">tex</a></code>
- und <code><a href="#appendfile">appendfile</a></code>
- h&auml;ngen die Ausgabe immer an 
+<code><a href="#appendfile">appendfile</a></code>
 eine bestehende Datei an.
 </p></dd></dl>
 
@@ -446,15 +430,12 @@ Zeichenkette zur&uuml;ck, wenn die Datei gefunden wurde.  Ansonsten wird
 <code>false</code> zur&uuml;ckgegeben.  <code>file_search(<var>filename</var>)</code> sucht in den 
 Standardsuchverzeichnissen, die mit den Optionsvariablen 
 <code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code>,
- <code><a href="#file_005fsearch_005flisp">file_search_lisp</a></code>
- und 
+<code><a href="#file_005fsearch_005flisp">file_search_lisp</a></code>
 <code><a href="#file_005fsearch_005fdemo">file_search_demo</a></code>
- spezifiziert werden.
 </p>
 <p><code>file_search</code> pr&uuml;ft zuerst, ob die Datei <code>filename</code> existiert.  Dann
 pr&uuml;ft <code>file_search</code>, ob die Datei anhand von Mustern im Dateinamen 
 gefunden werden kann.  Siehe <code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code>
- f&uuml;r die Suche von
 Dateien.
 </p>
 <p>Das Argument <var>filename</var> kann ein Name mit einer Pfadangabe oder allein der
@@ -476,9 +457,7 @@ Standardsuchverzeichnisse.  Auch ein einzelnes Verzeichnis muss als eine Liste
 <p>Die Standardsuchverzeichnisse k&ouml;nnen modifiziert werden.  Siehe dazu auch
 <code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code>.
 </p>
-
 <p><code>file_search</code> wird von der Funktion <code><a href="#load">load</a></code>
- mit den Verzeichnislisten
 <code>file_search_maxima</code> und <code>file_search_lisp</code> aufgerufen.
 </p></dd></dl>
 
@@ -505,8 +484,7 @@ Standardsuchverzeichnisse.  Auch ein einzelnes Verzeichnis muss als eine Liste
 </dt>
 <dd><p>Diese Optionsvariablen bezeichnen Listen mit Verzeichnissen, die von Funktionen 
 wie <code><a href="#load">load</a></code>
- und <code><a href="maxima_3.html#demo">demo</a></code>
- durchsucht werden, um eine Datei zu finden.  Die
+<code><a href="maxima_3.html#demo">demo</a></code>
 Standardwerte bezeichnen verschiedene Verzeichnisse der Maxima-Installation.
 </p>
 <p>Diese Variablen k&ouml;nnen modifiziert werden, indem die Standardwerte ersetzt 
@@ -549,14 +527,11 @@ wird nur die Dateiendung betrachtet.
 </p>
 <p>Die R&uuml;ckgabe ist das Symbol <code>maxima</code> oder <code>lisp</code>, wenn die
 Dateiendung einen der Werte der Optionsvariablen <code><a href="#file_005ftype_005fmaxima">file_type_maxima</a></code>
- oder
 der Optionsvariablen <code><a href="#file_005ftype_005flisp">file_type_lisp</a></code>
- entspricht.  Ansonsten ist die
 R&uuml;ckgabe das Symbol <code>object</code>.
 </p>
 <p>Siehe auch die Funktion <code><a href="#pathname_005ftype">pathname_type</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="file_005ftype_005flisp"></a>
 </p><dl>
@@ -569,8 +544,7 @@ R&uuml;ckgabe das Symbol <code>object</code>.
 Maxima als die Bezeichnung f&uuml;r eine Lisp-Datei annimmt.
 </p>
 <p>Siehe auch die Funktion <code><a href="#file_005ftype">file_type</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="file_005ftype_005fmaxima"></a>
 </p><dl>
@@ -583,8 +557,7 @@ Maxima als die Bezeichnung f&uuml;r eine Lisp-Datei annimmt.
 Maxima als die Bezeichnung f&uuml;r eine Maxima-Datei annimmt.
 </p>
 <p>Siehe auch die Funktion <code><a href="#file_005ftype">file_type</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="load"></a>
 </p><dl>
@@ -595,47 +568,36 @@ Maxima als die Bezeichnung f&uuml;r eine Maxima-Datei annimmt.
 Funktionen und andere Objekte in Maxima geladen werden.  Alle bisher zugewiesen
 Variablen und Definitionen werden &uuml;berschrieben.  Um die Datei zu finden, wird
 von <code>load</code> die Funktion <code><a href="#file_005fsearch">file_search</a></code>
- mit den Verzeichnislisten
 <code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code>
- und <code><a href="#file_005fsearch_005flisp">file_search_lisp</a></code>
- aufgerufen.  Ist 
+<code><a href="#file_005fsearch_005flisp">file_search_lisp</a></code>
 <code>load</code> erfolgreich, wird der Dateiname zur&uuml;ckgegeben.  Ansonsten gibt
 <code>load</code> eine Fehlermeldung aus.
 </p>
 <p><code>load</code> verarbeitet Dateien mit Lisp-Code oder Maxima-Code.  Dateien, die 
 mit den Funktionen <code><a href="#save">save</a></code>,
- <code><a href="maxima_28.html#translate_005ffile">translate_file</a></code>
- und
+<code><a href="maxima_28.html#translate_005ffile">translate_file</a></code>
 <code><a href="maxima_28.html#compile_005ffile">compile_file</a></code>
- erstellt wurden, enthalten Lisp-Code.  Dateien, die mit
 <code><a href="#stringout">stringout</a></code>
- erstellt wurden, enthalten Maxima-Code.  Die Ausgabedateien
 dieser Funktionen k&ouml;nnen mit <code>load</code> geladen werden.  <code>load</code> ruft die
 Funktion <code><a href="#loadfile">loadfile</a></code>
- auf, um Lisp-Dateien und <code><a href="#batchload">batchload</a></code>
- auf, um 
+<code><a href="#batchload">batchload</a></code>
 Maxima-Dateien zu verarbeiten.
 </p>
 <p><code>load</code> erkennt keine <code>:lisp</code>-Unterbrechungskommandos in 
 Maxima-Dateien.  Die Systemvariablen <code><a href="maxima_4.html#g_t_005f">_</a></code>,
- <code><a href="maxima_4.html#g_t_005f_005f">__</a></code>
- und <code><a href="maxima_4.html#g_t_0025">%</a></code>
- und 
+<code><a href="maxima_4.html#g_t_005f_005f">__</a></code>
+<code><a href="maxima_4.html#g_t_0025">%</a></code>
 die Funktion <code><a href="maxima_4.html#g_t_0025th">%th</a></code>
- behalten jeweils ihren letzten Wert vor dem Aufruf von 
 <code>load</code>.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#loadfile">loadfile</a></code>,
- <code><a href="#batch">batch</a></code>,
-</p> 
-<p><code><a href="#batchload">batchload</a></code>
- und <code><a href="maxima_3.html#demo">demo</a></code>.
-  <code>loadfile</code> verarbeitet 
+<code><a href="#batch">batch</a></code>,
+<code><a href="#batchload">batchload</a></code>
+<code><a href="maxima_3.html#demo">demo</a></code>.
 Lisp-Dateien.  <code>batch</code>, <code>batchload</code> und <code>demo</code> verarbeiten 
 Maxima-Dateien.
 </p>
 <p>Siehe <code><a href="#file_005fsearch">file_search</a></code>
- f&uuml;r mehr Informationen, wie Maxima Dateien in 
 Verzeichnissen findet.  <code>load</code> wertet die Argumente aus.
 </p></dd></dl>
 
@@ -647,10 +609,8 @@ Verzeichnissen findet.  <code>load</code> wertet die Argumente aus.
 <dd><p>Standardwert: <code>false</code>
 </p>
 <p>Wird eine Datei mit den Funktionen <code><a href="#load">load</a></code>,
- <code><a href="#loadfile">loadfile</a></code>
- oder
+<code><a href="#loadfile">loadfile</a></code>
 <code><a href="#batchload">batchload</a></code>
- geladen, enth&auml;lt die Systemvariable <code>load_pathname</code>
 den Namen der Datei.  Der Wert der Systemvariablen kann in der Datei, die 
 geladen wird, ausgelesen werden.
 </p>
@@ -679,14 +639,12 @@ End of batchfile
 </dt>
 <dd><p>L&auml;dt die Datei <var>filename</var> und wertet die Lisp-Ausdr&uuml;cke in der Datei 
 aus.  <code>filename</code> ruft nicht <code><a href="#file_005fsearch">file_search</a></code>
- auf, um eine Datei zu 
 finden.  Daher muss <code>filename</code> ein vollst&auml;ndiger Dateiname sein.
 </p>
 <p><code>loadfile</code> kann Dateien verarbeiten, die mit den Funktionen 
 <code><a href="#save">save</a></code>,
- <code><a href="maxima_28.html#translate_005ffile">translate_file</a></code>
- und <code><a href="maxima_28.html#compile_005ffile">compile_file</a></code>
- erzeugt wurden.
+<code><a href="maxima_28.html#translate_005ffile">translate_file</a></code>
+<code><a href="maxima_28.html#compile_005ffile">compile_file</a></code>
 </p></dd></dl>
 
 <p><a name="loadprint"></a>
@@ -704,7 +662,6 @@ geladen wird.
       ausgegeben.
 </li><li> Hat <code>loadprint</code> den Wert <code>'loadfile</code>, wird eine Meldung 
       ausgegeben, wenn die Datei mit der Funktion <code><a href="#loadfile">loadfile</a></code>
- geladen wird.
 </li><li> Hat <code>loadprint</code> den Wert <code>'autoload</code>, wird eine Meldung 
       ausgegeben, wenn eine Datei automatisch geladen wird.
 </li><li> Hat <code>loadprint</code> den Wert <code>false</code>, werden keine Meldungen beim 
@@ -745,7 +702,6 @@ geladen wird.
 <dd><p>Druckt eine Datei mit dem Namen <var>path</var> auf der Konsole aus.  <var>path</var> kann
 ein Symbol oder eine Zeichenkette sein.  <code>printfile</code> sucht die Datei in den 
 Verzeichnissen, die in der Optionsvariablen <code><a href="#file_005fsearch_005fusage">file_search_usage</a></code>
- enthalten 
 sind.
 </p>
 <p><code>printfile</code> gibt <var>path</var> zur&uuml;ck, wenn die Datei existiert.
@@ -781,9 +737,7 @@ zur&uuml;ck.
 k&ouml;nnen mit dem Kommando <code>load(<var>filename</var>)</code> zur&uuml;ckgelesen werden.
 Siehe <code><a href="#load">load</a></code>.
 </p>
-
 <p>Die Optionsvariable <code><a href="#file_005foutput_005fappend">file_output_append</a></code>
- kontrolliert, ob <code>save</code> die
 Daten an die Ausgabedatei anh&auml;ngt, wenn diese bereits existiert, oder die 
 Ausgabedatei zuvor l&ouml;scht.  Hat <code>file_output_append</code> den Wert 
 <code>true</code>, werden die Daten angeh&auml;ngt.  Ansonsten wird die Datei gel&ouml;scht
@@ -823,7 +777,6 @@ Funktionen oder Arrays, einschlie&szlig;lich automatischer Definitionen.  Die
 gespeicherten Daten enthalten auch die Werte von ge&auml;nderten System- oder
 Optionsvariablen.  Siehe dazu auch <code><a href="maxima_4.html#myoptions">myoptions</a></code>.
 </p>
-
 <p><code>save</code> wertet das Argument <var>filename</var> aus.  Alle anderen Argumente
 werden nicht ausgewertet.
 </p></dd></dl>
@@ -848,14 +801,11 @@ werden nicht ausgewertet.
 <dd><p><code>stringout</code> schreibt Ausdr&uuml;cke in einem Format in eine Datei, dass 
 identisch mit dem Format der Eingabe ist.  Die Datei kann als Eingabedatei f&uuml;r
 die Funktionen <code><a href="#batch">batch</a></code>
- oder <code><a href="maxima_3.html#demo">demo</a></code>
- genutzt werden.  Sie kann mit 
+<code><a href="maxima_3.html#demo">demo</a></code>
 einem Texteditor f&uuml;r jeden Zweck editiert werden.  <code>stringout</code> kann
 ausgef&uuml;hrt werden, wenn das Kommando <code><a href="#writefile">writefile</a></code>
- aktiv ist.
 </p>
 <p>Die Optionsvariable <code><a href="#file_005foutput_005fappend">file_output_append</a></code>
- kontrolliert, ob <code>stringout</code>
 die Daten an die Ausgabedatei anh&auml;ngt, wenn diese bereits existiert oder die 
 Ausgabedatei zuvor l&ouml;scht.  Hat <code>file_output_append</code> den Wert 
 <code>true</code>, werden die Daten angeh&auml;ngt, wenn die Datei bereits existiert.  
@@ -871,9 +821,7 @@ und Ausgabemarken (<code>%i1</code>, <code>%i2</code>, <code>%i3</code>, &hellip
 </p>
 <p>Hat die Optionsvariable <code>grind</code> den Wert <code>true</code>, wird die Ausgabe
 im Format der Funktion <code><a href="maxima_4.html#grind">grind</a></code>
- in die Ausgabedatei geschrieben.  Ansonsten
 wird das Format der Funktion <code><a href="maxima_5.html#string">string</a></code>
- f&uuml;r die Ausgabe genutzt.
 </p>
 <p><code>stringout(<var>filename</var>, [<var>m</var>, <var>n</var>])</code> schreibt die Werte aller
 Eingabemarken von <var>m</var> bis <var>n</var> in die Ausgabedatei.
@@ -913,7 +861,6 @@ die Ausgabedatei noch nicht, wird diese angelegt.
 </p>
 <p>Siehe auch <code><a href="#writefile">writefile</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) with_stdout (&quot;tmp.out&quot;, for i:5 thru 10 do
@@ -938,15 +885,13 @@ Ausgaben werden in die Datei <var>filename</var> geschrieben.
 <p>Die Ausgabedatei kann von Maxima nicht wieder zur&uuml;ckgelesen werden.  Um ein 
 Datei zu erzeugen, die von Maxima zur&uuml;ckgelesen werden kann, siehe die 
 Funktionen <code><a href="#save">save</a></code>
- und <code><a href="#stringout">stringout</a></code>.
-  <code>save</code> speichert 
+<code><a href="#stringout">stringout</a></code>.
 Ausdr&uuml;cke in einem Lisp-Format und <code>stringout</code> in einem Maxima-Format.
 </p>
 <p>Die Reaktion der Funktion <code>writefile</code> f&uuml;r den Fall, dass die Ausgabedatei
 bereits existiert, h&auml;ngt von der Lisp-Implementation ab.  Die Ausgabedatei
 kann zur&uuml;ckgesetzt werden oder die Daten werden angeh&auml;ngt.  Die Funktion
 <code><a href="#appendfile">appendfile</a></code>
- h&auml;ngt die Daten immer an eine existierende Datei an.
 </p>
 <p>Um eine Aufzeichnung ohne Textausgaben von Funktionen zu erhalten, kann 
 <code>writefile</code> nach der Ausf&uuml;hrung von <code>playback</code> ausgef&uuml;hrt werden. 
@@ -954,7 +899,6 @@ kann zur&uuml;ckgesetzt werden oder die Daten werden angeh&auml;ngt.  Die Funkti
 nicht sonstige Textausgaben von Maxima-Funktionen.
 </p>
 <p>Mit <code><a href="#closefile">closefile</a></code>
- wird die Aufzeichnung beendet.
 </p></dd></dl>
 
 <hr size="6">
@@ -1324,7 +1268,6 @@ g\left(x\right)+f\left(x\right)
 </p>
 <p><code>fortindent</code> controls the left margin indentation of
 expressions printed out by the <code><a href="#fortran">fortran</a></code>
- command.  <code>0</code> gives normal
 printout (i.e., 6 spaces), and positive values will causes the
 expressions to be printed farther to the right.
 </p></dd></dl>
@@ -1348,7 +1291,6 @@ matrix.
 </p>
 <p>If <var>expr</var> is not something recognized by <code>fortran</code>,
 the expression is printed in <code><a href="maxima_4.html#grind">grind</a></code>
- format without complaint.
 <code>fortran</code> does not know about lists, arrays, or functions.
 </p>
 <p><code>fortindent</code> controls the left margin of the printed lines.
@@ -1356,7 +1298,6 @@ the expression is printed in <code><a href="maxima_4.html#grind">grind</a></code
 <code>fortindent</code> causes expressions to be printed further to the right.
 </p>
 <p>When <code><a href="#fortspaces">fortspaces</a></code>
- is <code>true</code>, <code>fortran</code> fills out
 each printed line with spaces to 80 columns.
 </p>
 <p><code>fortran</code> evaluates its arguments;
@@ -1364,7 +1305,6 @@ quoting an argument defeats evaluation.
 <code>fortran</code> always returns <code>done</code>.
 </p>
 <p>See also the function <code><a href="maxima_46.html#function_005ff90">f90</a></code>
- for printing one or more
 expressions as a Fortran 90 program.
 </p>
 <p>Examples:
@@ -1422,7 +1362,7 @@ each printed line with spaces to 80 columns.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>September, 1 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

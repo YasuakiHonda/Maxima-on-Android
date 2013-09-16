@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2012年12月月12日 by texi2html 1.82
+<!-- Created on 2013年9月月4日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.29.1 Manual: 71. plotdf</title>
+<title>Maxima 5.31.0 Manual: 71. romberg</title>
 
-<meta name="description" content="Maxima 5.29.1 Manual: 71. plotdf">
-<meta name="keywords" content="Maxima 5.29.1 Manual: 71. plotdf">
+<meta name="description" content="Maxima 5.31.0 Manual: 71. romberg">
+<meta name="keywords" content="Maxima 5.31.0 Manual: 71. romberg">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -138,6 +138,7 @@ div.categorybox
 </style>
 
 <link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+
 <script type="text/javascript"><!--
 
   var _gaq = _gaq || [];
@@ -155,332 +156,240 @@ div.categorybox
 
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="plotdf"></a>
+<a name="romberg"></a>
 <table cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="maxima_70.html#Functions-and-Variables-for-orthogonal-polynomials" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-plotdf" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-romberg" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima_70.html#orthopoly" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#romberg" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#simplex" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="plotdf-1"></a>
-<h1 class="chapter">71. plotdf</h1>
+<a name="romberg-1"></a>
+<h1 class="chapter">71. romberg</h1>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-plotdf">71.1 Introduction to plotdf</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-plotdf">71.2 Functions and Variables for plotdf</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-romberg">71.1 Functions and Variables for romberg</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Introduction-to-plotdf"></a>
+<p><a name="Item_003a-Functions-and-Variables-for-romberg"></a>
 </p><hr size="6">
-<a name="Introduction-to-plotdf"></a>
+<a name="Functions-and-Variables-for-romberg"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#plotdf" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-plotdf" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#romberg" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#simplex" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#plotdf" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#plotdf" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#romberg" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#romberg" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#romberg" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#simplex" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-plotdf-1"></a>
-<h2 class="section">71.1 Introduction to plotdf</h2>
-
-<p>関数<code>plotdf</code>は、 1次常微分方程式(ODE)や2つの自律 1次
-ODE系の(勾配場とも呼ばれる)方向場のプロットを生成します。
-</p>
-<p>Plotdfは Xmaximaを必要とします。
-コンソールや他の Maximaインターフェースから使うことはできますが、
-結果のファイルは Xmaximaに送られ、プロットされます。
-plotdfを使ってみる前に Xmaximaをインストールしたことを確認してください。
-</p>
-<p>単一 ODEの方向場をプロットするには ODEを以下の形式で書かなければいけません:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">       dy
-       -- = F(x,y)
-       dx
-</pre></td></tr></table>
-
-<p>そして関数 <var>F</var>を <code>plotdf</code>の引数に与えなければいけません。
-もし独立変数と従属変数が、上の式のように <var>x</var>と <var>y</var>でないなら、
-plotdfコマンドへの引数として与えられるリストの中に明示的にそれら
-2つの変数を指名しなければいけません。
-(例を見てください。)
-</p>
-<p>2つの自律 ODEの組の方向場をプロットするには、それらを以下の形式で書かなければいけません。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">       dx             dy
-       -- = G(x,y)    -- = F(x,y) 
-       dt             dt
-</pre></td></tr></table>
-
-<p>そして <code>plotdf</code>の引数は 2つの関数 <var>G</var>と
-<var>F</var>をその順に持つリストでなければいけません;
-すなわち、リストの最初の式は水平軸上に表された変数の時間導関数であり、
-二番目の式は垂直軸上に表された変数の時間導関数です。
-それら2つの変数は <var>x</var>と <var>y</var>である必要はありませんが、
-もしそうでないなら、 plotdfに与えられる二番目の引数は
-2つの変数を指定する別のリストでなければいけません。
-一番目が水平軸上のものを、その後が垂直軸上のものを指定します。
-</p>
-
-<p>もし単一の ODEが与えられるなら、
-<code>plotdf</code>は、暗に <code>x=t</code>, <code>G(x,y)=1</code>とみなし、
-非自励方程式を 2つの自励方程式系に変換します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Differential-equations">Differential equations</a>
- &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-plotdf">Package plotdf</a>
-</div></p>
-<p><a name="Item_003a-Functions-and-Variables-for-plotdf"></a>
-</p><hr size="6">
-<a name="Functions-and-Variables-for-plotdf"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-plotdf" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#romberg" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#plotdf" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#plotdf" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#romberg" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<a name="Functions-and-Variables-for-plotdf-1"></a>
-<h2 class="section">71.2 Functions and Variables for plotdf</h2>
+<a name="Functions-and-Variables-for-romberg-1"></a>
+<h2 class="section">71.1 Functions and Variables for romberg</h2>
 
 
 <dl>
-<dt><a name="index-plotdf"></a><u>関数:</u> <b>plotdf</b><i> (<var>dydx</var>, ...options...)</i></dt>
-<dt><a name="index-plotdf-1"></a><u>関数:</u> <b>plotdf</b><i> (<var>dvdu</var>, <code>[</code><var>u</var>,<var>v</var><code>]</code>, ...options...)</i></dt>
-<dt><a name="index-plotdf-2"></a><u>関数:</u> <b>plotdf</b><i> (<code>[</code><var>dxdt</var>,<var>dydt</var><code>]</code>, ...options...)</i></dt>
-<dt><a name="index-plotdf-3"></a><u>関数:</u> <b>plotdf</b><i> (<code>[</code><var>dudt</var>,<var>dvdt</var><code>]</code>, <code>[</code><var>u</var>,<var>v</var><code>]</code>, ...options...)</i></dt>
+<dt><a name="index-romberg"></a><u>関数:</u> <b>romberg</b><i> (<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</i></dt>
+<dt><a name="index-romberg-1"></a><u>関数:</u> <b>romberg</b><i> (<var>F</var>, <var>a</var>, <var>b</var>)</i></dt>
 <dd>
-<p>2次元 <var>x</var>と <var>y</var>に方向場を表示します。
+<p>Romberg法による数値積分を計算します。
 </p>
-<p>最初の引数は導関数を指定し、式か 2つの式のリストでなければいけません。
-<var>dydx</var>, <var>dxdt</var>, <var>dydt</var>は <var>x</var>と <var>y</var>に依存する式です。
-<var>dvdu</var>, <var>dudt</var>, <var>dvdt</var>は <var>u</var>と <var>v</var>に依存する式です。
-それら 2つの変数に加えて、
-<code>parameters</code>オプションで与えられる数値を持つか
-(オプション構文法は以下に与えられます)、
-<var>sliders</var>オプションで指定される許される値の範囲のパラメータ一式にも、
-式は依存するかもしれません。
+<p><code>romberg(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>は積分
+<code>integrate(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>の概算を返します。
 </p>
-<p>コマンド内やメニューで選択して、いくつかの他のオプションを与えることができます。
-プロット上でクリックしたり、オプション
-<code>trajectory_at</code>を使って積分曲線を得ることができます。
-<code>direction</code>オプションを使って積分の方向を制御できます。
-オプションは、 <em>forward</em>, <em>backward</em>,
-<em>both</em>のいずれかの値を取り得ます。
-<code>nsteps</code>で積分ステップの数を与えることができ、
-<code>tstep</code>オプションでそれらの間の時間間隔を設定できます。
-積分には Adams Moulton法が使われます;
-4次の適応 Runge-Kutta法に切り替えることも可能です。
+<p><var>expr</var>は、
+<var>x</var>が浮動小数点値にバインドされた時
+浮動小数点値に評価される式でなければいけません。
 </p>
-
-<p><b>プロットウィンドウメニュー:</b>
+<p><code>romberg(<var>F</var>, <var>a</var>, <var>b</var>)</code>は積分
+<code>integrate(<var>F</var>(x), x, <var>a</var>, <var>b</var>)</code>の概算を返します。
+ここで、 <code>x</code>は <var>F</var>の名付けられない唯一の引数を表します;
+実際の引数は <code>x</code>と名付けられません。
+<var>F</var>は、引数が浮動小数点値の時、浮動小数点値を返す
+Maximaか Lispの関数でなければいけません。
+<var>F</var>は翻訳またはコンパイルされた Maxima関数を指定することができます。
 </p>
-<p>プロットウィンドウのメニューには以下のオプションがあります:
-<em>Zoom</em>, はマウスの振る舞いを変えて、プロット領域上で左ボタンをクリックすることで
-ズームインできるようになります。
-ある点近くをクリックする毎に、クリックした点を中心にしてプロットが拡大されます。
-&lt;Shift&gt;キーを押しながらクリックすると、以前の倍率にズームアウトします。
-ある点をクリックした時、軌跡の計算を再開するにはメニューから
-<em>Integrate</em>を選択してください。
+<p>グローバル変数 <code>rombergabs</code>と <code>rombergtol</code>が
+<code>romberg</code>の精度を決定します。
+<code>romberg</code>は、連続する近似の間の絶対差が 
+<code>rombergabs</code>よりも小さい時か、連続する近似に関する相対差が
+<code>rombergtol</code>よりも小さい時、成功のうちに終了します。
+従って、
+<code>rombergabs</code>が 0.0 (デフォルト)の時、
+相対誤差テストだけが <code>romberg</code>に効果を持ちます。
 </p>
-<p>メニューの中のオプション <em>Config</em>を使って，使用中の
-ODE(s)や様々な他の設定を変えることができます。
-構成が変更された後、新しい設定を稼働するにはメニューオプション
-<em>Replot</em>を選択しなければいけません。
-もし、座標の組を <em>Config</em>ダイアログメニューの場
-<em>Trajectory at</em>に入れて、 &lt;enter&gt;キーを押したら、
-既に示されているものに加えて、新しい積分曲線が表示されます。
-<em>Replot</em>が選択された時は、入れられた最後の積分曲線だけが表示されます。
+<p><code>romberg</code>は、
+あきらめる前に、せいぜい <code>rombergit</code>回、ステップサイズを半分にします;
+それゆえ関数評価の最大回数は <code>2^rombergit</code>です。
+もし <code>rombergabs</code>や
+<code>rombergtol</code>によって確立される誤差基準が満たされないなら、
+<code>romberg</code>はエラーメッセージを印字します。
+<code>romberg</code>はいつも、少なくとも <code>rombergmin</code>回の繰り返しを行います;
+これは、被積分関数が振動的な時、見せかけの終了を防ぐつもりの発見的方法です。
 </p>
-<p>右マウスボタンを押しながらカーソルを動かすと、プロットを横や上下にドラッグできます。
-ステップ数や <var>t</var>の初期値、x, yの中心や範囲のような追加パラメータは、
-Configメニューで設定できます。
+<p><code>romberg</code>は、積分変数を特定の値にバインド(する前ではなく)した後、
+被積分関数を繰り返し評価します。
+この評価ポリシーは、多次元積分を計算するための
+<code>romberg</code>の入れ子のコールを可能にします。
+しかしながら、誤差計算は入れ子の積分の誤差を考慮しないので、
+エラーは過小評価されるかもしれません。
+また、多次元問題のために特別に工夫された方法は
+より少ない関数評価で同じ精度をもたらす可能性があります。
 </p>
-<p>プロットのコピーは、メニューオプション <em>Save</em>を使って
-ポストスクリプトファイルとして保存できます。
+<p><code>load(romberg)</code>はこの関数をロードします。
 </p>
-<p><b>プロットオプション:</b>
+<p><code>QUADPACK</code>、数値積分関数のコレクションも参照してください。
 </p>
-<p><code>plotdf</code>コマンドはいくつかのコマンドを含むかもしれません。
-それぞれのコマンドは複数の項目のリストです。
-最初の項目はオプション名で、残りはオプションに割り当てられる値から成ります。
+<p>例:
 </p>
-<p><code>plotdf</code>が認識するオプションは以下の通りです:
+<p>1次元積分。
 </p>
-<ul>
-<li>
-<em>tstep</em>は独立変数 <var>t</var>に関する増分の長さを定義します。
-積分曲線を計算するのに使われます。
-もしただ 1つの式 <var>dydx</var>が <code>plotdf</code>に与えられたら、
-<var>x</var>変数は <var>t</var>に直接比例することになります。
-デフォルト値は 0.1です。
-
-</li><li>
-<em>nsteps</em>は、積分曲線を計算するのに、独立変数に対して使われる長さ
-<code>tstep</code>のステップ回数を定義します。
-デフォルト値は 100です。
-
-</li><li>
-<em>direction</em>は積分曲線を計算する際に従う独立変数の方向を定義します。
-可能な値は、
-<code>forward</code>―これは増分 <code>tstep</code>で独立変数を <code>nsteps</code>回増やします―
-<code>backward</code>―これは独立変数を減らします―
-または <code>both</code>―これは
-<code>nsteps</code>回前進、 <code>nsteps</code>回後進で拡げた積分曲線に導きます―
-キーワード <code>right</code>と <code>left</code>を、
-<code>forward</code>と <code>backward</code>の別称として使うことができます。
-デフォルト値は <code>both</code>です。
-
-</li><li>
-<em>tinitial</em>は積分曲線を計算するために使われる変数 <var>t</var>の初期値です。
-微分方程式が自律なので、その設定は <var>t</var>の関数として曲線のプロットでだけ現れます。
-デフォルト値は 0です。
-
-</li><li>
-<em>versus_t</em>は独立変数 <var>t</var>の 2つの関数 <var>x</var>,
-<var>y</var>としての積分曲線のプロットを使って二番目のプロットウィンドウを生成するために
-使われます。
-もし <code>versus_t</code>が 0と異なる任意の値を与えられたら、
-二番目のプロットウィンドウが表示されます。
-二番目のプロットウィンドウはメインプロットウィンドウのメニューに似た別のメニューを含みます。
-デフォルト値は 0です。
-
-</li><li>
-<em>trajectory_at</em>は積分曲線の開始点のための座標 <var>xinitial</var>と
-<var>yinitial</var>を定義します。
-オプションはデフォルトで空です。
-
-</li><li>
-<em>parameters</em>は
-微分方程式の定義の中で使われるパラメータとその数値のリストを定義します。
-パラメータの名前と値は、コンマで分離された組
-<code>name=value</code>の列を持つ文字列で与えなければいけません。
-
-</li><li>
-<em>sliders</em>はスライダーボタンを使って対話的に変更されるパラメータと
-それらのパラメータの変動範囲のリストです。
-パラメータの名前と範囲は、コンマで分離された要素
-<code>name=min:max</code>の列を持つ文字列で与えなければいけません。
-
-</li><li>
-<em>xfun</em>は方向場の上にセミコロンで分離された表示される
-<var>x</var>の関数の列を持つ文字列を定義します。
-これらの関数は Maximaではなく Tclでパースされます。
-
-</li><li>
-<em>x</em>には2つの数が続かなければいけません。
-2つの数は水平軸上で表示される最小値と最大値を設定します。
-もし水平軸上の変数が <var>x</var>でないなら、
-このオプションは水平軸上の変数名を持たなければいけません。
-デフォルトの水平範囲は -10から 10です。
-
-</li><li>
-<em>y</em>には 2つの数が続かなければいけません。
-2つの数は垂直軸上で表示される最小値と最大値を設定します。
-もし垂直軸上の変数が <var>y</var>でないなら、
-このオプションは垂直軸上の変数名を持たなければいけません。
-デフォルトの垂直範囲は -10から 10です。
-</li></ul>
-
-<p><strong>例:</strong>
-</p>
-<ul>
-<li>
-微分方程式 <em>y&rsquo; = exp(-x) + y</em>の方向場と
-<em>(2, -0.1)</em>を通過する解を表示するために:
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plotdf(exp(-x)+y,[trajectory_at,2,-0.1])$
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (romberg);
+(%o1)    /usr/share/maxima/5.11.0/share/numeric/romberg.lisp
+(%i2) f(x) := 1/((x - 1)^2 + 1/100) + 1/((x - 2)^2 + 1/1000)
+              + 1/((x - 3)^2 + 1/200);
+                    1                 1                1
+(%o2) f(x) := -------------- + --------------- + --------------
+                     2    1           2    1            2    1
+              (x - 1)  + ---   (x - 2)  + ----   (x - 3)  + ---
+                         100              1000              200
+(%i3) rombergtol : 1e-6;
+(%o3)                 9.9999999999999995E-7
+(%i4) rombergit : 15;
+(%o4)                          15
+(%i5) estimate : romberg (f(x), x, -5, 5);
+(%o5)                   173.6730736617464
+(%i6) exact : integrate (f(x), x, -5, 5);
+(%o6) 10 sqrt(10) atan(70 sqrt(10))
+ + 10 sqrt(10) atan(30 sqrt(10)) + 10 sqrt(2) atan(80 sqrt(2))
+ + 10 sqrt(2) atan(20 sqrt(2)) + 10 atan(60) + 10 atan(40)
+(%i7) abs (estimate - exact) / exact, numer;
+(%o7)                7.5527060865060088E-11
 </pre></td></tr></table>
 
-<img src="figures/plotdf1.gif" alt="figures/plotdf1">
-
-</li><li>
-方程式 <em>diff(y,x) = x - y^2</em>の方向場と初期条件
-<em>y(-1) = 3</em>の解を得るために以下のコマンドを使うことができます:
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plotdf(x-y^2,[xfun,&quot;sqrt(x);-sqrt(x)&quot;],
-         [trajectory_at,-1,3], [direction,forward],
-         [y,-5,5], [x,-4,16])$
-</pre></td></tr></table>
-
-<p>グラフは関数 <em>y = sqrt(x)</em>も表示します。
+<p><code>romberg</code>の入れ子のコールで実装された 2次元積分。
 </p>
-<img src="figures/plotdf2.gif" alt="figures/plotdf2">
-
-</li><li>
-以下の例は、2つの方程式 <em>dz/dt = v</em>と
-<em>dv/dt = -k*z/m</em>で定義される調和振動子の方向場と、
-<em>(z,v) = (6,0)</em>を通る積分曲線を、
-(<em>k</em>は 2に固定で) <em>m</em>の値を対話的に変えられるスライダーと一緒に、
-表示します。
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plotdf([v,-k*z/m], [z,v], [parameters,&quot;m=2,k=2&quot;],
-           [sliders,&quot;m=1:5&quot;], [trajectory_at,6,0])$
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (romberg);
+(%o1)    /usr/share/maxima/5.11.0/share/numeric/romberg.lisp
+(%i2) g(x, y) := x*y / (x + y);
+                                    x y
+(%o2)                   g(x, y) := -----
+                                   x + y
+(%i3) rombergtol : 1e-6;
+(%o3)                 9.9999999999999995E-7
+(%i4) estimate : romberg (romberg (g(x, y), y, 0, x/2), x, 1, 3);
+(%o4)                   0.81930239628356
+(%i5) assume (x &gt; 0);
+(%o5)                        [x &gt; 0]
+(%i6) integrate (integrate (g(x, y), y, 0, x/2), x, 1, 3);
+                                          3
+                                    2 log(-) - 1
+                    9                     2        9
+(%o6)       - 9 log(-) + 9 log(3) + ------------ + -
+                    2                    6         2
+(%i7) exact : radcan (%);
+                    26 log(3) - 26 log(2) - 13
+(%o7)             - --------------------------
+                                3
+(%i8) abs (estimate - exact) / exact, numer;
+(%o8)                1.3711979871851024E-10
 </pre></td></tr></table>
 
-<img src="figures/plotdf3.gif" alt="figures/plotdf3">
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-romberg">Package romberg</a>
+ &middot;<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div></p>
+</dd></dl>
 
-</li><li>
-Duffing方程式 <em>m*x&rdquo;+c*x&rsquo;+k*x+b*x^3 = 0</em>の方向場をプロットするために変数
-<em>y=x&rsquo;</em>を導入し、以下のように使います:
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plotdf([y,-(k*x + c*y + b*x^3)/m],
-             [parameters,&quot;k=-1,m=1.0,c=0,b=1&quot;],
-             [sliders,&quot;k=-2:2,m=-1:1&quot;],[tstep,0.1])$
-</pre></td></tr></table>
+<p><a name="Item_003a-rombergabs"></a>
+</p><dl>
+<dt><a name="index-rombergabs"></a><u>オプション変数:</u> <b>rombergabs</b></dt>
+<dd><p>デフォルト値: 0.0
+</p>
+<p>グローバル変数 <code>rombergabs</code>と <code>rombergtol</code>は
+<code>romberg</code>の精度を決定します。
+<code>romberg</code>は、連続する近似の間の絶対差が
+<code>rombergabs</code>よりも小さい時か、連続する近似に関する相対差が
+<code>rombergtol</code>よりも小さい時、成功のうちに終了します。
+従って、 <code>rombergabs</code>が 0.0 (デフォルト)の時、
+相対誤差テストだけが <code>romberg</code>に効果を持ちます。
+</p>
+<p><code>rombergit</code>と <code>rombergmin</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-romberg">Package romberg</a>
+</div></p>
+</dd></dl>
 
-<img src="figures/plotdf4.gif" alt="figures/plotdf4">
+<p><a name="Item_003a-rombergit"></a>
+</p><dl>
+<dt><a name="index-rombergit"></a><u>オプション変数:</u> <b>rombergit</b></dt>
+<dd><p>デフォルト値: 11
+</p>
+<p><code>romberg</code>は、あきらめる前に、せいぜい
+<code>rombergit</code>回、ステップサイズを半分にします;
+それゆえ、関数評価の最大回数は <code>2^rombergit</code>です。
+<code>romberg</code>はいつも、少なくとも <code>rombergmin</code>回の繰り返しを行います;
+これは、被積分関数が振動的な時、見せかけの終了を防ぐつもりの発見的方法です。
+</p>
+<p><code>rombergabs</code>と <code>rombergtol</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-romberg">Package romberg</a>
+</div></p>
+</dd></dl>
 
-</li><li>
-質量 <em>m</em>の値を変更するのに使うことができるスライダーと一緒に
-与えられた初期条件の解と減衰振り子の方向場と
-時間の関数として2つの状態変数のプロットを一緒に:
+<p><a name="Item_003a-rombergmin"></a>
+</p><dl>
+<dt><a name="index-rombergmin"></a><u>オプション変数:</u> <b>rombergmin</b></dt>
+<dd><p>デフォルト値: 0
+</p>
+<p><code>romberg</code>はいつも、少なくとも <code>rombergmin</code>回の繰り返しを行います;
+これは、被積分関数が振動的な時、見せかけの終了を防ぐつもりの発見的方法です。
+</p>
+<p><code>rombergit</code>, <code>rombergabs</code>, <code>rombergtol</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-romberg">Package romberg</a>
+</div></p>
+</dd></dl>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plotdf([w,-g*sin(a)/l - b*w/m/l], [a,w],
-        [parameters,&quot;g=9.8,l=0.5,m=0.3,b=0.05&quot;],
-        [trajectory_at,1.05,-9],[tstep,0.01],
-        [a,-10,2], [w,-14,14], [direction,forward],
-        [nsteps,300], [sliders,&quot;m=0.1:1&quot;], [versus_t,1])$
-</pre></td></tr></table>
-
-<img src="figures/plotdf5.gif" alt="figures/plotdf5"><img src="figures/plotdf6.gif" alt="figures/plotdf6">
-
-</li></ul>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-plotdf">Package plotdf</a>
- &middot;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
- &middot;<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a>
+<p><a name="Item_003a-rombergtol"></a>
+</p><dl>
+<dt><a name="index-rombergtol"></a><u>オプション変数:</u> <b>rombergtol</b></dt>
+<dd><p>デフォルト値: 1e-4
+</p>
+<p>グローバル変数 <code>rombergabs</code>と <code>rombergtol</code>は
+<code>romberg</code>の精度を決定されます。
+<code>romberg</code>は、連続する近似の間の絶対差が
+<code>rombergabs</code>よりも小さい時か、連続する近似に関する相対差が
+<code>rombergtol</code>よりも小さい時、成功のうちに終了します。
+従って、 <code>rombergabs</code>が 0.0 (デフォルト)の時、
+相対誤差テストだけが <code>romberg</code>に効果を持ちます。
+</p>
+<p><code>rombergit</code>と <code>rombergmin</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-romberg">Package romberg</a>
 </div></p>
 </dd></dl>
 
 
-<p><a name="Item_003a-romberg"></a>
+<p><a name="Item_003a-simplex"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#plotdf" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#romberg" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#romberg" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#simplex" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -488,12 +397,12 @@ Duffing方程式 <em>m*x&rdquo;+c*x&rsquo;+k*x+b*x^3 = 0</em>の方向場をプ�
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2012年12月月12日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2013年9月月4日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

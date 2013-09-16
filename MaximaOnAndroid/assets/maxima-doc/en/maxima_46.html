@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 8 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Maxima 5.30.0 Manual: 46. diag</title>
+<title>Maxima 5.31.0 Manual: 46. diag</title>
 
-<meta name="description" content="Maxima 5.30.0 Manual: 46. diag">
-<meta name="keywords" content="Maxima 5.30.0 Manual: 46. diag">
+<meta name="description" content="Maxima 5.31.0 Manual: 46. diag">
+<meta name="keywords" content="Maxima 5.31.0 Manual: 46. diag">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -192,9 +192,14 @@ div.categorybox
 
 <dl>
 <dt><u>Function:</u> <b>diag</b><i> (<var>lm</var>)</i>
-<a name="IDX1715"></a>
+<a name="IDX1726"></a>
 </dt>
-<dd><p>Constructs a square matrix with the matrices of <var>lm</var> in the diagonal. <var>lm</var> is a list of matrices or scalars.
+<dd><p>Constructs a matrix that is the block sum of the elements of
+<var>lm</var>. The elements of <var>lm</var> are assumed to be matrices; if an
+element is scalar, it treated as a 1 by 1 matrix.
+</p>
+<p>The resulting matrix will be square if each of the elements of
+<var>lm</var> is square.
 </p>
 <p>Example:
 </p><pre class="example">(%i1) load(&quot;diag&quot;)$
@@ -215,28 +220,29 @@ div.categorybox
                    [ 0  0  0  0  1  1 ]
                    [                  ]
                    [ 0  0  0  0  1  0 ]
+(%i5) diag ([matrix([1,2]), 3]);
+                        [ 1  2  0 ]
+(%o5)                   [         ]
+                        [ 0  0  3 ]
 </pre>
 <p>To use this function write first <code>load(&quot;diag&quot;)</code>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Matrices">Matrices</a>
- &middot;
+
 <a href="maxima_98.html#Category_003a-Share-packages">Share packages</a>
- &middot;
+
 <a href="maxima_98.html#Category_003a-Package-diag">Package diag</a>
-</p>
 </div>
-
-
+</p>
 </dd></dl>
 
 
 <p><a name="Item_003a-JF"></a>
 </p><dl>
 <dt><u>Function:</u> <b>JF</b><i> (<var>lambda</var>,<var>n</var>)</i>
-<a name="IDX1716"></a>
+<a name="IDX1727"></a>
 </dt>
 <dd><p>Returns the Jordan cell of order <var>n</var> with eigenvalue <var>lambda</var>.
 </p>
@@ -262,74 +268,82 @@ div.categorybox
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-diag">Package diag</a>
-</p>
 </div>
-
-
+</p>
 </dd></dl>
 
 
 <p><a name="Item_003a-jordan"></a>
 </p><dl>
 <dt><u>Function:</u> <b>jordan</b><i> (<var>mat</var>)</i>
-<a name="IDX1717"></a>
+<a name="IDX1728"></a>
 </dt>
-<dd><p>Returns the Jordan form of matrix <var>mat</var>, but codified in a Maxima list.
-To get the corresponding matrix, call function <code>dispJordan</code> using as argument
-the output of <code>jordan</code>.
+<dd><p>Returns the Jordan form of matrix <var>mat</var>, encoded as a list in a
+particular format. To get the corresponding matrix, call the function
+<code>dispJordan</code> using the output of <code>jordan</code> as the argument.
+</p>
+<p>The elements of the returned list are themselves lists. The first
+element of each is an eigenvalue of <var>mat</var>. The remaining elements
+are positive integers which are the lengths of the Jordan blocks for
+this eigenvalue. These integers are listed in decreasing
+order. Eigenvalues are not repeated.
+</p>
+<p>The functions <code>dispJordan</code>, <code>minimalPoly</code> and
+<code>ModeMatrix</code> expect the output of a call to <code>jordan</code> as an
+argument. If you construct this argument by hand, rather than by
+calling <code>jordan</code>, you must ensure that each eigenvalue only
+appears once and that the block sizes are listed in decreasing order,
+otherwise the functions might give incorrect answers.
 </p>
 <p>Example:
 </p><pre class="example">(%i1) load(&quot;diag&quot;)$
-
-(%i3) a:matrix([2,0,0,0,0,0,0,0],
-               [1,2,0,0,0,0,0,0],
-               [-4,1,2,0,0,0,0,0],
-               [2,0,0,2,0,0,0,0],
-               [-7,2,0,0,2,0,0,0],
-               [9,0,-2,0,1,2,0,0],
-               [-34,7,1,-2,-1,1,2,0],
-               [145,-17,-16,3,9,-2,0,3])$
-
-(%i34) jordan(a);
-(%o4)             [[2, 3, 3, 1], [3, 1]]
-(%i5) dispJordan(%);
-                [ 2  1  0  0  0  0  0  0 ]
-                [                        ]
-                [ 0  2  1  0  0  0  0  0 ]
-                [                        ]
-                [ 0  0  2  0  0  0  0  0 ]
-                [                        ]
-                [ 0  0  0  2  1  0  0  0 ]
-(%o5)           [                        ]
-                [ 0  0  0  0  2  1  0  0 ]
-                [                        ]
-                [ 0  0  0  0  0  2  0  0 ]
-                [                        ]
-                [ 0  0  0  0  0  0  2  0 ]
-                [                        ]
-                [ 0  0  0  0  0  0  0  3 ]
+(%i2) A: matrix([2,0,0,0,0,0,0,0],
+                [1,2,0,0,0,0,0,0],
+                [-4,1,2,0,0,0,0,0],
+                [2,0,0,2,0,0,0,0],
+                [-7,2,0,0,2,0,0,0],
+                [9,0,-2,0,1,2,0,0],
+                [-34,7,1,-2,-1,1,2,0],
+                [145,-17,-16,3,9,-2,0,3])$
+(%i3) jordan (A);
+(%o3)                [[2, 3, 3, 1], [3, 1]]
+(%i4) dispJordan (%);
+                   [ 2  1  0  0  0  0  0  0 ]
+                   [                        ]
+                   [ 0  2  1  0  0  0  0  0 ]
+                   [                        ]
+                   [ 0  0  2  0  0  0  0  0 ]
+                   [                        ]
+                   [ 0  0  0  2  1  0  0  0 ]
+(%o4)              [                        ]
+                   [ 0  0  0  0  2  1  0  0 ]
+                   [                        ]
+                   [ 0  0  0  0  0  2  0  0 ]
+                   [                        ]
+                   [ 0  0  0  0  0  0  2  0 ]
+                   [                        ]
+                   [ 0  0  0  0  0  0  0  3 ]
 </pre>
 <p>To use this function write first <code>load(&quot;diag&quot;)</code>. See also <code>dispJordan</code> and <code>minimalPoly</code>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-diag">Package diag</a>
-</p>
 </div>
-
-
+</p>
 </dd></dl>
 
 
 <p><a name="Item_003a-dispJordan"></a>
 </p><dl>
 <dt><u>Function:</u> <b>dispJordan</b><i> (<var>l</var>)</i>
-<a name="IDX1718"></a>
+<a name="IDX1729"></a>
 </dt>
-<dd><p>Returns the Jordan matrix associated to the codification given by the Maxima list <var>l</var>, which is the output given by function <code>jordan</code>.
+<dd><p>Returns a matrix in Jordan canonical form (JCF) corresponding to the
+list of eigenvalues and multiplicities given by <var>l</var>. This list
+should be in the format given by the <code>jordan</code> function. See
+<code>jordan</code> for details of this format.
 </p>
 <p>Example:
 </p><pre class="example">(%i1) load(&quot;diag&quot;)$
@@ -357,21 +371,21 @@ the output of <code>jordan</code>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-diag">Package diag</a>
-</p>
 </div>
-
-
+</p>
 </dd></dl>
 
 
 <p><a name="Item_003a-minimalPoly"></a>
 </p><dl>
 <dt><u>Function:</u> <b>minimalPoly</b><i> (<var>l</var>)</i>
-<a name="IDX1719"></a>
+<a name="IDX1730"></a>
 </dt>
-<dd><p>Returns the minimal polynomial associated to the codification given by the Maxima list <var>l</var>, which is the output given by function <code>jordan</code>.
+<dd><p>Returns the minimal polynomial of the matrix whose Jordan form is
+described by the list <var>l</var>. This list should be in the format given
+by the <code>jordan</code> function. See <code>jordan</code> for details of this
+format.
 </p>
 <p>Example:
 </p><pre class="example">(%i1) load(&quot;diag&quot;)$
@@ -391,289 +405,159 @@ the output of <code>jordan</code>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-diag">Package diag</a>
-</p>
 </div>
-
-
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-ModeMatrix"></a>
 </p><dl>
-<dt><u>Function:</u> <b>ModeMatrix</b><i> (<var>A</var>,<var>l</var>)</i>
-<a name="IDX1720"></a>
+<dt><u>Function:</u> <b>ModeMatrix</b><i> (<var>A</var>, [<var>jordan_info</var>])</i>
+<a name="IDX1731"></a>
 </dt>
-<dd><p>Returns the matrix <var>M</var> such that <em>(M^^-1).A.M=J</em>, where <var>J</var> is the Jordan form of <var>A</var>. The Maxima list <var>l</var> is the codified form of the Jordan form as returned by function <code>jordan</code>.
+<dd><p>Returns an invertible matrix <var>M</var> such that <em>(M^^-1).A.M</em> is
+the Jordan form of <var>A</var>.
+</p>
+<p>To calculate this, Maxima must find the Jordan form of <var>A</var>, which
+might be quite computationally expensive. If that has already been
+calculated by a previous call to <code>jordan</code>, pass it as a second
+argument, <var>jordan_info</var>. See <code>jordan</code> for details of the
+required format.
 </p>
 <p>Example:
 </p><pre class="example">(%i1) load(&quot;diag&quot;)$
-
-(%i2) a:matrix([2,1,2,0],
-          [-2,2,1,2],
-          [-2,-1,-1,1],
-          [3,1,2,-1])$
-
-(%i3) jordan(a);
-(%o3)               [[- 1, 1], [1, 3]]
-(%i4) M: ModeMatrix(a,%);
-                  [  1    - 1   1   1 ]
-                  [                   ]
-                  [   1               ]
-                  [ - -   - 1   0   0 ]
-                  [   9               ]
-                  [                   ]
-(%o4)             [   13              ]
-                  [ - --   1   - 1  0 ]
-                  [   9               ]
-                  [                   ]
-                  [  17               ]
-                  [  --   - 1   1   1 ]
-                  [  9                ]
-(%i5) is(  (M^^-1).a.M = dispJordan(%o3)  );
-(%o5)                      true
-</pre><p>Note that <code>dispJordan(%o3)</code> is the Jordan form of matrix <code>a</code>.
+(%i2) A: matrix([2,1,2,0], [-2,2,1,2], [-2,-1,-1,1], [3,1,2,-1])$
+(%i3) M: ModeMatrix (A);
+                      [  1    - 1   1   1 ]
+                      [                   ]
+                      [   1               ]
+                      [ - -   - 1   0   0 ]
+                      [   9               ]
+                      [                   ]
+(%o3)                 [   13              ]
+                      [ - --   1   - 1  0 ]
+                      [   9               ]
+                      [                   ]
+                      [  17               ]
+                      [  --   - 1   1   1 ]
+                      [  9                ]
+(%i4) is ((M^^-1) . A . M = dispJordan (jordan (A)));
+(%o4)                         true
+</pre>
+<p>Note that, in this example, the Jordan form of <code>A</code> is computed
+twice. To avoid this, we could have stored the output of
+<code>jordan(A)</code> in a variable and passed that to both
+<code>ModeMatrix</code> and <code>dispJordan</code>.
 </p>
-<p>To use this function write first <code>load(&quot;diag&quot;)</code>. See also <code>jordan</code> and <code>dispJordan</code>.
+<p>To use this function write first <code>load(&quot;diag&quot;)</code>. See also
+<code>jordan</code> and <code>dispJordan</code>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-diag">Package diag</a>
-</p>
 </div>
-
-
+</p>
 </dd></dl>
 
 
 <p><a name="Item_003a-mat_005ffunction"></a>
 </p><dl>
-<dt><u>Function:</u> <b>mat_function</b><i> (<var>f</var>,<var>mat</var>)</i>
-<a name="IDX1721"></a>
+<dt><u>Function:</u> <b>mat_function</b><i> (<var>f</var>,<var>A</var>)</i>
+<a name="IDX1732"></a>
 </dt>
-<dd><p>Returns <em>f(mat)</em>, where <var>f</var> is an analytic function and <var>mat</var>
-a matrix. This computation is based on Cauchy's integral formula, which states that
-if <code>f(x)</code> is analytic and
+<dd><p>Returns <em>f(A)</em>, where <var>f</var> is an analytic function and <var>A</var>
+a matrix. This computation is based on the Taylor expansion of
+<var>f</var>. It is not efficient for numerical evaluation, but can give
+symbolic answers for small matrices.
 </p>
-<pre class="example">mat = diag([JF(m1,n1),...,JF(mk,nk)]),
-</pre>
-<p>then
-</p>
-<pre class="example">f(mat) = ModeMatrix*diag([f(JF(m1,n1)), ..., f(JF(mk,nk))])
-                                              *ModeMatrix^^(-1)
-</pre>
-<p>Note that there are about 6 or 8 other methods for this calculation.
-</p>
-<p>Some examples follow.
-</p>
+
 <p>Example 1:
+</p>
+<p>The exponential of a matrix. We only give the first row of the answer,
+since the output is rather large.
 </p><pre class="example">(%i1) load(&quot;diag&quot;)$
-
-(%i2) b2:matrix([0,1,0], [0,0,1], [-1,-3,-3])$
-
-(%i3) mat_function(exp,t*b2);
-               2   - t
-              t  %e          - t     - t
-(%o3) matrix([-------- + t %e    + %e   ,
-                 2
-        - t     - t                           - t
- 2    %e      %e        - t           - t   %e
-t  (- ----- - ----- + %e   ) + t (2 %e    - -----)
-        t       2                             t
-               t
-                         - t          - t     - t
-       - t       - t   %e        2  %e      %e
- + 2 %e   , t (%e    - -----) + t  (----- - -----)
-                         t            2       t
-               2   - t            - t     - t
-     - t      t  %e        2    %e      %e        - t
- + %e   ], [- --------, - t  (- ----- - ----- + %e   ),
-                 2                t       2
-                                         t
-        - t     - t      2   - t
-   2  %e      %e        t  %e          - t
-- t  (----- - -----)], [-------- - t %e   ,
-        2       t          2
-        - t     - t                           - t
- 2    %e      %e        - t           - t   %e
-t  (- ----- - ----- + %e   ) - t (2 %e    - -----),
-        t       2                             t
-               t
-      - t     - t                 - t
- 2  %e      %e            - t   %e
-t  (----- - -----) - t (%e    - -----)])
-      2       t                   t
-(%i4) ratsimp(%);
-               [   2              - t ]
-               [ (t  + 2 t + 2) %e    ]
-               [ -------------------- ]
-               [          2           ]
-               [                      ]
-               [         2   - t      ]
-(%o4)  Col 1 = [        t  %e         ]
-               [      - --------      ]
-               [           2          ]
-               [                      ]
-               [     2          - t   ]
-               [   (t  - 2 t) %e      ]
-               [   ----------------   ]
-               [          2           ]
-         [      2        - t    ]
-         [    (t  + t) %e       ]
-         [                      ]
- Col 2 = [     2            - t ]
-         [ - (t  - t - 1) %e    ]
-         [                      ]
-         [     2          - t   ]
-         [   (t  - 3 t) %e      ]
-         [        2   - t       ]
-         [       t  %e          ]
-         [       --------       ]
-         [          2           ]
-         [                      ]
-         [      2          - t  ]
- Col 3 = [    (t  - 2 t) %e     ]
-         [  - ----------------  ]
-         [           2          ]
-         [                      ]
-         [   2              - t ]
-         [ (t  - 4 t + 2) %e    ]
-         [ -------------------- ]
-         [          2           ]
-
+(%i2) A: matrix ([0,1,0], [0,0,1], [-1,-3,-3])$
+(%i3) ratsimp (mat_function (exp, t*A)[1]);
+           2              - t                   2   - t
+         (t  + 2 t + 2) %e       2        - t  t  %e
+(%o3)   [--------------------, (t  + t) %e   , --------]
+                  2                               2
 </pre>
-
 <p>Example 2:
-</p><pre class="example">(%i5) b1:matrix([0,0,1,1,1],
-                [0,0,0,1,1],
-                [0,0,0,0,1],
-                [0,0,0,0,0],
-                [0,0,0,0,0])$
-
-(%i6) mat_function(exp,t*b1);
-                  [              2     ]
-                  [             t      ]
-                  [ 1  0  t  t  -- + t ]
-                  [             2      ]
-                  [                    ]
-(%o6)             [ 0  1  0  t    t    ]
-                  [                    ]
-                  [ 0  0  1  0    t    ]
-                  [                    ]
-                  [ 0  0  0  1    0    ]
-                  [                    ]
-                  [ 0  0  0  0    1    ]
-(%i7) minimalPoly(jordan(b1));
-                             3
-(%o7)                       x
-(%i8) ident(5)+t*b1+1/2*(t^2)*b1^^2;
-                  [              2     ]
-                  [             t      ]
-                  [ 1  0  t  t  -- + t ]
-                  [             2      ]
-                  [                    ]
-(%o8)             [ 0  1  0  t    t    ]
-                  [                    ]
-                  [ 0  0  1  0    t    ]
-                  [                    ]
-                  [ 0  0  0  1    0    ]
-                  [                    ]
-                  [ 0  0  0  0    1    ]
-(%i9) mat_function(exp,%i*t*b1);
-             [                           2 ]
-             [                          t  ]
-             [ 1  0  %i t  %i t  %i t - -- ]
-             [                          2  ]
-             [                             ]
-(%o9)        [ 0  1   0    %i t    %i t    ]
-             [                             ]
-             [ 0  0   1     0      %i t    ]
-             [                             ]
-             [ 0  0   0     1        0     ]
-             [                             ]
-             [ 0  0   0     0        1     ]
-(%i10) mat_function(cos,t*b1)+%i*mat_function(sin,t*b1);
-              [                           2 ]
-              [                          t  ]
-              [ 1  0  %i t  %i t  %i t - -- ]
-              [                          2  ]
-              [                             ]
-(%o10)        [ 0  1   0    %i t    %i t    ]
-              [                             ]
-              [ 0  0   1     0      %i t    ]
-              [                             ]
-              [ 0  0   0     1        0     ]
-              [                             ]
-              [ 0  0   0     0        1     ]
+</p>
+<p>Comparison with the Taylor series for the exponential and also
+comparing <code>exp(%i*A)</code> with sine and cosine.
+</p><pre class="example">(%i1) load(&quot;diag&quot;)$
+(%i2) A: matrix ([0,1,1,1],
+                 [0,0,0,1],
+                 [0,0,0,1],
+                 [0,0,0,0])$
+(%i3) ratsimp (mat_function (exp, t*A));
+                       [           2     ]
+                       [ 1  t  t  t  + t ]
+                       [                 ]
+(%o3)                  [ 0  1  0    t    ]
+                       [                 ]
+                       [ 0  0  1    t    ]
+                       [                 ]
+                       [ 0  0  0    1    ]
+(%i4) minimalPoly (jordan (A));
+                                3
+(%o4)                          x
+(%i5) ratsimp (ident(4) + t*A + 1/2*(t^2)*A^^2);
+                       [           2     ]
+                       [ 1  t  t  t  + t ]
+                       [                 ]
+(%o5)                  [ 0  1  0    t    ]
+                       [                 ]
+                       [ 0  0  1    t    ]
+                       [                 ]
+                       [ 0  0  0    1    ]
+(%i6) ratsimp (mat_function (exp, %i*t*A));
+                  [                        2 ]
+                  [ 1  %i t  %i t  %i t - t  ]
+                  [                          ]
+(%o6)             [ 0   1     0      %i t    ]
+                  [                          ]
+                  [ 0   0     1      %i t    ]
+                  [                          ]
+                  [ 0   0     0        1     ]
+(%i7) ratsimp (mat_function (cos, t*A) + %i*mat_function (sin, t*A));
+                  [                        2 ]
+                  [ 1  %i t  %i t  %i t - t  ]
+                  [                          ]
+(%o7)             [ 0   1     0      %i t    ]
+                  [                          ]
+                  [ 0   0     1      %i t    ]
+                  [                          ]
+                  [ 0   0     0        1     ]
 </pre>
 <p>Example 3:
-</p><pre class="example">(%i11) a1:matrix([2,1,0,0,0,0],
-                 [-1,4,0,0,0,0],
-                 [-1,1,2,1,0,0],
-                 [-1,1,-1,4,0,0],
-                 [-1,1,-1,1,3,0],
-                 [-1,1,-1,1,1,2])$
-
-(%i12) fpow(x):=block([k],declare(k,integer),x^k)$
-
-(%i13) mat_function(fpow,a1);
-                [  k      k - 1 ]         [      k - 1    ]
-                [ 3  - k 3      ]         [   k 3         ]
-                [               ]         [               ]
-                [       k - 1   ]         [  k      k - 1 ]
-                [  - k 3        ]         [ 3  + k 3      ]
-                [               ]         [               ]
-                [       k - 1   ]         [      k - 1    ]
-                [  - k 3        ]         [   k 3         ]
-(%o13)  Col 1 = [               ] Col 2 = [               ]
-                [       k - 1   ]         [      k - 1    ]
-                [  - k 3        ]         [   k 3         ]
-                [               ]         [               ]
-                [       k - 1   ]         [      k - 1    ]
-                [  - k 3        ]         [   k 3         ]
-                [               ]         [               ]
-                [       k - 1   ]         [      k - 1    ]
-                [  - k 3        ]         [   k 3         ]
-         [       0       ]         [       0       ]
-         [               ]         [               ]
-         [       0       ]         [       0       ]
-         [               ]         [               ]
-         [  k      k - 1 ]         [      k - 1    ]
-         [ 3  - k 3      ]         [   k 3         ]
-         [               ]         [               ]
- Col 3 = [       k - 1   ] Col 4 = [  k      k - 1 ]
-         [  - k 3        ]         [ 3  + k 3      ]
-         [               ]         [               ]
-         [       k - 1   ]         [      k - 1    ]
-         [  - k 3        ]         [   k 3         ]
-         [               ]         [               ]
-         [       k - 1   ]         [      k - 1    ]
-         [  - k 3        ]         [   k 3         ]
-         [    0    ]
-         [         ]         [ 0  ]
-         [    0    ]         [    ]
-         [         ]         [ 0  ]
-         [    0    ]         [    ]
-         [         ]         [ 0  ]
- Col 5 = [    0    ] Col 6 = [    ]
-         [         ]         [ 0  ]
-         [    k    ]         [    ]
-         [   3     ]         [ 0  ]
-         [         ]         [    ]
-         [  k    k ]         [  k ]
-         [ 3  - 2  ]         [ 2  ]
+</p>
+<p>Power operations.
+</p><pre class="example">(%i1) load(&quot;diag&quot;)$
+(%i2) A: matrix([1,2,0], [0,1,0], [1,0,1])$
+(%i3) integer_pow(x) := block ([k], declare (k, integer), x^k)$
+(%i4) mat_function (integer_pow, A);
+                       [ 1     2 k     0 ]
+                       [                 ]
+(%o4)                  [ 0      1      0 ]
+                       [                 ]
+                       [ k  (k - 1) k  1 ]
+(%i5) A^^20;
+                         [ 1   40   0 ]
+                         [            ]
+(%o5)                    [ 0    1   0 ]
+                         [            ]
+                         [ 20  380  1 ]
 </pre>
 <p>To use this function write first <code>load(&quot;diag&quot;)</code>.
 </p>
 <div class=categorybox>
 
-
 <p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-diag">Package diag</a>
-</p>
 </div>
-
-
+</p>
 </dd></dl>
 
 
@@ -695,7 +579,7 @@ t  (----- - -----) - t (%e    - -----)])
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>本田 康晃</em> on <em>September, 8 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

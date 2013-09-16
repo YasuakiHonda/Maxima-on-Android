@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 1 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -197,11 +197,10 @@ div.categorybox
 <p><code>stringproc.lisp</code> enlarges Maximas capabilities of working with strings 
 and adds some useful functions for file in/output.
 </p>
-<p>For questions and bugs please mail to van.nek at arcor.de .
+<p>For questions and bugs please mail to volkervannek at gmail dot com .
 </p>
 <p>In Maxima a string is easily constructed by typing &quot;text&quot;.
 <code><a href="#stringp">stringp</a></code>
- tests for strings.
 </p>
 <pre class="example">(%i1) m: &quot;text&quot;;
 (%o1)                         text
@@ -211,10 +210,8 @@ and adds some useful functions for file in/output.
 <p>Characters are represented as strings of length 1.
 These are not Lisp characters.
 Tests can be done with <code><a href="#charp">charp</a></code>
- (respectively <code><a href="#lcharp">lcharp</a></code>
-
+<code><a href="#lcharp">lcharp</a></code>
 and conversion from Lisp to Maxima characters with <code><a href="#cunlisp">cunlisp</a></code>
-).
 </p>
 <pre class="example">(%i1) c: &quot;e&quot;;
 (%o1)                           e
@@ -229,14 +226,11 @@ and conversion from Lisp to Maxima characters with <code><a href="#cunlisp">cunl
 Maxima characters.  Due to the fact, that the introduced characters are strings 
 of length 1, you can use a lot of string functions also for characters.
 As seen, <code><a href="#supcase">supcase</a></code>
- is one example.
 </p>
 <p>It is important to know, that the first character in a Maxima string is at 
 position 1.  This is designed due to the fact that the first element in a 
 Maxima list is at position 1 too.  See definitions of <code><a href="#charat">charat</a></code>
- and
 <code><a href="#charlist">charlist</a></code>
- for examples.
 </p>
 <p>In applications string functions are often used when working with files.
 You will find some useful stream and print functions in <code>stringproc.lisp</code>.
@@ -245,9 +239,7 @@ The following example shows some of the here introduced functions at work.
 <p>Example: 
 </p>
 <p><code><a href="#openw">openw</a></code>
- returns an output stream to a file, <code>printf</code> then allows
 formatted writing to this file.  See <code><a href="#printf">printf</a></code>
- for details.
 </p>
 <pre class="example">(%i1) s: openw(&quot;E:/file.txt&quot;);
 (%o1)                    #&lt;output stream E:/file.txt&gt;
@@ -261,12 +253,10 @@ formatted writing to this file.  See <code><a href="#printf">printf</a></code>
 </pre>
 <p>After closing the stream you can open it again, this time with input direction.
 <code><a href="#readline">readline</a></code>
- returns the entire line as one string.  The <code>stringproc</code>
 package now offers a lot of functions for manipulating strings.  Tokenizing can 
 be done by <code><a href="#split">split</a></code>
- or <code><a href="#tokens">tokens</a></code>.
+<code><a href="#tokens">tokens</a></code>.
 </p>
-
 <pre class="example">(%i5) s: openr(&quot;E:/file.txt&quot;);
 (%o5)                     #&lt;input stream E:/file.txt&gt;
 (%i6) readline(s);
@@ -329,7 +319,7 @@ and an integer: ~20t~d~%&quot;$
 <p><a name="close"></a>
 </p><dl>
 <dt><u>Function:</u> <b>close</b><i> (<var>stream</var>) </i>
-<a name="IDX2635"></a>
+<a name="IDX2644"></a>
 </dt>
 <dd><p>Closes <var>stream</var> and returns <code>true</code> if <var>stream</var> had been open.
 </p></dd></dl>
@@ -337,48 +327,111 @@ and an integer: ~20t~d~%&quot;$
 <p><a name="flength"></a>
 </p><dl>
 <dt><u>Function:</u> <b>flength</b><i> (<var>stream</var>)</i>
-<a name="IDX2636"></a>
+<a name="IDX2645"></a>
 </dt>
-<dd><p>Returns the number of elements in <var>stream</var>.
+<dd><p>Returns the number of elements in <var>stream</var> 
+where <var>stream</var> has to be a stream from or to a file.
 </p></dd></dl>
 
 <p><a name="fposition"></a>
 </p><dl>
 <dt><u>Function:</u> <b>fposition</b><i> (<var>stream</var>)</i>
-<a name="IDX2637"></a>
+<a name="IDX2646"></a>
 </dt>
 <dt><u>Function:</u> <b>fposition</b><i> (<var>stream</var>, <var>pos</var>)</i>
-<a name="IDX2638"></a>
+<a name="IDX2647"></a>
 </dt>
-<dd><p>Returns the current position in <var>stream</var>, if <var>pos</var> is not used.  If 
-<var>pos</var> is used, <code>fposition</code> sets the position in <var>stream</var>.
-<var>pos</var> has to be a positive number, the first element in <var>stream</var> is in 
-position 1.
+<dd><p>Returns the current position in <var>stream</var>, if <var>pos</var> is not used. 
+If <var>pos</var> is used, <code>fposition</code> sets the position in <var>stream</var>.
+<var>stream</var> has to be a stream from or to a file and 
+<var>pos</var> has to be a positive number where the first element in <var>stream</var> 
+is in position 1.
 </p></dd></dl>
 
 <p><a name="freshline"></a>
 </p><dl>
 <dt><u>Function:</u> <b>freshline</b><i> () </i>
-<a name="IDX2639"></a>
+<a name="IDX2648"></a>
 </dt>
 <dt><u>Function:</u> <b>freshline</b><i> (<var>stream</var>)</i>
-<a name="IDX2640"></a>
+<a name="IDX2649"></a>
 </dt>
 <dd><p>Writes a new line (to <var>stream</var>), if the position is not at the beginning of 
 a line.  See also <code><a href="#newline">newline</a></code>.
+</p></dd></dl>
+
+<p><a name="get_005foutput_005fstream_005fstring"></a>
+</p><dl>
+<dt><u>Funktion:</u> <b>get_output_stream_string</b><i> (<var>stream</var>)</i>
+<a name="IDX2650"></a>
+</dt>
+<dd><p>Gibt Buchstaben, aktuell in dem ge&ouml;ffneten Datenstrom <var>stream</var> 
+enthalten sind, in einer Zeichenkette zur&uuml;ck. Die zur&uuml;ck gegebenen 
+Buchstaben werden dabei aus dem Datenstrom entfernt. <var>stream</var> muss durch 
+<code>make_string_output_stream</code> erzeugt worden sein.
 </p>
-</dd></dl>
+<p>Beispiel: Siehe <a href="#make_005fstring_005foutput_005fstream">make_string_output_stream</a> .
+</p></dd></dl>
+
+<p><a name="make_005fstring_005finput_005fstream"></a>
+</p><dl>
+<dt><u>Funktion:</u> <b>make_string_input_stream</b><i> (<var>string</var>)</i>
+<a name="IDX2651"></a>
+</dt>
+<dt><u>Funktion:</u> <b>make_string_input_stream</b><i> (<var>string</var>, <var>start</var>)</i>
+<a name="IDX2652"></a>
+</dt>
+<dt><u>Funktion:</u> <b>make_string_input_stream</b><i> (<var>string</var>, <var>start</var>, <var>end</var>)</i>
+<a name="IDX2653"></a>
+</dt>
+<dd><p>Gibt einen Datenstrom zur&uuml;ck, der Teile der Zeichenkette <var>string</var> 
+und ein Dateiende enth&auml;lt. 
+Ohne optionale Argumente enth&auml;lt der Strom die gesamte Zeichenkette 
+und ist vor dem ersten Buchstaben positioniert. Mit den optionalen Argumenten 
+<var>start</var> und <var>end</var> l&auml;sst sich der Abschnitt der Zeichenkette festlegen, 
+den der Datenstrom enth&auml;lt. Der erste Buchstabe befindet sich dabei an der 
+Position 1.
+</p> 
+<pre class="example">(%i1) istream : make_string_input_stream(&quot;text&quot;, 1, 4);
+(%o1)              #&lt;string-input stream from &quot;text&quot;&gt;
+(%i2) (while (c : readchar(istream)) # false do sprint(c), newline())$
+t e x 
+(%i3) close(istream)$
+</pre></dd></dl>
+
+<p><a name="make_005fstring_005foutput_005fstream"></a>
+</p><dl>
+<dt><u>Funktion:</u> <b>make_string_output_stream</b><i> ()</i>
+<a name="IDX2654"></a>
+</dt>
+<dd><p>Gibt einen Datenstrom zur&uuml;ck, der Buchstaben aufnehmen kann. Die aktuell  
+im Strom enthaltenden Buchstaben k&ouml;nnen mit <a href="#get_005foutput_005fstream_005fstring">get_output_stream_string</a> 
+entnommen werden.
+</p> 
+<pre class="example">(%i1) ostream : make_string_output_stream();
+(%o1)               #&lt;string-output stream 09622ea0&gt;
+(%i2) printf(ostream, &quot;foo&quot;)$
+
+(%i3) printf(ostream, &quot;bar&quot;)$
+
+(%i4) string : get_output_stream_string(ostream);
+(%o4)                            foobar
+(%i5) printf(ostream, &quot;baz&quot;)$
+
+(%i6) string : get_output_stream_string(ostream);
+(%o6)                              baz
+(%i7) close(ostream)$
+</pre></dd></dl>
 
 <p><a name="newline"></a>
 </p><dl>
 <dt><u>Function:</u> <b>newline</b><i> () </i>
-<a name="IDX2641"></a>
+<a name="IDX2655"></a>
 </dt>
 <dt><u>Function:</u> <b>newline</b><i> (<var>stream</var>)</i>
-<a name="IDX2642"></a>
+<a name="IDX2656"></a>
 </dt>
 <dd><p>Writes a new line (to <var>stream</var>).  See <code><a href="#sprint">sprint</a></code>
- for an example of using
 <code>newline()</code>.  Note that there are some cases, where <code>newline()</code> does 
 not work as expected.
 </p></dd></dl>
@@ -386,7 +439,7 @@ not work as expected.
 <p><a name="opena"></a>
 </p><dl>
 <dt><u>Function:</u> <b>opena</b><i> (<var>file</var>)</i>
-<a name="IDX2643"></a>
+<a name="IDX2657"></a>
 </dt>
 <dd><p>Returns an output stream to <var>file</var>.
 If an existing file is opened, <code>opena</code> appends elements at the end of file.
@@ -395,7 +448,7 @@ If an existing file is opened, <code>opena</code> appends elements at the end of
 <p><a name="openr"></a>
 </p><dl>
 <dt><u>Function:</u> <b>openr</b><i> (<var>file</var>)</i>
-<a name="IDX2644"></a>
+<a name="IDX2658"></a>
 </dt>
 <dd><p>Returns an input stream to <var>file</var>.  If <var>file</var> does not exist, it will 
 be created.
@@ -404,7 +457,7 @@ be created.
 <p><a name="openw"></a>
 </p><dl>
 <dt><u>Function:</u> <b>openw</b><i> (<var>file</var>)</i>
-<a name="IDX2645"></a>
+<a name="IDX2659"></a>
 </dt>
 <dd><p>Returns an output stream to <var>file</var>.
 If <var>file</var> does not exist, it will be created.
@@ -414,20 +467,39 @@ If an existing file is opened, <code>openw</code> destructively modifies <var>fi
 <p><a name="printf"></a>
 </p><dl>
 <dt><u>Function:</u> <b>printf</b><i> (<var>dest</var>, <var>string</var>)</i>
-<a name="IDX2646"></a>
+<a name="IDX2660"></a>
 </dt>
 <dt><u>Function:</u> <b>printf</b><i> (<var>dest</var>, <var>string</var>, <var>expr_1</var>, &hellip;, <var>expr_n</var>)</i>
-<a name="IDX2647"></a>
+<a name="IDX2661"></a>
 </dt>
-<dd><p>Makes the Common Lisp function FORMAT available in Maxima.
-(From gcl.info: &quot;format produces formatted output by outputting the characters
-of control-string string and observing that a tilde introduces a directive.
-The character after the tilde, possibly preceded by prefix parameters and 
-modifiers, specifies what kind of formatting is desired.  Most directives use 
-one or more elements of args to create their output.&quot;)
+<dd><p>Erzeugt eine formatierte Ausgabe. Der Zielparameter <var>dest</var> gibt an, wo die 
+Ausgabe erfolgen soll. M&ouml;glich sind hier ein Ausgabestrom oder die globalen 
+Variablen <code>true</code> und <code>false</code>. <code>true</code> bewirkt eine Ausgabe im Terminal. 
+Der R&uuml;ckgabewert von <code>printf</code> ist in diesem Fall <code>false</code>. 
+<code>false</code> als Zielparameter bewirkt die Ausgabe im R&uuml;ckgabewert. 
 </p>
-<p>The following description and the examples may give an idea of using 
-<code>printf</code>.  See a Lisp reference for more information.
+<p>Die Buchstaben des Kontrollparameters <var>string</var> werden der Reihe nach ausgegeben, 
+wobei jedoch eine Tilde eine Direktive einleitet. Die Direktiven verwenden 
+dann im Allgemeinen die nachstehenden Parameter <var>expr_1</var>, &hellip;, <var>expr_n</var>, 
+um die Ausgabe zu erzeugen. Der Buchstabe nach der Tilde gibt dabei an, 
+welche Art der Formatierung gew&uuml;nscht ist. 
+</p>
+<p><code>printf</code> stellt die Common Lisp Funktion <code>format</code> in Maxima zur Verf&uuml;gung. 
+Das folgende Beispiel zeigt die grunds&auml;tzliche Beziehung zwischen diesen 
+beiden Funktionen.
+</p>
+<pre class="example">(%i1) printf(true, &quot;R~dD~d~%&quot;, 2, 2);
+R2D2
+(%o1)                                false
+(%i2) :lisp (format t &quot;R~dD~d~%&quot; 2 2)
+R2D2
+NIL
+</pre>
+<p>Die folgende Beschreibung und die Beispiele beschr&auml;nken sich auf eine grobe 
+Skizze der Verwendungsm&ouml;glichkeiten von <code>printf</code>.  
+Die Lisp Funktion <code>format</code> ist in vielen Referenzb&uuml;chern ausf&uuml;hrlich 
+beschrieben. Eine hilfreiche Quelle ist z.B. das frei verf&uuml;gbare Online-Manual 
+&quot;Common Lisp the Language&quot; von Guy L. Steele. Siehe dort das Kapitel 22.3.3. 
 </p>
 <pre class="example">   ~%       new line
    ~&amp;       fresh line
@@ -452,41 +524,92 @@ one or more elements of args to create their output.&quot;)
    ~[       selection, ~] terminates 
    ~{       iteration, ~} terminates
 </pre>
-<p>Note that the selection directive <code>~[</code> is zero indexed.
-Also note that the directive ~* is not supported.
+<p>Die Direktive ~h f&uuml;r Gleitkommazahlen mit beliebiger Genauigkeit 
+entspricht nicht dem Lisp-Standard und wird daher unten n&auml;her beschrieben. 
+</p>
+<p>Die Direktive ~* wird nicht unterst&uuml;tzt.
+</p>
+<p>Ist <var>dest</var> ein Datenstrom oder <code>true</code>, gibt <code>printf</code> 
+<code>false</code> zur&uuml;ck. Andernfalls ist der R&uuml;ckgabewert eine Zeichenkette.
 </p>
 <pre class="example">(%i1) printf( false, &quot;~a ~a ~4f ~a ~@r&quot;, 
               &quot;String&quot;,sym,bound,sqrt(12),144), bound = 1.234;
 (%o1)                 String sym 1.23 2*sqrt(3) CXLIV
 (%i2) printf( false,&quot;~{~a ~}&quot;,[&quot;one&quot;,2,&quot;THREE&quot;] );
 (%o2)                          one 2 THREE 
-(%i3) printf(true,&quot;~{~{~9,1f ~}~%~}&quot;,mat ),
+(%i3) printf( true,&quot;~{~{~9,1f ~}~%~}&quot;,mat ),
           mat = args(matrix([1.1,2,3.33],[4,5,6],[7,8.88,9]))$
       1.1       2.0       3.3 
       4.0       5.0       6.0 
       7.0       8.9       9.0 
 (%i4) control: &quot;~:(~r~) bird~p ~[is~;are~] singing.&quot;$
-(%i5) printf( false,control, n,n,if n=1 then 0 else 1 ), n=2;
+(%i5) printf( false, control, n,n, if n = 1 then 1 else 2 ), n = 2;
 (%o5)                    Two birds are singing.
 </pre>
-<p>If <var>dest</var> is a stream or <code>true</code>, then <code>printf</code> returns
-<code>false</code>.  Otherwise, <code>printf</code> returns a string containing the output.
+<p>Die Direktive ~h wurde f&uuml;r Gleitkommazahlen mit beliebiger Genauigkeit 
+eingef&uuml;hrt.
+</p>
+<pre class="example">~w,d,e,x,o,p@H
+ w : width
+ d : decimal digits behind floating point
+ e : minimal exponent digits
+ x : preferred exponent
+ o : overflow character
+ p : padding character
+ @ : display sign for positive numbers
+</pre>
+<pre class="example">(%i1) fpprec : 1000$
+(%i2) printf(true, &quot;|~h|~%&quot;, 2.b0^-64)$
+|0.0000000000000000000542101086242752217003726400434970855712890625|
+(%i3) fpprec : 26$
+(%i4) printf(true, &quot;|~h|~%&quot;, sqrt(2))$
+|1.4142135623730950488016887|
+(%i5) fpprec : 24$
+(%i6) printf(true, &quot;|~h|~%&quot;, sqrt(2))$
+|1.41421356237309504880169|
+(%i7) printf(true, &quot;|~28h|~%&quot;, sqrt(2))$
+|   1.41421356237309504880169|
+(%i8) printf(true, &quot;|~28,,,,,'*h|~%&quot;, sqrt(2))$
+|***1.41421356237309504880169|
+(%i9) printf(true, &quot;|~,18h|~%&quot;, sqrt(2))$
+|1.414213562373095049|
+(%i10) printf(true, &quot;|~,,,-3h|~%&quot;, sqrt(2))$
+|1414.21356237309504880169b-3|
+(%i11) printf(true, &quot;|~,,2,-3h|~%&quot;, sqrt(2))$
+|1414.21356237309504880169b-03|
+(%i12) printf(true, &quot;|~20h|~%&quot;, sqrt(2))$
+|1.41421356237309504880169|
+(%i13) printf(true, &quot;|~20,,,,'+h|~%&quot;, sqrt(2))$
+|++++++++++++++++++++|
+</pre>
+</dd></dl>
+
+<p><a name="readchar"></a>
+</p><dl>
+<dt><u>Funktion:</u> <b>readchar</b><i> (<var>stream</var>)</i>
+<a name="IDX2662"></a>
+</dt>
+<dd><p>Entfernt und gibt den ersten Buchstaben in <var>stream</var> zur&uuml;ck. 
+Falls das Ende des Streams erreicht sein sollte, gibt <code>readchar</code> 
+<code>false</code> zur&uuml;ck.
+</p>
+<p>Beispiel: Siehe <a href="#make_005fstring_005finput_005fstream">make_string_input_stream</a>.
 </p></dd></dl>
 
 <p><a name="readline"></a>
 </p><dl>
 <dt><u>Function:</u> <b>readline</b><i> (<var>stream</var>)</i>
-<a name="IDX2648"></a>
+<a name="IDX2663"></a>
 </dt>
 <dd><p>Returns a string containing the characters from the current position in 
-<var>stream</var> up to the end of the line or <var>false</var> if the end of the file 
+<var>stream</var> up to the end of the line or <code>false</code> if the end of the file 
 is encountered.
 </p></dd></dl>
 
 <p><a name="sprint"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sprint</b><i> (<var>expr_1</var>, &hellip;, <var>expr_n</var>)</i>
-<a name="IDX2649"></a>
+<a name="IDX2664"></a>
 </dt>
 <dd><p>Evaluates and displays its arguments one after the other `on a line' starting 
 at the leftmost position.  The numbers are printed with the '-' right next to 
@@ -529,7 +652,7 @@ intermediate line breaking.
 <p><a name="alphacharp"></a>
 </p><dl>
 <dt><u>Function:</u> <b>alphacharp</b><i> (<var>char</var>)</i>
-<a name="IDX2650"></a>
+<a name="IDX2665"></a>
 </dt>
 <dd><p>Returns <code>true</code> if <var>char</var> is an alphabetic character.
 </p></dd></dl>
@@ -537,7 +660,7 @@ intermediate line breaking.
 <p><a name="alphanumericp"></a>
 </p><dl>
 <dt><u>Function:</u> <b>alphanumericp</b><i> (<var>char</var>)</i>
-<a name="IDX2651"></a>
+<a name="IDX2666"></a>
 </dt>
 <dd><p>Returns <code>true</code> if <var>char</var> is an alphabetic character or a digit.
 </p></dd></dl>
@@ -545,7 +668,7 @@ intermediate line breaking.
 <p><a name="ascii"></a>
 </p><dl>
 <dt><u>Function:</u> <b>ascii</b><i> (<var>int</var>)</i>
-<a name="IDX2652"></a>
+<a name="IDX2667"></a>
 </dt>
 <dd><p>Returns the character corresponding to the ASCII number <var>int</var>.
 ( -1 &lt; int &lt; 256 )
@@ -562,7 +685,7 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z
 <p><a name="cequal"></a>
 </p><dl>
 <dt><u>Function:</u> <b>cequal</b><i> (<var>char_1</var>, <var>char_2</var>)</i>
-<a name="IDX2653"></a>
+<a name="IDX2668"></a>
 </dt>
 <dd><p>Returns <code>true</code> if <var>char_1</var> and <var>char_2</var> are the same.
 </p></dd></dl>
@@ -570,16 +693,15 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z
 <p><a name="cequalignore"></a>
 </p><dl>
 <dt><u>Function:</u> <b>cequalignore</b><i> (<var>char_1</var>, <var>char_2</var>)</i>
-<a name="IDX2654"></a>
+<a name="IDX2669"></a>
 </dt>
 <dd><p>Like <code><a href="#cequal">cequal</a></code>
- but ignores case.
 </p></dd></dl>
 
 <p><a name="cgreaterp"></a>
 </p><dl>
 <dt><u>Function:</u> <b>cgreaterp</b><i> (<var>char_1</var>, <var>char_2</var>)</i>
-<a name="IDX2655"></a>
+<a name="IDX2670"></a>
 </dt>
 <dd><p>Returns <code>true</code> if the ASCII number of <var>char_1</var> is greater than the 
 number of <var>char_2</var>.
@@ -588,16 +710,15 @@ number of <var>char_2</var>.
 <p><a name="cgreaterpignore"></a>
 </p><dl>
 <dt><u>Function:</u> <b>cgreaterpignore</b><i> (<var>char_1</var>, <var>char_2</var>)</i>
-<a name="IDX2656"></a>
+<a name="IDX2671"></a>
 </dt>
 <dd><p>Like <code><a href="#cgreaterp">cgreaterp</a></code>
- but ignores case.
 </p></dd></dl>
 
 <p><a name="charp"></a>
 </p><dl>
 <dt><u>Function:</u> <b>charp</b><i> (<var>obj</var>)</i>
-<a name="IDX2657"></a>
+<a name="IDX2672"></a>
 </dt>
 <dd><p>Returns <code>true</code> if <var>obj</var> is a Maxima character.
 See introduction for example.
@@ -606,7 +727,7 @@ See introduction for example.
 <p><a name="cint"></a>
 </p><dl>
 <dt><u>Function:</u> <b>cint</b><i> (<var>char</var>)</i>
-<a name="IDX2658"></a>
+<a name="IDX2673"></a>
 </dt>
 <dd><p>Returns the ASCII number of <var>char</var>.
 </p></dd></dl>
@@ -614,7 +735,7 @@ See introduction for example.
 <p><a name="clessp"></a>
 </p><dl>
 <dt><u>Function:</u> <b>clessp</b><i> (<var>char_1</var>, <var>char_2</var>)</i>
-<a name="IDX2659"></a>
+<a name="IDX2674"></a>
 </dt>
 <dd><p>Returns <code>true</code> if the ASCII number of <var>char_1</var> is less than the number 
 of <var>char_2</var>.
@@ -623,16 +744,15 @@ of <var>char_2</var>.
 <p><a name="clesspignore"></a>
 </p><dl>
 <dt><u>Function:</u> <b>clesspignore</b><i> (<var>char_1</var>, <var>char_2</var>)</i>
-<a name="IDX2660"></a>
+<a name="IDX2675"></a>
 </dt>
 <dd><p>Like <code><a href="#clessp">clessp</a></code>
- but ignores case.
 </p></dd></dl>
 
 <p><a name="constituent"></a>
 </p><dl>
 <dt><u>Function:</u> <b>constituent</b><i> (<var>char</var>)</i>
-<a name="IDX2661"></a>
+<a name="IDX2676"></a>
 </dt>
 <dd><p>Returns <code>true</code> if <var>char</var> is a graphic character and not the space 
 character.  A graphic character is a character one can see, plus the space 
@@ -651,7 +771,7 @@ d e f g h i j k l m n o p q r s t u v w x y z { | } ~
 <p><a name="cunlisp"></a>
 </p><dl>
 <dt><u>Function:</u> <b>cunlisp</b><i> (<var>lisp_char</var>)</i>
-<a name="IDX2662"></a>
+<a name="IDX2677"></a>
 </dt>
 <dd><p>Converts a Lisp character into a Maxima character.
 (You won't need it.)
@@ -660,7 +780,7 @@ d e f g h i j k l m n o p q r s t u v w x y z { | } ~
 <p><a name="digitcharp"></a>
 </p><dl>
 <dt><u>Function:</u> <b>digitcharp</b><i> (<var>char</var>)</i>
-<a name="IDX2663"></a>
+<a name="IDX2678"></a>
 </dt>
 <dd><p>Returns <code>true</code> if <var>char</var> is a digit.
 </p></dd></dl>
@@ -668,7 +788,7 @@ d e f g h i j k l m n o p q r s t u v w x y z { | } ~
 <p><a name="lcharp"></a>
 </p><dl>
 <dt><u>Function:</u> <b>lcharp</b><i> (<var>obj</var>)</i>
-<a name="IDX2664"></a>
+<a name="IDX2679"></a>
 </dt>
 <dd><p>Returns <code>true</code> if <var>obj</var> is a Lisp character.
 (You won't need it.)
@@ -677,7 +797,7 @@ d e f g h i j k l m n o p q r s t u v w x y z { | } ~
 <p><a name="lowercasep"></a>
 </p><dl>
 <dt><u>Function:</u> <b>lowercasep</b><i> (<var>char</var>)</i>
-<a name="IDX2665"></a>
+<a name="IDX2680"></a>
 </dt>
 <dd><p>Returns <code>true</code> if <var>char</var> is a lowercase character.
 </p></dd></dl>
@@ -685,7 +805,7 @@ d e f g h i j k l m n o p q r s t u v w x y z { | } ~
 <p><a name="newline_005fvariable"></a>
 </p><dl>
 <dt><u>Variable:</u> <b>newline</b>
-<a name="IDX2666"></a>
+<a name="IDX2681"></a>
 </dt>
 <dd><p>The newline character.
 </p></dd></dl>
@@ -693,7 +813,7 @@ d e f g h i j k l m n o p q r s t u v w x y z { | } ~
 <p><a name="space"></a>
 </p><dl>
 <dt><u>Variable:</u> <b>space</b>
-<a name="IDX2667"></a>
+<a name="IDX2682"></a>
 </dt>
 <dd><p>The space character.
 </p></dd></dl>
@@ -701,7 +821,7 @@ d e f g h i j k l m n o p q r s t u v w x y z { | } ~
 <p><a name="tab"></a>
 </p><dl>
 <dt><u>Variable:</u> <b>tab</b>
-<a name="IDX2668"></a>
+<a name="IDX2683"></a>
 </dt>
 <dd><p>The tab character.
 </p></dd></dl>
@@ -709,7 +829,7 @@ d e f g h i j k l m n o p q r s t u v w x y z { | } ~
 <p><a name="uppercasep"></a>
 </p><dl>
 <dt><u>Function:</u> <b>uppercasep</b><i> (<var>char</var>)</i>
-<a name="IDX2669"></a>
+<a name="IDX2684"></a>
 </dt>
 <dd><p>Returns <code>true</code> if <var>char</var> is an uppercase character.
 </p></dd></dl>
@@ -735,37 +855,61 @@ d e f g h i j k l m n o p q r s t u v w x y z { | } ~
 </tr></table>
 <h2 class="section"> 73.4 Functions and Variables for strings </h2>
 
-<p><a name="stringp"></a>
+<p><a name="base64"></a>
 </p><dl>
-<dt><u>Function:</u> <b>stringp</b><i> (<var>obj</var>)</i>
-<a name="IDX2670"></a>
+<dt><u>Funktion:</u> <b>base64</b><i> (<var>string</var>)</i>
+<a name="IDX2685"></a>
 </dt>
-<dd><p>Returns <code>true</code> if <var>obj</var> is a string.
-See introduction for example.
+<dd><p>Gibt einen String zur&uuml;ck, der die Base64-Darstellung von <var>string</var> zeigt. 
+</p>
+<p>Sind in <var>string</var> Umlaute oder Eszett enthalten, ist das Ergebnis von der 
+verwendeten Plattform abh&auml;ngig. Es wird aber durch eine Anwendung von 
+<a href="#base64_005fdecode">base64_decode</a> in jedem Fall wieder in den urspr&uuml;nglichen String 
+zur&uuml;ck verwandelt.
+</p>
+<p>Beispiel:
+</p>
+<pre class="example">(%i1) base64 : base64(&quot;foo bar baz&quot;);
+(%o1)                       Zm9vIGJhciBiYXo=
+(%i2) string : base64_decode(base64);
+(%o2)                          foo bar baz
+(%i3) base64_decode(base64(&quot;&auml;&ouml;&uuml;&quot;));
+(%o3)                            &auml;&ouml;&uuml;
+</pre></dd></dl>
+
+<p><a name="base64_005fdecode"></a>
+</p><dl>
+<dt><u>Funktion:</u> <b>base64_decode</b><i> (<var>base64-string</var>)</i>
+<a name="IDX2686"></a>
+</dt>
+<dd><p>Dekodiert den Base64-kodierten String <var>base64-string</var> wieder zur&uuml;ck in 
+den urspr&uuml;nglichen String.
+</p>
+<p>Beispiel: Siehe <a href="#base64">base64</a>.
 </p></dd></dl>
 
 <p><a name="charat"></a>
 </p><dl>
-<dt><u>Function:</u> <b>charat</b><i> (<var>string</var>, <var>n</var>)</i>
-<a name="IDX2671"></a>
+<dt><u>Funktion:</u> <b>charat</b><i> (<var>string</var>, <var>n</var>)</i>
+<a name="IDX2687"></a>
 </dt>
-<dd><p>Returns the <var>n</var>-th character of <var>string</var>.
-The first character in <var>string</var> is returned with <var>n</var> = 1.
+<dd><p>Gibt den <var>n</var>-ten Buchstaben in <var>string</var> zur&uuml;ck.
+Den ersten Buchstaben in <var>string</var> erh&auml;lt man mit <var>n</var> = 1. 
 </p>
-<p>Example:
+<p>Beispiel:
 </p>
-<pre class="example">(%i1) charat(&quot;Lisp&quot;,1);
+<pre class="example">(%i1) charat(&quot;Lisp&quot;, 1);
 (%o1)                           L
 </pre></dd></dl>
 
 <p><a name="charlist"></a>
 </p><dl>
-<dt><u>Function:</u> <b>charlist</b><i> (<var>string</var>)</i>
-<a name="IDX2672"></a>
+<dt><u>Funktion:</u> <b>charlist</b><i> (<var>string</var>)</i>
+<a name="IDX2688"></a>
 </dt>
-<dd><p>Returns the list of all characters in <var>string</var>.
+<dd><p>Gibt eine Liste mit allen Buchstaben in <var>string</var> zur&uuml;ck.
 </p>
-<p>Example:
+<p>Beispiel:
 </p>
 <pre class="example">(%i1) charlist(&quot;Lisp&quot;);
 (%o1)                     [L, i, s, p]
@@ -776,7 +920,7 @@ The first character in <var>string</var> is returned with <var>n</var> = 1.
 <p><a name="eval_005fstring"></a>
 </p><dl>
 <dt><u>Function:</u> <b>eval_string</b><i> (<var>str</var>)</i>
-<a name="IDX2673"></a>
+<a name="IDX2689"></a>
 </dt>
 <dd><p>Parse the string <var>str</var> as a Maxima expression and evaluate it.  The string
 <var>str</var> may or may not have a terminator (dollar sign <code>$</code> or semicolon 
@@ -787,7 +931,6 @@ than one.
 </p>
 <p>See also <code><a href="#parse_005fstring">parse_string</a></code>.
 </p>
-
 <p>Examples:
 </p>
 <pre class="example">(%i1) eval_string (&quot;foo: 42; bar: foo^2 + baz&quot;);
@@ -796,10 +939,29 @@ than one.
 (%o2)                   baz + 1764
 </pre></dd></dl>
 
+<p><a name="md5sum"></a>
+</p><dl>
+<dt><u>Funktion:</u> <b>md5sum</b><i> (<var>string</var>)</i>
+<a name="IDX2690"></a>
+</dt>
+<dd><p>Gibt die md5-Pr&uuml;fsumme von <var>string</var> als String zur&uuml;ck. 
+Um den R&uuml;ckgabewert in eine nat&uuml;rliche Zahl zu parsen, 
+setzen Sie bitte die Eingabebasis auf 16 und f&uuml;gen eine Null vor den String.
+</p>
+<p>Beispiel:
+</p>
+<pre class="example">(%i1) string : md5sum(&quot;foo bar baz&quot;);
+(%o1)               ab07acbb1e496801937adfa772424bf7
+(%i2) ibase : obase : 16.$
+
+(%i3) integer : parse_string(sconcat(0, string));
+(%o3)              0ab07acbb1e496801937adfa772424bf7
+</pre></dd></dl>
+
 <p><a name="parse_005fstring"></a>
 </p><dl>
 <dt><u>Function:</u> <b>parse_string</b><i> (<var>str</var>)</i>
-<a name="IDX2674"></a>
+<a name="IDX2691"></a>
 </dt>
 <dd><p>Parse the string <var>str</var> as a Maxima expression (do not evaluate it).  The 
 string <var>str</var> may or may not have a terminator (dollar sign <code>$</code> or 
@@ -810,7 +972,6 @@ than one.
 </p>
 <p>See also <code><a href="#eval_005fstring">eval_string</a></code>.
 </p>
-
 <p>Examples:
 </p>
 <pre class="example">(%i1) parse_string (&quot;foo: 42; bar: foo^2 + baz&quot;);
@@ -823,7 +984,7 @@ than one.
 <p><a name="scopy"></a>
 </p><dl>
 <dt><u>Function:</u> <b>scopy</b><i> (<var>string</var>)</i>
-<a name="IDX2675"></a>
+<a name="IDX2692"></a>
 </dt>
 <dd><p>Returns a copy of <var>string</var> as a new string.
 </p></dd></dl>
@@ -831,22 +992,21 @@ than one.
 <p><a name="sdowncase"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sdowncase</b><i> (<var>string</var>) </i>
-<a name="IDX2676"></a>
+<a name="IDX2693"></a>
 </dt>
 <dt><u>Function:</u> <b>sdowncase</b><i> (<var>string</var>, <var>start</var>) </i>
-<a name="IDX2677"></a>
+<a name="IDX2694"></a>
 </dt>
 <dt><u>Function:</u> <b>sdowncase</b><i> (<var>string</var>, <var>start</var>, <var>end</var>)</i>
-<a name="IDX2678"></a>
+<a name="IDX2695"></a>
 </dt>
 <dd><p>Like <code><a href="#supcase">supcase</a></code>,
- but uppercase characters are converted to lowercase.
 </p></dd></dl>
 
 <p><a name="sequal"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sequal</b><i> (<var>string_1</var>, <var>string_2</var>)</i>
-<a name="IDX2679"></a>
+<a name="IDX2696"></a>
 </dt>
 <dd><p>Returns <code>true</code> if <var>string_1</var> and <var>string_2</var> are the same length 
 and contain the same characters.
@@ -855,28 +1015,26 @@ and contain the same characters.
 <p><a name="sequalignore"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sequalignore</b><i> (<var>string_1</var>, <var>string_2</var>)</i>
-<a name="IDX2680"></a>
+<a name="IDX2697"></a>
 </dt>
 <dd><p>Like <code><a href="#sequal">sequal</a></code>
- but ignores case.
 </p></dd></dl>
 
 <p><a name="sexplode"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sexplode</b><i> (<var>string</var>)</i>
-<a name="IDX2681"></a>
+<a name="IDX2698"></a>
 </dt>
 <dd><p><code>sexplode</code> is an alias for function <code><a href="#charlist">charlist</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="simplode"></a>
 </p><dl>
 <dt><u>Function:</u> <b>simplode</b><i> (<var>list</var>)  </i>
-<a name="IDX2682"></a>
+<a name="IDX2699"></a>
 </dt>
 <dt><u>Function:</u> <b>simplode</b><i> (<var>list</var>, <var>delim</var>)</i>
-<a name="IDX2683"></a>
+<a name="IDX2700"></a>
 </dt>
 <dd><p><code>simplode</code> takes a list of expressions and concatenates them into a string.
 If no delimiter <var>delim</var> is specified, <code>simplode</code> uses no delimiter.
@@ -895,7 +1053,7 @@ If no delimiter <var>delim</var> is specified, <code>simplode</code> uses no del
 <p><a name="sinsert"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sinsert</b><i> (<var>seq</var>, <var>string</var>, <var>pos</var>)</i>
-<a name="IDX2684"></a>
+<a name="IDX2701"></a>
 </dt>
 <dd><p>Returns a string that is a concatenation of <code>substring (<var>string</var>, 
 1, <var>pos</var> - 1)</code>, the string <var>seq</var> and <code>substring (<var>string</var>, 
@@ -913,13 +1071,13 @@ If no delimiter <var>delim</var> is specified, <code>simplode</code> uses no del
 <p><a name="sinvertcase"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sinvertcase</b><i> (<var>string</var>)  </i>
-<a name="IDX2685"></a>
+<a name="IDX2702"></a>
 </dt>
 <dt><u>Function:</u> <b>sinvertcase</b><i> (<var>string</var>, <var>start</var>)  </i>
-<a name="IDX2686"></a>
+<a name="IDX2703"></a>
 </dt>
 <dt><u>Function:</u> <b>sinvertcase</b><i> (<var>string</var>, <var>start</var>, <var>end</var>)</i>
-<a name="IDX2687"></a>
+<a name="IDX2704"></a>
 </dt>
 <dd><p>Returns <var>string</var> except that each character from position <var>start</var> to 
 <var>end</var> is inverted.  If <var>end</var> is not given, all characters from 
@@ -934,7 +1092,7 @@ If no delimiter <var>delim</var> is specified, <code>simplode</code> uses no del
 <p><a name="slength"></a>
 </p><dl>
 <dt><u>Function:</u> <b>slength</b><i> (<var>string</var>)</i>
-<a name="IDX2688"></a>
+<a name="IDX2705"></a>
 </dt>
 <dd><p>Returns the number of characters in <var>string</var>.
 </p></dd></dl>
@@ -942,7 +1100,7 @@ If no delimiter <var>delim</var> is specified, <code>simplode</code> uses no del
 <p><a name="smake"></a>
 </p><dl>
 <dt><u>Function:</u> <b>smake</b><i> (<var>num</var>, <var>char</var>)</i>
-<a name="IDX2689"></a>
+<a name="IDX2706"></a>
 </dt>
 <dd><p>Returns a new string with a number of <var>num</var> characters <var>char</var>.
 </p>
@@ -955,17 +1113,15 @@ If no delimiter <var>delim</var> is specified, <code>simplode</code> uses no del
 <p><a name="smismatch"></a>
 </p><dl>
 <dt><u>Function:</u> <b>smismatch</b><i> (<var>string_1</var>, <var>string_2</var>) </i>
-<a name="IDX2690"></a>
+<a name="IDX2707"></a>
 </dt>
 <dt><u>Function:</u> <b>smismatch</b><i> (<var>string_1</var>, <var>string_2</var>, <var>test</var>)</i>
-<a name="IDX2691"></a>
+<a name="IDX2708"></a>
 </dt>
 <dd><p>Returns the position of the first character of <var>string_1</var> at which 
 <var>string_1</var> and <var>string_2</var> differ or <code>false</code>.  Default test function
 for matching is <code><a href="#sequal">sequal</a></code>.
-  If <code>smismatch</code> should ignore case, use 
 <code><a href="#sequalignore">sequalignore</a></code>
- as test.
 </p>
 <p>Example:
 </p>
@@ -976,13 +1132,13 @@ for matching is <code><a href="#sequal">sequal</a></code>.
 <p><a name="split"></a>
 </p><dl>
 <dt><u>Function:</u> <b>split</b><i> (<var>string</var>)  </i>
-<a name="IDX2692"></a>
+<a name="IDX2709"></a>
 </dt>
 <dt><u>Function:</u> <b>split</b><i> (<var>string</var>, <var>delim</var>)  </i>
-<a name="IDX2693"></a>
+<a name="IDX2710"></a>
 </dt>
 <dt><u>Function:</u> <b>split</b><i> (<var>string</var>, <var>delim</var>, <var>multiple</var>)</i>
-<a name="IDX2694"></a>
+<a name="IDX2711"></a>
 </dt>
 <dd><p>Returns the list of all tokens in <var>string</var>.
 Each token is an unparsed string.
@@ -1004,34 +1160,31 @@ If <var>multiple</var> is set to <code>false</code>, each delimiter is noted.
 <p><a name="sposition"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sposition</b><i> (<var>char</var>, <var>string</var>)</i>
-<a name="IDX2695"></a>
+<a name="IDX2712"></a>
 </dt>
 <dd><p>Returns the position of the first character in <var>string</var> which matches 
 <var>char</var>.  The first character in <var>string</var> is in position 1.
 For matching characters ignoring case see <code><a href="#ssearch">ssearch</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="sremove"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sremove</b><i> (<var>seq</var>, <var>string</var>)  </i>
-<a name="IDX2696"></a>
+<a name="IDX2713"></a>
 </dt>
 <dt><u>Function:</u> <b>sremove</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>)  </i>
-<a name="IDX2697"></a>
+<a name="IDX2714"></a>
 </dt>
 <dt><u>Function:</u> <b>sremove</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>)  </i>
-<a name="IDX2698"></a>
+<a name="IDX2715"></a>
 </dt>
 <dt><u>Function:</u> <b>sremove</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</i>
-<a name="IDX2699"></a>
+<a name="IDX2716"></a>
 </dt>
 <dd><p>Returns a string like <var>string</var> but without all substrings matching 
 <var>seq</var>.  Default test function for matching is <code><a href="#sequal">sequal</a></code>.
-  If 
 <code>sremove</code> should ignore case while searching for <var>seq</var>, use 
 <code><a href="#sequalignore">sequalignore</a></code>
- as test.  Use <var>start</var> and <var>end</var> to limit searching.
 Note that the first character in <var>string</var> is in position 1.
 </p>
 <p>Examples:
@@ -1045,16 +1198,16 @@ Note that the first character in <var>string</var> is in position 1.
 <p><a name="sremovefirst"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sremovefirst</b><i> (<var>seq</var>, <var>string</var>)  </i>
-<a name="IDX2700"></a>
+<a name="IDX2717"></a>
 </dt>
 <dt><u>Function:</u> <b>sremovefirst</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>)  </i>
-<a name="IDX2701"></a>
+<a name="IDX2718"></a>
 </dt>
 <dt><u>Function:</u> <b>sremovefirst</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>)  </i>
-<a name="IDX2702"></a>
+<a name="IDX2719"></a>
 </dt>
 <dt><u>Function:</u> <b>sremovefirst</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</i>
-<a name="IDX2703"></a>
+<a name="IDX2720"></a>
 </dt>
 <dd><p>Like <code>sremove</code> except that only the first substring that matches <code>seq</code>
 is removed.
@@ -1063,7 +1216,7 @@ is removed.
 <p><a name="sreverse"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sreverse</b><i> (<var>string</var>) </i>
-<a name="IDX2704"></a>
+<a name="IDX2721"></a>
 </dt>
 <dd><p>Returns a string with all the characters of <var>string</var> in reverse order.
 </p></dd></dl>
@@ -1071,22 +1224,20 @@ is removed.
 <p><a name="ssearch"></a>
 </p><dl>
 <dt><u>Function:</u> <b>ssearch</b><i> (<var>seq</var>, <var>string</var>)  </i>
-<a name="IDX2705"></a>
+<a name="IDX2722"></a>
 </dt>
 <dt><u>Function:</u> <b>ssearch</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>)  </i>
-<a name="IDX2706"></a>
+<a name="IDX2723"></a>
 </dt>
 <dt><u>Function:</u> <b>ssearch</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>)  </i>
-<a name="IDX2707"></a>
+<a name="IDX2724"></a>
 </dt>
 <dt><u>Function:</u> <b>ssearch</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</i>
-<a name="IDX2708"></a>
+<a name="IDX2725"></a>
 </dt>
 <dd><p>Returns the position of the first substring of <var>string</var> that matches the 
 string <var>seq</var>.  Default test function for matching is <code><a href="#sequal">sequal</a></code>.
-  If
 <code>ssearch</code> should ignore case, use <code><a href="#sequalignore">sequalignore</a></code>
- as test.  Use
 <var>start</var> and <var>end</var> to limit searching.  Note that the first character in 
 <var>string</var> is in position 1.
 </p>
@@ -1099,25 +1250,22 @@ string <var>seq</var>.  Default test function for matching is <code><a href="#se
 <p><a name="ssort"></a>
 </p><dl>
 <dt><u>Function:</u> <b>ssort</b><i> (<var>string</var>) </i>
-<a name="IDX2709"></a>
+<a name="IDX2726"></a>
 </dt>
 <dt><u>Function:</u> <b>ssort</b><i> (<var>string</var>, <var>test</var>) </i>
-<a name="IDX2710"></a>
+<a name="IDX2727"></a>
 </dt>
 <dd><p>Returns a string that contains all characters from <var>string</var> in an order such
 there are no two successive characters <var>c</var> and <var>d</var> such that
 <code>test (<var>c</var>, <var>d</var>)</code> is <code>false</code> and <code>test (<var>d</var>, 
 <var>c</var>)</code> is <code>true</code>.  Default test function for sorting is
 <code><a href="#clessp">clessp</a></code>.
-  The set of test functions is <code>{<code><a href="#clessp">clessp</a></code>,
-
+<code><a href="#clessp">clessp</a></code>,
 <code><a href="#clesspignore">clesspignore</a></code>,
- <code><a href="#cgreaterp">cgreaterp</a></code>,
- <code><a href="#cgreaterpignore">cgreaterpignore</a></code>,
-
+<code><a href="#cgreaterp">cgreaterp</a></code>,
+<code><a href="#cgreaterpignore">cgreaterpignore</a></code>,
 <code><a href="#cequal">cequal</a></code>,
- <code><a href="#cequalignore">cequalignore</a></code>
-}</code>.
+<code><a href="#cequalignore">cequalignore</a></code>
 </p>
 <p>Example:
 </p>
@@ -1130,24 +1278,22 @@ there are no two successive characters <var>c</var> and <var>d</var> such that
 <p><a name="ssubst"></a>
 </p><dl>
 <dt><u>Function:</u> <b>ssubst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>) </i>
-<a name="IDX2711"></a>
+<a name="IDX2728"></a>
 </dt>
 <dt><u>Function:</u> <b>ssubst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>) </i>
-<a name="IDX2712"></a>
+<a name="IDX2729"></a>
 </dt>
 <dt><u>Function:</u> <b>ssubst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>) </i>
-<a name="IDX2713"></a>
+<a name="IDX2730"></a>
 </dt>
 <dt><u>Function:</u> <b>ssubst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>) </i>
-<a name="IDX2714"></a>
+<a name="IDX2731"></a>
 </dt>
 <dd><p>Returns a string like <var>string</var> except that all substrings matching <var>old</var>
 are replaced by <var>new</var>.  <var>old</var> and <var>new</var> need not to be of the same 
 length.  Default test function for matching is <code><a href="#sequal">sequal</a></code>.
-  If
 <code>ssubst</code> should ignore case while searching for old, use 
 <code><a href="#sequalignore">sequalignore</a></code>
- as test.  Use <var>start</var> and <var>end</var> to limit searching.
 Note that the first character in <var>string</var> is in position 1.
 </p>
 <p>Examples:
@@ -1161,26 +1307,25 @@ Note that the first character in <var>string</var> is in position 1.
 <p><a name="ssubstfirst"></a>
 </p><dl>
 <dt><u>Function:</u> <b>ssubstfirst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>) </i>
-<a name="IDX2715"></a>
+<a name="IDX2732"></a>
 </dt>
 <dt><u>Function:</u> <b>ssubstfirst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>) </i>
-<a name="IDX2716"></a>
+<a name="IDX2733"></a>
 </dt>
 <dt><u>Function:</u> <b>ssubstfirst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>) </i>
-<a name="IDX2717"></a>
+<a name="IDX2734"></a>
 </dt>
 <dt><u>Function:</u> <b>ssubstfirst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>) </i>
-<a name="IDX2718"></a>
+<a name="IDX2735"></a>
 </dt>
 <dd><p>Like <code><a href="maxima_6.html#subst">subst</a></code>
- except that only the first substring that matches <var>old</var>
 is replaced.
 </p></dd></dl>
 
 <p><a name="strim"></a>
 </p><dl>
 <dt><u>Function:</u> <b>strim</b><i> (<var>seq</var>,<var>string</var>) </i>
-<a name="IDX2719"></a>
+<a name="IDX2736"></a>
 </dt>
 <dd><p>Returns a string like <var>string</var>, but with all characters that appear in 
 <var>seq</var> removed from both ends.
@@ -1197,28 +1342,35 @@ is replaced.
 <p><a name="striml"></a>
 </p><dl>
 <dt><u>Function:</u> <b>striml</b><i> (<var>seq</var>, <var>string</var>) </i>
-<a name="IDX2720"></a>
+<a name="IDX2737"></a>
 </dt>
 <dd><p>Like <code><a href="#strim">strim</a></code>
- except that only the left end of <var>string</var> is trimmed.
 </p></dd></dl>
 
 <p><a name="strimr"></a>
 </p><dl>
 <dt><u>Function:</u> <b>strimr</b><i> (<var>seq</var>, <var>string</var>) </i>
-<a name="IDX2721"></a>
+<a name="IDX2738"></a>
 </dt>
 <dd><p>Like <code><a href="#strim">strim</a></code>
- except that only the right end of string is trimmed.
+</p></dd></dl>
+
+<p><a name="stringp"></a>
+</p><dl>
+<dt><u>Function:</u> <b>stringp</b><i> (<var>obj</var>)</i>
+<a name="IDX2739"></a>
+</dt>
+<dd><p>Returns <code>true</code> if <var>obj</var> is a string.
+See introduction for example.
 </p></dd></dl>
 
 <p><a name="substring"></a>
 </p><dl>
 <dt><u>Function:</u> <b>substring</b><i> (<var>string</var>, <var>start</var>)</i>
-<a name="IDX2722"></a>
+<a name="IDX2740"></a>
 </dt>
 <dt><u>Function:</u> <b>substring</b><i> (<var>string</var>, <var>start</var>, <var>end</var>) </i>
-<a name="IDX2723"></a>
+<a name="IDX2741"></a>
 </dt>
 <dd><p>Returns the substring of <var>string</var> beginning at position <var>start</var> and 
 ending at position <var>end</var>.  The character at position <var>end</var> is not 
@@ -1236,13 +1388,13 @@ string.  Note that the first character in <var>string</var> is in position 1.
 <p><a name="supcase"></a>
 </p><dl>
 <dt><u>Function:</u> <b>supcase</b><i> (<var>string</var>) </i>
-<a name="IDX2724"></a>
+<a name="IDX2742"></a>
 </dt>
 <dt><u>Function:</u> <b>supcase</b><i> (<var>string</var>, <var>start</var>) </i>
-<a name="IDX2725"></a>
+<a name="IDX2743"></a>
 </dt>
 <dt><u>Function:</u> <b>supcase</b><i> (<var>string</var>, <var>start</var>, <var>end</var>) </i>
-<a name="IDX2726"></a>
+<a name="IDX2744"></a>
 </dt>
 <dd><p>Returns <var>string</var> except that lowercase characters from position <var>start</var> 
 to <var>end</var> are replaced by the corresponding uppercase ones.  If <var>end</var> is 
@@ -1258,10 +1410,10 @@ are replaced.
 <p><a name="tokens"></a>
 </p><dl>
 <dt><u>Function:</u> <b>tokens</b><i> (<var>string</var>) </i>
-<a name="IDX2727"></a>
+<a name="IDX2745"></a>
 </dt>
 <dt><u>Function:</u> <b>tokens</b><i> (<var>string</var>, <var>test</var>) </i>
-<a name="IDX2728"></a>
+<a name="IDX2746"></a>
 </dt>
 <dd>
 <p>Returns a list of tokens, which have been extracted from the argument
@@ -1269,27 +1421,24 @@ are replaced.
 test function.  If the argument <var>test</var> is not given, the test
 <code>constituent</code> is used as the default test.  The set of test functions is
 <code>{<code><a href="#constituent">constituent</a></code>,
- <code><a href="#alphacharp">alphacharp</a></code>,
-
+<code><a href="#alphacharp">alphacharp</a></code>,
 <code><a href="#digitcharp">digitcharp</a></code>,
- <code><a href="#lowercasep">lowercasep</a></code>,
- <code><a href="#uppercasep">uppercasep</a></code>,
-
+<code><a href="#lowercasep">lowercasep</a></code>,
+<code><a href="#uppercasep">uppercasep</a></code>,
 <code><a href="#charp">charp</a></code>,
- <code><a href="#alphanumericp">alphanumericp</a></code>
-}</code>.
+<code><a href="#alphanumericp">alphanumericp</a></code>
 (The Lisp-version of <code>tokens</code> is written by Paul Graham.
 ANSI Common Lisp, 1996, page 67.)
-</p>
-<p>Examples:
-</p>
-<pre class="example">(%i1) tokens(&quot;24 October 2005&quot;);
+</code> </p>
+<p><code>Examples:
+</code> </p>
+<pre class="example"><code>(%i1) tokens(&quot;24 October 2005&quot;);
 (%o1)                  [24, October, 2005]
 (%i2) tokens(&quot;05-10-24&quot;,'digitcharp);
 (%o2)                     [05, 10, 24]
 (%i3) map(parse_string,%);
 (%o3)                      [5, 10, 24]
-</pre></dd></dl>
+</code> </pre></dd></dl>
 
 
 
@@ -1309,7 +1458,7 @@ ANSI Common Lisp, 1996, page 67.)
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>September, 1 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

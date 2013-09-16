@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 1 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -204,7 +204,6 @@ div.categorybox
 <p>Die Optionsvariable <code>lhospitallim</code> enth&auml;lt die maximale Zahl an
 Iterationen, f&uuml;r die die L'Hospitalsche Regel von der Funktion
 <code><a href="#limit">limit</a></code>
- angewendet wird.  Damit wird verhindert, dass die Funktion
 <code>limit</code> in eine unendliche Schleife ger&auml;t.
 </p></dd></dl>
 
@@ -258,12 +257,10 @@ auftreten k&ouml;nnen:
 
 
 <p>Die Optionsvariable <code><a href="#lhospitallim">lhospitallim</a></code>
- enth&auml;lt die maximale Zahl an
 Iterationen, f&uuml;r die die L'Hospitalsche Regel von der Funktion <code>limit</code>
 angewendet wird.
 </p>
 <p>Hat <code><a href="#tlimswitch">tlimswitch</a></code>
- den Wert <code>true</code>, nutzt die Funktion <code>limit</code> eine
 Taylor-Reihenentwicklung, wenn der Grenzwert nicht mit anderen Methoden 
 bestimmt werden kann.
 </p>
@@ -271,7 +268,6 @@ bestimmt werden kann.
 Ersetzung von <code>limit(f(g(x)),x,x0)</code> durch <code>f(limit(g(x),x,x0))</code> f&uuml;r
 eine unbekannte Funktion <code>f</code> verhindert.  Siehe auch <code><a href="#limsubst">limsubst</a></code>.
 </p>
-
 <p><code>limit</code> kann mit einem Argument aufgerufen werden, um Ausdr&uuml;cke
 zu vereinfachen, die unendliche oder infinitesimale Gr&ouml;&szlig;en enthalten.
 Zum Beispiel wird <code>limit(inf-1)</code> zu <code>inf</code> vereinfacht.
@@ -307,7 +303,6 @@ sucht, dann wird folgende Ersetzung ausgef&uuml;hrt:
 </pre>
 <p>Hat die Optionsvariable <code>limsubst</code> den Wert <code>false</code>, f&uuml;hrt 
 <code><a href="#limit">limit</a></code>
- die oben gezeigte Ersetzung nicht f&uuml;r unbekannte Funktionen 
 <code>f</code> aus.  Dies vermeidet Fehler wie zum Beispiel ein Ergebnis von 1 f&uuml;r 
 den Grenzwert <code>limit (f(n)/f(n+1), n, inf)</code>.  Hat <code>limsubst</code> den Wert 
 <code>true</code>, f&uuml;hrt Maxima die oben gezeigte Ersetzung auch f&uuml;r unbekannte 
@@ -341,7 +336,6 @@ unbekannte Funktion als <code>f(10)</code> an.
 <code>expr</code>, wenn die Variable <var>x</var> gegen den Wert <code>val</code> aus der
 Richtung <var>dir</var> geht.  Diese Methode wird von <code>limit</code> angewendet, wenn
 die Optionsvariable <code><a href="#tlimswitch">tlimswitch</a></code>
- den Wert <code>true</code> ist.  Das ist der
 Standardwert.
 </p></dd></dl>
 
@@ -353,7 +347,6 @@ Standardwert.
 <dd><p>Standardwert: <code>true</code>
 </p>
 <p>Hat <code>tlimswitch</code> den Wert <code>true</code>, nutzt die Funktion <code><a href="#limit">limit</a></code>
- eine
 Taylor-Reihenentwicklung, wenn der Grenzwert nicht mit anderen Methoden
 bestimmt werden kann.
 </p></dd></dl>
@@ -398,11 +391,9 @@ werden kann, dann wird von <code>at</code> eine Substantivform zur&uuml;ckgegebe
 <p><code>at</code> f&uuml;hrt mehrfache Ersetzungen parallel aus.
 </p>
 <p>Siehe auch <code><a href="#atvalue">atvalue</a></code>.
-  F&uuml;r andere Funktionen, die Ersetzungen 
 ausf&uuml;hren, siehe weiterhin <code><a href="maxima_6.html#subst">subst</a></code>
- und <code><a href="maxima_8.html#ev">ev</a></code>.
+<code><a href="maxima_8.html#ev">ev</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) atvalue (f(x,y), [x = 0, y = 1], a^2);
@@ -454,7 +445,6 @@ integrierbaren Anteil des Ausdrucks.
 <p>Mit dem Kommando <code>load(antid)</code> wird die Funktion geladen.
 </p>
 <p><code>antid</code> steht in folgender Beziehung zur Funktion <code><a href="#antidiff">antidiff</a></code>.
-  Ist
 <var>L</var> die Liste mit den Ergebnissen der Funktion <code>antid</code>, dann hat die
 Funktion <code>antidiff</code> das Ergebnis <code><var>L</var>[1] + 'integrate(<var>L</var>[2], 
 <var>x</var>)</code> mit <var>x</var> als der Variablen des Ausdrucks <var>expr</var>.
@@ -505,14 +495,12 @@ enth&auml;lt das Ergebnis das Integral des nicht bestimmbaren Anteils.
 <p>Mit dem Kommando <code>load(antid)</code> wird die Funktion geladen.
 </p>
 <p><code>antidiff</code> steht in folgender Beziehung zur Funktion <code><a href="#antid">antid</a></code>.
-  Ist 
 <var>L</var> die Liste mit den Ergebnissen der Funktion <code>antid</code>, dann hat die
 Funktion <code>antidiff</code> das Ergebnis <code><var>L</var>[1] + 'integrate(<var>L</var>[2], 
 <var>x</var>)</code> mit <var>x</var> als der Variablen des Ausdrucks <var>expr</var>.
 </p>
 <p>F&uuml;r Beispiele und weitere Ausf&uuml;hrungen siehe die Funktion <code><a href="#antid">antid</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="atomgrad"></a>
 </p><dl>
@@ -520,7 +508,6 @@ Funktion <code>antidiff</code> das Ergebnis <code><var>L</var>[1] + 'integrate(<
 <a name="IDX742"></a>
 </dt>
 <dd><p>Wird f&uuml;r ein Symbol eine Ableitung mit der Funktion <code><a href="#gradef">gradef</a></code>
- definiert,
 dann erh&auml;lt das Symbol die Eigenschaft <code>atomgrad</code>.
 </p></dd></dl>
 
@@ -638,7 +625,6 @@ gibt <code>diff</code> das totale Differential zur&uuml;ck.
 <p>Maxima kennt die Delta-Funktion nur im Zusammenhang mit 
 Laplace-Transformationen.  Siehe <code><a href="#laplace">laplace</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 
@@ -660,9 +646,8 @@ p;
 <p><code>dependencies</code> ist eine Liste der Symbole, f&uuml;r die eine Abh&auml;ngigkeit 
 mit den Funktionen <code>depends</code> oder <code>gradef</code> definiert wurde.  Siehe
 <code><a href="#depends">depends</a></code>
- und <code><a href="#gradef">gradef</a></code>.
-</p>
-</dd></dl>
+<code><a href="#gradef">gradef</a></code>.
+</p></dd></dl>
 
 <p><a name="depends"></a>
 </p><dl>
@@ -691,11 +676,9 @@ Abh&auml;ngigkeiten werden in die Informationsliste <code>dependencies</code>
 eingetragen.  <code>depends</code> wertet die Argumente aus.
 </p>
 <p>Die Funktion <code><a href="#diff">diff</a></code>
- ist die einzige Maxima-Funktion, die Abh&auml;ngigkeiten
 erkennt, die mit <code>depends</code> definiert wurden.  Andere Funktionen wie
 <code><a href="#integrate">integrate</a></code>
- oder <code><a href="#laplace">laplace</a></code>
- erkennen keine Abh&auml;ngigkeiten, die mit
+<code><a href="#laplace">laplace</a></code>
 der <code>depends</code> definiert wurden.  F&uuml;r diese Funktionen m&uuml;ssen die
 Abh&auml;ngigkeiten explizit angegeben werden, zum Beispiel als
 <code>integrate(f(x), x)</code>.
@@ -781,8 +764,7 @@ mit einem tiefgestellten Index angezeigt.  Ansonsten werden Ableitungen als
 <dd><p><code>derivlist</code> ist ein Auswertungsschalter f&uuml;r die Funktion <code>ev</code>.
 <code>ev</code> f&uuml;hrt nur die Ableitungen in Bezug auf die angegebenen Variablen
 <var>var_1</var>, &hellip;, <var>var_k</var> aus.  Siehe auch <code><a href="maxima_8.html#ev">ev</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="derivsubst"></a>
 </p><dl>
@@ -831,14 +813,11 @@ die partielle Ableitung des Ausdrucks <var>expr</var> in Bezug auf die Variablen
 <p><code>diff(<var>expr</var>)</code> gibt das totale Differential des Ausdrucks <var>expr</var>
 zur&uuml;ck.  Siehe auch <code><a href="#del">del</a></code>.
 </p>
-
 <p>Wenn die Ableitungen nicht ausgef&uuml;hrt werden sollen, kann der
 <code><a href="maxima_8.html#g_t_0027">Quote-Operator</a></code>
- <code>'</code> verwendet werden, um eine Substantivform der
 Ableitung zu erhalten.
 </p>
 <p>Hat <code><a href="#derivabbrev">derivabbrev</a></code>
- den Wert <code>true</code>, werden symbolische Ableitungen
 mit einem tiefgestelltem Index angezeigt.  Ansonsten werden Ableitungen als
 <code>dy/dy</code> angezeigt.
 </p>
@@ -847,7 +826,6 @@ Kommando <code>ev(expr), diff</code> bewirkt, dass alle Ableitungen ausgef&uuml;
 werden, die im Ausdruck <var>expr</var> enthalten sind.  Siehe auch die Funktion 
 <code><a href="maxima_8.html#ev">ev</a></code>.
 </p>
-
 <p><code>derivative</code> ist ein Alias-Name der Funktion <code>diff</code>.
 </p>
 <p>Beispiele:
@@ -922,7 +900,6 @@ Funktion <code>depends</code> wird <var>a</var> als abh&auml;ngig von <var>x</va
 Abh&auml;ngigkeit wird in die Liste <code>dependencies</code> eingetragen.  Siehe auch
 <code><a href="#depends">depends</a></code>.
 </p>
-
 <p>Bis auf das erste Argument werden die Argumente der Funktion <code>gradef</code> 
 ausgewertet.  <code>gradef</code> gibt die Funktion oder Variable zur&uuml;ck, f&uuml;r die 
 eine partielle Ableitung definiert wurde.
@@ -940,9 +917,7 @@ definieren.
 atomgrad)</code> zeigt die mit <code>gradef</code> definierten partiellen Ableitungen der 
 Variablen <var>a_n</var>, &hellip;, <var>a_n</var> an.  Siehe <code><a href="maxima_11.html#printprops">printprops</a></code>.
 </p>
-
 <p><code><a href="#gradefs">gradefs</a></code>
- ist eine Informationsliste, die die Funktionen enth&auml;lt, f&uuml;r
 die mit <code>gradef</code> eine Ableitung definierte wurde.  Die Liste enth&auml;lt 
 keine Variablen, f&uuml;r die Ableitungen definiert wurden.
 </p></dd></dl>
@@ -956,7 +931,6 @@ keine Variablen, f&uuml;r die Ableitungen definiert wurden.
 </p>
 <p><code>gradefs</code> ist eine Liste der Funktionen, f&uuml;r die eine Ableitung mit der
 Funktion <code><a href="#gradef">gradef</a></code>
- definiert wurde.
 </p></dd></dl>
 
 <hr size="6">
@@ -1014,21 +988,17 @@ Funktion <code><a href="#gradef">gradef</a></code>
 
 <p>Maxima hat verschiedene Algorithmen, um Integrale zu behandeln.  Die Funktion
 <code><a href="#integrate">integrate</a></code>
- nutzt diese.  Maxima hat ein Paket <code><a href="#antid">antid</a></code>
-, welches
+<code><a href="#antid">antid</a></code>
 Integrale mit einer unbekannten Funktion, deren Ableitung bekannt ist, 
 integrieren kann.  F&uuml;r die numerische Berechnung von Integralen hat Maxima
 das Paket <code>QUADPACK</code> mit Funktionen wie <code><a href="#quad_005fqag">quad_qag</a></code>
- oder
 <code><a href="#quad_005fqags">quad_qags</a></code>.
-  Die Funktionen <code><a href="#laplace">laplace</a></code>
- und <code><a href="maxima_22.html#specint">specint</a></code>
- finden
+<code><a href="#laplace">laplace</a></code>
+<code><a href="maxima_22.html#specint">specint</a></code>
 die Laplacetransformation.  Wird das Paket <code>abs_integrate</code> geladen, kann
 Maxima weitere Integrale l&ouml;sen.  Dazu geh&ouml;ren insbesondere Integrale mit
 der Betragsfunktion <code><a href="maxima_10.html#abs">abs</a></code>
- und der Signum-Funktion <code><a href="maxima_10.html#signum">signum</a></code>.
-  Siehe
+<code><a href="maxima_10.html#signum">signum</a></code>.
 auch <a href="maxima_31.html#SEC216">abs_integrate</a>.
 </p>
 <hr size="6">
@@ -1084,9 +1054,7 @@ angegeben wird, f&uuml;r die Variable <var>x</var> in allen Integralen durch, di
 </pre>
 <p>Ein Ausdruck mit einem Integral in einer Substantivform <code>'integrate</code> wie
 im obigen Beispiel kann mit der Funktion <code><a href="maxima_8.html#ev">ev</a></code>
- und dem Auswertungsschalter
 <code><a href="maxima_8.html#nouns">nouns</a></code>
- ausgewertet werden.  Das Beispiel von oben kann zum Beispiel mit
 <code>ev(%o3, nouns)</code> ausgewertet werden.
 </p>
 <p>Mit <code>changevar</code> k&ouml;nnen auch die Indizes einer Summe oder eines Produktes
@@ -1150,7 +1118,6 @@ den Simpsonschen Algorithmus.  Der Standardwert ist jeweils 10.
 Integrationsvariable <var>x</var> in den Grenzen <var>a</var> und <var>b</var>.  Diese Funktion
 wird ausgef&uuml;hrt, wenn ein bestimmtes Integral mit der Funktion 
 <code><a href="#integrate">integrate</a></code>
- gesucht wird.
 </p>
 <p><code>defint</code> gibt einen symbolischen Ausdruck als Ergebnis zur&uuml;ck.  Ist das 
 Integral divergent, generiert Maxima eine Fehlermeldung.  Kann <code>defint</code> 
@@ -1165,9 +1132,7 @@ keine L&ouml;sung finden, wird eine Substantivform zur&uuml;ckgegeben.
 <dd><p>Standardwert: <code>true</code>
 </p>
 <p>Hat <code>erfflag</code> den Wert <code>false</code>, wird von der Funktion <code><a href="#risch">risch</a></code>
-
 die Fehlerfunktion <code><a href="maxima_22.html#erf">erf</a></code>
- nicht in die L&ouml;sung eingef&uuml;hrt.
 </p></dd></dl>
 
 
@@ -1180,10 +1145,8 @@ die Fehlerfunktion <code><a href="maxima_22.html#erf">erf</a></code>
 Variable <var>s</var> und den Parameter <var>t</var>.  <var>expr</var> muss eine rationale
 Funktion sein, in deren Nenner nur lineare und quadratische Faktoren auftreten.
 Mit den Funktionen <code><a href="#laplace">laplace</a></code>
- und <code>ilt</code> sowie den Funktionen
 <code><a href="maxima_18.html#solve">solve</a></code>
- oder <code><a href="maxima_18.html#linsolve">linsolve</a></code>
- k&ouml;nnen lineare Differentialgleichungen oder
+<code><a href="maxima_18.html#linsolve">linsolve</a></code>
 Systeme von linearen Differentialgleichungen gel&ouml;st werden.
 </p>
 <pre class="example">(%i1) 'integrate (sinh(a*x)*f(t-x), x, 0, t) + b*f(t) = t**2;
@@ -1237,7 +1200,6 @@ Integrationsbereich hat.
 </p>
 <p>Siehe auch <code><a href="#ldefint">ldefint</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Maxima kann das folgende Integral l&ouml;sen, wenn <code>intanalysis</code> den Wert
@@ -1286,24 +1248,18 @@ Integrationsgrenzen gleich, dann ist das Ergebnis der Integration Null.
 </p>
 <p>F&uuml;r die numerische L&ouml;sung von Integralen siehe die Funktion
 <code><a href="#quad_005fqag">quad_qag</a></code>
- und verwandte Funktionen.  Residuen eines Integranden k&ouml;nnen
 mit der Funktion <code><a href="#residue">residue</a></code>
- berechnet werden.  Einen alternativen
 Algorithmus f&uuml;r das L&ouml;sen von Integralen, die im Integranden eine unbekannte
 Funktion und deren Ableitung enthalten, bieten die Funktionen <code><a href="#antid">antid</a></code>
- und
 <code><a href="#antidiff">antidiff</a></code>.
 </p>
-
 <p>Findet <code>integrate</code> keine L&ouml;sung wird eine Substantivform oder ein
 Ausdruck mit einer oder mehreren Substantivformen zur&uuml;ckgegeben.
 </p>
 <p>Soll das Integral nicht sofort berechnet werden, kann die Substantivform des
 Integrals angegeben werden, zum Beispiel <code>'integrate(<var>expr</var>, <var>x</var>)</code>.
 Die Berechnung des Integrals ist dann mit Funktion <code><a href="maxima_8.html#ev">ev</a></code>
- und dem
 Auswertungsschalter <code><a href="maxima_8.html#nouns">nouns</a></code>
- m&ouml;glich.
 </p>
 
 
@@ -1313,7 +1269,6 @@ Auswertungsschalter <code><a href="maxima_8.html#nouns">nouns</a></code>
 <p>Die Abh&auml;ngigkeit der Funktionen im Integranden von Variablen muss explizit zum
 Beispiel mit <code>f(x)</code> angegeben werden.  <code>integrate</code> beachtet keine
 Abh&auml;ngigkeit die mit der Funktion <code><a href="#depends">depends</a></code>
- definiert werden.
 </p>
 <p>Ben&ouml;tigt <code>integrate</code> Informationen zu einem Parameter, die nicht aus dem
 aktuellen Kontext abgeleitet werden k&ouml;nnen, wird der Nutzer nach den fehlenden
@@ -1321,9 +1276,8 @@ Informationen gefragt.
 </p>
 <p><code>integrate</code> ist standardm&auml;&szlig;ig nicht als linear deklariert.  Siehe
 <code><a href="maxima_11.html#declare">declare</a></code>
- und <code><a href="maxima_9.html#linear">linear</a></code>.
+<code><a href="maxima_9.html#linear">linear</a></code>.
 </p>
-
 <p>Nur in einigen speziellen F&auml;llen wendet <code>integrate</code> die Methode der
 partiellen Integration an.
 </p>
@@ -1383,7 +1337,6 @@ Ableitung <code>diff(r(x))</code> einer unbekannten Funktion <code>r(x)</code>.
 </pre>
 <p>Die L&ouml;sung enth&auml;lt eine Substantivform f&uuml;r das Integral einer rationalen 
 Funktion.  Siehe auch <code><a href="#integrate_005fuse_005frootsof">integrate_use_rootsof</a></code>
- f&uuml;r Informationen zu
 Integralen von rationalen Funktionen.
 </p>
 <pre class="example">(%i1) expand ((x-4) * (x^3+2*x+1));
@@ -1402,7 +1355,6 @@ Integralen von rationalen Funktionen.
 Funktionsdefinition wird nicht ausgewertet.  Daher enth&auml;lt die 
 Funktionsdefinition das Integral in einer Substantivform.  Der
 <code><a href="maxima_8.html#g_t_0027_0027">Quote-Quote-Operator</a></code>
- <code>''</code> erzwingt die Auswertung der
 Substantivform.
 </p>
 <pre class="example">(%i1) f_1(a) := integrate (x^3, x, 1, a);
@@ -1431,7 +1383,6 @@ Substantivform.
 ben&ouml;tigt, erzeugt Maxima diese durch Verkettung des Symbols 
 <code>integration_constant</code> mit einer laufenden Nummer, die der Wert der
 Optionsvariablen <code><a href="#integration_005fconstant_005fcounter">integration_constant_counter</a></code>
- ist.
 </p>
 <p>Der Optionsvariablen <code>integration_constant</code> kann ein beliebiges Symbol
 zugewiesen werden.
@@ -1462,7 +1413,6 @@ zugewiesen werden.
 <p>Wird eine symbolische Integrationskonstante f&uuml;r die L&ouml;sung eines Integrals
 ben&ouml;tigt, erzeugt Maxima diese durch Verkettung des Symbols 
 <code><a href="#integration_005fconstant">integration_constant</a></code>
- mit einer laufenden Nummer, die der Wert der
 Optionsvariablen <code>integration_constant_counter</code> ist.
 </p>
 <p>Der Wert der Systemvariablen <code>integration_constant_counter</code> wird vor der
@@ -1499,7 +1449,6 @@ Erzeugung der Integrationskonstanten erh&ouml;ht.
 <p>Hat <code>integrate_use_rootsof</code> den Wert <code>true</code> und der Nenner einer
 rationalen Funktion kann nicht faktorisiert werden, dann gibt
 <code><a href="#integrate">integrate</a></code>
- ein Integral zur&uuml;ck, das eine Summe &uuml;ber die unbekannten
 Wurzeln des Nenners enth&auml;lt.
 </p>
 <p>Hat zum Beispiel <code>integrate_use_rootsof</code> den Wert <code>false</code>, gibt
@@ -1555,25 +1504,21 @@ Integrationsvariable <var>x</var> und den Parameter <var>s</var>.
 </p>
 <p><code>laplace</code> findet die Laplace-Transformation f&uuml;r Ausdr&uuml;cke, die die
 Funktionen <code><a href="#delta">delta</a></code>,
- <code><a href="maxima_10.html#exp">exp</a></code>,
- <code><a href="maxima_10.html#log">log</a></code>,
- <code><a href="maxima_10.html#sin">sin</a></code>,
-
+<code><a href="maxima_10.html#exp">exp</a></code>,
+<code><a href="maxima_10.html#log">log</a></code>,
+<code><a href="maxima_10.html#sin">sin</a></code>,
 <code><a href="maxima_10.html#cos">cos</a></code>,
- <code><a href="maxima_10.html#sinh">sinh</a></code>,
- <code><a href="maxima_10.html#cosh">cosh</a></code>
- und <code><a href="maxima_22.html#erf">erf</a></code>
- sowie Ausdr&uuml;cke
+<code><a href="maxima_10.html#sinh">sinh</a></code>,
+<code><a href="maxima_10.html#cosh">cosh</a></code>
+<code><a href="maxima_22.html#erf">erf</a></code>
 mit <code><a href="#derivative">derivative</a></code>,
- <code><a href="#integrate">integrate</a></code>,
- <code><a href="maxima_15.html#sum">sum</a></code>
- und <code><a href="#ilt">ilt</a></code>
-
+<code><a href="#integrate">integrate</a></code>,
+<code><a href="maxima_15.html#sum">sum</a></code>
+<code><a href="#ilt">ilt</a></code>
 enthalten.
 </p>
 <p>Kann <code>laplace</code> die Laplace-Transformation nicht finden, wird die Funktion
 <code><a href="maxima_22.html#specint">specint</a></code>
- aufgerufen.  <code>specint</code> kann die Laplace-Transformation f&uuml;r
 eine Vielzahl von speziellen Funktionen im Integranden berechnen.  Findet auch
 <code>specint</code> keine L&ouml;sung ist das Ergebnis eine Substantivform.
 </p>
@@ -1586,11 +1531,9 @@ erkannt.
 <p>Funktionale Abh&auml;ngigkeiten von Variablen m&uuml;ssen explizit angegeben werden.
 <code>laplace</code> erkennt keine Abh&auml;ngigkeiten, die mit der Funktion 
 <code><a href="#depends">depends</a></code>
- definiert wurden.  Eine Funktion die von den Variablen <var>x</var> 
 abh&auml;ngt, muss als <code>f(x)</code> im Ausdruck <var>expr</var> auftreten.
 </p>
 <p>Siehe auch <code><a href="#ilt">ilt</a></code>
- f&uuml;r die Inverse Laplace-Transformation.
 </p>
 <p>Beispiele:
 </p>
@@ -1698,11 +1641,9 @@ Ausdruck <var>expr</var> und der Integrationsvariable <var>x</var>.  Der algebra
 Risch-Algorithmus ist nicht implementiert.  Der transzendente Risch-Algorithmus
 behandelt Integranden mit Exponential- und Logarithmusfunktionen.  Der
 Risch-Algorithmus wird von <code><a href="#integrate">integrate</a></code>
- aufgerufen, wenn <code>integrate</code>
 keine Stammfunktion finden kann.
 </p>
 <p>Hat <code><a href="#erfflag">erfflag</a></code>
- den Wert <code>false</code>, werden von der Funktion <code>risch</code>
 keine Fehlerfunktionen <code>erf</code> in die L&ouml;sung eingef&uuml;hrt.
 </p>
 <p>Beispiele:
@@ -1779,7 +1720,6 @@ die jedoch nicht als Maxima Funktionen zur Verf&uuml;gung stehen.
 <dt> <code>quad_qag</code></dt>
 <dd><p>Integration einer allgemeinen Funktion &uuml;ber ein endliches Intervall.
 <code><a href="#quad_005fqag">quad_qag</a></code>
- implementiert einen globalen adaptiven Integrator auf
 Grundlage der Strategie von Aind (Piessens, 1973).  Es kann aus 6 verschiedenen 
 Paaren von Gau&szlig;-Kronrad-Quadraturformeln ausgew&auml;hlt werden.  Die Formeln 
 h&ouml;heren Grades sind f&uuml;r stark oszillierende Integranden geeignet.
@@ -1788,7 +1728,6 @@ h&ouml;heren Grades sind f&uuml;r stark oszillierende Integranden geeignet.
 <dt> <code>quad_qags</code></dt>
 <dd><p>Integration einer allgemeinen Funktion &uuml;ber ein endliches Intervall.
 Die Funktion <code><a href="#quad_005fqags">quad_qags</a></code>
- implementiert die Strategie einer globalen   
 adaptiven Unterteilung des Integrationsintervalls mit Extrapolation (de Doncker,
 1978).  Zus&auml;tzlich wird versucht, die Konvergenz der Integralapproximation mit
 Hilfe des Epsilon-Algorithmus (Wynn, 1956) zu beschleunigen.  Dies f&uuml;hrt zum 
@@ -1798,12 +1737,10 @@ sind, zu einer Effizienzsteigerung.
 </dd>
 <dt> <code>quad_qagi</code></dt>
 <dd><p>Die Funktion <code><a href="#quad_005fqagi">quad_qagi</a></code>
- f&uuml;hrt die Integration einer allgemeinen Funktion
 &uuml;ber ein unendliches oder halb-unendliches Intervall aus.  Das Intervall
 wird auf ein endliches Intervall transformiert.  Das transformierte
 Integrationsproblem wird dann mit einer geringf&uuml;gig modifizierten Algorithmus
 wie in <code><a href="#quad_005fqags">quad_qags</a></code>
- gel&ouml;st.
 </p>
 </dd>
 <dt> <code>quad_qawo</code></dt>
@@ -1811,21 +1748,17 @@ wie in <code><a href="#quad_005fqags">quad_qags</a></code>
 <em>cos(omega x) f(x)</em> oder <em>sin(omega x) f(x)</em> &uuml;ber ein endliches 
 Intervall, wobei <em>omega</em> eine Konstante ist.
 Der Algorithmus der Funktion <code><a href="#quad_005fqawo">quad_qawo</a></code>
- zur basiert auf eine modifizierte
 Clenshaw-Curtis-Technik.  <code>quad_qawo</code> wendet eine adaptive Unterteilung des
 Integrationsintervalls mit Extrapolation an, die vergleichbar mit dem
 Algorithmus von <code><a href="#quad_005fqags">quad_qags</a></code>
- ist.  Zus&auml;tzlich wird versucht, die
 Konvergenz der Integralapproximation mit Hilfe des Epsilon-Algorithmus (Wynn, 
 1956) zu beschleunigen.
 </p>
 </dd>
 <dt> <code>quad_qawf</code></dt>
 <dd><p>Die Funktion <code><a href="#quad_005fqawf">quad_qawf</a></code>
- berechnet die Sinus- oder
 Kosinus-Fouriertransformation &uuml;ber ein halb-unendliches
 Intervall.  Dabei wird die global adaptive Routine <code><a href="#quad_005fqawo">quad_qawo</a></code>
- sukzessive
 auf endliche Teilintervalle angewendet.  Zur Konvergenzbeschleunigung der
 resultierenden alternierenden Reihe wird der Epsilon-Algorithmus
 (Wynn, 1956) verwendet.
@@ -1837,7 +1770,6 @@ wobei <em>w</em> eine Funktion der Form <em>(x - a)^alpha (b - x)^beta v(x)</em>
 ist und <em>v(x)</em> ist 1 oder <em>log(x - a)</em> oder <em>log(b - x)</em> oder
 <em>log(x - a) log(b - x)</em>, und <em>alpha &gt; -1</em> und <em>beta &gt; -1</em>.
 <code><a href="#quad_005fqaws">quad_qaws</a></code>
- ist speziell f&uuml;r die effiziente Berechnung von Integralen
 &uuml;ber endliche Intervalle mit algebraischen oder algebraisch-logarithmischen
 Endpunktsingularit&auml;ten konzipiert.  Eine globale adaptive Strategie mit 
 Unterteilung des Integrationsintervalls wird angewendet.  Auf Teilintervalle
@@ -1848,7 +1780,6 @@ Clenshaw-Curtis-Formeln zur Anwendung.
 </dd>
 <dt> <code>quad_qawc</code></dt>
 <dd><p>Die Funktion <code><a href="#quad_005fqawc">quad_qawc</a></code>
- berechnet den Cauchyschen Hauptwert von
 <em>f(x)(x - c)</em> &uuml;ber ein endliches Intervall <em>(a, b)</em> und dem Wert
 <em>c</em>.  Es wird eine modifizierte Clenshaw-Curtis-Formel angewendet, wenn
 <em>c</em> im Teilbereich enthalten ist.  Andernfalls wird eine globale adaptive
@@ -2051,7 +1982,6 @@ wenn die Eingabe ung&uuml;ltig ist.
 <p>Beispiele:
 </p>
 <p><code>quad_qags</code> ist genauer und effizienter als <code><a href="#quad_005fqag">quad_qag</a></code>
- f&uuml;r das
 folgende Beispiel.
 </p>
 <pre class="example">(%i1) quad_qags (x^(1/2)*log(1/x), x, 0, 1, 'epsrel=1d-10);
@@ -2096,7 +2026,6 @@ unendliches oder halb-unendliches Intervall.
 <p>Das Intervall wird auf ein endliches Intervall transformiert.  Das
 transformierte Integrationsproblem wird dann mit einem geringf&uuml;gig
 modifizierten Algorithmus wie in <code><a href="#quad_005fqags">quad_qags</a></code>
- gel&ouml;st.
 </p>
 <p>Die Funktion <var>f(x)</var> mit der abh&auml;ngigen Variablen <var>x</var> wird &uuml;ber einen
 unendlichen Bereich integriert.
@@ -2283,7 +2212,6 @@ halb-unendliches Intervall.
 </pre>
 <p>Zur Berechnung des Integrals wird die global adaptive Routine
 <code><a href="#quad_005fqawo">quad_qawo</a></code>
- sukzessive auf endliche Teilintervalle angewendet.  Zur
 Konvergenzbeschleunigung der resultierenden alternierenden Reihe wird
 der Epsilon-Algorithmus (Wynn, 1956) verwendet.
 </p>
@@ -2307,19 +2235,19 @@ Reihenfolge angegeben werden.  Sie haben die Form <code>key=val</code>.
 Die Schl&uuml;sselwortargumente sind:
 </p>
 <dl compact="compact">
-<dt> <var>epsabs</var></dt>
+<dt> <code>epsabs</code></dt>
 <dd><p>Gew&uuml;nschter absoluter Fehler der N&auml;herung.  Der Standardwert ist 
 <code>1.0e-10</code>.
 </p></dd>
-<dt> <var>limit</var></dt>
+<dt> <code>limit</code></dt>
 <dd><p><code>(<var>limit</var> - <var>limlst</var>)/2</code> ist die maximale Zahl an Teilintervallen
 des adaptiven Algorithmus.  Der Standardwert ist <code>200</code>.
 </p></dd>
-<dt> <var>maxp1</var></dt>
+<dt> <code>maxp1</code></dt>
 <dd><p>Die maximale Anzahl an Chebyshev-Gewichten.  Der Wert muss gr&ouml;&szlig;er als 0 
 sein.  Der Standardwert ist <code>100</code>.
 </p></dd>
-<dt> <var>limlst</var></dt>
+<dt> <code>limlst</code></dt>
 <dd><p>Obere Grenze f&uuml;r die Anzahl an Zyklen.  Der Wert muss gr&ouml;&szlig;er oder gleich
 3 sein.  Der Standardwert ist 10.
 </p></dd>
@@ -2388,7 +2316,6 @@ eine Konstante ist.
 <code>quad_qawo</code> wendet eine adaptive Unterteilung des Integrationsintervalls
 mit Extrapolation an, die vergleichbar mit dem Algorithmus von
 <code><a href="#quad_005fqags">quad_qags</a></code>
- ist.  Zus&auml;tzlich wird versucht, die Konvergenz der
 Integralapproximation mit Hilfe des Epsilon-Algorithmus zu beschleunigen.
 </p>
 <p>Die Gewichtsfunktion <em>w</em> wird mit dem Schl&uuml;sselwort <var>trig</var> 
@@ -2527,14 +2454,14 @@ Reihenfolge angegeben werden.  Sie haben die Form <code>key=val</code>.
 Die Schl&uuml;sselwortargumente sind:
 </p>
 <dl compact="compact">
-<dt> <var>epsrel</var></dt>
+<dt> <code>epsrel</code></dt>
 <dd><p>Gew&uuml;nschter relativer Fehler der N&auml;herung.  Der Standardwert ist
 <code>1.0e-8</code>
 </p></dd>
-<dt> <var>epsabs</var></dt>
+<dt> <code>epsabs</code></dt>
 <dd><p>Gew&uuml;nschter absoluter Fehler der N&auml;herung.  Der Standardwert ist <code>0</code>.
 </p></dd>
-<dt> <var>limit</var></dt>
+<dt> <code>limit</code></dt>
 <dd><p>Maximale Anzahl der Teilintervalle des adaptiven Algorithmus.  Der Standardwert
 ist <code>200</code>.
 </p></dd>
@@ -2614,13 +2541,13 @@ the integrand is singular or discontinous.
 They all take the form <code>key=val</code>.  The keyword arguments are:
 </p>
 <dl compact="compact">
-<dt> <var>epsrel</var></dt>
+<dt> <code>epsrel</code></dt>
 <dd><p>Desired relative error of approximation.  Default is 1d-8.
 </p></dd>
-<dt> <var>epsabs</var></dt>
+<dt> <code>epsabs</code></dt>
 <dd><p>Desired absolute error of approximation.  Default is 0.
 </p></dd>
-<dt> <var>limit</var></dt>
+<dt> <code>limit</code></dt>
 <dd><p>Size of internal work array.  <var>limit</var> is the
 maximum number of subintervals to use.  Default is 200.
 </p></dd>
@@ -2791,7 +2718,6 @@ Differentialgleichungen siehe das Paket in <a href="maxima_66.html#SEC353">plotd
 <p>L&ouml;st das Randwertproblem einer Differentialgleichung 2. Ordnung.  Das
 Argument <var>solution</var> ist eine allgemeine L&ouml;sung, wie sie von der Funktion
 <code><a href="#ode2">ode2</a></code>
- zur&uuml;ckgegeben wird.  <var>xval1</var> gibt den Wert der unabh&auml;ngigen
 Variablen im ersten Randpunkt an.  Der Randwert wird als ein Ausdruck
 <code><var>x</var> = <var>x1</var></code> angegeben.  Das Argument <var>yval1</var> gibt den Wert
 der abh&auml;ngigen Variablen in diesem Punkt an.  Der Randwert wird als
@@ -2800,7 +2726,6 @@ der abh&auml;ngigen Variablen in diesem Punkt an.  Der Randwert wird als
 angegeben.
 </p>
 <p>Siehe die Funktion <code><a href="#ode2">ode2</a></code>
- f&uuml;r Beispiele.
 </p></dd></dl>
 
 <p><a name="desolve"></a>
@@ -2837,7 +2762,6 @@ eqn_2: 'diff(f(x),x) + x^2 - f(x) = 2*'diff(g(x),x,2);
 
 <p>Sind Anfangswerte f&uuml;r <code>x=0</code> bekannt, k&ouml;nnen diese mit der Funktion
 <code><a href="#atvalue">atvalue</a></code>
- vor dem Aufruf der Funktion <code>desolve</code> angegeben werden.
 </p>
 <pre class="example">(%i1) 'diff(f(x),x)='diff(g(x),x)+sin(x);
                  d           d
@@ -2882,7 +2806,6 @@ Variablen in der Form <code><var>x</var> = <var>x0</var></code> angegeben.  Mit 
 </p>
 
 <p>Siehe die Funktion <code><a href="#ode2">ode2</a></code>
- f&uuml;r ein Beispiel.
 </p></dd></dl>
 
 <p><a name="ic2"></a>
@@ -2901,12 +2824,10 @@ Variablen in der Form <code><var>x</var> = <var>x0</var></code> angegeben.  Mit 
 Anfangswert der ersten Ableitung der abh&auml;ngigen Variablen nach der
 unabh&auml;ngigen Variablen in der Form <code>diff(<var>y</var>,<var>x</var>) = <var>dy0</var></code>
 angegeben.  Dem Symbol <code>diff</code> muss kein <code><a href="maxima_8.html#g_t_0027">Quote-Operator</a></code>
- <code>'</code>
 vorangestellt werden.
 </p>
 
 <p>Siehe auch <code><a href="#ode2">ode2</a></code>
- f&uuml;r ein Beispiel.
 </p></dd></dl>
 
 <p><a name="ode2"></a>
@@ -2926,7 +2847,6 @@ Differentialgleichung 2. Ordnung werden die Integrationskonstanten mit
 <code>%k1</code> und <code>%k2</code> bezeichnet.  Die Abh&auml;ngigkeit der abh&auml;ngigen
 Variable von der unabh&auml;ngigen Variablen muss nicht explizit, wie im Fall von
 <code><a href="#desolve">desolve</a></code>
- angegeben werden.
 </p>
 
 <p>Kann <code>ode2</code> keine L&ouml;sung finden, ist die R&uuml;ckgabe <code>false</code>.
@@ -2954,11 +2874,9 @@ die Variation der Parameter angewendet wird.
 
 <p>F&uuml;r das L&ouml;sen von Anfangswertproblemen einer Differentialgleichung 1. oder
 2. Ordnung k&ouml;nnen die Funktionen <code><a href="#ic1">ic1</a></code>
- und <code><a href="#ic2">ic2</a></code>
- verwendet werden.
+<code><a href="#ic2">ic2</a></code>
 Ein Randwertproblem f&uuml;r eine Differentialgleichung 2. Ordnung kann mit der
 Funktion <code><a href="#bc2">bc2</a></code>
- gel&ouml;st werden.
 </p>
 <p>Beispiele:
 </p>
@@ -3017,7 +2935,7 @@ Funktion <code><a href="#bc2">bc2</a></code>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>September, 1 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

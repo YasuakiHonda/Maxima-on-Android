@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 1 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -246,7 +246,6 @@ einzusetzen.  Da es m&ouml;glich ist, die Lagrangeschen Feldgleichungen nach ein
 indizierten Variablen abzuleiten, k&ouml;nnen zum Beispiel die
 Euler-Lagrange-Gleichungen in einer Indexnotation aufgestellt werden.  Werden
 die Gleichungen mit der Funktion <code><a href="#ic_005fconvert">ic_convert</a></code>
- in eine
 Komponentendarstellung f&uuml;r das Paket <code>ctensor</code> transformiert, k&ouml;nnen
 die Feldgleichungen in einer bestimmten Koordinatendarstellung gel&ouml;st werden.
 Siehe dazu die ausf&uuml;hrlichen Beispiele in <code>einhil.dem</code> und
@@ -327,7 +326,6 @@ entsprechenden Komponenten, dann wird eine leere Liste als Argument angegeben.
 Zum Beispiel repr&auml;sentiert <code>g([a,b], [c]</code> einen Tensor <code>g</code>, der zwei
 kovariante Indizes <code>[a,b]</code>, einen kontravarianten Index <code>[c]</code> und
 keinen Ableitungsindex hat.  Mit der Funktion <code><a href="#ishow">ishow</a></code>
- werden Tensoren
 in einer besonderen Schreibweise ausgegeben.
 </p>
 <p>Beispiele:
@@ -349,10 +347,8 @@ oder bei der Ableitung von Tensoren von Maxima hinzugef&uuml;gt werden.  Im
 Allgemeinen ist die Differentiation kommutativ, so dass die Reihenfolge der
 Ableitungsindizes keine Rolle spielt.  Daher werden die Indizes von Maxima
 bei der Vereinfachung mit Funktionen wie <code><a href="#rename">rename</a></code>
- alphabetisch sortiert.
 Dies ist jedoch nicht der Fall, wenn bewegte Bezugssysteme genutzt werden, was
 mit der Optionsvariablen <code><a href="#iframe_005fflag">iframe_flag</a></code>
- angezeigt wird, die in diesem Fall
 den Wert <code>true</code> erh&auml;lt.  Es ist zu beachten, dass mit dem Paket
 <code>itensor</code> Ableitungsindizes nicht angehoben werden k&ouml;nnen und
 nur als kovariante Indizes auftreten.
@@ -402,7 +398,6 @@ Ergebnis der Definition des Christoffel-Symbols der ersten Art.
 
 <p>Tensoren werden standardm&auml;&szlig;ig nicht als symmetrisch angenommen.  Erh&auml;lt
 die Optionsvariable <code><a href="#allsym">allsym</a></code>
- den Wert <code>true</code>, dann werden alle
 Tensoren als symmetrisch in den kovarianten und kontravarianten Indizes
 angenommen.
 </p>
@@ -562,24 +557,20 @@ k&ouml;nnen in bewegten Bezugssystemen ausgef&uuml;hrt werden.
 </dt>
 <dd>
 <p>Ist vergleichbar mit der Funktion <code><a href="#rename">rename</a></code>
- und vereinfacht den Ausdruck
 <var>expr</var> indem gebundene Indizes umbenannt und permutiert werden.  Wie die
 Funktion <code>rename</code> kann <code>canten</code> nur Ausdr&uuml;cke mit Summen von
 Tensorprodukten vereinfachen, in denen keine Ableitungen nach Tensorkomponenten
 auftreten.  Daher sollte <code>canten</code> nur verwendet werden, wenn sich mit
 der Funktion <code><a href="#canform">canform</a></code>
- nicht die gew&uuml;nschte Vereinfachung eines
 Ausdrucks erzielen l&auml;sst.
 </p>
 
 <p>Das Ergebnis der Funktion <code>canten</code> ist mathematisch nur korrekt, wenn
 die Tensoren symmetrisch in ihren Indizes sind.  Hat die Optionsvariable 
 <code><a href="#allsym">allsym</a></code>
- <em>nicht</em> den Wert <code>true</code>, bricht <code>canten</code> mit einer
 Fehlermeldung ab.
 </p>
 <p>Siehe auch die Funktion <code><a href="#concan">concan</a></code>,
- mit der Ausdr&uuml;cke mit Tensoren
 ebenfalls vereinfacht werden k&ouml;nnen, wobei <code>concan</code> zus&auml;tzlich
 Tensorverj&uuml;ngungen ausf&uuml;hrt.
 </p></dd></dl>
@@ -626,7 +617,6 @@ der Tensor <var>tensor</var> hat.  Sollen Werte an einen Metriktensor zugewiesen
 werden, der Dummy-Indizes hat, so muss auf die Benennung der Indizes
 sorgf&auml;ltig geachtet werden, um das Auftreten von Mehrfachen Dummy-Indizes zu
 vermeiden.  Mit der Funktion <code><a href="#remcomps">remcomps</a></code>
- werden Zuweisungen der Funktion
 <code>components</code> an die Komponenten eines Tensors entfernt.
 </p>
 
@@ -687,8 +677,7 @@ Funktion gegeben.
 
 <p>4) Mit Mustern und Regeln: Im Folgenden wird ein Beispiel mit den Funktionen
 <code><a href="maxima_24.html#defrule">defrule</a></code>
- und <code><a href="maxima_24.html#applyb1">applyb1</a></code>
- gezeigt.
+<code><a href="maxima_24.html#applyb1">applyb1</a></code>
 </p>
 <pre class="example">(%i1) load(itensor);
 (%o1)      /share/tensor/itensor.lisp
@@ -717,7 +706,6 @@ Funktion gegeben.
 </dt>
 <dd>
 <p>Ist vergleichbar mit der Funktion <code><a href="#canten">canten</a></code>.
-  Im Unterschied zu
 <code>canten</code> werden zus&auml;tzlich Tensorverj&uuml;ngungen ausgef&uuml;hrt.
 </p></dd></dl>
 
@@ -730,13 +718,10 @@ Funktion gegeben.
 <p>F&uuml;hrt die Tensorverj&uuml;ngungen im Ausdruck <var>expr</var> aus, die beliebige
 Summen und Produkte sein k&ouml;nnen.  <code>contract</code> nutzt die Informationen,
 die f&uuml;r die Tensoren mit der Funktion <code><a href="#defcon">defcon</a></code>
- definiert sind.  Die
 besten Ergebnisse werden erzielt, wenn der Ausdruck <var>expr</var> vollst&auml;ndig
 expandiert wird.  Die Funktion <code><a href="maxima_9.html#radexpand">radexpand</a></code>
- expandiert Produkte und
 Potenzen von Summen am schnellsten, sofern keine Variablen im Nenner der Terme
 auftreten.  Die Optionsvariable <code><a href="maxima_17.html#gcd">gcd</a></code>
- sollte den Wert <code>false</code> haben,
 wenn das K&uuml;rzen durch einen gr&ouml;&szlig;ten gemeinsamen Teiler nicht notwendig
 ist.
 </p></dd></dl>
@@ -747,7 +732,6 @@ ist.
 <a name="IDX1012"></a>
 </dt>
 <dd><p>Die Liste <code><a href="#contractions">contractions</a></code>
- enth&auml;lt die Tensoren, die mit der Funktion
 <code>defcon</code> die Eigenschaft einer Tensorverj&uuml;ngung erhalten haben.
 </p></dd></dl>
 
@@ -778,7 +762,6 @@ letzte Definition wirksam.
 </p>
 
 <p>Die Liste <code><a href="#contractions">contractions</a></code>
- enth&auml;lt die Tensoren, die mit der Funktion
 <code>defcon</code> die Eigenschaft einer Tensorverj&uuml;ngung erhalten haben.
 </p></dd></dl>
 
@@ -793,7 +776,6 @@ letzte Definition wirksam.
 <dd>
 <p>Zeigt die Kontraktionseigenschaften der Tensoren <var>tensor_1</var>, <var>tensor_2</var>,
 &hellip; wie sie mit der Funktion <code><a href="#defcon">defcon</a></code>
- definiert wurden.  Das Kommando
 <code>dispcon(all)</code> zeigt alle vom Nutzer definierten Kontraktionseigenschaften.
 </p>
 <p>Beispiel:
@@ -842,7 +824,6 @@ Enter a list of the derivative indices: [];
 
 <p>Hat die Optionsvariable <code>flipflag</code> den Wert <code>false</code>, werden die
 Indizes von der Funktion <code><a href="#rename">rename</a></code>
- bei der Umbenennung in der Reihenfolge
 der kontravarianten Indizes sortiert, ansonsten in der Reihenfolge der
 kovarianten Indizes.
 </p>
@@ -862,7 +843,6 @@ kovarianten Indizes.
 <p>Enth&auml;lt die laufende Nummer, um den n&auml;chsten Dummy-Index zu bilden.
 <code>icounter</code> wird automatisch erh&ouml;ht, bevor der neue Index gebildet wird.
 Dem Wert <code>icounter</code> wird er Pr&auml;fix <code><a href="#idummyx">idummyx</a></code>
- vorangestellt.  Der
 Standardwert von <code>idummyx</code> ist <code>%</code>.
 </p></dd></dl>
 
@@ -873,12 +853,9 @@ Standardwert von <code>idummyx</code> ist <code>%</code>.
 </dt>
 <dd>
 <p>Erh&ouml;ht den Wert der laufenden Nummer <code><a href="#icounter">icounter</a></code>
- und gibt einen neuen
 Index zur&uuml;ck, indem der Pr&auml;fix <code><a href="#idummyx">idummyx</a></code>
- der Nummer <code>icounter</code>
 vorangestellt wird.  Siehe auch die Funktion <code><a href="#indices">indices</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="idummyx"></a>
 </p><dl>
@@ -890,7 +867,6 @@ vorangestellt wird.  Siehe auch die Funktion <code><a href="#indices">indices</a
 
 <p>Enth&auml;lt den Pr&auml;fix, der einem neuen Index vorangestellt wird, der mit der
 Funktion <code><a href="#idummy">idummy</a></code>
- gebildet wird.
 </p></dd></dl>
 
 <p><a name="indexed_005ftensor"></a>
@@ -902,9 +878,8 @@ Funktion <code><a href="#idummy">idummy</a></code>
 <p>Muss ausgef&uuml;hrt werden, bevor einem Tensors <var>tensor</var> Komponenten
 zugewiesen werden, f&uuml;r die bereits interne Werte vorliegen wie f&uuml;r
 <code><a href="#ichr1">ichr1</a></code>,
- <code><a href="#ichr2">ichr2</a></code>
- oder <code><a href="#icurvature">icurvature</a></code>.
-  Siehe das Beispiel
+<code><a href="#ichr2">ichr2</a></code>
+<code><a href="#icurvature">icurvature</a></code>.
 zur Funktion <code>icurvature</code>.
 </p></dd></dl>
 
@@ -964,7 +939,6 @@ werden.
 </dt>
 <dd>
 <p><code>kdels</code> gibt wie die Funktion <code><a href="#kdelta">kdelta</a></code>
- ein Kronecker-Delta zur&uuml;ck.
 Im Unterschied zu <code>kdelta</code> ist das Kronecker-Delta der Funktion
 <code>kdels</code> symmetrisch.
 </p>
@@ -1013,9 +987,7 @@ sind jedoch keine Tensoren.
 <dd>
 <p><code>lc_l</code> ist eine Regel, um Ausdr&uuml;cke zu vereinfachen, die
 Levi-Civita-Symbole enthalten.  Zusammen mit der Regel <code><a href="#lc_005fu">lc_u</a></code>
- kann die
 Regel zum Beispiel mit der Funktion <code><a href="maxima_24.html#applyb1">applyb1</a></code>
- angewendet werden, um
 Ausdr&uuml;cke effizienter zu vereinfachen, als durch eine Auswertung des Symbols
 <code>levi_civita</code>.
 </p>
@@ -1046,10 +1018,8 @@ Ausdr&uuml;cke effizienter zu vereinfachen, als durch eine Auswertung des Symbol
 <p><code>lc_u</code> ist eine Regel, um Ausdr&uuml;cke zu vereinfachen, die
 Levi-Civita-Symbole enthalten.  Zusammen mit der Regel <code>lc_c</code> kann die
 Regel zum Beispiel mit der Funktion <code><a href="maxima_24.html#applyb1">applyb1</a></code>
- angewendet werden, um
 Ausdr&uuml;cke effizienter zu vereinfachen, als durch eine Auswertung des Symbols
 <code>levi_civita</code>.  Siehe <code><a href="#lc_005fl">lc_l</a></code>
- f&uuml;r Beispiele.
 </p></dd></dl>
 
 <p><a name="lc2kdt"></a>
@@ -1063,9 +1033,7 @@ werden diese zu Kronecker-Delta-Symbolen vereinfacht.  Im Unterschied zu der
 Auswertung eines Ausdrucks mit Levi-Civita-Symbolen, vermeidet die Funktion
 <code>lc2kdt</code> das Einf&uuml;hren von numerischen Indizes, die f&uuml;r eine weitere
 symbolische Vereinfachung zum Beispiel mit den Funktionen <code><a href="#rename">rename</a></code>
- oder
 <code><a href="#contract">contract</a></code>
- nicht geeignet sind.
 </p>
 <p>Beispiel:
 </p>
@@ -1100,7 +1068,6 @@ symbolische Vereinfachung zum Beispiel mit den Funktionen <code><a href="#rename
 
 <p>Die Funktion <code>lc2kdt</code> ben&ouml;tigt in einigen F&auml;llen den Metriktensor.
 Ist der Metriktensor zuvor nicht mit der Funktion <code><a href="#imetric">imetric</a></code>
- definiert,
 dann meldet Maxima einen Fehler.
 </p>
 <pre class="example">(%i7) expr:ishow('levi_civita([],[i,j])
@@ -1220,7 +1187,6 @@ enthalten sind.
 <dd>
 <p>Entfernt alle Werte von den Komponenten des Tensors <var>tensor</var>, die einen
 Wert mit der Funktion <code><a href="#components">components</a></code>
- erhalten haben.
 </p></dd></dl>
 
 <p><a name="remcon"></a>
@@ -1236,7 +1202,6 @@ Wert mit der Funktion <code><a href="#components">components</a></code>
 <var>tensor_1</var>, &hellip;, <var>tensor_n</var>.  <code>remcon(all)</code> entfernt die
 Eigenschaften von der Tensorverj&uuml;ngung f&uuml;r alle Tensoren.  Das sind die
 Tensoren, die in der Liste <code><a href="#contractions">contractions</a></code>
- enthalten sind.
 </p></dd></dl>
 
 <p><a name="rename"></a>
@@ -1256,10 +1221,8 @@ Produkt erh&auml;lt einen verschiedenen Namen.  F&uuml;r eine Summe wird der Z&a
 f&uuml;r jeden Term zur&uuml;ckgesetzt.  Auf diese Weise wirkt die Funktion
 <code>rename</code> wie eine Vereinfachung eines tensoriellen Ausdrucks.  Hat die
 Optionsvariable <code><a href="#allsym">allsym</a></code>
- den Wert <code>true</code>, werden die Indizes
 alphabetisch nach den kovarianten oder kontravarianten Indizes geordnet,
 entsprechend dem Wert der Optionsvariablen <code><a href="#flipflag">flipflag</a></code>.
-  Hat die
 Optionsvariable <code>flipflag</code> den Wert <code>true</code>, werden die Indizes
 entsprechend der Ordnung der kovarianten Indizes geordnet.  Es ist h&auml;ufig der
 Fall, dass das Ordnen sowohl nach den kovarianten als auch den kontravarianten
@@ -1317,7 +1280,6 @@ der Indizes.
 <dd>
 
 <p>Zeigt die Zuweisungen mit der Funktion <code><a href="#components">components</a></code>
- an die Komponenten des
 Tensors <var>tensor</var>.  Die Funktion <code>showcomps</code> kann auch die Komponenten
 eines Tensors mit einer h&ouml;heren Stufe als 2 zeigen.
 </p>
@@ -1390,7 +1352,6 @@ kontravarianten Indizes angenommen.  Ist der Wert <code>false</code>, werden kei
 Symmetrien f&uuml;r die Indizes angenommen.  Die Indizes von Ableitungen werden
 immer als symmetrisch angenommen, au&szlig;er wenn die Optionsvariable
 <code><a href="#iframe_005fflag">iframe_flag</a></code>
- den Wert <code>true</code> hat.
 </p></dd></dl>
 
 <p><a name="decsym"></a>
@@ -1418,7 +1379,6 @@ Indizes ist.
 </p>
 <p>Symmetrieeigenschaften, die mit der Funktion <code>decsym</code> definiert werden,
 werden von der Funktion <code><a href="#canform">canform</a></code>
- angewendet.
 </p>
 <p>Beispiele:
 </p>
@@ -1476,9 +1436,7 @@ umgeordnet werden, wobei vorhandene Symmetrieeigenschaften angewendet werden.
 Hat die Optionsvariable <code>allsym</code> den Wert <code>true</code>, werden alle Indizes
 als symmetrisch angenommen.  Ansonsten werden Symmetrieeigenschaften angewendet,
 die mit der Funktion <code><a href="#decsym">decsym</a></code>
- definiert sind.  Die Dummy-Indizes werden
 auf gleiche Weise umbenannt wie von der Funktion <code><a href="#rename">rename</a></code>.
-  Wird 
 <code>canform</code> auf einen gro&szlig;en Ausdruck angewendet, kann die Ausf&uuml;hrung
 eine lange Zeit beanspruchen.  Die Rechenzeit kann verk&uuml;rzt werden, indem
 zuerst die Funktion <code>rename</code> auf den Ausdruck angewendet wird.
@@ -1490,8 +1448,7 @@ jedoch ist das Ergebnis immer mathematisch korrekt.
 die Umbenennung mit der Funktion <code>rename</code> nicht ausgef&uuml;hrt.
 </p>
 <p>F&uuml;r ein Beispiel siehe die Funktion <code><a href="#decsym">decsym</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <hr size="6">
 <a name="Tensoranalysis"></a>
@@ -1521,15 +1478,12 @@ die Umbenennung mit der Funktion <code>rename</code> nicht ausgef&uuml;hrt.
 </dt>
 <dd>
 <p>Ist die gleichnamige Funktion <code><a href="maxima_16.html#diff">diff</a></code>
- f&uuml;r die Differentiation einer
 tensoriellen Gr&ouml;&szlig;e.  <code>diff</code> ist f&uuml;r das Paket <code>itensor</code>
 erweitert.  Die tensorielle Gr&ouml;&szlig;e <var>expr</var> wird <var>n_1</var>-mal nach der
 Variablen <var>v_1</var>, <var>n_2</var> nach der Variablen <var>v_2</var>, &hellip;
 abgeleitet.  Die Argumente <code>v_1</code> k&ouml;nnen ganze Zahlen von <code>1</code>,
 &hellip;, <code><a href="#dim">dim</a></code>
- sein.  In diesem Fall bezeichnen die ganzen Zahlen der Reihe
 nach die Indizes, die in der Optionsvariablen <code><a href="#vect_005fcoords">vect_coords</a></code>
- abgelegt sind.
 <code>dim</code> ist die Dimension der tensoriellen Gr&ouml;&szlig;en.
 </p>
 
@@ -1566,17 +1520,14 @@ Ableitungen abgeleitet werden.
 <dd>
 <p><code>idiff</code> f&uuml;hrt Ableitungen nach den Koordinaten einer tensoriellen
 Gr&ouml;&szlig;e aus.  Im Unterschied dazu f&uuml;hrt die Funktion <code><a href="maxima_16.html#diff">diff</a></code>
-
 Ableitungen nach den unabh&auml;ngigen Variablen aus.  Eine tensorielle Gr&ouml;&szlig;e
 erh&auml;lt zus&auml;tzlich den Index <var>v_1</var>, der die Ableitung bezeichnet.
 Mehrfache Indizes f&uuml;r Ableitungen werden sortiert, au&szlig;er wenn die
 Optionsvariable <code><a href="#iframe_005fflag">iframe_flag</a></code>
- den Wert <code>true</code> hat.
 </p>
 
 <p><code>idiff</code> kann auch die Determinante des Metriktensors ableiten.  Wird zum
 Beispiel der Optionsvariablen <code><a href="#imetric">imetric</a></code>
- der Wert <code>g</code> zugewiesen,
 dann hat das Kommando <code>idiff(determinant(g), k)</code> das Ergebnis
 <code>2 * determinant(g) * ichr2([%i,k], [%i])</code>, wobei die Dummy-Variable
 passend gew&auml;hlt wird.
@@ -1614,7 +1565,6 @@ wird ohne Indizes angegeben.
 </dt>
 <dd>
 <p>Wertet jedes Auftreten von Substantivformen der Funktion <code><a href="#idiff">idiff</a></code>
- in
 dem tensoriellem Ausdruck <var>ten</var> aus.
 </p></dd></dl>
 
@@ -1627,7 +1577,6 @@ dem tensoriellem Ausdruck <var>ten</var> aus.
 <p>Gibt einen zum Argument <var>expr</var> &auml;quivalenten Ausdruck zur&uuml;ck, in dem
 alle Ableitungen von indizierten Gr&ouml;&szlig;en durch Substantivformen der
 Funktion <code><a href="#idiff">idiff</a></code>
- ersetzt sind.
 </p>
 
 </dd></dl>
@@ -1639,10 +1588,8 @@ Funktion <code><a href="#idiff">idiff</a></code>
 </dt>
 <dd>
 <p>Ist &auml;quivalent zur Ausf&uuml;hrung der Funktion <code><a href="#undiff">undiff</a></code>,
- der die
 Funktionen <code><a href="maxima_8.html#ev">ev</a></code>
- und <code><a href="#rediff">rediff</a></code>
- nachfolgen.
+<code><a href="#rediff">rediff</a></code>
 </p>
 
 <p><code>evundiff</code> erlaubt die Auswertung von Ausdr&uuml;cken, die nicht direkt in
@@ -1777,7 +1724,6 @@ Ableitung erhalten haben.
 </dt>
 <dd>
 <p>Entfernt die mit der Funktion <code><a href="#coord">coord</a></code>
- definierte Eigenschaft f&uuml;r die
 tensoriellen Gr&ouml;&szlig;en <var>tensor_i</var>.  Das Kommando <code>remcoord(all)</code>
 entfernt diese Eigenschaft f&uuml;r alle tensoriellen Gr&ouml;&szlig;en.
 </p></dd></dl>
@@ -1790,7 +1736,6 @@ entfernt diese Eigenschaft f&uuml;r alle tensoriellen Gr&ouml;&szlig;en.
 <dd>
 <p>Zeigt das Argument <var>expr</var> auf die gleiche Weise an wie die Funktion
 <code><a href="#ishow">ishow</a></code>
- mit dem Unterschied, dass der d’Alembert-Operator <var>name</var> im
 Ausdruck durch <code>[]</code> ersetzt wird.
 </p>
 <p>Beispiel:
@@ -1859,13 +1804,11 @@ Identit&auml;ten:
 <var>stop</var>.  Ist dieser vorhanden, stoppt die Funktion nach der ersten
 erfolgreichen Substitution in einem Produkt.  <code>simpmetderiv</code> beachtet
 ferner die Optionsvariable <code><a href="#flipflag">flipflag</a></code>,
- welche die Ordnung der Indizes
 kontrolliert.
 </p>
 
 <p>Siehe auch <code>weyl.dem</code> f&uuml;r Beispiele der Funktionen <code>simpmetderiv</code>
 und <code><a href="#conmetderiv">conmetderiv</a></code>,
- die die Vereinfachung des Weyl-Tensors zeigen.
 </p>
 
 
@@ -1989,10 +1932,8 @@ werden initialisiert.
 
 <p>Um das Christoffel-Symbol f&uuml;r eine spezielle Metrik auszuwerten, muss der
 Optionsvariablen <code><a href="#imetric">imetric</a></code>
- ein Wert zugewiesen werden.  Siehe dazu das
 Beispiel zu <code><a href="#ichr2">ichr2</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="ichr2"></a>
 </p><dl>
@@ -2033,7 +1974,6 @@ Christoffel-Symbolen zur&uuml;ck:
 <p>Gibt die kovariante Ableitung des Ausdruck <var>expr</var> nach den Variablen
 <var>v_i</var> in einer Darstellung mit Christoffel-Symbolen der zweiten Art
 <code><a href="#ichr2">ichr2</a></code>
- zur&uuml;ck.  Um den erhaltenen Ausdruck auszuwerten, kann das 
 Kommando <code>ev(<var>expr</var>, ichr2)</code>.
 </p>
 <pre class="example">(%i1) load(itensor);
@@ -2871,7 +2811,6 @@ of the percent sign in the TeX expression, which may lead to compile errors.
 <p>Das Paket <code>itensor</code> erm&ouml;glicht die Generierung von Maxima-Code, der im
 Kontext des Paketes <code>ctensor</code> ausgef&uuml;hrt werden kann.  Die Funktion
 <code><a href="#ic_005fconvert">ic_convert</a></code>
- erzeugt den Maxima-Code.
 </p>
 
 <p><a name="ic_005fconvert"></a>
@@ -2887,17 +2826,13 @@ Indizes der Arrays sind in der Reihenfolge der kovarianten und dann der
 kontravarianten Indizes der indizierte Gr&ouml;&szlig;e.  Die Ableitung einer
 indizierten Gr&ouml;&szlig;e wird durch die Substantivform der Ableitung
 <code><a href="maxima_16.html#diff">diff</a></code>
- nach der Variablen <code><a href="#ct_005fcoords">ct_coords</a></code>
- ersetzt, die den Index der
+<code><a href="#ct_005fcoords">ct_coords</a></code>
 Ableitung erh&auml;lt.  Die Christoffel-Symbole <code><a href="#ichr1">ichr1</a></code>
- und <code><a href="#ichr2">ichr2</a></code>
-
+<code><a href="#ichr2">ichr2</a></code>
 werden zu den Funktionen <code>lcs</code> und <code>mcs</code> transformiert.  Hat
 <code>metricconvert</code> den Wert <code>true</code>, dann wird der Metriktensor mit zwei
 kovarianten Indizes durch <code><a href="#lg">lg</a></code>
- und mit zwei kontravarianten Indizes durch
 <code><a href="#ug">ug</a></code>
- ersetzt.  Weiterhin werden <code>do</code>-Schleifen f&uuml;r die Summation
 &uuml;ber die freien Indizes eingef&uuml;hrt.
 </p>
 <p>Beispiele:
@@ -3027,21 +2962,17 @@ und sollten vom Nutzer nicht umdefiniert werden.
 <p><code>ctensor</code> ist ein Paket, um mit den Komponenten eines Tensors zu rechnen.
 Das Paket wird mit dem Kommando <code>load(ctensor)</code> geladen.  Zu Beginn muss
 das Paket mit dem Kommando <code><a href="#csetup">csetup</a></code>
- initialisiert werden.  Als erstes wird
 die Anzahl der Dimensionen angegeben.  Werden <code>2</code>, <code>3</code> oder <code>4</code>
 Dimensionen angegeben, dann erhalten die Koordinaten standardm&auml;&szlig;ig die
 Bezeichnungen <code>[x,y]</code>, <code>[x,y,z]</code> oder <code>[x,y,z,t]</code>.  Diese
 Bezeichnungen k&ouml;nnen ge&auml;ndert werden, indem der Optionsvariablen
 <code><a href="#ct_005fcoords">ct_coords</a></code>
- eine neue Liste mit den gew&uuml;nschten Bezeichnungen zugewiesen
 wird.
 </p>
       
 <p>Danach wird eine Metrik eingegeben oder aus einer Datei geladen.  Die Metrik
 wird in der Matrix <code><a href="#lg">lg</a></code>
- gespeichert.  Maxima berechnet die inverse der
 Metrik und speichert diese in der Matrix <code><a href="#ug">ug</a></code>
- ab.  Maxima bietet die
 Option an, alle Rechnungen in einer Reihenentwicklung auszuf&uuml;hren.
 </p>
 
@@ -3200,28 +3131,21 @@ Initialisierungen f&uuml;r die Rechnung mit Tensoren aus.
 </p>
 
 <p>Hat die Optionsvariable <code><a href="#cframe_005fflag">cframe_flag</a></code>
- den Wert <code>false</code>, wird die
 inverse Metrik mit der vom Nutzer angegebenen Metrik berechnet, die in der
 Matrix <code><a href="#lg">lg</a></code>
- enthalten ist, und in der Matrix <code><a href="#ug">ug</a></code>
- abgespeichert.
+<code><a href="#ug">ug</a></code>
 Die Determinante der Metrik wird in der Variablen <code><a href="#gdet">gdet</a></code>
- abgelegt.
 Ist die Metrik diagonal wird die Variable <code><a href="#diagmetric">diagmetric</a></code>
- entsprechend
 gesetzt.  Hat das optionale Argument <var>dis</var> einen von <code>false</code>
 verschiedenen Wert wird die inverse Metrik ausgegeben.
 </p>
 
 <p>Hat die Optionsvariable <code><a href="#cframe_005fflag">cframe_flag</a></code>
- den Wert <code>true</code>, erwartet
 <code>cmetric</code>, dass die Matrizen <code><a href="#lfg">lfg</a></code>
- f&uuml;r die Metrik des bewegten
 Bezugssystems und <code>fri</code> f&uuml;r die inverse dieser Metrik definiert sind.
 Mit diesen Matrizen berechnet <code>cmetric</code> dann die Werte der Matrizen
 <code>fr</code> und die inverse <code><a href="#ufg">ufg</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="ct_005fcoordsys"></a>
 </p><dl>
@@ -5031,12 +4955,10 @@ package compatible with the commercial version of Macsyma.
 <p>Das Paket <code>atensor</code> erlaubt das algebraische Rechnen mit Tensoren.  Mit
 dem Kommando <code>load(atensor)</code> wird das Paket geladen.  Um das Paket zu
 initialisieren, wird die Funktion <code><a href="#init_005fatensor">init_atensor</a></code>
- ausgef&uuml;hrt.
 </p>
 
 <p>Im wesentlichen enth&auml;lt das Paket <code>atensor</code> Regeln f&uuml;r die
 Vereinfachung von Ausdr&uuml;cken mit dem <code><a href="maxima_19.html#dot">dot-Operator</a></code>
- Operator
 <code>&quot;.&quot;</code>.  <code>atensor</code> kennt verschiedene Algebren.  Mit der Funktion
 <code>init_atensor</code> werden die Regeln einer Algebra initialisiert.
 </p>
@@ -5097,14 +5019,11 @@ die Multiplikationstabelle der Basisvektoren konstruiert.
 </pre>
 
 <p>Indizierte Symbole mit dem Namen, der in der Optionsvariablen <code><a href="#asymbol">asymbol</a></code>
-
 abgelegt ist, werden von <code>atensor</code> als Basisvektoren erkannt.  Dabei
 l&auml;uft der Index von <code>1</code> bis <code><a href="#adim">adim</a></code>.
-  F&uuml;r indizierte Symbole
 werden die Bilinearformen <code><a href="#sf">sf</a></code>,
- <code><a href="#af">af</a></code>
- und <code><a href="#av">av</a></code>
- ausgewertet.
+<code><a href="#af">af</a></code>
+<code><a href="#av">av</a></code>
 Die Auswertung ersetzt die Bilinearform <code>fun(v[i].v[j])</code>, durch das
 Matrixelement <code>aform[i,j]</code>, wobei <code>v</code> einen Basisvektor bezeichnet
 und <code>fun</code> einer der Bilinearformen <code>sf</code> oder <code>af</code> ist.  Ist
@@ -5112,7 +5031,6 @@ und <code>fun</code> einer der Bilinearformen <code>sf</code> oder <code>af</cod
 <code>av(v[i],v[j])</code> substituiert.  Siehe auch die Optionsvariable
 <code><a href="#aform">aform</a></code>.
 </p>
-
 
 <p>Die Bilinearformen <code>sf</code>, <code>af</code> und <code>av</code> k&ouml;nnen vom Nutzer
 neu definiert werden, um eine gew&uuml;nschte Algebra zu definieren.
@@ -5128,9 +5046,7 @@ dotexptsimp : false
 
 <p>Wird das symbolische Rechnen in einer nicht-assoziativen Algebra gew&uuml;nscht,
 kann auch noch der Schalter <code><a href="maxima_19.html#dotassoc">dotassoc</a></code>
- auf den Wert <code>false</code> gesetzt
 werden.  In diesem Fall kann jedoch die Funktion <code><a href="#atensimp">atensimp</a></code>
- nicht immer
 eine gew&uuml;nschte Vereinfachung erzielen.
 </p>
 <hr size="6">
@@ -5180,13 +5096,11 @@ definiert ist.
 <dt> <code>clifford</code></dt>
 <dd><p>Eine Clifford-Algebra, die durch die Vertauschungsregel <code>u.v + v.u =
 -2*sf(u,v)</code> definiert ist.  Die Bilinearform <code><a href="#sf">sf</a></code>
- ist eine symmetrische
 Funktion, die einen skalaren Wert als Ergebnis hat.  Das Argument <var>opt_dims</var>
 kann bis zu drei positive ganze Zahlen sein, die die positiven, 
 entarteten und negativen Dimensionen der Algebra bezeichnen.  Die Dimension
 <code><a href="#adim">adim</a></code>
- und die Matrix <code><a href="#aform">aform</a></code>
- werden entsprechend der angegebenen
+<code><a href="#aform">aform</a></code>
 Argumente <var>opt_dims</var> initialisiert.  Sind keine Argumente <var>opt_dims</var>
 vorhanden, wird die Dimension <code>adim</code> zu Null initialisiert und keine
 Matrix <code>aform</code> definiert.
@@ -5200,13 +5114,11 @@ definiert ist.
 <dt> <code>symplectic</code></dt>
 <dd><p>Eine symplektische Algebra, die durch die Vertauschungsregel
 <code>u.v - v.u = 2*af(u,v)</code> definiert ist.  Die Bilinearform <code><a href="#af">af</a></code>
- ist
 eine antisymmetrische Funktion, die einen skalaren Wert als Ergebnis hat.  Das 
 Argument <var>opt_dims</var> kann bis zu zwei positive ganze Zahlen enthalten,
 die die nicht-degenerierten und degenerierten Dimensionen der Algebra
 bezeichnen.  Die Dimension <code><a href="#adim">adim</a></code>
- und die Matrix <code><a href="#aform">aform</a></code>
-
+<code><a href="#aform">aform</a></code>
 werden entsprechend der angegebenen Argumente <var>opt_dims</var> initialisiert.
 Sind keine Argumente <var>opt_dims</var> vorhanden, wird die Dimension <code>adim</code>
 zu Null initialisiert und keine Matrix <code>aform</code> definiert. 
@@ -5215,12 +5127,10 @@ zu Null initialisiert und keine Matrix <code>aform</code> definiert.
 <dt> <code>lie_envelop</code></dt>
 <dd><p>Eine einh&uuml;llende Lie-Algebra, die durch die Vertauschungsregel
 <code>u.v - v.u = 2*av(u,v)</code> definiert ist, wobei die Bilinearform <code><a href="#av">av</a></code>
-
 eine antisymmetrische Funktion ist.  Das Argument <var>opt_dims</var> kann eine
 positive ganze Zahl sein, welche die Dimension der Lie-Algebra angibt.  Die
 Dimension <code><a href="#adim">adim</a></code>
- und die Matrix <code><a href="#aform">aform</a></code>
- werden entsprechend des
+<code><a href="#aform">aform</a></code>
 Argumentes <var>opt_dims</var> initialisiert.  Ist kein Argument <var>opt_dims</var>
 vorhanden, wird die Dimension <code>adim</code> zu Null initialisiert und keine Matrix
 <code>aform</code> definiert.
@@ -5266,12 +5176,10 @@ Kommando <code>init_atensor(clifford, 3, 0, 1)</code>.
 <dd>
 <p>Vereinfacht einen Ausdruck <var>expr</var> entsprechend der Regeln f&uuml;r die Algebra,
 die mit der Funktion <code><a href="#init_005fatensor">init_atensor</a></code>
- festgelegt ist.  Die Regeln werden
 rekursiv auf den Ausdruck angewendet.  Dabei werden auch Bilinearformen
 <code><a href="#sf">sf</a></code>,
- <code><a href="#af">af</a></code>
- und <code><a href="#av">av</a></code>
- ausgewertet.
+<code><a href="#af">af</a></code>
+<code><a href="#av">av</a></code>
 </p>
 <p>Beispiele:
 </p>
@@ -5304,13 +5212,11 @@ rekursiv auf den Ausdruck angewendet.  Dabei werden auch Bilinearformen
 
 <p>Der Typ der Algebra, die bei der Vereinfachung von Ausdr&uuml;cken mit der
 Funktion <code><a href="#atensimp">atensimp</a></code>
- angewendet wird.  Die Algebra wird von der Funktion
 <code>init_atensor</code> initialisiert.  M&ouml;gliche Algebren sind <code>universal</code>,
 <code>grassmann</code>, <code>clifford</code>, <code>symmetric</code>, <code>symplectic</code> und
 <code>lie_envelop</code>.  Siehe f&uuml;r eine ausf&uuml;hrliche Erl&auml;uterung der Algebren
 die Funktion <code><a href="#init_005fatensor">init_atensor</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="adim"></a>
 </p><dl>
@@ -5322,11 +5228,8 @@ die Funktion <code><a href="#init_005fatensor">init_atensor</a></code>.
 
 <p>Die Dimension der Algebra, die bei der Vereinfachung von Ausdr&uuml;cken mit der
 Funktion <code><a href="#atensimp">atensimp</a></code>
- angewendet wird.  Die Dimension wird von der Funktion
 <code><a href="#init_005fatensor">init_atensor</a></code>
- initialisiert.  Ein indiziertes Symbol mit dem Bezeichner
 <code><a href="#asymbol">asymbol</a></code>
- ist dann ein Basisvektor, wenn der Index kleiner oder gleich
 der Dimension <code>adim</code> ist.
 </p>
 <p>Beispiel:
@@ -5353,10 +5256,8 @@ Basisvektor.
 </p>
 
 <p>Matrix mit den Werten der Bilinearformen <code><a href="#sf">sf</a></code>,
- <code><a href="#af">af</a></code>
- und
+<code><a href="#af">af</a></code>
 <code><a href="#av">av</a></code>.
-  Der Standardwert ist die dreidimensionale Einheitsmatrix.
 </p>
 <p>Beispiel:
 </p>
@@ -5391,7 +5292,6 @@ Dimensionen und die Ergebnisse der Bilinearform <code>av</code> f&uuml;r diese A
 
 <p>Enth&auml;lt das Symbol, das einen Basisvektor des Paketes <code>atensor</code>
 bezeichnet.  Mit der Funktion <code><a href="#abasep">abasep</a></code>
- kann getestet werde, ob ein
 indiziertes Symbol einen Basisvektor der Algebra bezeichnet.
 </p>
 <p>Beispiel:
@@ -5420,13 +5320,10 @@ indiziertes Symbol einen Basisvektor der Algebra bezeichnet.
 <dd>
 <p>Eine symmetrische Bilinearform, die bei der Vereinfachung von Ausdr&uuml;cken
 mit der Funktion <code><a href="#atensimp">atensimp</a></code>
- angewendet wird.  Die Funktion kann vom Nutzer
 durch eine neue Funktion ersetzt werden.  Die Standardimplementation pr&uuml;ft
 mit der Funktion <code><a href="#abasep">abasep</a></code>,
- ob die Argumente <var>u</var> und <var>v</var>
 Basisvektoren sind und setzt f&uuml;r diesen Fall den entsprechen Wert der Matrix
 <code><a href="#aform">aform</a></code>
- ein.
 </p></dd></dl>
 
 <p><a name="af"></a>
@@ -5437,13 +5334,10 @@ Basisvektoren sind und setzt f&uuml;r diesen Fall den entsprechen Wert der Matri
 <dd>
 <p>Eine antisymmetrische Bilinearform, die bei der Vereinfachung von Ausdr&uuml;cken
 mit der Funktion <code><a href="#atensimp">atensimp</a></code>
- angewendet wird.  Die Funktion kann vom Nutzer
 durch eine neue Funktion ersetzt werden.  Die Standardimplementation pr&uuml;ft
 mit der Funktion <code><a href="#abasep">abasep</a></code>,
- ob die Argumente <var>u</var> und <var>v</var>
 Basisvektoren sind und setzt f&uuml;r diesen Fall den entsprechenden Wert der
 Matrix <code><a href="#aform">aform</a></code>
- ein.
 </p></dd></dl>
 
 <p><a name="av"></a>
@@ -5454,13 +5348,10 @@ Matrix <code><a href="#aform">aform</a></code>
 <dd>
 <p>Eine antisymmetrische Bilinearform, die bei der Vereinfachung von Ausdr&uuml;cken
 mit der Funktion <code><a href="#atensimp">atensimp</a></code>
- angewendet wird.  Die Funktion kann vom Nutzer
 durch eine neue Funktion ersetzt werden.  Die Standardimplementation pr&uuml;ft
 mit der Funktion <code><a href="#abasep">abasep</a></code>,
- ob die Argumente <var>u</var> und <var>v</var>
 Basisvektoren sind und setzt f&uuml;r diesen Fall den entsprechenden Wert
 <code>v[aform[i,j]]</code> der Matrix <code><a href="#aform">aform</a></code>
- ein.
 </p>
 <p>Beispiel:
 </p>
@@ -5491,10 +5382,8 @@ Basisvektoren sind und setzt f&uuml;r diesen Fall den entsprechenden Wert
 <dd>
 <p>Pr&uuml;ft, ob das Argument <var>v</var> ein Basisvektor ist.  Ein Basisvektor ist ein
 indiziertes Symbol mit dem Symbol <code><a href="#asymbol">asymbol</a></code>
- als Bezeichner und einem
 Index im Bereich von <code>1</code> bis <code><a href="#adim">adim</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) load(atensor)$
@@ -5526,7 +5415,7 @@ Index im Bereich von <code>1</code> bis <code><a href="#adim">adim</a></code>.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>September, 1 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

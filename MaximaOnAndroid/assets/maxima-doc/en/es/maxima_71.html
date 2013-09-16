@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on abril, 2 2013 by texi2html 1.76 -->
+<!-- Created on septiembre, 1 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual de Maxima: 71. romberg</title>
+<title>Manual de Maxima: 71. simplex</title>
 
-<meta name="description" content="Manual de Maxima: 71. romberg">
-<meta name="keywords" content="Manual de Maxima: 71. romberg">
+<meta name="description" content="Manual de Maxima: 71. simplex">
+<meta name="keywords" content="Manual de Maxima: 71. simplex">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -141,235 +141,205 @@ div.categorybox
 
 <body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="romberg"></a>
-<a name="SEC336"></a>
+<a name="simplex"></a>
+<a name="SEC337"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_70.html#SEC335" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC337" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_70.html#SEC336" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC338" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_70.html#SEC333" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_70.html#SEC335" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC338" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC340" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#SEC377" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter"> 71. romberg </h1>
+<h1 class="chapter"> 71. simplex </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC337">71.1 Funciones y variables para romberg</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC338">71.1 Introducci&oacute;n a simplex</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC339">71.2 Funciones y variables para simplex</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <hr size="6">
-<a name="Funciones-y-variables-para-romberg"></a>
-<a name="SEC337"></a>
+<a name="Introducci_00f3n-a-simplex"></a>
+<a name="SEC338"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC336" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC338" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC337" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC339" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC336" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC336" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC338" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC337" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC337" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC340" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#SEC377" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 71.1 Funciones y variables para romberg </h2>
+<h2 class="section"> 71.1 Introducci&oacute;n a simplex </h2>
+
+<p>El paquete <code>simplex</code> utiliza el algoritmo simplex para programaci&oacute;n lineal.
+</p>
+<p>Ejemplo:
+</p>
+<pre class="example">(%i1) load(&quot;simplex&quot;)$
+(%i2) minimize_lp(x+y, [3*x+2*y&gt;2, x+4*y&gt;3]);
+                       9        7       1
+(%o2)                 [--, [y = --, x = -]]
+                       10       10      5
+</pre>
+<hr size="6">
+<a name="Funciones-y-variables-para-simplex"></a>
+<a name="SEC339"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC338" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC340" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC337" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC337" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC340" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 71.2 Funciones y variables para simplex </h2>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>romberg</b><i> (<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</i>
-<a name="IDX2562"></a>
+<dt><u>Variable opcional:</u> <b>epsilon_lp</b>
+<a name="IDX2591"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>romberg</b><i> (<var>F</var>, <var>a</var>, <var>b</var>)</i>
-<a name="IDX2563"></a>
+<dd><p>Valor por defecto: <code>10^-8</code>
+</p>
+<p>Error epsilon utilizado en los c&aacute;lculos num&eacute;ricos de <code>linear_program</code>.
+</p>
+<p>V&eacute;ase tambi&eacute;n <code>linear_program</code>.
+</p>
+</dd></dl>
+
+<dl>
+<dt><u>Funci&oacute;n:</u> <b>linear_program</b><i> (<var>A</var>, <var>b</var>, <var>c</var>)</i>
+<a name="IDX2592"></a>
 </dt>
-<dd><p>Integra num&eacute;ricamente por el m&eacute;todo de Romberg.
+<dd><p>La funci&oacute;n <code>linear_program</code> es una implementaci&oacute;n del algoritmo
+simplex. La instrucci&oacute;n <code>linear_program(A, b, c)</code> calcula un 
+vector <var>x</var> tal que minimiza <code>c.x</code> bajo las restricciones <code>A.x = b</code>
+y <code>x &gt;= 0</code>. El argumento <var>A</var> es una matriz y los argumentos <var>b</var> y
+<var>c</var> son listas.
 </p>
-<p>La llamada <code>romberg(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>
-devuelve una estimaci&oacute;n de la integral <code>integrate(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>.
-El argumento <var>expr</var> debe ser una expresi&oacute;n reducible a un valor decimal
-en coma flotante cuando <var>x</var> es a su vez un n&uacute;mero decimal.
+<p>La funci&oacute;n <code>linear_program</code> devuelve una lista que contiene el vector
+soluci&oacute;n <var>x</var> y el valor m&iacute;nimo de <code>c.x</code>.
+Si el problema no est&aacute; acotado, devuelve el mensaje &quot;Problem not bounded!&quot;
+y si el problema no es factible, devuelve el mensaje &quot;Problem not feasible!&quot;.
 </p>
-<p>La llamada <code>romberg(<var>F</var>, <var>a</var>, <var>b</var>)</code> devuelve una estimaci&oacute;n
-de la integral <code>integrate(<var>F</var>(x), x, <var>a</var>, <var>b</var>)</code>, siendo
-<code>x</code> el &uacute;nico argumento de <var>F</var>. El argumento <var>F</var> debe ser 
-una funci&oacute;n en Lisp o en Maxima que devuelva un valor decimal
-en coma flotante cuando <var>x</var> es a su vez un n&uacute;mero decimal; <var>F</var>
-puede ser el nombre de una funci&oacute;n de Maxima traducida o compilada.
+<p>Para usar esta funci&oacute;n, c&aacute;rguese primero el paquete con la
+instrucci&oacute;n <code>load(simplex);</code>.
 </p>
-<p>La exactitud de <code>romberg</code> se controla con las variables globales 
-<code>rombergabs</code> y <code>rombergtol</code>. La funci&oacute;n <code>romberg</code>
-termina con &eacute;xito su c&aacute;lculo cuando la diferencia absoluta entre
-sucesivas aproximaciones es menor que <code>rombergabs</code>,
-o cuando la diferencia relativa de sucesivas aproximaciones es menor que
-<code>rombergtol</code>. As&iacute;, cuando <code>rombergabs</code> vale 0.0
-(su valor por defecto) s&oacute;lo tiene efecto el test del error relativo basado
-en <code>romberg</code>.
+<p>Ejemplo:
 </p>
-<p>La funci&oacute;n <code>romberg</code> reduce a mitades sucesivas la amplitud del paso un m&aacute;ximo de
-<code>rombergit</code> veces antes de abandonar el c&oacute;mputo; el n&uacute;mero m&aacute;ximo de 
-evaluaciones del integrando es, por consiguiente, igual a <code>2^rombergit</code>.
-De no satisfacerse el criterio de error establecido por <code>rombergabs</code> y
-<code>rombergtol</code>,  <code>romberg</code> devuelve un mensaje de error.
-La funci&oacute;n <code>romberg</code> hace siempre al menos <code>rombergmin</code>
-iteraciones; se trata de una heur&iacute;stica para evitar
-la finalizaci&oacute;n prematura cuando el integrando oscila mucho.
+
+<pre class="example">(%i2) A: matrix([1,1,-1,0], [2,-3,0,-1], [4,-5,0,0])$
+(%i3) b: [1,1,6]$
+(%i4) c: [1,-2,0,0]$
+(%i5) linear_program(A, b, c);
+                   13     19        3
+(%o5)            [[--, 4, --, 0], - -]
+                   2      2         2
+</pre>
+<p>V&eacute;anse tambi&eacute;n <code>minimize_lp</code>, <code>scale_lp</code> y <code>epsilon_lp</code>.
 </p>
-<p>La funci&oacute;n <code>romberg</code> eval&uacute;a el integrando repetidamente tras asignarle
-a la variable de integraci&oacute;n un valor espec&iacute;fico. Este criterio
-permite anidar llamadas a <code>romberg</code> para calcular integrales m&uacute;ltiples.
-Sin embargo, los errores de c&aacute;lculo no tienen en cuenta los errores de 
-las integraciones anidadas, por lo que tales errores pueden subestimarse.
-Por otro lado, m&eacute;todos especialmente desarrollados para integraciones
-m&uacute;ltiples pueden dar la misma exactitud con menos evaluaciones
-del integrando.
+</dd></dl>
+
+<dl>
+<dt><u>Funci&oacute;n:</u> <b>maximize_lp</b><i> (<var>obj</var>, <var>cond</var>, [<var>pos</var>])</i>
+<a name="IDX2593"></a>
+</dt>
+<dd><p>Maximiza la funci&oacute;n objetivo lineal <var>obj</var> sujeta a ciertas restricciones
+lineales <var>cond</var>. V&eacute;ase <code>minimize_lp</code> para una descripci&oacute;n detallada
+de los argumentos y de la respuesta dada por esta funci&oacute;n.
 </p>
-<p>Para hacer uso de esta funci&oacute;n ejec&uacute;tese primero <code>load(romberg)</code>.
+</dd></dl>
+
+<dl>
+<dt><u>Funci&oacute;n:</u> <b>minimize_lp</b><i> (<var>obj</var>, <var>cond</var>, [<var>pos</var>])</i>
+<a name="IDX2594"></a>
+</dt>
+<dd><p>Minimiza la funci&oacute;n objetivo lineal <var>obj</var> sujeta a ciertas restricciones
+lineales <var>cond</var>, siendo &eacute;sta una lista de ecuaciones o inecuaciones lineales.
+En las inecuaciones estrictas se reemplaza <code>&gt;</code> por <code>&gt;=</code> y <code>&lt;</code>
+por <code>&lt;=</code>. El argumento opcional <var>pos</var> es una lista de variables de
+decisi&oacute;n que se suponen positivas.
 </p>
-<p>V&eacute;ase tambi&eacute;n <code>QUADPACK</code>, un conjunto de funciones para 
-integraci&oacute;n num&eacute;rica.
+<p>Si el m&iacute;nimo existe, <code>minimize_lp</code> devuelve una lista que
+contiene el valor m&iacute;nimo de la funci&oacute;n objetivo y una lista 
+de valores para las variables de decisi&oacute;n con los que se alcanza el 
+m&iacute;nimo. 
+Si el problema no est&aacute; acotado, devuelve el mensaje &quot;Problem not bounded!&quot;
+y si el problema no es factible, devuelve el mensaje &quot;Problem not feasible!&quot;.
+</p>
+<p>Las variables de decisi&oacute;n no se suponen no negativas. Si todas las 
+variables de decisi&oacute;n son no negativas, as&iacute;gnese el valor
+<code>true</code> a la variable <code>nonegative_lp</code>. Si s&oacute;lo algunas de las
+variables de decisi&oacute;n son positivas, l&iacute;stense
+en el argumento opcional <var>pos</var>, lo cual es m&aacute;s eficiente que 
+a&ntilde;adir restricciones.
+</p>
+<p>La funci&oacute;n <code>minimize_lp</code> utiliza el algoritmo simplex implementado
+en la funci&oacute;n <code>linear_program</code> de Maxima.
+</p>
+<p>Para usar esta funci&oacute;n, c&aacute;rguese primero el paquete con la
+instrucci&oacute;n <code>load(simplex);</code>.
 </p>
 <p>Ejemplos:
 </p>
-<p>Una integraci&oacute;n unidimensional.
-</p>
-<pre class="example">(%i1) load (romberg);
-(%o1)    /usr/share/maxima/5.11.0/share/numeric/romberg.lisp
-(%i2) f(x) := 1/((x - 1)^2 + 1/100) + 1/((x - 2)^2 + 1/1000)
-                + 1/((x - 3)^2 + 1/200);
-                    1                 1                1
-(%o2) f(x) := -------------- + --------------- + --------------
-                     2    1           2    1            2    1
-              (x - 1)  + ---   (x - 2)  + ----   (x - 3)  + ---
-                         100              1000              200
-(%i3) rombergtol : 1e-6;
-(%o3)                 9.9999999999999995E-7
-(%i4) rombergit : 15;
-(%o4)                          15
-(%i5) estimate : romberg (f(x), x, -5, 5);
-(%o5)                   173.6730736617464
-(%i6) exact : integrate (f(x), x, -5, 5);
-(%o6) 10 sqrt(10) atan(70 sqrt(10))
- + 10 sqrt(10) atan(30 sqrt(10)) + 10 sqrt(2) atan(80 sqrt(2))
- + 10 sqrt(2) atan(20 sqrt(2)) + 10 atan(60) + 10 atan(40)
-(%i7) abs (estimate - exact) / exact, numer;
-(%o7)                7.5527060865060088E-11
+<pre class="example">(%i1) minimize_lp(x+y, [3*x+y=0, x+2*y&gt;2]);
+                      4       6        2
+(%o1)                [-, [y = -, x = - -]]
+                      5       5        5
+(%i2) minimize_lp(x+y, [3*x+y&gt;0, x+2*y&gt;2]), nonegative_lp=true;
+(%o2)                [1, [y = 1, x = 0]]
+(%i3) minimize_lp(x+y, [3*x+y=0, x+2*y&gt;2]), nonegative_lp=true;
+(%o3)                Problem not feasible!
+(%i4) minimize_lp(x+y, [3*x+y&gt;0]);
+(%o4)                Problem not bounded!
 </pre>
-<p>Una integraci&oacute;n bidimensional, implementada mediante llamadas anidadas a <code>romberg</code>.
-</p>
-<pre class="example">(%i1) load (romberg);
-(%o1)    /usr/share/maxima/5.11.0/share/numeric/romberg.lisp
-(%i2) g(x, y) := x*y / (x + y);
-                                    x y
-(%o2)                   g(x, y) := -----
-                                   x + y
-(%i3) rombergtol : 1e-6;
-(%o3)                 9.9999999999999995E-7
-(%i4) estimate : romberg (romberg (g(x, y), y, 0, x/2), x, 1, 3);
-(%o4)                   0.81930239628356
-(%i5) assume (x &gt; 0);
-(%o5)                        [x &gt; 0]
-(%i6) integrate (integrate (g(x, y), y, 0, x/2), x, 1, 3);
-                                          3
-                                    2 log(-) - 1
-                    9                     2        9
-(%o6)       - 9 log(-) + 9 log(3) + ------------ + -
-                    2                    6         2
-(%i7) exact : radcan (%);
-                    26 log(3) - 26 log(2) - 13
-(%o7)             - --------------------------
-                                3
-(%i8) abs (estimate - exact) / exact, numer;
-(%o8)                1.3711979871851024E-10
-</pre>
-</dd></dl>
 
-<dl>
-<dt><u>Variable opcional:</u> <b>rombergabs</b>
-<a name="IDX2564"></a>
-</dt>
-<dd><p>Valor por defecto: 0.0
-</p>
-<p>La exactitud de <code>romberg</code> se controla con las variables globales 
-<code>rombergabs</code> y <code>rombergtol</code>. La funci&oacute;n <code>romberg</code>
-termina con &eacute;xito su c&aacute;lculo cuando la diferencia absoluta entre
-sucesivas aproximaciones es menor que <code>rombergabs</code>,
-o cuando la diferencia relativa de sucesivas aproximaciones es menor que
-<code>rombergtol</code>. As&iacute;, cuando <code>rombergabs</code> vale 0.0
-(su valor por defecto) s&oacute;lo tiene efecto el test del error relativo basado
-en <code>romberg</code>.
-</p>
-<p>V&eacute;anse tambi&eacute;n <code>rombergit</code> y <code>rombergmin</code>.
+<p>V&eacute;anse tambi&eacute;n <code>maximize_lp</code>, <code>nonegative_lp</code> y <code>epsilon_lp</code>.
 </p>
 </dd></dl>
 
 <dl>
-<dt><u>Variable opcional:</u> <b>rombergit</b>
-<a name="IDX2565"></a>
+<dt><u>Variable opcional:</u> <b>nonegative_lp</b>
+<a name="IDX2595"></a>
 </dt>
-<dd><p>Valor por defecto: 11
+<dd><p>Valor por defecto: <code>false</code>
 </p>
-<p>La funci&oacute;n <code>romberg</code> reduce a mitades sucesivas la amplitud del paso un m&aacute;ximo de
-<code>rombergit</code> veces antes de abandonar el c&oacute;mputo; el n&uacute;mero m&aacute;ximo de 
-evaluaciones del integrando es, por consiguiente, igual a <code>2^rombergit</code>.
-La funci&oacute;n <code>romberg</code> hace siempre al menos <code>rombergmin</code>
-iteraciones; se trata de una heur&iacute;stica para evitar
-la finalizaci&oacute;n prematura cuando el integrando oscila mucho.
+<p>Si <code>nonegative_lp</code> vale <code>true</code> todas las variables de decisi&oacute;n
+pasadas a <code>minimize_lp</code> y a <code>maximize_lp</code> se suponen positivas.
 </p>
-
-<p>V&eacute;anse tambi&eacute;n <code>rombergabs</code> y <code>rombergtol</code>.
+<p>V&eacute;ase tambi&eacute;n <code>minimize_lp</code>.
 </p>
 </dd></dl>
-
-<dl>
-<dt><u>Variable opcional:</u> <b>rombergmin</b>
-<a name="IDX2566"></a>
-</dt>
-<dd><p>Valor por defecto: 0
-</p>
-<p>La funci&oacute;n <code>romberg</code> hace siempre al menos <code>rombergmin</code>
-iteraciones; se trata de una heur&iacute;stica para evitar
-la finalizaci&oacute;n prematura cuando el integrando oscila mucho.
-</p>
-<p>V&eacute;anse tambi&eacute;n <code>rombergit</code>, <code>rombergabs</code> y <code>rombergtol</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Variable opcional:</u> <b>rombergtol</b>
-<a name="IDX2567"></a>
-</dt>
-<dd><p>Valor por defecto: 1e-4
-</p>
-<p>La exactitud de <code>romberg</code> se controla con las variables globales 
-<code>rombergabs</code> y <code>rombergtol</code>. La funci&oacute;n <code>romberg</code>
-termina con &eacute;xito su c&aacute;lculo cuando la diferencia absoluta entre
-sucesivas aproximaciones es menor que <code>rombergabs</code>,
-o cuando la diferencia relativa de sucesivas aproximaciones es menor que
-<code>rombergtol</code>. As&iacute;, cuando <code>rombergabs</code> vale 0.0
-(su valor por defecto) s&oacute;lo tiene efecto el test del error relativo basado
-en <code>romberg</code>.
-</p>
-<p>V&eacute;anse tambi&eacute;n <code>rombergit</code> y <code>rombergmin</code>.
-</p>
-</dd></dl>
-
 
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC336" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC338" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC337" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC340" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -377,12 +347,12 @@ en <code>romberg</code>.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#SEC377" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>abril, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>septiembre, 1 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 1 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -197,14 +197,12 @@ div.categorybox
 <dd><p>Standardwert: <code>0</code>
 </p>
 <p>Wenn notwendig erzeugen die Funktionen <code><a href="#solve">solve</a></code>
- und <code><a href="#algsys">algsys</a></code>
- freie
+<code><a href="#algsys">algsys</a></code>
 Parameter, die in die L&ouml;sungen eingesetzt werden.  Die Parameter haben den 
 Namen <code>%r&lt;<var>num</var>&gt;</code>.  Die Optionsvariable <code>%rnum</code> enth&auml;lt die
 Nummer <var>num</var>, die an den Pr&auml;fix <code>%r</code> angeh&auml;ngt wird.  Maxima
 erh&ouml;ht <code>%rnum</code> automatisch.  Siehe auch die Systemvariable
 <code><a href="#g_t_0025rnum_005flist">%rnum_list</a></code>
- f&uuml;r eine Liste der Parameter einer L&ouml;sung.
 </p></dd></dl>
 
 <p><a name="g_t_0025rnum_005flist"></a>
@@ -215,9 +213,7 @@ erh&ouml;ht <code>%rnum</code> automatisch.  Siehe auch die Systemvariable
 <dd><p>Standardwert: <code>[]</code>
 </p>
 <p><code>%rnum_list</code> ist die Liste der freien Parameter, die von <code><a href="#solve">solve</a></code>
- und
 <code><a href="#algsys">algsys</a></code>
- in L&ouml;sungen eingesetzt werden.  Die Parameter werden der Liste
 <code>%rnum_list</code> in der Reihenfolge hinzugef&uuml;gt, in der sie erzeugt werden.
 </p>
 <p>Beispiele:
@@ -245,16 +241,13 @@ erh&ouml;ht <code>%rnum</code> automatisch.  Siehe auch die Systemvariable
 <dd><p>Standardwert: <code>false</code>
 </p>
 <p>Die Optionsvariable <code>algexact</code> kontrolliert die Funktion <code><a href="#algsys">algsys</a></code>
-
 folgenderma&szlig;en:
 </p>
 <ul>
 <li>
 Hat <code>algexact</code> den Wert <code>true</code>, wird von der Funktion <code>algsys</code> 
 stets <code><a href="#solve">solve</a></code>
- aufgerufen.  Findet <code>solve</code> keine L&ouml;sung, wird die 
 Funktion <code><a href="#realroots">realroots</a></code>
- aufgerufen.
 
 </li><li>
 Hat <code>algexact</code> den Wert <code>false</code>, wird die Funktion <code>solve</code> nur
@@ -344,8 +337,7 @@ keine L&ouml;sungen finden kann.
 </p>
 <p>Kontrolliert die Genauigkeit einer numerischen L&ouml;sung der Funktion 
 <code><a href="#algsys">algsys</a></code>
- f&uuml;r den Fall, dass die Optionsvariable <code><a href="#realonly">realonly</a></code>
- den Wert
+<code><a href="#realonly">realonly</a></code>
 <code>true</code> hat, also nur die reellen L&ouml;sungen gesucht werden.
 </p>
 <p>Beispiele:
@@ -398,7 +390,6 @@ wird eine leere Liste <code>[]</code> zur&uuml;ckgegeben.
 <code>%r1</code>, <code>%r2</code>, &hellip; in die L&ouml;sungen ein.  Die freien Parameter
 werden der Liste <code>%rnum_list</code> hinzugef&uuml;gt.  Siehe <code><a href="#g_t_0025rnum_005flist">%rnum_list</a></code>.
 </p>
-
 <p>Die Funktion <code>algsys</code> f&uuml;hrt die folgenden Schritte aus, um L&ouml;sungen
 eines Gleichungssystems zu finden:
 </p>
@@ -419,7 +410,6 @@ wiederholt dann den 1. Schritt.
 Besteht das Teilsystem nur noch aus einer Gleichung, hat diese Gleichung
 mehrere Variablen und enth&auml;lt diese keine Gleitkommazahlen, dann wird 
 <code><a href="#solve">solve</a></code>
- aufgerufen, um eine exakte L&ouml;sung zu finden.
 
 <p>Es kann sein, dass <code>solve</code> keine L&ouml;sung oder einen sehr gro&szlig;en 
 Ausdruck als L&ouml;sung findet.
@@ -428,20 +418,16 @@ Ausdruck als L&ouml;sung findet.
 quadratisch oder quartisch sind sowie keine Gleitkommazahlen enthalten, wird 
 <code>solve</code> aufgerufen, um eine exakte L&ouml;sung zu finden.  Trifft dies nicht 
 zu, wird in dem Fall, dass die <code><a href="#realonly">realonly</a></code>
- den Wert <code>true</code> hat, die
 Funktion <code><a href="#realroots">realroots</a></code>.
-  Ansonsten wird die Funktion <code><a href="#allroots">allroots</a></code>
-
+<code><a href="#allroots">allroots</a></code>
 aufgerufen.  Die Funktion <code>realroots</code> sucht reelle L&ouml;sungen der
 Gleichung, w&auml;hrend die Funktion <code>allroots</code> auch komplex L&ouml;sungen sucht.
 </p>
 <p>F&uuml;r den Fall, dass <code>realonly</code> den Wert <code>true</code> hat, wird die
 Genauigkeit einer numerischen L&ouml;sung von der Optionsvariablen
 <code><a href="#algepsilon">algepsilon</a></code>
- kontrolliert.
 </p>
 <p>Hat die Optionsvariable <code><a href="#algexact">algexact</a></code>
- den Wert <code>true</code>, wird immer die
 Funktion <code>solve</code> aufgerufen.
 </p>
 </li><li>
@@ -456,14 +442,11 @@ abgebrochen.  Ein N&auml;herung mit Gleitkommazahlen kann in vorgehenden Schritt
 auftreten, wenn keine exakten L&ouml;sungen auffindbar sind.
 </p>
 <p>Ist das Argument der Funktion <code><a href="#allroots">allroots</a></code>
- kein Polynom, gibt Maxima eine
 Fehlermeldung aus.  Die L&ouml;sungen eines Gleichungssystems k&ouml;nnen sehr
 gro&szlig;e Ausdr&uuml;cke sein.  Obwohl die L&ouml;sung reell ist, kann die imagin&auml;re
 Einheit <code>%i</code> in den L&ouml;sungen enthalten sein.  F&uuml;r die weitere
 Bearbeitung der L&ouml;sungen k&ouml;nnen die Funktionen <code><a href="maxima_6.html#pickapart">pickapart</a></code>
- oder
 <code><a href="maxima_6.html#reveal">reveal</a></code>
- hilfreich sein.
 </p>
 <p>Beispiele:
 </p>
@@ -509,7 +492,6 @@ Bearbeitung der L&ouml;sungen k&ouml;nnen die Funktionen <code><a href="maxima_6
 des Polynoms <var>expr</var> oder der Polynomgleichung <var>eqn</var> mit einer Variablen.
 </p>
 <p>Hat der Schalter <code><a href="#polyfactor">polyfactor</a></code>
- den Wert <code>true</code>, wird das Polynom
 &uuml;ber die reellen oder komplexen Zahlen faktorisiert.
 </p>
 <p>F&uuml;r den Fall mehrfacher Wurzeln kann <code>allroots</code> ungenaue Ergebnisse 
@@ -523,7 +505,6 @@ komplexe Zahl enthalten.  Ist das Argument der Funktion <code>allroots</code> ke
 Polynom, gibt Maxima eine Fehlermeldung.  Daher wird von der Funktion
 <code>allroots</code> immer ein &auml;quivalenter, jedoch faktorisierter Ausdruck
 zur&uuml;ckgegeben, wenn die Optionsvariable <code><a href="#polyfactor">polyfactor</a></code>
- den Wert <code>true</code>
 hat.
 </p>
 <p>F&uuml;r komplexe Polynome wird ein Algorithmus von Jenkins und Traub verwendet 
@@ -580,7 +561,6 @@ x = - .9659625152196369 %i - .4069597231924075, x = 1.0]
 dass die Funktion <code>bfallroots</code> die N&auml;herungen mit gro&szlig;en
 Gleitkommazahlen berechnet.  Siehe <code><a href="#allroots">allroots</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <p>Dasselbe Beispiel wie für die Funktion <code>allroots</code>.  Die Ergebnisse
@@ -604,7 +584,6 @@ x = - 9.65962515219637b-1 %i - 4.069597231924075b-1, x = 1.0b0]
 </p>
 <p>Hat <code>backsubst</code> den Wert <code>false</code>, werden die L&ouml;sungen der Funktion
 <code><a href="#linsolve">linsolve</a></code>
- nicht r&uuml;cksubstituiert.  Dies kann hilfreich sein, wenn die
 R&uuml;cksubstitution zu sehr gro&szlig;en Ausdr&uuml;cken f&uuml;hrt.
 </p>
 <p>Beispiele:
@@ -628,7 +607,6 @@ R&uuml;cksubstitution zu sehr gro&szlig;en Ausdr&uuml;cken f&uuml;hrt.
 <dd><p>Standardwert: <code>true</code>
 </p>
 <p>Hat die Optionsvariablen <code><a href="#programmode">programmode</a></code>
- den Wert <code>false</code> und die
 Optionsvariable <code>breakup</code> den Wert <code>true</code>, dann werden f&uuml;r
 gemeinsame Terme in L&ouml;sungen von kubischen und quartischen Gleichungen
 Zwischenmarken erzeugt.
@@ -760,8 +738,7 @@ Dependent equations eliminated:  (4 3)
 <p>Hat <code>globalsolve</code> den Wert <code>true</code>, werden den unbekannten Variablen
 eines linearen Gleichungssystems die Werte der L&ouml;sungen der Funktionen
 <code><a href="#linsolve">linsolve</a></code>
- und <code><a href="#solve">solve</a></code>
- zugewiesen.
+<code><a href="#solve">solve</a></code>
 </p>
 <p>Hat <code>globalsolve</code> den Wert <code>false</code>, werden den unbekannten Variablen
 eines linearen Gleichungssystems keine Werte zugewiesen.  Die L&ouml;sungen werden 
@@ -769,7 +746,6 @@ als Gleichungen mit den unbekannten Variablen ausgedr&uuml;ckt.
 </p>
 <p>F&uuml;r andere als lineare Gleichungssysteme wird der Wert von <code>globalsolve</code>
 ignoriert.  Die Funktion <code><a href="#algsys">algsys</a></code>
- ignoriert <code>globalsolve</code> immer.
 </p>
 <p>Beispiele:
 </p>
@@ -854,7 +830,7 @@ der Startwert der Methoden <code>neumann</code> oder <code>firstkindseries</code
 <p>Die Standardwerte der Argumente sind:
 </p>
 <dl compact="compact">
-<dt> <var>unk</var> </dt>
+<dt> <code>unk</code> </dt>
 <dd><p><code><var>p</var>(<var>x</var>)</code>, wobei <var>p</var> die erste im Integranden aufgefundene
 Funktion ist, die Maxima unbekannt ist, und <var>x</var> die Variable ist, die im
 Falle einer Integralgleichung der zweiten Art als Argument der Funktion
@@ -864,15 +840,15 @@ Integrationsvariable ist.  Wenn der Versuch fehlschl&auml;gt, die Variable <var>
 zu finden, wird der Nutzer nach der unabh&auml;ngigen Variablen gefragt.
 </p>
 </dd>
-<dt> <var>tech</var></dt>
+<dt> <code>tech</code></dt>
 <dd><p><code>first</code>
 </p>
 </dd>
-<dt> <var>n</var></dt>
+<dt> <code>n</code></dt>
 <dd><p><code>1</code>
 </p>
 </dd>
-<dt> <var>guess</var></dt>
+<dt> <code>guess</code></dt>
 <dd><p><code>none</code>, bewirkt, dass der Ansatz <code><var>f</var>(<var>x</var>)</code> als Startwert
 der L&ouml;sungsmethoden <code>neumann</code> und <code>firstkindseries</code> verwendet wird.
 </p></dd>
@@ -890,7 +866,6 @@ der L&ouml;sungsmethoden <code>neumann</code> und <code>firstkindseries</code> v
 </p>
 <p><code>ieqnprint</code> kontrolliert die Ausgabe des Ergebnisses der Funktion 
 <code><a href="#ieqn">ieqn</a></code>.
-  Hat die Optionsvariable <code>ieqnprint</code> den Wert <code>true</code>,
 dann hat das Ergebnis der Funktion <code>ieqn</code> die Form
 <code>[<var>solution</var>, <var>technique used</var>, <var>nterms</var>, <var>flag</var>]</code>.
 Ist die L&ouml;sung exakt, tritt das Element <code><var>flag</var></code> nicht auf.
@@ -911,14 +886,12 @@ Entwicklung.
 <code>&lt; &lt;= = # equal notequal &gt;= &gt;</code>, einer der Zuweisungsoperatoren
 <code>:= ::= : ::</code> oder ein nutzerdefinierter bin&auml;rer Infix-Operator ist, der
 mit der Funktion <code><a href="maxima_7.html#infix">infix</a></code>
- deklariert wurde.  Die linke Seite des Ausdrucks
 ist f&uuml;r die hier genannten Operatoren das erste Argument.
 </p>
 <p>Wenn <var>expr</var> ein Atom ist oder sein Operator ein anderer als oben 
 aufgelistet, gibt <code>lhs</code> den Ausdruck <var>expr</var> zur&uuml;ck.  Siehe auch 
 <code><a href="#rhs">rhs</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) e: aa + bb = cc;
@@ -959,24 +932,19 @@ aufgelistet, gibt <code>lhs</code> den Ausdruck <var>expr</var> zur&uuml;ck.  Si
 <var>x_n</var>].  Jede Gleichung muss ein Polynom in den angegebenen Variablen sein.
 </p>
 <p>Hat die Optionsvariable <code><a href="#globalsolve">globalsolve</a></code>
- den Wert <code>true</code>, werden die
 L&ouml;sungen des Gleichungssystems den angegebenen Variablen zugewiesen.
 </p>
 <p>Hat die Optionsvariable <code><a href="#backsubst">backsubst</a></code>
- den Wert <code>false</code>, f&uuml;hrt
 <code>linsolve</code> keine R&uuml;cksubstitutionen aus.  Dies kann hilfreich sein, wenn
 die R&uuml;cksubstitution zu sehr gro&szlig;en Ausdr&uuml;cken f&uuml;hrt.
 </p>
 <p>Hat die Optionsvariable <code><a href="#linsolve_005fparams">linsolve_params</a></code>
- den Wert <code>true</code>, setzt
 <code>linsolve</code> f&uuml;r ein unterbestimmtes Gleichungssystem freie Parameter in
 die L&ouml;sungen ein, die mit <code>%r</code>-Symbolen bezeichnet werden.  Siehe auch
 <code><a href="#g_t_0025rnum">%rnum</a></code>
- und <code><a href="#g_t_0025rnum_005flist">%rnum_list</a></code>.
+<code><a href="#g_t_0025rnum_005flist">%rnum_list</a></code>.
 </p>
-
 <p>Hat die Optionsvariable <code><a href="#programmode">programmode</a></code>
- den Wert <code>false</code>, werden die
 L&ouml;sungen von <code>linsolve</code> Zwischenmarken <code>%t</code> zugewiesen.  Die
 Zwischenmarken werden als Liste zur&uuml;ckgegeben.
 </p>
@@ -1039,7 +1007,6 @@ Solution
 </p>
 <p>Hat <code>linsolvewarn</code> den Wert <code>true</code>, gibt die Funktion
 <code><a href="#linsolve">linsolve</a></code>
- gegebenenfalls die Meldung <code>Dependent equations eliminated</code>
 aus.
 </p></dd></dl>
 
@@ -1052,12 +1019,10 @@ aus.
 </p>
 <p>Hat <code>linsolve_params</code> den Wert <code>true</code>, setzt die Funktion
 <code><a href="#linsolve">linsolve</a></code>
- f&uuml;r ein unterbestimmtes Gleichungssystem freie Parameter in
 die L&ouml;sungen ein, die mit <code>%r</code>-Symbolen bezeichnet werden.  Siehe auch
 <code><a href="#g_t_0025rnum">%rnum</a></code>
- und <code><a href="#g_t_0025rnum_005flist">%rnum_list</a></code>.
-</p>
-</dd></dl>
+<code><a href="#g_t_0025rnum_005flist">%rnum_list</a></code>.
+</p></dd></dl>
 
 <p><a name="multiplicities"></a>
 </p><dl>
@@ -1068,9 +1033,8 @@ die L&ouml;sungen ein, die mit <code>%r</code>-Symbolen bezeichnet werden.  Sieh
 </p>
 <p><code>multiplicities</code> ist die Liste der Vielfachheiten der  
 L&ouml;sungen, die von <code><a href="#solve">solve</a></code>,
- <code><a href="#realroots">realroots</a></code>
- oder <code><a href="#allroots">allroots</a></code>
-
+<code><a href="#realroots">realroots</a></code>
+<code><a href="#allroots">allroots</a></code>
 zur&uuml;ckgegeben werden.
 </p>
 <p>Beispiel:
@@ -1111,10 +1075,8 @@ Argument <var>n</var> eine positive ganze Zahl.  <code>nthroot</code> gibt ein P
 <em>q</em> &uuml;ber die ganzen Zahlen zur&uuml;ck, so dass <em>q^n = p</em> gilt.
 Existiert kein derartiges Polynom <var>q</var> gibt Maxima eine Fehlermeldung aus.
 <code>nthroot</code> ist wesentlich schneller als die Funktionen <code><a href="maxima_17.html#factor">factor</a></code>
- oder
 <code><a href="maxima_17.html#sqfr">sqfr</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="polyfactor"></a>
 </p><dl>
@@ -1129,7 +1091,6 @@ reellen Zahlen faktorisiert, wenn das Polynom reell ist, und &uuml;ber die
 komplexen Zahlen, wenn das Polynome komplex ist.
 </p>
 <p>Siehe <code><a href="#allroots">allroots</a></code>
- f&uuml;r ein Beispiel.
 </p></dd></dl>
 
 <p><a name="programmode"></a>
@@ -1141,12 +1102,10 @@ komplexen Zahlen, wenn das Polynome komplex ist.
 </p>
 <p>Hat <code>programmode</code> den Wert <code>true</code>, geben die Funktionen
 <code><a href="#solve">solve</a></code>,
- <code><a href="#realroots">realroots</a></code>,
- <code><a href="#allroots">allroots</a></code>,
-
+<code><a href="#realroots">realroots</a></code>,
+<code><a href="#allroots">allroots</a></code>,
 <code><a href="#bfallroots">bfallroots</a></code>
- und <code><a href="#linsolve">linsolve</a></code>
- die L&ouml;sungen als Elemente einer Liste
+<code><a href="#linsolve">linsolve</a></code>
 zur&uuml;ck.
 </p>
 <p>Hat <code>programmode</code> den Wert <code>false</code>, werden die L&ouml;sungen der oben 
@@ -1162,7 +1121,6 @@ Funktionen ist in diesem Fall eine Liste der Zwischenmarken.
 <dd><p>Standardwert: <code>false</code>
 </p>
 <p>Hat <code>realonly</code> den Wert <code>true</code>, gibt <code><a href="#algsys">algsys</a></code>
- nur L&ouml;sungen
 zur&uuml;ck, die nicht die imagin&auml;re Einheit <code>%i</code> enthalten.
 </p></dd></dl>
 
@@ -1238,7 +1196,6 @@ ist f&uuml;r die hier genannten Operatoren das zweite Argument.
 <p>Ist <var>expr</var> ein Atom oder hat der Ausdruck <var>expr</var> einen anderen Operator
 als oben angegeben, dann ist das Ergebnis <code>0</code>.  Siehe auch <code><a href="#lhs">lhs</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) e: aa + bb = cc;
@@ -1278,7 +1235,6 @@ als oben angegeben, dann ist das Ergebnis <code>0</code>.  Siehe auch <code><a h
 </p>
 <p><code>rootsepsilon</code> ist die Toleranz, die den Vertrauensbereich f&uuml;r die von 
 der Funktion <code><a href="#realroots">realroots</a></code>
- gefundenen Wurzeln festsetzt.
 </p></dd></dl>
 
 <p><a name="solve"></a>
@@ -1325,12 +1281,10 @@ werden, wenn die Umkehrfunktion zu <code>F(X)</code> bekannt ist.
 </li></ol>
 
 <p>Hat die Optionsvariable <code><a href="#breakup">breakup</a></code>
- den Wert <code>false</code>, werden die
 L&ouml;sungen von kubischen und quartischen Gleichungen nicht in gemeinsame
 Teilausdr&uuml;cke zerlegt.
 </p>
 <p>Die Systemvariable <code><a href="#multiplicities">multiplicities</a></code>
- enth&auml;lt eine Liste mit den
 Vielfachheiten der einzelnen L&ouml;sungen.
 </p>
 
@@ -1339,21 +1293,17 @@ l&ouml;st ein Gleichungssystem mit den Polynomen <var>eqn_1</var>, &hellip;, <va
 f&uuml;r die Variablen <var>x_1</var>, &hellip;, <var>x_n</var>.  Die Polynome k&ouml;nnen linear 
 oder nichtlinear sein.  Um das System zu l&ouml;sen, werden die Funktionen 
 <code><a href="#linsolve">linsolve</a></code>
- oder <code><a href="#algsys">algsys</a></code>
- aufgerufen.  Das Ergebnis ist eine Liste mit 
+<code><a href="#algsys">algsys</a></code>
 den L&ouml;sungen.  Ist die Anzahl der Gleichungen gleich der Anzahl der Variablen 
 des Systems, kann das Argument mit der Liste der Variablen entfallen.
 </p>
 <p>Hat die Optionsvariable <code><a href="#programmode">programmode</a></code>
- den Wert <code>false</code> ist, zeigt
 <code>solve</code> die L&ouml;sungen mit Hilfe von Zwischenmarken (<code>%t</code>) an und
 gibt die Liste der Marken zur&uuml;ck.
 </p>
 <p>Hat die Optionsvariable <code><a href="#globalsolve">globalsolve</a></code>
- den Wert <code>true</code>, werden den
 unbekannten Variablen eines linearen Gleichungssystems die Werte der L&ouml;sung
 der Funktionen <code><a href="#linsolve">linsolve</a></code>
- und <code>solve</code> zugewiesen.
 </p>
 <p>Beispiele:
 </p>
@@ -1447,8 +1397,7 @@ y = - .1535675710019696]]
 </pre>
 <p>Die Symbole <code>%r</code> bezeichnen freie Konstanten einer L&ouml;sung.
 Siehe <code><a href="#algsys">algsys</a></code>
- und <code><a href="#g_t_0025rnum_005flist">%rnum_list</a></code>
- f&uuml;r mehr Informationen.
+<code><a href="#g_t_0025rnum_005flist">%rnum_list</a></code>
 </p>
 <pre class="example">(%i1) solve([x+y=1,2*x+2*y=2],[x,y]);
 
@@ -1465,9 +1414,7 @@ solve: dependent equations eliminated: (2)
 </p>
 
 <p>Hat <code>solvedecomposes</code> den Wert <code>true</code>, ruft <code><a href="#solve">solve</a></code>
- die Funktion
 <code><a href="maxima_17.html#polydecomp">polydecomp</a></code>
- auf, um Polynome zu zerlegen.
 </p></dd></dl>
 
 <p><a name="solveexplicit"></a>
@@ -1479,7 +1426,6 @@ solve: dependent equations eliminated: (2)
 </p>
 <p>Hat <code>solveexplicit</code> den Wert <code>true</code>, gibt die Funktion
 <code><a href="#solve">solve</a></code>
- keine impliziten L&ouml;sungen der Form <code>F(x) = 0</code> zur&uuml;ck.
 </p>
 <p>Beispiel:
 </p>
@@ -1504,7 +1450,6 @@ solve: dependent equations eliminated: (2)
 </p>
 <p>Hat <code>solvefactors</code> den Wert <code>false</code>, versucht die Funktion
 <code><a href="#solve">solve</a></code>
- nicht, den Ausdruck zu faktorisieren.  Das Setzen der
 Optionsvariable <code>solvefactors</code> auf den Wert <code>false</code> kann notwendig
 sein, wenn die Faktorisierung nicht ben&ouml;tigt wird, damit <code>solve</code> eine
 L&ouml;sung findet.
@@ -1519,7 +1464,6 @@ L&ouml;sung findet.
 </p>
 <p>Hat <code>solvenullwarn</code> den Wert <code>true</code>, gibt die Funktion
 <code><a href="#solve">solve</a></code>
- eine Warnmeldung aus, wenn keine Gleichungen oder keine Variablen
 als Argument &uuml;bergeben wurden.
 </p>
 <p>Beispiel:
@@ -1544,9 +1488,7 @@ solve: variable list is empty, continuing anyway.
 <dd><p>Standardwert: <code>false</code>
 </p>
 <p>Hat <code>solveradcan</code> den Wert <code>true</code>, ruft <code><a href="#solve">solve</a></code>
- die Funktion
 <code><a href="maxima_9.html#radcan">radcan</a></code>
- auf, um Ausdr&uuml;cke zu vereinfachen, die Exponentialfunktionen
 und Logarithmen enthalten.
 </p></dd></dl>
 
@@ -1559,7 +1501,6 @@ und Logarithmen enthalten.
 </p>
 <p>Hat <code>solvetrigwarn</code> den Wert <code>true</code>, gibt die Funktion
 <code><a href="#solve">solve</a></code>
- eine Warnung aus, wenn inverse trigonometrische Funktionen genutzt
 werden, um L&ouml;sungen zu finden.  In diesem Fall k&ouml;nnen L&ouml;sungen verloren
 gehen.
 </p>
@@ -1596,7 +1537,7 @@ Some solutions will be lost.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>September, 1 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

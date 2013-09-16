@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 1 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -200,7 +200,6 @@ unterdr&uuml;ckt, die Null sind.
 </p>
 <p>Siehe auch <code><a href="#burn">burn</a></code>.
 </p>
-
 <pre class="example">(%i1) zerobern: true$
 (%i2) map (bern, [0, 1, 2, 3, 4, 5, 6, 7, 8]);
                   1  1       1      1        1
@@ -244,7 +243,6 @@ definiert ist:
 der Stellen wird durch das Argument <var>n</var> angegeben.
 </p>
 <p>Anstatt der Funktion <code>bfzeta</code> ist die Funktion <code><a href="#zeta">zeta</a></code>
- zu bevorzugen,
 die sowohl f&uuml;r reelle und komplexe Gleitkommazahlen und Gleitkommazahlen mit
 eine beliebigen Genauigkeit die Riemannsche Zeta-Funktion berechnen kann.
 </p></dd></dl>
@@ -296,8 +294,7 @@ Zahlen die kleiner oder gleich 255 die Funktion <code>bern</code> auf.
 </p>
 
 <p>Das Kommando <code>load(bffac)</code> l&auml;dt die Funktion.  Siehe auch <code><a href="#bern">bern</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="chinese"></a>
 </p><dl>
@@ -361,30 +358,43 @@ zur&uuml;ck.
 
 <p>F&uuml;r die Euler-Mascheroni Konstante siehe <code><a href="maxima_5.html#g_t_0025gamma">%gamma</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) map (euler, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 (%o1)    [1, 0, - 1, 0, 5, 0, - 61, 0, 1385, 0, - 50521]
 </pre></dd></dl>
 
+<p><a name="factors_005fonly"></a>
+</p><dl>
+<dt><u>Optionsvariable:</u> <b>factors_only</b>
+<a name="IDX1192"></a>
+</dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+<p>Hat <code>factors_only</code> den Standardwert <code>false</code>, werden von der 
+Funktion <code><a href="#ifactors">ifactors</a></code>
+Multiplizit&auml;ten angegeben. Hat <code>factors_only</code> den Wert <code>true</code>, 
+werden nur die Primfaktoren zur&uuml;ck gegeben.
+</p>
+<p>Beispiel: Siehe <code><a href="#ifactors">ifactors</a></code>
+</p></dd></dl>
+
 <p><a name="fib"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>fib</b><i> (<var>n</var>)</i>
-<a name="IDX1192"></a>
+<a name="IDX1193"></a>
 </dt>
-<dd>
-<p>Gibt die <var>n-te</var> Fibonacci-Zahl zur&uuml;ck.  Die Fibonacci-Folge ist rekursiv 
+<dd><p>Gibt die <var>n</var>-te Fibonacci-Zahl zur&uuml;ck.  Die Fibonacci-Folge ist rekursiv 
 definiert:
 </p>
 <pre class="example">   fib(0) = 0
    fib(1) = 1
    fib(n) = fib(n-1) + fib(n-2)
 </pre>
-<p>F&uuml;r negative ganze Zahlen kann die Fibonacci-Folge erweitert wird mit:
+<p>F&uuml;r negative ganze Zahlen kann die Fibonacci-Folge wie folgt erweitert werden:
 </p>
 <pre class="example">                   n + 1
-   fib(- n) = (- 1)      f(n)
+   fib(- n) = (- 1)      fib(n)
 </pre>
 
 
@@ -399,13 +409,12 @@ definiert:
 <p><a name="fibtophi"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>fibtophi</b><i> (<var>expr</var>)</i>
-<a name="IDX1193"></a>
+<a name="IDX1194"></a>
 </dt>
 <dd>
 <p>Fibonacci-Zahlen im Ausdruck <var>expr</var> werden durch die Goldene Zahl 
 <code>%phi</code> ausgedr&uuml;ckt.  Siehe <code><a href="maxima_5.html#g_t_0025phi">%phi</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) fibtophi (fib (n));
@@ -431,7 +440,7 @@ definiert:
 <p><a name="ifactors"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>ifactors</b><i> (<var>n</var>)</i>
-<a name="IDX1194"></a>
+<a name="IDX1195"></a>
 </dt>
 <dd><p>Faktorisiert eine positive ganze Zahl <var>n</var>.  Sind <code>n = p1^e1 * ... * pk^nk</code> die
 Faktoren der ganzen Zahl <var>n</var>, dann gibt <code>ifactor</code> das Ergebnis
@@ -440,9 +449,8 @@ Faktoren der ganzen Zahl <var>n</var>, dann gibt <code>ifactor</code> das Ergebn
 <p>F&uuml;r die Faktorisierung kommen Probedivisionen mit Primzahlen bis 9973, 
 Pollards Rho- und p-1-Methode oder Elliptischen Kurven zum Einsatz.
 </p>
-<p>Die R&uuml;ckgabe von ifactors wird von der Optionsvariablen <code>@ref{factors_only}</code>
-</p>  
-<p>beeinflusst. 
+<p>Die R&uuml;ckgabe von ifactors wird von der Optionsvariablen <code><a href="#factors_005fonly">factors_only</a></code>
+beeinflusst. 
 Werden lediglich die Primfaktoren ohne ihre Multiplizit&auml;t ben&ouml;tigt, 
 gen&uuml;gt es hierf&uuml;r, <code>factors_only : true</code> zu setzen.
 </p>
@@ -457,14 +465,13 @@ gen&uuml;gt es hierf&uuml;r, <code>factors_only : true</code> zu setzen.
 <p><a name="igcdex"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>igcdex</b><i> (<var>n</var>, <var>k</var>)</i>
-<a name="IDX1195"></a>
+<a name="IDX1196"></a>
 </dt>
 <dd><p>Gibt die Liste <code>[a, b, u]</code> zur&uuml;ck, in der <code>u</code> der 
 gr&ouml;&szlig;te gemeinsame Teiler von <var>n</var> und <var>k</var> ist und in der zus&auml;tzlich 
 gilt, dass <code>u = a * <var>n</var> + b * <var>k</var></code>. 
 </p>
 <p><code>igcdex</code> verwendet den Euklidischen Algorithmus.  Siehe auch <code><a href="maxima_17.html#gcdex">gcdex</a></code>
-.
 </p>
 <p>Die Eingabe <code>load(gcdex)</code> l&auml;dt diese Funktion.
 </p>
@@ -483,7 +490,7 @@ gilt, dass <code>u = a * <var>n</var> + b * <var>k</var></code>.
 <p><a name="inrt"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>inrt</b><i> (<var>x</var>, <var>n</var>)</i>
-<a name="IDX1196"></a>
+<a name="IDX1197"></a>
 </dt>
 <dd>
 <p>Gibt die ganzzahlige <var>n</var>-te Wurzel des Betrags von <var>x</var> zur&uuml;ck.
@@ -496,7 +503,7 @@ gilt, dass <code>u = a * <var>n</var> + b * <var>k</var></code>.
 <p><a name="inv_005fmod"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>inv_mod</b><i> (<var>n</var>, <var>m</var>)</i>
-<a name="IDX1197"></a>
+<a name="IDX1198"></a>
 </dt>
 <dd><p>Berechnet das modulare Inverse von <var>n</var> zum Modul <var>m</var>.  Das Argument
 <var>n</var> muss eine ganze Zahl und der Modul <var>p</var> eine positive ganze Zahl 
@@ -505,9 +512,8 @@ nicht existiert.  Das modulare Inverse existiert, wenn <var>n</var> teilerfremd 
 Modul <var>m</var> ist.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#power_005fmod">power_mod</a></code>
- und <code><a href="#mod">mod</a></code>.
+<code><a href="#mod">mod</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) inv_mod(3, 41);
@@ -521,7 +527,7 @@ Modul <var>m</var> ist.
 <p><a name="isqrt"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>isqrt</b><i> (<var>x</var>)</i>
-<a name="IDX1198"></a>
+<a name="IDX1199"></a>
 </dt>
 <dd>
 <p>Gibt die ganzzahlige Wurzel des Betrages von <var>x</var> zur&uuml;ck, wenn <var>x</var> eine
@@ -531,7 +537,7 @@ ganze Zahl ist.  Andernfalls wird eine Substantivform zur&uuml;ckgegeben.
 <p><a name="jacobi"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>jacobi</b><i> (<var>p</var>, <var>q</var>)</i>
-<a name="IDX1199"></a>
+<a name="IDX1200"></a>
 </dt>
 <dd>
 <p>Berechnet das Jacobi-Symbol f&uuml;r die Argumente <var>p</var> und <var>q</var>.
@@ -544,7 +550,7 @@ ganze Zahl ist.  Andernfalls wird eine Substantivform zur&uuml;ckgegeben.
 <p><a name="lcm"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>lcm</b><i> (<var>expr_1</var>, &hellip;, <var>expr_n</var>)</i>
-<a name="IDX1200"></a>
+<a name="IDX1201"></a>
 </dt>
 <dd>
 <p>Gibt das kleinste gemeinsame Vielfache der Argumente zur&uuml;ck.  Die Argumente 
@@ -554,10 +560,43 @@ k&ouml;nnen ganze Zahlen und allgemeine Ausdr&uuml;cke sein.
 <p>Mit dem Kommando <code>load(functs)</code> wird die Funktion geladen.
 </p></dd></dl>
 
+<p><a name="lucas"></a>
+</p><dl>
+<dt><u>Funktion:</u> <b>lucas</b><i> (<var>n</var>)</i>
+<a name="IDX1202"></a>
+</dt>
+<dd><p>Gibt die <var>n</var>-te Lucas-Zahl zur&uuml;ck.  Die Lucas-Folge ist rekursiv 
+definiert:
+</p>
+<pre class="example">   lucas(0) = 0
+   lucas(1) = 1
+   lucas(n) = lucas(n-1) + lucas(n-2)
+</pre>
+<p>F&uuml;r negative ganze Zahlen kann die Lucas-Folge wie folgt erweitert werden:
+</p>
+<pre class="example">                     -n
+   lucas(- n) = (- 1)   lucas(n)
+</pre>
+
+<pre class="example">(%i1) map (lucas, [-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8]);
+(%o1)             [7, - 4, 3, - 1, 2, 1, 3, 4, 7, 11, 18, 29, 47]
+</pre>
+<p>Nach einem Aufruf von <code>lucas</code> enth&auml;lt die globale Variable 
+<code>next_lucas</code> den Nachfolger der zuletzt zurc"k gegebenen Lucas-Zahl.
+Das Beispiel zeigt, wie Fibonacci-Zahlen mit Hilfe von <code>lucas</code> 
+und <code>next_lucas</code> berechnet werden k&ouml;nnen.
+</p>
+<pre class="example">(%i1) fib_via_lucas(n) := 
+         block([lucas : lucas(n)],
+         signum(n) * (2*next_lucas - lucas)/5 )$
+(%i2) map (fib_via_lucas, [-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8]);
+(%o2)             [- 3, 2, - 1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21]
+</pre></dd></dl>
+
 <p><a name="mod"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>mod</b><i> (<var>x</var>, <var>p</var>)</i>
-<a name="IDX1201"></a>
+<a name="IDX1203"></a>
 </dt>
 <dd>
 <p>Berechnet den Divisionsrest <code>x mod y</code> des Arguments <var>x</var> zum Modul <var>y</var>. 
@@ -580,7 +619,6 @@ die komplexe Zahl ist.
 
 <p>Sind <var>x</var> und <var>y</var> konstante Ausdr&uuml;cke, wie zum Beispiel <code>10 * %pi</code>,
 verwendet <code>mod</code> dasselbe <code><a href="maxima_5.html#bfloat">bfloat</a></code>
--Auswertungsschema wie <code>floor</code> 
 und <code>ceiling</code>. Diese Umwandlung kann, wenn auch unwahrscheinlich, 
 zu Fehlern f&uuml;hren.
 </p>
@@ -589,9 +627,8 @@ zu Fehlern f&uuml;hren.
 verschiedene Vereinfachungen.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#power_005fmod">power_mod</a></code>
- und <code><a href="#inv_005fmod">inv_mod</a></code>.
+<code><a href="#inv_005fmod">inv_mod</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Zeige f&uuml;r zwei gro&szlig;e ganze Zahlen, dass f&uuml;r das modulare Rechnen die 
@@ -621,7 +658,7 @@ Regel <code>mod(a+b, m) = mod(mod(a, m) + mod(b, m), m)</code> gilt.
 <p><a name="next_005fprime"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>next_prime</b><i> (<var>n</var>)</i>
-<a name="IDX1202"></a>
+<a name="IDX1204"></a>
 </dt>
 <dd>
 <p>Gibt die kleinste Primzahl zur&uuml;ck, die der Zahl <var>n</var> folgt.
@@ -633,12 +670,11 @@ Regel <code>mod(a+b, m) = mod(mod(a, m) + mod(b, m), m)</code> gilt.
 <p><a name="power_005fmod"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>power_mod</b><i> (<var>a</var>, <var>n</var>, <var>m</var>)</i>
-<a name="IDX1203"></a>
+<a name="IDX1205"></a>
 </dt>
 <dd><p>Verwendet einen modularen Algorithmus, um <code>a^n mod m</code> zu berechnen. 
 Die Argumente <var>a</var> und <var>n</var> m&uuml;ssen ganze Zahlen und der Modul <var>m</var> 
 eine positive ganze Zahl sein.  Ist <var>n</var> negativ, wird <code><a href="#inv_005fmod">inv_mod</a></code>
- zur 
 Berechnung des modularen Inversen aufgerufen.
 </p>
 <p><code>power_mod (<var>a</var>, <var>n</var>, <var>m</var>)</code> ist &auml;quivalent zu 
@@ -646,9 +682,8 @@ Berechnung des modularen Inversen aufgerufen.
 insbesondere f&uuml;r gro&szlig;e ganze Zahlen wesentlich effizienter.
 </p>
 <p>Siehe auch die Funktionen <code><a href="#inv_005fmod">inv_mod</a></code>
- und <code><a href="#mod">mod</a></code>.
+<code><a href="#mod">mod</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p><code>power_mod(a, n, m)</code> ist &auml;quivalent zu <code>mod(a^n, m</code>.  Das modulare
@@ -674,7 +709,7 @@ werden.
 <p><a name="primep"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>primep</b><i> (<var>n</var>)</i>
-<a name="IDX1204"></a>
+<a name="IDX1206"></a>
 </dt>
 <dd><p>F&uuml;hrt einen Primzahltest f&uuml;r das Argument <var>n</var> durch.  Liefert
 <code>primep</code> das Ergebnis <code>false</code>, ist <var>n</var> keine Primzahl.  Ist das
@@ -687,7 +722,6 @@ Variante des Miller-Rabin-Tests angewandt.  Hat in diesem Fall <code>primep</cod
 </p>
 <p>F&uuml;r ganze Zahlen <var>n</var> gr&ouml;&szlig;er 341550071728321 f&uuml;hrt <code>primep</code>
 <code><a href="#primep_005fnumber_005fof_005ftests">primep_number_of_tests</a></code>
- Pseudo-Primzahl-Tests nach Miller-Rabin und 
 einen Pseudo-Primzahl-Test nach Lucas durch.  Die Wahrscheinlichkeit, dass 
 eine zusammen gesetzte Zahl <var>n</var> einen Miller-Rabin-Test besteht, ist kleiner
 als 1/4.  Mit dem Standardwert 25 <code>primpe_number_of_tests</code> sinkt diese 
@@ -697,20 +731,19 @@ Wahrscheinlichkeit damit unter einen Wert von 10^-15.
 <p><a name="primep_005fnumber_005fof_005ftests"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>primep_number_of_tests</b>
-<a name="IDX1205"></a>
+<a name="IDX1207"></a>
 </dt>
 <dd><p>Standardwert: 25
 </p>
 
 <p>Die Anzahl der Pseudo-Primzahl-Tests nach Miller-Rabin in der Funktion 
 <code><a href="#primep">primep</a></code>
-.
 </p></dd></dl>
 
 <p><a name="prev_005fprime"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>prev_prime</b><i> (<var>n</var>)</i>
-<a name="IDX1206"></a>
+<a name="IDX1208"></a>
 </dt>
 <dd>
 <p>Gibt die gr&ouml;&szlig;te Primzahl zur&uuml;ck, die kleiner als die Zahl <var>n</var> ist.
@@ -722,7 +755,7 @@ Wahrscheinlichkeit damit unter einen Wert von 10^-15.
 <p><a name="qunit"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>qunit</b><i> (<var>n</var>)</i>
-<a name="IDX1207"></a>
+<a name="IDX1209"></a>
 </dt>
 <dd>
 <p>Findet f&uuml;r das Argument <var>n</var> L&ouml;sungen der Pellschen Gleichung 
@@ -737,7 +770,7 @@ Wahrscheinlichkeit damit unter einen Wert von 10^-15.
 <p><a name="totient"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>totient</b><i> (<var>n</var>)</i>
-<a name="IDX1208"></a>
+<a name="IDX1210"></a>
 </dt>
 <dd><p>Gibt die Anzahl der ganzen Zahlen zur&uuml;ck, die kleiner oder gleich <var>n</var>
 und teilerfremd zu <var>n</var> sind.
@@ -746,7 +779,7 @@ und teilerfremd zu <var>n</var> sind.
 <p><a name="zerobern"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>zerobern</b>
-<a name="IDX1209"></a>
+<a name="IDX1211"></a>
 </dt>
 <dd><p>Standardwert: <code>true</code>
 </p>
@@ -754,14 +787,13 @@ und teilerfremd zu <var>n</var> sind.
 <p>Hat <code>zerobern</code> den Wert <code>false</code>, werden von den Funktionen <code>bern</code>
 diejenigen Bernoulli-Zahlen und von <code>euler</code> diejenigen Euler-Zahlen 
 ausgeschlossen, die gleich Null sind.  Siehe <code><a href="#bern">bern</a></code>
- und <code><a href="#euler">euler</a></code>.
-</p>
-</dd></dl>
+<code><a href="#euler">euler</a></code>.
+</p></dd></dl>
 
 <p><a name="zeta"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>zeta</b><i> (<var>n</var>)</i>
-<a name="IDX1210"></a>
+<a name="IDX1212"></a>
 </dt>
 <dd>
 <p>Die Riemannsche Zeta-Funktion f&uuml;r <var>s</var>, die wie folgt definiert ist:
@@ -779,7 +811,6 @@ wird <code>zeta</code> zu einem exakten Ergebnis vereinfacht.
 Damit diese Vereinfachung f&uuml;r positive ganze Zahlen ausgef&uuml;hrt wird, 
 muss die Optionsvariable <code>zeta%pi</code> den Wert <code>true</code> haben.  
 Siehe <code><a href="#zeta_0025pi">zeta%pi</a></code>
-. F&uuml;r einfache und beliebig genaue Gleitkommazahlen 
 (Typ <code>bfloat</code>) hat <code>zeta</code> ein numerisches Ergebnis.  
 F&uuml;r alle anderen Argumente einschlie&szlig;lich der komplexen und 
 rationalen Zahlen gibt <code>zeta</code> eine Substantivform zur&uuml;ck.  Hat die 
@@ -798,9 +829,8 @@ den Wert <code>true</code> hat.
 </p>
 
 <p>Siehe auch <code><a href="#bfzeta">bfzeta</a></code>
- und <code><a href="#zeta_0025pi">zeta%pi</a></code>.
+<code><a href="#zeta_0025pi">zeta%pi</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) zeta([-2,-1,0,0.5,2,3,1+%i]);
@@ -818,7 +848,7 @@ den Wert <code>true</code> hat.
 <p><a name="zeta_0025pi"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>zeta%pi</b>
-<a name="IDX1211"></a>
+<a name="IDX1213"></a>
 </dt>
 <dd><p>Standardwert: <code>true</code>
 </p>
@@ -841,13 +871,88 @@ Substantivform f&uuml;r gerade ganze Zahlen.
 (%o4)                        zeta(4)
 </pre></dd></dl>
 
+<p><a name="zn_005fadd_005ftable"></a>
+</p><dl>
+<dt><u>Funktion:</u> <b>zn_add_table</b><i> (<var>n</var>) </i>
+<a name="IDX1214"></a>
+</dt>
+<dd><p>zeigt eine Additionstabelle von allen Elementen in (Z/<var>n</var>Z).
+</p>
+<p>Siehe auch <code><a href="#zn_005fmult_005ftable">zn_mult_table</a></code>
+<code><a href="#zn_005fpower_005ftable">zn_power_table</a></code>
+</p></dd></dl>
+
+<p><a name="zn_005fdeterminant"></a>
+</p><dl>
+<dt><u>Funktion:</u> <b>zn_determinant</b><i> (<var>matrix</var>, <var>p</var>) </i>
+<a name="IDX1215"></a>
+</dt>
+<dd><p>verwendet die Technik der LR-Dekomposition, um die Determinante der 
+Matrix <var>matrix</var> &uuml;ber (Z/<var>p</var>Z) zu berechnen, wobei <var>p</var> 
+eine Primzahl sein muss. 
+</p>
+<p>Ist die Determinante nicht von Null verschieden, kann es sein, dass die 
+LR-Dekomposition nicht m&ouml;glich ist. <code>zn_determinant</code> berechnet 
+diesem Fall die Determinante nicht-modular und reduziert im Nachhinein.
+</p>
+<p>Siehe auch <code><a href="#zn_005finvert_005fby_005flu">zn_invert_by_lu</a></code>
+</p>
+<p>Beispiel:
+</p>
+<pre class="example">(%i1) m : matrix([1,3],[2,4]);
+                                [ 1  3 ]
+(%o1)                           [      ]
+                                [ 2  4 ]
+(%i2) zn_determinant(m, 5);
+(%o2)                               3
+(%i3) m : matrix([2,4,1],[3,1,4],[4,3,2]);
+                               [ 2  4  1 ]
+                               [         ]
+(%o3)                          [ 3  1  4 ]
+                               [         ]
+                               [ 4  3  2 ]
+(%i4) zn_determinant(m, 5);
+(%o4)                               0
+</pre></dd></dl>
+
+<p><a name="zn_005finvert_005fby_005flu"></a>
+</p><dl>
+<dt><u>Funktion:</u> <b>zn_invert_by_lu</b><i> (<var>matrix</var>, <var>p</var>) </i>
+<a name="IDX1216"></a>
+</dt>
+<dd><p>verwendet die Technik der LR-Dekomposition, um ein modulares Inverses der 
+Matrix <var>matrix</var> &uuml;ber (Z/<var>p</var>Z) zu berechnen. Voraussetzung ist, 
+dass <var>matrix</var> invertierbar und <var>p</var> eine Primzahl ist. 
+Sollte <var>matrix</var> nicht invertierbar sein, gibt <code>zn_invert_by_lu</code> 
+<code>false</code> zurc"k.
+</p>
+<p>Siehe auch <code><a href="#zn_005fdeterminant">zn_determinant</a></code>
+</p>
+<p>Beispiele:
+</p>
+<pre class="example">(%i1) m : matrix([1,3],[2,4]);
+                                [ 1  3 ]
+(%o1)                           [      ]
+                                [ 2  4 ]
+(%i2) zn_determinant(m, 5);
+(%o2)                               3
+(%i3) mi : zn_invert_by_lu(m, 5);
+                                [ 3  4 ]
+(%o3)                           [      ]
+                                [ 1  2 ]
+(%i4) matrixmap(lambda([a], mod(a, 5)), m . mi);
+                                [ 1  0 ]
+(%o4)                           [      ]
+                                [ 0  1 ]
+</pre></dd></dl>
+
 <p><a name="zn_005flog"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>zn_log</b><i> (<var>a</var>, <var>g</var>, <var>n</var>) </i>
-<a name="IDX1212"></a>
+<a name="IDX1217"></a>
 </dt>
 <dt><u>Funktion:</u> <b>zn_log</b><i> (<var>a</var>, <var>g</var>, <var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i>
-<a name="IDX1213"></a>
+<a name="IDX1218"></a>
 </dt>
 <dd><p>Berechnet den diskreten Logarithmus.  Sei (Z/<var>n</var>Z)* eine zyklische Gruppe, 
 <var>g</var> eine Primitivwurzel modulo <var>n</var> und <var>a</var> ein Element dieser Gruppe.
@@ -867,10 +972,9 @@ h&auml;ngt im Wesentlichen von der Bitl&auml;nge des gr&ouml;&szlig;ten Primfakt
 Totienten von <var>n</var> ab. 
 </p>
 <p>Siehe auch <code><a href="#zn_005fprimroot">zn_primroot</a></code>
-, <code><a href="#zn_005forder">zn_order</a></code>
-, <code><a href="#ifactors">ifactors</a></code>
-, <code><a href="#totient">totient</a></code>
-.
+<code><a href="#zn_005forder">zn_order</a></code>
+<code><a href="#ifactors">ifactors</a></code>
+<code><a href="#totient">totient</a></code>
 </p>
 <p>Beispiele:
 </p>
@@ -909,13 +1013,45 @@ Primfaktors des Totienten ab.
 (%o8)                              37
 </pre></dd></dl>
 
+<p><a name="zn_005fmult_005ftable"></a>
+</p><dl>
+<dt><u>Funktion:</u> <b>zn_mult_table</b><i> (<var>n</var>) </i>
+<a name="IDX1219"></a>
+</dt>
+<dt><u>Funktion:</u> <b>zn_mult_table</b><i> (<var>n</var>, all)</i>
+<a name="IDX1220"></a>
+</dt>
+<dd><p>Ohne das optionale Argument <var>all</var> zeigt <code>zn_mult_table(n)</code> 
+eine Multiplikationstabelle von allen Elementen in (Z/<var>n</var>Z)*, 
+d.h. von allen modulo <var>n</var> invertierbaren Elementen.
+</p>
+<p>Das optionale Argument <var>all</var> bewirkt, dass die Tabelle f&uuml;r alle von Null 
+verschiedenen Elemente gezeigt wird.
+</p>
+<p>Siehe auch <code><a href="#zn_005fadd_005ftable">zn_add_table</a></code>
+<code><a href="#zn_005fpower_005ftable">zn_power_table</a></code>
+</p>
+<p>Beispiele:
+</p>
+<pre class="example">(%i1) zn_mult_table(4);
+                                [ 1  3 ]
+(%o1)                           [      ]
+                                [ 3  1 ]
+(%i2) zn_mult_table(4, all);
+                               [ 1  2  3 ]
+                               [         ]
+(%o2)                          [ 2  0  2 ]
+                               [         ]
+                               [ 3  2  1 ]
+</pre></dd></dl>
+
 <p><a name="zn_005forder"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>zn_order</b><i> (<var>x</var>, <var>n</var>) </i>
-<a name="IDX1214"></a>
+<a name="IDX1221"></a>
 </dt>
 <dt><u>Funktion:</u> <b>zn_order</b><i> (<var>x</var>, <var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i>
-<a name="IDX1215"></a>
+<a name="IDX1222"></a>
 </dt>
 <dd><p>Ist <var>x</var> eine Einheit in der endlichen Gruppe (Z/<var>n</var>Z)*, so berechnet 
 <code>zn_order</code> die Ordnung dieses Elements.  Andernfalls gibt <code>zn_order</code> 
@@ -930,9 +1066,8 @@ drittes Argument zu &uuml;bergeben. Die Form muss dabei der R&uuml;ckgabe von
 Optionsvariable <code>factors_only</code> entsprechen. 
 </p>
 <p>Siehe auch <code><a href="#zn_005fprimroot">zn_primroot</a></code>
-, <code><a href="#ifactors">ifactors</a></code>
-, <code><a href="#totient">totient</a></code>
-.
+<code><a href="#ifactors">ifactors</a></code>
+<code><a href="#totient">totient</a></code>
 </p>
 <p>Beispiele:
 </p>
@@ -968,13 +1103,53 @@ entsprechen.
 (%o5)        [22, 1, 44, 10, 5, 2, 22, 2, 8, 2, 1, 1, 20, 1]
 </pre></dd></dl>
 
+<p><a name="zn_005fpower_005ftable"></a>
+</p><dl>
+<dt><u>Funktion:</u> <b>zn_power_table</b><i> (<var>n</var>) </i>
+<a name="IDX1223"></a>
+</dt>
+<dt><u>Funktion:</u> <b>zn_power_table</b><i> (<var>n</var>, all)</i>
+<a name="IDX1224"></a>
+</dt>
+<dd><p>Ohne das optionale Argument <var>all</var> zeigt <code>zn_power_table(n)</code> 
+eine Potenzierungstabelle von allen Elementen in (Z/<var>n</var>Z)*, 
+d.h. von allen modulo <var>n</var> invertierbaren Elementen. 
+Der Exponent <var>n</var> variiert jeweils zwischen <code>1</code> und <code>totient(n)</code>, 
+so dass die Tabelle rechts mit einer Spalte von Einsen endet.
+</p>
+<p>Das optionale Argument <var>all</var> bewirkt, dass die Tabelle f&uuml;r alle von Null 
+verschiedenen Elemente gezeigt wird. In diesem Fall 
+variiert der Exponent <var>n</var> zwischen <code>1</code> und <code>totient(n) + 1</code>. 
+Die erste und letzte Spalte stimmen dadurch &uuml;berein.
+</p>
+<p>Siehe auch <code><a href="#zn_005fadd_005ftable">zn_add_table</a></code>
+<code><a href="#zn_005fmult_005ftable">zn_mult_table</a></code>
+</p>
+<p>Beispiele:
+</p>
+<pre class="example">(%i1) zn_power_table(6);
+                                [ 1  1 ]
+(%o1)                           [      ]
+                                [ 5  1 ]
+(%i2) zn_power_table(6, all);
+                               [ 1  1  1 ]
+                               [         ]
+                               [ 2  4  2 ]
+                               [         ]
+(%o2)                          [ 3  3  3 ]
+                               [         ]
+                               [ 4  4  4 ]
+                               [         ]
+                               [ 5  1  5 ]
+</pre></dd></dl>
+
 <p><a name="zn_005fprimroot"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>zn_primroot</b><i> (<var>n</var>) </i>
-<a name="IDX1216"></a>
+<a name="IDX1225"></a>
 </dt>
 <dt><u>Funktion:</u> <b>zn_primroot</b><i> (<var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i>
-<a name="IDX1217"></a>
+<a name="IDX1226"></a>
 </dt>
 <dd><p>Ist die multiplikative Gruppe (Z/<var>n</var>Z)* zyklisch, berechnet <code>zn_primroot</code> 
 die kleinste Primitivwurzel modulo <var>n</var>.  Dies ist der Fall, wenn <var>n</var> gleich 
@@ -982,9 +1157,7 @@ die kleinste Primitivwurzel modulo <var>n</var>.  Dies ist der Fall, wenn <var>n
 gr&ouml;sser <code>2</code> und <code>k</code> eine nat&uuml;rliche Zahl ist.  <code>zn_primroot</code> 
 f&uuml;hrt einen entsprechenden Pr&auml;test durch, wenn die Optionsvariable 
 <code><a href="#zn_005fprimroot_005fpretest">zn_primroot_pretest</a></code>
- (Standardwert: <code>false</code>) <code>true</code> gesetzt wurde.
 In jedem Fall wird die Suche durch die obere Schranke <code><a href="#zn_005fprimroot_005flimit">zn_primroot_limit</a></code>
- begrenzt.
 </p>
 <p>Ist (Z/<var>n</var>Z)* nicht zyklisch oder kann bis <code>zn_primroot_limit</code> 
 keine Primitivwurzel modulo <var>n</var> gefunden werden, gibt <code>zn_primroot</code> 
@@ -998,10 +1171,9 @@ von <code>ifactors(totient(n))</code> mit der Standardeinstellung <code>false</c
 Optionsvariable <code>factors_only</code> entsprechen. 
 </p>
 <p>Siehe auch <code><a href="#zn_005fprimroot_005fp">zn_primroot_p</a></code>
-, <code><a href="#zn_005forder">zn_order</a></code>
-, <code><a href="#ifactors">ifactors</a></code>
-, <code><a href="#totient">totient</a></code>
-.
+<code><a href="#zn_005forder">zn_order</a></code>
+<code><a href="#ifactors">ifactors</a></code>
+<code><a href="#totient">totient</a></code>
 </p>
 <p>Beispiele:
 </p>
@@ -1040,25 +1212,23 @@ entsprechen.
 <p><a name="zn_005fprimroot_005flimit"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>zn_primroot_limit</b>
-<a name="IDX1218"></a>
+<a name="IDX1227"></a>
 </dt>
 <dd><p>Standardwert: <code>1000</code> 
 </p>
 <p>Definiert die obere Schranke f&uuml;r die Suche von <code><a href="#zn_005fprimroot">zn_primroot</a></code>
- nach einer 
 Primitivwurzel.  Wurde die Optionsvariable <code><a href="#zn_005fprimroot_005fverbose">zn_primroot_verbose</a></code>
-</p>
-<p>(Standardwert: <code>false</code>) <code>true</code> gesetzt, wird beim Erreichen von 
+(Standardwert: <code>false</code>) <code>true</code> gesetzt, wird beim Erreichen von 
 <code>zn_primroot_limit</code> ein entsprechender Hinweis ausgegeben.
 </p></dd></dl>
 
 <p><a name="zn_005fprimroot_005fp"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>zn_primroot_p</b><i> (<var>x</var>, <var>n</var>) </i>
-<a name="IDX1219"></a>
+<a name="IDX1228"></a>
 </dt>
 <dt><u>Funktion:</u> <b>zn_primroot_p</b><i> (<var>x</var>, <var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i>
-<a name="IDX1220"></a>
+<a name="IDX1229"></a>
 </dt>
 <dd><p>Testet, ob <var>x</var> eine Primitivwurzel in der multiplikativen Gruppe (Z/<var>n</var>Z)* 
 ist. 
@@ -1072,10 +1242,9 @@ Standardeinstellung <code>false</code> der Optionsvariable <code>factors_only</c
 entsprechen. 
 </p>
 <p>Siehe auch <code><a href="#zn_005fprimroot">zn_primroot</a></code>
-, <code><a href="#zn_005forder">zn_order</a></code>
-, <code><a href="#ifactors">ifactors</a></code>
-, <code><a href="#totient">totient</a></code>
-.
+<code><a href="#zn_005forder">zn_order</a></code>
+<code><a href="#ifactors">ifactors</a></code>
+<code><a href="#totient">totient</a></code>
 </p>
 <p>Beispiele:
 </p>
@@ -1106,7 +1275,7 @@ entsprechen.
 <p><a name="zn_005fprimroot_005fpretest"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>zn_primroot_pretest</b>
-<a name="IDX1221"></a>
+<a name="IDX1230"></a>
 </dt>
 <dd><p>Standardwert: <code>false</code> 
 </p>
@@ -1115,7 +1284,6 @@ entsprechen.
 gr&ouml;&szlig;er <code>2</code> und <code>k</code> eine nat&uuml;rliche Zahl ist. 
 </p>
 <p><code>zn_primroot_pretest</code> entscheidet dar&uuml;ber, ob <code><a href="#zn_005fprimroot">zn_primroot</a></code>
- vor 
 der Berechnung der kleinsten Primitivwurzel in (Z/<code>n</code>Z)* &uuml;berpr&uuml;ft, 
 ob auf <code>n</code> &uuml;berhaupt einer der oben genannten F&auml;lle zutrifft.  Nur wenn  
 <code>zn_primroot_pretest</code> <code>true</code> ist, wird dieser Pr&auml;test ausgef&uuml;hrt.
@@ -1124,14 +1292,13 @@ ob auf <code>n</code> &uuml;berhaupt einer der oben genannten F&auml;lle zutriff
 <p><a name="zn_005fprimroot_005fverbose"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>zn_primroot_verbose</b>
-<a name="IDX1222"></a>
+<a name="IDX1231"></a>
 </dt>
 <dd><p>Standardwert: <code>false</code> 
 </p>
 <p>Entscheidet, ob <code><a href="#zn_005fprimroot">zn_primroot</a></code>
- beim Erreichen von <code><a href="#zn_005fprimroot_005flimit">zn_primroot_limit</a></code>
-</p>
-<p>einen Hinweis ausgibt.
+<code><a href="#zn_005fprimroot_005flimit">zn_primroot_limit</a></code>
+einen Hinweis ausgibt.
 </p></dd></dl>
 
 
@@ -1152,7 +1319,7 @@ ob auf <code>n</code> &uuml;berhaupt einer der oben genannten F&auml;lle zutriff
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>September, 1 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

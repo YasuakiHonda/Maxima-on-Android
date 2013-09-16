@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 1 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -190,12 +190,12 @@ div.categorybox
 </tr></table>
 <h2 class="section"> 77.1 Introduction to zeilberger </h2>
 
-<p><code>zeilberger</code> is a implementation of Zeilberger's algorithm for definite 
+<p><code><code>zeilberger</code> is a implementation of Zeilberger's algorithm for definite 
 hypergeometric summation, and also Gosper's algorithm for indefinite 
 hypergeometric summation.  <code>zeilberger</code> makes use of the &quot;filtering&quot;
 optimization method developed by Axel Riese.  <code>zeilberger</code> was developed
 by Fabrizio Caruso.  <code>load(zeilberger)</code> loads this package.
-</p>
+</code> </p>
 <hr size="6">
 <a name="SEC402"></a>
 <table cellpadding="1" cellspacing="1" border="0">
@@ -216,12 +216,12 @@ by Fabrizio Caruso.  <code>load(zeilberger)</code> loads this package.
 </tr></table>
 <h3 class="subsection"> 77.1.1 The indefinite summation problem </h3>
 
-<p><code>zeilberger</code> implements Gosper's algorithm for indefinite hypergeometric
+<p><code><code>zeilberger</code> implements Gosper's algorithm for indefinite hypergeometric
 summation.  Given a hypergeometric term <em>F_k</em> in <em>k</em> we want to find
 its hypergeometric anti-difference, that is, a hypergeometric term <em>f_k</em>
 such that
 <em>F_k = f_(k+1) - f_k</em>.
-</p>
+</code> </p>
 <hr size="6">
 <a name="SEC403"></a>
 <table cellpadding="1" cellspacing="1" border="0">
@@ -242,22 +242,22 @@ such that
 </tr></table>
 <h3 class="subsection"> 77.1.2 The definite summation problem </h3>
 
-<p><code>zeilberger</code> implements Zeilberger's algorithm for definite hypergeometric 
+<p><code><code>zeilberger</code> implements Zeilberger's algorithm for definite hypergeometric 
 summation.  Given a proper hypergeometric term (in <em>n</em> and <em>k</em>)
-</p>
-<p><em>F_(n,k)</em>
+</code> </p>
+<p><code><em>F_(n,k)</em>
 and a positive integer <em>d</em> we want to find a <em>d</em>-th order linear
 recurrence with polynomial coefficients (in <em>n</em>) for
 <em>F_(n,k)</em>
 and a rational function <em>R</em> in <em>n</em> and <em>k</em> such that
-</p>
-<p><em>a_0 F_(n,k) + ... + a_d F_(n+d),k = Delta_k(R(n,k) F_(n,k))</em>,
-</p>
-<p>where
+</code> </p>
+<p><code><em>a_0 F_(n,k) + ... + a_d F_(n+d),k = Delta_k(R(n,k) F_(n,k))</em>,
+</code> </p>
+<p><code>where
 <em>Delta_k</em>
 is the <em>k</em>-forward difference operator, i.e.,
 <em>Delta_k(t_k) := t_(k+1) - t_k</em>.
-</p>
+</code> </p>
 <hr size="6">
 <a name="SEC404"></a>
 <table cellpadding="1" cellspacing="1" border="0">
@@ -278,30 +278,30 @@ is the <em>k</em>-forward difference operator, i.e.,
 </tr></table>
 <h3 class="subsection"> 77.1.3 Verbosity levels </h3>
 
-<p>There are also verbose versions of the commands which are called by adding one
+<p><code>There are also verbose versions of the commands which are called by adding one
 of the following prefixes:
-</p>
+</code> </p>
 <dl compact="compact">
 <dt> <code>Summary</code></dt>
-<dd><p>Just a summary at the end is shown
-</p></dd>
+<dd><p><code>Just a summary at the end is shown
+</code> </p></dd>
 <dt> <code>Verbose</code></dt>
-<dd><p>Some information in the intermidiate steps
-</p></dd>
+<dd><p><code>Some information in the intermidiate steps
+</code> </p></dd>
 <dt> <code>VeryVerbose</code></dt>
-<dd><p>More information
-</p></dd>
+<dd><p><code>More information
+</code> </p></dd>
 <dt> <code>Extra</code></dt>
-<dd><p>Even more information including information on the linear system in
+<dd><p><code>Even more information including information on the linear system in
 Zeilberger's algorithm
-</p></dd>
+</code> </p></dd>
 </dl>
 
 
-<p>For example:
-</p><p align="left"><code>GosperVerbose</code>, <code>parGosperVeryVerbose</code>, <code>ZeilbergerExtra</code>, 
+<p><code>For example:
+</code> </p><p align="left"><code><code>GosperVerbose</code>, <code>parGosperVeryVerbose</code>, <code>ZeilbergerExtra</code>, 
 <code>AntiDifferenceSummary</code>.
-</p>
+</code> </p>
 <hr size="6">
 <a name="Functions-and-Variables-for-zeilberger"></a>
 <a name="SEC405"></a>
@@ -323,39 +323,39 @@ Zeilberger's algorithm
 </tr></table>
 <h2 class="section"> 77.2 Functions and Variables for zeilberger </h2>
 
-<p><a name="AntiDifference"></a>
-</p><dl>
+<p><code><a name="AntiDifference"></a>
+</code> </p><dl>
 <dt><u>Function:</u> <b>AntiDifference</b><i> (<em>F_k</em>, <var>k</var>)</i>
-<a name="IDX2801"></a>
+<a name="IDX2819"></a>
 </dt>
-<dd><p>Returns the hypergeometric anti-difference of <em>F_k</em>, if it exists.
-</p>
-<p>Otherwise <code>AntiDifference</code> returns <code>no_hyp_antidifference</code>.
-</p></dd></dl>
+<dd><p><code>Returns the hypergeometric anti-difference of <em>F_k</em>, if it exists.
+</code> </p>
+<p><code>Otherwise <code>AntiDifference</code> returns <code>no_hyp_antidifference</code>.
+</code> </p></dd></dl>
 
-<p><a name="Gosper"></a>
-</p><dl>
+<p><code><a name="Gosper"></a>
+</code> </p><dl>
 <dt><u>Function:</u> <b>Gosper</b><i> (<em>F_k</em>, <var>k</var>)</i>
-<a name="IDX2802"></a>
+<a name="IDX2820"></a>
 </dt>
-<dd><p>Returns the rational certificate <em>R(k)</em> for <em>F_k</em>, that is, a
+<dd><p><code>Returns the rational certificate <em>R(k)</em> for <em>F_k</em>, that is, a
 rational function such that
 <em>F_k = R(k+1) F_(k+1) - R(k) F_k</em>,
 if it exists.  Otherwise, <code>Gosper</code> returns <code>no_hyp_sol</code>.
-</p></dd></dl>
+</code> </p></dd></dl>
 
-<p><a name="GosperSum"></a>
-</p><dl>
+<p><code><a name="GosperSum"></a>
+</code> </p><dl>
 <dt><u>Function:</u> <b>GosperSum</b><i> (<var>F_k</var>, <var>k</var>, <var>a</var>, <var>b</var>)</i>
-<a name="IDX2803"></a>
+<a name="IDX2821"></a>
 </dt>
-<dd><p>Returns the summmation of <em>F_k</em> from <em><var>k</var> = <var>a</var></em> to 
+<dd><p><code>Returns the summmation of <em>F_k</em> from <em><var>k</var> = <var>a</var></em> to 
 <em><var>k</var> = <var>b</var></em> if <em>F_k</em> has a hypergeometric anti-difference.
 Otherwise, <code>GosperSum</code> returns <code>nongosper_summable</code>.
-</p>
-<p>Examples:
-</p>
-<pre class="example">(%i1) load (zeilberger)$
+</code> </p>
+<p><code>Examples:
+</code> </p>
+<pre class="example"><code>(%i1) load (zeilberger)$
 (%i2) GosperSum ((-1)^k*k / (4*k^2 - 1), k, 1, n);
 Dependent equations eliminated:  (1)
                            3       n + 1
@@ -390,52 +390,48 @@ Dependent equations eliminated:  (1)
                           (n + 2)!
 (%i8) GosperSum (1 / ((a - k)!*k!), k, 1, n);
 (%o8)                  NON_GOSPER_SUMMABLE
-</pre></dd></dl>
+</code> </pre></dd></dl>
 
-<p><a name="parGosper"></a>
-</p><dl>
+<p><code><a name="parGosper"></a>
+</code> </p><dl>
 <dt><u>Function:</u> <b>parGosper</b><i> (<var>F_(n,k)</var>, <var>k</var>, <var>n</var>, <var>d</var>)</i>
-<a name="IDX2804"></a>
+<a name="IDX2822"></a>
 </dt>
-<dd><p>Attempts to find a <var>d</var>-th order recurrence for
+<dd><p><code>Attempts to find a <var>d</var>-th order recurrence for
 <em>F_(n,k)</em>.
-</p>
-<p>The algorithm yields a sequence <em>[s_1, s_2, ..., s_m]</em> of solutions.
+</code> </p>
+<p><code>The algorithm yields a sequence <em>[s_1, s_2, ..., s_m]</em> of solutions.
 Each solution has the form
-</p>
-<p><em>[R(n, k), [a_0, a_1, ..., a_d]]</em>.
-</p>
-<p><code>parGosper</code> returns <code>[]</code> if it fails to find a recurrence.
-</p></dd></dl>
+</code> </p>
+<p><code><em>[R(n, k), [a_0, a_1, ..., a_d]]</em>.
+</code> </p>
+<p><code><code>parGosper</code> returns <code>[]</code> if it fails to find a recurrence.
+</code> </p></dd></dl>
 
-<p><a name="Zeilberger"></a>
-</p><dl>
+<p><code><a name="Zeilberger"></a>
+</code> </p><dl>
 <dt><u>Function:</u> <b>Zeilberger</b><i> (<var>F_(n,k)</var>, <var>k</var>, <var>n</var>)</i>
-<a name="IDX2805"></a>
+<a name="IDX2823"></a>
 </dt>
-<dd><p>Attempts to compute the indefinite hypergeometric summation of
+<dd><p><code>Attempts to compute the indefinite hypergeometric summation of
 <em>F_(n,k)</em>.
-</p>
-<p><code>Zeilberger</code> first invokes <code><a href="#Gosper">Gosper</a></code>
-, and if that fails to find a
+</code> </p>
+<p><code><code>Zeilberger</code> first invokes <code><a href="#Gosper">Gosper</a></code>
 solution, then invokes <code><a href="#parGosper">parGosper</a></code>
- with order 1, 2, 3, ..., up to
 <code><a href="#MAX_005fORD">MAX_ORD</a></code>
-.  If Zeilberger finds a solution before reaching <code>MAX_ORD</code>,
 it stops and returns the solution.
-</p>
-<p>The algorithms yields a sequence <em>[s_1, s_2, ..., s_m]</em> of solutions.
+</code> </p>
+<p><code>The algorithms yields a sequence <em>[s_1, s_2, ..., s_m]</em> of solutions.
 Each solution has the form
-</p>
-<p><em>[R(n,k), [a_0, a_1, ..., a_d]].</em>
-</p>
-<p><code>Zeilberger</code> returns <code>[]</code> if it fails to find a solution.
-</p>
-<p><code>Zeilberger</code> invokes <code><a href="#Gosper">Gosper</a></code>
- only if <code><a href="#Gosper_005fin_005fZeilberger">Gosper_in_Zeilberger</a></code>
- is 
+</code> </p>
+<p><code><em>[R(n,k), [a_0, a_1, ..., a_d]].</em>
+</code> </p>
+<p><code><code>Zeilberger</code> returns <code>[]</code> if it fails to find a solution.
+</code> </p>
+<p><code><code>Zeilberger</code> invokes <code><a href="#Gosper">Gosper</a></code>
+<code><a href="#Gosper_005fin_005fZeilberger">Gosper_in_Zeilberger</a></code>
 <code>true</code>.
-</p></dd></dl>
+</code> </p></dd></dl>
 
 <hr size="6">
 <a name="SEC406"></a>
@@ -457,76 +453,73 @@ Each solution has the form
 </tr></table>
 <h2 class="section"> 77.3 General global variables </h2>
 
-<p><a name="MAX_005fORD"></a>
-</p><dl>
+<p><code><a name="MAX_005fORD"></a>
+</code> </p><dl>
 <dt><u>Global variable:</u> <b>MAX_ORD</b>
-<a name="IDX2806"></a>
+<a name="IDX2824"></a>
 </dt>
-<dd><p>Default value: 5
-</p>
-<p><code>MAX_ORD</code> is the maximum recurrence order attempted by <code>Zeilberger</code>.
-</p></dd></dl>
+<dd><p><code>Default value: 5
+</code> </p>
+<p><code><code>MAX_ORD</code> is the maximum recurrence order attempted by <code>Zeilberger</code>.
+</code> </p></dd></dl>
 
-<p><a name="simplified_005foutput"></a>
-</p><dl>
+<p><code><a name="simplified_005foutput"></a>
+</code> </p><dl>
 <dt><u>Global variable:</u> <b>simplified_output</b>
-<a name="IDX2807"></a>
+<a name="IDX2825"></a>
 </dt>
-<dd><p>Default value: <code>false</code>
-</p>
-<p>When <code>simplified_output</code> is <code>true</code>, functions in the <code>zeilberger</code>
+<dd><p><code>Default value: <code>false</code>
+</code> </p>
+<p><code>When <code>simplified_output</code> is <code>true</code>, functions in the <code>zeilberger</code>
 package attempt further simplification of the solution.
-</p></dd></dl>
+</code> </p></dd></dl>
 
-<p><a name="linear_005fsolver"></a>
-</p><dl>
+<p><code><a name="linear_005fsolver"></a>
+</code> </p><dl>
 <dt><u>Global variable:</u> <b>linear_solver</b>
-<a name="IDX2808"></a>
+<a name="IDX2826"></a>
 </dt>
-<dd><p>Default value: <code>linsolve</code>
-</p>
-<p><code>linear_solver</code> names the solver which is used to solve the system
+<dd><p><code>Default value: <code>linsolve</code>
+</code> </p>
+<p><code><code>linear_solver</code> names the solver which is used to solve the system
 of equations in Zeilberger's algorithm.
-</p></dd></dl>
+</code> </p></dd></dl>
 
-<p><a name="warnings"></a>
-</p><dl>
+<p><code><a name="warnings"></a>
+</code> </p><dl>
 <dt><u>Global variable:</u> <b>warnings</b>
-<a name="IDX2809"></a>
+<a name="IDX2827"></a>
 </dt>
-<dd><p>Default value: <code>true</code>
-</p>
-<p>When <code>warnings</code> is <code>true</code>, functions in the <code>zeilberger</code> package
+<dd><p><code>Default value: <code>true</code>
+</code> </p>
+<p><code>When <code>warnings</code> is <code>true</code>, functions in the <code>zeilberger</code> package
 print warning messages during execution.
-</p></dd></dl>
+</code> </p></dd></dl>
 
-<p><a name="Gosper_005fin_005fZeilberger"></a>
-</p><dl>
+<p><code><a name="Gosper_005fin_005fZeilberger"></a>
+</code> </p><dl>
 <dt><u>Global variable:</u> <b>Gosper_in_Zeilberger</b>
-<a name="IDX2810"></a>
+<a name="IDX2828"></a>
 </dt>
-<dd><p>Default value: <code>true</code>
-</p>
-<p>When <code>Gosper_in_Zeilberger</code> is <code>true</code>, the <code><a href="#Zeilberger">Zeilberger</a></code>
- function
+<dd><p><code>Default value: <code>true</code>
+</code> </p>
+<p><code>When <code>Gosper_in_Zeilberger</code> is <code>true</code>, the <code><a href="#Zeilberger">Zeilberger</a></code>
 calls <code><a href="#Gosper">Gosper</a></code>
- before calling <code><a href="#parGosper">parGosper</a></code>
-.  Otherwise,
+<code><a href="#parGosper">parGosper</a></code>
 <code>Zeilberger</code> goes immediately to <code>parGosper</code>.
-</p></dd></dl>
+</code> </p></dd></dl>
 
-<p><a name="trivial_005fsolutions"></a>
-</p><dl>
+<p><code><a name="trivial_005fsolutions"></a>
+</code> </p><dl>
 <dt><u>Global variable:</u> <b>trivial_solutions</b>
-<a name="IDX2811"></a>
+<a name="IDX2829"></a>
 </dt>
-<dd><p>Default value: <code>true</code>
-</p>
-<p>When <code>trivial_solutions</code> is <code>true</code>, <code><a href="#Zeilberger">Zeilberger</a></code>
- returns
+<dd><p><code>Default value: <code>true</code>
+</code> </p>
+<p><code>When <code>trivial_solutions</code> is <code>true</code>, <code><a href="#Zeilberger">Zeilberger</a></code>
 solutions which have certificate equal to zero, or all coefficients equal to
 zero.
-</p></dd></dl>
+</code> </p></dd></dl>
 
 <hr size="6">
 <a name="SEC407"></a>
@@ -548,65 +541,60 @@ zero.
 </tr></table>
 <h2 class="section"> 77.4 Variables related to the modular test </h2>
 
-<p><a name="mod_005ftest"></a>
-</p><dl>
+<p><code><a name="mod_005ftest"></a>
+</code> </p><dl>
 <dt><u>Global variable:</u> <b>mod_test</b>
-<a name="IDX2812"></a>
+<a name="IDX2830"></a>
 </dt>
-<dd><p>Default value: <code>false</code>
-</p>
-<p>When <code>mod_test</code> is <code>true</code>, <code><a href="#parGosper">parGosper</a></code>
- executes a modular test
+<dd><p><code>Default value: <code>false</code>
+</code> </p>
+<p><code>When <code>mod_test</code> is <code>true</code>, <code><a href="#parGosper">parGosper</a></code>
 for discarding systems with no solutions.
-</p></dd></dl>
+</code> </p></dd></dl>
 
-<p><a name="modular_005flinear_005fsolver"></a>
-</p><dl>
+<p><code><a name="modular_005flinear_005fsolver"></a>
+</code> </p><dl>
 <dt><u>Global variable:</u> <b>modular_linear_solver</b>
-<a name="IDX2813"></a>
+<a name="IDX2831"></a>
 </dt>
-<dd><p>Default value: <code>linsolve</code>
-</p>
-<p><code>modular_linear_solver</code> names the linear solver used by the modular test
+<dd><p><code>Default value: <code>linsolve</code>
+</code> </p>
+<p><code><code>modular_linear_solver</code> names the linear solver used by the modular test
 in <code><a href="#parGosper">parGosper</a></code>.
-</p>
-</dd></dl>
+</code> </p></dd></dl>
 
-<p><a name="ev_005fpoint"></a>
-</p><dl>
+<p><code><a name="ev_005fpoint"></a>
+</code> </p><dl>
 <dt><u>Global variable:</u> <b>ev_point</b>
-<a name="IDX2814"></a>
+<a name="IDX2832"></a>
 </dt>
-<dd><p>Default value: <code>big_primes[10]</code>
-</p>
-<p><code>ev_point</code> is the value at which the variable <var>n</var> is evaluated
+<dd><p><code>Default value: <code>big_primes[10]</code>
+</code> </p>
+<p><code><code>ev_point</code> is the value at which the variable <var>n</var> is evaluated
 when executing the modular test in <code><a href="#parGosper">parGosper</a></code>.
-</p>
-</dd></dl>
+</code> </p></dd></dl>
 
-<p><a name="mod_005fbig_005fprime"></a>
-</p><dl>
+<p><code><a name="mod_005fbig_005fprime"></a>
+</code> </p><dl>
 <dt><u>Global variable:</u> <b>mod_big_prime</b>
-<a name="IDX2815"></a>
+<a name="IDX2833"></a>
 </dt>
-<dd><p>Default value: <code>big_primes[1]</code>
-</p>
-<p><code>mod_big_prime</code> is the modulus used by the modular test in
+<dd><p><code>Default value: <code>big_primes[1]</code>
+</code> </p>
+<p><code><code>mod_big_prime</code> is the modulus used by the modular test in
 <code><a href="#parGosper">parGosper</a></code>.
-</p>
-</dd></dl>
+</code> </p></dd></dl>
 
-<p><a name="mod_005fthreshold"></a>
-</p><dl>
+<p><code><a name="mod_005fthreshold"></a>
+</code> </p><dl>
 <dt><u>Global variable:</u> <b>mod_threshold</b>
-<a name="IDX2816"></a>
+<a name="IDX2834"></a>
 </dt>
-<dd><p>Default value: 4
-</p>
-<p><code>mod_threshold</code> is the greatest order for which the modular test in
+<dd><p><code>Default value: 4
+</code> </p>
+<p><code><code>mod_threshold</code> is the greatest order for which the modular test in
 <code><a href="#parGosper">parGosper</a></code>
- is attempted.
-</p></dd></dl>
+</code> </p></dd></dl>
 
 
 
@@ -626,7 +614,7 @@ when executing the modular test in <code><a href="#parGosper">parGosper</a></cod
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>September, 1 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

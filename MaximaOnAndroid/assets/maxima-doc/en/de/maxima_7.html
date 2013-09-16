@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 2 2013 by texi2html 1.76 -->
+<!-- Created on September, 1 2013 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -251,36 +251,28 @@ Multiplikation gr&ouml;&szlig;er als der linksseitige Vorrang der Addition ist.
 <dt> <em>Prefix</em></dt>
 <dd><p>Prefix-Operatoren sind un&auml;re Operatoren, die einen Operanden haben, der dem 
 Operator nachfolgt.  Beispiele sind die Operatoren <code><a href="#g_t_002d">-</a></code>
- und <code><a href="#not">not</a></code>.
-</p>
-</dd>
+<code><a href="#not">not</a></code>.
+</p></dd>
 <dt> <em>Postfix</em></dt>
 <dd><p>Postfix-Operatoren sind un&auml;re Operatoren, die einen Operanden haben, der dem 
 Operator vorangestellt ist.  Ein Beispiel ist der Operator <code><a href="maxima_10.html#g_t_0021">!</a></code>
- f&uuml;r die 
 Fakult&auml;t.
 </p></dd>
 <dt> <em>Infix</em></dt>
 <dd><p>Infix-Operatoren, sind bin&auml;re Operatoren, die zwei Operanden haben.  Der
 Operator steht zwischen diesen Operanden.  Hierzu z&auml;hlen zum Beispiel der
 Operator f&uuml;r die Exponentiation <code><a href="#g_t_005e">^</a></code>
- oder der Operator f&uuml;r die Zuweisung
 <code><a href="#g_t_003a">:</a></code>.
-</p>
-</dd>
+</p></dd>
 <dt> <em>N-ary</em></dt>
 <dd><p>N-ary-Operatoren fassen eine beliebige Anzahl an Operanden zu einem Ausdruck
 zusammen.  Hierzu z&auml;hlen die Multiplikation <code><a href="#g_t_002a">*</a></code>
- oder die Addition
 <code><a href="#g_t_002b">+</a></code>.
-</p>
-</dd>
+</p></dd>
 <dt> <em>Matchfix</em></dt>
 <dd><p>Matchfix-Operatoren sind Begrenzungszeichen, die eine beliebige Anzahl an
 Operanden einschlie&szlig;en.  Ein Beispiel sind die Operatoren <code><a href="maxima_5.html#g_t_005b">[</a></code>
- und
 <code><a href="maxima_5.html#g_t_005d">]</a></code>
-, die eine Liste <code>[a, b, ...]</code> definieren.
 </p></dd>
 <dt> <em>Nofix</em></dt>
 <dd><p>Ein Nofix-Operator ist ein Operator, der keinen Operanden hat.  Maxima kennt
@@ -306,10 +298,9 @@ Beispiel f&uuml;r den bin&auml;ren Infix-Operator der Exponentiation gezeigt:
 <p>Der Name des Operators kann immer dann verwendet werden, wenn eine
 Funktion als Argument ben&ouml;tigt wird.  Beispiele sind die Funktionen
 <code><a href="maxima_25.html#map">map</a></code>,
- <code><a href="maxima_25.html#apply">apply</a></code>
- oder auch die Substitution mit <code><a href="maxima_6.html#subst">subst</a></code>.
+<code><a href="maxima_25.html#apply">apply</a></code>
+<code><a href="maxima_6.html#subst">subst</a></code>.
 </p>
-
 <pre class="example">(%i3) apply(&quot;+&quot;, [a,b,c]);
 (%o3)                       c + b + a
 (%i4) map(&quot;^&quot;, [a,b,c],[1,2,3]);
@@ -396,9 +387,7 @@ nicht-kommutative bin&auml;re Operatoren.
 kanonische Darstellung.  Maxima unterscheidet die interne Sortierung von der
 externen Sortierung f&uuml;r die Anzeige.  Die interne Sortierung wird von der
 Aussagefunktion <code><a href="maxima_6.html#orderlessp">orderlessp</a></code>
- bestimmt.  Die externe Sortierung f&uuml;r die
 Anzeige wird von der Aussagefunktion <code><a href="maxima_6.html#ordergreatp">ordergreatp</a></code>
- festgelegt.  Ausnahme
 ist die Multiplikation.  F&uuml;r diese sind die interne und die externe
 Sortierung identisch.
 </p>
@@ -420,12 +409,10 @@ Ergebnis wieder eine ganze oder rationale Zahl.
 <p>Da arithmetische Rechnungen Vereinfachungen und keine Auswertungen sind, werden
 arithmetische Rechnungen auch dann ausgef&uuml;hrt, wenn die Auswertung des
 Ausdrucks zum Beispiel mit dem <code><a href="maxima_8.html#g_t_0027">Quote-Operator</a></code>
- <code>'</code> unterdr&uuml;ckt
 ist.
 </p>
 <p>Arithmetische Operatoren werden elementweise auf Listen angewendet, wenn die
 Optionsvariable <code><a href="maxima_5.html#listarith">listarith</a></code>
- den Wert <code>true</code> hat.  Auf Matrizen werden
 die arithmetischen Operatoren immer elementweise angewendet.  Ist einer der
 Operanden eine Liste oder Matrix und der andere Operand hat einen anderen
 Typ, dann wird dieses Argument mit jedem Element der Liste oder Matrix
@@ -503,7 +490,6 @@ Operanden eine Gleitkommazahl, ist das Ergebnis ebenfalls eine Gleitkommazahl.
 <p>Arithmetische Rechnungen werden elementweise f&uuml;r Listen und Matrizen 
 ausgef&uuml;hrt.  Bei Listen wird dies mit der Optionsvariablen
 <code><a href="maxima_5.html#listarith">listarith</a></code>
- kontrolliert.
 </p>
 <pre class="example">(%i1) matrix ([a, x], [h, u]) - matrix ([1, 2], [3, 4]);
                         [ a - 1  x - 2 ]
@@ -542,9 +528,7 @@ ausgef&uuml;hrt.  Bei Listen wird dies mit der Optionsvariablen
 Exponentiation.  In der Ausgabe wird entweder <code>^</code> angezeigt oder der 
 Exponent hochgestellt.  Siehe den Operator der Exponentiation <code><a href="#g_t_005e">^</a></code>.
 </p>
-
 <p>Die Funktion <code><a href="maxima_13.html#fortran">fortran</a></code>
- zeigt den Operator der Exponentiation immer als 
 <code>**</code> an, unabh&auml;ngig davon, ob <code>**</code> oder <code>^</code> eingegeben wird.
 </p>
 <p>Beispiele:
@@ -638,22 +622,17 @@ eingesetzt werden, wo der Name des Operators ben&ouml;tigt wird.
 Fehlermeldung.
 </p>
 <p>Relationale Ausdr&uuml;cke werden von den Funktionen <code><a href="maxima_11.html#is">is</a></code>
- und
 <code><a href="maxima_11.html#maybe">maybe</a></code>
- sowie den Funktionen <code><a href="maxima_27.html#if">if</a></code>,
- <code><a href="maxima_27.html#while">while</a></code>
- und
+<code><a href="maxima_27.html#if">if</a></code>,
+<code><a href="maxima_27.html#while">while</a></code>
 <code><a href="maxima_27.html#unless">unless</a></code>
- zu booleschen Werten ausgewertet.  Relationale Ausdr&uuml;cke werden
 ansonsten nicht zu booleschen Werten ausgewertet oder vereinfacht.  Jedoch
 werden die Operanden eines booleschen Ausdruckes ausgewertet, wenn die
 Auswertung nicht mit dem <code><a href="maxima_8.html#g_t_0027">Quote-Operator</a></code>
- <code>'</code> unterdr&uuml;ckt ist.
 </p>
 <p>Wenn ein relationaler Ausdruck mit den Funktionen <code>is</code> oder <code>if</code> nicht
 zu <code>true</code> oder <code>false</code> ausgewertet werden kann, wird das Verhalten der
 Funktionen von der Optionsvariablen <code><a href="maxima_11.html#prederror">prederror</a></code>
- kontrolliert.  Hat
 <code>prederror</code> den Wert <code>true</code>, wird von <code>is</code> und <code>if</code> ein
 Fehler erzeugt.  Hat <code>prederror</code> den Wert <code>false</code>, hat <code>is</code> den
 R&uuml;ckgabewert <code>unknown</code> und <code>if</code> gibt einen konditionalen Ausdruck
@@ -668,12 +647,10 @@ Wert <code>false</code> hat, und die Schleifenanweisungen <code>while</code> sow
 sowie auf die beiden Seiten einer Gleichung angewendet.
 </p>
 <p>Siehe auch die Operatoren <code><a href="#g_t_003d">=</a></code>
- und <code><a href="#g_t_0023">#</a></code>
- sowie die Funktionen
+<code><a href="#g_t_0023">#</a></code>
 <code><a href="maxima_11.html#equal">equal</a></code>
- und <code><a href="maxima_11.html#notequal">notequal</a></code>.
+<code><a href="maxima_11.html#notequal">notequal</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Relationale Ausdr&uuml;cke werden von einigen Funktionen zu booleschen Werten 
@@ -741,7 +718,6 @@ das Ergebnis des Ausdrucks zu bestimmen.  Hat irgendein Argument den Wert
 nicht ausgewertet.
 </p>
 <p>Die Optionsvariable <code><a href="maxima_11.html#prederror">prederror</a></code>
- kontrolliert das Verhalten von <code>and</code>
 f&uuml;r den Fall, dass ein Operand nicht zu <code>true</code> oder <code>false</code>
 ausgewertet werden kann.  <code>and</code> gibt eine Fehlermeldung aus, wenn 
 <code>prederror</code> den Wert <code>true</code> hat.  Andernfalls werden Operanden
@@ -796,7 +772,6 @@ das Ergebnis des Ausdrucks zu bestimmen.  Hat irgendein Operand den Wert
 nicht ausgewertet.
 </p>
 <p>Die Optionsvariable <code><a href="maxima_11.html#prederror">prederror</a></code>
- kontrolliert das Verhalten von <code>or</code>
 f&uuml;r den Fall, dass ein Operand nicht zu <code>true</code> oder <code>false</code>
 ausgewertet werden kann.  <code>or</code> gibt eine Fehlermeldung, wenn
 <code>prederror</code> den Wert <code>true</code> hat.  Andernfalls werden Operanden
@@ -842,7 +817,6 @@ ist ein boolescher Ausdruck und das Ergebnis ein boolescher Wert.
 </p>
 <p>Der Operator <code>not</code> erzwingt die Auswertung des Operanden.  Die
 Optionsvariable <code><a href="maxima_11.html#prederror">prederror</a></code>
- kontrolliert das Verhalten von <code>not</code> f&uuml;r
 den Fall, dass der Operand nicht zu <code>true</code> oder <code>false</code> ausgewertet
 werden kann.  <code>not</code> gibt eine Fehlermeldung, wenn <code>prederror</code> den Wert
 <code>true</code> hat.  Andernfalls wird ein Operand akzeptiert, der nicht zu
@@ -899,33 +873,26 @@ Ungleichung sind und beliebige Ausdr&uuml;cke sein k&ouml;nnen.  Die Operanden w
 ausgewertet, nicht jedoch die Ungleichung selbst.
 </p>
 <p>Die Funktionen <code><a href="maxima_11.html#is">is</a></code>,
- <code><a href="maxima_11.html#maybe">maybe</a></code>,
- die logischen Operatoren
+<code><a href="maxima_11.html#maybe">maybe</a></code>,
 <code><a href="#and">and</a></code>,
- <code><a href="#or">or</a></code>
- und <code><a href="#not">not</a></code>
- sowie die Funktionen f&uuml;r die
+<code><a href="#or">or</a></code>
+<code><a href="#not">not</a></code>
 Definition von Programmanweisungen wie <code><a href="maxima_27.html#if">if</a></code>,
- <code><a href="maxima_27.html#while">while</a></code>
- oder
+<code><a href="maxima_27.html#while">while</a></code>
 <code><a href="maxima_27.html#unless">unless</a></code>
- erzwingen die Auswertung einer Ungleichung.
 </p>
 <p>Wegen der Regeln f&uuml;r die Auswertung von Aussagen und weil <code>not expr</code> die
 Auswertung des Argumentes <code>expr</code> bewirkt, ist der Ausdruck
 <code>not (a = b)</code> &auml;quivalent zu <code>is(a # b)</code> und nicht zu <code>a # b</code>.
 </p>
 <p>Die Funktionen <code><a href="maxima_18.html#rhs">rhs</a></code>
- und <code><a href="maxima_18.html#lhs">lhs</a></code>
- geben die rechte und die linke Seite
+<code><a href="maxima_18.html#lhs">lhs</a></code>
 einer Gleichung oder Ungleichung zur&uuml;ck.
 </p>
 <p>Siehe auch den Operator <code><a href="#g_t_003d">=</a></code>,
- um eine Gleichung zu formulieren, sowie
 die Funktionen <code><a href="maxima_11.html#equal">equal</a></code>
- und <code><a href="maxima_11.html#notequal">notequal</a></code>.
+<code><a href="maxima_11.html#notequal">notequal</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) a = b;
@@ -956,12 +923,10 @@ Gleichung sind und beliebige Ausdr&uuml;cke sein k&ouml;nnen.  Die Operanden wer
 ausgewertet, nicht jedoch die Gleichung selbst.  Nicht ausgewertete Gleichungen
 k&ouml;nnen als Argument von Funktionen wie zum Beispiel den Funktionen
 <code><a href="maxima_18.html#solve">solve</a></code>,
- <code><a href="maxima_18.html#algsys">algsys</a></code>
- oder <code><a href="maxima_8.html#ev">ev</a></code>
- auftreten.
+<code><a href="maxima_18.html#algsys">algsys</a></code>
+<code><a href="maxima_8.html#ev">ev</a></code>
 </p>
 <p>Die Funktion <code><a href="maxima_11.html#is">is</a></code>
- wertet eine Gleichung <code>=</code> zu einem booleschen Wert
 aus.  <code>is(a = b)</code> wertet die Gleichung <code>a = b</code> zum Wert <code>true</code>
 aus, wenn <code>a</code> und <code>b</code> identische Ausdr&uuml;cke sind.  Das trifft zu,
 wenn <code>a</code> und <code>b</code> identische Atome sind oder wenn ihre Operatoren sowie
@@ -973,17 +938,14 @@ Ausdr&uuml;cke, dass <code>is(equal(a, b))</code> den Wert <code>true</code> hat
 k&ouml;nnen &auml;quivalent aber syntaktisch verschieden sein.
 </p>
 <p>Eine Ungleichung wird mit dem Operator <code><a href="#g_t_0023">#</a></code>
- formuliert.  Wie f&uuml;r den
 Operator <code>=</code> f&uuml;r eine Gleichung wird eine Ungleichung <code>a # b</code> nicht
 ausgewertet.  Eine Auswertung erfolgt mit <code>is(a # b)</code>, welche die Werte
 <code>true</code> oder <code>false</code> als Ergebnis hat.
 </p>
 <p>Neben <code>is</code> werten auch die Operatoren <code><a href="maxima_27.html#if">if</a></code>,
- <code><a href="#and">and</a></code>,
-
+<code><a href="#and">and</a></code>,
 <code><a href="#or">or</a></code>
- und <code><a href="#not">not</a></code>
- Gleichungen mit dem Operator <code>=</code> oder
+<code><a href="#not">not</a></code>
 Ungleichungen mit dem Operator <code>#</code> zu den Werten <code>true</code> oder
 <code>false</code> aus.
 </p>
@@ -992,16 +954,13 @@ Ungleichungen mit dem Operator <code>#</code> zu den Werten <code>true</code> od
 <code>not a = b</code> &auml;quivalent zu <code>is(a # b)</code> und nicht zu <code>a # b</code>.
 </p>
 <p>Die Funktionen <code><a href="maxima_18.html#rhs">rhs</a></code>
- und <code><a href="maxima_18.html#lhs">lhs</a></code>
- geben die rechte und die linke Seite
+<code><a href="maxima_18.html#lhs">lhs</a></code>
 einer Gleichung oder Ungleichung zur&uuml;ck.
 </p>
 <p>Siehe auch den Operator <code><a href="#g_t_0023">#</a></code>
- f&uuml;r Ungleichungen sowie die Funktionen
 <code><a href="maxima_11.html#equal">equal</a></code>
- und <code><a href="maxima_11.html#notequal">notequal</a></code>.
+<code><a href="maxima_11.html#notequal">notequal</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Ein Ausdruck <code>a = b</code> repr&auml;sentiert eine nicht ausgewertete Gleichung.
@@ -1105,8 +1064,7 @@ zu einer Liste auswerten.  Die Elemente der Liste auf der rechten Seite werden
 den Elementen auf der linken Seite parallel zugewiesen.
 </p>
 <p>Siehe auch <code><a href="maxima_4.html#kill">kill</a></code>
- und <code><a href="maxima_30.html#remvalue">remvalue</a></code>
- f&uuml;r die Aufhebung der Zuweisung
+<code><a href="maxima_30.html#remvalue">remvalue</a></code>
 eines Wertes an ein Symbol.
 </p>
 <p>Beispiele:
@@ -1174,7 +1132,6 @@ eines Wertes an ein Symbol.
 <dd><p>Ist der Operator f&uuml;r die Zuweisung eines Wertes an eine Variable.
 </p>
 <p>Der Operator <code>::</code> ist vergleichbar mit dem Operator <code><a href="#g_t_003a">:</a></code>
- mit dem
 Unterschied, dass <code>::</code> sowohl die rechte als auch die linke Seite
 auswertet.
 </p>
@@ -1211,29 +1168,24 @@ definiert, wird in dem Kontext ausgewertet, in dem das Makro aufgerufen wird.
 Ansonsten verh&auml;lt sich eine Makro-Funktion wie eine gew&ouml;hnliche Funktion.
 </p>
 <p>Die Funktion <code><a href="maxima_25.html#macroexpand">macroexpand</a></code>
- expandiert eine Makro-Funktion, ohne sie
 auszuwerten.  <code>macroexpand(foo(x))</code> dem <code>''%</code> folgt, ist &auml;quivalent
 zu <code>foo(x)</code>, wenn <code>foo</code> eine Makro-Funktion ist.
 </p>
 <p>Der Operator <code>::=</code> f&uuml;gt den Namen der neuen Makro-Funktion der 
 Informationsliste <code><a href="maxima_25.html#macros">macros</a></code>
- hinzu.  Die Funktionen <code><a href="maxima_4.html#kill">kill</a></code>,
-
+<code><a href="maxima_4.html#kill">kill</a></code>,
 <code><a href="maxima_11.html#remove">remove</a></code>
- und <code><a href="maxima_25.html#remfunction">remfunction</a></code>
- heben die Zuweisung der Makro-Funktion an
+<code><a href="maxima_25.html#remfunction">remfunction</a></code>
 ein Symbol auf und entfernen die Makro-Funktion von der Informationsliste
 <code>macros</code>.
 </p>
 <p>Die Funktionen <code><a href="maxima_25.html#fundef">fundef</a></code>
- oder <code><a href="maxima_25.html#dispfun">dispfun</a></code>
- geben die Definition einer
+<code><a href="maxima_25.html#dispfun">dispfun</a></code>
 Makro-Funktion zur&uuml;ck oder weisen die Makro-Funktion einer Marke zu.
 </p>
 <p>Makro-Funktionen enthalten h&auml;ufig Ausdr&uuml;cke mit den Funktionen
 <code><a href="maxima_25.html#buildq">buildq</a></code>
- und <code><a href="maxima_25.html#splice">splice</a></code>.
-  Mit diesen werden Ausdr&uuml;cke konstruiert,
+<code><a href="maxima_25.html#splice">splice</a></code>.
 die dann ausgewertet werden.
 </p>
 <p>Beispiele:
@@ -1277,7 +1229,6 @@ von <code>y - z</code>.  Der R&uuml;ckgabewert wird nicht ausgewertet und gibt (
 (%o6)                                 %pi
 </pre>
 <p><code><a href="maxima_25.html#macroexpand">macroexpand</a></code>
- gibt die Expansion des Makros zur&uuml;ck.
 <code>macroexpand(foo(x))</code> dem <code>''%</code> folgt, ist &auml;quivalent zu 
 <code>foo(x)</code>, wenn <code>foo</code> eine Makro-Funktion ist.
 </p>
@@ -1311,7 +1262,6 @@ mit dem Namen <var>f</var>, den Argumenten <var>x_1</var>, &hellip;, <var>x_n</v
 Funktionsdefinition <var>expr</var>.  Der Operator <code>:=</code> wertet die 
 Funktionsdefinition nicht aus.  Die Auswertung kann mit dem
 <a href="maxima_8.html#g_t_0027_0027">Quote-Quote-Operator</a>
- <code>''</code> erzwungen werden.  Die definierte
 Funktion kann eine gew&ouml;hnliche Maxima-Funktion <code>f(x)</code> sein oder eine
 Array-Funktion <code>f[i](x)</code>.
 </p>
@@ -1327,16 +1277,13 @@ Funktion nicht automatisch auf <code>g</code> beschr&auml;nkt.  Dagegen f&uuml;h
 <code>local(f)</code> zu einer Definition, die nur innerhalb eines Blockes oder einem
 anderen zusammengesetzten Ausdr&uuml;ck erscheint.  Siehe auch <code><a href="maxima_27.html#local">local</a></code>.
 </p>
-
 <p>Ist eines der Argumente ein Symbol auf das der <a href="maxima_8.html#g_t_0027">Quote-Operator</a>
-
 <code>'</code> angewendet wurde, wird dieses Argument nicht ausgewertet.  Ansonsten
 werden alle Argumente ausgewertet.
 </p>
 <p>Siehe auch <code><a href="maxima_25.html#define">define</a></code>
- und <code><a href="#g_t_003a_003a_003d">::=</a></code>.
+<code><a href="#g_t_003a_003a_003d">::=</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p><code>:=</code> wertet die Funktionsdefinition nie aus, au&szlig;er wenn der
@@ -1371,7 +1318,6 @@ dann akzeptiert die Funktion eine variable Anzahl an Argumenten.
 (%o2)                       c + b + a
 </pre>
 <p><code><a href="maxima_27.html#local">local</a></code>
- erzeugt eine lokale Funktionsdefinition.
 </p>
 <pre class="example">(%i1) foo (x) := 1 - x;
 (%o1)                    foo(x) := 1 - x
@@ -1484,8 +1430,7 @@ rechtsseitige Vorrang gleich gro&szlig;, ist der Operator <var>op</var>
 links-assoziativ.
 </p>
 <p>Mit den Befehlen <code><a href="maxima_11.html#remove">remove</a></code>
- und <code><a href="maxima_4.html#kill">kill</a></code>
- k&ouml;nnen Operatoreigenschaften
+<code><a href="maxima_4.html#kill">kill</a></code>
 von einem Symbol entfernt werden.  <code>remove(&quot;<var>a</var>&quot;, op)</code> entfernt
 die Operatoreigenschaften des Symbols <var>a</var>.  <code>kill(&quot;<var>a</var>&quot;)</code> entfernt
 alle Eigenschaften einschlie&szlig;ich der Operator-Eigenschaften des Symbols 
@@ -1554,7 +1499,6 @@ Incorrect syntax: # is not a prefix operator
 <dd><p>Deklariert <var>op</var> als einen Infix-Operator.  Ein Infix-Operator hat eine 
 Funktionsdefinition mit zwei Argumenten.  Der Infix-Operator steht zwischen den
 Operanden.  Zum Beispiel ist die Subtraktion <code><a href="#g_t_002d">-</a></code>
- ein Infix-Operator.
 </p>
 <p><code>infix(<var>op</var>)</code> deklariert <var>op</var> als einen Infix-Operator mit einem
 links- und rechtsseitigen Vorrang von jeweils 180.
@@ -1650,8 +1594,7 @@ definiert die Wortarten f&uuml;r die Argumente <var>arg_pos</var> und das Ergebn
 </p>
 <p>Die zu einem Matchfix-Operator zugeh&ouml;rige Funktion kann jede 
 nutzerdefinierte Funktion sein, die mit <code><a href="#g_t_003a_003d">:=</a></code>
- oder <code><a href="maxima_25.html#define">define</a></code>
- definiert
+<code><a href="maxima_25.html#define">define</a></code>
 wird.  Die Definition der Funktion kann mit <code>dispfun(<var>ldelimiter</var>)</code> 
 ausgegeben werden.
 </p>
@@ -1661,7 +1604,6 @@ Matchfix-Operatoren, werden aber vom Parser nicht als Matchfix-Operatoren
 behandelt.
 </p>
 <p><code><a href="#matchfix">matchfix</a></code>
- wertet die Argumente aus.  <code>matchfix</code> gibt das erste
 Argument <var>ldelimiter</var> als Ergebnis zur&uuml;ck.
 </p>
 <p>Beispiele:
@@ -1741,8 +1683,7 @@ getrennt, so ist zum Beispiel <code>+</code> ein <code>N-ary</code>-Operator und
 </p>
 <p>Im Unterschied zur Definition eines Operators kann eine Funktion <code>f</code> auch
 als <code><a href="#nary">nary</a></code>
- mit der Funktion <code><a href="maxima_11.html#declare">declare</a></code>
- deklariert werden.  Die
+<code><a href="maxima_11.html#declare">declare</a></code>
 Deklaration hat Auswirkung auf die Vereinfachung der Funktion.  Zum Beispiel
 wird ein Ausdruck <code>j(j(a,b),j(c,d)</code> zu <code>j(a,b,c,d)</code> vereinfacht.
 </p></dd></dl>
@@ -1824,7 +1765,7 @@ erweitert.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert</em> on <em>April, 2 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>September, 1 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 
