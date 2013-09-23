@@ -178,6 +178,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         
         if (Build.VERSION.SDK_INT > 16) { // > JELLY_BEAN
         	maximaURL="file:///android_asset/maxima.html";
+        	// maximaURL="http://192.168.0.20/~yasube/maxima.html";
         } else {
         	maximaURL="file:///android_asset/index.html";
         }
