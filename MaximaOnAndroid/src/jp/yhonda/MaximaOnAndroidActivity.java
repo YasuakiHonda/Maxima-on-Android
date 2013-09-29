@@ -43,7 +43,9 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.webkit.ConsoleMessage;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -55,11 +57,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.webkit.JavascriptInterface;
 
-public class MaximaOnAndroidActivity extends Activity implements TextView.OnEditorActionListener
+public class MaximaOnAndroidActivity extends Activity implements TextView.OnEditorActionListener, OnTouchListener
 {
 	String[] mcmdArray=null; /* manual example input will be stored. */
 	int mcmdArrayIndex=0;
-	
+	Activity thisActivity=this;
 	String maximaURL=null;
 
 	String manjp="file:///android_asset/maxima-doc/ja/maxima.html";
@@ -207,8 +209,23 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 
         webview = (WebView) findViewById(R.id.webView1);
         webview.getSettings().setJavaScriptEnabled(true); 
-        webview.setWebViewClient(new WebViewClient() {}); 
-        webview.getSettings().setBuiltInZoomControls(true);
+        webview.setWebViewClient(new WebViewClient() {
+			public void onPageFinished (WebView view, String url) {
+				Log.v("MoA","onPageFinished");
+				SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(thisActivity);
+				float sc=settings.getFloat("maxima main scale", 1.5f);
+				Log.v("MoA","sc="+Float.toString(sc));
+				view.setInitialScale((int)(100*sc));
+			}
+
+        }); 
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(thisActivity);
+		float sc=settings.getFloat("maxima main scale", 1.5f);
+		Log.v("MoA","onCreate sc="+Float.toString(sc));
+		webview.setInitialScale((int)(100*sc));
+
+		webview.getSettings().setBuiltInZoomControls(true);
+		webview.getSettings().setDisplayZoomControls(false);
         webview.setWebChromeClient(new WebChromeClient() {
         	  public boolean onConsoleMessage(ConsoleMessage cm) {
         	    Log.d("MyApplication", cm.message() + " -- From line "
@@ -223,6 +240,8 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         
         _editText=(EditText)findViewById(R.id.editText1);
         _editText.setOnEditorActionListener(this);
+		webview.setOnTouchListener(this);
+
         
         enterB=(Button)findViewById(R.id.enterB);
         enterB.setOnClickListener(new View.OnClickListener() {
@@ -684,6 +703,20 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    	    }
    	    return super.dispatchKeyEvent(event);
    	}
+	@Override
+	public boolean onTouch(View arg0, MotionEvent arg1) {
+		if ((arg0 == webview) && (arg1.getAction() == MotionEvent.ACTION_UP)) {
+			Log.v("MoA","onTouch on webview");
+			@SuppressWarnings("deprecation")
+			float sc=webview.getScale();
+			Log.v("MoA","sc="+Float.toString(sc));
+			SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+			Editor editor = settings.edit();
+	        editor.putFloat("maxima main scale", sc);
+	        editor.commit();			
+		}
+		return false;
+	}
 }
 
 

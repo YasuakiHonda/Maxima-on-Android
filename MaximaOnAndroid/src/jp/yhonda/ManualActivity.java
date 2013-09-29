@@ -37,6 +37,9 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
 import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
@@ -44,7 +47,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
-public class ManualActivity extends Activity {
+public class ManualActivity extends Activity implements OnTouchListener {
 	WebView webview=null;
 	String curURL="";
 	Activity thisActivity;
@@ -57,14 +60,28 @@ public class ManualActivity extends Activity {
 		webview = (WebView) findViewById(R.id.webViewInHTMLActivity);
 		webview.getSettings().setJavaScriptEnabled(true); 
 		webview.getSettings().setBuiltInZoomControls(true);
+		webview.getSettings().setDisplayZoomControls(false);
 		webview.getSettings().setUseWideViewPort(true);
 		webview.getSettings().setLoadWithOverviewMode(true);
 		webview.setWebViewClient(new WebViewClient() {
+			@SuppressWarnings("deprecation")
 			public void onPageFinished (WebView view, String url) {
 				Log.v("MoAMan","onPageFinished");
+				SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(thisActivity);
+				float sc=settings.getFloat("man scale", 1.0f);
+				Log.v("MoAMan","sc="+Float.toString(sc));
+				view.setInitialScale((int)(100*sc));
+
 				addJSforCopyExample();
 			}
 		});
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+		float sc=settings.getFloat("man scale", 1.0f);
+		webview.setInitialScale((int)(100*sc));
+		Log.v("MoAMan","onCreate sc="+Float.toString(sc));
+		
+		webview.setOnTouchListener(this);
+		
 		webview.setWebChromeClient(new WebChromeClient() {
 			public boolean onConsoleMessage(ConsoleMessage cm) {
 				/*
@@ -88,7 +105,7 @@ public class ManualActivity extends Activity {
 	    boolean manLangChanged=origIntent.getBooleanExtra("manLangChanged", true);
 
 	    Bundle bundle = null;
-	    SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+//	    SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
 	    String serialized = settings.getString("parcel", null);
 
 	    if ((manLangChanged == false) && (serialized != null)) {
@@ -249,4 +266,19 @@ public class ManualActivity extends Activity {
     	Log.v("MoAMan","end of copyExampleCallback()");
 
     }
+
+	@Override
+	public boolean onTouch(View arg0, MotionEvent arg1) {
+		if ((arg0 == webview) && (arg1.getAction() == MotionEvent.ACTION_UP)) {
+			Log.v("MoA Man","onTouch on webview");
+			@SuppressWarnings("deprecation")
+			float sc=webview.getScale();
+			Log.v("MoAMan","sc="+Float.toString(sc));
+			SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+			Editor editor = settings.edit();
+	        editor.putFloat("man scale", sc);
+	        editor.commit();			
+		}
+		return false;
+	}
 }
