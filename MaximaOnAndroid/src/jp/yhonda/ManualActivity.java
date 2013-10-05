@@ -27,6 +27,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcel;
@@ -60,7 +61,9 @@ public class ManualActivity extends Activity implements OnTouchListener {
 		webview = (WebView) findViewById(R.id.webViewInHTMLActivity);
 		webview.getSettings().setJavaScriptEnabled(true); 
 		webview.getSettings().setBuiltInZoomControls(true);
-		webview.getSettings().setDisplayZoomControls(false);
+		if (Build.VERSION.SDK_INT > 11) {
+			webview.getSettings().setDisplayZoomControls(false);
+        }
 		webview.getSettings().setUseWideViewPort(true);
 		webview.getSettings().setLoadWithOverviewMode(true);
 		webview.setWebViewClient(new WebViewClient() {

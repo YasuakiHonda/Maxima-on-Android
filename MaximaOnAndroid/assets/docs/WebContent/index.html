@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title></title>
+  
+  
+  
+  <link rel="stylesheet" href="jquery.mobile-1.3.1/jquery.mobile-1.3.1.min.css">
+    
+  <!-- jQuery and jQuery Mobile -->
+  <script src="jquery.mobile-1.3.1/jquery.js"></script>
+  <script src="jquery.mobile-1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <style type="text/css">
+   img {
+    float:left;
+    margin-right:10px;
+   }
+  </style>
+</head>
+<body>
+<!-- Home -->
+<div data-role="page" id="page1">
+    <div data-role="content">
+        <h2>
+            Maxima on Android 2.0
+        </h2>
+        <h5>
+            Copyright 2012, 2013 Yasuaki Honda
+        </h5>
+        <div data-role="collapsible-set" data-theme="a" data-content-theme="d">
+            <div data-role="collapsible">
+                <h3>
+                    What is Maxima on Android?
+                </h3>
+<p>
+Maxima, a computer algebra system written in Common Lisp, now runs on your 
+Android mobile devices. Maxima, and its predecessor Macsyma is one of the 
+most long-established software in the world. Original development efforts 
+were back in 1960s at MIT LCS and Project Mac, and now the development continues 
+as an open source project at maxima.sourceforge.net .
+</p>
+<p>
+You can perform many many math operations such as integral, differentiation, 
+matrix operations, rational numbers, symbolic treatment of constants such as pi, 
+e, euler's gamma, symbolic and numerical treatment of special functions such as 
+sin(x), cos(x), log(x), exp(x), zeta(s).
+</p>
+<p>
+Maxima on Android is a port of Maxima on the Android operating system. Thanks 
+to Sylvain Ageneau' effort on porting Embeddable Common Lisp to the Android OS, 
+the latest Maxima code runs nicely on ECL on Android with very small changes to 
+the source code.
+</p>
+<p>
+Maxima on Android is a combination of many open source software: ECL on Android, MathJax, and Maxima itself. I wrote roughly a thousand lines of Java code and 50 lines of HTML including Javascript code. The result images can be viewed below:
+</p>
+<p>
+The installation of the software requires total of 90MB on the storage. 30MB needs to be installed on the internal storage. The rest 60MB can be installed either on the external or the internal storage. The first run of the apk will ask you where you want the 60MB to be installed.
+</p>
+<p>
+Then you can enjoy Maxima / Macsyma on your mobile phone or tablet.
+</p>
+            </div>
+            <div data-role="collapsible">
+                <h3>
+                    What's new in this release
+                </h3>
+<ul data-role="listview" data-inset="true">
+    <li>Support of Maxima 5.31.1</li>
+    <li>Auto line breaking of Mathjax for long math formula is enabled</li>
+    <li>Improvement of rendering performance on Jerry Beans MR1 or later Android OS.</li>
+    <li>Scaling of main UI and Maxima manual view are now preserved</li>
+    <li><strong>Reuse by touch</strong> is improved so that input command lines displayed
+    during batch() or playback() are now reusable.</li>
+    <li>Entire rewriting of <strong>About MoA</strong> (this document)</li>
+    <li>MoA Users Manual is now included.</li>
+</ul>                
+            </div>
+            <div data-role="collapsible">
+                <h3>
+                    Restrictions
+                </h3>
+<ul data-role="listview" data-inset="true">
+    <li>load(lapack) will fail and it cannot be used.</li>
+    <li>load(graph) works and graph package functions can
+    be used, except the function draw_graph()</li>
+    <li>Package plotdf is not supported. drawdf does work.</li>
+    <li>unit package and ezunit package seem not working</li>
+    <li>load(opsubst) does not work. load('opsubst) does work.</li>
+</ul>
+            </div>
+            <div data-role="collapsible">
+                <h3>
+                    MoA User Manual
+                </h3>
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d"> <!-- Manual -->
+<div data-role="collapsible">  <!-- Coice of place to install -->
+<H4>Choice of place to install</H4>
+
+<p>
+ When Maxima on Android is first invoked, it installs additional data
+ of 85MB, extracting from the APK. For those whose mobile devices'
+ internal memory may be small, I give a choice for you where this 85MB
+ to be installed.
+</p>
+
+<p>
+<img src="MOAInstaller.png" height=250>
+When first run, the program will display the messages seen in the left
+picture (without showing the progress dialog box). You may choose the
+internal or external storage. If the available capacity is less than
+necessary, the one (or both) choice will be grayed out. After
+selecting one radio button, you can click "Install" button or "Cancel"
+button.
+</p>
+<p>
+If you press "Install" button, the installation starts and the
+progress dialog box appears on the screen until installation finishes.
+</p>
+<p>
+If you press "Cancel" button, this additional install process is
+terminated and nothing will be installed in addition. Then entire
+program will quit itself. Later run of this program will start again
+from this install window in such a case as necessary binary and data
+are not yet installed.<br clear="left">
+</p>
+</div> <!-- Coice of place to install -->
+
+<div data-role="collapsible">  <!-- Start up screen -->
+<H4>Start up screen</H4>
+
+<p>
+When everything is successfully installed, you will see the following
+screen. The screen contains the Maxima on Android information, then
+typical Maxima information comes after that.
+<img src="startup.png" height=300>
+</p>
+<p>
+The white large space below (%i1) is the place for displaying the
+command you typed for execution by Maxima, and also the place for
+displaying corresponding result.<br clear="left">
+</p>
+</div>  <!-- Start up screen -->
+
+<div data-role="collapsible"> <!-- Enlarge / shrink by fingers -->
+<H4>Enlarge / shrink by fingers</H4>
+
+<p>
+You can enlarge/shrink the displayed text (including math formula) by
+using two fingers in a standard ways.
+</p>
+</div> <!-- Enlarge / shrink by fingers -->
+
+<div data-role="collapsible"> <!-- Maxima command input area -->
+<H4>Maxima command input area</H4>
+
+<p>
+In the left picture, the bottom rectangle area surrounded by the
+orange lines is called the Maxima command input area. The area may not
+be orange line surrounded in the beginning, but if you touch the area,
+the orange lines appear, indicating that the input focus is given to
+this text edit area.
+</p>
+<p>
+This is a standard text input field and many edit aids (such as
+software keyboard, cut and paste) are available.
+</p>
+<p>
+Here you can enter any Maxima commands. Then Maxima performs the
+computation according to the command. The result will be rendered
+beautifully using MathJax 2.0, then displayed along with the command
+in the white space above the orange surrounded box.
+</p>
+</div> <!-- Maxima command input area -->
+
+<div data-role="collapsible"> <!-- Re-using the previous input by touch -->
+<H4>Re-using the previous input by touch</H4>
+
+<p>
+All the previous input commands displayed after the prompt are
+touchable. When touched, it appears in the Maxima command input
+area. This is a very handy command history mechanism.
+</p>
+</div> <!-- Re-using the previous input by touch -->
+
+<div data-role="collapsible"> <!-- Tap for Execution of Examples -->
+<H4>Tap for Execution of Examples</H4>
+
+<p>
+In the Maxima manual, so many examples are presented as session
+examples. On touching one of them, you can execute such examples in
+the Maxima itself.  Touching a session example (that appear in gray
+rectangle, with each input / output with prompts), the viewing of
+manual is finished and getting back to Maxima. Then, the first input
+line of the session example is copied to the Maxima command input
+area.
+</p>
+<p>
+You can type "enter" key to execute the command, or you can edit it as
+usual before execution.
+</p>
+<p>
+For further example execution, you can use "Next example" menu. This
+will paste the next input line of the session example. Repeating to
+choose "Next example" from menu will paste next ones into the Maxima
+command input area.
+</p>
+</div> <!-- Tap for Execution of Examples -->
+
+<div data-role="collapsible"> <!-- Maxima commands for beginners -->
+<H4>Maxima commands for beginners</H4>
+
+<p>
+You need to know syntax and semantics of the Maxima commands. They are
+not very difficult, but there are a number of such
+commands. Documentation can be found here in English or here in
+Japanese.
+</p>
+<p>
+The followings are simple command examples. You may note that all
+lines are ended with a semi-colon. Actually a line may be ended with a
+semi-colon or a dollar sign.
+</p>
+<p>
+You can just copy each of the followings in the browser and paste it
+into the command input area.
+</p>
+<pre>
+[34^2, 9+10*2-8/10, 8!, sqrt(162)];
+
+[x+2*y=8,x-y=0];
+solve(%,[x,y]);
+
+solve(a*x^2+b*x+c=0,x);
+
+x:a+3;
+x^2;
+expand(%);
+
+[%pi, %pi^2];
+%,numer;
+</pre>
+</div> <!-- Maxima commands for beginners -->
+
+<div data-role="collapsible"> <!-- Maxima Command Examples -->
+<H4>Maxima Command Examples</H4>
+
+<p>
+Maxima implements example() command which works in Maixma on Android
+as well. Try the followings:
+</p>
+<pre>
+example();
+example(linsolve);
+example(nroots);
+example(allroots);
+</pre>
+</div> <!-- Maxima Command Examples -->
+
+<div data-role="collapsible"> <!-- Maxima Manual -->
+<H4>Maxima Manual</H4>
+
+<p>
+Maxima manual is available in the menu. You can choose the language of
+the manual from the settings menu. Japanese, English, and German
+languages are available.
+</p>
+</div> <!-- Maxima Manual -->
+
+<div data-role="collapsible"> <!-- Gnuplot for graph drawing -->
+<H4>Gnuplot for graph drawing</H4>
+
+<p>
+Now the graph drawing is supported with gnuplot 4.6. You can use the
+following commands: plot2d, plot3d, implicit_plot, countour_plot,
+draw, draw2d, draw3d.
+</p>
+<p>
+Here are some examples of graph drawing commands:
+</p>
+<pre>
+plot2d(x^3-6*x,[x,-3,3]);
+plot3d(x^2-y^2,[x,-5,5],[y,-5,5]);
+draw2d(implicit(y^2=x^3-x,x,-2,2,y,-2,2));
+</pre>
+<p>
+Also, after you are back from graph window to the Maxima session
+screen, you can redraw the graph again by choosing Graph in the menu.
+</p>
+</div> <!-- Gnuplot for graph drawing -->
+
+<div data-role="collapsible"> <!-- Working with your software keyboard -->
+<H4>Working with your software keyboard</H4>
+
+<p>
+The best software keyboard suitable for math input is the Android
+keyboard (IMHO). If you are using Kanji input keyboard and / or some
+special software keyboard for your language, that is usually NOT the
+best one for use with Maxima on Android.
+</p>
+<p>
+It is easy to change one software keyboard to the other. 'Long
+pressing' the Maxima command input area will pop up a list of actions
+you can do. Among them is for selecting the software keyboard for
+use. Try changing the software keyboard to Android keyboard.
+</p>
+</div> <!-- Working with your software keyboard -->
+
+<div data-role="collapsible"> <!-- Save/Restore the Maxima session -->
+<H4>Save/Restore the Maxima session</H4>
+
+<p>
+In the Session menu, you can see Save / Restore / Playback sub
+menus. Choosing one of them, you can save the current session, restore
+the saved session, and playback the display of the results.
+</p>
+</div> <!-- Save/Restore the Maxima session -->
+
+<div data-role="collapsible"> <!-- User level customization in maxima-init.mac -->
+<H4>User level customization in maxima-init.mac</H4>
+
+<p>
+If /data/local/tmp/maxima-init.mac exists, the file is loaded
+automatically when Maxima starts up. Arbitrary maxima commands and
+programs can be placed in the file. The directory /data/local/tmp is
+writable by ADB (Android Debug Bridge) so it is convenient to push
+maxima-init.mac from your PC/Mac.
+</p>
+</div> <!-- User level customization in maxima-init.mac -->
+
+<div data-role="collapsible"> <!-- Maxima manual for Android OS 3.x, and 4.0.x -->
+<H4>Maxima manual for Android OS 3.x, and 4.0.x</H4>
+
+<p>
+Due to a bug in WebView of Android OS 3.x and 4.0.x, Maxima manual in
+MOA causes link error when navigating. From MOA 1.8, I have added a
+workaround for these OS versions.  You need to separately install
+Maxima manual using ADB (Android Debug Bridge, a tool provided in
+Android SDK).
+</p>
+<p>
+You need to download a manual package from here. Then you extract the
+zip archive. You have a folder "maxima-doc" as the result. Then, in
+the terminal program of your OS, % adb push maxima-doc
+/data/local/tmp/maxima-doc This will push the document files into
+/data/local/tmp/maxima-doc folder in your Android device.
+</p>
+<p>
+From MOA 1.8, if /data/local/tmp/maxima-doc folder exists, files in
+the folder will be used for manual viewing, and this will NOT cause
+any link error.
+</p>
+</div> <!-- Maxima manual for Android OS 3.x, and 4.0.x -->
+
+<div data-role="collapsible"> <!-- Exiting -->
+<H4>Exiting</H4>
+
+<p>
+To terminate the Maxima on Android program, you can choose Quit in the
+menu.
+</p>
+
+</div> <!-- Exiting -->
+
+<div data-role="collapsible"> <!-- Misc. -->
+<H4>Misc.</H4>
+
+<p>
+From MOA 1.5, I have added a command to display misc information of
+this software. Please choose About MoA in the menu.
+</p>
+</div> <!-- Misc. -->
+
+
+</div> <!-- Manual -->
+                
+            </div>
+            <div data-role="collapsible">
+                <h3>
+                    License
+                </h3> 
+              <div data-role="collapsible-set" data-theme="a" data-content-theme="d">
+                <div data-role="collapsible">
+                <h4>Maxima on Android</h4>
+                    <p>Copyright 2012, 2013 Yasuaki Honda (yasuaki.honda@gmail.com)</p>
+    <p>MaximaOnAndroid is a combination of many open source software. 
+    All such open source software are governed by their own license terms.
+    They appear in other sections of this document. 
+    The following license is applicable to the Java and HTML source codes 
+    solely written by the author of MaximaOnAndroid.</p>
+    <p>This file is part of MaximaOnAndroid.</p>
+
+    <p>MaximaOnAndroid is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.</p>
+
+    <p>MaximaOnAndroid is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.</p>
+
+    <p>You should have received a copy of the GNU General Public License
+    along with MaximaOnAndroid.  If not, see http://www.gnu.org/licenses/.</p>
+                
+                </div>
+                <div data-role="collapsible">
+                <h4>ECL</h4>
+<p>
+  Copyright (c) 2000, Juan Jose Garcia Ripoll<br>
+  Copyright (c) 1990, 1991, 1993 Giuseppe Attardi<br>
+  Copyright (c) 1984 Taiichi Yuasa and Masami Hagiya<br>
+          All Rights Reserved<br>
+          </p>
+<p>
+  ECL is free software; you can redistribute it and/or modify it
+  under the terms of the GNU Library General Public License as published
+  by the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version; see file 'Copying'.
+</p>
+<p>
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Library General Public License for more details.
+</p>
+<p>
+  You should have received a copy of the GNU Library General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+</p>
+<p>
+  PLEASE NOTE THAT:<br>
+  <br>
+  This license covers all of the ECL program except for the files:
+</p>
+<ul data-role="listview" data-theme="g" data-inset="true">
+    <li>src/lsp/loop2.lsp   ; Symbolic's LOOP macro</li>
+    <li>src/lsp/pprint.lsp  ; CMUCL's pretty printer</li>
+    <li>src/lsp/format.lsp  ; CMUCL's format </li>
+</ul>
+and the directories:
+<ul data-role="listview" data-theme="g" data-inset="true">     
+    <li>contrib/        ; User contributed extensions</li>
+    <li>src/clx/        ; portable CLX library from Telent</li>
+</ul>
+<p>
+  Look the precise copyright of these extensions in the corresponding
+  files.
+</p>
+<p>
+  Report bugs, comments, suggestions to the ecl mailing list:<br>
+  ecls-list@lists.sourceforge.net.<br>
+</p>
+                
+                </div>
+                <div data-role="collapsible">
+                <h4>Maxima</h4>
+                <p>
+Maxima is a symbolic computation program.  It is full featured,
+doing symbolic manipulation of polynomials, matrices, rational
+functions, integration, Todd-coxeter, graphing, bigfloats.  It has a
+symbolic debugger source level debugger for maxima code.  Maxima is
+based on the original Macsyma developed at MIT in the 1970's.  It is
+quite reliable, and has good garbage collection, and no memory leaks.
+It comes with hundreds of self tests.</p>
+<p>
+Maxima is distributed under the GNU General Public License, with some
+export restrictions from the U.S. Department of Energy. See the file
+COPYING.</p>
+<p>
+Installation information is available in the file INSTALL. Summary
+information about this release can be found in the file NEWS. Detailed
+change information is available in the ChangeLog.</p>
+<p>
+For more information on Maxima, see the Maxima web site,<br>
+http://maxima.sourceforge.net.<br>
+</p>
+                </div>
+                <div data-role="collapsible">
+                <h4>MathJax</h4>
+<p>
+MathJax is distributed under the Apache License, Version 2.0.
+</p>
+<p>TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION</p>
+<p><strong><a name="definitions">1. Definitions</a></strong>.</p>
+<p>"License" shall mean the terms and conditions for use, reproduction, and
+distribution as defined by Sections 1 through 9 of this document.</p>
+<p>"Licensor" shall mean the copyright owner or entity authorized by the
+copyright owner that is granting the License.</p>
+<p>"Legal Entity" shall mean the union of the acting entity and all other
+entities that control, are controlled by, or are under common control with
+that entity. For the purposes of this definition, "control" means (i) the
+power, direct or indirect, to cause the direction or management of such
+entity, whether by contract or otherwise, or (ii) ownership of fifty
+percent (50%) or more of the outstanding shares, or (iii) beneficial
+ownership of such entity.</p>
+<p>"You" (or "Your") shall mean an individual or Legal Entity exercising
+permissions granted by this License.</p>
+<p>"Source" form shall mean the preferred form for making modifications,
+including but not limited to software source code, documentation source,
+and configuration files.</p>
+<p>"Object" form shall mean any form resulting from mechanical transformation
+or translation of a Source form, including but not limited to compiled
+object code, generated documentation, and conversions to other media types.</p>
+<p>"Work" shall mean the work of authorship, whether in Source or Object form,
+made available under the License, as indicated by a copyright notice that
+is included in or attached to the work (an example is provided in the
+Appendix below).</p>
+<p>"Derivative Works" shall mean any work, whether in Source or Object form,
+that is based on (or derived from) the Work and for which the editorial
+revisions, annotations, elaborations, or other modifications represent, as
+a whole, an original work of authorship. For the purposes of this License,
+Derivative Works shall not include works that remain separable from, or
+merely link (or bind by name) to the interfaces of, the Work and Derivative
+Works thereof.</p>
+<p>"Contribution" shall mean any work of authorship, including the original
+version of the Work and any modifications or additions to that Work or
+Derivative Works thereof, that is intentionally submitted to Licensor for
+inclusion in the Work by the copyright owner or by an individual or Legal
+Entity authorized to submit on behalf of the copyright owner. For the
+purposes of this definition, "submitted" means any form of electronic,
+verbal, or written communication sent to the Licensor or its
+representatives, including but not limited to communication on electronic
+mailing lists, source code control systems, and issue tracking systems that
+are managed by, or on behalf of, the Licensor for the purpose of discussing
+and improving the Work, but excluding communication that is conspicuously
+marked or otherwise designated in writing by the copyright owner as "Not a
+Contribution."</p>
+<p>"Contributor" shall mean Licensor and any individual or Legal Entity on
+behalf of whom a Contribution has been received by Licensor and
+subsequently incorporated within the Work.</p>
+<p><strong><a name="copyright">2. Grant of Copyright License</a></strong>. Subject to the
+terms and conditions of this License, each Contributor hereby grants to You
+a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+copyright license to reproduce, prepare Derivative Works of, publicly
+display, publicly perform, sublicense, and distribute the Work and such
+Derivative Works in Source or Object form.</p>
+<p><strong><a name="patent">3. Grant of Patent License</a></strong>. Subject to the terms
+and conditions of this License, each Contributor hereby grants to You a
+perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+(except as stated in this section) patent license to make, have made, use,
+offer to sell, sell, import, and otherwise transfer the Work, where such
+license applies only to those patent claims licensable by such Contributor
+that are necessarily infringed by their Contribution(s) alone or by
+combination of their Contribution(s) with the Work to which such
+Contribution(s) was submitted. If You institute patent litigation against
+any entity (including a cross-claim or counterclaim in a lawsuit) alleging
+that the Work or a Contribution incorporated within the Work constitutes
+direct or contributory patent infringement, then any patent licenses
+granted to You under this License for that Work shall terminate as of the
+date such litigation is filed.</p>
+<p><strong><a name="redistribution">4. Redistribution</a></strong>. You may reproduce and
+distribute copies of the Work or Derivative Works thereof in any medium,
+with or without modifications, and in Source or Object form, provided that
+You meet the following conditions:</p>
+<ol style="list-style: lower-latin;">
+<li>You must give any other recipients of the Work or Derivative Works a
+copy of this License; and</li>
+
+<li>You must cause any modified files to carry prominent notices stating
+that You changed the files; and</li>
+
+<li>You must retain, in the Source form of any Derivative Works that You
+distribute, all copyright, patent, trademark, and attribution notices from
+the Source form of the Work, excluding those notices that do not pertain to
+any part of the Derivative Works; and</li>
+
+<li>If the Work includes a "NOTICE" text file as part of its distribution,
+then any Derivative Works that You distribute must include a readable copy
+of the attribution notices contained within such NOTICE file, excluding
+those notices that do not pertain to any part of the Derivative Works, in
+at least one of the following places: within a NOTICE text file distributed
+as part of the Derivative Works; within the Source form or documentation,
+if provided along with the Derivative Works; or, within a display generated
+by the Derivative Works, if and wherever such third-party notices normally
+appear. The contents of the NOTICE file are for informational purposes only
+and do not modify the License. You may add Your own attribution notices
+within Derivative Works that You distribute, alongside or as an addendum to
+the NOTICE text from the Work, provided that such additional attribution
+notices cannot be construed as modifying the License.
+<br/>
+<br/>
+You may add Your own copyright statement to Your modifications and may
+provide additional or different license terms and conditions for use,
+reproduction, or distribution of Your modifications, or for any such
+Derivative Works as a whole, provided Your use, reproduction, and
+distribution of the Work otherwise complies with the conditions stated in
+this License.
+</li>
+
+</ol>
+
+<p><strong><a name="contributions">5. Submission of Contributions</a></strong>. Unless You
+explicitly state otherwise, any Contribution intentionally submitted for
+inclusion in the Work by You to the Licensor shall be under the terms and
+conditions of this License, without any additional terms or conditions.
+Notwithstanding the above, nothing herein shall supersede or modify the
+terms of any separate license agreement you may have executed with Licensor
+regarding such Contributions.</p>
+<p><strong><a name="trademarks">6. Trademarks</a></strong>. This License does not grant
+permission to use the trade names, trademarks, service marks, or product
+names of the Licensor, except as required for reasonable and customary use
+in describing the origin of the Work and reproducing the content of the
+NOTICE file.</p>
+<p><strong><a name="no-warranty">7. Disclaimer of Warranty</a></strong>. Unless required by
+applicable law or agreed to in writing, Licensor provides the Work (and
+each Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including,
+without limitation, any warranties or conditions of TITLE,
+NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You
+are solely responsible for determining the appropriateness of using or
+redistributing the Work and assume any risks associated with Your exercise
+of permissions under this License.</p>
+<p><strong><a name="no-liability">8. Limitation of Liability</a></strong>. In no event and
+under no legal theory, whether in tort (including negligence), contract, or
+otherwise, unless required by applicable law (such as deliberate and
+grossly negligent acts) or agreed to in writing, shall any Contributor be
+liable to You for damages, including any direct, indirect, special,
+incidental, or consequential damages of any character arising as a result
+of this License or out of the use or inability to use the Work (including
+but not limited to damages for loss of goodwill, work stoppage, computer
+failure or malfunction, or any and all other commercial damages or losses),
+even if such Contributor has been advised of the possibility of such
+damages.</p>
+<p><strong><a name="additional">9. Accepting Warranty or Additional Liability</a></strong>.
+While redistributing the Work or Derivative Works thereof, You may choose
+to offer, and charge a fee for, acceptance of support, warranty, indemnity,
+or other liability obligations and/or rights consistent with this License.
+However, in accepting such obligations, You may act only on Your own behalf
+and on Your sole responsibility, not on behalf of any other Contributor,
+and only if You agree to indemnify, defend, and hold each Contributor
+harmless for any liability incurred by, or claims asserted against, such
+Contributor by reason of your accepting any such warranty or additional
+liability.</p>
+<p>END OF TERMS AND CONDITIONS</p>
+                </div>
+                <div data-role="collapsible">
+                <h4>Gnuplot</h4>
+                
+<p>
+Copyright 1986 - 1993, 1998, 2004   Thomas Williams, Colin Kelley
+</p>
+<p>
+Permission to use, copy, and distribute this software and its
+documentation for any purpose with or without fee is hereby granted,
+provided that the above copyright notice appear in all copies and
+that both that copyright notice and this permission notice appear
+ in supporting documentation.
+</p>
+<p>
+ Permission to modify the software is granted, but not the right to
+ distribute the complete modified source code.  Modifications are to
+ be distributed as patches to the released version.  Permission to
+ distribute binaries produced by compiling modified sources is granted,
+ provided you <br><br>
+   1. distribute the corresponding source modifications from the
+    released version in the form of a patch file along with the binaries,<br><br>
+    
+   2. add special version identification to distinguish your version
+    in addition to the base release version number,<br><br>
+   3. provide your name and address as the primary contact for the
+    support of your modified version, and <br><br>
+   4. retain our contact information in regard to use of the base
+    software.
+ </p>
+ <p>
+ Permission to distribute the released version of the source code along
+ with corresponding source modifications in the form of a patch file is
+ granted with same provisions 2 through 4 for binary distributions.
+ </p>
+ <p>
+ This software is provided "as is" without express or implied warranty
+ to the extent permitted by applicable law.
+</p>
+                </div>
+                <div data-role="collapsible">
+                <h4>Qepcad B and Saclib</h4>
+                
+QEPCAD B<br>
+Copyright (c) 1990, 2008, Hoon Hong and Chris Brown (contact wcbrown@usna.edu)<br>
+<p>
+Permission to use, copy, modify, and/or distribute this software, including
+source files, README files, etc., for any purpose with or without fee is 
+hereby granted, provided that the above copyright notice and this permission
+notice appear in all copies.
+</p>
+<p>
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+</p>
+
+<p>
+Saclib 2.2<br>
+Copyright (c) 1993, 2008, RISC-Linz (contact wcbrown@usna.edu)<br>
+</p>
+<p>
+Permission to use, copy, modify, and/or distribute this software, including
+source files, README files, etc., for any purpose with or without fee is 
+hereby granted, provided that the above copyright notice and this permission
+notice appear in all copies.
+</p>
+<p>
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+</p>
+                </div>
+              </div> <!-- License list -->
+            </div>
+            <div data-role="collapsible">
+                <h3>
+                    Links
+                </h3>
+            </div>
+            <div data-role="collapsible">
+                <h3>
+                    About the auther
+                </h3>
+<p>
+Yasuaki Honda, Chiba, Japan<br>
+Yasuaki.Honda@gmail.com<br><br>
+
+Open source contribution:<br>
+Maxima developer and imaxima developer<br>
+Maxima on Android developer<br><br>
+
+Blog:<br>
+<a href="http://maxima.hatenablog.jp/">Maximaで綴る数学の旅</a> (in Japanese).
+
+</p>         
+            </div>
+        </div> <!-- collapsible-set -->
+    </div> <!-- content -->
+</div> <!-- page1 -->
+</body>
+</html>

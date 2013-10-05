@@ -81,7 +81,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     CommandExec maximaProccess;
     File internalDir;
     File externalDir;
-    MaximaVersion mvers=new MaximaVersion(5,31,0);
+    MaximaVersion mvers=new MaximaVersion(5,31,1);
 
       @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -95,7 +95,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     	  boolean retval=false;
 		  switch (item.getItemId()) {
 		  case R.id.about:
-			   showHTML("file:///android_asset/docs/aboutMOA.html");
+			   showHTML("file:///android_asset/docs/WebContent/index.html");
 			   retval= true;
 			   break;
 		  case R.id.graph:
@@ -179,10 +179,10 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         super.onCreate(savedInstanceState);
         
         if (Build.VERSION.SDK_INT > 16) { // > JELLY_BEAN
-        	maximaURL="file:///android_asset/maxima.html";
+        	maximaURL="file:///android_asset/maxima_svg.html";
         	// maximaURL="http://192.168.0.20/~yasube/maxima.html";
         } else {
-        	maximaURL="file:///android_asset/index.html";
+        	maximaURL="file:///android_asset/maxima_html.html";
         }
         
         SharedPreferences pref=PreferenceManager.getDefaultSharedPreferences(this);
@@ -225,7 +225,9 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 		webview.setInitialScale((int)(100*sc));
 
 		webview.getSettings().setBuiltInZoomControls(true);
-		webview.getSettings().setDisplayZoomControls(false);
+		if (Build.VERSION.SDK_INT > 11) {
+			webview.getSettings().setDisplayZoomControls(false);
+        }
         webview.setWebChromeClient(new WebChromeClient() {
         	  public boolean onConsoleMessage(ConsoleMessage cm) {
         	    Log.d("MyApplication", cm.message() + " -- From line "
