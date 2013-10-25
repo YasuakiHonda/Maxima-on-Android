@@ -51,19 +51,21 @@ sin(x), cos(x), log(x), exp(x), zeta(s).
 </p>
 <p>
 Maxima on Android is a port of Maxima on the Android operating system. Thanks 
-to Sylvain Ageneau' effort on porting Embeddable Common Lisp to the Android OS, 
+to Sylvain Ageneau' effort on porting Embeddable Common Lisp (ECL) to the Android OS, 
 the latest Maxima code runs nicely on ECL on Android with very small changes to 
 the source code.
 </p>
 <p>
-Maxima on Android is a combination of many open source software: ECL on Android, MathJax, and Maxima itself. I wrote roughly a thousand lines of Java code and 50 lines of HTML including Javascript code. The result images can be viewed below:
+Maxima on Android is a combination of many open source software: ECL on Android, MathJax, Gnuplot, Jquery Mobile, and Maxima itself. I wrote roughly 1600 lines of Java code and 150 lines of HTML including Javascript code. The result images can be viewed below:
 </p>
+<img src="screen-shot1.png" height=250>
+<img src="plot3d.png" height=250>
 <p>
 The installation of the software requires total of 90MB on the storage. 30MB needs to be installed on the internal storage. The rest 60MB can be installed either on the external or the internal storage. The first run of the apk will ask you where you want the 60MB to be installed.
 </p>
 <p>
 Then you can enjoy Maxima / Macsyma on your mobile phone or tablet.
-</p>
+</p><br clear="left">
             </div>
             <div data-role="collapsible">
                 <h3>
@@ -71,9 +73,9 @@ Then you can enjoy Maxima / Macsyma on your mobile phone or tablet.
                 </h3>
 <ul data-role="listview" data-inset="true">
     <li>Support of Maxima 5.31.1</li>
-    <li>Auto line breaking of Mathjax for long math formula is enabled</li>
+    <li>Auto line breaking of Mathjax enabled</li>
     <li>Improvement of rendering performance on Jerry Beans MR1 or later Android OS.</li>
-    <li>Scaling of main UI and Maxima manual view are now preserved</li>
+    <li>Scaling of Maxima main view and Manual view are now preserved</li>
     <li><strong>Reuse by touch</strong> is improved so that input command lines displayed
     during batch() or playback() are now reusable.</li>
     <li>Entire rewriting of <strong>About MoA</strong> (this document)</li>
@@ -88,7 +90,7 @@ Then you can enjoy Maxima / Macsyma on your mobile phone or tablet.
     <li>load(lapack) will fail and it cannot be used.</li>
     <li>load(graph) works and graph package functions can
     be used, except the function draw_graph()</li>
-    <li>Package plotdf is not supported. drawdf does work.</li>
+    <li>Package plotdf is not supported. Use drawdf instead.</li>
     <li>unit package and ezunit package seem not working</li>
     <li>load(opsubst) does not work. load('opsubst) does work.</li>
 </ul>
@@ -151,14 +153,17 @@ displaying corresponding result.<br clear="left">
 
 <p>
 You can enlarge/shrink the displayed text (including math formula) by
-using two fingers in a standard ways.
+using two fingers in a standard ways. This scaling works on Maxima main view, manual view, and 
+graph drawing view.</p>
+<p>Scaling in Maxima main view and manual view are now stored in the
+user preference so that it is kept preserved.
 </p>
 </div> <!-- Enlarge / shrink by fingers -->
 
 <div data-role="collapsible"> <!-- Maxima command input area -->
 <H4>Maxima command input area</H4>
-
 <p>
+<img src="startup.png" height=300>
 In the left picture, the bottom rectangle area surrounded by the
 orange lines is called the Maxima command input area. The area may not
 be orange line surrounded in the beginning, but if you touch the area,
@@ -174,7 +179,7 @@ Here you can enter any Maxima commands. Then Maxima performs the
 computation according to the command. The result will be rendered
 beautifully using MathJax 2.0, then displayed along with the command
 in the white space above the orange surrounded box.
-</p>
+</p><br clear="left">
 </div> <!-- Maxima command input area -->
 
 <div data-role="collapsible"> <!-- Re-using the previous input by touch -->
@@ -191,9 +196,14 @@ area. This is a very handy command history mechanism.
 <H4>Tap for Execution of Examples</H4>
 
 <p>
+<img src=manual.png height=300>
 In the Maxima manual, so many examples are presented as session
-examples. On touching one of them, you can execute such examples in
-the Maxima itself.  Touching a session example (that appear in gray
+examples. In the left screen shot, applying bern() function to elements of a list is shown.
+This is one of such session examples. On touching it, you can execute commands in the
+session example in the Maxima main view.
+</p>
+<p>
+Touching a session example (that appear in gray
 rectangle, with each input / output with prompts), the viewing of
 manual is finished and getting back to Maxima. Then, the first input
 line of the session example is copied to the Maxima command input
@@ -202,13 +212,14 @@ area.
 <p>
 You can type "enter" key to execute the command, or you can edit it as
 usual before execution.
-</p>
+</p><br clear="left">
 <p>
+<img src=nextexample.png height=300>
 For further example execution, you can use "Next example" menu. This
 will paste the next input line of the session example. Repeating to
 choose "Next example" from menu will paste next ones into the Maxima
 command input area.
-</p>
+</p><br clear="left">
 </div> <!-- Tap for Execution of Examples -->
 
 <div data-role="collapsible"> <!-- Maxima commands for beginners -->
@@ -217,17 +228,14 @@ command input area.
 <p>
 You need to know syntax and semantics of the Maxima commands. They are
 not very difficult, but there are a number of such
-commands. Documentation can be found here in English or here in
-Japanese.
-</p>
+commands. </p>
 <p>
 The followings are simple command examples. You may note that all
-lines are ended with a semi-colon. Actually a line may be ended with a
-semi-colon or a dollar sign.
+lines are ended with a semi-colon.
 </p>
 <p>
-You can just copy each of the followings in the browser and paste it
-into the command input area.
+You can just copy each of the followings and paste it
+into the command input area for execution.
 </p>
 <pre>
 [34^2, 9+10*2-8/10, 8!, sqrt(162)];
@@ -266,8 +274,8 @@ example(allroots);
 
 <p>
 Maxima manual is available in the menu. You can choose the language of
-the manual from the settings menu. Japanese, English, and German
-languages are available.
+the manual from the settings menu. Several languages including English and Japanese 
+are available.
 </p>
 </div> <!-- Maxima Manual -->
 
@@ -275,9 +283,9 @@ languages are available.
 <H4>Gnuplot for graph drawing</H4>
 
 <p>
-Now the graph drawing is supported with gnuplot 4.6. You can use the
-following commands: plot2d, plot3d, implicit_plot, countour_plot,
-draw, draw2d, draw3d.
+Now the graph drawing is supported with gnuplot 4.6. You can use the graph
+drawing commands available in Maxima, including plot2d, plot3d, draw, draw2d, draw3d
+and more.
 </p>
 <p>
 Here are some examples of graph drawing commands:
@@ -297,14 +305,19 @@ screen, you can redraw the graph again by choosing Graph in the menu.
 <H4>Working with your software keyboard</H4>
 
 <p>
-The best software keyboard suitable for math input is the Android
-keyboard (IMHO). If you are using Kanji input keyboard and / or some
+IMHO, the best software keyboard suitable for math input is the "Std Math Keyboard" 
+availabe in Google Play. (You can search it by its name). 
+</p>
+<p>
+If you are using Kanji input keyboard and / or some
 special software keyboard for your language, that is usually NOT the
 best one for use with Maxima on Android.
 </p>
 <p>
-It is easy to change one software keyboard to the other. 'Long
-pressing' the Maxima command input area will pop up a list of actions
+How to change software keyboard from one to the other depends on
+the Android OS version. Following is applicable to older OS such as
+Android 2.2, 2.3.
+'Long pressing' the Maxima command input area will pop up a list of actions
 you can do. Among them is for selecting the software keyboard for
 use. Try changing the software keyboard to Android keyboard.
 </p>
@@ -719,12 +732,49 @@ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 </p>
                 </div>
-              </div> <!-- License list -->
+            <div data-role="collapsible">
+              <h4>jQuery Mobile</h4>
+Copyright 2013 jQuery Foundation and other contributors<br>
+http://jquery.com/<br>
+<p>
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+</p>
+<p>
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+</p>
+<p>
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</p>
+            </div>
+          </div> <!-- License list -->
             </div>
             <div data-role="collapsible">
                 <h3>
                     Links
                 </h3>
+<ul data-role="listview" data-inset="true">
+    <li><a href="https://sites.google.com/site/maximaonandroid/">Maxima on Android official site</a></li>
+    <li><a href="http://maxima.sourceforge.net/">Maxima home page</a></li>
+    <li><a href="https://github.com/ageneau/ecl-android">ECL Android on Git</a></li>
+    <li><a href="http://www.gnuplot.info/">Gnuplot home page</a></li>
+    <li><a href="http://www.mathjax.org/">MathJax home page</a></li>
+    <li><a href="http://ecls.sourceforge.net/">ECL home page</a></li>
+    <li><a href="http://www.usna.edu/CS/~qepcad/B/QEPCAD.html">Qepcad home page</a></li>
+    <li><a href="http://jquerymobile.com/">jQuery Mobile home page</a></li>
+</ul>
             </div>
             <div data-role="collapsible">
                 <h3>
@@ -734,7 +784,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 Yasuaki Honda, Chiba, Japan<br>
 Yasuaki.Honda@gmail.com<br><br>
 
-Open source contribution:<br>
+Open source contributions:<br>
 Maxima developer and imaxima developer<br>
 Maxima on Android developer<br><br>
 
