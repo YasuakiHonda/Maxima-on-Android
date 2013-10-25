@@ -81,7 +81,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     CommandExec maximaProccess;
     File internalDir;
     File externalDir;
-    MaximaVersion mvers=new MaximaVersion(5,31,1);
+    MaximaVersion mvers=new MaximaVersion(5,31,3);
 
       @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -285,8 +285,13 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
     	Log.v("MoA","onActivityResult()");
-    	super.onActivityResult(requestCode, resultCode, data);
-    	String sender=data.getStringExtra("sender");
+    	// super.onActivityResult(requestCode, resultCode, data);
+    	String sender;
+    	if (data != null) {
+    		sender=data.getStringExtra("sender");
+    	} else {
+    		sender="anon";
+    	}
     	Log.v("MoA","sender = "+sender);
     	if (sender.equals("manualActivity")) {
     		if (resultCode==RESULT_OK) {
@@ -581,6 +586,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    	}
    	
    	private void displayMaximaCmdResults(String resString) {
+   		Log.v("MoA cmd", resString);
 		String [] resArray=resString.split("\\$\\$");
 		for (int i = 0 ; i < resArray.length ; i++) {
 			if (i%2 == 0) {

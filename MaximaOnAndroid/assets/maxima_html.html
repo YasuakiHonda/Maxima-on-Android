@@ -30,137 +30,128 @@ under test directory. The name of the file is sample-dynamic-2.html -->
 </script>
 <script type="text/javascript" src="mathjax-MathJax-24a378e/MathJax.js"></script>
 <script>
-  (function () {
-    window.scrollToEnd = function () {
-        window.MOA.scrollToEnd();
-    }
-    
-    RBT=function (text) {
-      var dectext=unescape(text);
-      console.log(dectext);
-      window.MOA.reuseByTouch(dectext);
-    }
+	(function() {
+		window.scrollToEnd = function() {
+			window.MOA.scrollToEnd();
+		}
 
-    /*
-        Java-JS Interface function
-    */
-    window.UpdateInput=function (text) {
-        console.log("UpdateInput "+text);
-        var textArray=window.splitText(text);
-        console.log("UpdateInput "+textArray.length);
-        var first=true;
-        var tnode=null;
-        var makeOnclickRBT=function(etext) {
-        	// etext should be an escaped text
-        	return function (ev) {
-        		console.log(etext);
-        		RBT(etext);
-        	}
-        }
-        for (i=0; i<textArray.length; i++) {
-            if (!(textArray[i]=="")) {
-            	if (first) {
-            		first=false;
-            		tnode=document.createElement('span');
-            		tnode.appendChild(document.createTextNode(textArray[i]));
-            		tnode.onclick=makeOnclickRBT(escape(textArray[i]));
-            	} else {
-                    tnode=document.createTextNode(textArray[i]);    
-            	}
-                MathJax.Hub.queue.Push(["appendNode",window,tnode]);
-            }
-            if (i < textArray.length-1) {
-                tnode=document.createElement("br");
-                MathJax.Hub.queue.Push(["appendNode",window,tnode]);
-            }
-        }
-        MathJax.Hub.queue.Push(["scrollToEnd",window]);
-    }
+		RBT = function(text) {
+			var dectext = unescape(text);
+			console.log(dectext);
+			window.MOA.reuseByTouch(dectext);
+		}
 
-    window.appendNode =function (node) {
-    	document.getElementById("MathList").appendChild(node);
-    }
-    
-    window.splitText=function(text) {
-    	console.log("splitText "+text);
-    	var text=text.replace(/<br>/g,"\n");
-    	var a=text.split("\n");
-    	for (i=0; i<a.length; i++) {
-    		console.log(a[i]);
-    	}
-    	return a;
-    }
-    
-    /*
-        Java-JS Interface function
-    */
-    window.UpdateText = function (text) {
-    	console.log("UpdateText "+text);
-        textArray=window.splitText(text);
-        for (i=0; i<textArray.length; i++) {
-        	var re=/^\(%i[0-9]*\) /;
-        	var res;
-            if (res=textArray[i].match(re)) {
-            	/* A string starting with input prompt. */
-            	console.log('batch input '+res[0]);
-            	var tnode=document.createTextNode(res[0]);
-            	MathJax.Hub.queue.Push(["appendNode",window,tnode]);
-            	/* Input prompt was added as ordinary text. */
-            	/* The rest is added as reusable maxima command */
-            	window.UpdateInput(textArray[i].substring(res[0].length));
-            } else if (!(textArray[i]=="")) {
-                var tnode=document.createTextNode(textArray[i]);
-                MathJax.Hub.queue.Push(["appendNode",window,tnode]);
-        	}
-            if (i < textArray.length-1) {
-            	tnode=document.createElement("br");
-            	MathJax.Hub.queue.Push(["appendNode",window,tnode]);
-            }
-        }
-        MathJax.Hub.queue.Push(["scrollToEnd",window]);
-     }   
+		/*
+		    Java-JS Interface function
+		 */
+		window.UpdateInput = function(text) {
+			console.log("UpdateInput " + text);
+			var textArray = window.splitText(text);
+			console.log("UpdateInput " + textArray.length);
+			var first = true;
+			var tnode = null;
+			var makeOnclickRBT = function(etext) {
+				// etext should be an escaped text
+				return function(ev) {
+					console.log(etext);
+					RBT(etext);
+				}
+			}
+			for ( var i = 0; i < textArray.length; i++) {
+				if (!(textArray[i] == "")) {
+					if (first) {
+						first = false;
+						tnode = document.createElement('span');
+						tnode
+								.appendChild(document
+										.createTextNode(textArray[i]));
+						tnode.onclick = makeOnclickRBT(escape(textArray[i]));
+					} else {
+						tnode = document.createTextNode(textArray[i]);
+					}
+					MathJax.Hub.queue.Push([ "appendNode", window, tnode ]);
+				}
+				if (i < textArray.length - 1) {
+					tnode = document.createElement("br");
+					MathJax.Hub.queue.Push([ "appendNode", window, tnode ]);
+				}
+			}
+			MathJax.Hub.queue.Push([ "scrollToEnd", window ]);
+		}
 
-    /*
-        Java-JS Interface function
-    */
-    window.UpdateMath = function (TeX) {
-    	console.log("UpdateMath "+TeX);
-    	var text=" $$ "+TeX+" $$ ";
-        var mathlist=document.getElementById("MathList");
-        var tnode=document.createTextNode(text);
-        MathJax.Hub.queue.Push(["appendNode",window,tnode]);
-        MathJax.Hub.queue.Push(["Typeset",MathJax.Hub,mathlist]);
-        MathJax.Hub.queue.Push(["scrollToEnd",window]);
-    }
-  })();
+		window.appendNode = function(node) {
+			document.getElementById("MathList").appendChild(node);
+		}
+
+		window.splitText = function(text) {
+			console.log("splitText " + text);
+			var newtext = text.replace(/<br>/g, "\n");
+			var a = newtext.split("\n");
+			for ( var i = 0; i < a.length; i++) {
+				console.log(a[i]);
+			}
+			return a;
+		}
+
+		/*
+		    Java-JS Interface function
+		 */
+		window.UpdateText = function(text) {
+			console.log("UpdateText " + text);
+			var textArray = window.splitText(text);
+			for ( var i = 0; i < textArray.length; i++) {
+				var re = /^\(%i[0-9]*\) /;
+				var res;
+				var tnode;
+				if (res = textArray[i].match(re)) {
+					/* A string starting with input prompt. */
+					console.log('batch input ' + res[0]);
+					tnode = document.createTextNode(res[0]);
+					MathJax.Hub.queue.Push([ "appendNode", window, tnode ]);
+					/* Input prompt was added as ordinary text. */
+					/* The rest is added as reusable maxima command */
+					window.UpdateInput(textArray[i].substring(res[0].length));
+				} else if (!(textArray[i] == "")) {
+					tnode = document.createTextNode(textArray[i]);
+					MathJax.Hub.queue.Push([ "appendNode", window, tnode ]);
+				}
+				if (i < textArray.length - 1) {
+					tnode = document.createElement("br");
+					MathJax.Hub.queue.Push([ "appendNode", window, tnode ]);
+				}
+			}
+			MathJax.Hub.queue.Push([ "scrollToEnd", window ]);
+		}
+
+		/*
+		    Java-JS Interface function
+		 */
+		window.UpdateMath = function(TeX) {
+			console.log("UpdateMath " + TeX);
+			var text = " $$ " + TeX + " $$ ";
+			var mathlist = document.getElementById("MathList");
+			var tnode = document.createTextNode(text);
+			MathJax.Hub.queue.Push([ "appendNode", window, tnode ]);
+			MathJax.Hub.queue.Push([ "Typeset", MathJax.Hub, mathlist ]);
+			MathJax.Hub.queue.Push([ "scrollToEnd", window ]);
+		}
+	})();
 </script>
 
 
 </head>
 
-<body style="height:auto">
-<!-- <div id="MathOutput" style="display:none">$$ {} $$</div> -->
-<div id="MathOutput" style="display:none" >$$ {} $$</div>
-<div id="MathList" style="height:auto">
-Remote test2<br>
-Maxima on Android 2.0 Oct, 1st 2013  (JB MR1 or after)<br>
-written by Yasuaki Honda, <br>
-powered by MathJax 2.1 for math rendering <br>
-powered by Gnuplot 4.6 for graph drawing <br>
-<br>
-Use menu for about MoA/quit/man/redraw graph<br>
-You can touch previous commands for reuse, like input history.<br>
-You can touch manual examples to execute them in Maxima.<br>
+<body style="height: auto">
+  <!-- <div id="MathOutput" style="display:none">$$ {} $$</div> -->
+  <div id="MathOutput" style="display: none">$$ {} $$</div>
+  <div id="MathList" style="height: auto">
+    Maxima on Android 2.0 Nov. 1st, 2013 (JB MR1 or after)<br> written by Yasuaki Honda, <br> powered by MathJax 2.1 for math rendering <br> powered by Gnuplot 4.6 for graph drawing <br>
+    <br> Use menu for about MoA/quit/man/redraw graph<br> You can touch previous commands for reuse, like input history.<br> You can touch manual examples to execute them in Maxima.<br>
 
 
-<br>
-Maxima 5.31.0 http://maxima.sourceforge.net <br>
-using Lisp ECL 12.12.1<br>
-Distributed under the GNU Public License. See the file COPYING.<br>
-Dedicated to the memory of William Schelter.<br>
-The function bug_report() provides bug reporting information.<br>
-(%i1)
-</div>
+    <br> Maxima 5.31.0 http://maxima.sourceforge.net <br> using Lisp ECL 12.12.1<br> Distributed under the GNU Public License. See the file COPYING.<br> Dedicated to the memory of
+    William Schelter.<br> The function bug_report() provides bug reporting information.<br> (%i1)
+  </div>
 
 </body>
 </html>
