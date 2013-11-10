@@ -106,6 +106,8 @@ public class ManualActivity extends Activity implements OnTouchListener {
 		Intent origIntent=this.getIntent();
 	    String urlinIntent=origIntent.getStringExtra("url");
 	    boolean manLangChanged=origIntent.getBooleanExtra("manLangChanged", true);
+	    
+	    webview.setContentDescription(urlinIntent);
 
 	    Bundle bundle = null;
 //	    SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);

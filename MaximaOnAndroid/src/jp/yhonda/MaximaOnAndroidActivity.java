@@ -95,7 +95,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     	  boolean retval=false;
 		  switch (item.getItemId()) {
 		  case R.id.about:
-			   showHTML("file:///android_asset/docs/WebContent/index.html");
+			   showHTML("file:///android_asset/mobile_website/index.html");
 			   retval= true;
 			   break;
 		  case R.id.graph:

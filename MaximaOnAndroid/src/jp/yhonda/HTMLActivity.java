@@ -21,7 +21,12 @@ package jp.yhonda;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
+import android.webkit.ConsoleMessage;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -41,13 +46,38 @@ public class HTMLActivity extends Activity {
       webview.getSettings().setBuiltInZoomControls(true);
       webview.getSettings().setUseWideViewPort(true);
       webview.getSettings().setLoadWithOverviewMode(true);
+      webview.addJavascriptInterface(this, "MOA");
+      webview.setWebChromeClient(new WebChromeClient() {
+    	  public boolean onConsoleMessage(ConsoleMessage cm) {
+    	    Log.d("MyApplication", cm.message() + " -- From line "
+    	                         + cm.lineNumber() + " of "
+    	                         + cm.sourceId() );
+    	    return true;
+    	  }
+      });
+      
       loadURLonCreate();
 
   }
 	
-	public void loadURLonCreate() {
+    @JavascriptInterface
+    public void setFocus() {
+    	class focussor implements Runnable {
+    		@Override
+    		public void run() {
+    			webview.requestFocus(View.FOCUS_DOWN);
+    			webview.loadUrl("javascript:textarea1Focus();");
+    		}
+    	}
+    	Log.v("MoA HTML", "setFocus is called");
+    	focussor ftask = new focussor();
+    	webview.post(ftask);
+    }
+
+    public void loadURLonCreate() {
 		Intent origIntent=this.getIntent();
 	    String urlonCreate=origIntent.getStringExtra("url");
+	    webview.setContentDescription(urlonCreate);
 	    webview.loadUrl(urlonCreate);
 	}
 
