@@ -66,6 +66,7 @@ public class ManualActivity extends Activity implements OnTouchListener {
         }
 		webview.getSettings().setUseWideViewPort(true);
 		webview.getSettings().setLoadWithOverviewMode(true);
+		
 		webview.setWebViewClient(new WebViewClient() {
 			@SuppressWarnings("deprecation")
 			public void onPageFinished (WebView view, String url) {
@@ -74,9 +75,28 @@ public class ManualActivity extends Activity implements OnTouchListener {
 				float sc=settings.getFloat("man scale", 1.0f);
 				Log.v("MoAMan","sc="+Float.toString(sc));
 				view.setInitialScale((int)(100*sc));
+		        webview.postDelayed(new Runnable() {
+		            @Override
+		            public void run() {
+		                webview.loadUrl("javascript:var bd=document.getElementsByTagName('body')[0];"+
+		                		"bd.style.marginLeft='5px';bd.style.width=(window.innerWidth*0.92)+'px';"+
+		                		"console.log('innerWidth='+window.innerWidth);");
+		                Log.v("MoAMan","onScaleChanged called.");
+		            }
+		        }, 100);
 
 				addJSforCopyExample();
 			}
+			@Override
+			public void onScaleChanged(final WebView webView, float oldScale, float newScale) {
+		        webview.postDelayed(new Runnable() {
+		            @Override
+		            public void run() {
+		                webView.loadUrl("javascript:document.getElementsByTagName('body')[0].style.width=(window.innerWidth*0.95)+'px';console.log('innerWidth='+window.innerWidth);");
+		                Log.v("MoAMan","onScaleChanged called.");
+		            }
+		        }, 100);
+		    } 
 		});
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
 		float sc=settings.getFloat("man scale", 1.0f);

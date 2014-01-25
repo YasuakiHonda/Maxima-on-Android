@@ -25,6 +25,7 @@ import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Semaphore;
+import java.util.regex.Pattern;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -95,7 +96,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     	  boolean retval=false;
 		  switch (item.getItemId()) {
 		  case R.id.about:
-			   showHTML("file:///android_asset/mobile_website/index.html");
+			   showHTML("file:///android_asset/About_MoA/index.html");
 			   retval= true;
 			   break;
 		  case R.id.graph:
@@ -223,7 +224,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 		float sc=settings.getFloat("maxima main scale", 1.5f);
 		Log.v("MoA","onCreate sc="+Float.toString(sc));
 		webview.setInitialScale((int)(100*sc));
-
+		
 		webview.getSettings().setBuiltInZoomControls(true);
 		if (Build.VERSION.SDK_INT > 11) {
 			webview.getSettings().setDisplayZoomControls(false);
@@ -242,6 +243,9 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         
         _editText=(EditText)findViewById(R.id.editText1);
         _editText.setOnEditorActionListener(this);
+		int newsize=settings.getInt("MCIAfontSize", 16);
+		setMCIAfontSize(newsize);
+
 		webview.setOnTouchListener(this);
 
         
@@ -298,6 +302,15 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     			String mcmd=data.getStringExtra("maxima command");
     			if (mcmd != null) {
     				copyExample(mcmd);
+    			}
+    		}
+    	} else if (sender.equals("FBActivity")) {
+    		if (resultCode==RESULT_OK) {
+    			String mcmd=data.getStringExtra("maxima command");
+    			if (mcmd != null) {
+    				_editText.setText(mcmd);
+    				_editText.setSelection(mcmd.length());
+    				_editText.requestFocus();
     			}
     		}
     	} else if (sender.equals("MOAInstallerActivity")) {
@@ -505,6 +518,13 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    				}
    				if (cmdstr.equals("manj;")) {
    					showHTML("file://"+internalDir+"/additions/ja/maxima.html");
+   					return true;
+   				}
+   				if (cmdstr.startsWith("textSize:")) {
+   					int len="textSize:".length();
+   					String sizeString=cmdstr.substring(len);
+   					int textSize=Integer.parseInt(sizeString);
+   					setMCIAfontSize(textSize);
    					return true;
    				}
    				removeTmpFiles();
@@ -724,6 +744,14 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 	        editor.commit();			
 		}
 		return false;
+	}
+	
+	private void setMCIAfontSize(int newsize) {
+		_editText.setTextSize((float)newsize);
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+		Editor editor = settings.edit();
+        editor.putInt("MCIAfontSize", newsize);
+        editor.commit();			
 	}
 }
 

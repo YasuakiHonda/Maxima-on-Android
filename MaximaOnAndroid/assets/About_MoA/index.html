@@ -2,18 +2,18 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <title></title>
   
   
   
-  <link rel="stylesheet" href="jquery.mobile-1.3.1/jquery.mobile-1.3.1.min.css">
+  <link rel="stylesheet" href="file:///android_asset/jquery.mobile-1.3.1/jquery.mobile-1.3.1.min.css">
     
   <!-- jQuery and jQuery Mobile -->
-  <script src="jquery.mobile-1.3.1/jquery.js"></script>
-  <script src="jquery.mobile-1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <script src="file:///android_asset/jquery.mobile-1.3.1/jquery-1.9.1.min.js"></script>
+  <script src="file:///android_asset/jquery.mobile-1.3.1/jquery.mobile-1.3.1.min.js"></script>
   <style type="text/css">
    img {
     float:left;
@@ -26,10 +26,10 @@
 <div data-role="page" id="page1">
     <div data-role="content">
         <h2>
-            Maxima on Android 2.0
+            Maxima on Android 2.1
         </h2>
         <h5>
-            Copyright 2012, 2013 Yasuaki Honda
+            Copyright 2012, 2013, 2014 Yasuaki Honda
         </h5>
         <div data-role="collapsible-set" data-theme="a" data-content-theme="d">
             <div data-role="collapsible">
@@ -71,22 +71,19 @@ Then you can enjoy Maxima / Macsyma on your mobile phone or tablet.
                 <h3>
                     What's new in this release
                 </h3>
-<ul data-role="listview" data-inset="true">
-    <li>Support of Maxima 5.31.3</li>
-    <li>Auto line breaking of Mathjax enabled</li>
-    <li>Improvement of rendering performance on Jerry Beans MR1 or later Android OS.</li>
-    <li>Scaling of Maxima main view and Manual view are now preserved</li>
-    <li><strong>Reuse by touch</strong> is improved so that input command lines displayed
-    during batch() or playback() are now reusable.</li>
-    <li>Entire rewriting of <strong>About MoA</strong> (this document)</li>
-    <li>MoA Users Manual is now included.</li>
-</ul>                
+                <ul data-role="listview" data-inset="true">
+                    <li>Hardware graphics accelaration enabled</li>
+                    <li>Automatic reflow of text in Maxima Manual when used on Kitkat</li>
+                    <li>Font size of Maxima command input area can be changed</li>
+                </ul>                
             </div>
             <div data-role="collapsible">
                 <h3>
                     Restrictions
                 </h3>
 <ul data-role="listview" data-inset="true">
+    <li>The use of set_draw_defaults() in the draw package will cause draw(), draw2d(), and draw3d() to fail.</li>
+    <li>multi-user is not supported. Only the owner of the device can install and use MoA correctly.</li>
     <li>load(lapack) will fail and it cannot be used.</li>
     <li>load(graph) works and graph package functions can
     be used, except the function draw_graph()</li>
@@ -179,6 +176,13 @@ Here you can enter any Maxima commands. Then Maxima performs the
 computation according to the command. The result will be rendered
 beautifully using MathJax 2.0, then displayed along with the command
 in the white space above the orange surrounded box.
+</p>
+<p>
+The font size used in the Maxima command input area can be changed. You can enter:<br>
+<strong>textSize:40</strong><br>
+in the Maxima command input area. Pressing enter key, the size of the font will become 40 pixels.
+You can specify any number instead of 40, though 10 to 50 is the range for recommendation. 
+In the future release, some GUI will replace the textSize command.
 </p><br clear="left">
 </div> <!-- Maxima command input area -->
 
@@ -399,7 +403,7 @@ this software. Please choose About MoA in the menu.
               <div data-role="collapsible-set" data-theme="a" data-content-theme="d">
                 <div data-role="collapsible">
                 <h4>Maxima on Android</h4>
-                    <p>Copyright 2012, 2013 Yasuaki Honda (yasuaki.honda@gmail.com)</p>
+                    <p>Copyright 2012, 2013, 2014 Yasuaki Honda (yasuaki.honda@gmail.com)</p>
     <p>MaximaOnAndroid is a combination of many open source software. 
     All such open source software are governed by their own license terms.
     They appear in other sections of this document. 
