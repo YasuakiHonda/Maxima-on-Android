@@ -21,9 +21,7 @@ package jp.yhonda;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-import android.webkit.JsResult;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -42,7 +40,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.webkit.ConsoleMessage;
-import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -68,7 +65,6 @@ public class ManualActivity extends Activity implements OnTouchListener {
 		webview.getSettings().setLoadWithOverviewMode(true);
 		
 		webview.setWebViewClient(new WebViewClient() {
-			@SuppressWarnings("deprecation")
 			public void onPageFinished (WebView view, String url) {
 				Log.v("MoAMan","onPageFinished");
 				SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(thisActivity);
@@ -279,7 +275,6 @@ public class ManualActivity extends Activity implements OnTouchListener {
     	 * terminate the manual activity.
     	 */
     	class ActivityFinisher implements Runnable {
-    		Intent theIntent=intent;
     		@Override
     		public void run() {
     			thisActivity.finish();
