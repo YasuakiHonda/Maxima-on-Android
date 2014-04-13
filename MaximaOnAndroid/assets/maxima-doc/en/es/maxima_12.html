@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on octubre, 11 2013 by texi2html 1.76 -->
+<!-- Created on abril, 1 2014 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -359,14 +359,14 @@ Cualesquiera otros argumentos adicionales se tratan como en <code>plot3d</code>.
 </p>
 <pre class="example">(%i1) contour_plot (x^2 + y^2, [x, -4, 4], [y, -4, 4])$
 </pre>
-<p><div class="image"><img src="./../figures/contour1.gif" alt="../figures/contour1"></div>
+<p><div class="image"><img src="../figures/contour1.jpg" alt="../figures/contour1"></div>
 </p>
 <pre class="example">(%i1) F(x, y) := x^3 + y^2;
                                    3    2
 (%o1)                  F(x, y) := x  + y
 (%i2) contour_plot (F, [u, -4, 4], [v, -4, 4])$
 </pre>
-<p><div class="image"><img src="./../figures/contour2.gif" alt="../figures/contour2"></div>
+<p><div class="image"><img src="../figures/contour2.jpg" alt="../figures/contour2"></div>
 </p>
 <p>Se pueden a&ntilde;adir cualesquiera opciones que acepte <code>plot3d</code>;
 por ejemplo, la opci&oacute;n <code>legend</code> con un valor <code>false</code>,
@@ -379,7 +379,7 @@ de Gnuplot:
                     [legend,false],
                     [gnuplot_preamble, &quot;set cntrparam levels 12&quot;])$
 </pre>
-<p><div class="image"><img src="./../figures/contour3.gif" alt="../figures/contour3"></div>
+<p><div class="image"><img src="../figures/contour3.jpg" alt="../figures/contour3"></div>
 </p>
 </dd></dl>
 
@@ -502,7 +502,7 @@ Maxima crear&aacute; etiquetas a partir de las expresiones o nombres de funcione
 </p>
 <pre class="example">(%i1) plot2d (sin(x), [x, -%pi, %pi])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting2.gif" alt="../figures/plotting2"></div>
+<p><div class="image"><img src="./../figures/plotting2.png" alt="../figures/plotting2"></div>
 </p>
 <p>Si la funci&oacute;n crece r&aacute;pidamente puede ser necesario limitar los
 valores del eje vertical:
@@ -510,7 +510,7 @@ valores del eje vertical:
 <pre class="example">(%i1) plot2d (sec(x), [x, -2, 2], [y, -20, 20])$
 plot2d: some values were clipped.
 </pre>
-<p><div class="image"><img src="./../figures/plotting3.gif" alt="../figures/plotting3"></div>
+<p><div class="image"><img src="./../figures/plotting3.png" alt="../figures/plotting3"></div>
 </p>
 <p>El aspecto del gr&aacute;fico puede ser diferente dependiendo del programa
 gr&aacute;fico utilizado. Por ejemplo, cuando se desactiva el marco,
@@ -519,13 +519,13 @@ Xmaxima dibuja los ejes como flechas:
 <pre class="example">(%i1) plot2d ( x^2-1, [x, -3, 3], [y, -2, 10],
                       [box, false], [plot_format, xmaxima])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting1.gif" alt="../figures/plotting1"></div>
+<p><div class="image"><img src="./../figures/plotting1.png" alt="../figures/plotting1"></div>
 </p>
 <p>Gr&aacute;fico con escala logar&iacute;tmica:
 </p>
 <pre class="example">(%i1) plot2d (exp(3*s), [s, -2, 2], [logy])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting4.gif" alt="../figures/plotting4"></div>
+<p><div class="image"><img src="./../figures/plotting4.png" alt="../figures/plotting4"></div>
 </p>
 <p>Dibujando funciones especificadas por su nombre:
 </p>
@@ -535,7 +535,7 @@ $g
 (%i2) H(x) := if x &lt; 0 then x^4 - 1 else 1 - x^5 $
 (%i3) plot2d ([F, G, H], [u, -1, 1], [y, -1.5, 1.5])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting5.gif" alt="../figures/plotting5"></div>
+<p><div class="image"><img src="./../figures/plotting5.png" alt="../figures/plotting5"></div>
 </p>
 <p>Ejemplo de funci&oacute;n param&eacute;trica. Curva de la mariposa:
 </p>
@@ -543,14 +543,14 @@ $g
 (%i2) plot2d([parametric, r*sin(t), r*cos(t), 
              [t, -8*%pi, 8*%pi], [nticks, 2000]])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting6.gif" alt="../figures/plotting6"></div>
+<p><div class="image"><img src="./../figures/plotting6.png" alt="../figures/plotting6"></div>
 </p>
 <p>Una circunferencia de dos vueltas y solo siete puntos:
 </p>
 <pre class="example">(%i1) plot2d ([parametric, cos(t), sin(t),
               [t, -2*%pi, 2*%pi], [nticks, 8]])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting7.gif" alt="../figures/plotting7"></div>
+<p><div class="image"><img src="./../figures/plotting7.png" alt="../figures/plotting7"></div>
 </p>
 <p>Dibujo de una funci&oacute;n junto con la representaci&oacute;n param&eacute;trica de una
 circunferencia. El tama&ntilde;o del gr&aacute;fico se ha ajustado con las opciones x
@@ -563,14 +563,14 @@ gr&aacute;fico, y puede seer necesario adaptar los valores para otros terminales
         abs(x)], [x,-2,2], [y, -1.5, 1.5])$
 plot2d: some values were clipped.
 </pre>
-<p><div class="image"><img src="./../figures/plotting8.gif" alt="../figures/plotting8"></div>
+<p><div class="image"><img src="./../figures/plotting8.png" alt="../figures/plotting8"></div>
 </p>
 <p>Puntos discretos definiendo separadamente las coordenadas x e y:
 </p>
 <pre class="example">(%i1) plot2d ([discrete, [10, 20, 30, 40, 50],
                          [.6, .9, 1.1, 1.3, 1.4]])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting9.gif" alt="../figures/plotting9"></div>
+<p><div class="image"><img src="./../figures/plotting9.png" alt="../figures/plotting9"></div>
 </p>
 <p>Los mismos puntos del ejemplo anterior, pero definiendo una a una las
 coordenadas y sin segmentos que unan los puntos:
@@ -579,7 +579,7 @@ coordenadas y sin segmentos que unan los puntos:
                          [40, 1.3], [50, 1.4]]],
                         [style, points])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting10.gif" alt="../figures/plotting10"></div>
+<p><div class="image"><img src="./../figures/plotting10.png" alt="../figures/plotting10"></div>
 </p>
 <p>En este ejemplo, se guarda una tabla de tres columnas en el
 archivo <code>data.txt</code>, que luego ser&aacute; le&iacute;do
@@ -591,7 +591,7 @@ para representar las dos &uacute;ltimas columnas:
 (%i3) plot2d ([discrete, transpose(data)[2], transpose(data)[3]],
   [style,points], [point_type,diamond], [color,red])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting11.gif" alt="../figures/plotting11"></div>
+<p><div class="image"><img src="./../figures/plotting11.png" alt="../figures/plotting11"></div>
 </p>
 <p>Un gr&aacute;fico de datos emp&iacute;ricos junto con su modelo
 te&oacute;rico:
@@ -604,7 +604,7 @@ te&oacute;rico:
         [xlabel, &quot;pendulum's length (cm)&quot;],
         [ylabel, &quot;period (s)&quot;])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting12.gif" alt="../figures/plotting12"></div>
+<p><div class="image"><img src="./../figures/plotting12.png" alt="../figures/plotting12"></div>
 </p>
 </dd></dl>
 
@@ -631,7 +631,7 @@ distintos &aacute;ngulos.
 </p>
 <pre class="example">(%i1) plot3d (2^(-u^2 + v^2), [u, -3, 3], [v, -2, 2])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting13.gif" alt="../figures/plotting13"></div>
+<p><div class="image"><img src="./../figures/plotting13.png" alt="../figures/plotting13"></div>
 </p>
 <p>Uso de la opci&oacute;n z para acotar una funci&oacute;n que tiende a infinito
 (en este caso, la funci&oacute;n tiende a menos infinito en los ejes
@@ -640,7 +640,7 @@ x e y):
 <pre class="example">(%i1) plot3d ( log ( x^2*y^2 ), [x, -2, 2], [y, -2, 2], [z, -8, 4],
                [palette, false], [color, magenta, blue])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting14.gif" alt="../figures/plotting14"></div>
+<p><div class="image"><img src="./../figures/plotting14.png" alt="../figures/plotting14"></div>
 </p>
 <p>Los valores infinitos de z se pueden obviar eligiendo una ret&iacute;cula
 que no coincida con las as&iacute;ntotas; este ejemplo tambi&eacute;n muestra
@@ -650,7 +650,7 @@ c&oacute;mo seleccionar las paletas predefinidas, en este caso la n&uacute;mero 
          [grid, 29, 29],
          [palette, get_plot_option(palette,5)])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting15.gif" alt="../figures/plotting15"></div>
+<p><div class="image"><img src="./../figures/plotting15.png" alt="../figures/plotting15"></div>
 </p>
 <p>Dos superficies en el mismo gr&aacute;fico, compartiendo el mismo dominio; en 
 Gnuplot, ambas superfifies comparten la misma paleta:
@@ -658,7 +658,7 @@ Gnuplot, ambas superfifies comparten la misma paleta:
 <pre class="example">(%i1) plot3d ([2^(-x^2 + y^2), 4*sin(3*(x^2+y^2))/(x^2+y^2),
               [x, -3, 3], [y, -2, 2]])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting16.gif" alt="../figures/plotting16"></div>
+<p><div class="image"><img src="./../figures/plotting16.png" alt="../figures/plotting16"></div>
 </p>
 <p>Las mismas superficies, pero con diferentes dominios; en Xmaxima
 cada superficies usa una paleta diferente, elegida de la lista
@@ -668,7 +668,7 @@ definida por la opci&oacute;n <code>palette</code>:
          4*sin(3*(x^2+y^2))/(x^2+y^2),
          [x, -3, 3], [y, -2, 2]], [plot_format,xmaxima])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting17.gif" alt="../figures/plotting17"></div>
+<p><div class="image"><img src="./../figures/plotting17.png" alt="../figures/plotting17"></div>
 </p>
 <p>La botella de Klein, definida param&eacute;tricamente:
 </p>
@@ -678,7 +678,7 @@ definida por la opci&oacute;n <code>palette</code>:
 (%i4) plot3d ([expr_1, expr_2, expr_3], [x, -%pi, %pi],
         [y, -%pi, %pi], [grid, 40, 40])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting18.gif" alt="../figures/plotting18"></div>
+<p><div class="image"><img src="./../figures/plotting18.png" alt="../figures/plotting18"></div>
 </p>
 <p>Gr&aacute;fico de un arm&oacute;nico esf&eacute;rico, utilizando las transformaciones
 predefinidas <code>spherical_to_xyz</code>:
@@ -687,7 +687,7 @@ predefinidas <code>spherical_to_xyz</code>:
               [phi, 0, 2*%pi],
               [transform_xy, spherical_to_xyz], [grid,30,60])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting19.gif" alt="../figures/plotting19"></div>
+<p><div class="image"><img src="./../figures/plotting19.png" alt="../figures/plotting19"></div>
 </p>
 <p>Uso de la transformaci&oacute;n predefinida <code>polar_to_xy</code>. Este
 ejemplo tambi&eacute;n muestra c&oacute;mo eliminar el marco y la leyenda:
@@ -697,7 +697,7 @@ ejemplo tambi&eacute;n muestra c&oacute;mo eliminar el marco y la leyenda:
          [transform_xy, polar_to_xy], [box, false],
          [legend,false])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting20.gif" alt="../figures/plotting20"></div>
+<p><div class="image"><img src="./../figures/plotting20.png" alt="../figures/plotting20"></div>
 </p>
 <p>Dibujo de una esfera utilizando la transformaci&oacute;n esf&eacute;rica. En 
 Xmaxima, los tres ejes utilizan escalas proporcionales, manteniendo
@@ -709,7 +709,7 @@ degradado:
          [transform_xy, spherical_to_xyz],
          [palette,[value,0.65,0.7,0.1,0.9]])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting21.gif" alt="../figures/plotting21"></div>
+<p><div class="image"><img src="./../figures/plotting21.png" alt="../figures/plotting21"></div>
 </p>
 <p>Definici&oacute;n de una funci&oacute;n con dos variables utilizando una matriz. 
 N&oacute;tese la comilla simple en la definici&oacute;n de la funci&oacute;n para
@@ -722,7 +722,7 @@ prevenir que <code>plot3d</code> falle al detectar que la matriz necesita
 (%i3) plot3d (f(x,y), [x, 1, 4], [y, 1, 4], [grid, 4, 4])$
 apply: subscript must be an integer; found: round(x)
 </pre>
-<p><div class="image"><img src="./../figures/plotting22.gif" alt="../figures/plotting22"></div>
+<p><div class="image"><img src="./../figures/plotting22.png" alt="../figures/plotting22"></div>
 </p>
 <p>Asignando a la opci&oacute;n <code>elevation</code> el valor cero, una superficie
 puede verse como una aplicaci&oacute;n en la que cada color representa un nivel
@@ -734,7 +734,7 @@ se desactivan para facilitar la visualizaci&oacute;n de los colores:
         [mesh_lines_color, false], [elevation, 0], [azimuth, 0],
         [colorbox, true], [grid, 150, 150])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting23.gif" alt="../figures/plotting23"></div>
+<p><div class="image"><img src="./../figures/plotting23.png" alt="../figures/plotting23"></div>
 </p>
 <p>V&eacute;ase tambi&eacute;n la secci&oacute;n Opciones gr&aacute;ficas.
 </p>
@@ -1596,7 +1596,7 @@ despu&eacute;s de <code>gnuplot_reset</code>.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>octubre, 11 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>abril, 1 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

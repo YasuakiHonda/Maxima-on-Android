@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on Oktober, 11 2013 by texi2html 1.76 -->
+<!-- Created on April, 1 2014 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -221,8 +221,9 @@ werden Funktionen in einer Substantivform nicht auf die Argumente angewendet,
 jedoch werden die Argumente weiterhin ausgewertet.  Funktionen k&ouml;nnen in
 beiden Formen auftreten.  Typische Beispiele sind die Differentiation mit der
 Funktion <code><a href="maxima_16.html#diff">diff</a></code>
-<code><a href="maxima_16.html#integrate">integrate</a></code>.
-Siehe zum diesem Thema auch <a href="maxima_6.html#SEC41">Substantive und Verben</a>.
+ oder die Integration mit der Funktion <code><a href="maxima_16.html#integrate">integrate</a></code>.
+</p>
+<p>Siehe zum diesem Thema auch <a href="maxima_6.html#SEC41">Substantive und Verben</a>.
 </p>
 <p>Beispiele:
 </p>
@@ -231,6 +232,7 @@ Siehe zum diesem Thema auch <a href="maxima_6.html#SEC41">Substantive und Verben
 auf die Argumente <code>a*x^2</code> und <var>x</var> angewendet wird.  Im zweiten Fall
 liegt die Funktion <code>diff</code> in ihrer Substantivform vor.  Dies wird hier
 durch den <code><a href="#g_t_0027">Quote-Operator</a></code>
+ <code>'</code> bewirkt.  Jetzt wird die Funktion
 nicht angewendet.  Das Ergebnis ist ein symbolischer Ausdruck f&uuml;r die
 Ableitung.  Da auch in diesem Fall die Argumente ausgewertet werden, wird auch
 hier der Wert <code>1/2</code> f&uuml;r die Variable <code>a</code> eingesetzt.
@@ -254,6 +256,7 @@ werden oder nicht.
 <p>Beispiel:
 </p>
 <p>Die Funktion <code><a href="maxima_11.html#properties">properties</a></code>
+ wertet das Argument nicht aus.  Dies ist f&uuml;r
 den Nutzer praktisch, da ansonsten die Auswertung einer Variablen <code>a</code>, die
 einen Wert hat, explizit mit dem Quote-Operator <code>'</code> unterdr&uuml;ckt werden
 m&uuml;sste, um die Eigenschaften des Symbols <code>'a</code> anzuzeigen.  Im ersten Fall
@@ -272,14 +275,18 @@ Eigenschaften des Symbols <code>'a</code> an.
 </pre>
 <p>Die Auswertung von Symbolen, Funktionen und Ausdr&uuml;cken kann mit dem
 <a href="#g_t_0027">Quote-Operator</a>
-<a href="#g_t_0027_0027">Quote-Quote-Operator</a>
+ <code>'</code> und dem <a href="#g_t_0027_0027">Quote-Quote-Operator</a>
+
 <code>''</code> kontrolliert werden.  Der Quote-Operator unterdr&uuml;ckt die Auswertung.
 Dagegen erzwingt der Quote-Quote-Operator die Auswertung.
 </p>
 <p>Mit der Funktion <code><a href="#ev">ev</a></code>
+ wird ein Ausdruck in einer definierten Umgebung
 ausgewertet, in der Optionsvariablen f&uuml;r die Auswertung einen bestimmten Wert
 erhalten oder Auswertungsschalter <code><a href="#evflag">evflag</a></code>
+ und Auswertungsfunktionen
 <code><a href="#evfun">evfun</a></code>
+ angewendet werden.
 </p>
 <hr size="6">
 <a name="Funktionen-und-Variablen-f_00fcr-die-Auswertung"></a>
@@ -324,10 +331,13 @@ von Ausdr&uuml;cken.
 </p>
 <p>Substantivformen werden mit einem Hochkomma angezeigt, wenn die Optionsvariable 
 <code><a href="maxima_6.html#noundisp">noundisp</a></code>
+ den Wert <code>true</code> hat.
 </p>
 <p>Siehe auch den <a href="#g_t_0027_0027">Quote-Quote-Operator</a>
+ <code>''</code> und den
 Auswertungsschalter <code><a href="#nouns">nouns</a></code>.
 </p>
+
 <p>Beispiele:
 </p>
 <p>Auf ein Symbol angewendet, unterdr&uuml;ckt der Quote-Operator die Auswertung des
@@ -423,11 +433,15 @@ Funktionsdefinitionen, Lambda-Ausdr&uuml;cke und Ausdr&uuml;cke, deren Auswertun
 durch den Quote-Operator verhindert wurde.
 </p>
 <p>Der Quote-Quote-Operator wird von den Befehlen <code><a href="maxima_13.html#batch">batch</a></code>
+ und
 <code><a href="maxima_13.html#load">load</a></code>
+ erkannt.
 </p>
 <p>Siehe auch den <a href="#g_t_0027">Quote-Operator</a>
+ <code>'</code> und den Auswertungsschalter
 <code><a href="#nouns">nouns</a></code>.
 </p>
+
 <p>Beispiele:
 </p>
 <p>Wird der Quote-Quote-Operator auf einen Ausdruck <var>expr</var> angewendet, wird 
@@ -561,6 +575,7 @@ Zuerst wird die Umgebung gesetzt.  Dazu werden die Argumente <var>arg_1</var>,
 <li>
 <code>simp</code> bewirkt, dass der Ausdruck <var>expr</var> vereinfacht wird.  Der Wert
 der Optionsvariablen <code><a href="maxima_9.html#simp">simp</a></code>
+ wird dabei ignoriert.  Der Ausdruck wird also
 auch dann vereinfacht, wenn die Optionsvariable <var>simp</var> den Wert <code>false</code>
 hat.
 
@@ -579,12 +594,15 @@ Substantivformen sind typischerweise nicht ausgewertete Funktionen wie
 <code>expand</code> bewirkt die Expansion des Ausdruckes <var>expr</var>.  Siehe die 
 Funktion <code><a href="maxima_9.html#expand">expand</a></code>.
 
+
 </li><li>
 <code>expand</code>(<var>m</var>, <var>n</var>) bewirkt die Expansion des Ausdruckes <var>expr</var>, 
 wobei den Optionsvariablen <code><a href="maxima_9.html#maxposex">maxposex</a></code>
-<code><a href="maxima_9.html#maxnegex">maxnegex</a></code>
+ und <code><a href="maxima_9.html#maxnegex">maxnegex</a></code>
+ die Werte der
 Argumente <var>m</var> und <var>n</var> zugewiesen werden.  Siehe die Funktion
 <code><a href="maxima_9.html#expand">expand</a></code>.
+
 
 </li><li>
 <code>detout</code> bewirkt, dass bei der Berechnung von Inversen von Matrizen, die im
@@ -604,6 +622,7 @@ ausgef&uuml;hrt werden.
 <code>risch</code> bewirkt das Integrale im Ausdruck <var>expr</var> mit dem
 Risch-Algorithmus berechnet werden.  Siehe <code>risch</code>.  Wird der Schalter
 <code><a href="#nouns">nouns</a></code>
+ benutzt, wird der Standardalgorithmus f&uuml;r Integrale verwendet.
 
 </li><li>
 <code>float</code> bewirkt, dass rationale Zahlen in Gleitkommazahlen konvertiert 
@@ -614,6 +633,7 @@ werden.
 ein Ergebnis in Gleitkommazahlen liefern.  Variablen in <code>expr</code>, denen
 numerische Werte zugewiesen wurden, werden durch diese ersetzt.  Der Schalter
 <code><a href="maxima_5.html#float">float</a></code>
+ wird zus&auml;tzlich wirksam.
 
 </li><li>
 <code>pred</code> bewirkt, dass Aussagen zu <code>true</code> oder <code>false</code> ausgewertet 
@@ -627,6 +647,7 @@ Auftreten von <code>eval</code> f&uuml;hrt zu einer weiteren Auswertung.
 </li><li>
 <code>A</code>, wobei <code>A</code> ein Symbol ist, das als ein Auswertungsschalter
 <code><a href="#evflag">evflag</a></code>
+ definiert ist.  W&auml;hrend der Auswertung des Ausdrucks <var>expr</var> 
 erh&auml;lt <code>A</code> den Wert <code>true</code>.
 
 </li><li>
@@ -641,6 +662,7 @@ Zuweisung eine Substitution ausgef&uuml;hrt.
 </li><li>
 <code>F</code>, wobei <code>F</code> der Name einer Funktion ist, die als eine
 Auswertungsfunktion (siehe <code><a href="#evfun">evfun</a></code>
+) definiert wurde.  <code>F</code> bewirkt,
 dass die Auswertungsfunktion auf den Ausdruck <var>expr</var> angewendet wird.
 
 </li><li>
@@ -660,6 +682,7 @@ Ergebnis eine Liste ist, werden die Elemente der Liste als zus&auml;tzliche
 Argumente von <code>ev</code> betrachtet.  Dies erlaubt, das eine Liste mit
 Gleichungen (zum Beispiel <code>[%t1, %t2]</code>, wobei <code>%t1</code> und <code>%t2</code> 
 Gleichungen sind) wie sie zum Beispiel von der Funktion <code><a href="maxima_18.html#solve">solve</a></code>
+ erzeugt
 wird, als Argument verwendet werden kann.
 </li></ul>
 
@@ -671,9 +694,11 @@ Auswertungsfunktionen, die verkettet werden.  So wird zum Beispiel
 <code>realpart(ratsimp(<var>expr</var>))</code>.
 </p>
 <p>Die Schalter <code><a href="maxima_9.html#simp">simp</a></code>,
-<code><a href="maxima_5.html#numer">numer</a></code>,
-<code><a href="maxima_5.html#float">float</a></code>
+ <code><a href="maxima_5.html#numer">numer</a></code>,
+ <code><a href="maxima_5.html#float">float</a></code>
+ und 
 <code><a href="maxima_19.html#detout">detout</a></code>
+ sind auch Optionsvariablen, die lokal in einem Block oder global
 gesetzt werden k&ouml;nnen.
 </p>
 <p>Ist <var>expr</var> ein kanonischer rationaler Ausdruck (CRE = canonical rational
@@ -769,9 +794,11 @@ zus&auml;tzliche Auswertung des Ausdrucks <code>expr</code>.
 zus&auml;tzlichen Auswertung.
 </p>
 <p>Siehe auch die Funktion <code><a href="#ev">ev</a></code>
+ sowie die Auswertungsschalter
 <code><a href="#noeval">noeval</a></code>
-<code><a href="#infeval">infeval</a></code>
+ und <code><a href="#infeval">infeval</a></code>
 </p>
+
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) [a:b,b:c,c:d,d:e];
@@ -799,9 +826,11 @@ von <var>expr</var> erh&auml;lt also <var>x</var> den Wert <code>true</code>.
 <p>Mit <code>declare(<var>x</var>, evflag)</code> wird der Variablen <var>x</var> die
 <code>evflag</code>-Eigenschaft gegeben.  Siehe auch die Funktion
 <code><a href="maxima_11.html#declare">declare</a></code>.
-<code><a href="maxima_4.html#kill">kill</a></code>
-<code><a href="maxima_11.html#remove">remove</a></code>
+  Mit <code><a href="maxima_4.html#kill">kill</a></code>
+ oder <code><a href="maxima_11.html#remove">remove</a></code>
+ kann diese Eigenschaft
 wieder entfernt werden.  Siehe auch <code><a href="maxima_11.html#properties">properties</a></code>
+ f&uuml;r die Anzeige von
 Eigenschaften.
 </p>
 <p>Folgende Optionsvariablen haben bereits die <code>evflag</code>-Eigenschaft:
@@ -872,9 +901,12 @@ aufgef&uuml;hrten Reihenfolge auf den Ausdruck <var>expr</var> angewendet.
 </p>
 <p>Mit <code>declare(<var>F</var>, evfun)</code> wird der Funktion <var>F</var> die
 <code>evfun</code>-Eigenschaft gegeben.  Siehe auch die Funktion <code><a href="maxima_11.html#declare">declare</a></code>.
+
 Mit <code><a href="maxima_4.html#kill">kill</a></code>
-<code><a href="maxima_11.html#remove">remove</a></code>
+ oder <code><a href="maxima_11.html#remove">remove</a></code>
+ kann diese Eigenschaft wieder entfernt
 werden.  Siehe auch <code><a href="maxima_11.html#properties">properties</a></code>
+ f&uuml;r die Anzeige von Eigenschaften.
 </p>
 <p>Funktionen, die bereits die <code>evfun</code>-Eigenschaft besitzen, sind:
 </p>
@@ -943,6 +975,7 @@ werden.  Siehe auch <code><a href="maxima_11.html#properties">properties</a></co
 <dd><p>Standardwert: <code>false</code>
 </p>
 <p><code>infeval</code> bewirkt, dass die Funktion <code><a href="#ev">ev</a></code>
+ die Auswertung eines
 Ausdrucks solange wiederholt, bis dieser sich nicht mehr &auml;ndert.  Um zu
 verhindern, dass eine Variable in diesem Modus durch die Auswertung
 verschwindet, kann zum Beispiel f&uuml;r eine Variable <code>x</code> der Ausdruck
@@ -950,8 +983,9 @@ verschwindet, kann zum Beispiel f&uuml;r eine Variable <code>x</code> der Ausdru
 <code>ev(x, x=x+1, infeval)</code> f&uuml;hren in diesem Modus zu Endlosschleifen.
 </p>
 <p>Siehe auch die Auswertungsschalter <code><a href="#noeval">noeval</a></code>
-<code><a href="#eval">eval</a></code>.
-</p></dd></dl>
+ und <code><a href="#eval">eval</a></code>.
+</p>
+</dd></dl>
 
 <p><a name="noeval"></a>
 </p><dl>
@@ -959,12 +993,15 @@ verschwindet, kann zum Beispiel f&uuml;r eine Variable <code>x</code> der Ausdru
 <a name="IDX292"></a>
 </dt>
 <dd><p><code>noeval</code> unterdr&uuml;ckt die Auswertungsphase der Funktion <code><a href="#ev">ev</a></code>.
+
 Der Schalter kann im Zusammenhang mit anderen Auswertungsschaltern genutzt
 werden, um einen Ausdruck erneut zu vereinfachen, ohne diesen auszuwerten.
 </p>
 <p>Siehe auch die Optionsvariable <code><a href="#infeval">infeval</a></code>
+ und den Auswertungsschalter
 <code><a href="#eval">eval</a></code>.
-</p></dd></dl>
+</p>
+</dd></dl>
 
 <p><a name="nouns"></a>
 </p><dl>
@@ -973,12 +1010,15 @@ werden, um einen Ausdruck erneut zu vereinfachen, ohne diesen auszuwerten.
 </dt>
 <dd><p><code>nouns</code> ist ein Auswertungsschalter.  Wird dieser Schalter als eine Option
 der Funktion <code><a href="#ev">ev</a></code>
+ genutzt, werden alle Substantivformen, die in dem
 Ausdruck enthalten sind, in Verbformen umgewandelt und ausgewertet.
 </p>
 <p>Siehe auch die Eigenschaft <code><a href="maxima_6.html#noun">noun</a></code>
-<code><a href="maxima_6.html#nounify">nounify</a></code>
+ und die Funktionen <code><a href="maxima_6.html#nounify">nounify</a></code>
+ und
 <code><a href="maxima_6.html#verbify">verbify</a></code>.
-</p></dd></dl>
+</p>
+</dd></dl>
 
 <p><a name="pred"></a>
 </p><dl>
@@ -989,6 +1029,7 @@ Ausdruck enthalten sind, in Verbformen umgewandelt und ausgewertet.
 Aussagen zu <code>true</code> oder <code>false</code> ausgewertet.  Siehe die Funktion
 <code><a href="#ev">ev</a></code>.
 </p>
+
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) 1 &lt; 2;
@@ -1015,7 +1056,7 @@ Aussagen zu <code>true</code> oder <code>false</code> ausgewertet.  Siehe die Fu
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>Oktober, 11 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>April, 1 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

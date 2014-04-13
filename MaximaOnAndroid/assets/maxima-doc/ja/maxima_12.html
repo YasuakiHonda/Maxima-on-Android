@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2013年9月月4日 by texi2html 1.82
+<!-- Created on 2014年1月月14日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.31.0 Manual: 12. Plotting</title>
+<title>Maxima 5.32.1 Manual: 12. Plotting</title>
 
-<meta name="description" content="Maxima 5.31.0 Manual: 12. Plotting">
-<meta name="keywords" content="Maxima 5.31.0 Manual: 12. Plotting">
+<meta name="description" content="Maxima 5.32.1 Manual: 12. Plotting">
+<meta name="keywords" content="Maxima 5.32.1 Manual: 12. Plotting">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -223,12 +223,18 @@ div.categorybox
 <code>interface</code>は使用するプロットインターフェース名
 (gnuplotか, xmaxima, mgnuplot, gnuplot_pipes)です。
 </p>
-<p><code>maxout.interface</code>ファイルを使う場合、
-システム変数 <code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
-で指定されたディレクトリに生成します。
-場所は変更できます; そのためには、
-Maximaが新しいファイルを作ることができる有効なディレクトリを示す文字列を
-変数に割り当てます。
+<p>グラフィック形式ファイルでプロットを保存するのに使うことができるオプションがあります。
+それらの場合、ファイル <code>maxout.interface</code>が生成され、
+外部のプロットプログラムが結果を他のファイルに保存するためにそれを実行します;
+デフォルト名 <code>maxplot.format</code>を使います。ここで <code>format</code>は使われるフォーマットです。
+</p>
+<p><code>maxout.interface</code>と <code>maxplot.format</code>ファイル(もしくはオプションで与えられたプロット名)は、
+それらが使われる場合、システム変数 <code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
+が指定するディレクトリに生成されます。
+Maximaが新規ファルを生成できる有効なディレクトリを示す文字列を
+その変数(もしくは環境変数 MAXIMA_TEMPDIR)に割り当てることで、
+その場所は変更可能です。
+生成されたファイル名はプロットコマンドの出力として表示されます。
 </p>
 <p>プロットを生成した後でも、
 ファイル<code>maxout.interface</code>は、
@@ -237,7 +243,8 @@ Maximaが新しいファイルを作ることができる有効なディレク�
 問題の可能性のある元をファイルで調べることができます。
 </p>
 <p>この章で記述されたプロット関数と合わせて、
-パッケージ <a href="maxima_48.html#draw">draw</a>は他の機能を追加します。
+パッケージ <code><a href="maxima_48.html#draw">draw</a></code>
+は他の機能を追加します。
 いくつかのプロットオプションはどちらのプロット文脈でも同じ名前が付けられていますが、
 異なる構文を持つことに注意してください;
 もしこれらのオプションに関係した描画情報をアクセスしたいなら、
@@ -300,8 +307,9 @@ gnuplotパイプが関数 <code><a href="#gnuplot_005fclose">gnuplot_close</a></
 は
 既にスクリーン上に表示されたプロットを変更するのに使うことができます。
 </p>
-<p>このフォーマットはスクリーンへプロットするためだけに使うべきです;
-ファイルへのプロットには <code>gnuplot</code>フォーマットを使ったほうがいいです。
+<p>このフォーマットはスクリーンへプロットするためだけに使います;
+グラフィックファイルが生成される時はいつでも、フォーマットは自動的に <code>gnuplot</code>切り替えられ、グラフィックファイルを生成するのに必要なgnuplotコマンドは
+<code>maxout.gnuplot</code>に保存されます。
 </p>
 </li><li>
 値: <code>mgnuplot</code>
@@ -376,14 +384,7 @@ Maximaと Xmaximaの間の通信に使われているのと同じソケットを
 </p>
 <table><tr><td>&nbsp;</td><td><pre class="example">(%i1) contour_plot (x^2 + y^2, [x, -4, 4], [y, -4, 4])$
 </pre></td></tr></table>
-<img src="figures/contour1.gif" alt="figures/contour1">
-
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) F(x, y) := x^3 + y^2;
-                                   3    2
-(%o1)                  F(x, y) := x  + y
-</pre><pre class="example">(%i2) contour_plot (F, [u, -4, 4], [v, -4, 4])$
-</pre></td></tr></table>
-<img src="figures/contour2.gif" alt="figures/contour2">
+<img src="figures/plotting1.png" alt="figures/plotting1">
 
 <p><code>plot3d</code>が受け付ける任意のオプションを足すことができます;
 例えば、オプション <code><a href="#legend">legend</a></code>
@@ -395,7 +396,7 @@ Gnuplotはデフォルトで3つの高等線を示すように選びます。
               [legend,false],
               [gnuplot_preamble, &quot;set cntrparam levels 12&quot;])$
 </pre></td></tr></table>
-<img src="figures/contour3.gif" alt="figures/contour3">
+<img src="figures/plotting2.png" alt="figures/plotting2">
 
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
@@ -405,14 +406,12 @@ Gnuplotはデフォルトで3つの高等線を示すように選びます。
 </p><dl>
 <dt><a name="index-get_005fplot_005foption"></a><u>関数:</u> <b>get_plot_option</b><i> (<var>keyword</var>, <var>index</var>)</i></dt>
 <dd>
-<p><var>keyword</var>という名前を持つオプションの値を返します。
-オプションはグローバル変数 <code>plot_options</code>に保存されています。
-(訳注: <var>index</var>はオプションです。省略された場合、下記内容を含むリストを返します。)
+<p><var>keyword</var>と名付けられたオプションの、グローバル変数 <code>plot_options</code>に保存されている現在のデフォルト値を返します。
 indexに1を与えるとキーワード自身を返します;
 2を与えるとキーワードに続く一番目のパラメータを返す、という具合です。
 </p>
-<p><code><a href="#plot_005foptions">plot_options</a></code>
-や <code><a href="#set_005fplot_005foption">set_plot_option</a></code>
+<p><code><a href="#set_005fplot_005foption">set_plot_option</a></code>
+や <code><a href="#remove_005fplot_005foption">remove_plot_option</a></code>
 ,
 Plotting Optionの節も参照してください。
 </p>
@@ -439,10 +438,10 @@ Plotting Optionの節も参照してください。
 </p><dl>
 <dt><a name="index-gnuplot_005ffile_005fargs"></a><u>システム変数:</u> <b>gnuplot_file_args</b></dt>
 <dd>
-<p>プロットフォーマットが <code>gnuplot</code>でプロットコマンドがファイルにプロットを保存しようとした時、
+<p>グラフィックファイルが <code>gnuplot</code>で生成されようとする時、
 この変数は、ファイル名をgnuplotに渡す方法を指定するのに使われます。
 デフォルト値は &quot;~s&quot;です。それはファイル名を直接渡すことを意味します。
-もしファイル名の前にオプションを追加したいなら、 &quot;~s&quot;の前にオプションを加えてこの変数の値を変更します。
+この変数の中身は、 gnuplotプログラムに関してオプションを、&quot;~s&quot;の前にオプションを加えて加えることで変更可能です。
 </p>
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
@@ -454,22 +453,22 @@ Plotting Optionの節も参照してください。
 <dd>
 <p>この変数は、プロットフォーマットが <code>gnuplot</code>の時 gnuplotプログラムに渡す引数をパースするのに使います。
 デフォルト値は &quot;-persist ~s&quot;です。
-ここで &quot;~s&quot;は gnuplotコマンドが書かれるテンポラリのファイル名(通常 &quot;maxout.gnuplot&quot;)に置き換えられます。
-オプション <code>-persist</code>は ファイルの中のコマンドが実行された後、プロットが表示されたウィンドウを閉じずに gnuplotを終了させます。
+ここで &quot;~s&quot;は gnuplotコマンドが書かれるファイル名(通常 &quot;maxout.gnuplot&quot;)に置き換えられます。
+オプション <code>-persist</code>は ファイルの中のコマンドが実行された後、プロットを表示しているウィンドウを閉じずに gnuplotを終了させます。
 </p>
-<p>もし gnuplotに詳しいなら、この変数の値を替えたいかもしれません。
-例えば、もしこうすれば:
+<p>gnuplotに詳しい人たちはこの変数の値を替えたいかもしれません。
+例えば、それを以下のように変えることで:
 </p>
 <table><tr><td>&nbsp;</td><td><pre class="example">(%i1) gnuplot_view_args: &quot;~s -&quot;$
 </pre></td></tr></table>
 
 <p>ファイルの中のコマンドが実行された後、gnuplotは閉じません;
-なので、プロットを含むウィンドウはもちろん、プロットを修正するための他の追加のコマンドを発行できるgnuplot対話シェルも残ります。
+なので、プロットを含むウィンドウはもちろん、プロットを修正するため他のコマンドを発行できるgnuplot対話シェルも残ります。
 </p>
 <p>4.6.3より古い gnuplotの Windowsバージョンでは、  &quot;~s -&quot;と &quot;-persist ~s&quot;の振る舞いは反対でした;
 その名の通り &quot;-persist ~s&quot;はプロットウィンドウと gnuplot対話シェルを残す一方で、
 &quot;~s -&quot;は プロットウィンドウを残しながら gnuplotシェルを閉じました。
-なので、もし Windowsで古い gnuplotバージョンを使っているなら、 <code>gnuplot_view_args</code>の値を調整しなければならかいかもしれません。
+なので、もし Windowsで古い gnuplotバージョンを使っているなら、 <code>gnuplot_view_args</code>の値を調整する必要があるかもしれません。
 </p>
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
@@ -495,17 +494,63 @@ Plotting Optionの節も参照してください。
 <p><code>load(implicit_plot)</code>はこの関数をロードします。
 </p>
 <p>例:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) implicit_plot (x^2 = y^3 - 3*y + 1, [x, -4, 4], [y, -4, 4],
- [gnuplot_preamble, &quot;set zeroaxis&quot;]);
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(implicit_plot)$
+(%i2) implicit_plot (x^2 = y^3 - 3*y + 1, [x, -4, 4], [y, -4, 4])$
 </pre></td></tr></table>
 
-<img src="figures/implicit_plot.gif" alt="figures/implicit_plot">
+<img src="figures/plotting3.png" alt="figures/plotting3">
 
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
  &middot;<a href="maxima_98.html#Category_003a-Share-packages">Share packages</a>
  &middot;<a href="maxima_98.html#Category_003a-Package-implicit_005fplot">Package implicit_plot</a>
 </div></p>
 </dd></dl>
+
+<p><a name="julia"></a>
+<a name="Item_003a-julia"></a>
+</p><dl>
+<dt><a name="index-julia"></a><u>関数:</u> <b>julia</b><i> (<var>x</var>, <var>y</var>, ...<var>options</var>...)</i></dt>
+<dd>
+<p>複素数 (<var>x</var> + i <var>y</var>)に関する
+Julia集合の表現のグラフィックスファイルを生成します。
+2つの必須パラメータ <var>x</var>と <var>y</var>は実数でなければいけません。
+このプログラムは追加パッケージ <code>dynamics</code>の一部ですが、そのパッケージはロードする必要はなく、
+juliaが使われる初回に自動的にロードされます。
+</p>
+<p>グリッドのそれぞれのピクセルは、
+その点からシュッパウして原点を中心とした半径2の収束円からはみ出るまでの繰り返しの回数に対応した色が与えられます。
+グリッドのピクセルの数は <code><a href="#grid">grid</a></code>
+プロットオプションが制御します(デフォルトは30掛ける30)。
+繰り返しの最大数はオプション <code><a href="#iterations">iterations</a></code>
+で設定されます。
+プログラムは自身のデフォルトパレットを使います: マゼンダ、紫、青、シアン、緑、黄、赤、茶、黒。
+しかしコマンドで明示的に <code><a href="#palette">palette</a></code>
+オプションを加えることで変更できます。
+</p>
+<p>使われるデフォルトの領域は、両方の軸で-2から2までで、 <code>x</code>と <code>y</code>オプションを使って変えられます。
+オプション <code><a href="#yx_005fratio">yx_ratio</a></code>
+を使うか、オプション <code><a href="#same_005fxy">same_xy</a></code>
+をディセーブルするかどちらかをしない限り
+デフォルトでは2つの軸は同じスケールで表示されます。
+他の一般的なプロットオプションも受け入れられます。
+</p>
+<p>以下の例は、数-0.55 + i0.6に関するJulia集合の領域を表示します。
+オプション <code><a href="#color_005fbar_005ftics">color_bar_tics</a></code>
+は Gnuplotが色ボックスを40まで調整するのを抑制するのに使われています。
+この場合、最大36回の繰り返しに対応する点は黒ではないです。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) julia (-0.55, 0.6, [iterations, 36], [x, -0.3, 0.2], [y, 0.3, 0.9],
+      [grid, 400, 400], [color_bar_tics, 0, 6, 36])$
+</pre></td></tr></table>
+
+<img src="figures/plotting4.png" alt="figures/plotting4">
+
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-dynamics">Package dynamics</a>
+ &middot;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p>
+</dd></dl>
+
 
 <p><a name="make_005ftransform"></a>
 <a name="Item_003a-make_005ftransform"></a>
@@ -527,6 +572,50 @@ Plotting Optionの節も参照してください。
 </p>
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
+
+<p><a name="mandelbrot"></a>
+<a name="Item_003a-mandelbrot"></a>
+</p><dl>
+<dt><a name="index-mandelbrot"></a><u>関数:</u> <b>mandelbrot</b><i> (<var>options</var>)</i></dt>
+<dd>
+<p>Mandelbrot集合の表現のグラフィックスファイルを生成します。
+このプログラムは追加パッケージ <code>dynamics</code>の一部ですが、そのパッケージはロードする必要はなく、
+juliaが使われる初回に自動的にロードされます。
+</p>
+<p>このプログラムは引数なしに呼び出すことができます。その場合、
+点毎にデフォルト値の9回の繰り返し、
+<code><a href="#grid">grid</a></code>
+プロットオプション(デフォルトは30掛ける30)で設定された寸法のグリッド、
+両方の軸で-2から2まで拡張した領域を使います。
+オプションは plot2dが受け付けるのと同じものすべてと、加えて繰り返し数を変えるオプション <code><a href="#iterations">iterations</a></code>
+です。
+</p>
+<p>グリッドのそれぞれのピクセルは、
+その点からシュッパウして原点を中心とした半径2の収束円からはみ出るまでの繰り返しの回数に対応した色が与えられます。
+グリッドのピクセルの数は <code><a href="#grid">grid</a></code>
+プロットオプションが制御します(デフォルトは30掛ける30)。
+繰り返しの最大数はオプション <code><a href="#iterations">iterations</a></code>
+で設定されます。
+プログラムは自身のデフォルトパレットを使います: マゼンダ、紫、青、シアン、緑、黄、赤、茶、黒。
+しかしコマンドで明示的に <code><a href="#palette">palette</a></code>
+オプションを加えることで変更できます。
+オプション <code><a href="#yx_005fratio">yx_ratio</a></code>
+を使うか、オプション <code><a href="#same_005fxy">same_xy</a></code>
+をディセーブルするかどちらかをしない限り
+デフォルトでは2つの軸は同じスケールで表示されます。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) mandelbrot ([iterations, 30], [x, -2, 1], [y, -1.2, 1.2], [grid,400,400])$
+</pre></td></tr></table>
+
+<img src="figures/plotting5.png" alt="figures/plotting5">
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-dynamics">Package dynamics</a>
+ &middot;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p>
+</dd></dl>
+
 
 <p><a name="polar_005fto_005fxy"></a>
 <a name="Item_003a-polar_005fto_005fxy"></a>
@@ -552,7 +641,7 @@ Plotting Optionの節も参照してください。
 <var>plot_n</var>は式か関数名、もしくは以下のいずれかの形式のリストです:
 </p>
 <p><code>[discrete, [<var>x1</var>, ..., <var>xn</var>], [<var>y1</var>, ..., <var>yn</var>]]</code>,
-<code>[discrete, [[<var>x1</var>, <var>y1</var>], ..., [<var>xn</var>, ..., <var>yn</var>]]</code>, 
+<code>[discrete, [[<var>x1</var>, <var>y1</var>], ..., [<var>xn</var>, ..., <var>yn</var>]]]</code>, 
 または <code>[parametric, <var>x_expr</var>, <var>y_expr</var>, <var>t_range</var>]</code>。
 </p>
 <p>１つもしくは複数の式を１変数か1パラメータの関数としてプロット表示します。
@@ -573,7 +662,8 @@ Plotting Optionの節も参照してください。
 1番目のリストはプロットされる点のx座標として、
 2番目のリストはy座標として解釈されます。
 もし <var>discrete</var>キーワードの後、リストが1つだけ与えられたら、
-リスト上のそれぞれの要素は点のxとy座標に対応する2つの値を持つリストでなければいけません。
+それは、リスト上のそれぞれの要素は点のxとy座標に対応する2つの値を持つリストか、
+x軸上の連続する整数値(1,2,3,...)にプロットされる数値の数列を受け付けます。
 </p>
 <p>パラメトリックプロットはキーワード <var>parametric</var>で始まり、
 式か関数名2つとパラメータの範囲を持つリストで定義されます。
@@ -610,32 +700,41 @@ Plotting Optionの節も参照してください。
 <table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d (sin(x), [x, -%pi, %pi])$
 </pre></td></tr></table>
 
-<img src="figures/plotting2.gif" alt="figures/plotting2">
+<img src="figures/plotting6.png" alt="figures/plotting6">
 
 <p>もし関数の増大が速すぎるなら
-yオプションを使って垂直軸の値を制限する必要があるかもしれません:
+<code><a href="#y">y</a></code>
+オプションを使って垂直軸の値を制限する必要があるかもしれません:
 </p>
 <table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d (sec(x), [x, -2, 2], [y, -20, 20])$
 plot2d: some values were clipped.
 </pre></td></tr></table>
 
-<img src="figures/plotting3.gif" alt="figures/plotting3">
+<img src="figures/plotting7.png" alt="figures/plotting7">
 
-<p>プロットの外観は使うプロットプログラム次第で異なるかもしれません。
-プロットボックスが使用不可能になっている時 Xmaximaは矢印を使って軸をプロットします:
+<p>プロットボックスがディセーブルの時は軸のためのラベルが生成荒れません。
+その場合、<code><a href="#xlabel">xlabel</a></code>
+と <code><a href="#ylabel">ylabel</a></code>
+を使って軸の名前を設定する代わりに
+もっと自由度の高いオプション <code><a href="#label">label</a></code>
+を使う方がいいです。
+オプション <code><a href="#yx_005fratio">yx_ratio</a></code>
+は、プロットの形のデフォルトである長方形を変更するのに使います;
+この例ではプロットは平方形を埋めます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d ( x^2-1, [x, -3, 3], [y, -2, 10],
-                [box, false], [plot_format, xmaxima])$
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d ( x^2 - 1, [x, -3, 3], [box, false], grid2d, [yx_ratio, 1],
+      [axes, solid], [xtics, -2, 4, 2], [ytics, 2, 2, 6],
+      [label, [&quot;x&quot;, 2.9, -0.3], [&quot;x^2-1&quot;, 0.1, 8]], [title, &quot;A parabola&quot;])$
 </pre></td></tr></table>
 
-<img src="figures/plotting1.gif" alt="figures/plotting1">
+<img src="figures/plotting8.png" alt="figures/plotting8">
 
-<p>対数プロットの例:
+<p>垂直軸方向の対数プロットの例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i11) plot2d (exp(3*s), [s, -2, 2], [logy])$
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d (exp(3*s), [s, -2, 2], logy)$
 </pre></td></tr></table>
 
-<img src="figures/plotting4.gif" alt="figures/plotting4">
+<img src="figures/plotting9.png" alt="figures/plotting9">
 
 <p>関数を名前でプロット:
 </p>
@@ -646,57 +745,41 @@ $g
 (%i3) plot2d ([F, G, H], [u, -1, 1], [y, -1.5, 1.5])$
 </pre></td></tr></table>
 
-<img src="figures/plotting5.gif" alt="figures/plotting5">
+<img src="figures/plotting10.png" alt="figures/plotting10">
 
 <p>パラメトリックに定義されたバタフライカーブのプロット:
 </p>
 <table><tr><td>&nbsp;</td><td><pre class="example">(%i1) r: (exp(cos(t))-2*cos(4*t)-sin(t/12)^5)$
-</pre><pre class="example">(%i2) plot2d([parametric, r*sin(t), r*cos(t),
-       [t, -8*%pi, 8*%pi], [nticks, 2000]])$
+(%i2) plot2d([parametric, r*sin(t), r*cos(t), [t, -8*%pi, 8*%pi]])$
 </pre></td></tr></table>
 
-<img src="figures/plotting6.gif" alt="figures/plotting6">
+<img src="figures/plotting11.png" alt="figures/plotting11">
 
-<p>7点だけでプロットする時の2回転「円」:
+<p>パラメトリック表現を使った円を-|x|と合わせてプロット。
+円は、もし2つの軸のスケールが同じなら、円のように見えるだけのものです。オプション <code><a href="#same_005fxy">same_xy</a></code>
+で指定します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d ([parametric, cos(t), sin(t),
-        [t, -2*%pi, 2*%pi], [nticks, 8]])$
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d([[parametric, cos(t), sin(t), [t,0,2*%pi]], -abs(x)],
+         [x, -sqrt(2), sqrt(2)], same_xy)$
 </pre></td></tr></table>
 
-<img src="figures/plotting7.gif" alt="figures/plotting7">
+<img src="figures/plotting12.png" alt="figures/plotting12">
 
-<p>円のパラメトリック表現を使ったよくある関数のプロット。
-円を丸く楕円のように変形しないように
-プロットのサイズは xとyオプションで調整されています。
-これらの値はこのプロットを生成するのに使った Postscript端末ではうまく機能します;
-あなたはあなたのスクリーンのために値を調整しなければいけないかもしれません。
+<p>0から9の間の200個の乱数のプロット:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d([[parametric, cos(t), sin(t),
-        [t,0,2*%pi], [nticks, 80]],
-        abs(x)], [x,-2,2], [y, -1.5, 1.5])$
-plot2d: some values were clipped.
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d ([discrete, makelist ( random(10), 200)])$
 </pre></td></tr></table>
 
-<img src="figures/plotting8.gif" alt="figures/plotting8">
+<img src="figures/plotting13.png" alt="figures/plotting13">
 
 <p>x座標, y座標を別々に定義した点の離散集合のプロット:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d ([discrete, [10, 20, 30, 40, 50],
-                   [.6, .9, 1.1, 1.3, 1.4]])$
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d ([discrete, makelist(i*%pi, i, 1, 5), [.6, .9, 0.2, 1.3, 1]])$
 </pre></td></tr></table>
 
-<img src="figures/plotting9.gif" alt="figures/plotting9">
+<img src="figures/plotting14.png" alt="figures/plotting14">
 
-<p>前の例で示された同じ点ですが、それぞれの点を別々に定義し点を繋ぐ線をなくしました。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d([discrete, [[10, .6], [20, .9], [30, 1.1],
-                   [40, 1.3], [50, 1.4]]],
-                  [style, points])$
-</pre></td></tr></table>
-
-<img src="figures/plotting10.gif" alt="figures/plotting10">
-
-<p>この例では、3つの列を持つテーブルがファイル&rdquo;data.txt&rdquo;に保存され、
+<p>次の例では、3つの列を持つテーブルがファイル&rdquo;data.txt&rdquo;に保存され、
 読み込まれ、2番目、3番目の列は2つの軸上にプロットされます:
 </p>
 <table><tr><td>&nbsp;</td><td><pre class="example">(%i1) with_stdout (&quot;data.txt&quot;, for x:0 thru 10 do
@@ -706,9 +789,9 @@ plot2d: some values were clipped.
   [style,points], [point_type,diamond], [color,red])$
 </pre></td></tr></table>
 
-<img src="figures/plotting11.gif" alt="figures/plotting11">
+<img src="figures/plotting15.png" alt="figures/plotting15">
 
-<p>実験データ点をデータを予測する理論的関数と一緒にプロット:
+<p>離散データ点をデータを予測する連続関数と一緒にプロット:
 </p>
 <table><tr><td>&nbsp;</td><td><pre class="example">(%i1) xy: [[10, .6], [20, .9], [30, 1.1], [40, 1.3], [50, 1.4]]$
 </pre><pre class="example">(%i2) plot2d([[discrete, xy], 2*%pi*sqrt(l/980)], [l,0,50],
@@ -719,7 +802,7 @@ plot2d: some values were clipped.
         [ylabel, &quot;period (s)&quot;])$
 </pre></td></tr></table>
 
-<img src="figures/plotting12.gif" alt="figures/plotting12">
+<img src="figures/plotting16.png" alt="figures/plotting16">
 
 <p>プロットオプションに関する節も参照してください。
 </p>
@@ -739,52 +822,45 @@ plot2d: some values were clipped.
 </p>
 <p><strong>例:</strong>
 </p>
-<p>よくある関数のプロット:
+<p>2変数関数のプロット:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d (2^(-u^2 + v^2), [u, -3, 3], [v, -2, 2]);
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d (u^2 - v^2, [u, -2, 2], [v, -3, 3], [grid, 100, 100],
+        [mesh_lines_color,false])$
 </pre></td></tr></table>
 
-<img src="figures/plotting13.gif" alt="figures/plotting13">
+<img src="figures/plotting17.png" alt="figures/plotting17">
 
 <p>無限大に発散する関数を制限するための
-zオプションの使用(この場合、関数はxとy軸上でマイナス無限だい);
+<code><a href="#z">z</a></code>
+オプションの使用(この場合、関数はxとy軸上でマイナス無限だい);
 これは線のみ陰影なしでプロットする仕方も示します。
 </p>
 <table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d ( log ( x^2*y^2 ), [x, -2, 2], [y, -2, 2], [z, -8, 4],
-         [palette, false], [color, magenta, blue])$
+         [palette, false], [color, magenta])$
 </pre></td></tr></table>
 
-<img src="figures/plotting14.gif" alt="figures/plotting14">
+<img src="figures/plotting18.png" alt="figures/plotting18">
 
 <p>zの無限大はいかなる漸近線上にも落ちないグリッドを選ぶことによっても避けることができます;
-この例は事前に定義されたパレットの1つ、この場合4番目のものを選択する仕方も示します:
+次の例はパレットの変更の仕方と z変数の値を使って色を関連づけるカラーバーの表示の仕方も示します:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d (log (x^2*y^2), [x, -2, 2], [y, -2, 2],
-   [grid, 29, 29],
-   [palette, get_plot_option(palette,5)])$
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d (log (x^2*y^2), [x, -2, 2], [y, -2, 2],[grid, 29, 29],
+       [palette, [gradient, red, orange, yellow, green]], color_bar,
+       [xtics, 1], [ytics, 1], [ztics, 4],[color_bar_tics, 4])$
 </pre></td></tr></table>
 
-<img src="figures/plotting15.gif" alt="figures/plotting15">
+<img src="figures/plotting19.png" alt="figures/plotting19">
 
-<p>同じ領域を共有する同じプロットでの2つの表面;
-gnuplotでは2つの表面は同じパレットを使用します:
+<p>同一プロットでの2つの表面。
+表面の1つに特化した範囲は共通のリストの中に式と範囲を置くことで与えることができます;
+この例ではそれぞれの表面は全体のプロットの領域と異なる領域で定義されています。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d ([2^(-x^2 + y^2), 4*sin(3*(x^2+y^2))/(x^2+y^2),
-        [x, -3, 3], [y, -2, 2]])$
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d ([[-3*x - y, [x, -2, 2], [y, -2, 2]],
+   4*sin(3*(x^2 + y^2))/(x^2 + y^2), [x, -3, 3], [y, -3, 3]],
+   [x, -4, 4], [y, -4, 4])$
 </pre></td></tr></table>
 
-<img src="figures/plotting16.gif" alt="figures/plotting16">
-
-<p>異なる領域を持つ同じ2つの表面;
-xmaximaでは、
-それぞれの表面はオプションパレットで定義されたリストから選ばれた異なるパレットを使います:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d ( [[2^(-x^2 + y^2),[x,-2,2],[y,-2,2]],
-   4*sin(3*(x^2+y^2))/(x^2+y^2),
-   [x, -3, 3], [y, -2, 2]], [plot_format,xmaxima])$
-</pre></td></tr></table>
-
-<img src="figures/plotting17.gif" alt="figures/plotting17">
+<img src="figures/plotting20.png" alt="figures/plotting20">
 
 <p>パラメトリックに定義されたKleinの壷のプロット:
 </p>
@@ -792,73 +868,68 @@ xmaximaでは、
 (%i2) expr_2: -5*sin(x)*(cos(x/2)*cos(y) + sin(x/2)*sin(2*y) + 3.0)$
 (%i3) expr_3: 5*(-sin(x/2)*cos(y) + cos(x/2)*sin(2*y))$
 </pre><pre class="example">(%i4) plot3d ([expr_1, expr_2, expr_3], [x, -%pi, %pi],
-        [y, -%pi, %pi], [grid, 40, 40])$
+        [y, -%pi, %pi], [grid, 50, 50])$
 </pre></td></tr></table>
 
-<img src="figures/plotting18.gif" alt="figures/plotting18">
+<img src="figures/plotting21.png" alt="figures/plotting21">
 
 <p>球座標から直交座標に変換するのにあらかじめ定義された変換
-<code>spherical_to_xyz</code>を使った球調和のプロット。
+<code>spherical_to_xyz</code>を使った「球調和」関数のプロット。
 <code><a href="#spherical_005fto_005fxyz">spherical_to_xyz</a></code>
 に関するドキュメンテーションを参照してください。
 </p>
 <table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d (sin(2*theta)*cos(phi), [theta, 0, %pi],
         [phi, 0, 2*%pi],
-        [transform_xy, spherical_to_xyz], [grid,30,60])$
+        [transform_xy, spherical_to_xyz], [grid,30,60],
+   [legend,false])$
 </pre></td></tr></table>
 
-<img src="figures/plotting19.gif" alt="figures/plotting19">
+<img src="figures/plotting22.png" alt="figures/plotting22">
 
 <p>円筒座標から直交座標に変換するのにあらかじめ定義された変換
 <code>polar_to_xy</code>を使った球面調和関数のプロット。
 <code><a href="#polar_005fto_005fxy">polar_to_xy</a></code>
 に関するドキュメンテーションを参照してください。
-この例は境界ボックスと凡例を消去する仕方も示します。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d (r^.33*cos(th/3), [r, 0, 1], [th, 0, 6*%pi],
-   [grid, 12, 80],
-   [transform_xy, polar_to_xy], [box, false],
-   [legend,false])$
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d (r^.33*cos(th/3), [r, 0, 1], [th, 0, 6*%pi], [box, false],
+   [grid, 12, 80], [transform_xy, polar_to_xy], [legend, false])$
 </pre></td></tr></table>
 
-<img src="figures/plotting20.gif" alt="figures/plotting20">
+<img src="figures/plotting23.png" alt="figures/plotting23">
 
 <p>球座標から直交座標への変換を使っての球のプロット。
-xmaximaでは球の対称形を維持するように3つの軸は同じ比でスケールされます。
-同一色で異なる陰影のパレットが使われます:
+同じ比率でスケールされた3軸を得るのにオプション <code><a href="#same_005fxyz">same_xyz</a></code>
+を使います。
+Gnuplotが表面を正確に表示しなくなるので、変換を使う時はメッシュ線を消すのは都合良くありません。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d ( 5, [theta, 0, %pi], [phi, 0, 2*%pi],
-   [plot_format,xmaxima],
-   [transform_xy, spherical_to_xyz],
-   [palette,[value,0.65,0.7,0.1,0.9]])$
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d ( 5, [theta, 0, %pi], [phi, 0, 2*%pi], same_xyz,
+  [transform_xy, spherical_to_xyz], [mesh_lines_color,blue],
+  [palette,[gradient,&quot;#1b1b4e&quot;, &quot;#8c8cf8&quot;]], [legend, false])$
 </pre></td></tr></table>
 
-<img src="figures/plotting21.gif" alt="figures/plotting21">
+<img src="figures/plotting24.png" alt="figures/plotting24">
 
 <p>行列を使った2変数関数の定義。
 関数の定義の中のシングルクォートに注意してください。
 行列が整数添字を要求する状況に実際に至る時
 plot3dが失敗しないためのものです。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) M: matrix([1, 2, 3, 4], [1, 2, 3, 2], [1, 2, 3, 4],
-          [1, 2, 3, 3])$
-</pre><pre class="example">(%i2) f(x, y) := float('M [round(x), round(y)])$
-</pre><pre class="example">(%i3) plot3d (f(x,y), [x, 1, 4], [y, 1, 4], [grid, 4, 4])$
-apply: subscript must be an integer; found: round(x)
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) M: matrix([1, 2, 3, 4], [1, 2, 3, 2], [1, 2, 3, 4], [1, 2, 3, 3])$
+(%i2) f(x, y) := float('M [round(x), round(y)])$
+</pre><pre class="example">(%i3) plot3d (f(x,y), [x, 1, 4], [y, 1, 4], [grid, 3, 3], [legend, false])$
 </pre></td></tr></table>
 
-<img src="figures/plotting22.gif" alt="figures/plotting22">
+<img src="figures/plotting25.png" alt="figures/plotting25">
 
 <p>elevationを零に設定することで表面を地図として見ることができます。
 その地図はそれぞれの色は違ったレベルを表現します。
-オプション<code><a href="#colorbox">colorbox</a></code>
-は色とレベルの対応を示すのに使われます。
-メッシュ線を使用不可にし色が見やすいようにしています。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d (cos (-x^2 + y^3/4), [x, -4, 4], [y, -4, 4],
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d (cos (-x^2 + y^3/4), [x, -4, 4], [y, -4, 4], [zlabel, &quot;&quot;],
         [mesh_lines_color, false], [elevation, 0], [azimuth, 0],
-        [colorbox, true], [grid, 150, 150])$
+        color_bar, [grid, 80, 80], [ztics, false], [color_bar_tics, 1])$
 </pre></td></tr></table>
 
-<img src="figures/plotting23.gif" alt="figures/plotting23">
+<img src="figures/plotting26.png" alt="figures/plotting26">
 
 <p>プロットオプションについての節も参照してください。
 </p>
@@ -871,40 +942,45 @@ apply: subscript must be an integer; found: round(x)
 </p><dl>
 <dt><a name="index-plot_005foptions"></a><u>システム変数:</u> <b>plot_options</b></dt>
 <dd>
-<p>このリストの要素はプロットのデフォルトオプションを指定します。
-<code><a href="#plot2d">plot2d</a></code>
-か <code><a href="#plot3d">plot3d</a></code>
-がコールされる時もしオプションが指定されたら、
-その値はデフォルトオプションより優先されます。
-そうでないなら　<code>plot_options</code>の中の値が使われます。
-デフォルトオプションは <code>set_plot_option</code>を使って割り当てられます。
-プロットコマンドそれぞれに特化したローカルオプションがあり、
-それらはグローバルオプションのこのリストには含まれません。
-</p>
-<p><code>plot_options</code>のそれぞれの要素は２つ以上の項目のリストです。
-最初の項目はオプション名で残りはオプションに割り当てられる値です。
-いくつかの場合、割り当てられた値はリストであり複数の項目からなることがあります。
-</p>
-<p><code><a href="#set_005fplot_005foption">set_plot_option</a></code>
-と <code><a href="#get_005fplot_005foption">get_plot_option</a></code>
-,
-Plottting Optionsの節も参照してください。
+<p>このオプションは古いバージョンとの互換性のために残されていますが、使用は勧めません。
+グローバルなプロットオプションを設定したり、現在の値を見たり、オプションを削除するには、
+<code><a href="#set_005fplot_005foption">set_plot_option</a></code>
+や <code><a href="#get_005fplot_005foption">get_plot_option</a></code>
+、 <code><a href="#remove_005fplot_005foption">remove_plot_option</a></code>.
+を使ってください。
 </p>
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
 
+<p><a name="remove_005fplot_005foption"></a>
+<a name="Item_003a-remove_005fplot_005foption"></a>
+</p><dl>
+<dt><a name="index-remove_005fplot_005foption"></a><u>Function:</u> <b>remove_plot_option</b><i> (<var>name</var>)</i></dt>
+<dd>
+<p>オプションのデフォルト値を削除します。
+オプション名を与えなければいけません。
+</p>
+<p><code><a href="#set_005fplot_005foption">set_plot_option</a></code>
+と<code><a href="#get_005fplot_005foption">get_plot_option</a></code>
+,
+Plotting Optionsの節も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
 <p><a name="set_005fplot_005foption"></a>
 <a name="Item_003a-set_005fplot_005foption"></a>
 </p><dl>
 <dt><a name="index-set_005fplot_005foption"></a><u>関数:</u> <b>set_plot_option</b><i> (<var>option</var>)</i></dt>
 <dd>
-<p>プロットオプションの節にリストされているオプションのほとんどを受け付け
-それらをグローバル変数 <code>plot_options</code>に保存します。
+<p>プロットオプションの節にリストされているオプションのすべてを受け付け、
+プロットコマンドでの使用のためそれらを保存します。
+プロットコマンドそれぞれで設定されるオプションの値は優先順位を持っていますが、
+そららのオプションが与えられないなら、この関数で設定されたデフォルト値が使われます。
 </p>
-<p><code>set_plot_option</code>は引数を評価し、
-(与えられたオプションを変更した後、)完全なリスト <code>plot_options</code>を返します。
+<p><code>set_plot_option</code>は引数を評価し、(与えられたオプションを変更した後、)全体のリストを返します。
+もし引数なしで呼び出されたら、単に現在のデフォルトオプションのリストを表示します。
 </p>
-<p><code><a href="#plot_005foptions">plot_options</a></code>
+<p><code><a href="#remove_005fplot_005foption">remove_plot_option</a></code>
 と<code><a href="#get_005fplot_005foption">get_plot_option</a></code>
 ,
 Plotting Optionsの節も参照してください。
@@ -915,19 +991,13 @@ Plotting Optionsの節も参照してください。
 値の変更。
 </p>
 <table><tr><td>&nbsp;</td><td><pre class="example">(%i1) set_plot_option ([grid, 30, 40]);
-(%o1) [[t, - 3, 3], [grid, 30, 40], [transform_xy, false], 
-[run_viewer, true], [axes, true], [plot_format, gnuplot_pipes], 
+(%o1) [[plot_format, gnuplot_pipes], [grid, 30, 40], 
+[run_viewer, true], [axes, true], [nticks, 29], [adapt_depth, 5], 
 [color, blue, red, green, magenta, black, cyan], 
-[point_type, bullet, circle, plus, times, asterisk, box, square, 
-triangle, delta, wedge, nabla, diamond, lozenge], 
-[palette, [hue, 0.25, 0.7, 0.8, 0.5], 
-[hue, 0.65, 0.8, 0.9, 0.55], [hue, 0.55, 0.8, 0.9, 0.4], 
-[hue, 0.95, 0.7, 0.8, 0.5]], [gnuplot_term, default], 
-[gnuplot_out_file, false], [nticks, 29], [adapt_depth, 5], 
-[gnuplot_preamble, ], [gnuplot_default_term_command, 
-set term pop], [gnuplot_dumb_term_command, set term dumb 79 22], 
-[gnuplot_ps_term_command, set size 1.5, 1.5;set term postscript ¥
-eps enhanced color solid 24], [plot_realpart, false]]
+[point_type, bullet, box, triangle, plus, times, asterisk], 
+[palette, [gradient, green, cyan, blue, violet], 
+[gradient, magenta, violet, blue, cyan, green, yellow, orange, 
+red, brown, black]], [gnuplot_preamble, ], [gnuplot_term, default]]
 </pre></td></tr></table>
 
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
@@ -971,15 +1041,9 @@ eps enhanced color solid 24], [plot_realpart, false]]
 <h2 class="section">12.4 Plotting Options</h2>
 
 <p>すべてのオプションは、この節のキーワードの1つで始まり1つ以上の値が続くリストで構成されます。
-オプションのほとんどはどのプロットコマンド
-(<code><a href="#plot2d">plot2d</a></code>
-, <code><a href="#plot3d">plot3d</a></code>
-, <code><a href="#contour_005fplot">contour_plot</a></code>
-, <code><a href="#implicit_005fplot">implicit_plot</a></code>
-)でも、
-また関数 <code><a href="#set_005fplot_005foption">set_plot_option</a></code>
-の中でも使うことができます;
-例外は以下のリストの中で明記されます。
+以下のリストで指摘されるように、オプションのいくつかは違うプロットコマンドで違う効果をを持ちます。
+あり得る値としてtrueかfalseを受け付けるオプションは、単にそれらの名前を書くことでtrueを設定できます。
+例えば、オプションとしてlogxとタイプすることは[logx, true]と書くことと等価です。
 </p>
 <p><a name="adapt_005fdepth"></a>
 <a name="Item_003a-adapt_005fdepth"></a>
@@ -998,11 +1062,11 @@ eps enhanced color solid 24], [plot_realpart, false]]
 <dt><a name="index-axes"></a><u>プロットオプション:</u> <b>axes</b><i> [axes, <var>symbol</var>]</i></dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
-<p>ここで <var>symbol</var>は <code>true</code>, <code>false</code>, <code>x</code>, <code>y</code>のいずれかです。
+<p>ここで <var>symbol</var>は <code>true</code>, <code>false</code>, <code>x</code>, <code>y</code>, <code>solid</code>のいずれかです。
 もし <code>false</code>なら軸は表示されません;
 もし <code>x</code>か <code>y</code>に等しいならxかy軸のみが表示され、
-<code>true</code>に等しいなら両方の軸が表示されます。
-このオプションは plot2dと implicit_plotだけが使います。
+<code>true</code>に等しいなら両方の軸が表示され、 <code>solid</code>は2つの軸を、デフォルトの破線ではなく実線で表示します。
+このオプションは 3次元プロットでは効果も持ちません。
 </p>
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
@@ -1015,9 +1079,10 @@ eps enhanced color solid 24], [plot_realpart, false]]
 </p>
 <p>plot3dプロットは、
 plot2dと同じように水平軸と垂直軸を表す x軸と y軸と
-紙から垂直に立つ z軸をスタート地点に考えることができます。
-その後、z軸を x軸の回りに <code>elevation</code>に等しい角度だけ回転し、
-さらに xy平面を新しい z軸の回りに角度 <code>azimuth</code>だけ回転します。
+スクリーンから向かって来る z軸をスタート地点に考えることができます。
+その後、z軸を x軸の回りに <code><a href="#elevation">elevation</a></code>
+に等しい角度だけ回転し、
+さらに 新しい xy平面を新しい z軸の回りに角度 <code>azimuth</code>だけ回転します。
 このオプションは azimuthに関する値を単位、度で設定します。
 </p>
 <p><code><a href="#elevation">elevation</a></code>
@@ -1045,38 +1110,44 @@ plot2dと同じように水平軸と垂直軸を表す x軸と y軸と
 <dd><p>デフォルト値: <code>blue</code>, <code>red</code>, <code>green</code>, <code>magenta</code>,
 <code>black</code>, <code>cyan</code>
 </p>
-<p><code><a href="#plot2d">plot2d</a></code>
-と <code><a href="#implicit_005fplot">implicit_plot</a></code>
-では様々な曲線の色を定義します。
+<p>2dプロットでは、これは様々な曲線の色を定義します。
 <code><a href="#plot3d">plot3d</a></code>
-では、パレットが使われないとき表面のメッシュ線の色を定義します;
-表面の片方の側面は色 <var>color_1</var>で、逆の側面は
-<var>color_2</var>(か もし1つの色しかないなら同じ色)です。
+では、パレットが使われないとき表面のメッシュ線の色を定義します。
 </p>
 <p>もし色よりも曲線や表面が多いなら色は順に繰り返されます。
-gnuplotを使う時、色は <code>blue</code>, <code>red</code>, <code>green</code>, <code>magenta</code>,
-<code>black</code>, <code>cyan</code>です;
-xmaximaでは色はそれらか 文字#で始まり6桁の16進数字が続く文字列です;
+有効な色は <code>red</code>, <code>green</code>, <code>blue</code>, <code>magenta</code>, <code>cyan</code>, <code>yellow</code>, <code>orange</code>,
+<code>violet</code>, <code>brown</code>, <code>gray</code>, <code>black</code>, <code>white</code>か、文字#で始まり6桁の16進数数字が続く文字列です;
 2つは赤成分、2つは緑成分、2つは青成分です。
 もし未知の色の名前が与えられたら黒が代わりに使われます。
 </p>
-
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
 
-<p><a name="colorbox"></a>
-<a name="Item_003a-colorbox"></a>
+<p><a name="color_005fbar"></a>
+<a name="Item_003a-color_005fbar"></a>
 </p><dl>
-<dt><a name="index-colorbox"></a><u>プロットオプション:</u> <b>colorbox</b><i> [colorbox, <var>symbol</var>]</i></dt>
-<dd><p>デフォルト値: <code>false</code>
+<dt><a name="index-color_005fbar"></a><u>プロットオプション:</u> <b>color_bar</b><i> [color_bar, <var>symbol</var>]</i></dt>
+<dd><p>デフォルト値: plot3dでは<code>false</code>、mandelbrotやjuliaでは <code>true</code>
 </p>
-<p>ここで <var>symbol</var>は <code>true</code>か <code>false</code>です。
-もし <code>true</code>なら、
-<code><a href="#plot3d">plot3d</a></code>
-が zの違った値を表現するために
-違った色のパレットを使う時はいつでも、
-zの値の大きさに従って使われた色を示す枠が右に示されます。
-このオプションは xmaximaでは機能しません。
+<p>ここで <var>symbol</var>は <code>true</code>か <code>false</code> です。  If
+もし <code>true</code>なら、 <code><a href="#plot3d">plot3d</a></code>
+か、<code><a href="#mandelbrot">mandelbrot</a></code>
+, <code><a href="#julia">julia</a></code>
+は異なる値を表現するのにパレットを使い、
+色と値の間の対応を示すボックスが右に表示されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="color_005fbar_005ftics"></a>
+<a name="Item_003a-color_005fbar_005ftics"></a>
+</p><dl>
+<dt><a name="index-color_005fbar_005ftics"></a><u>プロットオプション:</u> <b>color_bar_tics</b><i> [color_bar_tics, <var>x1</var>, <var>x2</var>, <var>x3</var>]</i></dt>
+<dd>
+<p>カラーバー内でマークと数字を置く場所の値を定義します。
+マークを置く場所に関して一番目の数字は初期値、二番目は増分、三番目は最終値です。
+二番目と三番目の数字は省略できます。
+ただ1つの数字だけ与えたときは、それは自動的に選ばれる初期値からの増分として使われます。
 </p>
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
@@ -1087,14 +1158,14 @@ zの値の大きさに従って使われた色を示す枠が右に示されま�
 <dt><a name="index-elevation"></a><u>プロットオプション:</u> <b>elevation</b><i> [elevation, <var>number</var>]</i></dt>
 <dd><p>デフォルト値: <code>60</code>
 </p>
-<p><code><a href="#plot3d">plot3d</a></code>
-プロットは、
-<code><a href="#plot2d">plot2d</a></code>
-と同じように水平軸と垂直軸を表す x軸と y軸と
-紙から垂直に立つ z軸をスタート地点に考えることができます。
-その後、z軸を x軸の回りに <code>elevation</code>に等しい角度だけ回転し、
-さらに xy平面を新しい z軸の回りに角度 <code>azimuth</code>だけ回転します。
-このオプションは elevationの値を度単位で設定します。
+<p>plot3dプロットは、
+plot2dと同じように水平軸と垂直軸を表す x軸と y軸と
+スクリーンから向かって来る z軸をスタート地点に考えることができます。
+その後、z軸を x軸の回りに <code><a href="#elevation">elevation</a></code>
+に等しい角度だけ回転し、
+さらに xy平面を新しい z軸の回りに角度 <code><a href="#azimuth">azimuth</a></code>
+だけ回転します。
+このオプションは azimuthの値を度単位で設定します。
 </p>
 <p><code><a href="#azimuth">azimuth</a></code>
 も参照してください。
@@ -1108,7 +1179,45 @@ zの値の大きさに従って使われた色を示す枠が右に示されま�
 <dt><a name="index-grid"></a><u>プロットオプション:</u> <b>grid</b><i> [grid, <var>integer</var>, <var>integer</var>]</i></dt>
 <dd><p>デフォルト値: <code>30</code>, <code>30</code>
 </p>
-<p>3次元プロットのためにx方向、y方向で使われるグリッド点の数を設定します。
+<p>3次元プロットや <code><a href="#julia">julia</a></code>
+, <code><a href="#mandelbrot">mandelbrot</a></code>
+プログラムのために x方向、y方向で使われるグリッド点の数を設定します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="grid2d"></a>
+<a name="Item_003a-grid2d"></a>
+</p><dl>
+<dt><a name="index-grid2d"></a><u>プロットオプション:</u> <b>grid2d</b><i> [grid, <var>value</var>]</i></dt>
+<dd><p>でフォルト値: <code>false</code>
+</p>
+<p>xy平面上に線のグリッドを表示します。
+グリッド線が置かれる点は、xとy軸にマークされた目盛と同じ点です。
+目盛は <code><a href="#xtics">xtics</a></code>
+と <code><a href="#ytics">ytics</a></code>
+オプションで制御できます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="iterations"></a>
+<a name="Item_003a-iterations"></a>
+</p><dl>
+<dt><a name="index-iterations"></a><u>プロットオプション:</u> <b>iterations</b><i> [grid, <var>value</var>]</i></dt>
+<dd><p>デフォルト値: <code>9</code>
+</p>
+<p>プログラム mandelbrotと juliaが行う繰り返し回数。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="label"></a>
+<a name="Item_003a-label"></a>
+</p><dl>
+<dt><a name="index-label"></a><u>プロットオプション:</u> <b>label</b><i> [label, [<var>string</var>, <var>x</var>, <var>y</var>], &hellip;]</i></dt>
+<dd>
+<p>それぞれのラベルの後に示される <var>x</var>, <var>y</var>座標を持つ点にラベルを書きます。
 </p>
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
@@ -1124,8 +1233,6 @@ zの値の大きさに従って使われた色を示す枠が右に示されま�
 もし値 <code>false</code>を与えたなら、凡例は表示されません。
 デフォルトでは式や関数の名前が使われます。また、点の離散集合に関しては単語
 discrete1, discrete2, &hellip;が使われます。
-このオプションは <code><a href="#set_005fplot_005foption">set_plot_option</a></code>
-で設定することができます。
 </p>
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
@@ -1133,11 +1240,10 @@ discrete1, discrete2, &hellip;が使われます。
 <p><a name="logx"></a>
 <a name="Item_003a-logx"></a>
 </p><dl>
-<dt><a name="index-logx"></a><u>プロットオプション:</u> <b>logx</b><i> [logx]</i></dt>
+<dt><a name="index-logx"></a><u>プロットオプション:</u> <b>logx</b><i> [logx, <var>value</var>]</i></dt>
 <dd>
 <p>水平軸を対数的にスケールするようにします。
-<code><a href="#set_005fplot_005foption">set_plot_option</a></code>
-では使うことはできません。
+trueか falseです。
 </p>
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
@@ -1145,11 +1251,10 @@ discrete1, discrete2, &hellip;が使われます。
 <p><a name="logy"></a>
 <a name="Item_003a-logy"></a>
 </p><dl>
-<dt><a name="index-logy"></a><u>プロットオプション:</u> <b>logy</b><i> [logy]</i></dt>
+<dt><a name="index-logy"></a><u>プロットオプション:</u> <b>logy</b><i> [logy, <var>value</var>]</i></dt>
 <dd>
 <p>垂直軸を対数的にスケールするようにします。
-<code><a href="#set_005fplot_005foption">set_plot_option</a></code>
-では使うことはできません。
+trueか falseです。
 </p>
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
@@ -1157,13 +1262,14 @@ discrete1, discrete2, &hellip;が使われます。
 <p><a name="mesh_005flines_005fcolor"></a>
 <a name="Item_003a-mesh_005flines_005fcolor"></a>
 </p><dl>
-<dt><a name="index-mesh_005flines_005fcolor"></a><u>Plot option:</u> <b>mesh_lines_color</b><i> [mesh_lines_color, <var>color</var>]</i></dt>
+<dt><a name="index-mesh_005flines_005fcolor"></a><u>プロットオプション:</u> <b>mesh_lines_color</b><i> [mesh_lines_color, <var>color</var>]</i></dt>
 <dd><p>デフォルト値: <code>black</code>
 </p>
 <p>パレットが使われる時 plot3dがメッシュ線を描くのに使う色を設定します。
 オプション <code><a href="#color">color</a></code>
 と同じ色を受け付けます。
-(<code>color</code>で許される色のリストを参照してください。)
+(<code><a href="#color">color</a></code>
+で許される色のリストを参照してください。)
 値 <code>false</code>を与えてメッシュ線を完全に消すこともできます。
 </p>
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
@@ -1178,7 +1284,7 @@ discrete1, discrete2, &hellip;が使われます。
 <p><code><a href="#plot2d">plot2d</a></code>
 で関数をプロットする時、
 関数をプロットするための適応プロットルーチンによって使われる点の数の初期値を与えます。
-plot2dや <code><a href="#plot3d">plot3d</a></code>
+<code><a href="#plot3d">plot3d</a></code>
 でパラメトリック関数をプロットする時、
 プロットで表示される点の数を設定します。
 </p>
@@ -1190,12 +1296,12 @@ plot2dや <code><a href="#plot3d">plot3d</a></code>
 </p><dl>
 <dt><a name="index-palette"></a><u>プロットオプション:</u> <b>palette</b><i> [palette, [<var>palette_1</var>], ..., [<var>palette_n</var>]]</i></dt>
 <dt><a name="index-palette-1"></a><u>プロットオプション:</u> <b>palette</b><i> [palette, <var>false</var>]</i></dt>
-<dd><p>デフォルト値: <code>[hue, 0.25, 0.7, 0.8, 0.5]</code>,
-<code>[hue, 0.65, 0.8, 0.9, 0.55]</code>, <code>[hue, 0.55, 0.8, 0.9, 0.4]</code>,
-<code>[hue, 0.95, 0.7, 0.8, 0.5]</code>
-</p>
+<dd>
 <p>1つのパレットか複数のパレットのリストで構成されます。
-パレットそれぞれは4つの数が続くキーワード付きリストです。
+パレットそれぞれはキーワードに複数の値が続くリストです。
+もしキーワードが gradientなら、有効な色のリストを続けなければいけません。
+</p>
+<p>もしキーワードが hueか saturation、valueなら、4つの数字を続けなければいけません。
 最初の3つの数は0と1の間でなければならず、
 zの最小値に割り当てられる基本色の色調と飽和、値を定義します。
 キーワードは3つの属性(色調、飽和、値)のいずれかがzの値に従っての増えることを指定します。
@@ -1256,10 +1362,7 @@ gnuplot, xmaxima, mgnuplot, gnuplot_pipes.
 <a name="Item_003a-point_005ftype"></a>
 </p><dl>
 <dt><a name="index-point_005ftype"></a><u>プロットオプション:</u> <b>point_type</b><i> [point_type, <var>type_1</var>, &hellip;, <var>type_n</var>]</i></dt>
-<dd><p>デフォルト値: <code>bullet</code>, <code>circle</code>, <code>plus</code>, <code>times</code>,
-<code>asterisk</code>, <code>box</code>, <code>square</code>, <code>triangle</code>, <code>delta</code>,
-<code>wedge</code>, <code>nabla</code>, <code>diamond</code>, <code>lozenge</code>
-</p>
+<dd>
 <p>gnuplotでは、
 スタイル&ldquo;points&rdquo;か&ldquo;linespoints&rdquo;でプロットされた点の集合それぞれは
 このリストから取られたオブジェクトを使って順に表されます。
@@ -1272,17 +1375,61 @@ gnuplot, xmaxima, mgnuplot, gnuplot_pipes.
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
 
-<p><a name="psfile"></a>
-<a name="Item_003a-psfile"></a>
+<p><a name="pdf_005ffile"></a>
+<a name="Item_003a-pdf_005ffile"></a>
 </p><dl>
-<dt><a name="index-psfile"></a><u>プロットオプション:</u> <b>psfile</b><i> [psfile, <var>string</var>]</i></dt>
+<dt><a name="index-pdf_005ffile"></a><u>プロットオプション:</u> <b>pdf_file</b><i> [pdf_file, <var>file_name</var>]</i></dt>
 <dd>
 <p>このオプションは、プロットをスクリーンに表示する代わりに
-<var>string</var>に等しい名前のポストスクリプトファイルに保存します。
-デフォルトでは、そのファイルは変数 <code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
-で定義されたディレクトリに
-生成されます;
-変数の値を変えて違うディレクトリにファイルを保存できます。
+<var>file_name</var>という名前の PDFファイルに保存します。
+<var>file_name</var>が文字&ldquo;/&rdquo;を含まない限り、デフォルトでは、そのファイルは変数
+<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
+で定義されたディレクトリに生成されます;
+<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
+の値を変えて違うディレクトリにファイルを保存できます。
+オプション <code><a href="#gnuplot_005fpdf_005fterm_005fcommand">gnuplot_pdf_term_command</a></code>
+も与えられた時は、それを使って Gnuplotの PDF端末をセットアップします;
+そうでなければ、Gnuplotの pdfcairo端末は
+EPSオプション、幅 3の実線、17.2 cm掛ける12.9 cmのプロットサイズ、18ポイントのフォントを使います。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="png_005ffile"></a>
+<a name="Item_003a-png_005ffile"></a>
+</p><dl>
+<dt><a name="index-png_005ffile"></a><u>プロットオプション:</u> <b>png_file</b><i> [png_file, <var>file_name</var>]</i></dt>
+<dd>
+<p>このオプションは、プロットをスクリーンに表示する代わりに
+<var>file_name</var>という名前の PNGグラフィックファイルに保存します。
+<var>file_name</var>が文字&ldquo;/&rdquo;を含まない限り、デフォルトでは、そのファイルは変数
+<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
+で定義されたディレクトリに生成されます;
+<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
+の値を変えて違うディレクトリにファイルを保存できます。
+オプション <code><a href="#gnuplot_005fpng_005fterm_005fcommand">gnuplot_png_term_command</a></code>
+も与えられた時は、それを使って Gnuplotの PNG端末をセットアップします;
+そうでなければ、Gnuplotの pngcairo端末は 12ポイントのフォントを使います。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="ps_005ffile"></a>
+<a name="Item_003a-ps_005ffile"></a>
+</p><dl>
+<dt><a name="index-ps_005ffile"></a><u>プロットオプション:</u> <b>ps_file</b><i> [ps_file, <var>file_name</var>]</i></dt>
+<dd>
+<p>このオプションは、プロットをスクリーンに表示する代わりに
+<var>file_name</var>という名前のポストスクリプトファイルに保存します。
+<var>file_name</var>が文字&ldquo;/&rdquo;を含まない限り、デフォルトでは、そのファイルは変数
+<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
+で定義されたディレクトリに生成されます;
+<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
+の値を変えて違うディレクトリにファイルを保存できます。
+オプション <code><a href="#gnuplot_005fps_005fterm_005fcommand">gnuplot_ps_term_command</a></code>
+も与えられた時は、それを使ってGnuplotのPostscript端末をセットアップします;
+そうでなければ、GnuplotのPostscript端末は
+EPSオプション、幅2の実線、16.4 cm掛ける12.3 cmのプロットサイズ、24ポイントのフォントを使います。
 </p>
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
@@ -1291,9 +1438,48 @@ gnuplot, xmaxima, mgnuplot, gnuplot_pipes.
 <a name="Item_003a-run_005fviewer"></a>
 </p><dl>
 <dt><a name="index-run_005fviewer"></a><u>プロットオプション:</u> <b>run_viewer</b><i> [run_viewer, <var>symbol</var>]</i></dt>
-<dd><p>デフォルト値: <code>true</code>
+<dd>
+<p>このオプションは、プロットフォーマットが <code>gnuplot</code>で端末が <code>default</code>の時か、
+Gnuplot端末が <code>dumb</code>(<code><a href="#gnuplot_005fterm">gnuplot_term</a></code>
+を参照してください)に設定される時、使用されるだけです。
+trueかfalseを取ります。
 </p>
-<p>プロットフォーマット用の適切なビューアを走らせるかどうか制御します。
+<p>もし端末が <code>default</code>なら、ファイル <code>maxout.gnuplot</code> (もしくは<code><a href="#gnuplot_005fout_005ffile">gnuplot_out_file</a></code>
+)で指定された他の名前)が
+プロットを生成するのに必要なgnuplotコマンドで作成されます。
+オプション <code>run_viewer</code>はこれらのコマンドを実行しプロットを表示するために Gnuplotが起動されるかどうかを制御します。
+</p>
+<p>もし端末が  <code>default</code>なら、gnuplotが起動し、 <code>maxout.gnuplot</code>内のコマンドを実行し、
+別のファイル <code>maxplot.txt</code>(もしくは<code><a href="#gnuplot_005fout_005ffile">gnuplot_out_file</a></code>
+で指定された別の名前)を生成します。
+オプション <code>run_viewer</code>は
+プロットのASCII表現であるそのファイルをMaximaかXmaximaコンソールで表示するかどうかを制御します。
+</p>
+<p>このオプションのデフォルト値は trueで、プロットをコンソールか別のグラフィックウィンドウで表示されるようにします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="same_005fxy"></a>
+<a name="Item_003a-same_005fxy"></a>
+</p><dl>
+<dt><a name="index-same_005fxy"></a><u>プロットオプション:</u> <b>same_xy</b><i> [same_xy , <var>value</var>]</i></dt>
+<dd>
+<p>trueか falseを取ります。
+2dでも 3dプロットでも、もし trueなら xとy軸で使われるスケールが同じになります。
+<code><a href="#yx_005fratio">yx_ratio</a></code>
+も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="same_005fxyz"></a>
+<a name="Item_003a-same_005fxyz"></a>
+</p><dl>
+<dt><a name="index-same_005fxyz"></a><u>プロットオプション:</u> <b>same_xyz</b><i> [same_xyz , <var>value</var>]</i></dt>
+<dd>
+<p>trueか falseを取ります。
+もし trueなら 3dプロットの3軸で使われるスケールが同じになります。
 </p>
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
@@ -1303,9 +1489,7 @@ gnuplot, xmaxima, mgnuplot, gnuplot_pipes.
 </p><dl>
 <dt><a name="index-style"></a><u>プロットオプション:</u> <b>style</b><i> [style, <var>type_1</var>, &hellip;, <var>type1_n</var>]</i></dt>
 <dt><a name="index-style-1"></a><u>プロットオプション:</u> <b>style</b><i> [style, [<var>style_1</var>], &hellip;, [<var>style_n</var>]]</i></dt>
-<dd><p>デフォルト値: <var>lines</var> (太さ 1でオプション
-<code>color</code>で与えられた最初の色を持つ線で結んだ点一式をプロットします)
-</p>
+<dd>
 <p>様々な関数やデータ一式のために2dプロットで使われるスタイル。
 単語 <var>style</var>の後には１つ以上のスタイルが続きます。
 もし与えられたスタイルよりも多くの関数やデータ集合があったらスタイルは繰り返されます。
@@ -1339,14 +1523,41 @@ Gnuplotでは <var>impulses</var>スタイルも使えます。
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
 
+<p><a name="svg_005ffile"></a>
+<a name="Item_003a-svg_005ffile"></a>
+</p><dl>
+<dt><a name="index-svg_005ffile"></a><u>プロットオプション:</u> <b>svg_file</b><i> [svg_file, <var>file_name</var>]</i></dt>
+<dd>
+<p>このオプションは、プロットをスクリーンに表示する代わりに
+<var>file_name</var>という名前のポストスクリプトファイルに保存します。
+<var>file_name</var>が文字&ldquo;/&rdquo;を含まない限り、デフォルトでは、そのファイルは変数
+<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
+で定義されたディレクトリに生成されます;
+<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
+の値を変えて違うディレクトリにファイルを保存できます。
+オプション <code><a href="#gnuplot_005fsvg_005fterm_005fcommand">gnuplot_svg_term_command</a></code>
+も与えられた時は、それを使ってGnuplotの SVG端末をセットアップします;
+そうでなければ、Gnuplotの svg端末は 14ポイントのフォントを使います。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
 
 <p><a name="t"></a>
 <a name="Item_003a-t"></a>
 </p><dl>
 <dt><a name="index-t"></a><u>プロットオプション:</u> <b>t</b><i> [t, <var>min</var>, <var>max</var>]</i></dt>
-<dd><p>デフォルト値: <code>-3</code>, <code>3</code>
-</p>
+<dd>
 <p>パラメトリックプロットのデフォルトの範囲。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="title"></a>
+<a name="Item_003a-title"></a>
+</p><dl>
+<dt><a name="index-title"></a><u>プロットオプション:</u> <b>title</b><i> [title, <var>text</var>]</i></dt>
+<dd>
+<p>プロットの頭に書かれるタイトルを定義します。
 </p>
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
@@ -1408,6 +1619,30 @@ Gnuplotでは <var>impulses</var>スタイルも使えます。
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
 
+<p><a name="xtics"></a>
+<a name="Item_003a-xtics"></a>
+</p><dl>
+<dt><a name="index-xtics"></a><u>プロットオプション:</u> <b>xtics</b><i> [xtics, <var>x1</var>, <var>x2</var>, <var>x3</var>]</i></dt>
+<dd>
+<p>x軸上でマークと数が置かれる場所の値を定義します。
+マークが置かれる場所に関して、一番目の数が初期値、二番目が増分、三番目が最終値です。
+二番目と三番目の数は省略できます。
+1つだけ数が与えられた時は、自動的に選ばれる初期値からの増分として使われます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="xy_005fscale"></a>
+<a name="Item_003a-xy_005fscale"></a>
+</p><dl>
+<dt><a name="index-xy_005fscale"></a><u>プロットオプション:</u> <b>xy_scale</b><i> [xy_scale, <var>sx</var>, <var>sy</var>]</i></dt>
+<dd>
+<p>2dプロットでは、ウィンドウの総サイズとプロットに使われるサイズの比を定義します。
+引数として与えられた2つの数は xと y軸でのスケール因子です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
 <p><a name="y"></a>
 <a name="Item_003a-y"></a>
 </p><dl>
@@ -1443,6 +1678,30 @@ Gnuplotでは <var>impulses</var>スタイルも使えます。
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
 
+<p><a name="ytics"></a>
+<a name="Item_003a-ytics"></a>
+</p><dl>
+<dt><a name="index-ytics"></a><u>プロットオプション:</u> <b>ytics</b><i> [ytics, <var>y1</var>, <var>y2</var>, <var>y3</var>]</i></dt>
+<dd>
+<p>y軸上でマークと数が置かれる場所の値を定義します。
+マークが置かれる場所に関して、一番目の数が初期値、二番目が増分、三番目が最終値です。
+二番目と三番目の数は省略できます。
+1つだけ数が与えられた時は、自動的に選ばれる初期値からの増分として使われます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+<p><a name="yx_005fratio"></a>
+<a name="Item_003a-yx_005fratio"></a>
+</p><dl>
+<dt><a name="index-yx_005fratio"></a><u>プロットオプション:</u> <b>yx_ratio</b><i> [yx_ratio, <var>r</var>]</i></dt>
+<dd>
+<p>2dプロットでは、プロットを作るのに使われる長方形の垂直側と水平側の間の比。
+<code><a href="#same_005fxy">same_xy</a></code>
+も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
 <p><a name="z"></a>
 <a name="Item_003a-z"></a>
 </p><dl>
@@ -1469,6 +1728,16 @@ Gnuplotでは <var>impulses</var>スタイルも使えます。
 また、<code><a href="#plot2d">plot2d</a></code>
 , <code><a href="#implicit_005fplot">implicit_plot</a></code>
 では無視されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="zmin"></a>
+<a name="Item_003a-zmin"></a>
+</p><dl>
+<dt><a name="index-zmin"></a><u>プロットオプション:</u> <b>zmin</b><i> [zmin, <var>z</var>]</i></dt>
+<dd>
+<p>3dプロットでの、プロットボックスの底のzの値。
 </p>
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
@@ -1505,19 +1774,25 @@ Gnuplotでは <var>impulses</var>スタイルも使えます。
 <p><a name="gnuplot_005fterm"></a>
 <a name="Item_003a-gnuplot_005fterm"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fterm"></a><u>プロットオプション:</u> <b>gnuplot_term</b></dt>
+<dt><a name="index-gnuplot_005fterm"></a><u>プロットオプション:</u> <b>gnuplot_term</b><i> [gnuplot_term, <var>terminal_name</var>]</i></dt>
 <dd>
 <p>gnuplot用の出力端末タイプを設定します。
+引数 <var>terminal_name</var>は文字列か以下の3の特殊シンボルです。
 </p><ul>
 <li>
 <strong>default</strong> (デフォルト値)
 
 <p>Gnuplot出力が別のグラフィカルなウィンドウに表示されます。
+使われる gnuplot端末はオプション <code><a href="#gnuplot_005fdefault_005fterm_005fcommand">gnuplot_default_term_command</a></code>
+の値で指定されます。
 </p>
 </li><li>
 <strong>dumb</strong>
 
-<p>Gnuplot出力がグラフィックスの &quot;ASCIIアート&quot;近似で Maximaコンソールに表示されます。
+<p>Gnuplot出力がグラフィックスの &quot;ASCIIアート&quot;近似でファイル <code>maxout.gnuplot</code>に保存されます。
+もしオプション <code><a href="#gnuplot_005fout_005ffile">gnuplot_out_file</a></code>
+が <var>filename</var>に設定されたなら、
+プロットはデフォルト <code>maxout.gnuplot</code>の代わりにそこに保存されます。
 </p>
 </li><li>
 <strong>ps</strong>
@@ -1527,14 +1802,17 @@ Gnuplotでは <var>impulses</var>スタイルも使えます。
 が <var>filename</var>に設定されているなら、
 gnuplotは <var>filename</var>にポストスクリプトコマンドを書きます。
 そうでなけいなら <code>maxplot.ps</code>ファイルとして保存します。
+この端末の設定はオプション <code><a href="#gnuplot_005fdumb_005fterm_005fcommand">gnuplot_dumb_term_command</a></code>
+の値で与えられます。
 </p>
+
 </li><li>
-他のいかなる有効なgnuplot端末仕様
+任意の有効な gnuplotターム仕様を示す文字列
 
 <p>Gnuplotは、png, jpeg, svgのような多くの他のグラフィカルフォーマットで出力を
 生成することができます。
-これらのフォーマットすべてでプロットを生成するには、
-<code>gnuplot_term</code>に
+これらのフォーマットを使うには、
+オプション <code>gnuplot_term</code>に
 任意のサポートされた gnuplot端末名(シンボル)を設定します。
 任意の有効なオプションを伴う gnuplot端末フル仕様(文字列)さえ設定可能です。
 例えば、<code>[gnuplot_term, png]</code>はPNG (Portable Network Graphics)形式で
@@ -1555,29 +1833,38 @@ gnuplotは <var>filename</var>に出力を書き込みます。
 <p><a name="gnuplot_005fout_005ffile"></a>
 <a name="Item_003a-gnuplot_005fout_005ffile"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fout_005ffile"></a><u>プロットオプション:</u> <b>gnuplot_out_file</b></dt>
+<dt><a name="index-gnuplot_005fout_005ffile"></a><u>プロットオプション:</u> <b>gnuplot_out_file</b><i> [gnuplot_out_file, <var>file_name</var>]</i></dt>
 <dd>
+<p>端末が <code>default</code>に設定されている時、
+gnuplotがインタープレトするコマンドを含むファイルのデフォルト名を置き換えるのに使われます。
+また、端末が <code>default</code>と違う時、
+gnuplotが生成するグラフィックファイルのデフォルト名を置き換えるのに使われます。
+もし1以上のスラッシュ&ldquo;/&rdquo;を含むなら、
+ファイルの名前はそのままになります;
+プロットコマンドが生成するファイルの完全な名前はいつも
+それらのコマンドの出力として送られるので、
+コマンドがセミコロンで終了しているならそれらを見ることができます。
+</p>
 <p><code><a href="#gnuplot_005fterm">gnuplot_term</a></code>
 オプションと関連して使われる時、
 Gnuplotがサポートするグラフィックフォーマットの１つで
 ファイルにプロットを保存するのに使われます。
-もしポストスクリプトファイルを生成したいなら、
-代わりにオプション <code><a href="#psfile">psfile</a></code>
-を使うことができます。
-これはOpenmathでも機能し、たった１つのオプションで同じことができます。
+PNGや, PDF, ポストスクリプト, SVGを生成するには、
+オプション <code><a href="#png_005ffile">png_file</a></code>
+, <code><a href="#pdf_005ffile">pdf_file</a></code>
+, <code><a href="#ps_005ffile">ps_file</a></code>
+, <code><a href="#svg_005ffile">svg_file</a></code>
+を使うのがより簡単です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">[gnuplot_term, png], [gnuplot_out_file, &quot;graph3.png&quot;]
-</pre></td></tr></table>
-
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
 
 <p><a name="gnuplot_005fpm3d"></a>
 <a name="Item_003a-gnuplot_005fpm3d"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fpm3d"></a><u>プロットオプション:</u> <b>gnuplot_pm3d</b></dt>
+<dt><a name="index-gnuplot_005fpm3d"></a><u>プロットオプション:</u> <b>gnuplot_pm3d</b><i> [gnuplot_pm3d, <var>value</var>]</i></dt>
 <dd>
-<p><code>false</code>の値ではPM3Dモードの使用を抑制するのに使われます。
+<p><code>false</code>の値ではPM3Dモードの使用をディレーブルするのに使われます。
 PM3Dモードはデフォルトで使用可能です。
 </p>
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
@@ -1586,13 +1873,106 @@ PM3Dモードはデフォルトで使用可能です。
 <p><a name="gnuplot_005fpreamble"></a>
 <a name="Item_003a-gnuplot_005fpreamble"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fpreamble"></a><u>プロットオプション:</u> <b>gnuplot_preamble</b></dt>
+<dt><a name="index-gnuplot_005fpreamble"></a><u>プロットオプション:</u> <b>gnuplot_preamble</b><i> [gnuplot_preamble, <var>string</var>]</i></dt>
 <dd>
-<p>プロットを描く前に gnuplotコマンドを挿入します。
+<p>このオプションは Gnuplotに送られるどんな他のコマンドの前に gnuplotコマンドを挿入します。
 有効な gnuplotコマンドはどんなものでも使うことができます。
 複数のコマンドはセミコロンで分離されなければいけません。
-提示例はログスケールプロットを生成します。
-<code>gnuplot_preamble</code>のデフォルト値は空の文字列<code>&quot;&quot;</code>です。
+<code><a href="#gnuplot_005fpostamble">gnuplot_postamble</a></code>
+も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="gnuplot_005fpostamble"></a>
+<a name="Item_003a-gnuplot_005fpostamble"></a>
+</p><dl>
+<dt><a name="index-gnuplot_005fpostamble"></a><u>プロットオプション:</u> <b>gnuplot_postamble</b><i> [gnuplot_postamble, <var>string</var>]</i></dt>
+<dd>
+<p>このオプションは Gnuplotに送られる他のコマンドの後でプロットコマンドが送られる直前に gnuplotコマンドを挿入します。
+有効な gnuplotコマンドはどんなものでも使うことができます。
+複数のコマンドはセミコロンで分離されなければいけません。
+<code><a href="#gnuplot_005fpreamble">gnuplot_preamble</a></code>
+も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="gnuplot_005fdefault_005fterm_005fcommand"></a>
+<a name="Item_003a-gnuplot_005fdefault_005fterm_005fcommand"></a>
+</p><dl>
+<dt><a name="index-gnuplot_005fdefault_005fterm_005fcommand"></a><u>プロットオプション:</u> <b>gnuplot_default_term_command</b></dt>
+<dd><p>[gnuplot_default_term_command, <var>command</var>]
+</p>
+<p>デフォルト端末として端末タイプを設定するgnuplotコマンド。
+もしこのオプションが設定されていなければ、使われるコマンドは以下の通り:
+<code>&quot;set term wxt size 640,480 font \&quot;,12\&quot;; set term pop&quot;</code>
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="gnuplot_005fdumb_005fterm_005fcommand"></a>
+<a name="Item_003a-gnuplot_005fdumb_005fterm_005fcommand"></a>
+</p><dl>
+<dt><a name="index-gnuplot_005fdumb_005fterm_005fcommand"></a><u>プロットオプション:</u> <b>gnuplot_dumb_term_command</b></dt>
+<dd><p>[gnuplot_dumb_term_command, <var>command</var>]
+</p>
+<p>ダム端末として端末タイプを設定するgnuplotコマンド。
+もしこのオプションが設定されていなければ、使われるコマンドは以下の通り:
+<code>&quot;set term dumb 79 22&quot;</code>
+これは79文字掛ける22文字のテキスト出力を生成します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="gnuplot_005fpdf_005fterm_005fcommand"></a>
+<a name="Item_003a-gnuplot_005fpdf_005fterm_005fcommand"></a>
+</p><dl>
+<dt><a name="index-gnuplot_005fpdf_005fterm_005fcommand"></a><u>プロットオプション:</u> <b>gnuplot_pdf_term_command</b><i> [gnuplot_pdf_term_command, <var>command</var>]</i></dt>
+<dd>
+<p>PDF端末として端末タイプを設定するgnuplotコマンド。
+もしこのオプションが設定されていなければ、使われるコマンドは以下の通り:
+<code>&quot;set term pdfcairo color solid lw 3 size 17.2 cm, 12.9 cm font \&quot;,18\&quot;&quot;</code>
+更に知るにはgnuplotドキュメントを参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="gnuplot_005fpng_005fterm_005fcommand"></a>
+<a name="Item_003a-gnuplot_005fpng_005fterm_005fcommand"></a>
+</p><dl>
+<dt><a name="index-gnuplot_005fpng_005fterm_005fcommand"></a><u>プロットオプション:</u> <b>gnuplot_png_term_command</b><i> [gnuplot_png_term_command, <var>command</var>]</i></dt>
+<dd>
+<p>PNG端末として端末タイプを設定するgnuplotコマンド。
+もしこのオプションが設定されていなければ、使われるコマンドは以下の通り:
+<code>&quot;set term pngcairo font \&quot;,12\&quot;&quot;</code>
+更に知るにはgnuplotドキュメントを参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="gnuplot_005fps_005fterm_005fcommand"></a>
+<a name="Item_003a-gnuplot_005fps_005fterm_005fcommand"></a>
+</p><dl>
+<dt><a name="index-gnuplot_005fps_005fterm_005fcommand"></a><u>プロットオプション:</u> <b>gnuplot_ps_term_command</b><i> [gnuplot_ps_term_command, <var>command</var>]</i></dt>
+<dd>
+<p>ポストスクリプト端末として端末タイプを設定するgnuplotコマンド。
+もしこのオプションが設定されていなければ、使われるコマンドは以下の通り:
+<code>&quot;set term postscript eps color solid lw 2 size 16.4 cm, 12.3 cm font \&quot;,24\&quot;&quot;</code>
+更に知るには <code>set term postscript</code>に関する gnuplotドキュメントを参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
+</div></p></dd></dl>
+
+<p><a name="gnuplot_005fsvg_005fterm_005fcommand"></a>
+<a name="Item_003a-gnuplot_005fsvg_005fterm_005fcommand"></a>
+</p><dl>
+<dt><a name="index-gnuplot_005fsvg_005fterm_005fcommand"></a><u>プロットオプション:</u> <b>gnuplot_svg_term_command</b><i> [gnuplot_svg_term_command, <var>command</var>]</i></dt>
+<dd>
+<p>SVG端末として端末タイプを設定するgnuplotコマンド。
+もしこのオプションが設定されていなければ、使われるコマンドは以下の通り:
+<code>&quot;set term svg font \&quot;,14\&quot;&quot;</code>.
+更に知るには gnuplotドキュメントを参照してください。
 </p>
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
@@ -1619,10 +1999,10 @@ PM3Dモードはデフォルトで使用可能です。
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
 
-<p><a name="gnuplot_005fdefault_005fterm_005fcommand"></a>
-<a name="Item_003a-gnuplot_005fdefault_005fterm_005fcommand"></a>
-</p><dl>
-<dt><a name="index-gnuplot_005fdefault_005fterm_005fcommand"></a><u>プロットオプション:</u> <b>gnuplot_default_term_command</b></dt>
+
+
+<dl>
+<dt><a name="index-gnuplot_005fdefault_005fterm_005fcommand-1"></a><u>プロットオプション:</u> <b>gnuplot_default_term_command</b></dt>
 <dd>
 <p>デフォルト端末の端末タイプを設定する gnuplotコマンド。
 デフォルト値は <code>&quot;set term pop&quot;</code>です。
@@ -1630,10 +2010,10 @@ PM3Dモードはデフォルトで使用可能です。
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
 
-<p><a name="gnuplot_005fdumb_005fterm_005fcommand"></a>
-<a name="Item_003a-gnuplot_005fdumb_005fterm_005fcommand"></a>
-</p><dl>
-<dt><a name="index-gnuplot_005fdumb_005fterm_005fcommand"></a><u>プロットオプション:</u> <b>gnuplot_dumb_term_command</b></dt>
+
+
+<dl>
+<dt><a name="index-gnuplot_005fdumb_005fterm_005fcommand-1"></a><u>プロットオプション:</u> <b>gnuplot_dumb_term_command</b></dt>
 <dd>
 <p>ダム端末の端末タイプを設定するgnuplotコマンド。
 デフォルト値は <code>&quot;set term dumb 79 22&quot;</code>です。
@@ -1642,10 +2022,10 @@ PM3Dモードはデフォルトで使用可能です。
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
 </div></p></dd></dl>
 
-<p><a name="gnuplot_005fps_005fterm_005fcommand"></a>
-<a name="Item_003a-gnuplot_005fps_005fterm_005fcommand"></a>
-</p><dl>
-<dt><a name="index-gnuplot_005fps_005fterm_005fcommand"></a><u>プロットオプション:</u> <b>gnuplot_ps_term_command</b></dt>
+
+
+<dl>
+<dt><a name="index-gnuplot_005fps_005fterm_005fcommand-1"></a><u>プロットオプション:</u> <b>gnuplot_ps_term_command</b></dt>
 <dd>
 <p>ポストスクリプト端末の端末タイプを設定するgnuplotコマンド。
 デフォルト値は
@@ -1761,7 +2141,7 @@ gnuplotウィンドウを更新するには
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2013年9月月4日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2014年1月月14日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

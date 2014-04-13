@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on Oktober, 11 2013 by texi2html 1.76 -->
+<!-- Created on April, 1 2014 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -236,7 +236,8 @@ und den Imagin&auml;rteil <code>b = r sin(t)</code> ersetzt.
 </p>
 
 <p><code>polartorect</code> ist die inverse Funktion zu <code><a href="#recttopolar">recttopolar</a></code>.
-Das Kommando <code>load(fft)</code> l&auml;dt die Funktion.
+</p>
+<p>Das Kommando <code>load(fft)</code> l&auml;dt die Funktion.
 </p></dd></dl>
 
 <p><a name="recttopolar"></a>
@@ -257,7 +258,8 @@ Phase ist ein Winkel in dem Bereich <code>-%pi</code> bis <code>%pi</code>.
 </p>
 
 <p><code>recttoploar</code> ist die inverse Funktion zu <code><a href="#polartorect">polartorect</a></code>.
-Das Kommando <code>load(fft)</code> l&auml;dt die Funktion.
+</p>
+<p>Das Kommando <code>load(fft)</code> l&auml;dt die Funktion.
 </p></dd></dl>
 
 <p><a name="inverse_005ffft"></a>
@@ -289,6 +291,7 @@ Die Ergebnisse sind immer Gleitkommazahlen oder komplexe Zahlen
 
 <p>Mit dem Kommando <code>load(fft)</code> wird die Funktion geladen.  Siehe auch 
 <code><a href="#fft">fft</a></code>
+ f&uuml;r die schnelle Fourier-Transformation.
 </p>
 <p>Beispiele:
 </p>
@@ -378,6 +381,7 @@ b[n/2] = 0
 
 <p>Das Kommando <code>load(fft)</code> l&auml;dt die Funktion.
 Siehe auch <code><a href="#inverse_005ffft">inverse_fft</a></code>
+ f&uuml;r die inverse schnelle Fourier-Transformation.
 </p>
 <p>Beispiele:
 </p>
@@ -738,14 +742,18 @@ Zwischenmarken werden als eine Liste zur&uuml;ckgegeben.
 <p>Der Index der Summe ist immer das Symbol <var>n</var>.  Sinus- und Kosinusfunktionen
 mit ganzzahligen Vielfachen von <code>%pi</code> werden nicht automatisch vereinfacht.
 Dies kann mit der Funktion <code><a href="#foursimp">foursimp</a></code>
+ erreicht werden, der als Argument
 die Liste der Fourier-Koeffizienten &uuml;bergeben wird.
 </p>
 <p>Mit der Funktion <code><a href="#fourexpand">fourexpand</a></code>
+ kann die Fourierreihe aus den
 Fourier-Koeffizienten konstruiert werden.  Siehe auch die Funktion
 <code><a href="#totalfourier">totalfourier</a></code>.
 </p>
+
 <p>Mit den Funktionen <code><a href="#fourcos">fourcos</a></code>
-<code><a href="#foursin">foursin</a></code>
+ und <code><a href="#foursin">foursin</a></code>
+ werden jeweils die
 Koeffizienten der Kosinus- und Sinus-Entwicklung berechnet.
 </p>
 <p>Beispiel:
@@ -796,6 +804,7 @@ Koeffizienten der Kosinus- und Sinus-Entwicklung berechnet.
 <a name="IDX1355"></a>
 </dt>
 <dd><p><code>foursimp</code> wird auf das Ergebnis der Funktion <code><a href="#fourier">fourier</a></code>
+ angewendet,
 um Sinus- und Kosinus-Funktionen zu vereinfachen, die ganzzahlige Vielfache
 von <code>%pi</code> enthalten.  Das Argument <var>l</var> ist eine Liste mit den
 Koeffizienten der Fourierreihe, f&uuml;r die die Vereinfachung ausgef&uuml;hrt werden
@@ -803,10 +812,13 @@ soll.
 </p>
 <p><code>sin(n %pi)</code> wird zu <code>0</code> vereinfacht, wenn die Optionsvariable
 <code><a href="#sinnpiflag">sinnpiflag</a></code>
+ den Wert <code>true</code> hat, und <code>cos(n %pi)</code> wird zu
 <code>(-1)^n</code>, wenn die Optionsvariable <code><a href="#cosnpiflag">cosnpiflag</a></code>
+ den Wert <code>true</code>
 hat.
 </p>
 <p>Siehe die Funktion <code><a href="#fourier">fourier</a></code>
+ f&uuml;r ein Beispiel.
 </p></dd></dl>
 
 <p><a name="sinnpiflag"></a>
@@ -818,7 +830,8 @@ hat.
 </p>
 <p>Kontrolliert die Vereinfachung der Sinus-Funktion durch die Funktion
 <code>foursimp</code>.  Siehe die Funktion <code><a href="#foursimp">foursimp</a></code>.
-</p></dd></dl>
+</p>
+</dd></dl>
 
 <p><a name="cosnpiflag"></a>
 </p><dl>
@@ -829,7 +842,8 @@ hat.
 </p>
 <p>Kontrolliert die Vereinfachung der Kosinus-Funktion durch die Funktion
 <code>foursimp</code>.  Siehe die Funktion <code><a href="#foursimp">foursimp</a></code>.
-</p></dd></dl>
+</p>
+</dd></dl>
 
 
 <p><a name="fourexpand"></a>
@@ -842,7 +856,9 @@ mit <var>limit</var> Termen.  Das Argument <var>limit</var> kann <code>inf</code
 Argumente <var>x</var> und <var>p</var> haben dieselbe Bedeutung wie f&uuml;r die Funktion
 <code><a href="#fourier">fourier</a></code>.
 </p>
+
 <p>Siehe die Funktion <code><a href="#fourier">fourier</a></code>
+ f&uuml;r ein Beispiel.
 </p></dd></dl>
 
 <p><a name="fourcos"></a>
@@ -876,8 +892,10 @@ definiert ist.
 <dd><p>Gibt die Fourierreihe der Funktion <var>f(x)</var> f&uuml;r das Intervall
 <code>[<var>-l</var>, <var>l</var>]</code> zur&uuml;ck.  Das Ergebnis wird berechnet, indem
 die nacheinander die Funktionen <code><a href="#foursimp">foursimp</a></code>
-<code><a href="#fourexpand">fourexpand</a></code>
+ und <code><a href="#fourexpand">fourexpand</a></code>
+ auf das
 Ergebnis der Funktion <code><a href="#fourier">fourier</a></code>
+ angewendet werden.
 </p>
 <p>Beispiel:
 </p>
@@ -970,7 +988,7 @@ definiert ist.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>Oktober, 11 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>April, 1 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

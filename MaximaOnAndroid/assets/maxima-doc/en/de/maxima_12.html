@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on Oktober, 11 2013 by texi2html 1.76 -->
+<!-- Created on April, 1 2014 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -211,6 +211,7 @@ Dateiendungen sind: <code>gnuplot</code>, <code>xmaxima</code>, <code>mgnuplot</
 
 <p>Die Datei <code>maxout.interface</code> wird in dem Verzeichnis gespeichert, das
 durch die Systemvariable <code><a href="maxima_26.html#maxima_005ftempdir">maxima_tempdir</a></code>
+ bezeichnet wird. 
 </p>
 
 <p>Die Datei <code>maxout.interface</code> kann wiederholt an das Grafikprogramm
@@ -271,7 +272,9 @@ eine Pipe an Gnuplot gesendet werden, w&auml;hrend die Daten in der Datei
 Gnuplot gestartet.  Aufeinander folgende Grafikkommandos werden an ein bereits
 ge&ouml;ffnetes Gnuplot-Programm gesendet.  Gnuplot wird mit der Funktion
 <code><a href="#gnuplot_005fclose">gnuplot_close</a></code>
+ geschlossen.  In diesem Grafikformat kann die Funktion 
 <code><a href="#gnuplot_005freplot">gnuplot_replot</a></code>
+ genutzt werden, um eine Grafik zu modifizieren, die 
 bereits auf dem Bildschirm ausgegeben wurde.
 </p>
 
@@ -339,32 +342,35 @@ Argumenten.  Alle weiteren Argumente entsprechen denen der Funktion
 <code><a href="#plot3d">plot3d</a></code>.
 </p>
 
+
 <p>Die Funktion steht nur f&uuml;r die Grafikformate <code>gnuplot</code> und 
 <code>gnuplot_pipes</code> zur Verf&uuml;gung.  Das Paket <code>implicit_plot</code> enth&auml;lt
 die Funktion <code><a href="#implicit_005fplot">implicit_plot</a></code>
+ mit der f&uuml;r alle Grafikformate Konturgraphen
 erstellt werden k&ouml;nnen.
 </p>
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) contour_plot(x^2 + y^2, [x, -4, 4], [y, -4, 4])$
-</pre><p><div class="image"><img src="./../figures/contour1.gif" alt="../figures/contour1"></div>
+</pre><p><div class="image"><img src="../figures/contour1.jpg" alt="../figures/contour1"></div>
 </p>
 <pre class="example">(%i1) f(x, y) := x^3 + y^2;
                                    3    2
 (%o1)                  f(x, y) := x  + y
 (%i2) contour_plot(f, [u, -4, 4], [v, -4, 4])$
-</pre><p><div class="image"><img src="./../figures/contour2.gif" alt="../figures/contour2"></div>
+</pre><p><div class="image"><img src="../figures/contour2.jpg" alt="../figures/contour2"></div>
 </p>
 
 <p>Es kann jede Option genutzt werden, die von der Funktion <code>plot3d</code> 
 akzeptiert wird.  Standardm&auml;&szlig;ig zeichnet Gnuplot den Graphen mit 3 
 Isolinien.  Die Anzahl der Isolinien kann mit der Gnuplot-Option 
 <code><a href="#gnuplot_005fpreamble">gnuplot_preamble</a></code>
+ erh&ouml;ht werden.  In diesem Beispiel werden 12 Isolinien
 gezeichnet und die Legende ist entfernt.
 </p>
 <pre class="example">(%i1) contour_plot (u^3 + v^2, [u, -4, 4], [v, -4, 4], 
   [legend,false], [gnuplot_preamble, &quot;set cntrparam levels 12&quot;])$
-</pre><p><div class="image"><img src="./../figures/contour3.gif" alt="../figures/contour3"></div>
+</pre><p><div class="image"><img src="../figures/contour3.jpg" alt="../figures/contour3"></div>
 </p></dd></dl>
 
 <p><a name="get_005fplot_005foption"></a>
@@ -381,9 +387,11 @@ zur&uuml;ck, und so weiter.
 </p>
 
 <p>Siehe auch <code><a href="#plot_005foptions">plot_options</a></code>,
-<code><a href="#set_005fplot_005foption">set_plot_option</a></code>
+ <code><a href="#set_005fplot_005foption">set_plot_option</a></code>
+ und das Kapitel
 <a href="#SEC83">Grafikoptionen</a>.
 </p>
+
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) get_plot_option(color,1);
@@ -422,7 +430,7 @@ Fl&auml;chen kann der Algorithmus versagen.
 </p>
 <pre class="example">(%i1) implicit_plot (x^2 = y^3 - 3*y + 1, [x, -4, 4], [y, -4, 4],
  [gnuplot_preamble, &quot;set zeroaxis&quot;]);
-</pre><p><div class="image"><img src="./../figures/implicit_plot.gif" alt="../figures/implicit_plot"></div>
+</pre><p><div class="image"><img src="../figures/implicit_plot.jpg" alt="../figures/implicit_plot"></div>
 </p></dd></dl>
 
 <p><a name="make_005ftransform"></a>
@@ -441,14 +449,17 @@ Argumente der Funktion <code>plot3d</code> in kartesische Koordinaten f&uuml;r d
 Ausgabe des Graphen transformieren. 
 </p>
 <p>Die Transformationen <code><a href="#polar_005fto_005fxy">polar_to_xy</a></code>
+ f&uuml;r die Transformation von 
 Polarkoordinaten und <code><a href="#spherical_005fto_005fxyz">spherical_to_xyz</a></code>
+ f&uuml;r die Transformation von 
 Kugelkoordinaten in kartesische Koordinaten sind bereits definiert.
 </p>
 <p>Beispiel:
 </p>
 <p>Definition der Transformation von Zylinderkoordinaten nach kartesischen 
 Koordinaten.  Die Definition ist identisch mit der f&uuml;r <code><a href="#polar_005fto_005fxy">polar_to_xy</a></code>.
-Der Graph zeigt einen Kegel.
+</p>
+<p>Der Graph zeigt einen Kegel.
 </p>
 
 <pre class="example">(%i1) cylinder_to_xy:make_transform([r,phi,z],r*cos(phi),
@@ -469,7 +480,8 @@ dass die zwei unabh&auml;ngigen Variablen der Funktion <code>plot3d</code> von
 Polarkoordinaten in kartesische Koordinaten transformiert werden.
 </p>
 <p>F&uuml;r ein Beispiele siehe <code><a href="#make_005ftransform">make_transform</a></code>.
-</p></dd></dl>
+</p>
+</dd></dl>
 
 <p><a name="plot2d"></a>
 </p><dl>
@@ -530,6 +542,7 @@ Schl&uuml;sselwort beginnen, auf das die Parameter der Grafikoption folgen.  Sie
 <code><a href="#plot_005foptions">plot_options</a></code>.
 </p>
 
+
 <p>Werden mehrere Graphen gezeichnet, wird eine Legende hinzugef&uuml;gt, die die 
 einzelnen Graphen unterscheidet.  Mit der Grafikoption <var>legend</var> k&ouml;nnen die
 Bezeichnungen f&uuml;r die Legende festgelegt werden.  Wird diese Option nicht 
@@ -539,6 +552,7 @@ oder Namen der Funktionen, die als Argument &uuml;bergeben wurden.
 
 <p>Siehe auch das Kapitel <code><a href="#SEC83">Grafikoptionen</a></code>.
 </p>
+
 <p>Beispiele:
 </p>
 
@@ -546,7 +560,7 @@ oder Namen der Funktionen, die als Argument &uuml;bergeben wurden.
 </p>
 <pre class="example">(%i1) plot2d (sin(x), [x, -%pi, %pi])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting2.gif" alt="../figures/plotting2"></div>
+<p><div class="image"><img src="./../figures/plotting2.png" alt="../figures/plotting2"></div>
 </p>
 
 <p>W&auml;chst die Funktion sehr schnell, kann es notwendig sein, die Werte auf der
@@ -555,7 +569,7 @@ vertikalen Achse mit der Grafikoption <code>y</code> zu begrenzen.
 <pre class="example">(%i1) plot2d (sec(x), [x, -2, 2], [y, -20, 20])$
 plot2d: some values were clipped.
 </pre>
-<p><div class="image"><img src="./../figures/plotting3.gif" alt="../figures/plotting3"></div>
+<p><div class="image"><img src="./../figures/plotting3.png" alt="../figures/plotting3"></div>
 </p>
 
 <p>Die Ansicht eines Graphen kann sich f&uuml;r verschiedene Grafikprogramme
@@ -566,14 +580,14 @@ Koordinatenachsen mit Pfeilen dargestellt werden.
                       [box, false], 
                       [plot_format, xmaxima])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting1.gif" alt="../figures/plotting1"></div>
+<p><div class="image"><img src="./../figures/plotting1.png" alt="../figures/plotting1"></div>
 </p>
 
 <p>Ein Graph mit einer logarithmischen Skala:
 </p>
 <pre class="example">(%i1) plot2d (exp(3*s), [s, -2, 2], [logy])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting4.gif" alt="../figures/plotting4"></div>
+<p><div class="image"><img src="./../figures/plotting4.png" alt="../figures/plotting4"></div>
 </p>
 
 <p>Graphen von Funktionen, deren Namen als Argumente &uuml;bergeben werden.
@@ -584,7 +598,7 @@ $g
 (%i2) H(x) := if x &lt; 0 then x^4 - 1 else 1 - x^5 $
 (%i3) plot2d ([F, G, H], [u, -1, 1], [y, -1.5, 1.5])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting5.gif" alt="../figures/plotting5"></div>
+<p><div class="image"><img src="./../figures/plotting5.png" alt="../figures/plotting5"></div>
 </p>
 
 <p>Graph einer parametrisch definierten Schmetterlingskurve.
@@ -593,7 +607,7 @@ $g
 (%i2) plot2d([parametric, r*sin(t), r*cos(t), [t, -8*%pi, 8*%pi], 
              [nticks, 2000]])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting6.gif" alt="../figures/plotting6"></div>
+<p><div class="image"><img src="./../figures/plotting6.png" alt="../figures/plotting6"></div>
 </p>
 
 <p>Ein parametrischer Kreis mit zwei vollst&auml;ndigen Drehungen, der nur f&uuml;r 7 
@@ -602,7 +616,7 @@ Punkte gezeichnet ist.
 <pre class="example">(%i1) plot2d ([parametric, cos(t), sin(t), [t, -2*%pi, 2*%pi], 
               [nticks, 8]])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting7.gif" alt="../figures/plotting7"></div>
+<p><div class="image"><img src="./../figures/plotting7.png" alt="../figures/plotting7"></div>
 </p>
 
 <p>Graph der Funktion <code>abs(x)</code> und eines parametrischen Kreises.  Das 
@@ -614,7 +628,7 @@ Seitenverh&auml;ltnis funktioniert gut f&uuml;r die Ausgabe im Postscript-Format
         [nticks, 80]], abs(x)], [x,-2,2], [y, -1.5, 1.5])$
 plot2d: some values were clipped.
 </pre>
-<p><div class="image"><img src="./../figures/plotting8.gif" alt="../figures/plotting8"></div>
+<p><div class="image"><img src="./../figures/plotting8.png" alt="../figures/plotting8"></div>
 </p>
 
 <p>Graph f&uuml;r diskrete Punkte.  Die Punkte sind in zwei separaten Listen jeweils 
@@ -624,7 +638,7 @@ mit einer Linie verbunden.
 <pre class="example">(%i1) plot2d([discrete, [10, 20, 30, 40, 50], 
                         [.6, .9, 1.1, 1.3, 1.4]])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting9.gif" alt="../figures/plotting9"></div>
+<p><div class="image"><img src="./../figures/plotting9.png" alt="../figures/plotting9"></div>
 </p>
 
 <p>Dieselben Punkte des letzten Beispiels.  Jeder Punkt wird einzeln in eine Liste
@@ -634,7 +648,7 @@ eingetragen und die Punkte werden nicht miteinander verbunden.
                          [40, 1.3], [50, 1.4]]],
                          [style, points])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting10.gif" alt="../figures/plotting10"></div>
+<p><div class="image"><img src="./../figures/plotting10.png" alt="../figures/plotting10"></div>
 </p>
 
 <p>In diesem Beispiel wird eine Tabelle mit drei Spalten in eine Datei 
@@ -647,7 +661,7 @@ Spalte werden gezeichnet.
 (%i3) plot2d ([discrete, transpose(data)[2], transpose(data)[3]],
   [style,points], [point_type,diamond], [color,red])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting11.gif" alt="../figures/plotting11"></div>
+<p><div class="image"><img src="./../figures/plotting11.png" alt="../figures/plotting11"></div>
 </p>
 
 <p>Graph von experimentellen Datenpunkten zusammen mit einer theoretischen 
@@ -660,7 +674,7 @@ Funktion, die die Daten beschreibt.
         [xlabel, &quot;pendulum's length (cm)&quot;], 
         [ylabel, &quot;period (s)&quot;])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting12.gif" alt="../figures/plotting12"></div>
+<p><div class="image"><img src="./../figures/plotting12.png" alt="../figures/plotting12"></div>
 </p></dd></dl>
 
 <p><a name="plot3d"></a>
@@ -683,6 +697,7 @@ um die Fl&auml;che aus verschiedenen Blickwinkeln zu betrachten.
 
 <p>Siehe auch das Kapitel <a href="#SEC83">Grafikoptionen</a>.
 </p>
+
 <p>Beispiele:
 </p>
 
@@ -690,7 +705,7 @@ um die Fl&auml;che aus verschiedenen Blickwinkeln zu betrachten.
 </p>
 <pre class="example">(%i1) plot3d (2^(-u^2 + v^2), [u, -3, 3], [v, -2, 2])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting13.gif" alt="../figures/plotting13"></div>
+<p><div class="image"><img src="./../figures/plotting13.png" alt="../figures/plotting13"></div>
 </p>
 
 <p>Mit der Grafikoption <code>z</code> wird der Wertebereich der z-Achse begrenzt. 
@@ -699,7 +714,7 @@ Dieses Beispiel zeigt den Graph ohne F&auml;rbung der Fl&auml;che.
 <pre class="example">(%i1) plot3d ( log ( x^2*y^2 ), [x, -2, 2], [y, -2, 2], [z, -8, 4],
                [palette, false], [color, magenta, blue])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting14.gif" alt="../figures/plotting14"></div>
+<p><div class="image"><img src="./../figures/plotting14.png" alt="../figures/plotting14"></div>
 </p>
 
 <p>Unendlich gro&szlig;e Werte der z-Koordinate k&ouml;nnen auch durch Wahl eines 
@@ -709,7 +724,7 @@ Das Beispiel zeigt zudem die Nutzung einer vordefinierten Palette.
 <pre class="example">(%i1) plot3d (log (x^2*y^2), [x, -2, 2], [y, -2, 2], 
          [grid, 29, 29], [palette, get_plot_option(palette,5)])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting15.gif" alt="../figures/plotting15"></div>
+<p><div class="image"><img src="./../figures/plotting15.png" alt="../figures/plotting15"></div>
 </p>
 
 <p>Graph mit zwei Fl&auml;chen, die denselben Wertebereich haben und eine Palette
@@ -718,7 +733,7 @@ nutzen.
 <pre class="example">(%i1) plot3d ([2^(-x^2 + y^2), 4*sin(3*(x^2+y^2))/(x^2+y^2), 
               [x, -3, 3], [y, -2, 2]])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting16.gif" alt="../figures/plotting16"></div>
+<p><div class="image"><img src="./../figures/plotting16.png" alt="../figures/plotting16"></div>
 </p>
 
 <p>Die gleichen zwei Fl&auml;chen mit verschiedenen Wertebereichen.  In Xmaxima nutzen
@@ -728,7 +743,7 @@ die zwei Fl&auml;chen verschiedene Paletten.
          4*sin(3*(x^2+y^2))/(x^2+y^2), [x, -3, 3], [y, -2, 2]],
          [plot_format,xmaxima])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting17.gif" alt="../figures/plotting17"></div>
+<p><div class="image"><img src="./../figures/plotting17.png" alt="../figures/plotting17"></div>
 </p>
 
 <p>Graph der kleinschen Flasche, die parametrisch definiert ist.
@@ -741,30 +756,32 @@ die zwei Fl&auml;chen verschiedene Paletten.
 (%i4) plot3d ([expr_1, expr_2, expr_3], [x, -%pi, %pi],
         [y, -%pi, %pi], [grid, 40, 40])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting18.gif" alt="../figures/plotting18"></div>
+<p><div class="image"><img src="./../figures/plotting18.png" alt="../figures/plotting18"></div>
 </p>
 
 <p>Graph einer Kugelfunktion, die vordefinierte Koordinatentransformation
 <code><a href="#spherical_005fto_005fxyz">spherical_to_xyz</a></code>
+ wird verwendet, um von Kugelkoordinaten in ein 
 kartesisches Koordinatensystem zu transformieren.
 </p>
 <pre class="example">(%i1) plot3d (sin(2*theta)*cos(phi), 
         [theta, 0, %pi], [phi, 0, 2*%pi],
         [transform_xy, spherical_to_xyz], [grid,30,60])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting19.gif" alt="../figures/plotting19"></div>
+<p><div class="image"><img src="./../figures/plotting19.png" alt="../figures/plotting19"></div>
 </p>
 
 <p>Gebrauch der vordefinierten Funktion <code>polar_to_xy</code>, um von
 zylindrischen Koordinaten in ein kartesisches Koordinatensystem zu 
 transformieren.  Siehe auch <code><a href="#polar_005fto_005fxy">polar_to_xy</a></code>.
+ Dieses Beispiel zeigt auch 
 wie der Rahmen und die Legende entfernt werden k&ouml;nnen.
 </p>
 <pre class="example">(%i1) plot3d (r^.33*cos(th/3), [r, 0, 1], [th, 0, 6*%pi], 
         [grid, 12, 80],
         [transform_xy, polar_to_xy], [box, false], [legend,false])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting20.gif" alt="../figures/plotting20"></div>
+<p><div class="image"><img src="./../figures/plotting20.png" alt="../figures/plotting20"></div>
 </p>
 
 <p>Graph einer Kugel, wobei die Koordinatentransformation von Kugelkoordinaten in
@@ -776,11 +793,12 @@ Eine Palette mit verschiedenen Schattierungen einer Farbe wird genutzt.
          [plot_format,xmaxima], [transform_xy, spherical_to_xyz], 
          [palette,[value,0.65,0.7,0.1,0.9]])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting21.gif" alt="../figures/plotting21"></div>
+<p><div class="image"><img src="./../figures/plotting21.png" alt="../figures/plotting21"></div>
 </p>
 
 <p>Definition einer Funktion mit zwei Variablen als eine Matrix.  Der 
 <a href="maxima_8.html#g_t_0027">Quote-Operator</a>
+ <code>'</code> in der Definition der Funktion verhindert,
 das <code>plot3d</code> fehlschl&auml;gt, wenn die Argumente keine ganze Zahlen sind.
 </p>
 <pre class="example">(%i1) M: matrix([1, 2, 3, 4], [1, 2, 3, 2], [1, 2, 3, 4],
@@ -789,7 +807,7 @@ das <code>plot3d</code> fehlschl&auml;gt, wenn die Argumente keine ganze Zahlen 
 (%i3) plot3d (f(x,y), [x, 1, 4], [y, 1, 4], [grid, 4, 4])$
 apply: subscript must be an integer; found: round(x)
 </pre>
-<p><div class="image"><img src="./../figures/plotting22.gif" alt="../figures/plotting22"></div>
+<p><div class="image"><img src="./../figures/plotting22.png" alt="../figures/plotting22"></div>
 </p>
 
 <p>Wird die H&ouml;henangabe <code>elevation</code> auf Null gesetzt, kann die Fl&auml;che als
@@ -801,7 +819,7 @@ zu zeigen.  Die Gitterlinien sind ausgeschaltet.
         [mesh_lines_color, false], [elevation, 0], [azimuth, 0],
         [colorbox, true], [grid, 150, 150])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting23.gif" alt="../figures/plotting23"></div>
+<p><div class="image"><img src="./../figures/plotting23.png" alt="../figures/plotting23"></div>
 </p></dd></dl>
 
 <p><a name="plot_005foptions"></a>
@@ -824,9 +842,11 @@ der Parameter einer Option wiederum eine Liste sein.
 </p>
 
 <p>Siehe auch <code><a href="#set_005fplot_005foption">set_plot_option</a></code>,
-<code><a href="#get_005fplot_005foption">get_plot_option</a></code>
+ <code><a href="#get_005fplot_005foption">get_plot_option</a></code>
+ und das 
 Kapitel <a href="#SEC83">Grafikoptionen</a>.
-</p></dd></dl>
+</p>
+</dd></dl>
 
 <p><a name="set_005fplot_005foption"></a>
 </p><dl>
@@ -841,9 +861,11 @@ Liste <code>plot_optons</code> zur&uuml;ck.
 </p>
 
 <p>Siehe auch <code><a href="#plot_005foptions">plot_options</a></code>,
-<code><a href="#get_005fplot_005foption">get_plot_option</a></code>
+ <code><a href="#get_005fplot_005foption">get_plot_option</a></code>
+ und das Kapitel
 <a href="#SEC83">Grafikoptionen</a>.
 </p>
+
 <p>Beispiele:
 </p>
 
@@ -918,6 +940,7 @@ hingewiesen.
 <p>Die maximale Zahl an Teilungen von Intervallen, die der adaptive Algorithmus 
 f&uuml;r das Zeichnen eines Graphen vornimmt.  Zusammen mit der Grafikoption
 <code><a href="#nticks">nticks</a></code>
+ hat diese Grafikoption Einfluss darauf, wie glatt der Graph
 gezeichnet wird.
 </p></dd></dl>
 
@@ -934,7 +957,8 @@ gezeichnet wird.
 Mit <code>x</code> oder <code>y</code> werden nur die x- oder nur die y-Achse gezeichnet.  
 Mit <code>true</code> werden beide Achsen gezeichnet.  Diese Option wird nur von den
 Funktionen <code><a href="#plot2d">plot2d</a></code>
-<code><a href="#implicit_005fplot">implicit_plot</a></code>
+ und <code><a href="#implicit_005fplot">implicit_plot</a></code>
+ beachtet.
 </p></dd></dl>
 
 <p><a name="azimuth"></a>
@@ -947,7 +971,8 @@ Funktionen <code><a href="#plot2d">plot2d</a></code>
 
 <p>Setzt den Wert des Azimutwinkels in Grad f&uuml;r die Ansicht einer 
 dreidimensionalen Grafik.  Siehe auch <code><a href="#elevation">elevation</a></code>.
-</p></dd></dl>
+</p>
+</dd></dl>
 
 <p><a name="plot_005foption_005fbox"></a>
 </p><dl>
@@ -970,9 +995,11 @@ Rahmen.  Ist der Wert <code>false</code>, wird kein Rahmen gezeichnet.
 </p>
 
 <p>Wenn die Funktionen <code><a href="#plot2d">plot2d</a></code>
-<code><a href="#implicit_005fplot">implicit_plot</a></code>
+ oder <code><a href="#implicit_005fplot">implicit_plot</a></code>
+ mehrere Graphen
 zeichnen, definiert die Grafikoption <code>color</code> die Farben der einzelnen 
 Graphen.  F&uuml;r einen 3D-Graphen mit der Funktion <code><a href="#plot3d">plot3d</a></code>
+ definiert die
 Grafikoption <code>color</code> die Farbe der Fl&auml;chen.
 </p>
 
@@ -985,7 +1012,8 @@ folgen.  Je zwei Werte bezeichnen die rote, gr&uuml;ne und blaue Komponente der
 Farbe.
 </p>
 <p>Siehe auch <code><a href="#style">style</a></code>.
-</p></dd></dl>
+</p>
+</dd></dl>
 
 <p><a name="colorbox"></a>
 </p><dl>
@@ -997,6 +1025,7 @@ Farbe.
 
 <p>Hat die Grafikoption <code>colorbox</code> den Wert <code>true</code>, wird immer dann,
 wenn das Grafikkommando <code><a href="#plot3d">plot3d</a></code>
+ eine Palette mit verschiedenen Farben
 nutzt, um die z-Werte darzustellen, eine Legende mit den Farben und den
 dazugeh&ouml;renden z-Werten angezeigt.
 </p></dd></dl>
@@ -1011,7 +1040,8 @@ dazugeh&ouml;renden z-Werten angezeigt.
 
 <p>Setzt den Wert des Elevationswinkels in Grad f&uuml;r die Ansicht einer 
 dreidimensionalen Grafik.  Siehe auch <code><a href="#azimuth">azimuth</a></code>.
-</p></dd></dl>
+</p>
+</dd></dl>
 
 <p><a name="grid"></a>
 </p><dl>
@@ -1052,7 +1082,8 @@ kann nicht mit der Funktion <code>set_plot_option</code> gesetzt werden.
 <p>Bewirkt, dass die horizontale Achse logarithmisch skaliert wird.  Diese 
 Grafikoption kann nicht mit der Funktion <code>set_plot_option</code> gesetzt werden.
 Siehe auch <code><a href="#logy">logy</a></code>.
-</p></dd></dl>
+</p>
+</dd></dl>
 
 <p><a name="logy"></a>
 </p><dl>
@@ -1063,7 +1094,8 @@ Siehe auch <code><a href="#logy">logy</a></code>.
 <p>Bewirkt, dass die vertikale Achse logarithmisch skaliert wird.  Diese 
 Grafikoption kann nicht mit der Funktion <code>set_plot_option</code> gesetzt werden.
 Siehe auch <code><a href="#logx">logx</a></code>.
-</p></dd></dl>
+</p>
+</dd></dl>
 
 <p><a name="mesh_005flines_005fcolor"></a>
 </p><dl>
@@ -1076,6 +1108,7 @@ Siehe auch <code><a href="#logx">logx</a></code>.
 <p>Setzt die Farbe, die von der Funktion <code>plot3d</code> genutzt wird, um die
 Gitterlinien zu zeichnen.  Es k&ouml;nnen dieselben Farben verwendet werden wie 
 f&uuml;r die Grafikoption <code><a href="#color">color</a></code>.
+ Hat <code>mesh_lines_color</code> Wert 
 <code>false</code>, werden keine Gitterlinien gezeichnet.
 </p></dd></dl>
 
@@ -1094,6 +1127,7 @@ gezeichnet, ist <code>nticks</code> die Anzahl der Punkte, f&uuml;r die der Grap
 gezeichnet wird.
 </p>
 <p>Zusammen mit der Grafikoption <code><a href="#adapt_005fdepth">adapt_depth</a></code>
+ hat diese Grafikoption Einfluss
 darauf, wie glatt der Graph gezeichnet wird.
 </p></dd></dl>
 
@@ -1127,9 +1161,11 @@ Sind nicht gen&uuml;gend Paletten vorhanden, werden die Paletten wiederholt.
 </p>
 
 <p>Die Farbe der Gitterlinien wird mit der Option <code><a href="#mesh_005flines_005fcolor">mesh_lines_color</a></code>
+&nbsp;
 angegeben.  Hat <code>palette</code> den Wert <code>false</code>, werden die Fl&auml;chen nicht
 gef&auml;rbt, sondern als ein Gitternetz gezeichnet.  Die Farbe der Gitterlinien
 wird in diesem Fall mit der Grafikoption <code><a href="#color">color</a></code>
+ festgelegt.
 </p></dd></dl>
 
 <p><a name="plot_005fformat"></a>
@@ -1143,7 +1179,8 @@ wird in diesem Fall mit der Grafikoption <code><a href="#color">color</a></code>
 <p>Setzt das Grafikformat f&uuml;r die Ausgabe einer Grafik.  <code>format</code> kann die 
 Werte <code>gnuplot</code>, <code>xmaxima</code>, <code>mgnuplot</code> oder <code>gnuplot_pipes</code>
 annehmen.  Siehe das Kapitel <a href="#SEC81">Grafikformate</a>.
-</p></dd></dl>
+</p>
+</dd></dl>
 
 <p><a name="plot_005frealpart"></a>
 </p><dl>
@@ -1177,7 +1214,8 @@ triangle, delta, wedge, nabla, diamond, lozenge]</code>
 Datens&auml;tze nacheinander der Liste <code>point_type</code> entnommen.  Gibt es
 mehr Datens&auml;tze als Symbole, werden diese wiederholt.  Siehe auch 
 <code><a href="#style">style</a></code>.
-</p></dd></dl>
+</p>
+</dd></dl>
 
 <p><a name="psfile"></a>
 </p><dl>
@@ -1247,8 +1285,9 @@ Punkte.
 </p>
 
 <p>Siehe auch die Grafikoptionen <code><a href="#color">color</a></code>
-<code><a href="#point_005ftype">point_type</a></code>.
-</p></dd></dl>
+ und <code><a href="#point_005ftype">point_type</a></code>.
+</p>
+</dd></dl>
 
 <p><a name="t"></a>
 </p><dl>
@@ -1258,6 +1297,7 @@ Punkte.
 <dd>
 <p>Bestimmt den Wertebereich f&uuml;r das Zeichnen einer parametrischen Kurve mit der
 Funktion <code><a href="#plot2d">plot2d</a></code>.
+  Die Variable einer parametrischen Kurve muss mit
 <code>t</code> bezeichnet werden.
 </p></dd></dl>
 
@@ -1271,11 +1311,13 @@ Funktion <code><a href="#plot2d">plot2d</a></code>.
 
 <p><var>symbol</var> hat entweder den Wert <code>false</code> oder ist das Ergebnis der 
 Funktion <code><a href="#make_005ftransform">make_transform</a></code>.
+  Wenn verschieden von <code>false</code>, wird die
 Funktion genutzt, um die drei Koordinaten einer dreidimensionalen Grafik zu
 transformieren.
 </p>
 <p>Siehe auch <code><a href="#polar_005fto_005fxy">polar_to_xy</a></code>
-<code><a href="#spherical_005fto_005fxyz">spherical_to_xyz</a></code>.
+ und <code><a href="#spherical_005fto_005fxyz">spherical_to_xyz</a></code>.
+ f&uuml;r bereits
 vordefinierte Koordinatentransformationen.
 </p></dd></dl>
 
@@ -1618,7 +1660,7 @@ Kommando <code>gnuplot_reset</code> ausgef&uuml;hrt werden.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>Oktober, 11 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>April, 1 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

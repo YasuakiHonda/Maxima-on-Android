@@ -26,7 +26,7 @@
 <div data-role="page" id="page1">
     <div data-role="content">
         <h2>
-            Maxima on Android 2.1
+            Maxima on Android 2.2
         </h2>
         <h5>
             Copyright 2012, 2013, 2014 Yasuaki Honda
@@ -72,9 +72,11 @@ Then you can enjoy Maxima / Macsyma on your mobile phone or tablet.
                     What's new in this release
                 </h3>
                 <ul data-role="listview" data-inset="true">
-                    <li>Hardware graphics accelaration enabled</li>
-                    <li>Automatic reflow of text in Maxima Manual when used on Kitkat</li>
-                    <li>Font size of Maxima command input area can be changed</li>
+                    <li>Maxima 5.33.0 is supported.</li>
+                    <li>Qepcad is officially supported. See details in this manual.</li>
+                    <li>Font size of Maxima command input area is automaticaly adjusted 
+                    when the main screen is enlarged/shrinked. The old textSize:XX still
+                    works.</li>
                 </ul>                
             </div>
             <div data-role="collapsible">
@@ -304,6 +306,73 @@ Also, after you are back from graph window to the Maxima session
 screen, you can redraw the graph again by choosing Graph in the menu.
 </p>
 </div> <!-- Gnuplot for graph drawing -->
+
+
+
+<div data-role="collapsible"> <!-- Qepcad -->
+<H4>Qepmax package: Qepcad - Maxima interface</H4>
+<p>
+Qepcad is supported in Maxima on Android via qepmax package. This means that the separte 
+Qepcad program is included in this package, and you can use the Qepcad program using 
+Maxima commands defined in the qepmax package.
+</p>
+<p>
+Qepcad is a program developed by Chris Brown of US Navy Accademy. This program performs
+a mathematical algorigthm called 'Quatifier Elimination' for the first order predicate
+logic with polynomials over real domain.
+</p>
+<p>
+Here is some example that you can do with Qepcad with the qepmax package:
+</p>
+<pre>
+(%i1) load(qepmax)$
+(%i2) qe([[A,x]],x^2-3*x+a>=0);
+false
+(%i3) readQepcad();
+4 a - 9 >= 0
+</pre>
+<p>
+The above example can be interpreted as follows: What is the condition of 'a' when for all x,
+x^2-3*x+a>=0? And the answer is 4*a-9>=0. Manually one can find this condition by 'square complete'
+the formula x^2-3*x+a to obtain (x-3*x/2)^2+a-9/4>=0.
+</p>
+<pre>
+(%i4) qe([[E,x],[E,y]],x^2+2*y^2=1 %and m=x+y);
+false
+(%i5) readQepcad();
+2 m^2 -3 <= 0
+</pre>
+<p>
+The second example above can be interpreted as follows: What is the range of x+y when x and y
+satisfies that x^2+2*y^2=1? The answer is -sqrt(3/2) <= m <= sqrt(3/2). Can you find this 
+condition by yourself?
+</p>
+<p>
+Function qe() takes two args. One is the list of quantified variables, and the second is a logical
+formula with predicates (>, <, =, <=, >=, #) and polinomials over real domain. Together, the args
+of qe() represents a formula of the 1st order predicate logic. The formula may contain free
+variables. 
+</p>
+<p>
+The result of qe() is a formula representing the equal condition as the 1st order predicate
+logic formula specified in args of qe(), but only including such free varialbes. Here, all 
+the quntified variables are eliminated.
+</p>
+<p>
+Syntax of the arguments of function qe():<br>
+1st argument is a list of quantified variables, You can use A and E as quantifiers (for all and
+there exist). [[E,x],[A,x]] is a good example of the list of the quantified variables.<br>
+2nd argument is a logical formula with variables appeared in the 1st argument and the free
+variables. You can use %and, %or, %not, %implies as the logical operators. You can use <, >, <=,
+>=, # as predicates. You can use polynomials and rational functions as terms. So, the valid
+formula examples are:<br>
+<tt>x^2+2*y^2=1 and m=x+y.</tt><br>
+</p>
+<p>
+Note that the number of variables and degree gets large numbers, the speed gets slower
+(double exponential). 
+</p>
+</div> <!-- Qepcad -->
 
 <div data-role="collapsible"> <!-- Working with your software keyboard -->
 <H4>Working with your software keyboard</H4>

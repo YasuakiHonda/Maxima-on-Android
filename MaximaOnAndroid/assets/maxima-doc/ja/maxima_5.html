@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2013年9月月4日 by texi2html 1.82
+<!-- Created on 2014年1月月14日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.31.0 Manual: 5. Data Types and Structures</title>
+<title>Maxima 5.32.1 Manual: 5. Data Types and Structures</title>
 
-<meta name="description" content="Maxima 5.31.0 Manual: 5. Data Types and Structures">
-<meta name="keywords" content="Maxima 5.31.0 Manual: 5. Data Types and Structures">
+<meta name="description" content="Maxima 5.32.1 Manual: 5. Data Types and Structures">
+<meta name="keywords" content="Maxima 5.32.1 Manual: 5. Data Types and Structures">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -1407,17 +1407,30 @@ Maximaには、以下のようにプリントされるリストもあります�
 <dt><a name="index-assoc"></a><u>関数:</u> <b>assoc</b><i> (<var>key</var>, <var>list</var>, <var>default</var>)</i></dt>
 <dt><a name="index-assoc-1"></a><u>関数:</u> <b>assoc</b><i> (<var>key</var>, <var>list</var>)</i></dt>
 <dd>
-<p>この関数は
-形式 <code>[x,y,z,...]</code>の入力 <var>list</var>の左辺の中で <var>key</var>を探します。
-ここで <var>list</var>の要素のそれぞれは二項演算子と２つの要素の式です。
-例えば、 <code>x=1</code>, <code>2^3</code>, <code>[a,b]</code>など。
-最初のオペランドに対して <var>key</var>がチェックされます。
-もし <code>key</code>が見つかったら、
-<code>assoc</code>は二番目のオペランドを返します。
-もし <code>key</code>が見つからなかったら、
-<var>default</var>値を返します。
-<var>default</var>はオプションで、省略すると <code>false</code>に設定されます。
+<p>この関数は入力 <var>list</var>の左辺の中で <var>key</var>を探します。
+<var>list</var>引数はリストでなければならず、その要素のそれぞれは正確に２つの部分を持つ式です。
+最も普通には、<var>list</var>の要素はそれ自身リストで、それぞれが2つの要素を持ちます。
 </p>
+<p><code>assoc</code>関数は <var>list</var>に従って、それぞれの要素の最初の部分が <var>key</var>と等しいかチェックを
+繰り返します。
+もし比較が真になる要素が見つかったら、 <code>assoc</code>はその要素の二番目の部分を返します。
+もしリストの中にそんな要素が存在しなければ、
+<code>assoc</code>は <code>false</code>か、もし与えられていれば <var>default</var>を返します。
+</p>
+<p>例えば、 式 <code>assoc (y, [[x,1], [y,2], [z,3]])</code>の場合、
+<code>assoc</code>関数はリスト <code>[[y,1],[x,2]]</code>の左辺に <code>y</code>を探して、第二項にそれを見つけて、 <code>2</code>を返します。
+<code>assoc (z, [[x,1], [z,2], [z,3]])</code>の場合、
+探索は <code>z</code>で始まる最初の項で止まり、 <code>2</code>を返します。
+<code>assoc(x, [[y,1]])</code>の場合、マッチする要素がないので、 <code>assoc</code>は <code>false</code>を返します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1)                 assoc(y, [[x, 1], [y, 2], [z, 3]])
+(%o1)                                  2
+</pre><pre class="example">(%i2)                 assoc(z, [[x, 1], [z, 2], [z, 3]])
+(%o2)                                  2
+</pre><pre class="example">(%i3)                         assoc(x, [[y, 1]])
+(%o3)                                false
+</pre></td></tr></table>
+
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Lists">Lists</a>
  &middot;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
 </div></p></dd></dl>
@@ -3168,7 +3181,7 @@ Maximaハッシャの古いタイプよりも
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2013年9月月4日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2014年1月月14日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

@@ -26,7 +26,7 @@
 (setq *maxima-source-root* *maxima-dir*)
 (setq *maxima-prefix* *maxima-dir*)
 (set-pathnames)                     
-(setq *prompt-suffix* (code-char 4))
+(setq *prompt-suffix* (format nil "~A" (code-char 4)))
 
 (defun tex-char (x) 
   (cond ((equal x #\ ) "\\space ")
@@ -84,7 +84,10 @@
   (if (not (boundp '$qepcad_output_file))                                       
       (add2lnc '$qepcad_output_file $values))                                   
   (defparameter $qepcad_output_file                                             
-                "/data/data/jp.yhonda/files/qepcad_output.txt"))                
+                "/data/data/jp.yhonda/files/qepcad_output.txt")
+  (if (not (boundp '$qepcad_on_moa))                                       
+      (add2lnc '$qepcad_on_moa $values))                                   
+  (defparameter $qepcad_on_moa t))
 
 ;;; always save support
 (defvar *save_file* "/data/data/jp.yhonda/files/saveddata")
@@ -94,11 +97,10 @@
 (defun $system (&rest args) (declare (ignore args)))
 (setq *maxima-tempdir* "/data/data/jp.yhonda/files")
 (setq $in_netmath nil)
-(setq $plot_options ($append '((mlist)
-  ((mlist) $plot_format $gnuplot)
-  ((mlist) $gnuplot_term $canvas)
-  ((mlist) $gnuplot_out_file "/data/data/jp.yhonda/files/maxout.html"))
-  $plot_options))
+
+($set_plot_option '((mlist) $plot_format $gnuplot))
+($set_plot_option '((mlist) $gnuplot_term $canvas))
+($set_plot_option '((mlist) $gnuplot_out_file "/data/data/jp.yhonda/files/maxout.html"))
   
 (setq $display2d '$imaxima)
 

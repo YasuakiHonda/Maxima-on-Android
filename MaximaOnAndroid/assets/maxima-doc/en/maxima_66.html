@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on October, 15 2013 by texi2html 1.76 -->
+<!-- Created on April, 3 2014 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Maxima 5.31.3 Manual: 66. makeOrders</title>
+<title>Maxima 5.33.0 Manual: 66. minpack</title>
 
-<meta name="description" content="Maxima 5.31.3 Manual: 66. makeOrders">
-<meta name="keywords" content="Maxima 5.31.3 Manual: 66. makeOrders">
+<meta name="description" content="Maxima 5.33.0 Manual: 66. minpack">
+<meta name="keywords" content="Maxima 5.33.0 Manual: 66. minpack">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -141,92 +141,212 @@ div.categorybox
 
 <body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="makeOrders"></a>
-<a name="SEC313"></a>
+<a name="minpack"></a>
+<a name="SEC314"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_65.html#SEC312" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC314" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_65.html#SEC313" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC315" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_65.html#SEC310" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_65.html#SEC311" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_67.html#SEC315" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_67.html#SEC317" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#SEC380" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter"> 66. makeOrders </h1>
+<h1 class="chapter"> 66. minpack </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC314">66.1 Functions and Variables for makeOrders</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC315">66.1 Introduction to minpack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC316">66.2 Functions and Variables for minpack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-
-<p><a name="Item_003a-Functions-and-Variables-for-makeOrders"></a>
+<p><a name="Item_003a-Introduction-to-minpack"></a>
 </p><hr size="6">
-<a name="Functions-and-Variables-for-makeOrders"></a>
-<a name="SEC314"></a>
+<a name="Introduction-to-minpack"></a>
+<a name="SEC315"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC313" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_67.html#SEC315" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC314" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC316" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC313" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC313" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_67.html#SEC315" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC314" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC314" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_67.html#SEC317" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#SEC380" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 66.1 Functions and Variables for makeOrders </h2>
+<h2 class="section"> 66.1 Introduction to minpack </h2>
 
-
-<dl>
-<dt><u>Function:</u> <b>makeOrders</b><i> (<var>indvarlist</var>,<var>orderlist</var>)</i>
-<a name="IDX2545"></a>
-</dt>
-<dd><p>Returns a list of all powers for a polynomial up to and including the arguments. 
-</p>
-<pre class="example">(%i1) load(&quot;makeOrders&quot;)$
-
-(%i2) makeOrders([a,b],[2,3]);
-(%o2) [[0, 0], [0, 1], [0, 2], [0, 3], [1, 0], [1, 1],
-            [1, 2], [1, 3], [2, 0], [2, 1], [2, 2], [2, 3]]
-(%i3) expand((1+a+a^2)*(1+b+b^2+b^3));
-       2  3      3    3    2  2      2    2    2
-(%o3) a  b  + a b  + b  + a  b  + a b  + b  + a  b + a b
-                                                  2
-                                           + b + a  + a + 1
-</pre><p>where <code>[0, 1]</code> is associated with the term <em>b</em> and <code>[2, 3]</code> with <em>a^2 b^3</em>.
-</p>
-<p>To use this function write first <code>load(&quot;makeOrders&quot;)</code>.
+<p><code>Minpack</code> is a Common Lisp translation (via <code>f2cl</code>) of the
+Fortran library MINPACK, as obtained from Netlib.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Polynomials">Polynomials</a>
-
-<a href="maxima_98.html#Category_003a-Share-packages">Share packages</a>
-
-<a href="maxima_98.html#Category_003a-Package-makeOrders">Package makeOrders</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a>  &middot;
+<a href="maxima_99.html#Category_003a-Optimization">Optimization</a> &middot;
+<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a> &middot;
+<a href="maxima_99.html#Category_003a-Package-minpack">Package minpack</a>
 </div>
 </p>
+<p><a name="Item_003a-Functions-and-Variables-for-minpack"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-minpack"></a>
+<a name="SEC316"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC315" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_67.html#SEC317" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC314" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC314" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_67.html#SEC317" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 66.2 Functions and Variables for minpack </h2>
+
+<p><a name="Item_003a-minpack_005flsquares"></a>
+</p><dl>
+<dt><u>Function:</u> <b>minpack_lsquares</b><i> (<var>flist</var>, <var>varlist</var>, <var>guess</var> [, <var>tolerance</var>, <var>jacobian</var>])</i>
+<a name="IDX2577"></a>
+</dt>
+<dd><p>Compute the point that minimizes the sum of the squares of the
+functions in the list <var>flist</var>.  The variables are in the list
+<var>varlist</var>.  An initial guess of the optimum point must be provided
+in <var>guess</var>.  
+</p>
+<p>The optional keyword arguments, <var>tolerance</var> and <var>jacobian</var>
+provide some control over the algorithm.  <var>tolerance</var> is the
+estimated relative error desired in the sum of squares.
+<var>jacobian</var> can be used to specify the Jacobian.  If <var>jacobian</var>
+is not given or is <code>true</code> (the default), the Jacobian is computed
+from <var>flist</var>.  If <var>jacobian</var> is <code>false</code>, a numerical
+approximation is used.
+</p>
+<p><code>minpack_lsquares</code> returns a list.  The first item is the
+estimated solution; the second is the sum of squares, and the third
+indicates the success of the algorithm.  The possible values are
+</p>
+<dl compact="compact">
+<dt> <code>0</code></dt>
+<dd><p>improper input parameters.
+</p></dd>
+<dt> <code>1</code></dt>
+<dd><p>algorithm estimates that the relative error in the sum of squares is
+at most <code>tolerance</code>. 
+</p></dd>
+<dt> <code>2</code></dt>
+<dd><p>algorithm estimates that the relative error between x and the solution
+is at most <code>tolerance</code>. 
+</p></dd>
+<dt> <code>3</code></dt>
+<dd><p>conditions for info = 1 and info = 2 both hold.
+</p></dd>
+<dt> <code>4</code></dt>
+<dd><p>fvec is orthogonal to the columns of the jacobian to machine
+precision. 
+</p></dd>
+<dt> <code>5</code></dt>
+<dd><p>number of calls to fcn with iflag = 1 has reached 100*(n+1).
+</p></dd>
+<dt> <code>6</code></dt>
+<dd><p>tol is too small. no further reduction in the sum of squares is
+possible. 
+</p></dd>
+<dt> <code>7</code></dt>
+<dd><p>tol is too small. no further improvement in the approximate solution x
+is possible. 
+</p></dd>
+</dl>
+
+<pre class="example">/* Problem 6: Powell singular function */
+(%i1) powell(x1,x2,x3,x4) := 
+         [x1+10*x2, sqrt(5)*(x3-x4), (x2-2*x3)^2, 
+              sqrt(10)*(x1-x4)^2]$
+(%i2) minpack_lsquares(powell(x1,x2,x3,x4), [x1,x2,x3,x4], 
+                       [3,-1,0,1]);
+(%o2) [[1.652117596168394e-17, - 1.652117596168393e-18, 
+        2.643388153869468e-18, 2.643388153869468e-18], 
+       6.109327859207777e-34, 4] 
+</pre>
+<pre class="example">/* Same problem but use numerical approximation to Jacobian */
+(%i3) minpack_lsquares(powell(x1,x2,x3,x4), [x1,x2,x3,x4], 
+                       [3,-1,0,1], jacobian = false);
+(%o3) [[5.060282149485331e-11, - 5.060282149491206e-12, 
+        2.179447843547218e-11, 2.179447843547218e-11], 
+       3.534491794847031e-21, 5]
+</pre>
+</dd></dl>
+
+<p><a name="Item_003a-minpack_005fsolve"></a>
+</p><dl>
+<dt><u>Function:</u> <b>minpack_solve</b><i> (<var>flist</var>, <var>varlist</var>, <var>guess</var> [, <var>tolerance</var>, <var>jacobian</var>])</i>
+<a name="IDX2578"></a>
+</dt>
+<dd><p>Solve a system of <code>n</code> equations in <code>n</code> unknowns.
+The <code>n</code> equations are given in the list <var>flist</var>, and the
+unknowns are in <var>varlist</var>.  An initial guess of the solution must
+be provided in <var>guess</var>.
+</p>
+<p>The optional keyword arguments, <var>tolerance</var> and <var>jacobian</var>
+provide some control over the algorithm.  <var>tolerance</var> is the
+estimated relative error desired in the sum of squares.
+<var>jacobian</var> can be used to specify the Jacobian.  If <var>jacobian</var>
+is not given or is <code>true</code> (the default), the Jacobian is computed
+from <var>flist</var>.  If <var>jacobian</var> is <code>false</code>, a numerical
+approximation is used.
+</p>
+<p><code>minpack_solve</code> returns a list.  The first item is the
+estimated solution; the second is the sum of squares, and the third
+indicates the success of the algorithm.  The possible values are
+</p>
+<dl compact="compact">
+<dt> <code>0</code></dt>
+<dd><p>improper input parameters.
+</p></dd>
+<dt> <code>1</code></dt>
+<dd><p>algorithm estimates that the relative error in the solution is
+at most <code>tolerance</code>. 
+</p></dd>
+<dt> <code>2</code></dt>
+<dd><p>number of calls to fcn with iflag = 1 has reached 100*(n+1).
+</p></dd>
+<dt> <code>3</code></dt>
+<dd><p>tol is too small. no further reduction in the sum of squares is
+possible. 
+</p></dd>
+<dt> <code>4</code></dt>
+<dd><p>Iteration is not making good progress.
+</p></dd>
+</dl>
+
+
 </dd></dl>
 
 
-<p><a name="Item_003a-mnewton"></a>
+<p><a name="Item_003a-makeOrders"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC313" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_67.html#SEC315" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC314" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_67.html#SEC317" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -234,12 +354,12 @@ div.categorybox
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#SEC380" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>October, 15 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>本田 康晃</em> on <em>April, 3 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2013年9月月4日 by texi2html 1.82
+<!-- Created on 2014年1月月14日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.31.0 Manual: 50. dynamics</title>
+<title>Maxima 5.32.1 Manual: 50. dynamics</title>
 
-<meta name="description" content="Maxima 5.31.0 Manual: 50. dynamics">
-<meta name="keywords" content="Maxima 5.31.0 Manual: 50. dynamics">
+<meta name="description" content="Maxima 5.32.1 Manual: 50. dynamics">
+<meta name="keywords" content="Maxima 5.32.1 Manual: 50. dynamics">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -211,28 +211,8 @@ div.categorybox
 <p>このパッケージの関数を使うには、最初に
 <code>load(&quot;dynamics&quot;)</code>でパッケージをロードしなければいけません。
 </p>
-<p><b>Maxima 5.12で導入された変更</b>
+<p>グラフィックスを生成するコマンドは <code>plot2d</code>が受け入れるのと同じオプションといくつかの追加のオプションを受け入れます。
 </p>
-<p>Maxima 5.12以来現在まで dynamicsパッケージは
-グラフを処理するのに関数 <code>plot2d</code>を使います。
-(<code>julia</code>や <code>mandelbrot</code>を除いて)
-グラフィックスを生成するコマンドは <code>plot2d</code>のいかなるオプションも受け付けます。
-オプションには、プロットスタイルや色を使ったり、
-一方の、または両方の軸を対数スケールで表したり、
-様々なグラフィカルインターフェイス全体に渡って変更を加えるものを含みます。
-古いオプション <var>domain</var>, <var>pointsize</var>, <var>xcenter</var>, <var>xradius</var>,
-<var>ycenter</var>, <var>yradius</var>, <var>xaxislabel</var>, <var>yaxislabel</var>は
-この新しいバージョンでは受け付けられません。
-</p>
-<p>現在，すべてのプログラムは、以前のバージョンのように <var>x</var>と <var>y</var>だけでなく、
-任意の変数名を受け付けます。
-２つの要求パラメータが2つのプログラムで変えられました:
-<code>evolution2d</code>は、現在、２つの独立変数を陽に指定するリストを要求し、
-<code>orbits</code>の水平範囲はもはやステップサイズを要求しません;
-範囲は、変数名と最小値、最大値だけを指定しなければいけません;
-ステップ数は、現在、オプション <var>nticks</var>で変えることができます。
-</p>
-
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Dynamical-systems">Dynamical systems</a>
  &middot;<a href="maxima_98.html#Category_003a-Share-packages">Share packages</a>
  &middot;<a href="maxima_98.html#Category_003a-Package-dynamics">Package dynamics</a>
@@ -333,64 +313,6 @@ div.categorybox
 </div></p>
 </dd></dl>
 
-<p><a name="Item_003a-julia"></a>
-</p><dl>
-<dt><a name="index-julia"></a><u>関数:</u> <b>julia</b><i> (<var>x</var>, <var>y</var>, ...<var>options</var>...)</i></dt>
-<dd>
-<p>複素数 (<var>x</var> + i <var>y</var>)に関する
-Julia集合の表現のグラフィックスファイルを生成します。
-パラメータ <var>x</var>と <var>y</var>は実数でなければいけません。
-ファイルは、
-XPMグラフィックスフォーマットでカレントディレクトリかユーザーディレクトリに生成されます。
-プログラムは走らせるのに数秒かかるかもしれません。
-終了後、生成したファイル名と共にメッセージが印字されます。
-</p>
-<p>Julia集合に属さない点には異なる色が割り当てられます。
-繰り返し回数に従って、その点から始まり、半径2の収束円から動く数列を取ります。
-繰り返しの最大回数はオプション <var>levels</var>で設定されます;
-その回数の繰り返しの後、もし数列がまだ収束円内なら、
-点はオプション <var>color</var>で定義された色で塗られます。
-</p>
-<p>Julia集合に属さない点に使われる色すべては、同じ
-<var>saturation</var>と <var>value</var>を持ちますが、
-<var>hue</var>と (<var>hue</var> + <var>huerange</var>)の間に一様に分布する、違った色相角を持ちます。
-</p>
-<p><var>options</var>はオプションの列です。
-受け付けられるオプションのリストは以下の節で与えられます。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-dynamics">Package dynamics</a>
- &middot;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-mandelbrot"></a>
-</p><dl>
-<dt><a name="index-mandelbrot"></a><u>関数:</u> <b>mandelbrot</b><i> (<var>options</var>)</i></dt>
-<dd>
-<p>Mandelbrot集合の表現のグラフィックスファイルを生成します。
-ファイルは、
-XPMグラフィックスフォーマットでカレントディレクトリかユーザーディレクトリに生成されます。
-プログラムは走らせるのに数秒かかるかもしれません。
-終了後、生成したファイル名と共にメッセージが印字されます。
-</p>
-<p>Mandelbrot集合に属さない点には、異なる色が割り当てられます。
-繰り返し回数に従って、その点から始まり、半径 2の収束円から動く数列を取ります。
-繰り返しの最大回数はオプション <var>levels</var>で設定されます;
-その回数の繰り返しの後、もし数列がまだ収束円内なら、点はオプション
-<var>color</var>で定義された色で塗られます。
-</p>
-<p>Mandelbrot集合に属さない点に使われる色すべては、同じ <var>saturation</var>と
-<var>value</var>を持ちますが、<var>hue</var>と (<var>hue</var> +
-<var>huerange</var>)の間に一様に分布する、違った色相角を持ちます。
-</p>
-<p><var>options</var>はオプションの列です。
-受け付けられるオプションのリストは以下の節で与えられます。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-dynamics">Package dynamics</a>
- &middot;<a href="maxima_98.html#Category_003a-Plotting">Plotting</a>
-</div></p>
-</dd></dl>
-
 <p><a name="Item_003a-orbits"></a>
 </p><dl>
 <dt><a name="index-orbits"></a><u>関数:</u> <b>orbits</b><i> (<var>F</var>, <var>y0</var>, <var>n1</var>, <var>n2</var>, [<var>x</var>, <var>x0</var>, <var>xf</var>, <var>xstep</var>], ...options...);</i></dt>
@@ -445,76 +367,6 @@ XPMグラフィックスフォーマットでカレントディレクトリか�
 <code>orbits</code>は、それらのオプションに加えて、
 垂直方向に表される異なる点の最大数を設定する特別なオプション <var>pixels</var>を受け付けます。
 </p>
-<p>以下のオプションを関数 <code>julia</code>と <code>mandelbrot</code>は受け付けます:
-</p>
-<ul>
-<li>
-<em>size</em>は 1つか 2つの引数を取ります。
-もし 1つだけ引数が与えられたら、
-生成されるグラフィックスファイルの幅と高さはピクセル単位でその値に等しくなります。
-もし引数 2つが与えられたら、それらは幅と高さを定義します。
-デフォルト値は、幅と高さ両方に関して 400ピクセルです。
-もし 2つの値が等しくないなら、集合は歪んで現れます。
-
-</li><li>
-<em>levels</em>は繰り返しの最大数を定義します。
-これは集合に属さない点に使われる色の数にも等しいです。
-デフォルト値は 12です;
-値が大きくなると、処理時間が長くなります。
-
-</li><li>
-<em>huerange</em>は
-集合に属さない点の色相に使われる色相角の範囲を定義します。
-デフォルト値は 360です。これは色が色相のすべての範囲に広がることを意味します。
-360より大きな値は、色相範囲の繰り返しを意味し、
-負の値は、繰り返し回数が増えるにつれ、色相角を減らすように使うことができます。
-
-</li><li>
-<em>hue</em>は集合に属さない点に使われる最初の色の色相を度単位で設定します。
-デフォルト値は 300度です。これはマゼンダに対応します;
-他の標準的な色の値は、赤には 0、オレンジには 45、黄には 60、緑には 120、シアンには
-180、青には 240です。
-オプション <var>huerange</var>も参照してください。
-
-</li><li>
-<em>saturation</em>は集合に属さない点に使われる飽和値を設定します。
-0と 1の間でなければいけません。
-デフォルト値は 0.46です。
-
-</li><li>
-<em>value</em>は
-集合に属さない点に使われる色の値を設定します。
-0と 1の間でなければいけません;
-値が高くなると、色が明るくなります。
-デフォルト値は 0.96です。
-
-</li><li>
-<em>color</em>には、集合の点を表すのに使われる色の色相、飽和、値を定義する
-3つのパラメータが続きます。
-デフォルト値は３つのパラメータすべてが 0であり、黒に対応します。
-許される値の範囲の説明に関してオプション
-<var>hue</var>, <var>saturation</var>, <var>value</var>を参照してください。
-
-
-</li><li>
-<em>center</em>には、2つの実パラメータが続きます。
-これは表示される領域の中心点の複素平面上の座標を与えます。
-デフォルト値は両座標に関して 0(原点)です。
-
-</li><li>
-<em>radius</em>は表示される正方形領域内の最大円の半径を設定します。
-デフォルト値は 2です。
-
-</li><li>
-<em>filename</em>は
-結果のグラフが保存されるファイル名を与えます。
-拡張子 .xpmがその名前に加えられます。
-もしファイルが既に存在しているなら、
-関数が生成したファイルで置き換えられます。
-デフォルト値は Julia集合には julia、 Mandelbrot集合には mandelbrotです。
-
-</li></ul>
-
 <p><b>例</b>
 </p>
 <p>以下の数列のグファフィックス表現と階段図形:
@@ -604,26 +456,10 @@ XPMグラフィックスフォーマットでカレントディレクトリか�
 
 <img src="figures/dynamics8.gif" alt="figures/dynamics8">
 
-<p>Mandelbrot集合の 12色のグラフィックス表現を納めた
-<em>dynamics9.xpm</em>という名前のファイルを生成するには以下を使ってください:
+<p>Plotting節のパッケージ<code><a href="maxima_12.html#mandelbrot">mandelbrot</a></code>
+と <code><a href="maxima_12.html#julia">julia</a></code>
+のドキュメントも参照してください。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">mandelbrot([filename,&quot;dynamics9&quot;])$
-</pre></td></tr></table>
-
-<img src="figures/dynamics9.gif" alt="figures/dynamics9">
-
-<p>そして数 (-0.55 + i 0.6)に関する Julia集合は以下で得られます:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">julia(-0.55, 0.6, [levels, 36], [center, 0, 0.6], [radius, 0.3],
-      [hue, 240], [huerange, -180], [filename, &quot;dynamics10&quot;])$
-</pre></td></tr></table>
-
-<p>グラフはファイル <em>dynamics10.xpm</em>に保存されます。
-x方向に -0.3から 0.3まで、 y方向に 0.3から 0.9までの領域を表示します。
-青から始まり黄で終わる 36色が使われます。
-</p>
-<img src="figures/dynamics10.gif" alt="figures/dynamics10">
-
-
 <p><a name="Item_003a-ezunits"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
@@ -641,7 +477,7 @@ x方向に -0.3から 0.3まで、 y方向に 0.3から 0.9までの領域を表
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2013年9月月4日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2014年1月月14日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

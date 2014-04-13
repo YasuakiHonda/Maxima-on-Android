@@ -76,7 +76,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     CommandExec maximaProccess;
     File internalDir;
     File externalDir;
-    MaximaVersion mvers=new MaximaVersion(5,31,3);
+    MaximaVersion mvers=new MaximaVersion(5,33,0);
 
       @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -562,6 +562,17 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 		        } catch (Exception e) {
 		        	Log.d("MoA","exception7");
 		        }
+   				try {
+   					cmdstr="readQepcad();";
+   					maximaProccess.maximaCmd(cmdstr+"\n");
+   		   			webview.loadUrl("javascript:window.UpdateInput('"+ escapeChars(cmdstr) +"<br>" +"')");
+   		   			resString=maximaProccess.getProcessResult();
+   		   	        maximaProccess.clearStringBuilder();
+   		   	        displayMaximaCmdResults(resString);
+   				} catch (Exception e) {
+   					Log.d("MoA","exception7.1");
+   				}
+
 				
 			}
 
@@ -735,7 +746,8 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 			SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
 			Editor editor = settings.edit();
 	        editor.putFloat("maxima main scale", sc);
-	        editor.commit();			
+	        editor.commit();
+	        setMCIAfontSize((int)(sc*12));
 		}
 		return false;
 	}

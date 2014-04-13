@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2013年9月月4日 by texi2html 1.82
+<!-- Created on 2014年1月月14日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.31.0 Manual: 6. Expressions</title>
+<title>Maxima 5.32.1 Manual: 6. Expressions</title>
 
-<meta name="description" content="Maxima 5.31.0 Manual: 6. Expressions">
-<meta name="keywords" content="Maxima 5.31.0 Manual: 6. Expressions">
+<meta name="description" content="Maxima 5.32.1 Manual: 6. Expressions">
+<meta name="keywords" content="Maxima 5.32.1 Manual: 6. Expressions">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -800,6 +800,21 @@ Maximaの中で現れる時、他の任意のLispシンボルはクエスチョ�
 <p><code>exptsubst</code>が<code>true</code>の時、
 <code>%e^(a x)</code>の中の<code>%e^x</code>へ<code>y</code>を代入するような代入を許します。
 </p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) %e^(a*x);
+                                       a x
+(%o1)                                %e
+</pre><pre class="example">(%i2) exptsubst;
+(%o2)                                false
+</pre><pre class="example">(%i3) subst(y, %e^x, %e^(a*x));
+                                       a x
+(%o3)                                %e
+</pre><pre class="example">(%i4) exptsubst: not exptsubst;
+(%o4)                                true
+</pre><pre class="example">(%i5) subst(y, %e^x, %e^(a*x));
+                                       a
+(%o5)                                 y
+</pre></td></tr></table>
+
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
  &middot;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
 </div></p></dd></dl>
@@ -1056,13 +1071,25 @@ Maximaの中で現れる時、他の任意のLispシンボルはクエスチョ�
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>listconstvars</code>が<code>true</code>の時、
-もし<code>listofvars</code>をコールする式の中で
-<code>%e</code>, <code>%pi</code>, <code>%i</code>や定数と宣言された任意の変数が現れたなら、
-<code><a href="#listofvars">listofvars</a></code>
-は、
-それらを戻り値のリストの中に含みます。
-デフォルトはこれらを省略します。
+<code>listofvars</code>が返すリストは
+<code>%e</code>, <code>%pi</code>, <code>%i</code>のような定数変数や
+<var>expr</var>の中に現れる定数として宣言された任意の変数を含みます。
+変数は<code><a href="maxima_11.html#declare">declare</a></code>
+を介して<code>constant</code>型として宣言されて、
+<code><a href="maxima_11.html#constantp">constantp</a></code>
+は <code>constant</code>として宣言されたすべての変数に対して <code>true</code>を返します。
+デフォルトでは <code>listofvars</code>の戻り値から定数変数を省略します。
 </p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) lfreeof ([ a, x], x^2+b);
+(%o1)                                false
+</pre><pre class="example">lfreeof ([ b, x], x^2+b);
+(%o2)                                false
+</pre><pre class="example">lfreeof ([ a, y], x^2+b);
+(%o3)                                true
+</pre></td></tr></table>
+
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
 </div></p></dd></dl>
 
@@ -1326,6 +1353,23 @@ Maximaの中で現れる時、他の任意のLispシンボルはクエスチョ�
 例えば、
 <code>(opsubst: false, subst (x^2, r, r+r[0]))</code>はうまくいきます。
 </p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) r+r[0];
+(%o1)                               r + r
+                                         0
+</pre><pre class="example">(%i2) opsubst;
+(%o2)                                true
+</pre><pre class="example">(%i3) subst (x^2, r, r+r[0]);
+                                   2     2
+(%o3)                             x  + (x )
+                                           0
+</pre><pre class="example">(%i4) opsubst: not opsubst;
+(%o4)                                false
+</pre><pre class="example">(%i5) subst (x^2, r, r+r[0]);
+                                     2
+(%o5)                               x  + r
+                                          0
+</pre></td></tr></table>
+
 <div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
 </div></p></dd></dl>
 
@@ -2214,7 +2258,7 @@ $FOO
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2013年9月月4日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2014年1月月14日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

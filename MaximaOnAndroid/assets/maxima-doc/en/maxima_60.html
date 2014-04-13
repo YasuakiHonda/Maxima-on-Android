@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on October, 15 2013 by texi2html 1.76 -->
+<!-- Created on April, 3 2014 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Maxima 5.31.3 Manual: 60. lapack</title>
+<title>Maxima 5.33.0 Manual: 60. interpol</title>
 
-<meta name="description" content="Maxima 5.31.3 Manual: 60. lapack">
-<meta name="keywords" content="Maxima 5.31.3 Manual: 60. lapack">
+<meta name="description" content="Maxima 5.33.0 Manual: 60. interpol">
+<meta name="keywords" content="Maxima 5.33.0 Manual: 60. interpol">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -141,569 +141,465 @@ div.categorybox
 
 <body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="lapack"></a>
-<a name="SEC296"></a>
+<a name="interpol"></a>
+<a name="SEC297"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_59.html#SEC295" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC297" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_59.html#SEC296" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC298" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_59.html#SEC293" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_59.html#SEC295" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_61.html#SEC299" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_61.html#SEC300" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#SEC380" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter"> 60. lapack </h1>
+<h1 class="chapter"> 60. interpol </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC297">60.1 Introduction to lapack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC298">60.1 Introduction to interpol</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC298">60.2 Functions and Variables for lapack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC299">60.2 Functions and Variables for interpol</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Introduction-to-lapack"></a>
+<p><a name="Item_003a-Introduction-to-interpol"></a>
 </p><hr size="6">
-<a name="Introduction-to-lapack"></a>
-<a name="SEC297"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC296" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC298" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_61.html#SEC299" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 60.1 Introduction to lapack </h2>
-
-<p><code>lapack</code> is a Common Lisp translation (via the program <code>f2c</code>) of the Fortran library LAPACK,
-as obtained from the SLATEC project.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
-
-<a href="maxima_98.html#Category_003a-Share-packages">Share packages</a>
-
-<a href="maxima_98.html#Category_003a-Package-lapack">Package lapack</a>
-</div>
-</p>
-
-<p><a name="Item_003a-Functions-and-Variables-for-lapack"></a>
-</p><hr size="6">
-<a name="Functions-and-Variables-for-lapack"></a>
+<a name="Introduction-to-interpol"></a>
 <a name="SEC298"></a>
 <table cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#SEC297" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_61.html#SEC299" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC299" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_61.html#SEC299" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC297" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC297" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_61.html#SEC300" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#SEC380" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 60.2 Functions and Variables for lapack </h2>
+<h2 class="section"> 60.1 Introduction to interpol </h2>
 
-<p><a name="Item_003a-dgeev"></a>
-</p><dl>
-<dt><u>Function:</u> <b>dgeev</b><i> (<var>A</var>)</i>
-<a name="IDX2462"></a>
-</dt>
-<dt><u>Function:</u> <b>dgeev</b><i> (<var>A</var>, <var>right_p</var>, <var>left_p</var>)</i>
-<a name="IDX2463"></a>
-</dt>
-<dd><p>Computes the eigenvalues and, optionally, the eigenvectors of a matrix <var>A</var>.
-All elements of <var>A</var> must be integer or floating point numbers.
-<var>A</var> must be square (same number of rows and columns).
-<var>A</var> might or might not be symmetric.
+<p>Package <code>interpol</code> defines the Lagrangian, the linear and the cubic 
+splines methods for polynomial interpolation.
 </p>
-<p><code>dgeev(<var>A</var>)</code> computes only the eigenvalues of <var>A</var>.
-<code>dgeev(<var>A</var>, <var>right_p</var>, <var>left_p</var>)</code> computes the eigenvalues of <var>A</var>
-and the right eigenvectors when <em><var>right_p</var> = <code>true</code></em>
-and the left eigenvectors when <em><var>left_p</var> = <code>true</code></em>.
+<p>For comments, bugs or suggestions, please contact me at <var>'mario AT edu DOT xunta DOT es'</var>.
 </p>
-<p>A list of three items is returned.
-The first item is a list of the eigenvalues.
-The second item is <code>false</code> or the matrix of right eigenvectors.
-The third item is <code>false</code> or the matrix of left eigenvectors.
-</p>
-<p>The right eigenvector <em>v(j)</em> (the <em>j</em>-th column of the right eigenvector matrix) satisfies
-</p>
-<p><em>A . v(j) = lambda(j) . v(j)</em>
-</p>
-<p>where <em>lambda(j)</em> is the corresponding eigenvalue.
-The left eigenvector <em>u(j)</em> (the <em>j</em>-th column of the left eigenvector matrix) satisfies
-</p>
-<p><em>u(j)**H . A = lambda(j) . u(j)**H</em>
-</p>
-<p>where <em>u(j)**H</em> denotes the conjugate transpose of <em>u(j)</em>.
-The Maxima function <code>ctranspose</code> computes the conjugate transpose.
-</p>
-<p>The computed eigenvectors are normalized to have Euclidean norm
-equal to 1, and largest component has imaginary part equal to zero.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (lapack)$
-(%i2) fpprintprec : 6;
-(%o2)                           6
-(%i3) M : matrix ([9.5, 1.75], [3.25, 10.45]);
-                         [ 9.5   1.75  ]
-(%o3)                    [             ]
-                         [ 3.25  10.45 ]
-(%i4) dgeev (M);
-(%o4)          [[7.54331, 12.4067], false, false]
-(%i5) [L, v, u] : dgeev (M, true, true);
-                           [ - .666642  - .515792 ]
-(%o5) [[7.54331, 12.4067], [                      ], 
-                           [  .745378   - .856714 ]
-                                        [ - .856714  - .745378 ]
-                                        [                      ]]
-                                        [  .515792   - .666642 ]
-(%i6) D : apply (diag_matrix, L);
-                      [ 7.54331     0    ]
-(%o6)                 [                  ]
-                      [    0     12.4067 ]
-(%i7) M . v - v . D;
-                [      0.0       - 8.88178E-16 ]
-(%o7)           [                              ]
-                [ - 8.88178E-16       0.0      ]
-(%i8) transpose (u) . M - D . transpose (u);
-                     [ 0.0  - 4.44089E-16 ]
-(%o8)                [                    ]
-                     [ 0.0       0.0      ]
-</pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-lapack">Package lapack</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a> &middot;
+<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a> &middot;
+<a href="maxima_99.html#Category_003a-Package-interpol">Package interpol</a>
 </div>
 </p>
-</dd></dl>
+<p><a name="Item_003a-Functions-and-Variables-for-interpol"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-interpol"></a>
+<a name="SEC299"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC298" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_61.html#SEC300" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC297" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC297" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_61.html#SEC300" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 60.2 Functions and Variables for interpol </h2>
 
-<p><a name="Item_003a-dgeqrf"></a>
+
+<p><a name="Item_003a-lagrange"></a>
 </p><dl>
-<dt><u>Function:</u> <b>dgeqrf</b><i> (<var>A</var>)</i>
-<a name="IDX2464"></a>
+<dt><u>Function:</u> <b>lagrange</b><i> (<var>points</var>)</i>
+<a name="IDX2483"></a>
 </dt>
-<dd><p>Computes the QR decomposition of the matrix <var>A</var>.
-All elements of <var>A</var> must be integer or floating point numbers.
-<var>A</var> may or may not have the same number of rows and columns.
-</p>
-<p>A list of two items is returned.
-The first item is the matrix <var>Q</var>, which is a square, orthonormal matrix
-which has the same number of rows as <var>A</var>.
-The second item is the matrix <var>R</var>, which is the same size as <var>A</var>,
-and which has all elements equal to zero below the diagonal.
-The product <code><var>Q</var> . <var>R</var></code>, where &quot;.&quot; is the noncommutative multiplication operator,
-is equal to <var>A</var> (ignoring floating point round-off errors).
-</p>
-<pre class="example">(%i1) load (lapack) $
-(%i2) fpprintprec : 6 $
-(%i3) M : matrix ([1, -3.2, 8], [-11, 2.7, 5.9]) $
-(%i4) [q, r] : dgeqrf (M);
-       [ - .0905357  .995893  ]
-(%o4) [[                      ], 
-       [  .995893    .0905357 ]
-                               [ - 11.0454   2.97863   5.15148 ]
-                               [                               ]]
-                               [     0      - 2.94241  8.50131 ]
-(%i5) q . r - M;
-         [ - 7.77156E-16   1.77636E-15   - 8.88178E-16 ]
-(%o5)    [                                             ]
-         [      0.0       - 1.33227E-15   8.88178E-16  ]
-(%i6) mat_norm (%, 1);
-(%o6)                      3.10862E-15
-</pre>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-lapack">Package lapack</a>
-</div>
-</p>
-</dd></dl>
-
-<p><a name="Item_003a-dgesv"></a>
-</p><dl>
-<dt><u>Function:</u> <b>dgesv</b><i> (<var>A</var>, <var>b</var>)</i>
-<a name="IDX2465"></a>
+<dt><u>Function:</u> <b>lagrange</b><i> (<var>points</var>, <var>option</var>)</i>
+<a name="IDX2484"></a>
 </dt>
-<dd><p>Computes the solution <var>x</var> of the linear equation <em><var>A</var> <var>x</var> = <var>b</var></em>,
-where <var>A</var> is a square matrix, and <var>b</var> is a matrix of the same number of rows
-as <var>A</var> and any number of columns.
-The return value <var>x</var> is the same size as <var>b</var>.
+<dd><p>Computes the polynomial interpolation by the Lagrangian method. Argument <var>points</var> must be either:
 </p>
-<p>The elements of <var>A</var> and <var>b</var> must evaluate to real floating point numbers via <code>float</code>;
-thus elements may be any numeric type, symbolic numerical constants, or expressions which evaluate to floats.
-The elements of <var>x</var> are always floating point numbers.
-All arithmetic is carried out as floating point operations.
+<ul>
+<li>
+a two column matrix, <code>p:matrix([2,4],[5,6],[9,3])</code>,
+</li><li>
+a list of pairs, <code>p: [[2,4],[5,6],[9,3]]</code>,
+</li><li>
+a list of numbers, <code>p: [4,6,3]</code>, in which case the abscissas will be assigned automatically to 1, 2, 3, etc.
+</li></ul>
+
+<p>In the first two cases the pairs are ordered with respect to the first coordinate before making computations.
 </p>
-<p><code>dgesv</code> computes the solution via the LU decomposition of <var>A</var>.
+<p>With the <var>option</var> argument it is possible to select the name for the independent variable, which is <code>'x</code> by default; to define another one, write something like <code>varname='z</code>. 
+</p>
+<p>Note that when working with high degree polynomials, floating point evaluations are unstable.
+</p>
+<p>See also <code>linearinterpol</code>, <code>cspline</code>, and <code>ratinterpol</code>.
 </p>
 <p>Examples:
 </p>
-<p><code>dgesv</code> computes the solution of the linear equation <em><var>A</var> <var>x</var> = <var>b</var></em>.
-</p>
-<pre class="example">(%i1) A : matrix ([1, -2.5], [0.375, 5]);
-                               [   1    - 2.5 ]
-(%o1)                          [              ]
-                               [ 0.375    5   ]
-(%i2) b : matrix ([1.75], [-0.625]);
-                                  [  1.75   ]
-(%o2)                             [         ]
-                                  [ - 0.625 ]
-(%i3) x : dgesv (A, b);
-                            [  1.210526315789474  ]
-(%o3)                       [                     ]
-                            [ - 0.215789473684211 ]
-(%i4) dlange (inf_norm, b - A.x);
-(%o4)                                 0.0
-</pre>
-<p><var>b</var> is a matrix with the same number of rows as <var>A</var> and any number of columns.
-<var>x</var> is the same size as <var>b</var>.
-</p>
-<pre class="example">(%i1) A : matrix ([1, -0.15], [1.82, 2]);
-                               [  1    - 0.15 ]
-(%o1)                          [              ]
-                               [ 1.82    2    ]
-(%i2) b : matrix ([3.7, 1, 8], [-2.3, 5, -3.9]);
-                              [  3.7   1    8   ]
-(%o2)                         [                 ]
-                              [ - 2.3  5  - 3.9 ]
-(%i3) x : dgesv (A, b);
-      [  3.103827540695117  1.20985481742191    6.781786185657722 ]
-(%o3) [                                                           ]
-      [ -3.974483062032557  1.399032116146062  -8.121425428948527 ]
-(%i4) dlange (inf_norm, b - A . x);
-(%o4)                       1.1102230246251565E-15
-</pre>
-<p>The elements of <var>A</var> and <var>b</var> must evaluate to real floating point numbers.
-</p>
-<pre class="example">(%i1) A : matrix ([5, -%pi], [1b0, 11/17]);
-                               [   5    - %pi ]
-                               [              ]
-(%o1)                          [         11   ]
-                               [ 1.0b0   --   ]
-                               [         17   ]
-(%i2) b : matrix ([%e], [sin(1)]);
-                                  [   %e   ]
-(%o2)                             [        ]
-                                  [ sin(1) ]
-(%i3) x : dgesv (A, b);
-                             [ 0.690375643155986 ]
-(%o3)                        [                   ]
-                             [ 0.233510982552952 ]
-(%i4) dlange (inf_norm, b - A . x);
-(%o4)                        2.220446049250313E-16
-</pre>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-lapack">Package lapack</a>
-
-<a href="maxima_98.html#Category_003a-Linear-equations">Linear equations</a>
-</div>
-</p>
-</dd></dl>
-
-<p><a name="Item_003a-dgesvd"></a>
-</p><dl>
-<dt><u>Function:</u> <b>dgesvd</b><i> (<var>A</var>)</i>
-<a name="IDX2466"></a>
-</dt>
-<dt><u>Function:</u> <b>dgesvd</b><i> (<var>A</var>, <var>left_p</var>, <var>right_p</var>)</i>
-<a name="IDX2467"></a>
-</dt>
-<dd><p>Computes the singular value decomposition (SVD) of a matrix <var>A</var>,
-comprising the singular values and, optionally, the left and right singular vectors.
-All elements of <var>A</var> must be integer or floating point numbers.
-<var>A</var> might or might not be square (same number of rows and columns).
-</p>
-<p>Let <em>m</em> be the number of rows, and <em>n</em> the number of columns of <var>A</var>.
-The singular value decomposition of <var>A</var> comprises three matrices,
-<var>U</var>, <var>Sigma</var>, and <var>V^T</var>,
-such that
-</p>
-<p><em><var>A</var> = <var>U</var> . <var>Sigma</var> . <var>V</var>^T</em>
-</p>
-<p>where <var>U</var> is an <em>m</em>-by-<em>m</em> unitary matrix,
-<var>Sigma</var> is an <em>m</em>-by-<em>n</em> diagonal matrix,
-and <var>V^T</var> is an <em>n</em>-by-<em>n</em> unitary matrix.
-</p>
-<p>Let <em>sigma[i]</em> be a diagonal element of <em>Sigma</em>,
-that is, <em><var>Sigma</var>[i, i] = <var>sigma</var>[i]</em>.
-The elements <em>sigma[i]</em> are the so-called singular values of <var>A</var>;
-these are real and nonnegative, and returned in descending order.
-The first <em>min(m, n)</em> columns of <var>U</var> and <var>V</var> are
-the left and right singular vectors of <var>A</var>.
-Note that <code>dgesvd</code> returns the transpose of <var>V</var>, not <var>V</var> itself.
-</p>
-<p><code>dgesvd(<var>A</var>)</code> computes only the singular values of <var>A</var>.
-<code>dgesvd(<var>A</var>, <var>left_p</var>, <var>right_p</var>)</code> computes the singular values of <var>A</var>
-and the left singular vectors when <em><var>left_p</var> = <code>true</code></em>
-and the right singular vectors when <em><var>right_p</var> = <code>true</code></em>.
-</p>
-<p>A list of three items is returned.
-The first item is a list of the singular values.
-The second item is <code>false</code> or the matrix of left singular vectors.
-The third item is <code>false</code> or the matrix of right singular vectors.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (lapack)$
-(%i2) fpprintprec : 6;
-(%o2)                           6
-(%i3) M: matrix([1, 2, 3], [3.5, 0.5, 8], [-1, 2, -3], [4, 9, 7]);
-                        [  1    2    3  ]
-                        [               ]
-                        [ 3.5  0.5   8  ]
-(%o3)                   [               ]
-                        [ - 1   2   - 3 ]
-                        [               ]
-                        [  4    9    7  ]
-(%i4) dgesvd (M);
-(%o4)      [[14.4744, 6.38637, .452547], false, false]
-(%i5) [sigma, U, VT] : dgesvd (M, true, true);
-(%o5) [[14.4744, 6.38637, .452547], 
-[ - .256731  .00816168   .959029    - .119523 ]
-[                                             ]
-[ - .526456   .672116   - .206236   - .478091 ]
-[                                             ], 
-[  .107997   - .532278  - .0708315  - 0.83666 ]
-[                                             ]
-[ - .803287  - .514659  - .180867    .239046  ]
-[ - .374486  - .538209  - .755044 ]
-[                                 ]
-[  .130623   - .836799   0.5317   ]]
-[                                 ]
-[ - .917986   .100488    .383672  ]
-(%i6) m : length (U);
-(%o6)                           4
-(%i7) n : length (VT);
-(%o7)                           3
-(%i8) Sigma:
-        genmatrix(lambda ([i, j], if i=j then sigma[i] else 0),
-                  m, n);
-                  [ 14.4744     0        0    ]
-                  [                           ]
-                  [    0     6.38637     0    ]
-(%o8)             [                           ]
-                  [    0        0     .452547 ]
-                  [                           ]
-                  [    0        0        0    ]
-(%i9) U . Sigma . VT - M;
-          [  1.11022E-15        0.0       1.77636E-15 ]
-          [                                           ]
-          [  1.33227E-15    1.66533E-15       0.0     ]
-(%o9)     [                                           ]
-          [ - 4.44089E-16  - 8.88178E-16  4.44089E-16 ]
-          [                                           ]
-          [  8.88178E-16    1.77636E-15   8.88178E-16 ]
-(%i10) transpose (U) . U;
-       [     1.0      5.55112E-17    2.498E-16     2.77556E-17  ]
-       [                                                        ]
-       [ 5.55112E-17      1.0       5.55112E-17    4.16334E-17  ]
-(%o10) [                                                        ]
-       [  2.498E-16   5.55112E-17       1.0       - 2.08167E-16 ]
-       [                                                        ]
-       [ 2.77556E-17  4.16334E-17  - 2.08167E-16       1.0      ]
-(%i11) VT . transpose (VT);
-          [      1.0           0.0      - 5.55112E-17 ]
-          [                                           ]
-(%o11)    [      0.0           1.0       5.55112E-17  ]
-          [                                           ]
-          [ - 5.55112E-17  5.55112E-17       1.0      ]
+<pre class="example">(%i1) load(interpol)$
+(%i2) p:[[7,2],[8,2],[1,5],[3,2],[6,7]]$
+(%i3) lagrange(p);
+       (x - 7) (x - 6) (x - 3) (x - 1)
+(%o3)  -------------------------------
+                     35
+   (x - 8) (x - 6) (x - 3) (x - 1)
+ - -------------------------------
+                 12
+   7 (x - 8) (x - 7) (x - 3) (x - 1)
+ + ---------------------------------
+                  30
+   (x - 8) (x - 7) (x - 6) (x - 1)
+ - -------------------------------
+                 60
+   (x - 8) (x - 7) (x - 6) (x - 3)
+ + -------------------------------
+                 84
+(%i4) f(x):=''%;
+               (x - 7) (x - 6) (x - 3) (x - 1)
+(%o4)  f(x) := -------------------------------
+                             35
+   (x - 8) (x - 6) (x - 3) (x - 1)
+ - -------------------------------
+                 12
+   7 (x - 8) (x - 7) (x - 3) (x - 1)
+ + ---------------------------------
+                  30
+   (x - 8) (x - 7) (x - 6) (x - 1)
+ - -------------------------------
+                 60
+   (x - 8) (x - 7) (x - 6) (x - 3)
+ + -------------------------------
+                 84
+(%i5) /* Evaluate the polynomial at some points */
+      expand(map(f,[2.3,5/7,%pi]));
+                                  4          3           2
+                    919062  73 %pi    701 %pi    8957 %pi
+(%o5)  [- 1.567535, ------, ------- - -------- + ---------
+                    84035     420       210         420
+                                             5288 %pi   186
+                                           - -------- + ---]
+                                               105       5
+(%i6) %,numer;
+(%o6) [- 1.567535, 10.9366573451538, 2.89319655125692]
+(%i7) load(draw)$  /* load draw package */
+(%i8) /* Plot the polynomial together with points */
+      draw2d(
+        color      = red,
+        key        = &quot;Lagrange polynomial&quot;,
+        explicit(f(x),x,0,10),
+        point_size = 3,
+        color      = blue,
+        key        = &quot;Sample points&quot;,
+        points(p))$
+(%i9) /* Change variable name */
+      lagrange(p, varname=w);
+       (w - 7) (w - 6) (w - 3) (w - 1)
+(%o9)  -------------------------------
+                     35
+   (w - 8) (w - 6) (w - 3) (w - 1)
+ - -------------------------------
+                 12
+   7 (w - 8) (w - 7) (w - 3) (w - 1)
+ + ---------------------------------
+                  30
+   (w - 8) (w - 7) (w - 6) (w - 1)
+ - -------------------------------
+                 60
+   (w - 8) (w - 7) (w - 6) (w - 3)
+ + -------------------------------
+                 84
 </pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-lapack">Package lapack</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-interpol">Package interpol</a>
 </div>
 </p>
 </dd></dl>
 
-<p><a name="Item_003a-dlange"></a>
-</p><dl>
-<dt><u>Function:</u> <b>dlange</b><i> (<var>norm</var>, <var>A</var>)</i>
-<a name="IDX2468"></a>
-</dt>
-<dt><u>Function:</u> <b>zlange</b><i> (<var>norm</var>, <var>A</var>)</i>
-<a name="IDX2469"></a>
-</dt>
-<dd><p>Computes a norm or norm-like function of the matrix <var>A</var>.
-</p>
-<dl compact="compact">
-<dt> <code>max</code></dt>
-<dd><p>Compute <em>max(abs(A(i, j)))</em> where <em>i</em> and <em>j</em> range over
-the rows and columns, respectively, of <var>A</var>.
-Note that this function is not a proper matrix norm.
-</p></dd>
-<dt> <code>one_norm</code></dt>
-<dd><p>Compute the <em>L[1]</em> norm of <var>A</var>,
-that is, the maximum of the sum of the absolute value of elements in each column.
-</p></dd>
-<dt> <code>inf_norm</code></dt>
-<dd><p>Compute the <em>L[inf]</em> norm of <var>A</var>,
-that is, the maximum of the sum of the absolute value of elements in each row.
-</p></dd>
-<dt> <code>frobenius</code></dt>
-<dd><p>Compute the Frobenius norm of <var>A</var>,
-that is, the square root of the sum of squares of the matrix elements.
-</p></dd>
-</dl>
 
+<p><a name="Item_003a-charfun2"></a>
+</p><dl>
+<dt><u>Function:</u> <b>charfun2</b><i> (<var>x</var>, <var>a</var>, <var>b</var>)</i>
+<a name="IDX2485"></a>
+</dt>
+<dd><p>Returns <code>true</code> if number <var>x</var> belongs to the interval <em>[a, b)</em>, and <code>false</code> otherwise.
+</p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-lapack">Package lapack</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-interpol">Package interpol</a>
 </div>
 </p>
 </dd></dl>
 
-<p><a name="Item_003a-dgemm"></a>
+
+<p><a name="Item_003a-linearinterpol"></a>
 </p><dl>
-<dt><u>Function:</u> <b>dgemm</b><i> (<var>A</var>, <var>B</var>)</i>
-<a name="IDX2470"></a>
+<dt><u>Function:</u> <b>linearinterpol</b><i> (<var>points</var>)</i>
+<a name="IDX2486"></a>
 </dt>
-<dt><u>Function:</u> <b>dgemm</b><i> (<var>A</var>, <var>B</var>, <var>options</var>)</i>
-<a name="IDX2471"></a>
+<dt><u>Function:</u> <b>linearinterpol</b><i> (<var>points</var>, <var>option</var>)</i>
+<a name="IDX2487"></a>
 </dt>
-<dd><p>Compute the product of two matrices and optionally add the product to
-a third matrix.
+<dd><p>Computes the polynomial interpolation by the linear method. Argument <var>points</var> must be either:
 </p>
-<p>In the simplest form, <code>dgemm(<var>A</var>, <var>B</var>)</code> computes the
-product of the two real matrices, <var>A</var> and <var>B</var>.
+<ul>
+<li>
+a two column matrix, <code>p:matrix([2,4],[5,6],[9,3])</code>,
+</li><li>
+a list of pairs, <code>p: [[2,4],[5,6],[9,3]]</code>,
+</li><li>
+a list of numbers, <code>p: [4,6,3]</code>, in which case the abscissas will be assigned automatically to 1, 2, 3, etc.
+</li></ul>
+
+<p>In the first two cases the pairs are ordered with respect to the first coordinate before making computations.
 </p>
-<p>In the second form, <code>dgemm</code> computes the <em><var>alpha</var> *
-<var>A</var> * <var>B</var> + <var>beta</var> * <var>C</var></em> where <var>A</var>, <var>B</var>,
-<var>C</var> are real matrices of the appropriate sizes and <var>alpha</var> and
-<var>beta</var> are real numbers.  Optionally, <var>A</var> and/or <var>B</var> can
-be transposed before computing the product.  The extra parameters are
-specifed by optional keyword arguments: The keyword arguments are
-optional and may be specified in any order.  They all take the form
-<code>key=val</code>.  The keyword arguments are:
+<p>With the <var>option</var> argument it is possible to select the name for the independent variable, which is <code>'x</code> by default; to define another one, write something like <code>varname='z</code>. 
 </p>
-<dl compact="compact">
-<dt> <code>C</code></dt>
-<dd><p>The matrix <var>C</var> that should be added.  The default is <code>false</code>,
-which means no matrix is added.
-</p></dd>
-<dt> <code>alpha</code></dt>
-<dd><p>The product of <var>A</var> and <var>B</var> is multiplied by this value.  The
-default is 1.
-</p></dd>
-<dt> <code>beta</code></dt>
-<dd><p>If a matrix <var>C</var> is given, this value multiplies <var>C</var> before it
-is added.  The default value is 0, which implies that <var>C</var> is not
-added, even if <var>C</var> is given.  Hence, be sure to specify a non-zero
-value for <var>beta</var>.
-</p></dd>
-<dt> <code>transpose_a</code></dt>
-<dd><p>If <code>true</code>, the transpose of <var>A</var> is used instead of <var>A</var>
-for the product.  The default is <code>false</code>.
-</p></dd>
-<dt> <code>transpose_b</code></dt>
-<dd><p>If <code>true</code>, the transpose of <var>B</var> is used instead of <var>B</var>
-for the product.  The default is <code>false</code>.
-</p></dd>
-</dl>
+<p>See also <code>lagrange</code>, <code>cspline</code>, and <code>ratinterpol</code>.
+</p>
+<p>Examples:
+</p>
+<pre class="example">(%i1) load(interpol)$
+(%i2) p: matrix([7,2],[8,3],[1,5],[3,2],[6,7])$
+(%i3) linearinterpol(p);
+        13   3 x
+(%o3)  (-- - ---) charfun2(x, minf, 3)
+        2     2
+ + (x - 5) charfun2(x, 7, inf) + (37 - 5 x) charfun2(x, 6, 7)
+    5 x
+ + (--- - 3) charfun2(x, 3, 6)
+     3
 
-<pre class="example">(%i1) load (lapack)$
-(%i2) A : matrix([1,2,3],[4,5,6],[7,8,9]);
-                                  [ 1  2  3 ]
-                                  [         ]
-(%o2)                             [ 4  5  6 ]
-                                  [         ]
-                                  [ 7  8  9 ]
-(%i3) B : matrix([-1,-2,-3],[-4,-5,-6],[-7,-8,-9]);
-                               [ - 1  - 2  - 3 ]
-                               [               ]
-(%o3)                          [ - 4  - 5  - 6 ]
-                               [               ]
-                               [ - 7  - 8  - 9 ]
-(%i4) C : matrix([3,2,1],[6,5,4],[9,8,7]);
-                                  [ 3  2  1 ]
-                                  [         ]
-(%o4)                             [ 6  5  4 ]
-                                  [         ]
-                                  [ 9  8  7 ]
-(%i5) dgemm(A,B);
-                         [ - 30.0   - 36.0   - 42.0  ]
-                         [                           ]
-(%o5)                    [ - 66.0   - 81.0   - 96.0  ]
-                         [                           ]
-                         [ - 102.0  - 126.0  - 150.0 ]
-(%i6) A . B;
-                            [ - 30   - 36   - 42  ]
-                            [                     ]
-(%o6)                       [ - 66   - 81   - 96  ]
-                            [                     ]
-                            [ - 102  - 126  - 150 ]
-(%i7) dgemm(A,B,transpose_a=true);
-                         [ - 66.0  - 78.0   - 90.0  ]
-                         [                          ]
-(%o7)                    [ - 78.0  - 93.0   - 108.0 ]
-                         [                          ]
-                         [ - 90.0  - 108.0  - 126.0 ]
-(%i8) transpose(A) . B;
-                           [ - 66  - 78   - 90  ]
-                           [                    ]
-(%o8)                      [ - 78  - 93   - 108 ]
-                           [                    ]
-                           [ - 90  - 108  - 126 ]
-(%i9) dgemm(A,B,c=C,beta=1);
-                         [ - 27.0  - 34.0   - 41.0  ]
-                         [                          ]
-(%o9)                    [ - 60.0  - 76.0   - 92.0  ]
-                         [                          ]
-                         [ - 93.0  - 118.0  - 143.0 ]
-(%i10) A . B + C;
-                            [ - 27  - 34   - 41  ]
-                            [                    ]
-(%o10)                      [ - 60  - 76   - 92  ]
-                            [                    ]
-                            [ - 93  - 118  - 143 ]
-(%i11) dgemm(A,B,c=C,beta=1, alpha=-1);
-                            [ 33.0   38.0   43.0  ]
-                            [                     ]
-(%o11)                      [ 72.0   86.0   100.0 ]
-                            [                     ]
-                            [ 111.0  134.0  157.0 ]
-(%i12) -A . B + C;
-                               [ 33   38   43  ]
-                               [               ]
-(%o12)                         [ 72   86   100 ]
-                               [               ]
-                               [ 111  134  157 ]
+(%i4) f(x):=''%;
+                13   3 x
+(%o4)  f(x) := (-- - ---) charfun2(x, minf, 3)
+                2     2
+ + (x - 5) charfun2(x, 7, inf) + (37 - 5 x) charfun2(x, 6, 7)
+    5 x
+ + (--- - 3) charfun2(x, 3, 6)
+     3
+(%i5)  /* Evaluate the polynomial at some points */
+       map(f,[7.3,25/7,%pi]);
+                            62  5 %pi
+(%o5)                 [2.3, --, ----- - 3]
+                            21    3
+(%i6) %,numer;
+(%o6)  [2.3, 2.952380952380953, 2.235987755982989]
+(%i7) load(draw)$  /* load draw package */
+(%i8)  /* Plot the polynomial together with points */
+       draw2d(
+         color      = red,
+         key        = &quot;Linear interpolator&quot;,
+         explicit(f(x),x,-5,20),
+         point_size = 3,
+         color      = blue,
+         key        = &quot;Sample points&quot;,
+         points(args(p)))$
+(%i9)  /* Change variable name */
+       linearinterpol(p, varname='s);
+       13   3 s
+(%o9) (-- - ---) charfun2(s, minf, 3)
+       2     2
+ + (s - 5) charfun2(s, 7, inf) + (37 - 5 s) charfun2(s, 6, 7)
+    5 s
+ + (--- - 3) charfun2(s, 3, 6)
+     3
+</pre>
+<div class=categorybox>
 
-</pre><div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-lapack">Package lapack</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-interpol">Package interpol</a>
 </div>
 </p>
 </dd></dl>
 
-<p><a name="Item_003a-lbfgs"></a>
+
+
+<p><a name="Item_003a-cspline"></a>
+</p><dl>
+<dt><u>Function:</u> <b>cspline</b><i> (<var>points</var>)</i>
+<a name="IDX2488"></a>
+</dt>
+<dt><u>Function:</u> <b>cspline</b><i> (<var>points</var>, <var>option1</var>, <var>option2</var>, ...)</i>
+<a name="IDX2489"></a>
+</dt>
+<dd><p>Computes the polynomial interpolation by the cubic splines method. Argument <var>points</var> must be either:
+</p>
+<ul>
+<li>
+a two column matrix, <code>p:matrix([2,4],[5,6],[9,3])</code>,
+</li><li>
+a list of pairs, <code>p: [[2,4],[5,6],[9,3]]</code>,
+</li><li>
+a list of numbers, <code>p: [4,6,3]</code>, in which case the abscissas will be assigned automatically to 1, 2, 3, etc.
+</li></ul>
+
+<p>In the first two cases the pairs are ordered with respect to the first coordinate before making computations.
+</p>
+<p>There are three options to fit specific needs:
+</p><ul>
+<li>
+<code>'d1</code>, default <code>'unknown</code>, is the first derivative at <em>x_1</em>; if it is <code>'unknown</code>, the second derivative at <em>x_1</em> is made equal to 0 (natural cubic spline); if it is equal to a number, the second derivative is calculated based on this number.
+
+</li><li>
+<code>'dn</code>, default <code>'unknown</code>, is the first derivative at <em>x_n</em>; if it is <code>'unknown</code>, the second derivative at <em>x_n</em> is made equal to 0 (natural cubic spline); if it is equal to a number, the second derivative is calculated based on this number.
+
+</li><li>
+<code>'varname</code>, default <code>'x</code>, is the name of the independent variable.
+</li></ul>
+
+<p>See also <code>lagrange</code>, <code>linearinterpol</code>, and <code>ratinterpol</code>.
+</p>
+<p>Examples:
+</p><pre class="example">(%i1) load(interpol)$
+(%i2) p:[[7,2],[8,2],[1,5],[3,2],[6,7]]$
+(%i3) /* Unknown first derivatives at the extremes
+         is equivalent to natural cubic splines */
+      cspline(p);
+              3         2
+        1159 x    1159 x    6091 x   8283
+(%o3)  (------- - ------- - ------ + ----) charfun2(x, minf, 3)
+         3288      1096      3288    1096
+            3         2
+      2587 x    5174 x    494117 x   108928
+ + (- ------- + ------- - -------- + ------) charfun2(x, 7, inf)
+       1644       137       1644      137
+          3          2
+    4715 x    15209 x    579277 x   199575
+ + (------- - -------- + -------- - ------) charfun2(x, 6, 7)
+     1644       274        1644      274
+            3         2
+      3287 x    2223 x    48275 x   9609
+ + (- ------- + ------- - ------- + ----) charfun2(x, 3, 6)
+       4932       274      1644     274
+
+(%i4) f(x):=''%$
+(%i5) /* Some evaluations */
+      map(f,[2.3,5/7,%pi]), numer;
+(%o5) [1.991460766423356, 5.823200187269903, 2.227405312429507]
+(%i6) load(draw)$  /* load draw package */
+(%i7) /* Plotting interpolating function */
+      draw2d(
+        color      = red,
+        key        = &quot;Cubic splines&quot;,
+        explicit(f(x),x,0,10),
+        point_size = 3,
+        color      = blue,
+        key        = &quot;Sample points&quot;,
+        points(p))$
+(%i8) /* New call, but giving values at the derivatives */
+      cspline(p,d1=0,dn=0);
+              3          2
+        1949 x    11437 x    17027 x   1247
+(%o8)  (------- - -------- + ------- + ----) charfun2(x, minf, 3)
+         2256       2256      2256     752
+            3          2
+      1547 x    35581 x    68068 x   173546
+ + (- ------- + -------- - ------- + ------) charfun2(x, 7, inf)
+        564       564        141      141
+         3          2
+    607 x    35147 x    55706 x   38420
+ + (------ - -------- + ------- - -----) charfun2(x, 6, 7)
+     188       564        141      47
+            3         2
+      3895 x    1807 x    5146 x   2148
+ + (- ------- + ------- - ------ + ----) charfun2(x, 3, 6)
+       5076       188      141      47
+(%i8) /* Defining new interpolating function */
+      g(x):=''%$
+(%i9) /* Plotting both functions together */
+      draw2d(
+        color      = black,
+        key        = &quot;Cubic splines (default)&quot;,
+        explicit(f(x),x,0,10),
+        color      = red,
+        key        = &quot;Cubic splines (d1=0,dn=0)&quot;,
+        explicit(g(x),x,0,10),
+        point_size = 3,
+        color      = blue,
+        key        = &quot;Sample points&quot;,
+        points(p))$
+</pre>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-interpol">Package interpol</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-ratinterpol"></a>
+</p><dl>
+<dt><u>Function:</u> <b>ratinterpol</b><i> (<var>points</var>, <var>numdeg</var>)</i>
+<a name="IDX2490"></a>
+</dt>
+<dt><u>Function:</u> <b>ratinterpol</b><i> (<var>points</var>, <var>numdeg</var>, <var>option1</var>)</i>
+<a name="IDX2491"></a>
+</dt>
+<dd><p>Generates a rational interpolator for data given by <var>points</var> and the degree of the numerator
+being equal to <var>numdeg</var>; the degree of the denominator is calculated
+automatically. Argument <var>points</var> must be either:
+</p>
+<ul>
+<li>
+a two column matrix, <code>p:matrix([2,4],[5,6],[9,3])</code>,
+</li><li>
+a list of pairs, <code>p: [[2,4],[5,6],[9,3]]</code>,
+</li><li>
+a list of numbers, <code>p: [4,6,3]</code>, in which case the abscissas will be assigned automatically to 1, 2, 3, etc.
+</li></ul>
+
+<p>In the first two cases the pairs are ordered with respect to the first coordinate before making computations.
+</p>
+<p>There is one option to fit specific needs:
+</p><ul>
+<li>
+<code>'varname</code>, default <code>'x</code>, is the name of the independent variable.
+</li></ul>
+
+<p>See also <code>lagrange</code>, <code>linearinterpol</code>, <code>cspline</code>, <code>minpack_lsquares</code>, and <code>lbfgs</code>.
+</p>
+<p>Examples:
+</p>
+<pre class="example">(%i1) load(interpol)$
+(%i2) load(draw)$
+(%i3) p:[[7.2,2.5],[8.5,2.1],[1.6,5.1],[3.4,2.4],[6.7,7.9]]$
+(%i4) for k:0 thru length(p)-1 do                                     
+        draw2d(
+          explicit(ratinterpol(p,k),x,0,9),                      
+          point_size = 3,                                        
+          points(p),                                             
+          title = concat(&quot;Degree of numerator = &quot;,k),            
+          yrange=[0,10])$
+</pre>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-interpol">Package interpol</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-lapack"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC296" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_61.html#SEC299" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC297" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_61.html#SEC300" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -711,12 +607,12 @@ for the product.  The default is <code>false</code>.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#SEC380" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>October, 15 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>本田 康晃</em> on <em>April, 3 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

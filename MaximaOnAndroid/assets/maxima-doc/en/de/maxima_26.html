@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on Oktober, 11 2013 by texi2html 1.76 -->
+<!-- Created on April, 1 2014 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -196,17 +196,21 @@ div.categorybox
 <p>Wenn Maxima startet, werden die beiden Dateien <code>maxima-init.mac</code> und
 <code>maxima-init.lisp</code> automatisch geladen, sofern diese vorhanden sind.  Die
 Datei <code>maxima-init.mac</code> wird mit der Funktion <code><a href="maxima_13.html#batchload">batchload</a></code>
+ von Maxima
 geladen und kann beliebige Maxima-Ausdr&uuml;cke enthalten, die beim Starten von
 Maxima ausgef&uuml;hrt werden.  Die Datei <code>maxima-init.lisp</code> wird mit der
 Funktion <code><a href="maxima_13.html#load">load</a></code>
+ geladen und kann entsprechende Lisp-Anweisungen enthalten.
 Beide Dateien erlauben es dem Nutzer, globale Variablen zu setzen, Funktionen zu
 definieren oder sonstige Aktionen auszuf&uuml;hren, um zum Beispiel die
 Maxima-Umgebung anzupassen.
 </p>
 <p>Die Dateien <code>maxima-init.mac</code> und <code>maxima-init.lisp</code> k&ouml;nnen in jedem
 Verzeichnis abgelegt werden, das von der Funktion <code><a href="maxima_13.html#file_005fsearch">file_search</a></code>
+ gefunden
 wird.  &Uuml;blicherweise wird das Verzeichnis gew&auml;hlt, das in der
 Optionsvariablen <code><a href="#maxima_005fuserdir">maxima_userdir</a></code>
+ enthalten ist und die von Maxima beim
 Starten entsprechend dem Betriebssystem mit einem Standardwert initialisiert
 wird.
 </p>
@@ -259,12 +263,15 @@ Standardwerte und die Anzeige ist linksb&uuml;ndig formatiert.
 <p><em>Hinweis:</em>
 </p>
 <p>Mit dem Kommando <code><a href="maxima_4.html#reset">reset</a></code>
+ werden die Optionsvariablen nicht auf die Werte
 der Datei <code>maxima-init.mac</code> zur&uuml;ckgesetzt, sondern auf die
 urspr&uuml;nglichen in Maxima festgelegten Standardwerte.  Wird das Kommando
 <code><a href="maxima_4.html#kill">kill</a></code>
+ ausgef&uuml;hrt, gehen weiterhin alle in der Initialisierungsdatei
 definierten Variablen und Funktionen verloren.  In beiden F&auml;llen muss die
 Datei <code>maxima-init.mac</code> erneut zum Beispiel mit der Funktion
 <code><a href="maxima_13.html#load">load</a></code>
+ geladen werden.
 </p>
 <p>Die obige Sitzung wird fortgesetzt.  Die Variablen werden mit <code>reset</code>
 zur&uuml;ckgesetzt.  Dann wird die Datei <code>maxima-init.mac</code> mit der Funktion
@@ -475,7 +482,8 @@ Maxima restarted.
 <dd><p>Die Systemvariable <code>maxima_tempdir</code> enth&auml;lt das Verzeichnis, in dem
 Maxima tempor&auml;re Dateien ablegt.  Insbesondere werden tempor&auml;re
 Grafikausgaben von Funktionen wie <code><a href="maxima_12.html#plot2d">plot2d</a></code>
-<code><a href="maxima_12.html#plot3d">plot3d</a></code>
+ und <code><a href="maxima_12.html#plot3d">plot3d</a></code>
+ in diesem
 Verzeichnis abgelegt.  Der Standardwert von <code>maxima_tempdir</code> ist das
 Home-Verzeichnis des Nutzers, sofern Maxima dieses feststellen kann.
 Andernfalls initialisiert Maxima die Systemvariable <code>maxima_tempdir</code> mit
@@ -501,7 +509,9 @@ abzulegen.
 </p>
 <p>Maxima sucht in weiteren Verzeichnissen nach Dateien.  Die vollst&auml;ndige Liste
 der Suchverzeichnisse ist den Variablen <code><a href="maxima_13.html#file_005fsearch_005fmaxima">file_search_maxima</a></code>
+ und
 <code><a href="maxima_13.html#file_005fsearch_005flisp">file_search_lisp</a></code>
+ enthalten.
 </p>
 <p>Der Systemvariablen <code>maxima_userdir</code> kann eine Zeichenkette zugewiesen 
 werden, die ein Verzeichnis bezeichnet.  Wenn der Wert von <code>maxima_userdir</code>
@@ -555,7 +565,8 @@ Hat das Argument <var>keyword</var> den Wert <code>nofeature</code>, wird das Ar
 <var>item</var> von der internen Lisp-Eigenschaftsliste <code>*features*</code> entfernt.
 </p>
 <p>Siehe auch die Funktion <code><a href="#status">status</a></code>.
-</p></dd></dl>
+</p>
+</dd></dl>
 
 <p><a name="status"></a>
 </p><dl>
@@ -575,8 +586,10 @@ Zeichenkette angegeben werden.
 </p>
 <p>Siehe auch die Funktion <code><a href="#sstatus">sstatus</a></code>.
 </p>
+
 <p>Die Lisp-Variable <code>*features*</code> steht in keinem Zusammenhang mit der
 Maxima-Systemvariablen <code><a href="maxima_11.html#features">features</a></code>,
+ die eine Liste mit mathematischen
 Eigenschaften enth&auml;lt, die Funktionen und Variablen erhalten k&ouml;nnen.
 </p>
 <p>Beispiel:
@@ -614,6 +627,7 @@ Die Argumente der Funktion <code>time</code> k&ouml;nnen nur Ausgabemarken sein.
 andere Argumente ist das Ergebnis <code>unknown</code>.
 </p>
 <p>Siehe die Optionsvariable <code><a href="maxima_4.html#showtime">showtime</a></code>,
+ um die Ausf&uuml;hrungszeiten f&uuml;r 
 jede einzelne Berechnung anzuzeigen.
 </p>
 <p>Beispiel:
@@ -650,8 +664,9 @@ enth&auml;lt.  Die Zeichenkette hat das Format <code>yyyy-mm-dd HH:MM:SS (GMT-n)
 sind.  Die R&uuml;ckgabe ist eine ganze Zahl.
 </p>
 <p>Siehe auch <code><a href="#elapsed_005freal_005ftime">elapsed_real_time</a></code>
-<code><a href="#elapsed_005frun_005ftime">elapsed_run_time</a></code>.
+ und <code><a href="#elapsed_005frun_005ftime">elapsed_run_time</a></code>.
 </p>
+
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) absolute_real_time ();
@@ -669,8 +684,9 @@ sind.  Die R&uuml;ckgabe ist eine ganze Zahl.
 sind.  Die R&uuml;ckgabe ist eine Gleitkommazahl.
 </p>
 <p>Siehe auch <code><a href="#absolute_005freal_005ftime">absolute_real_time</a></code>
-<code><a href="#elapsed_005frun_005ftime">elapsed_run_time</a></code>.
+ und <code><a href="#elapsed_005frun_005ftime">elapsed_run_time</a></code>.
 </p>
+
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) elapsed_real_time ();
@@ -690,8 +706,9 @@ Berechnungen seit dem letzten Start ben&ouml;tigt hat.  Der R&uuml;ckgabewert is
 eine Gleitkommazahl.
 </p>
 <p>Siehe auch <code><a href="#absolute_005freal_005ftime">absolute_real_time</a></code>
-<code><a href="#elapsed_005freal_005ftime">elapsed_real_time</a></code>.
+ und <code><a href="#elapsed_005freal_005ftime">elapsed_real_time</a></code>.
 </p>
+
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) elapsed_run_time ();
@@ -719,7 +736,7 @@ eine Gleitkommazahl.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>Oktober, 11 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>April, 1 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

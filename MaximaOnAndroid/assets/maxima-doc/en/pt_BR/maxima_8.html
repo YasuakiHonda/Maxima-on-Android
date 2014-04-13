@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on Outubro, 11 2013 by texi2html 1.76 -->
+<!-- Created on Abril, 1 2014 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -330,7 +330,7 @@ fun&ccedil;&atilde;o deve ser uma fun&ccedil;&atilde;o de um argumento.
 
 (%i2) plot2d (sec(x), [x, -2, 2], [y, -20, 20], [nticks, 200])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting2.gif" alt="../figures/plotting2"></div><div class="image"><img src="./../figures/plotting3.gif" alt="../figures/plotting3"></div>
+<p><div class="image"><img src="./../figures/plotting2.png" alt="../figures/plotting2"></div><div class="image"><img src="./../figures/plotting3.png" alt="../figures/plotting3"></div>
 </p>
 <p>Montando gr&aacute;fico de fun&ccedil;&otilde;es pelo nome.
 </p>
@@ -345,7 +345,7 @@ $g
 
 (%i7) plot2d ([F, G, H], [u, -1, 1])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting4.gif" alt="../figures/plotting4"></div><div class="image"><img src="./../figures/plotting5.gif" alt="../figures/plotting5"></div>
+<p><div class="image"><img src="./../figures/plotting4.png" alt="../figures/plotting4"></div><div class="image"><img src="./../figures/plotting5.png" alt="../figures/plotting5"></div>
 </p>
 <p>Podemos montar o gr&aacute;fico de um c&iacute;rculo usando um gr&aacute;fico param&eacute;trico com um par&acirc;metro
 <var>t</var>. N&atilde;o &eacute; necess&aacute;rio fornecer um intervalo para intervalo horizontal,
@@ -356,7 +356,7 @@ do gr&aacute;fico est&atilde;o na propor&ccedil;&atilde;o de 4 para 3, usaremos 
 </p>
 <pre class="example">(%i8) plot2d ([parametric, cos(t), sin(t), [t,-%pi,%pi], [nticks,80]],
            [x, -4/3, 4/3])$
-</pre><p><div class="image"><img src="./../figures/plotting6.gif" alt="../figures/plotting6"></div>
+</pre><p><div class="image"><img src="./../figures/plotting6.png" alt="../figures/plotting6"></div>
 </p>
 <p>Se repetirmos aquele gr&aacute;fico com somente 8 pontos e extendendo o intervalo
 do par&acirc;metro para fornecer dois turnos, obteremos o gr&aacute;fico de uma estrela:
@@ -364,7 +364,7 @@ do par&acirc;metro para fornecer dois turnos, obteremos o gr&aacute;fico de uma 
 <pre class="example">(%i9) plot2d ([parametric, cos(t), sin(t), [t, -%pi*2, %pi*2],
         [nticks, 8]], [x, -2, 2], [y, -1.5, 1.5])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting7.gif" alt="../figures/plotting7"></div>
+<p><div class="image"><img src="./../figures/plotting7.png" alt="../figures/plotting7"></div>
 </p>
 <p>Combina&ccedil;&atilde;o de um gr&aacute;fico comum de um polin&ocirc;mio c&uacute;bico com um
 gr&aacute;fico param&eacute;trico de um c&iacute;rculo:
@@ -372,12 +372,12 @@ gr&aacute;fico param&eacute;trico de um c&iacute;rculo:
 <pre class="example">(%i10) plot2d ([x^3 + 2, [parametric, cos(t), sin(t), [t, -5, 5],
         [nticks, 80]]], [x, -3, 3])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting8.gif" alt="../figures/plotting8"></div>
+<p><div class="image"><img src="./../figures/plotting8.png" alt="../figures/plotting8"></div>
 </p>
 <p>Exemplo de um gr&aacute;fico logar&iacute;tmico:
 </p><pre class="example">(%i11) plot2d (exp(3*s), [s, -2, 2], [logy])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting9.gif" alt="../figures/plotting9"></div>
+<p><div class="image"><img src="./../figures/plotting9.png" alt="../figures/plotting9"></div>
 </p>
 <p>Para mostrar alguns exemplos de gr&aacute;ficos discretos, iniciaremos por inserir as
 coordenadas de 5 pontos, por dois diferentes cominhos que podem ser usados:
@@ -389,14 +389,14 @@ coordenadas de 5 pontos, por dois diferentes cominhos que podem ser usados:
 <p>Para montar o gr&aacute;fico daqueles pontos, unidos com segmentos de reta, usamos:
 </p><pre class="example">(%i15) plot2d([discrete,xx,yy])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting10.gif" alt="../figures/plotting10"></div>
+<p><div class="image"><img src="./../figures/plotting10.png" alt="../figures/plotting10"></div>
 </p>
 <p>Iremos agora mostrar o gr&aacute;fico com somente pontoss, e ilustrando o uso do
 segundo caminho de fornecer as coordenadas dos pontos:
 </p>
 <pre class="example">(%i16) plot2d([discrete, xy], [style, points])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting11.gif" alt="../figures/plotting11"></div>
+<p><div class="image"><img src="./../figures/plotting11.png" alt="../figures/plotting11"></div>
 </p>
 <p>O gr&aacute;fico de pontos pode ser mostrado juntamente com um gr&aacute;fico da
 fun&ccedil;&atilde;o teor&eacute;tica/doutrin&aacute;ria/est&eacute;tica que prev&ecirc; as coordenads dos pontos:
@@ -405,7 +405,7 @@ fun&ccedil;&atilde;o teor&eacute;tica/doutrin&aacute;ria/est&eacute;tica que pre
         [style, [points,3,5], [lines,1,3]], [legend,&quot;experiment&quot;,&quot;theory&quot;],
         [xlabel,&quot;pendulum's length (cm)&quot;], [ylabel,&quot;period (s)&quot;])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting12.gif" alt="../figures/plotting12"></div>
+<p><div class="image"><img src="./../figures/plotting12.png" alt="../figures/plotting12"></div>
 </p>
 <p>Veja tamb&eacute;m <code>plot_options</code>, que descreve op&ccedil;&otilde;es de montagem de gr&aacute;fico e tem mais exemplos.
 </p>
@@ -458,7 +458,7 @@ para montar o gr&aacute;fico com duas possibilidades diferentes dos tais gr&aacu
       append ([&quot;BarGraph: true&quot;, &quot;NoLines: true&quot;, &quot;BarWidth: .2&quot;],
       create_list ([i + .2, .7*i^2], i, 1, 3))]);
 </pre>
-<p><div class="image"><img src="./../figures/plotting13.gif" alt="../figures/plotting13"></div>
+<p><div class="image"><img src="./../figures/plotting13.png" alt="../figures/plotting13"></div>
 </p>
 
 
@@ -865,7 +865,7 @@ gnuplot_preamble para colocar a chave na parte inferior do gr&aacute;fico em lug
 <pre class="example">(%i2) plot2d ([gamma(x), 1/gamma(x)], [x, -4.5, 5], [y, -10, 10],
                      [gnuplot_preamble, &quot;set key bottom&quot;])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting14.gif" alt="../figures/plotting14"></div>
+<p><div class="image"><img src="./../figures/plotting14.png" alt="../figures/plotting14"></div>
 </p>
 <ul>
 <li>
@@ -880,7 +880,7 @@ Usa um muito complicado <code>gnuplot_preamble</code> para produzir elegantes r&
        [x, -2*%pi, 2.1*%pi], [y, -2, 2],
        [gnuplot_preamble, my_preamble]);
 </pre>
-<p><div class="image"><img src="./../figures/plotting15.gif" alt="../figures/plotting15"></div>
+<p><div class="image"><img src="./../figures/plotting15.png" alt="../figures/plotting15"></div>
 </p>
 <ul>
 <li>
@@ -907,7 +907,7 @@ Uma montagem de gr&aacute;fico tridimensional usando o terminal gnuplot pm3d.
 <pre class="example">(%i7) plot3d (atan (-x^2 + y^3/4), [x, -4, 4], [y, -4, 4],
         [grid, 50, 50], [gnuplot_pm3d, true])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting16.gif" alt="../figures/plotting16"></div>
+<p><div class="image"><img src="./../figures/plotting16.png" alt="../figures/plotting16"></div>
 </p>
 <ul>
 <li>
@@ -920,7 +920,7 @@ set cntrparam levels 20;unset key&quot;$
     [grid, 50, 50], [gnuplot_pm3d, true],
     [gnuplot_preamble, my_preamble])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting17.gif" alt="../figures/plotting17"></div>
+<p><div class="image"><img src="./../figures/plotting17.png" alt="../figures/plotting17"></div>
 </p>
 <ul>
 <li>
@@ -931,7 +931,7 @@ Uma montagem de gr&aacute;fico onde o eixo z &eacute; representado apenas por co
     [gnuplot_preamble, &quot;set view map; unset surface&quot;],
     [gnuplot_pm3d, true], [grid, 150, 150])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting18.gif" alt="../figures/plotting18"></div>
+<p><div class="image"><img src="./../figures/plotting18.png" alt="../figures/plotting18"></div>
 </p>
 </dd></dl>
 
@@ -955,7 +955,7 @@ Uma montagem de gr&aacute;fico onde o eixo z &eacute; representado apenas por co
 </p>
 <pre class="example">(%i1) plot3d (2^(-u^2 + v^2), [u, -3, 3], [v, -7, 7]);
 </pre>
-<p><div class="image"><img src="./../figures/plotting19.gif" alt="../figures/plotting19"></div>
+<p><div class="image"><img src="./../figures/plotting19.png" alt="../figures/plotting19"></div>
 </p>
 <p>monta o gr&aacute;fico de <code>z = 2^(-u^2+v^2)</code> com <code>u</code> e <code>v</code> variando no intervalo fechado [-3,3] e
 no intervalo fechado de [-2,2] respectivamente, e com <var>u</var> sobre o eixo x, e <code>v</code> sobre o eixo
@@ -967,7 +967,7 @@ estiver instalado):
 <pre class="example">(%i2)  plot3d (2^(-u^2 + v^2), [u, -3, 3], [v, -2, 2],
                [plot_format, openmath]);
 </pre>
-<p><div class="image"><img src="./../figures/plotting25.gif" alt="../figures/plotting25"></div>
+<p><div class="image"><img src="./../figures/plotting25.png" alt="../figures/plotting25"></div>
 </p>
 
 <p>nesse caso o mouse pode ser usado para rotacionar a visualiza&ccedil;&atilde;o para olhar na superf&iacute;cie
@@ -978,7 +978,7 @@ de diferentes &acirc;ngulos.
 <pre class="example">(%i3) plot3d ([cos(x)*(3 + y*cos(x/2)), sin(x)*(3 + y*cos(x/2)),
    y*sin(x/2)], [x, -%pi, %pi], [y, -1, 1], ['grid, 50, 15]);
 </pre>
-<p><div class="image"><img src="./../figures/plotting20.gif" alt="../figures/plotting20"></div>
+<p><div class="image"><img src="./../figures/plotting20.png" alt="../figures/plotting20"></div>
 </p>
 <p>que monta o gr&aacute;fico da banda de Moebius, parametrizada por tr&ecirc;s express&otilde;es fornecidas
 como o primeiro argumento para <code>plot3d</code>.  O argumento adiconal por&eacute;m opcional
@@ -996,7 +996,7 @@ a fun&ccedil;&atilde;o deve ser uma fun&ccedil;&atilde;o de um argumento.
 <pre class="example">(%i4) plot3d (r^.33*cos(th/3), [r, 0, 1], [th, 0, 6*%pi],
       ['grid, 12, 80], ['transform_xy, polar_to_xy]);
 </pre>
-<p><div class="image"><img src="./../figures/plotting21.gif" alt="../figures/plotting21"></div>
+<p><div class="image"><img src="./../figures/plotting21.png" alt="../figures/plotting21"></div>
 </p>
 <p>Outro exemplo &eacute; uma superf&iacute;cie de Klein:
 </p>
@@ -1009,7 +1009,7 @@ a fun&ccedil;&atilde;o deve ser uma fun&ccedil;&atilde;o de um argumento.
 (%i8) plot3d ([expr_1, expr_2, expr_3], [x, -%pi, %pi],
       [y, -%pi, %pi], ['grid, 40, 40]);
 </pre>
-<p><div class="image"><img src="./../figures/plotting22.gif" alt="../figures/plotting22"></div>
+<p><div class="image"><img src="./../figures/plotting22.png" alt="../figures/plotting22"></div>
 </p>
 <p>e um toro
 </p>
@@ -1018,7 +1018,7 @@ a fun&ccedil;&atilde;o deve ser uma fun&ccedil;&atilde;o de um argumento.
 (%i11) expr_3: -6*sin(x)$
 (%i12) plot3d ([expr_1, expr_2, expr_3], [x, 0, 2*%pi],       [y, 0, 2*%pi], ['grid, 40, 40]);
 </pre>
-<p><div class="image"><img src="./../figures/plotting23.gif" alt="../figures/plotting23"></div>
+<p><div class="image"><img src="./../figures/plotting23.png" alt="../figures/plotting23"></div>
 </p>
 <p>Algumas vezes isso &eacute; necess&aacute;rio para definir uma fun&ccedil;&atilde;o para montar o graico da express&atilde;o. Todos
 os argumentos para plot3d s&atilde;o avaliados antes de serem passados para plot3d. Tentar
@@ -1030,7 +1030,7 @@ dif&iacute;cil e pode ser mais f&aacute;cil fazer uma fun&ccedil;&atilde;o.
 (%i14) f(x, y) := float (M [?round(x), ?round(y)])$
 (%i15) plot3d (f, [x, 1, 4], [y, 1, 4], ['grid, 4, 4])$
 </pre>
-<p><div class="image"><img src="./../figures/plotting24.gif" alt="../figures/plotting24"></div>
+<p><div class="image"><img src="./../figures/plotting24.png" alt="../figures/plotting24"></div>
 </p>
 <p>Veja <code>plot_options</code> para mais exemplos.
 </p>
@@ -1189,7 +1189,7 @@ antes de atualizar a janela.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>Outubro, 11 2013</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>Abril, 1 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

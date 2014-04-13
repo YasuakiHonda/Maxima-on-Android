@@ -185,7 +185,7 @@ public final class MOAInstallerActivity extends Activity {
 		        list = new ArrayList<String>();
 		        list.add("/system/bin/chmod");
 		        list.add("744");
-		        list.add(internalDir.getAbsolutePath()+"/additions/qepcad/qepcad");
+		        list.add(internalDir.getAbsolutePath()+"/additions/qepcad/bin/qepcad");
 		        sce = new CommandExec();
 		        sce.execCommand(list);
 		        
