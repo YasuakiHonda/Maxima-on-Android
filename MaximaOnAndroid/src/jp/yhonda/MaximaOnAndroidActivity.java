@@ -237,8 +237,10 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
         
         _editText=(EditText)findViewById(R.id.editText1);
         _editText.setOnEditorActionListener(this);
-		int newsize=settings.getInt("MCIAfontSize", 16);
-		setMCIAfontSize(newsize);
+		int newsize=settings.getInt("MCIAfontSize", -1);
+		if (newsize != -1) {
+			setMCIAfontSize(newsize);
+		}
 
 		webview.setOnTouchListener(this);
 
@@ -747,7 +749,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 			Editor editor = settings.edit();
 	        editor.putFloat("maxima main scale", sc);
 	        editor.commit();
-	        setMCIAfontSize((int)(sc*12));
+//	        setMCIAfontSize((int)(sc*12));
 		}
 		return false;
 	}
