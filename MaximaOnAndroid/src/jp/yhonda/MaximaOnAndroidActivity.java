@@ -539,7 +539,23 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    			webview.loadUrl("javascript:window.UpdateInput('"+ escapeChars(cmdstr) +"<br>" +"')");
    			String resString=maximaProccess.getProcessResult();
    	        maximaProccess.clearStringBuilder();
-   	        displayMaximaCmdResults(resString);
+   	        while (resString.equals("start qepcad")) {
+		        List<String> list = new ArrayList<String>();
+		        list.add("/data/data/jp.yhonda/files/additions/qepcad/qepcad.sh");
+		        CommandExec qepcadcom = new CommandExec();
+		        try {
+		        	qepcadcom.execCommand(list);
+		        } catch (Exception e) {
+		        	Log.d("MoA","exception7");
+		        }
+		        try {
+		        	maximaProccess.maximaCmd("qepcad finished\n");		        
+		        } catch (Exception e) {
+		        	Log.d("MoA", "exception8");
+		        }
+		        resString=maximaProccess.getProcessResult();
+	   	        maximaProccess.clearStringBuilder();
+   	        }
 
 			if (isGraphFile()) {
 		        List<String> list = new ArrayList<String>();
@@ -555,28 +571,8 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 		        	showHTML("file:///data/data/jp.yhonda/files/maxout.html");
 		        }
 			}
-			if (isQepcadFile()) {
-		        List<String> list = new ArrayList<String>();
-		        list.add("/data/data/jp.yhonda/files/additions/qepcad/qepcad.sh");
-		        CommandExec qepcadcom = new CommandExec();
-		        try {
-		        	qepcadcom.execCommand(list);
-		        } catch (Exception e) {
-		        	Log.d("MoA","exception7");
-		        }
-   				try {
-   					cmdstr="readQepcad();";
-   					maximaProccess.maximaCmd(cmdstr+"\n");
-   		   			webview.loadUrl("javascript:window.UpdateInput('"+ escapeChars(cmdstr) +"<br>" +"')");
-   		   			resString=maximaProccess.getProcessResult();
-   		   	        maximaProccess.clearStringBuilder();
-   		   	        displayMaximaCmdResults(resString);
-   				} catch (Exception e) {
-   					Log.d("MoA","exception7.1");
-   				}
 
-				
-			}
+   	        displayMaximaCmdResults(resString);
 
    		}
 

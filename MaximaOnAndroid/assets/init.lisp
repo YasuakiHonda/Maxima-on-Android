@@ -68,15 +68,35 @@
             f2 (+ f2 $prevfib)))
        f2))))
 
+;;; Dropbox support
+(let ((top (pop $file_search_maxima))) 
+    (push "/sdcard/Download/$$$.txt" $file_search_maxima) 
+    (push top $file_search_maxima))
+(let ((top (pop $file_type_maxima))) 
+    (push "txt" $file_type_maxima) 
+    (push top $file_type_maxima))
+
 ;;; qepcad support
+(defun $system (&rest args)
+  (if (string> (first args) "sh -c")
+    ;; perform qepcad
+    (progn
+      (format t "start qepcad~A" *prompt-suffix*)
+      (read-line))))
+
 (let ((top (pop $file_search_lisp))) 
-    (push "/data/data/jp.yhonda/files/additions/qepcad/$$$.{lsp,lisp,fasl}" $file_search_lisp) 
+    (push "/data/data/jp.yhonda/files/additions/qepcad/qepmax/$$$.{lsp,lisp,fasl}" $file_search_lisp) 
     (push top $file_search_lisp))
 (let ((top (pop $file_search_maxima))) 
-    (push "/data/data/jp.yhonda/files/additions/qepcad/$$$.{mac,mc}" $file_search_maxima) 
+    (push "/data/data/jp.yhonda/files/additions/qepcad/qepmax/$$$.{mac,mc}" $file_search_maxima) 
     (push top $file_search_maxima))
 
+
 (progn                                                                      
+  (if (not (boundp '$qepcad_installed_dir))                                 
+      (add2lnc '$qepcad_installed_dir $values))                             
+  (defparameter $qepcad_installed_dir                                              
+                "/data/data/jp.yhonda/files/additions/qepcad")
   (if (not (boundp '$qepcad_input_file))                                 
       (add2lnc '$qepcad_input_file $values))                             
   (defparameter $qepcad_input_file                                              
@@ -85,16 +105,15 @@
       (add2lnc '$qepcad_output_file $values))                                   
   (defparameter $qepcad_output_file                                             
                 "/data/data/jp.yhonda/files/qepcad_output.txt")
-  (if (not (boundp '$qepcad_on_moa))                                       
-      (add2lnc '$qepcad_on_moa $values))                                   
-  (defparameter $qepcad_on_moa t))
+  (if (not (boundp '$qepcad_file_pattern))                                       
+      (add2lnc '$qepcad_file_pattern $values))                                   
+  (defparameter $qepcad_file_pattern "/data/data/jp.yhonda/files/qepcad*.txt"))
 
 ;;; always save support
 (defvar *save_file* "/data/data/jp.yhonda/files/saveddata")
 (defun $ssave () (meval `(($save) ,*save_file* $labels ((mequal) $linenum $linenum))) t)
 (defun $srestore () (load *save_file*) t)
 
-(defun $system (&rest args) (declare (ignore args)))
 (setq *maxima-tempdir* "/data/data/jp.yhonda/files")
 (setq $in_netmath nil)
 
@@ -118,3 +137,105 @@
 
 ;;; lisp-utils/defsystem.lisp must be loaded.
 ($load "lisp-utils/defsystem")
+
+
+;;; some functions in matrun.lisp does not work. They are redefined here.
+;;; It is just like fib above.
+
+(defmspec $apply1 (l) (setq l (cdr l))
+	  (let ((expr (meval (car l))))
+	    (mapc #'(lambda (z) (setq expr (apply1 expr z 0))) (cdr l))
+	    expr))
+
+(defmfun apply1 (expr *rule depth) 
+  (cond
+    ((> depth $maxapplydepth) expr)
+    (t
+     (prog nil 
+	(*rulechk *rule)
+	(setq expr (rule-apply *rule expr))
+	b    (cond
+	       ((or (atom expr) (mnump expr)) (return expr))
+	       ((eq (caar expr) 'mrat)
+		(setq expr (ratdisrep expr)) (go b))
+	       (t
+		(return
+		  (simplifya
+		   (cons
+		    (delsimp (car expr))
+		    (mapcar #'(lambda (z) (apply1 z *rule (1+ depth)))
+			    (cdr expr)))
+		   t))))))))
+
+(defmspec $applyb1 (l)  (setq l (cdr l))
+	  (let ((expr (meval (car l))))
+	    (mapc #'(lambda (z) (setq expr (car (apply1hack expr z)))) (cdr l))
+	    expr))
+
+(defmfun apply1hack (expr *rule) 
+  (prog (pairs max) 
+     (*rulechk *rule)
+     (setq max 0)
+     b    (cond
+	    ((atom expr) (return (cons (multiple-value-bind (ans rule-hit) (mcall *rule expr) (if rule-hit ans expr)) 0)))
+	    ((specrepp expr) (setq expr (specdisrep expr)) (go b)))
+     (setq pairs (mapcar #'(lambda (z) (apply1hack z *rule))
+			 (cdr expr)))
+     (setq max 0)
+     (mapc #'(lambda (l) (setq max (max max (cdr l)))) pairs)
+     (setq expr (simplifya (cons (delsimp (car expr))
+				 (mapcar #'car pairs))
+			   t))
+     (cond ((= max $maxapplyheight) (return (cons expr max))))
+     (setq expr (rule-apply *rule expr))
+     (return (cons expr (1+ max)))))
+
+(defun rule-apply (*rule expr)
+  (prog (ans rule-hit)
+   loop (multiple-value-setq (ans rule-hit) (mcall *rule expr))
+   (cond ((and rule-hit (not (alike1 ans expr)))
+	  (setq expr ans) (go loop)))
+   (return expr)))
+
+(defmspec $apply2 (l) (setq l (cdr l))
+	  (let ((rulelist (cdr l))) (apply2 rulelist (meval (car l)) 0)))
+
+(defmfun apply2 (rulelist expr depth) 
+  (cond
+    ((> depth $maxapplydepth) expr)
+    (t
+     (prog (ans ruleptr rule-hit) 
+      a    (setq ruleptr rulelist)
+      b    (cond
+	     ((null ruleptr)
+	      (cond
+		((atom expr) (return expr))
+		((eq (caar expr) 'mrat)
+		 (setq expr (ratdisrep expr)) (go b))
+		(t
+		 (return
+		   (simplifya
+		    (cons
+		     (delsimp (car expr))
+		     (mapcar #'(lambda (z) (apply2 rulelist z (1+ depth)))
+			     (cdr expr)))
+		    t))))))
+      (cond ((progn (multiple-value-setq (ans rule-hit) (mcall (car ruleptr) expr)) rule-hit)
+	     (setq expr ans)
+	     (go a))
+	    (t (setq ruleptr (cdr ruleptr)) (go b)))))))
+
+(defmspec $applyb2 (l) (setq l (cdr l))
+	  (let ((rulelist (cdr l))) (car (apply2hack rulelist (meval (car l))))))
+
+(defmfun apply2hack (rulelist e) 
+  (prog (pairs max) 
+     (setq max 0)
+     (cond ((atom e) (return (cons (apply2 rulelist e -1) 0)))
+	   ((specrepp e) (return (apply2hack rulelist (specdisrep e)))))
+     (setq pairs (mapcar #'(lambda (x) (apply2hack rulelist x)) (cdr e)))
+     (setq max 0)
+     (mapc #'(lambda (l) (setq max (max max (cdr l)))) pairs)
+     (setq e (simplifya (cons (delsimp (car e)) (mapcar #'car pairs)) t))
+     (cond ((= max $maxapplyheight) (return (cons e max)))
+	   (t (return (cons (apply2 rulelist e -1) (1+ max)))))))

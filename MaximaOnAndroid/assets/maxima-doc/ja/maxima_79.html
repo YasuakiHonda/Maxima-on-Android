@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年1月月14日 by texi2html 1.82
+<!-- Created on 2014年4月月20日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.32.1 Manual: 79. unit</title>
+<title>Maxima 5.33.0 Manual: 79. to_poly_solve</title>
 
-<meta name="description" content="Maxima 5.32.1 Manual: 79. unit">
-<meta name="keywords" content="Maxima 5.32.1 Manual: 79. unit">
+<meta name="description" content="Maxima 5.33.0 Manual: 79. to_poly_solve">
+<meta name="keywords" content="Maxima 5.33.0 Manual: 79. to_poly_solve">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -156,622 +156,1420 @@ div.categorybox
 
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="unit"></a>
+<a name="to_005fpoly_005fsolve"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_78.html#Functions-and-Variables-for-to_005fpoly_005fsolve" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-Units" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_78.html#Functions-and-Variables-for-strings" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-to_005fpoly_005fsolve" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_78.html#to_005fpoly_005fsolve" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_78.html#stringproc" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#zeilberger" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#unit" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="unit-1"></a>
-<h1 class="chapter">79. unit</h1>
+<a name="to_005fpoly_005fsolve-1"></a>
+<h1 class="chapter">79. to_poly_solve</h1>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-Units">79.1 Introduction to Units</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Units">79.2 Functions and Variables for Units</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-to_005fpoly_005fsolve">79.1 Functions and Variables for to_poly_solve</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Introduction-to-Units"></a>
+<p><a name="Item_003a-Functions-and-Variables-for-to_005fpoly_005fsolve"></a>
 </p><hr size="6">
-<a name="Introduction-to-Units"></a>
+<a name="Functions-and-Variables-for-to_005fpoly_005fsolve"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#unit" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Units" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#to_005fpoly_005fsolve" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#unit" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#unit" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#unit" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#zeilberger" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#to_005fpoly_005fsolve" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#to_005fpoly_005fsolve" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#unit" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-Units-1"></a>
-<h2 class="section">79.1 Introduction to Units</h2>
+<a name="Functions-and-Variables-for-to_005fpoly_005fsolve-1"></a>
+<h2 class="section">79.1 Functions and Variables for to_poly_solve</h2>
 
-<p><em>unit</em>パッケージは、ユーザーが任意の単位間での変換したり、
-方程式の中の次元を扱うことを可能にします。
-このパッケージの機能はオリジナルの Maxima単位パッケージとは根本的に違います - 
-オリジナルは定義の基本的なリストでしたが、このパッケージは、
-ユーザーが次元基底毎に最後の答えが翻訳される単位を選ぶことを可能にするような
-ルールセットを使います。
-表示でそれらを混ぜる代わりに単位を分離し、
-ユーザーが個々の答えに関連付けられた単位を容易に識別することを可能にします。
-演繹された単位に整理する間、巧みな制御を供給することはもちろん、
-ユーザーが式を基本的な基底単位に整理することを可能にします。
-次元解析が可能で、変換と整理オプションを管理するために様々なツールが利用可能です。
-カスタマイズ可能な自動変換に加えて、
-<em>units</em>はこれまでの手動変換オプションも提供します。
+<p>パッケージ <code>to_poly</code>と <code>to_poly_solve</code>は実験的なものです;
+これらのパッケージの関数の仕様は変更の可能性があり、
+これらのパッケージの関数のいくつかは他の Maxima関数にマージされるかもしれません。
 </p>
-<p>注意 - 単位変換が正確でない時、 Maximaは分数に帰着する近似を行います。
-これは単位を整理するのに使われる手法の結果です。
-このタイプの代入を警告するメッセージは、
-この状況はしばしば起こり、警告が出力を埋め尽くすので、
-(通常オンですが)単位の場合デフォルトでディセーブルにされています。
-(単位変換の後、 ratprintの現行の状態を復元します。
-なので、他の点では、その設定のユーザー変更は保持されます。)
-もしユーザーが単位に関するこの情報を必要とするなら、
-単位変換プロセスからの警告の印字を再アクティベートするために
-<em>unitverbose:on</em>を設定できます。
+<p>Barton Willis (University of Nebraska at Kearneyの数学科の教授)が
+<code>to_poly</code>と <code>to_poly_solve</code>パッケージと
+これらのパッケージのための英語のユーザードキュメンテーションを書きました。
 </p>
-<p><em>unit</em>は Maximaに、share/contrib/unitディレクトリに含まれます。
-通常の Maximaのパッケージローディング慣例に従います：
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;unit&quot;)$
-*******************************************************************
-*                       Units version 0.50                        *
-*          Definitions based on the NIST Reference on             *
-*              Constants, Units, and Uncertainty                  *
-*       Conversion factors from various sources including         *
-*                   NIST and the GNU units package                *
-*******************************************************************
-
-Redefining necessary functions...
-WARNING: DEFUN/DEFMACRO: redefining function TOPLEVEL-MACSYMA-EVAL ...
-WARNING: DEFUN/DEFMACRO: redefining function MSETCHK ...
-WARNING: DEFUN/DEFMACRO: redefining function KILL1 ...
-WARNING: DEFUN/DEFMACRO: redefining function NFORMAT ...
-Initializing unit arrays...
-Done.
-</pre></td></tr></table>
-
-<p>WARNINGメッセージが予想されますが、心配の原因ではありません - 
-それらは
-<em>unit</em>パッケージが本来の
-Maximaで既に定義されている関数を再定義していることを示しています。
-これは単位を適切には使うために必要です。
-もし他のパッケージがこれらの関数に他の変更を加えたなら
-それらの変更はこのロードプロセスによって上書きされることにユーザーは気づくべきです。
-</p>
-<p><em>unit.mac</em>ファイルは、パッケージに必要な lisp関数を含む
-lispファイル<em>unit-functions.lisp</em>もロードします。
-</p>
-<p>Clifford Yappが主作者です。
-彼は、　Nebraska大学Kearney校(UNK)のBarton Willis, Robert Dodier,
-そして Maximaメーリングリストの他の大胆不敵な人々から
-価値ある援助を受けました。
-</p>
-<p>たぶん多くのバグがあります。知らせてください。
-<code>float</code>と <code>numer</code>は期待の動作をしません。
-</p>
-<p>TODO : 次元機能、温度の扱い、略語表示、仲間。単位を含む量の足し算の例を示す。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Physical-units">Physical units</a>
- &middot;<a href="maxima_98.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_98.html#Category_003a-Package-unit">Package unit</a>
-</div></p>
-
-<p><a name="Item_003a-Functions-and-Variables-for-Units"></a>
-</p><hr size="6">
-<a name="Functions-and-Variables-for-Units"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-Units" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#zeilberger" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#unit" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#unit" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#zeilberger" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<a name="Functions-and-Variables-for-Units-1"></a>
-<h2 class="section">79.2 Functions and Variables for Units</h2>
-
-<p><a name="Item_003a-setunits"></a>
+<p><a name="Item_003a-_0025and"></a>
 </p><dl>
-<dt><a name="index-setunits"></a><u>関数:</u> <b>setunits</b><i> (<var>list</var>)</i></dt>
-<dd><p>デフォルトでは、 <em>unit</em>パッケージは
-組み立てられた次元はどんなものでも使いませんが、
-MKS単位を使ってすべての単位を 7つの基本的な次元に変換します。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i2) N;
-                                     kg m
-(%o2)                                ----
-                                       2
-                                      s
-</pre><pre class="example">(%i3) dyn;
-                                   1      kg m
-(%o3)                           (------) (----)
-                                 100000     2
-                                           s
-</pre><pre class="example">(%i4) g;
-                                    1
-(%o4)                             (----) (kg)
-                                   1000
-</pre><pre class="example">(%i5) centigram*inch/minutes^2;
-                                  127        kg m
-(%o5)                       (-------------) (----)
-                             1800000000000     2
-                                              s
-</pre></td></tr></table>
-
-<p>いくつかの場合、これは望みの振る舞いです。
-もしユーザーが他の単位を使いたいなら、これは
-<code>setunits</code>コマンドで達成されます:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i6) setunits([centigram,inch,minute]);
-(%o6)                                done
-</pre><pre class="example">(%i7) N;
-                            1800000000000   %in cg
-(%o7)                      (-------------) (------)
-                                 127            2
-                                            %min
-</pre><pre class="example">(%i8) dyn;
-                               18000000   %in cg
-(%o8)                         (--------) (------)
-                                 127          2
-                                          %min
-</pre><pre class="example">(%i9) g;
-(%o9)                             (100) (cg)
-</pre><pre class="example">(%i10) centigram*inch/minutes^2;
-                                    %in cg
-(%o10)                              ------
-                                        2
-                                    %min
-</pre></td></tr></table>
-
-<p>単位の設定は実に柔軟性があります。
-例えば、もしキログラム、メータ、秒に、それらの次元のデフォルトとして戻りたいなら、
-以下のようにできます:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i11) setunits([kg,m,s]);
-(%o11)                               done
-</pre><pre class="example">(%i12) centigram*inch/minutes^2;
-                                  127        kg m
-(%o12)                      (-------------) (----)
-                             1800000000000     2
-                                              s
-</pre></td></tr></table>
-
-<p>組立単位もこのコマンドで扱います:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i17) setunits(N);
-(%o17)                               done
-</pre><pre class="example">(%i18) N;
-(%o18)                                 N
-</pre><pre class="example">(%i19) dyn;
-                                    1
-(%o19)                           (------) (N)
-                                  100000
-</pre><pre class="example">(%i20) kg*m/s^2;
-(%o20)                                 N
-</pre><pre class="example">(%i21) centigram*inch/minutes^2;
-                                    127
-(%o21)                        (-------------) (N)
-                               1800000000000
-</pre></td></tr></table>
-
-<p><em>unit</em>パッケージは質量、長さ、力として二乗された逆時間の非
-MKS組み合わせを認識し、それを Newtonのものに変換したことに注目してください。
-これは一般に Maximaがどのように働くかを示します。
-例えば、もし Newtonのものよりダインを好むなら、単に以下をします:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i22) setunits(dyn);
-(%o22)                               done
-</pre><pre class="example">(%i23) kg*m/s^2;
-(%o23)                          (100000) (dyn)
-</pre><pre class="example">(%i24) centigram*inch/minutes^2;
-                                  127
-(%o24)                         (--------) (dyn)
-                                18000000
-</pre></td></tr></table>
-
-<p>任意の力に整理することを中断するには、
-uforgetコマンドを使います:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i26) uforget(dyn);
-(%o26)                               false
-</pre><pre class="example">(%i27) kg*m/s^2;
-                                     kg m
-(%o27)                               ----
-                                       2
-                                      s
-</pre><pre class="example">(%i28) centigram*inch/minutes^2;
-                                  127        kg m
-(%o28)                      (-------------) (----)
-                             1800000000000     2
-                                              s
-</pre></td></tr></table>
-<p>これは、
-<code>uforget(N)</code>か <code>uforget(%force)</code>を使っても同じように機能したでしょう。
-</p>
-<p><code>uforget</code>も参照してください。
-この関数を使うには最初に <code>load(&quot;unit&quot;)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-unit">Package unit</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-uforget"></a>
-</p><dl>
-<dt><a name="index-uforget"></a><u>関数:</u> <b>uforget</b><i> (<var>list</var>)</i></dt>
-<dd><p>デフォルトでは、 <em>unit</em>パッケージは、
-NKS単位を使って単位すべてを 7つの基本次元に変換します。
-この振る舞いは
-<code>setunits</code>コマンドを使って変えることができます。
-その後、ユーザーは、
-<code>uforget</code>コマンドを使って，
-特定の次元に関してデフォルトの振る舞いに戻すことができます:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i13) setunits([centigram,inch,minute]);
-(%o13)                               done
-</pre><pre class="example">(%i14) centigram*inch/minutes^2;
-                                    %in cg
-(%o14)                              ------
-                                        2
-                                    %min
-</pre><pre class="example">(%i15) uforget([cg,%in,%min]);
-(%o15)                      [false, false, false]
-</pre><pre class="example">(%i16) centigram*inch/minutes^2;
-                                  127        kg m
-(%o16)                      (-------------) (----)
-                             1800000000000     2
-                                              s
-</pre></td></tr></table>
-
-<p><code>uforget</code>は単位ではなく次元上で働きます。
-だから、特定の次元の任意の単位は機能します。
-次元それ自身も合法な引数です。
-</p>
-<p><code>setunits</code>も参照してください。
-この関数を使うには最初に <code>load(&quot;unit&quot;)</code>と書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-unit">Package unit</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-convert"></a>
-</p><dl>
-<dt><a name="index-convert"></a><u>関数:</u> <b>convert</b><i> (<var>expr</var>, <var>list</var>)</i></dt>
-<dd><p>グローバル環境をリセットすることがやりすぎの時、
-<code>convert</code>コマンドがあります。
-これは 1回変換を許します。
-変換に使うのに、 1つの引数か単位のリストを受け付けることができます。
-変換演算がされた時、
-望みの結果が再変換されるのを避けるために正常なグローバル評価系は迂回されます。
-結果として、もしこの振る舞いを制御しているグローバル環境 (<code>ratprint</code>)がtrueなら、
-不正確な計算に対して &quot;rat&quot;警告が見られるでしょう。
-これはグローバル変換の精度の抜き取り検査に役に立ちます。
-別の特長は、たとえグローバル環境が組立次元に整理するように設定されても
-<code>convert</code>はユーザーに基本次元変換を許すことです。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) kg*m/s^2;
-                                     kg m
-(%o2)                                ----
-                                       2
-                                      s
-</pre><pre class="example">(%i3) convert(kg*m/s^2,[g,km,s]);
-                                     g km
-(%o3)                                ----
-                                       2
-                                      s
-</pre><pre class="example">(%i4) convert(kg*m/s^2,[g,inch,minute]);
-
-`rat' replaced 39.37007874015748 by 5000/127 = 39.37007874015748
-                              18000000000   %in g
-(%o4)                        (-----------) (-----)
-                                  127           2
-                                            %min
-</pre><pre class="example">(%i5) convert(kg*m/s^2,[N]);
-(%o5)                                  N
-</pre><pre class="example">(%i6) convert(kg*m^2/s^2,[N]);
-(%o6)                                 m N
-</pre><pre class="example">(%i7) setunits([N,J]);
-(%o7)                                done
-</pre><pre class="example">(%i8) convert(kg*m^2/s^2,[N]);
-(%o8)                                 m N
-</pre><pre class="example">(%i9) convert(kg*m^2/s^2,[N,inch]);
-
-`rat' replaced 39.37007874015748 by 5000/127 = 39.37007874015748
-                                 5000
-(%o9)                           (----) (%in N)
-                                 127
-</pre><pre class="example">(%i10) convert(kg*m^2/s^2,[J]);
-(%o10)                                 J
-</pre><pre class="example">(%i11) kg*m^2/s^2;
-(%o11)                                 J
-</pre><pre class="example">(%i12) setunits([g,inch,s]);
-(%o12)                               done
-</pre><pre class="example">(%i13) kg*m/s^2;
-(%o13)                                 N
-</pre><pre class="example">(%i14) uforget(N);
-(%o14)                               false
-</pre><pre class="example">(%i15) kg*m/s^2;
-                                5000000   %in g
-(%o15)                         (-------) (-----)
-                                  127       2
-                                           s
-</pre><pre class="example">(%i16) convert(kg*m/s^2,[g,inch,s]);
-
-`rat' replaced 39.37007874015748 by 5000/127 = 39.37007874015748
-                                5000000   %in g
-(%o16)                         (-------) (-----)
-                                  127       2
-                                           s
-</pre></td></tr></table>
-
-<p><code>setunits</code>と <code>uforget</code>も参照してください。
-この関数を使うには最初に <code>load(&quot;unit&quot;)</code>を書いてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-unit">Package unit</a>
-</div></p>
-</dd></dl>
-
-
-<p><a name="Item_003a-usersetunits"></a>
-</p><dl>
-<dt><a name="index-usersetunits"></a><u>オプション変数:</u> <b>usersetunits</b></dt>
-<dd><p>デフォルト値: none
-</p>
-<p>もしユーザーが記述されたものよりもデフォルト単位の振る舞いを持ちたいなら、
-それらは
-<em>maxima-init.mac</em>と <em>usersetunits</em>変数を利用することができます。
-<em>unit</em>パッケージは
-この変数がリストに割り当てられているかを見るためにスタートアップ時にチェックします。
-もし割り当てられているなら、そのリスト上で setunitsを使い、
-そのリストからの単位をデフォルトに取ります。
-<code>uforget</code>は自身のデフォルト上に usersetunitsで定義された振る舞いに戻します。
+<dt><a name="index-_0025and"></a><u>Operator:</u> <b>%and</b></dt>
+<dd>
+<p>演算子 <code>%and</code>は整理化(simplifying)非短絡論理積です。
+Maximaは <code>%and</code>式を trueか falseか論理的に同値ですが整理された式に整理します。
+演算子 <code>%and</code>は結合的で可換でべき等的です。
+そして、 <code>%and</code>が名詞形を返す時、
+<code>%and</code>の引数は非冗長なソートされたリストを形成します;
 例えば、
-もし以下を含む <em>maxima-init.mac</em>ファイルを持っているなら:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">usersetunits : [N,J];
-</pre></td></tr></table>
-<p>we would see the following behavior:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;unit&quot;)$
-*******************************************************************
-*                       Units version 0.50                        *
-*          Definitions based on the NIST Reference on             *
-*              Constants, Units, and Uncertainty                  *
-*       Conversion factors from various sources including         *
-*                   NIST and the GNU units package                *
-*******************************************************************
-
-Redefining necessary functions...
-WARNING: DEFUN/DEFMACRO: redefining function
- TOPLEVEL-MACSYMA-EVAL ...
-WARNING: DEFUN/DEFMACRO: redefining function MSETCHK ...
-WARNING: DEFUN/DEFMACRO: redefining function KILL1 ...
-WARNING: DEFUN/DEFMACRO: redefining function NFORMAT ...
-Initializing unit arrays...
-Done.
-User defaults found...
-User defaults initialized.
-</pre><pre class="example">(%i2) kg*m/s^2;
-(%o2)                                  N
-</pre><pre class="example">(%i3) kg*m^2/s^2;
-(%o3)                                  J
-</pre><pre class="example">(%i4) kg*m^3/s^2;
-(%o4)                                 J m
-</pre><pre class="example">(%i5) kg*m*km/s^2;
-(%o5)                             (1000) (J)
-</pre><pre class="example">(%i6) setunits([dyn,eV]);
-(%o6)                                done
-</pre><pre class="example">(%i7) kg*m/s^2;
-(%o7)                           (100000) (dyn)
-</pre><pre class="example">(%i8) kg*m^2/s^2;
-(%o8)                     (6241509596477042688) (eV)
-</pre><pre class="example">(%i9) kg*m^3/s^2;
-(%o9)                    (6241509596477042688) (eV m)
-</pre><pre class="example">(%i10) kg*m*km/s^2;
-(%o10)                   (6241509596477042688000) (eV)
-</pre><pre class="example">(%i11) uforget([dyn,eV]);
-(%o11)                           [false, false]
-</pre><pre class="example">(%i12) kg*m/s^2;
-(%o12)                                 N
-</pre><pre class="example">(%i13) kg*m^2/s^2;
-(%o13)                                 J
-</pre><pre class="example">(%i14) kg*m^3/s^2;
-(%o14)                                J m
-</pre><pre class="example">(%i15) kg*m*km/s^2;
-(%o15)                            (1000) (J)
-</pre></td></tr></table>
-<p><code>usersetunits</code>なしでは、初期の入力は MKSに変換されたでしょうし、
-uforgetは MKS規則への復帰をもたらしたでしょう。
-なるほど、ユーザーの好みは両方のケースで考慮されます。
-もし望まれるなら、これらはまだオーバーライドされることができることに注目してください。
-この整理を完全に消すには
-- すなわち、ユーザーデフォルトを出荷デフォルトに再設定するには - 
-<code>dontusedimension</code>コマンドを使えます。
-<code>usedimension</code>が <code>uforget</code>を使用上自由にする時だけ
-<code>uforget</code>はユーザー設定を再び戻すことができますが、
-代わりに、
-<code>kill(usersetunits)</code>はユーザーデフォルトの知識すべてを
-セッションから完全に削除します。
-以下はこれらの様々なオプションがいかに働くかを示すいくつかの例です。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i2) kg*m/s^2;
-(%o2)                                  N
-</pre><pre class="example">(%i3) kg*m^2/s^2;
-(%o3)                                  J
-</pre><pre class="example">(%i4) setunits([dyn,eV]);
-(%o4)                                done
-</pre><pre class="example">(%i5) kg*m/s^2;
-(%o5)                           (100000) (dyn)
-</pre><pre class="example">(%i6) kg*m^2/s^2;
-(%o6)                     (6241509596477042688) (eV)
-</pre><pre class="example">(%i7) uforget([dyn,eV]);
-(%o7)                          [false, false]
-</pre><pre class="example">(%i8) kg*m/s^2;
-(%o8)                                  N
-</pre><pre class="example">(%i9) kg*m^2/s^2;
-(%o9)                                  J
-</pre><pre class="example">(%i10) dontusedimension(N);
-(%o10)                             [%force]
-</pre><pre class="example">(%i11) dontusedimension(J);
-(%o11)                         [%energy, %force]
-</pre><pre class="example">(%i12) kg*m/s^2;
-                                     kg m
-(%o12)                               ----
-                                       2
-                                      s
-</pre><pre class="example">(%i13) kg*m^2/s^2;
-                                         2
-                                     kg m
-(%o13)                               -----
-                                       2
-                                      s
-</pre><pre class="example">(%i14) setunits([dyn,eV]);
-(%o14)                               done
-</pre><pre class="example">(%i15) kg*m/s^2;
-                                     kg m
-(%o15)                               ----
-                                       2
-                                      s
-</pre><pre class="example">(%i16) kg*m^2/s^2;
-                                         2
-                                     kg m
-(%o16)                               -----
-                                       2
-                                      s
-</pre><pre class="example">(%i17) uforget([dyn,eV]);
-(%o17)                         [false, false]
-</pre><pre class="example">(%i18) kg*m/s^2;
-                                     kg m
-(%o18)                               ----
-                                       2
-                                      s
-</pre><pre class="example">(%i19) kg*m^2/s^2;
-                                         2
-                                     kg m
-(%o19)                               -----
-                                       2
-                                      s
-</pre><pre class="example">(%i20) usedimension(N);
-Done.  To have Maxima simplify to this dimension, use
-setunits([unit]) to select a unit.
-(%o20)                               true
-</pre><pre class="example">(%i21) usedimension(J);
-Done.  To have Maxima simplify to this dimension, use
-setunits([unit]) to select a unit.
-(%o21)                               true
-</pre><pre class="example">(%i22) kg*m/s^2;
-                                     kg m
-(%o22)                               ----
-                                       2
-                                      s
-</pre><pre class="example">(%i23) kg*m^2/s^2;
-                                         2
-                                     kg m
-(%o23)                               -----
-                                       2
-                                      s
-</pre><pre class="example">(%i24) setunits([dyn,eV]);
-(%o24)                               done
-</pre><pre class="example">(%i25) kg*m/s^2;
-(%o25)                          (100000) (dyn)
-</pre><pre class="example">(%i26) kg*m^2/s^2;
-(%o26)                    (6241509596477042688) (eV)
-</pre><pre class="example">(%i27) uforget([dyn,eV]);
-(%o27)                           [false, false]
-</pre><pre class="example">(%i28) kg*m/s^2;
-(%o28)                                 N
-</pre><pre class="example">(%i29) kg*m^2/s^2;
-(%o29)                                 J
-</pre><pre class="example">(%i30) kill(usersetunits);
-(%o30)                               done
-</pre><pre class="example">(%i31) uforget([dyn,eV]);
-(%o31)                          [false, false]
-</pre><pre class="example">(%i32) kg*m/s^2;
-                                     kg m
-(%o32)                               ----
-                                       2
-                                      s
-</pre><pre class="example">(%i33) kg*m^2/s^2;
-                                         2
-                                     kg m
-(%o33)                               -----
-                                       2
-                                      s
-</pre></td></tr></table>
-<p>不運にも、広範囲に色々なオプションがあることは最初は少し混乱しますが、
-一旦ユーザーがそれらを使うようになると、
-仕事環境全体で非常に充実したコントロールを持つことをユーザーは見いだすに違いありません。
 </p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) a %and (a %and b);
+(%o1)                       a %and b
+</pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-unit">Package unit</a>
-</div></p>
+<p>もし積の引数の1つが <i>明示的に</i>もう一つの引数の否定なら、
+<code>%and</code>は falseを返します:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) a %and (not a);
+(%o2)                         false
+</pre></td></tr></table>
+
+<p>積のいずれかのメンバーが falseなら、
+たとえ他のメンバーが明白に非ブーリアンでも積は falseに整理されます;
+例えば、
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) 42 %and false;
+(%o3)                         false
+</pre></td></tr></table>
+
+<p>inequation(すなわち、不等もしくは等式)の <code>%and</code>式の任意の引数は
+Fourier消去パッケージを使って整理されます。
+Fourier消去整理器は
+すべてでないですがいくつかの非線形 inequationを線形
+inequationに変換するプリプロセッサを持ちます;
+例えば、 Fourier消去コードは
+<code>abs(x) + 1 &gt; 0</code>を trueに整理します。だから、
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) (x &lt; 1) %and (abs(x) + 1 &gt; 0);
+(%o4)                         x &lt; 1
+</pre></td></tr></table>
+
+<p><b>注釈</b>  
+</p><ul>
+<li>
+オプション変数 <code>prederror</code>は
+<code>%and</code>式の整理を変え<i>ません</i>。
+
+</li><li>
+演算子の優先順位エラーを避けるため、
+演算子 <code>%and, %or</code>と <code>not</code>を含む複合式は完全に括弧でくくらなくてはいけません。
+
+</li><li>
+Maxima演算子 <code>and</code>と <code>or</code>はどちらも短絡的です。
+なので <code>and</code>は結合的でなかったり可換ではなかったりします。
+
+</li></ul>
+
+<p><b>制限</b> 積 <code>%and</code>はinequationを
+<i>大域的にではなく局所的に</i>整理します。
+これは以下のような積は falseに整理<i>されない</i>ことを意味します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) (x &lt; 1) %and (x &gt; 1);
+(%o5)                 (x &gt; 1) %and (x &lt; 1)
+</pre></td></tr></table>
+
+<p>また、 Fourier消去コードは事実データベースを<i>無視します</i>。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) assume(x &gt; 5);
+(%o6)                        [x &gt; 5]
+(%i7) (x &gt; 1) %and (x &gt; 2);
+(%o7)                 (x &gt; 1) %and (x &gt; 2)
+</pre></td></tr></table>
+
+<p>最終的に、同値の線形 inequationに容易に変換されない非線形 inequationは整理されません。
+</p>
+<p><code>%or</code>上に <code>%and</code>を分配するためのサポートはありません;
+<code>%and</code>上に論理否定を分配するサポートもありません。
+</p>
+<p><b>利用のためには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+</p>
+<p><b>関連関数</b> <code>%or, %if, and, or, not</code>
+</p>
+<p><b>状況</b> 演算子 <code>%and</code>は実験的です;
+この関数の仕様は変更の可能性があり、
+その機能は他の Maxima関数にマージされるかもしれません。
+</p>
 </dd></dl>
 
-
-<p><a name="Item_003a-metricexpandall"></a>
+<p><a name="Item_003a-_0025if"></a>
 </p><dl>
-<dt><a name="index-metricexpandall"></a><u>関数:</u> <b>metricexpandall</b><i> (<var>x</var>)</i></dt>
-<dd><p>望みの計量単位すべてを自動的に生成するグローバル単位リストを再構築します。
-<var>x</var>は
-ユーザーがいくつの計量接頭子の定義を望むか指定するのに使われる数値引数です。
-引数は、より低い数字の単位を定義するより高い数字それぞれを持つような
-以下のようなものです:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">           0 - none. Only base units
-           1 - kilo, centi, milli
-(default)  2 - giga, mega, kilo, hecto, deka, deci, centi, milli,
-               micro, nano
-           3 - peta, tera, giga, mega, kilo, hecto, deka, deci,
-               centi, milli, micro, nano, pico, femto
-           4 - all
+<dt><a name="index-_0025if"></a><u>演算子:</u> <b>%if</b><i> (<var>bool</var>, <var>a</var>, <var>b</var>)</i></dt>
+<dd>
+<p>演算子 <code>%if</code>は整理化条件文です。
+<i>条件</i> <var>bool</var>はブーリアン値でなければいけません。
+条件が trueの時、二番目の引数を返します;
+条件が falseの時、三番目の引数を返します;
+その他の場合、名詞形を返します。
+</p>
+<p>Maxima inequations (不等式か等式)はブーリアン値では<i>ありません</i>;
+例えば、 Maximaは <em>5 &lt; 6</em>を trueに整理 <i>しません</i>し、
+<em>5 = 6</em>を falseに整理しません;
+しかしながら、 <code>%if</code>文への条件の文脈では、
+Maximaは <i>自動的に</i> inequationの真値を決定しようとします。
+例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) f : %if(x # 1, 2, 8);
+(%o1)                 %if(x - 1 # 0, 2, 8)
+(%i2) [subst(x = -1,f), subst(x=1,f)];
+(%o2)                        [2, 8]
 </pre></td></tr></table>
-<p>通常は、 Maximaはこれは非常にたくさんの数の単位をもたらすので、完全な展開を定義しませんが、
-多少なりとも完全な方法でリストを再構築するのに
-<code>metricexpandall</code>を使うことができます。
-<em>unit.mac</em>ファイルの中の適切な変数は <var>%unitexpand</var>です。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-unit">Package unit</a>
-</div></p>
-</dd></dl>
 
-<p><a name="Item_003a-_0025unitexpand"></a>
+<p>もし条件が inequationを含むなら、
+Maximaは Fourier消去パッケージを使ってそれを整理します。
+</p>
+<p><b>注釈</b> 
+</p>
+<ul>
+<li>
+もし条件が明白に非ブーリアンなら、 Maximaは名詞形を返します:
+</li></ul>
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) %if(42,1,2);
+(%o3)                     %if(42, 1, 2)
+</pre></td></tr></table>
+
+<ul>
+<li>
+Maxima演算子 <code>if</code>は n項演算子ですが、演算子 <code>%if</code>は
+n項演算子<i>ではないです</i>。
+</li></ul>
+
+<p><b>制限</b> Fourier消去コードは
+同値の線形 inequationに容易に変換可能な非線形 inequationだけを
+整理します。
+</p>
+<p><b>利用には:</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+</p>
+<p><b>状況:</b> 演算子 <code>%if</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p>
+</dd></dl>
+  
+<p><a name="Item_003a-_0025or"></a>
 </p><dl>
-<dt><a name="index-_0025unitexpand"></a><u>変数:</u> <b>%unitexpand</b></dt>
-<dd><p>デフォルト値: <code>2</code>
+<dt><a name="index-_0025or"></a><u>演算子:</u> <b>%or</b></dt>
+<dd>
+<p>演算子 <code>%or</code>は整理化非短絡論理和です。
+Maximaは
+<code>%or</code>式を trueか falseか論理的に同値ですが整理された式に整理します。
+演算子 <code>%or</code>は結合的で可換でべき等です。
+そして
+<code>%or</code>が名詞形を返す時、
+<code>%or</code>の引数は非冗長なソートされたリストを形成します;
+例えば、
 </p>
-<p>これは
-<em>unit</em>の初期ロードの最中に
-<code>metricexpandall</code>に供給される値です。
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) a %or (a %or b);
+(%o1)                        a %or b
+</pre></td></tr></table>
+
+<p>もし和のメンバーの１つが<i>明示的に</i>他のメンバーの否定なら、
+<code>%or</code>は trueを返します:
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-unit">Package unit</a>
-</div></p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) a %or (not a);
+(%o2)                         true
+</pre></td></tr></table>
+
+<p>もし和の任意のメンバーが trueなら、
+たとえ和の他のメンバーが明白に非ブーリアンでも和は trueに整理されます。
+例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) 42 %or true;
+(%o3)                         true
+</pre></td></tr></table>
+
+<p>inequation(不等式か等式)である <code>%or</code>式の任意の引数は
+Fourier消去パッケージを使って整理されます。
+Fourier消去コードは <code>abs(x) + 1 &gt; 0</code>を trueに整理します。
+なので、
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) (x &lt; 1) %or (abs(x) + 1 &gt; 0);
+(%o4)                         true
+</pre></td></tr></table>
+
+<p><b>注釈</b>  
+</p><ul>
+<li>
+オプション変数 <code>prederror</code>は
+<code>%or</code>式の整理を変更<i>しません</i>。
+
+</li><li>
+演算子 <code>%and, %or</code>, <code>not</code>を含む複合式は括弧でくくらなければいけません;
+これらの演算子の結合力は期待と一致しないことがあります。
+
+</li><li>
+Maxima演算子 <code>and</code>と <code>or</code>はどちらも短絡的です。
+なので <code>or</code>は結合的でないか可換でないかです。
+
+</li></ul>
+
+<p><b>制限</b> 和 <code>%or</code>はinequationを
+<i>大域的にではなく、局所的に</i>整理します。
+これは以下のような和は trueに整理<i>されない</i>ことを意味します。
+</p>
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) (x &lt; 1) %or (x &gt;= 1);
+(%o1) (x &gt; 1) %or (x &gt;= 1)
+</pre></td></tr></table>
+
+<p>更に Fourier消去コードは事実データベースを無視します:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) assume(x &gt; 5);
+(%o2)                        [x &gt; 5]
+(%i3) (x &gt; 1) %and (x &gt; 2);
+(%o3)                 (x &gt; 1) %and (x &gt; 2)
+</pre></td></tr></table>
+
+<p>最終的に、同値の線形 inequationに容易に変換されない非線形 inequationは整理されません。
+</p>
+<p>両方とも falseである項を探すアルゴリズムは弱いものです;
+また、<code>%and</code>上に <code>%or</code>を分配するためのサポートはありません;
+<code>%or</code>上に論理否定を分配するサポートもありません。
+</p>
+<p><b>利用のためには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+</p>
+<p><b>関連関数</b> <code>%or, %if, and, or, not</code>
+</p>
+<p><b>状況</b> 演算子 <code>%or</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-complex_005fnumber_005fp"></a>
+</p><dl>
+<dt><a name="index-complex_005fnumber_005fp"></a><u>関数:</u> <b>complex_number_p</b><i> (<var>x</var>)</i></dt>
+<dd>
+<p>もし引数が
+<code>a + %i * b</code>, <code>a</code>, <code>%i b</code>, <code>%i</code>のいずれかなら、
+述語論理 <code>complex_number_p</code>は trueを返します。
+ここで <code>a</code>と <code>b</code>は有理数か(多倍長浮動小数点数を含む)浮動小数点数です;
+他のすべての入力に対して、
+<code>complex_number_p</code>は falseを返します; 例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) map('complex_number_p,[2/3, 2 + 1.5 * %i, %i]);
+(%o1)                  [true, true, true]
+(%i2) complex_number_p((2+%i)/(5-%i));
+(%o2)                         false
+(%i3) complex_number_p(cos(5 - 2 * %i));
+(%o3)                         false
+</pre></td></tr></table>
+
+<p><b>関連関数</b> <code>isreal_p</code>
+</p>
+<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+</p>
+<p><b>状況</b> 関数 <code>complex_number_p</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-compose_005ffunctions"></a>
+</p><dl>
+<dt><a name="index-compose_005ffunctions"></a><u>関数:</u> <b>compose_functions</b><i> (<var>l</var>)</i></dt>
+<dd>
+<p>関数コール <code>compose_functions(l)</code>は
+リスト <var>l</var>の中の関数の合成をラムダ形を返します。
+関数は<i>右</i>から <i>左</i>へ適用されます; 例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) compose_functions([cos, exp]);
+                                        %g151
+(%o1)             lambda([%g151], cos(%e     ))
+(%i2) %(x);
+                                  x
+(%o2)                       cos(%e )
+</pre></td></tr></table>
+
+<p>関数リストが空のとき、恒等関数を返します:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) compose_functions([]);
+(%o3)                lambda([%g152], %g152)
+(%i4)  %(x);
+(%o4)                           x
+</pre></td></tr></table>
+
+<p><b>注釈</b> 
+</p><ul>
+<li>
+Maximaがリストメンバーがシンボルやラムダ形でないか決める時、
+(<code>compose_functions</code><i>ではなく</i>) <code>funmake</code>がエラーをシグナルします:
+</li></ul>
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) compose_functions([a &lt; b]);
+
+funmake: first argument must be a symbol, subscripted symbol,
+string, or lambda expression; found: a &lt; b
+#0: compose_functions(l=[a &lt; b])(to_poly_solve.mac line 40)
+ -- an error. To debug this try: debugmode(true);
+</pre></td></tr></table>
+
+<ul>
+<li>
+名前の衝突を避けるために、独立変数は関数 <code>new_variable</code>が決めます。
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) compose_functions([%g0]);
+(%o6)              lambda([%g154], %g0(%g154))
+(%i7) compose_functions([%g0]);
+(%o7)              lambda([%g155], %g0(%g155))
+</pre></td></tr></table>
+
+<p>独立変数が違っても、
+Maximaはこれらのラムダ形が意味的に等しいことを演繹できます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i8) is(equal(%o6,%o7));
+(%o8)                         true
+</pre></td></tr></table>
+</li></ul>
+
+<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+</p>
+<p><b>状況</b> 関数 <code>compose_functions</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p></dd></dl>
+
+<p><a name="Item_003a-dfloat"></a>
+</p><dl>
+<dt><a name="index-dfloat"></a><u>関数:</u> <b>dfloat</b><i> (<var>x</var>)</i></dt>
+<dd>
+<p>関数 <code>dfloat</code>は
+<code>float</code>に似ていますが、
+<code>float</code>が IEEE 倍精度浮動小数点数に評価するのを失敗した時、
+関数 <code>dfloat</code>は
+<code>rectform</code>を適用します; 例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) float(4.5^(1 + %i));
+                               %i + 1
+(%o1)                       4.5
+(%i2) dfloat(4.5^(1 + %i));
+(%o2)        4.48998802962884 %i + .3000124893895671
+</pre></td></tr></table>
+
+<p><b>注釈</b> 
+</p>
+<ul>
+<li>
+式の直交形は
+数値評価には不完全で合わないかもしれません&ndash;例えば、
+直交形は不必要に浮動小数点数の差(桁落ち)を含むかもしれません。
+
+</li><li>
+識別子 <code>float</code>は(デフォルト値が falseの)オプション変数であり
+かつ関数名です。
+
+</li></ul>
+
+<p><b>関連関数</b> <code>float, bfloat</code>
+</p>
+<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+</p>
+<p><b>状況</b> 関数 <code>dfloat</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-elim"></a>
+</p><dl>
+<dt><a name="index-elim"></a><u>関数:</u> <b>elim</b><i> (<var>l</var>, <var>x</var>)</i></dt>
+<dd>
+<p>関数 <code>elim</code>は
+集合もしくはリスト <code>l</code>内の等式から
+集合もしくはリスト <code>x</code>内の変数を消去します。
+<code>x</code>のメンバーそれぞれはシンボルでなければいけません;
+<code>l</code>のメンバーは等式か零に等しいと仮定される式であり得ます。
+</p>
+<p>関数 <code>elim</code>は2つのリストのリストを返します;
+一番目は変数が消去された式のリストです;
+二番目はピボットのリストです;
+二番目のリストは
+<code>elim</code>が変数を消去するのに使った式のリストです。
+</p>
+<p>以下は線形方程式を消去する例です:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) elim(set(x + y + z = 1, x - y  - z = 8, x - z = 1), 
+           set(x,y));
+(%o1)            [[2 z - 7], [y + 7, z - x + 1]]
+</pre></td></tr></table>
+
+<p><code>x</code>と <code>y</code>の消去は一つの等式 <code>2 z - 7 = 0</code>をもたらします;
+等式 <code>y + 7 = 0</code>と <code>z - z + 1 = 1</code>がピボットとして使われました。
+これらの等式から3つの変数すべての消去は、線形系を三角化します:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) elim(set(x + y + z = 1, x - y  - z = 8, x - z = 1),
+           set(x,y,z));
+(%o2)           [[], [2 z - 7, y + 7, z - x + 1]]
+</pre></td></tr></table>
+
+<p>もちろん、等式は線形である必要はありません:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) elim(set(x^2 - 2 * y^3 = 1,  x - y = 5), [x,y]);
+                     3    2
+(%o3)       [[], [2 y  - y  - 10 y - 24, y - x + 5]]
+</pre></td></tr></table>
+
+<p>ユーザーは変数が消去される順序を制御しません。
+確かに、アルゴリズムは最良のピボットと最良の消去順序を選ぼうとする発見的方法を使います。
+</p>
+<p><b>注釈</b> 
+</p>
+<ul>
+<li>
+関連関数 <code>eliminate</code>と違い、等式の数が変数の数と等しい時、関数 <code>elim</code>は
+<code>solve</code>を呼び出し<i>ません</i>。
+
+</li><li>
+関数 <code>elim</code>は終結式を適用することで機能します;
+オプション変数 <code>resultant</code>は
+Maximaがどのアルゴリズムを使うか決めます。
+<code>sqfr</code>を使って、
+Maximaはそれぞれの終結式を因数分解し、多重零点を抑制します。
+
+</li><li>
+<code>elim</code>は多項式方程式の非線形一式を三角化します;
+三角化された集合の解集合は
+三角化されていない集合の解集合よりも大きい<i>かもしれません</i>。
+例えば、、
+三角化された方程式は<i>見せかけの</i>解を持ち得ます。
+</li></ul>
+
+<p><b>関連関数</b> <i>elim_allbut, eliminate_using, eliminate</i>
+</p>
+<p><b>オプション変数</b> <i>resultant</i>
+</p>
+<p><b>利用するには</b> &lsquo;<tt>load(to_poly)</tt>&rsquo;
+</p>
+<p><b>状況</b> 関数 <code>elim</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p>
+</dd></dl>
+ 
+<p><a name="Item_003a-elim_005fallbut"></a>
+</p><dl>
+<dt><a name="index-elim_005fallbut"></a><u>関数:</u> <b>elim_allbut</b><i> (<var>l</var>, <var>x</var>)</i></dt>
+<dd>
+<p>この関数は、
+等式のリスト <code>l</code>内のリスト
+<code>x</code>内の変数を <i>除いて</i>変数すべてを消去することを除いて、
+<code>elim</code>に似ています。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) elim_allbut([x+y = 1, x - 5*y = 1],[]);
+(%o1)                 [[], [y, y + x - 1]]
+(%i2) elim_allbut([x+y = 1, x - 5*y = 1],[x]);
+(%o2)                [[x - 1], [y + x - 1]]
+</pre></td></tr></table>
+
+<p><b>利用するには</b> &lsquo;<tt>load(to_poly)</tt>&rsquo;
+</p>
+<p><b>オプション変数</b> <i>resultant</i>
+</p>
+<p><b>関連関数</b> <i>elim, eliminate_using, eliminate</i>
+</p>
+<p><b>状況</b> 関数 <code>elim_allbut</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-eliminate_005fusing"></a>
+</p><dl>
+<dt><a name="index-eliminate_005fusing"></a><u>関数:</u> <b>eliminate_using</b><i> (<var>l</var>, <var>e</var>, <var>x</var>)</i></dt>
+<dd>
+
+<p><code>e</code>をピボットとして使って、
+<code>l</code>の中の等式のリストか集合からシンボル <code>x</code>を消去します。
+関数 <code>eliminate_using</code>は集合を返します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) eq : [x^2 - y^2 - z^3 , x*y - z^2 - 5, x - y + z];
+               3    2    2     2
+(%o1)      [- z  - y  + x , - z  + x y - 5, z - y + x]
+(%i2) eliminate_using(eq,first(eq),z);
+        3              2      2      3    2
+(%o2) {y  + (1 - 3 x) y  + 3 x  y - x  - x , 
+                        4    3  3       2  2             4
+                       y  - x  y  + 13 x  y  - 75 x y + x  + 125}
+(%i3) eliminate_using(eq,second(eq),z);
+        2            2       4    3  3       2  2             4
+(%o3) {y  - 3 x y + x  + 5, y  - x  y  + 13 x  y  - 75 x y + x
+                                                           + 125}
+(%i4) eliminate_using(eq, third(eq),z);
+        2            2       3              2      2      3    2
+(%o4) {y  - 3 x y + x  + 5, y  + (1 - 3 x) y  + 3 x  y - x  - x }
+</pre></td></tr></table>
+
+<p><b>オプション変数</b> <i>resultant</i>
+</p>
+<p><b>関連関数</b> <i>elim, eliminate, elim_allbut</i>
+</p>
+<p><b>利用するには</b> &lsquo;<tt>load(to_poly)</tt>&rsquo;
+</p>
+<p><b>状況</b> 関数 <code>elimimate_using</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-fourier_005felim"></a>
+</p><dl>
+<dt><a name="index-fourier_005felim"></a><u>関数:</u> <b>fourier_elim</b><i> ([<var>eq1</var>, <var>eq2</var>, &hellip;], [<var>var1</var>, <var>var</var>, &hellip;])</i></dt>
+<dd>
+<p>Fourier消去は
+Gauss消去の線形 inequation(等式か不等式)に関する類似物です。
+関数コール <code>fourier_elim([eq1, eq2, ...], [var1, var2, ...])</code>は
+線形 inequationsのリスト <code>[eq1, eq2, ...]</code>上の変数
+<code>[var1, var2, ...]</code>に関する Fourier消去です;
+例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) fourier_elim([y-x &lt; 5, x - y &lt; 7, 10 &lt; y],[x,y]);
+(%o1)            [y - 5 &lt; x, x &lt; y + 7, 10 &lt; y]
+(%i2) fourier_elim([y-x &lt; 5, x - y &lt; 7, 10 &lt; y],[y,x]);
+(%o2)        [max(10, x - 7) &lt; y, y &lt; x + 5, 5 &lt; x]
+</pre></td></tr></table>
+
+<p>最初に <em>x</em>を、次に <em>y</em>を消去することは
+<em>x</em>の下限と上限―<em>y</em>に依存します―をもたらし、
+そして <em>y</em>の下限と上限ーそれらは数ですーをもたらします。
+他の順序での消去は <em>x</em>依存の <em>y</em>の下限と上限、
+そして <em>x</em>の数値的下限と上限を与えます。
+</p>
+<p>必要な時、 <code>fourier_elim</code>は inequationのリストの<em>論理和</em>を返します:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) fourier_elim([x # 6],[x]);
+(%o3)                  [x &lt; 6] or [6 &lt; x]
+</pre></td></tr></table>
+
+<p>解集合が空の時、 <code>fourier_elim</code>は <code>emptyset</code>を返し、
+解集合が実数すべての時、 <code>fourier_elim</code>は <code>universalset</code>を返します;
+例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) fourier_elim([x &lt; 1, x &gt; 1],[x]);
+(%o4)                       emptyset
+(%i5) fourier_elim([minf &lt; x, x &lt; inf],[x]);
+(%o5)                     universalset
+</pre></td></tr></table>
+
+<p>非線形 inequationに対して、
+<code>fourier_elim</code>は(幾分)整理された inequationsのリストを返します:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) fourier_elim([x^3 - 1 &gt; 0],[x]);
+</pre><pre class="example">               2                             2
+(%o6) [1 &lt; x, x  + x + 1 &gt; 0] or [x &lt; 1, - (x  + x + 1) &gt; 0]
+</pre><pre class="example">(%i7) fourier_elim([cos(x) &lt; 1/2],[x]);
+(%o7)                  [1 - 2 cos(x) &gt; 0]
+</pre></td></tr></table>
+
+<p>inequationのリストの代わりに、
+<code>fourier_elim</code>の一番目の引数は論理和か論理積であるかもしれません:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i8) fourier_elim((x + y &lt; 5) and (x - y &gt;8),[x,y]);
+                                              3
+(%o8)            [y + 8 &lt; x, x &lt; 5 - y, y &lt; - -]
+                                              2
+(%i9) fourier_elim(((x + y &lt; 5) and x &lt; 1) or  (x - y &gt;8),[x,y]);
+(%o9)          [y + 8 &lt; x] or [x &lt; min(1, 5 - y)]
+</pre></td></tr></table>
+
+<p>関数 <code>fourier_elim</code>は
+inequation演算子 <code>&lt;, &lt;=, &gt;, &gt;=, #</code>, <code>=</code>をサポートします。
+</p>
+<p>Fourier消去コードは
+絶対値や最小、最大関数を含むいくつかの非線形 inequationを
+線形 inequationに変換するプリプロセッサを持ちます．
+加えて、プリプロセッサは線形項の積か商であるいくつかの式を扱います:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i10) fourier_elim([max(x,y) &gt; 6, x # 8, abs(y-1) &gt; 12],[x,y]);
+(%o10) [6 &lt; x, x &lt; 8, y &lt; - 11] or [8 &lt; x, y &lt; - 11]
+ or [x &lt; 8, 13 &lt; y] or [x = y, 13 &lt; y] or [8 &lt; x, x &lt; y, 13 &lt; y]
+ or [y &lt; x, 13 &lt; y]
+(%i11) fourier_elim([(x+6)/(x-9) &lt;= 6],[x]);
+(%o11)           [x = 12] or [12 &lt; x] or [x &lt; 9]
+(%i12) fourier_elim([x^2 - 1 # 0],[x]);
+(%o12)      [- 1 &lt; x, x &lt; 1] or [1 &lt; x] or [x &lt; - 1]
+</pre></td></tr></table>
+
+<p><b>利用するには</b> &lsquo;<tt>load(fourier_elim)</tt>&rsquo;
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-isreal_005fp"></a>
+</p><dl>
+<dt><a name="index-isreal_005fp"></a><u>関数:</u> <b>isreal_p</b><i> (<var>e</var>)</i></dt>
+<dd>
+<p>述語論理 <code>isreal_p</code>は、
+Maximaが <code>e</code>が実数線<i>全体</i>上で実数値であることを
+決められる時 trueを返します;
+Maximaが実数線の空でないある部分集合上で
+<code>e</code>が実数値で<i>ない</i>ことを決められる時 falseを返します;
+他の場合、名詞形を返します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) map('isreal_p, [-1, 0, %i, %pi]);
+(%o1)               [true, true, false, true]
+</pre></td></tr></table>
+
+<p>Maxima変数は実と仮定されます; たとえば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) isreal_p(x);
+(%o2)                         true
+</pre></td></tr></table>
+
+<p>関数 <code>isreal_p</code>は事実データベースを検査します:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) declare(z,complex)$
+
+(%i4) isreal_p(z);
+(%o4)                      isreal_p(z)
+</pre></td></tr></table>
+
+<p><b>制限</b>
+頻繁すぎるほど <code>isreal_p</code>は
+falseを返すことができる時に名詞形を返します;
+対数函数は実数線全体で実数値ではありません。
+だから <code>isreal_p(log(x))</code>は falseを返すべきです;
+しかしながら
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) isreal_p(log(x));
+(%o5)                   isreal_p(log(x))
+</pre></td></tr></table>
+
+<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+</p>
+<p><b>関連関数</b> <i>complex_number_p</i>
+</p>
+<p><b>状況</b> 関数 <code>isreal_p</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p></dd></dl>
+
+
+<p><a name="Item_003a-new_005fvariable"></a>
+</p><dl>
+<dt><a name="index-new_005fvariable"></a><u>関数:</u> <b>new_variable</b><i> (type)</i></dt>
+<dd>
+<p><code>%[z,n,r,c,g]k</code>という形のユニークなシンボルを返します。
+ここで <code>k</code>は整数です
+<em>type</em>に許される値は
+<i>integer, natural_number, real, natural_number,</i> <i>general</i>です。
+(自然数(natural number)は <i>非負整数</i>を意味します;
+なので零は自然数です
+自然数の定義のすべてではありませんがいくつかは零を<i>除外します</i>。)
+</p>
+<p><em>type</em>が許される値の１つでない時、
+<em>type</em>は <em>general</em>にデフォルト設定されます。
+整数、自然数、複素数に対して、
+Maximaは自動的にこの情報を事実データベースに追加します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) map('new_variable,
+          ['integer, 'natural_number, 'real, 'complex, 'general]);
+(%o1)          [%z144, %n145, %r146, %c147, %g148]
+(%i2) nicedummies(%);
+(%o2)               [%z0, %n0, %r0, %c0, %g0]
+(%i3) featurep(%z0, 'integer);
+(%o3)                         true
+(%i4) featurep(%n0, 'integer);
+(%o4)                         true
+(%i5) is(%n0 &gt;= 0);
+(%o5)                         true
+(%i6) featurep(%c0, 'complex);
+(%o6)                         true
+</pre></td></tr></table>
+
+<p><b>注釈</b> 一般に、<code>new_variable</code>の引数はクォートすべきです。
+クォートは以下に似たエラーを防ぎます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i7) integer : 12$
+
+(%i8) new_variable(integer);
+(%o8)                         %g149
+(%i9) new_variable('integer);
+(%o9)                         %z150
+</pre></td></tr></table>
+
+<p><b>関連関数</b> <i>nicedummies</i>
+</p>
+<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+</p>
+<p><b>状況</b> 関数 <code>new_variable</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-nicedummies"></a>
+</p><dl>
+<dt><a name="index-nicedummies"></a><u>関数:</u> <b>nicedummies</b></dt>
+<dd>
+<p>関数 <code>nicedummies</code>は
+<code>new_variable</code>が導入した式の中の変数を零から再インデックスします;
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) new_variable('integer) + 52 * new_variable('integer);
+(%o1)                   52 %z136 + %z135
+(%i2) new_variable('integer) - new_variable('integer);
+(%o2)                     %z137 - %z138
+(%i3) nicedummies(%);
+(%o3)                       %z0 - %z1
+</pre></td></tr></table>
+
+<p><b>関連関数</b> <i>new_variable</i>
+</p>
+<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+</p>
+<p><b>状況</b> 関数 <code>nicedummies</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-parg"></a>
+</p><dl>
+<dt><a name="index-parg"></a><u>関数:</u> <b>parg</b><i> (<var>x</var>)</i></dt>
+<dd>
+<p>関数 <code>parg</code>は複素偏角関数 <code>carg</code>の整理化バージョンです;
+例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) map('parg,[1,1+%i,%i, -1 + %i, -1]);
+                        %pi  %pi  3 %pi
+(%o1)               [0, ---, ---, -----, %pi]
+                         4    2     4
+</pre></td></tr></table>
+
+<p>一般に非定数入力に対して <code>parg</code>は名詞形を返します;例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) parg(x + %i * sqrt(x));
+(%o2)                 parg(x + %i sqrt(x))
+</pre></td></tr></table>
+
+<p><code>sign</code>を使って入力が正の実数か負の実数か決めることができる時
+<code>parg</code>は非定数入力に対して非名詞形を返します。
+以下は2つの例です:
+</p>
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) parg(abs(x));
+(%o3) 0
+(%i4) parg(-x^2-1);
+(%o4)                          %pi
+</pre></td></tr></table>
+
+<p><b>注釈</b> <code>sign</code>関数は
+複素数と宣言された変数 (<code>declare(x,complex)</code>)を
+ほとんど無視します;
+複素数と宣言された変数に対して、
+<code>parg</code>は間違った値を返す可能性があります;
+例えば
+</p>
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) declare(x,complex)$
+
+(%i2) parg(x^2 + 1);
+(%o2) 0
+</pre></td></tr></table>
+
+<p><b>Related function</b> <i>carg, isreal_p</i>
+</p>
+<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+</p>
+<p><b>状況</b> 関数 <code>parg</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-real_005fimagpart_005fto_005fconjugate"></a>
+</p><dl>
+<dt><a name="index-real_005fimagpart_005fto_005fconjugate"></a><u>関数:</u> <b>real_imagpart_to_conjugate</b><i> (<var>e</var>)</i></dt>
+<dd>
+<p>関数 <code>real_imagpart_to_conjugate</code>は
+<code>realpart</code>と <code>imagpart</code>をすべて
+<code>conjugate</code>を含む代数的に同値な式に置き換えます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) declare(x, complex)$
+
+(%i2) real_imagpart_to_conjugate(realpart(x) +  imagpart(x) = 3);
+          conjugate(x) + x   %i (x - conjugate(x))
+(%o2)     ---------------- - --------------------- = 3
+                 2                     2
+</pre></td></tr></table>
+
+<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+</p>
+<p><b>状況</b> 関数 <code>real_imagpart_to_conjugate</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-rectform_005flog_005fif_005fconstant"></a>
+</p><dl>
+<dt><a name="index-rectform_005flog_005fif_005fconstant"></a><u>関数:</u> <b>rectform_log_if_constant</b><i> (<var>e</var>)</i></dt>
+<dd>
+<p>関数 <code>rectform_log_if_constant</code>は
+<code> log(c)</code>の形の項をすべて
+<code>rectform(log(c))</code>に変換します。
+ここで <code>c</code>は宣言された定数式か明示的に宣言された定数です。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) rectform_log_if_constant(log(1-%i) - log(x - %i));
+                                 log(2)   %i %pi
+(%o1)            - log(x - %i) + ------ - ------
+                                   2        4
+(%i2) declare(a,constant, b,constant)$
+
+(%i3) rectform_log_if_constant(log(a + %i*b));
+                       2    2
+                  log(b  + a )
+(%o3)             ------------ + %i atan2(b, a)
+                       2
+</pre></td></tr></table>
+
+<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+</p>
+<p><b>状況</b> 関数 <code>rectform_log_if_constant</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他のMaxima関数にマージされるかもしれません。
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-simp_005finequality"></a>
+</p><dl>
+<dt><a name="index-simp_005finequality"></a><u>関数:</u> <b>simp_inequality</b><i> (<var>e</var>)</i></dt>
+<dd>
+<p>関数 <code>simp_inequality</code>は
+inequationの論理積と論理和にいくつかの整理を適用します。
+</p>
+<p><b>制限</b> 関数 <code>simp_inequality</code>は少なくとも2つの点で制限されます;
+第一に整理が局所的です; 例えば
+</p>
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) simp_inequality((x &gt; minf) %and (x &lt; 0));
+(%o1) (x&gt;1) %and (x&lt;1)
+</pre></td></tr></table>
+
+<p>第二に <code>simp_inequality</code>は事実データベースを参照しません:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) assume(x &gt; 0)$
+
+(%i3) simp_inequality(x &gt; 0);
+(%o3)                         x &gt; 0
+</pre></td></tr></table>
+
+<p><b>利用するには</b> &lsquo;<tt>load(fourier_elim)</tt>&rsquo;
+</p>
+<p><b>状況</b> 関数 <code>simp_inequality</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-standardize_005finverse_005ftrig"></a>
+</p><dl>
+<dt><a name="index-standardize_005finverse_005ftrig"></a><u>関数:</u> <b>standardize_inverse_trig</b><i> (<var>e</var>)</i></dt>
+<dd>
+<p>この関数は
+恒等式 <code>cot(x) = atan(1/x), acsc(x) = asin(1/x),</code>と
+<code>asec, acoth, acsch</code> <code>asech</code>に関する類似の恒等式を式に適応します。
+Abramowitz and Stegun, Eqs. 4.4.6 から 4.4.8までと
+4.6.4から 4.6.6までを参照してください。
+</p>
+<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+</p>
+<p><b>状況</b> 関数 <code>standardize_inverse_trig</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p></dd></dl>
+
+<p><a name="Item_003a-subst_005fparallel"></a>
+</p><dl>
+<dt><a name="index-subst_005fparallel"></a><u>関数:</u> <b>subst_parallel</b><i> (<var>l</var>, <var>e</var>)</i></dt>
+<dd>
+<p><code>l</code>が単一の等式か等式のリストの時、それぞれの等式の右辺側を左辺に代入します。
+代入は並列に行われます; 例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(to_poly_solve)$
+
+(%i2) subst_parallel([x=y,y=x], [x,y]);
+(%o2)                        [y, x]
+</pre></td></tr></table>
+
+<p>これを順にされる代入と比較します:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) subst([x=y,y=x],[x,y]);
+(%o3)                        [x, x]
+</pre></td></tr></table>
+
+<p>関数 <code>subst_parallel</code>は、
+<code>subst_parallel</code>は非アトムの代入を許すことを除いて
+<code>sublis</code>と似ています;
+例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) subst_parallel([x^2 = a, y = b], x^2 * y);
+(%o4)                          a b
+(%i5) sublis([x^2 = a, y = b], x^2 * y);
+
+                                                             2
+sublis: left-hand side of equation must be a symbol; found: x
+ -- an error. To debug this try: debugmode(true);
+</pre></td></tr></table>
+
+<p><code>subst_parallel</code>が行う代入は文字通りであり意味論的ではありません;
+なので
+<code>subst_parallel</code>は
+<em>x * y</em>が <em>x^2 * y</em>の部分式であることを認識<i>しません</i>
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) subst_parallel([x * y = a], x^2 * y);
+                               2
+(%o6)                         x  y
+</pre></td></tr></table>
+
+<p>関数 <code>subst_parallel</code>は整理の<i>前に</i>すべての代入を完了します。
+これは、もし整理が前に行われていたらエラーが起こるような条件式への代入を許します:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i7) subst_parallel([x = 0], %if(x &lt; 1, 5, log(x)));
+(%o7)                           5
+(%i8) subst([x = 0], %if(x &lt; 1, 5, log(x)));
+
+log: encountered log(0).
+ -- an error. To debug this try: debugmode(true);
+</pre></td></tr></table>
+
+<p><b>関連関数</b> <i>subst, sublis, ratsubst</i>
+</p>
+<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve_extra.lisp)</tt>&rsquo;
+</p>
+<p><b>状況</b> 関数 <code>subst_parallel</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-to_005fpoly"></a>
+</p><dl>
+<dt><a name="index-to_005fpoly"></a><u>関数:</u> <b>to_poly</b><i> (<var>e</var>, <var>l</var>)</i></dt>
+<dd>
+<p>関数 <code>to_poly</code>は等式 <code>e</code>を
+inequation制約を伴う多項式系に変換しようとします;
+制約を満たす多項式系の解は等式 <code>e</code>の解です。
+非公式には <code>to_poly</code>は等式 <var>e</var>を多項式化しようとします; 
+例がわかりやすいかもしれません:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(to_poly_solve)$
+
+(%i2) to_poly(sqrt(x) = 3, [x]);
+                            2
+(%o2) [[%g130 - 3, x = %g130 ], 
+                      %pi                               %pi
+                   [- --- &lt; parg(%g130), parg(%g130) &lt;= ---], []]
+                       2                                 2
+</pre></td></tr></table>
+
+<p>条件 <code>-%pi/2&lt;parg(%g130),parg(%g130)&lt;=%pi/2</code>は
+<code>%g130</code>が平方根関数の範囲内であることを告げます。
+これが trueの時、
+<code>sqrt(x) = 3</code>に設定された解は
+<code>%g130-3,x=%g130^2</code>に設定された解と同じです。
+</p>
+<p>三角式を多項式化するには、非代数的代入の導入が必要です;
+これらの非代数的代入は
+<code>to_poly</code>が返す三番目のリスト内で返されます;
+例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) to_poly(cos(x),[x]);
+                2                                 %i x
+(%o3)    [[%g131  + 1], [2 %g131 # 0], [%g131 = %e    ]]
+</pre></td></tr></table>
+
+<p>数字 1が変数リストのメンバーでない限り定数項は多項式化されません;
+例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) to_poly(x = sqrt(5),[x]);
+(%o4)                [[x - sqrt(5)], [], []]
+(%i5) to_poly(x = sqrt(5),[1,x]);
+                            2
+(%o5) [[x - %g132, 5 = %g132 ], 
+                      %pi                               %pi
+                   [- --- &lt; parg(%g132), parg(%g132) &lt;= ---], []]
+                       2                                 2
+</pre></td></tr></table>
+
+<p>根の 1つとして
+<em>sqrt(5) + sqrt(7)</em>を持つ多項式を生成するには、以下のコマンドを使います。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) first(elim_allbut(first(to_poly(x = sqrt(5) + sqrt(7),
+                                      [1,x])), [x]));
+                          4       2
+(%o6)                   [x  - 24 x  + 4]
+</pre></td></tr></table>
+
+<p><b>関連関数</b> <i>to_poly_solve</i>
+</p>
+<p><b>利用するには</b> &lsquo;<tt>load(to_poly)</tt>&rsquo;
+</p>
+<p><b>状況:</b> 関数 <code>to_poly</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p>
 </dd></dl>
 
 
+<dl>
+<dt><a name="index-to_005fpoly_005fsolve"></a><u>関数:</u> <b>to_poly_solve</b><i> (<var>e</var>, <var>l</var>, [options])</i></dt>
+<dd>
+<p>関数 <code>to_poly_solve</code>は等式 <em>e</em>を変数 <em>l</em>について解こうとします。
+等式 <em>e</em>は単一の式か式の集合もしくはリストでありえます;
+同様に <em>l</em>は単一のシンボルかシンボルの集合のリストでありえます;
+<em>e</em>のメンバーが明示的に等式でない時(例えば <em>x^2 -1</em>)、
+ソルバは式は 0に等しいと仮定します。
+</p>
+<p><code>to_poly_solve</code>の基本戦略は
+入力を多項式形に変換し、 多項式系上で<code>algsys</code>を呼ぶことです。
+内部的には、 <code>to_poly_solve</code>は <code>algexact</code>を trueに設定します。
+<code>algexact</code>のデフォルト置を変えるには、 &rsquo;algexact=falseを  <code>to_poly_solve</code>の引数リストに追加してください。
+</p>
+<p><code>to_poly_solve</code>が解集合を決定できる時、解集合のそれぞれのメンバーは
+<code>%union</code>オブジェクト内のリストです:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(to_poly_solve)$
+
+(%i2) to_poly_solve(x*(x-1) = 0, x);
+(%o2)               %union([x = 0], [x = 1])
+</pre></td></tr></table>
+
+<p><code>to_poly_solve</code>が解集合を決定<i>できない</i>時
+<code>%solve</code>名詞形が返されます。(この場合、警告が印字されます。)
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) to_poly_solve(x^k + 2* x + 1 = 0, x);
+
+Nonalgebraic argument given to 'to_poly'
+unable to solve
+                          k
+(%o3)            %solve([x  + 2 x + 1 = 0], [x])
+</pre></td></tr></table>
+
+<p><code>%solve</code>名詞形への代入は時々解に帰着します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) subst(k = 2, %);
+(%o4)                   %union([x = - 1])
+</pre></td></tr></table>
+
+<p>特に三角等式の場合、ソルバは時々任意整数の導入を必要とします。
+これらの任意整数は
+<code>%zXXX</code>という形を持ちます。
+ここで <code>XXX</code>は整数です;
+例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) to_poly_solve(sin(x) = 0, x);
+(%o5)   %union([x = 2 %pi %z33 + %pi], [x = 2 %pi %z35])
+</pre></td></tr></table>
+
+<p>これらの変数を零から再インデックスするには <code>nicedummies</code>を使います:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) nicedummies(%);
+(%o6)    %union([x = 2 %pi %z0 + %pi], [x = 2 %pi %z1])
+</pre></td></tr></table>
+
+<p>時折、ソルバは
+<code>%cXXX</code>という形の任意複素数か
+<code>%rXXX</code>という形の任意実数を導入します。
+関数 <code>nicedummies</code>はこれらの識別子を零から再インデックスします。
+</p>
+<p>解集合は時々
+論理積、論理和、含意に関してそれぞれ <code>%and</code>か, <code>%or</code>,
+<code>%if</code>を含む様々な論理演算子の整理化バージョンを含みます;
+例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i7) sol : to_poly_solve(abs(x) = a, x);
+(%o7) %union(%if(isnonnegative_p(a), [x = - a], %union()), 
+                      %if(isnonnegative_p(a), [x = a], %union()))
+(%i8) subst(a = 42, sol);
+(%o8)             %union([x = - 42], [x = 42])
+(%i9) subst(a = -42, sol);
+(%o9)                       %union()
+</pre></td></tr></table>
+
+<p>空集合は <code>%union</code>によって表現されます。
+</p>
+<p>関数 <code>to_poly_solve</code>は有理数や非有理べき、絶対値、三角関数、最小最大を含む等式の
+(すべてではありませんが)いくつかを解くことができます。
+Lambert W 函数を使って解くことができるいくつかの等式も解くことができます;
+例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(to_poly_solve)$
+
+(%i2) to_poly_solve(set(max(x,y) = 5, x+y = 2), set(x,y));
+(%o2)      %union([x = - 3, y = 5], [x = 5, y = - 3])
+(%i3) to_poly_solve(abs(1-abs(1-x)) = 10,x);
+(%o3)             %union([x = - 10], [x = 12])
+(%i4) to_poly_solve(set(sqrt(x) + sqrt(y) = 5, x + y = 10),
+                    set(x,y));
+                     3/2               3/2
+                    5    %i - 10      5    %i + 10
+(%o4) %union([x = - ------------, y = ------------], 
+                         2                 2
+                                3/2                 3/2
+                               5    %i + 10        5    %i - 10
+                          [x = ------------, y = - ------------])
+                                    2                   2
+(%i5) to_poly_solve(cos(x) * sin(x) = 1/2,x,
+                    'simpfuncs = ['expand, 'nicedummies]);
+                                         %pi
+(%o5)              %union([x = %pi %z0 + ---])
+                                          4
+(%i6) to_poly_solve(x^(2*a) + x^a + 1,x);
+                                        2 %i %pi %z81
+                                        -------------
+                                  1/a         a
+                  (sqrt(3) %i - 1)    %e
+(%o6) %union([x = -----------------------------------], 
+                                  1/a
+                                 2
+</pre><pre class="example">                                                  2 %i %pi %z83
+                                                  -------------
+                                            1/a         a
+                          (- sqrt(3) %i - 1)    %e
+                     [x = -------------------------------------])
+                                           1/a
+                                          2
+</pre><pre class="example">(%i7) to_poly_solve(x * exp(x) = a, x);
+(%o7)              %union([x = lambert_w(a)])
+</pre></td></tr></table>
+
+<p><i>線形</i>不等式に対して、 <code>to_poly_solve</code>は自動的に Fourier消去を行います:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i8) to_poly_solve([x + y &lt; 1, x - y &gt;= 8], [x,y]);
+                               7
+(%o8) %union([x = y + 8, y &lt; - -], 
+                               2
+                                                              7
+                                 [y + 8 &lt; x, x &lt; 1 - y, y &lt; - -])
+                                                              2
+</pre></td></tr></table>
+
+<p><code>to_poly_solve</code>のオプション引数のそれぞれは等式でなければいけません;
+一般にこれらのオプションの順序は問題になりません．
+</p>
+<ul>
+<li>
+<code>simpfuncs = l</code>, 
+ここで <code>l</code>は函数のリストです。
+lのメンバーの合成をそれぞれの解に適用します。
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) to_poly_solve(x^2=%i,x);
+                               1/4             1/4
+(%o1)       %union([x = - (- 1)   ], [x = (- 1)   ])
+(%i2) to_poly_solve(x^2= %i,x, 'simpfuncs = ['rectform]);
+                      %i         1             %i         1
+(%o2) %union([x = - ------- - -------], [x = ------- + -------])
+                    sqrt(2)   sqrt(2)        sqrt(2)   sqrt(2)
+</pre></td></tr></table>
+
+<p>時々追加の整理は整理を戻すことがあります;
+例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) to_poly_solve(x^2=1,x);
+(%o3)              %union([x = - 1], [x = 1])
+(%i4) to_poly_solve(x^2= 1,x, 'simpfuncs = [polarform]);
+                                        %i %pi
+(%o4)            %union([x = 1], [x = %e      ]
+</pre></td></tr></table>
+
+<p>Maximaは
+関数リスト <code>l</code>のそれぞれのメンバーが純粋に整理であるかチェックしようとしません;
+例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) to_poly_solve(x^2 = %i,x, 'simpfuncs = [lambda([s],s^2)]);
+(%o5)                   %union([x = %i])
+</pre></td></tr></table>
+
+<p>それぞれの解を倍精度浮動小数点数に変換するには
+<code>simpfunc = ['dfloat]</code>を使います:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) to_poly_solve(x^3 +x + 1 = 0,x, 
+                    'simpfuncs = ['dfloat]), algexact : true;
+(%o6) %union([x = - .6823278038280178], 
+[x = .3411639019140089 - 1.161541399997251 %i], 
+[x = 1.161541399997251 %i + .3411639019140089])
+</pre></td></tr></table>
+
+</li><li>
+<code>use_grobner = true</code>
+このオプションを使うと
+解を企てる前に関数 <code>poly_reduced_grobner</code>が等式に適用されます
+主として、このオプションは関数 <code>algsys</code>の弱みに対する応急措置を提供します。
+以下はそんな応急措置の例です:
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i7) to_poly_solve([x^2+y^2=2^2,(x-1)^2+(y-1)^2=2^2],[x,y],
+                    'use_grobner = true);
+</pre><pre class="example">                    sqrt(7) - 1      sqrt(7) + 1
+(%o7) %union([x = - -----------, y = -----------], 
+                         2                2
+</pre><pre class="example">                                 sqrt(7) + 1        sqrt(7) - 1
+                            [x = -----------, y = - -----------])
+                                      2                  2
+(%i8) to_poly_solve([x^2+y^2=2^2,(x-1)^2+(y-1)^2=2^2],[x,y]);
+(%o8)                       %union()
+</pre></td></tr></table>
+
+</li><li>
+<code>maxdepth = k</code>,
+ここで <code>k</code>は正の整数です。
+この関数はソルバの最大再帰深さを制御します。
+<code>maxdepth</code>のデフォルト値は 5です。
+再帰深さを越えた時、ソルバはエラーをシグナルします:
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i9) to_poly_solve(cos(x) = x,x, 'maxdepth = 2);
+
+Unable to solve
+Unable to solve
+(%o9)        %solve([cos(x) = x], [x], maxdepth = 2)
+</pre></td></tr></table>
+
+</li><li>
+<code>parameters = l</code>,
+ここで <code>l</code>はシンボルのリストです。
+ソルバはリスト <code>l</code>のメンバーすべてに有効な解を返そうとします;
+例えば:
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i10) to_poly_solve(a * x = x, x);
+(%o10)                   %union([x = 0])
+(%i11) to_poly_solve(a * x = x, x, 'parameters = [a]);
+(%o11) %union(%if(a - 1 = 0, [x = %c111], %union()), 
+                               %if(a - 1 # 0, [x = 0], %union()))
+</pre></td></tr></table>
+
+<p><code>(%o2)</code>で、ソルバはダミー変数を導入しました;
+これらのダミー変数を再インデックスするには、関数 <code>nicedummies</code>を使います:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i12) nicedummies(%);
+(%o12) %union(%if(a - 1 = 0, [x = %c0], %union()), 
+                               %if(a - 1 # 0, [x = 0], %union()))
+</pre></td></tr></table>
+</li></ul>
+
+<p><em>f(a) = f(b)</em>という形の等式を解くために
+<code>to_poly_solve</code>はハッシュ配列
+<code>one_to_one_reduce</code>に記憶されたデータを使います。
+割り当て <code>one_to_one_reduce['f,'f] : lambda([a,b], a=b)</code>は
+<code>to_poly_solve</code>に
+<em>f(a) = f(b)</em>の解集合が<em>a=b</em>の解集合に等しいことを告げます;
+例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i13) one_to_one_reduce['f,'f] : lambda([a,b], a=b)$
+
+(%i14) to_poly_solve(f(x^2-1) = f(0),x);
+(%o14)             %union([x = - 1], [x = 1])
+</pre></td></tr></table>
+
+<p>さらに一般的に、割り当て
+<code>one_to_one_reduce['f,'g] : lambda([a,b], w(a, b) = 0</code>は
+<code>to_poly_solve</code>に
+<em>f(a) = f(b)</em>の解集合が <em>w(a,b) = 0</em>の解集合に等しいことを告げます;
+例えば
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i15) one_to_one_reduce['f,'g] : lambda([a,b], a = 1 + b/2)$
+
+(%i16) to_poly_solve(f(x) - g(x),x);
+(%o16)                   %union([x = 2])
+</pre></td></tr></table>
+
+<p>加えて、<em>f(a) = b</em>という形の等式を解くために関数
+<code>to_poly_solve</code>はハッシュ配列
+<code>function_inverse</code>に記憶されたデータを使います。
+割り当て <code>function_inverse['f] : lambda([s], g(s))</code>は
+<code>to_poly_solve</code>に
+<code>f(x) = b</code>に設定された解が
+<code>x = g(b)</code>に設定された解に等しいことを知らせます;
+2つの例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i17) function_inverse['Q] : lambda([s], P(s))$
+
+(%i18) to_poly_solve(Q(x-1) = 2009,x);
+(%o18)              %union([x = P(2009) + 1])
+(%i19) function_inverse['G] : lambda([s], s+new_variable(integer));
+(%o19)       lambda([s], s + new_variable(integer))
+(%i20) to_poly_solve(G(x - a) = b,x);
+(%o20)             %union([x = b + a + %z125])
+</pre></td></tr></table>
 
 
+<p><b>注釈</b>
+</p>
+<ul>
+<li>
+解く変数はシンボルである必要はありません;
+<code>fullratsubst</code>が適切に代入できる時、
+解く変数は非シンボルであり得ます:
+</li></ul>
 
-<p><a name="Item_003a-zeilberger"></a>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) to_poly_solve([x^2 + y^2 + x * y = 5, x * y = 8],
+                    [x^2 + y^2, x * y]);
+                                  2    2
+(%o1)           %union([x y = 8, y  + x  = - 3])
+</pre></td></tr></table>
+
+<ul>
+<li>
+複素共役を含む等式に対して、ソルバは自動的に共役等式を追加します;
+例えば
+</li></ul>
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) declare(x,complex)$
+
+(%i2) to_poly_solve(x + (5 + %i) * conjugate(x) = 1, x);
+                                   %i + 21
+(%o2)              %union([x = - -----------])
+                                 25 %i - 125
+(%i3) declare(y,complex)$
+
+(%i4) to_poly_solve(set(conjugate(x) - y = 42 + %i,
+                        x + conjugate(y) = 0), set(x,y));
+                           %i - 42        %i + 42
+(%o4)        %union([x = - -------, y = - -------])
+                              2              2
+</pre></td></tr></table>
+
+<ul>
+<li>
+絶対値関数を含む等式に対して、
+<code>to_poly_solve</code>は
+絶対値の引数が複素数値か決めるため事実データベースに問い合わせます。
+
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) to_poly_solve(abs(x) = 6, x);
+(%o1)              %union([x = - 6], [x = 6])
+(%i2) declare(z,complex)$
+
+(%i3) to_poly_solve(abs(z) = 6, z);
+(%o3) %union(%if((%c11 # 0) %and (%c11 conjugate(%c11) - 36 = 
+                                       0), [z = %c11], %union()))
+</pre></td></tr></table>
+
+<p><i>これはソルバが事実データベースを参照する唯一の状況です。
+例えば、もし解く変数が整数と宣言されていたら、
+<code>to_poly_solve</code>はこの宣言を無視します</i>。
+</p></li></ul>
+
+<p><b>Relevant option variables</b> <i>algexact, resultant, algebraic</i>
+</p>
+<p><b>関連関数</b> <i>to_poly</i>
+</p>
+<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+</p>
+<p><b>状況:</b> 関数 <code>to_poly_solve</code>は実験的です;
+仕様は変更の可能性があり、
+機能は他の Maxima関数にマージされるかもしれません。
+</p></dd></dl>
+
+<p><a name="Item_003a-unit"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#unit" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#zeilberger" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#to_005fpoly_005fsolve" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#unit" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -779,12 +1577,12 @@ setunits([unit]) to select a unit.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年1月月14日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2014年4月月20日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

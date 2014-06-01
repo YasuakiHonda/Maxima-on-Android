@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年1月月14日 by texi2html 1.82
+<!-- Created on 2014年4月月20日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.32.1 Manual: 9. Simplification</title>
+<title>Maxima 5.33.0 Manual: 9. Simplification</title>
 
-<meta name="description" content="Maxima 5.32.1 Manual: 9. Simplification">
-<meta name="keywords" content="Maxima 5.32.1 Manual: 9. Simplification">
+<meta name="description" content="Maxima 5.33.0 Manual: 9. Simplification">
+<meta name="keywords" content="Maxima 5.33.0 Manual: 9. Simplification">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -170,7 +170,7 @@ div.categorybox
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <a name="Simplification-1"></a>
@@ -196,7 +196,7 @@ div.categorybox
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <a name="Functions-and-Variables-for-Simplification-1"></a>
@@ -230,8 +230,8 @@ div.categorybox
 (%o3)                 F3(c) + F3(b) + F3(a)
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Operators">Operators</a>
- &middot;<a href="maxima_98.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Operators">Operators</a>
+ &middot;<a href="maxima_99.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
 </div></p></dd></dl>
 
 <p><a name="antisymmetric"></a>
@@ -266,8 +266,8 @@ div.categorybox
 (%o8)                   T(a, b, c, d, e)
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Operators">Operators</a>
- &middot;<a href="maxima_98.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Operators">Operators</a>
+ &middot;<a href="maxima_99.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
 </div></p></dd></dl>
 
 <p><a name="Item_003a-combine"></a>
@@ -275,7 +275,19 @@ div.categorybox
 <dt><a name="index-combine"></a><u>関数:</u> <b>combine</b><i> (<var>expr</var>)</i></dt>
 <dd><p>同じ分母を持つ項を単一の項に結合することによって和 <var>expr</var>を整理します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) 1*f/2*b + 2*c/3*a + 3*f/4*b +c/5*b*a;
+                             5 b f   a b c   2 a c
+(%o1)                        ----- + ----- + -----
+                               4       5       3
+(%i2) combine (%);
+                         75 b f + 4 (3 a b c + 10 a c)
+(%o2)                    -----------------------------
+                                      60
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
 </div></p></dd></dl>
 
 <p><a name="commutative"></a>
@@ -288,8 +300,24 @@ div.categorybox
 例えば、 <code>h(x,z,y)</code>は <code>h(x,y,z)</code>に整理されます。
 これは <code>symmetric</code>と同じです。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Operators">Operators</a>
- &middot;<a href="maxima_98.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) S (b, a);
+(%o1)                               S(b, a)
+(%i2) S (a, b) + S (b, a);
+(%o2)                          S(b, a) + S(a, b)
+(%i3) declare (S, commutative);
+(%o3)                                done
+(%i4) S (b, a);
+(%o4)                               S(a, b)
+(%i5) S (a, b) + S (b, a);
+(%o5)                              2 S(a, b)
+(%i6) S (a, c, e, d, b);
+(%o6)                          S(a, b, c, d, e)
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Operators">Operators</a>
+ &middot;<a href="maxima_99.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
 </div></p></dd></dl>
 
 
@@ -313,9 +341,9 @@ div.categorybox
 <p><code>exponentialize</code>は円関数や双曲関数を指数関数形に変換します。
 <code>demoivre</code>と <code>exponentialize</code>は同時に両方trueにはできません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Complex-variables">Complex variables</a>
- &middot;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
- &middot;<a href="maxima_98.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Complex-variables">Complex variables</a>
+ &middot;<a href="maxima_99.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
+ &middot;<a href="maxima_99.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
 </div></p></dd></dl>
 
 
@@ -345,7 +373,7 @@ div.categorybox
                       b d + a d + b c + a c
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
 </div></p></dd></dl>
 
 <p><a name="distribute_005fover"></a>
@@ -403,7 +431,21 @@ div.categorybox
 (%o7) [integral, distributes over bags, noun, rule, gradef]
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+<p><code>distribute_over</code>を <code>false</code>値に設定すると、
+関数の展開はオフになります。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) distribute_over;
+(%o1)                                true
+(%i2) sin([x,1,1.0]);
+(%o2)                [sin(x), sin(1), 0.8414709848078965]
+(%i3) distribute_over : not distribute_over;
+(%o3)                                false
+(%i4) sin([x,1,1.0]);
+(%o4)                          sin([x, 1, 1.0])
+(%i5)
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
 </div></p></dd></dl>
 
 <p><a name="domain"></a>
@@ -417,7 +459,7 @@ div.categorybox
 <code>sqrt (x^2)</code>のままを保ちます。
 </p>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
 </div></p></dd></dl>
 
 <p><a name="evenfun"></a>
@@ -531,7 +573,7 @@ div.categorybox
                                         2
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
 </div></p></dd></dl>
 
 
@@ -550,7 +592,7 @@ div.categorybox
 </p>
 <p>この関数は &lsquo;<tt>simplification/stopex.mac</tt>&rsquo;から自動ロードされます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
 </div></p></dd></dl>
 
 <p><a name="expandwert_005fdenom"></a>
@@ -563,7 +605,7 @@ div.categorybox
 もし <code>true</code>なら式の分子も分母も <code>expandwrt</code>の引数に従って展開されますが、
 もし <code>expandwrt_denom</code>が <code>false</code>なら分子だけがその方法で展開されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
 </div></p></dd></dl>
 
 <p><a name="expandwrt_005ffactored"></a>
@@ -577,7 +619,7 @@ div.categorybox
 </p>
 <p>この関数は &lsquo;<tt>simplification/stopex.mac</tt>&rsquo;から自動ロードされます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
 </div></p></dd></dl>
 
 <p><a name="expon"></a>
@@ -591,7 +633,7 @@ div.categorybox
 もし<code>expon</code>が4なら
 <code>(x+1)^(-5)</code>は自動的には展開されません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
 </div></p></dd></dl>
 
 
@@ -612,9 +654,9 @@ div.categorybox
 <p><code>demoivre</code>は複素数の指数関数を円関数に変換します。
 <code>exponentialize</code>や <code>demoivre</code>は同時にtrueにすることはできません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Complex-variables">Complex variables</a>
- &middot;<a href="maxima_98.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
- &middot;<a href="maxima_98.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Complex-variables">Complex variables</a>
+ &middot;<a href="maxima_99.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
+ &middot;<a href="maxima_99.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
 </div></p></dd></dl>
 
 
@@ -631,7 +673,7 @@ div.categorybox
 <code>maxposex</code>がn以上の時だけ
 <code>expand ((x + 1)^n)</code>を実行するとうまくいきます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
 </div></p></dd></dl>
 
 <p><a name="lassociative"></a>
@@ -645,9 +687,9 @@ Maximaの整理器に
 例えば、 <code>g (g (a, b), g (c, d))</code>は
 <code>g (g (g (a, b), c), d)</code>に整理されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
- &middot;<a href="maxima_98.html#Category_003a-Operators">Operators</a>
- &middot;<a href="maxima_98.html#Category_003a-Simplification">Simplification</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
+ &middot;<a href="maxima_99.html#Category_003a-Operators">Operators</a>
+ &middot;<a href="maxima_99.html#Category_003a-Simplification">Simplification</a>
 </div></p></dd></dl>
 
 
@@ -665,6 +707,18 @@ Maximaの整理器に
 すなわち、 <code>a</code>と <code>b</code>が<code>x</code>に独立の場合，
 <code>f (a*x + b, x)</code>は <code>a*f(x,x) + b*f(1,x)</code>を出力します。
 </p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) declare (f, linear);
+(%o1)                                done
+(%i2) f(x+y);
+(%o2)                             f(y) + f(x)
+(%i3) declare (a, constant);
+(%o3)                                done
+(%i4) f(a*x);
+(%o4)                               a f(x)
+</pre></td></tr></table>
+
 <p><code>linear</code>は <code>additive</code>かつ <code>outative</code>と同値です。
 <code>opproperties</code>も参照してください。
 </p>
@@ -690,9 +744,9 @@ Maximaの整理器に
                      k = 1        k = 1
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
- &middot;<a href="maxima_98.html#Category_003a-Operators">Operators</a>
- &middot;<a href="maxima_98.html#Category_003a-Simplification">Simplification</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
+ &middot;<a href="maxima_99.html#Category_003a-Operators">Operators</a>
+ &middot;<a href="maxima_99.html#Category_003a-Simplification">Simplification</a>
 </div></p></dd></dl>
 
 
@@ -706,7 +760,7 @@ Maximaの整理器に
 <code>expand</code>コマンドによって展開される最大の負の指数です。
 （<code>maxposex</code>)も参照してください。）
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
 </div></p></dd></dl>
 
 
@@ -720,7 +774,7 @@ Maximaの整理器に
 <code>expand</code>コマンドで展開される最大指数です。
 （<code>maxnegex</code>)も参照してください。）
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
 </div></p></dd></dl>
 
 
@@ -759,9 +813,9 @@ Maximaの整理器に
 (%o3)                   F2(a) F2(b) F2(c)
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
- &middot;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
- &middot;<a href="maxima_98.html#Category_003a-Simplification">Simplification</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
+ &middot;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
+ &middot;<a href="maxima_99.html#Category_003a-Simplification">Simplification</a>
 </div></p></dd></dl>
 
 
@@ -815,7 +869,7 @@ Maximaの整理器に
 (%o7)         a . f + a . c . e + a . c . d + a . b
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
 </div></p></dd></dl>
 
 <p><a name="property_005fnary"></a>
@@ -863,7 +917,19 @@ Maximaの整理器に
 当然のことながら、Maximaの中でローカルな使用以外には、
 これは <code>false</code>に設定したくないフラグの１つです。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) negdistrib;
+(%o1)                                true
+(%i2) -(x+y);
+(%o2)                               - y - x
+(%i3) negdistrib : not negdistrib ;
+(%o3)                                false
+(%i4) -(x+y);
+(%o4)                              - (y + x)
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
 </div></p>
 </dd></dl>
 
@@ -873,12 +939,16 @@ Maximaの整理器に
 <dt><a name="index-opproperties"></a><u>システム変数:</u> <b>opproperties</b></dt>
 <dd>
 <p><code>opproperties</code>は、Maximaの整理器が認識する特殊演算子プロパティのリストです:
-<code>linear</code>, <code>additive</code>, <code>multiplicative</code>, <code>outative</code>, <code>evenfun</code>,
-<code>oddfun</code>, <code>commutative</code>, <code>symmetric</code>, <code>antisymmetric</code>, <code>nary</code>, 
-<code>lassociative</code>, <code>rassociative</code>.
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Global-variables">Global variables</a>
- &middot;<a href="maxima_98.html#Category_003a-Operators">Operators</a>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) opproperties;
+(%o1) [linear, additive, multiplicative, outative, evenfun, oddfun,.
+       commutative, symmetric, antisymmetric, nary, lassociative, rassociative]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Global-variables">Global variables</a>
+ &middot;<a href="maxima_99.html#Category_003a-Operators">Operators</a>
 </div></p></dd></dl>
 
 
@@ -921,8 +991,8 @@ outativityは <code>sum</code>や <code>integrate</code>の場合のように定
 (%o5)                       zz F1(y)
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
- &middot;<a href="maxima_98.html#Category_003a-Operators">Operators</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
+ &middot;<a href="maxima_99.html#Category_003a-Operators">Operators</a>
 </div></p></dd></dl>
 
 <p><a name="radcan"></a>
@@ -957,7 +1027,7 @@ outativityは <code>sum</code>や <code>integrate</code>の場合のように定
 (%o3)                              %e    - 1
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Simplification-functions">Simplification functions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Simplification-functions">Simplification functions</a>
 </div></p></dd></dl>
 
 
@@ -992,7 +1062,7 @@ n乗の積の因子のn番目の根を根号の外に出すようにします。
 <p><code>domain</code>は <code>radexpand</code>が <code>true</code>の時だけ
 意味を持つことに注意してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
 </div></p>
 </dd></dl>
 
@@ -1009,8 +1079,8 @@ Maximaの整理器に
 例えば、
 <code>g(g(a, b), g(c, d))</code>は <code>g(a, g(b, g(c, d)))</code>に整理されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
- &middot;<a href="maxima_98.html#Category_003a-Operators">Operators</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
+ &middot;<a href="maxima_99.html#Category_003a-Operators">Operators</a>
 </div></p></dd></dl>
 
 
@@ -1030,7 +1100,7 @@ Maximaの整理器に
 </p>
 <p><code>example (scsimp)</code>はいくつかの例を表示します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Simplification-functions">Simplification functions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Simplification-functions">Simplification functions</a>
 </div></p></dd></dl>
 
 <p><a name="simp"></a>
@@ -1076,7 +1146,7 @@ Maximaの整理器に
 ((%SIN) 1.0)
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Evaluation-flags">Evaluation flags</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Evaluation-flags">Evaluation flags</a>
 </div></p></dd></dl>
 
 
@@ -1091,8 +1161,8 @@ Maximaの整理器に
 </p>
 <p><code>commutative</code>は <code>symmetric</code>と同義です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
- &middot;<a href="maxima_98.html#Category_003a-Operators">Operators</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
+ &middot;<a href="maxima_99.html#Category_003a-Operators">Operators</a>
 </div></p></dd></dl>
 
 <p><a name="xthru"></a>
@@ -1122,7 +1192,7 @@ Maximaの整理器に
                             (y + x)
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Expressions">Expressions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Expressions">Expressions</a>
 </div></p></dd></dl>
 
 
@@ -1140,12 +1210,12 @@ Maximaの整理器に
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年1月月14日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2014年4月月20日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年1月月14日 by texi2html 1.82
+<!-- Created on 2014年4月月20日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.32.1 Manual: 60. lapack</title>
+<title>Maxima 5.33.0 Manual: 60. interpol</title>
 
-<meta name="description" content="Maxima 5.32.1 Manual: 60. lapack">
-<meta name="keywords" content="Maxima 5.32.1 Manual: 60. lapack">
+<meta name="description" content="Maxima 5.33.0 Manual: 60. interpol">
+<meta name="keywords" content="Maxima 5.33.0 Manual: 60. interpol">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -156,575 +156,456 @@ div.categorybox
 
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="lapack"></a>
+<a name="interpol"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_59.html#Functions-and-Variables-for-interpol" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-lapack" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_59.html#Functions-and-Variables-for-impdiff" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-interpol" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_59.html#interpol" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_59.html#impdiff" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_61.html#lbfgs" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_61.html#lapack" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="lapack-1"></a>
-<h1 class="chapter">60. lapack</h1>
+<a name="interpol-1"></a>
+<h1 class="chapter">60. interpol</h1>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-lapack">60.1 Introduction to lapack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Introduction-to-interpol">60.1 Introduction to interpol</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-lapack">60.2 Functions and Variables for lapack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-interpol">60.2 Functions and Variables for interpol</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Introduction-to-lapack"></a>
+<p><a name="Item_003a-Introduction-to-interpol"></a>
 </p><hr size="6">
-<a name="Introduction-to-lapack"></a>
+<a name="Introduction-to-interpol"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#lapack" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-lapack" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#interpol" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-interpol" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#lapack" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#lapack" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_61.html#lbfgs" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#interpol" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#interpol" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_61.html#lapack" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-lapack-1"></a>
-<h2 class="section">60.1 Introduction to lapack</h2>
+<a name="Introduction-to-interpol-1"></a>
+<h2 class="section">60.1 Introduction to interpol</h2>
 
-<p><code>lapack</code>は SLATECプロジェクトから得られるような Fortranライブラリ
-LAPACKの(プログラム <code>f2cl</code>を介した) Common Lisp翻訳です。
+<p>パッケージ <code>interpol</code>は多項式内挿のための
+Lagrange、線形、三次スプライン法を定義します。
 </p>
-<p>(訳者注意書き: lapackを使用するには、
-load(&quot;lapack&quot;); load(&quot;eigensys&quot;);を実行してください。
-load(&quot;lapack&quot;)には、初回だけコンパイルで時間がかかるかもしれません。)
+<p>コメント、バグ、提案は
+<var>&rsquo;mario AT edu DOT xunta DOT es&rsquo;</var>にコンタクトを取ってください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Numerical-methods">Numerical methods</a>
- &middot;<a href="maxima_98.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_98.html#Category_003a-Package-lapack">Package lapack</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a>
+ &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-interpol">Package interpol</a>
 </div></p>
-
-<p><a name="Item_003a-Functions-and-Variables-for-lapack"></a>
+<p><a name="Item_003a-Functions-and-Variables-for-interpol"></a>
 </p><hr size="6">
-<a name="Functions-and-Variables-for-lapack"></a>
+<a name="Functions-and-Variables-for-interpol"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-lapack" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_61.html#lbfgs" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-interpol" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_61.html#lapack" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#lapack" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#lapack" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_61.html#lbfgs" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#interpol" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#interpol" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_61.html#lapack" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-lapack-1"></a>
-<h2 class="section">60.2 Functions and Variables for lapack</h2>
+<a name="Functions-and-Variables-for-interpol-1"></a>
+<h2 class="section">60.2 Functions and Variables for interpol</h2>
 
-<p><a name="Item_003a-dgeev"></a>
+
+<p><a name="Item_003a-lagrange"></a>
 </p><dl>
-<dt><a name="index-dgeev"></a><u>関数:</u> <b>dgeev</b><i> (<var>A</var>)</i></dt>
-<dt><a name="index-dgeev-1"></a><u>関数:</u> <b>dgeev</b><i> (<var>A</var>, <var>right_p</var>, <var>left_p</var>)</i></dt>
-<dd>
-<p>行列 <var>A</var>の固有値と、オプションで固有ベクトルを計算します。
-<var>A</var>の要素はすべて整数か浮動小数点数でなければいけません。
-<var>A</var>は平方(行と列が同じ数)でなければいけません。
-<var>A</var>は対称であってもなくてもいいです。
+<dt><a name="index-lagrange"></a><u>関数:</u> <b>lagrange</b><i> (<var>points</var>)</i></dt>
+<dt><a name="index-lagrange-1"></a><u>関数:</u> <b>lagrange</b><i> (<var>points</var>, <var>option</var>)</i></dt>
+<dd><p>Lagrange法で多項式内挿を計算します。
+引数 <var>points</var>は以下のいずれかでなければいけません:
 </p>
-<p><code>dgeev(<var>A</var>)</code>は<var>A</var>の固有値だけを計算します。
-<code>dgeev(<var>A</var>, <var>right_p</var>, <var>left_p</var>)</code>は
-<var>A</var>の固有値と、
-<em><var>right_p</var> = <code>true</code></em>の時、右固有ベクトル、
-<em><var>left_p</var> = <code>true</code></em>の時、左固有ベクトルを計算します。
+<ul>
+<li>
+2列行列, <code>p:matrix([2,4],[5,6],[9,3])</code>,
+</li><li>
+対のリスト, <code>p: [[2,4],[5,6],[9,3]]</code>,
+</li><li>
+数のリスト, <code>p: [4,6,3]</code>,
+この場合、横座標は自動的に 1, 2, 3などに割り当てます。
+</li></ul>
+
+<p>最初の 2つの場合には、
+計算を行う前に対を最初の座標に関して並び替えます。
 </p>
-<p>3項目のリストが返されます。
-最初の項目は固有値のリストです。
-二番目の項目は <code>false</code>か右固有ベクトルの行列です。
-三番目の項目は <code>false</code>か左固有ベクトルの行列です。
+<p><var>option</var>引数を使って独立変数の名前を選択することが可能です。
+デフォルトでは <code>'x</code>です;
+別のものを定義するには <code>varname='z</code>のように書いてください。
 </p>
-<p>右固有ベクトル <em>v(j)</em> (右固有ベクトル行列の <em>j</em>番目の列)は
+<p>高次多項式を使って計算する時には、浮動小数点評価は不安定なことに注意してください。
 </p>
-<p><em>A . v(j) = lambda(j) . v(j)</em>
-</p>
-<p>を満たします。ここで <em>lambda(j)</em>は対応する固有値です。
-</p>
-<p>左固有ベクトル <em>v(j)</em> (左固有ベクトル行列の <em>j</em>番目の列)は
-</p>
-<p><em>u(j)**H . A = lambda(j) . u(j)**H</em>
-</p>
-<p>を満たします。ここで <em>u(j)**H</em>は <em>u(j)</em>の共役転置を意味します。
-Maxima関数 <code>ctranspose</code>が共役転置を計算します。
-</p>
-<p>計算された固有ベクトルは、
-Euclideanノルムが 1に等しく、最大成分の虚部が
-0になるように規格化されます。
+<p><code>linearinterpol</code>, <code>cspline</code>, <code>ratinterpol</code>も参照してください。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lapack)$
-(%i2) fpprintprec : 6;
-(%o2)                           6
-(%i3) M : matrix ([9.5, 1.75], [3.25, 10.45]);
-                         [ 9.5   1.75  ]
-(%o3)                    [             ]
-                         [ 3.25  10.45 ]
-(%i4) dgeev (M);
-(%o4)          [[7.54331, 12.4067], false, false]
-(%i5) [L, v, u] : dgeev (M, true, true);
-                           [ - .666642  - .515792 ]
-(%o5) [[7.54331, 12.4067], [                      ], 
-                           [  .745378   - .856714 ]
-                                        [ - .856714  - .745378 ]
-                                        [                      ]]
-                                        [  .515792   - .666642 ]
-(%i6) D : apply (diag_matrix, L);
-                      [ 7.54331     0    ]
-(%o6)                 [                  ]
-                      [    0     12.4067 ]
-(%i7) M . v - v . D;
-                [      0.0       - 8.88178E-16 ]
-(%o7)           [                              ]
-                [ - 8.88178E-16       0.0      ]
-(%i8) transpose (u) . M - D . transpose (u);
-                     [ 0.0  - 4.44089E-16 ]
-(%o8)                [                    ]
-                     [ 0.0       0.0      ]
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(interpol)$
+(%i2) p:[[7,2],[8,2],[1,5],[3,2],[6,7]]$
+(%i3) lagrange(p);
+       (x - 7) (x - 6) (x - 3) (x - 1)
+(%o3)  -------------------------------
+                     35
+   (x - 8) (x - 6) (x - 3) (x - 1)
+ - -------------------------------
+                 12
+   7 (x - 8) (x - 7) (x - 3) (x - 1)
+ + ---------------------------------
+                  30
+   (x - 8) (x - 7) (x - 6) (x - 1)
+ - -------------------------------
+                 60
+   (x - 8) (x - 7) (x - 6) (x - 3)
+ + -------------------------------
+                 84
+(%i4) f(x):=''%;
+               (x - 7) (x - 6) (x - 3) (x - 1)
+(%o4)  f(x) := -------------------------------
+                             35
+   (x - 8) (x - 6) (x - 3) (x - 1)
+ - -------------------------------
+                 12
+   7 (x - 8) (x - 7) (x - 3) (x - 1)
+ + ---------------------------------
+                  30
+   (x - 8) (x - 7) (x - 6) (x - 1)
+ - -------------------------------
+                 60
+   (x - 8) (x - 7) (x - 6) (x - 3)
+ + -------------------------------
+                 84
+(%i5) /* Evaluate the polynomial at some points */
+      expand(map(f,[2.3,5/7,%pi]));
+                                  4          3           2
+                    919062  73 %pi    701 %pi    8957 %pi
+(%o5)  [- 1.567535, ------, ------- - -------- + ---------
+                    84035     420       210         420
+                                             5288 %pi   186
+                                           - -------- + ---]
+                                               105       5
+(%i6) %,numer;
+(%o6) [- 1.567535, 10.9366573451538, 2.89319655125692]
+(%i7) load(draw)$  /* load draw package */
+(%i8) /* Plot the polynomial together with points */
+      draw2d(
+        color      = red,
+        key        = &quot;Lagrange polynomial&quot;,
+        explicit(f(x),x,0,10),
+        point_size = 3,
+        color      = blue,
+        key        = &quot;Sample points&quot;,
+        points(p))$
+(%i9) /* Change variable name */
+      lagrange(p, varname=w);
+       (w - 7) (w - 6) (w - 3) (w - 1)
+(%o9)  -------------------------------
+                     35
+   (w - 8) (w - 6) (w - 3) (w - 1)
+ - -------------------------------
+                 12
+   7 (w - 8) (w - 7) (w - 3) (w - 1)
+ + ---------------------------------
+                  30
+   (w - 8) (w - 7) (w - 6) (w - 1)
+ - -------------------------------
+                 60
+   (w - 8) (w - 7) (w - 6) (w - 3)
+ + -------------------------------
+                 84
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-lapack">Package lapack</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-interpol">Package interpol</a>
 </div></p>
 </dd></dl>
 
-<p><a name="Item_003a-dgeqrf"></a>
-</p><dl>
-<dt><a name="index-dgeqrf"></a><u>関数:</u> <b>dgeqrf</b><i> (<var>A</var>)</i></dt>
-<dd>
-<p>行列 <var>A</var>の QR分解します。
-<var>A</var>のすべての要素は整数か浮動小数点数でなければいけません。
-<var>A</var>は行と列の数は同じかもしれませんし違うかもしれません。
-</p>
-<p>2つの項目のリストを返します。
-一番目の項目は行列 <var>Q</var>で、それは <var>A</var>と同じ行数を持つ平方正規直交行列です。
-二番目の項目は行列 <var>R</var>で、それは <var>A</var>と同じサイズで、
-対角以下のすべての要素が零に等しいものです。
-積 <code><var>Q</var> . <var>R</var></code>は(浮動小数点の丸め誤差を除いて) <var>A</var>に等しい。
-ここで &quot;.&quot;は非可換乗算演算子です。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lapack) $
-(%i2) fpprintprec : 6 $
-(%i3) M : matrix ([1, -3.2, 8], [-11, 2.7, 5.9]) $
-(%i4) [q, r] : dgeqrf (M);
-       [ - .0905357  .995893  ]
-(%o4) [[                      ], 
-       [  .995893    .0905357 ]
-                               [ - 11.0454   2.97863   5.15148 ]
-                               [                               ]]
-                               [     0      - 2.94241  8.50131 ]
-(%i5) q . r - M;
-         [ - 7.77156E-16   1.77636E-15   - 8.88178E-16 ]
-(%o5)    [                                             ]
-         [      0.0       - 1.33227E-15   8.88178E-16  ]
-(%i6) mat_norm (%, 1);
-(%o6)                      3.10862E-15
-</pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-lapack">Package lapack</a>
+<p><a name="Item_003a-charfun2"></a>
+</p><dl>
+<dt><a name="index-charfun2"></a><u>関数:</u> <b>charfun2</b><i> (<var>x</var>, <var>a</var>, <var>b</var>)</i></dt>
+<dd><p>もし数 <var>x</var>が区間 <em>[a, b)</em>に属するなら <code>true</code>を返し、
+そうでないなら <code>false</code>を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-interpol">Package interpol</a>
 </div></p>
 </dd></dl>
 
-<p><a name="Item_003a-dgesv"></a>
+
+<p><a name="Item_003a-linearinterpol"></a>
 </p><dl>
-<dt><a name="index-dgesv"></a><u>関数:</u> <b>dgesv</b><i> (<var>A</var>, <var>b</var>)</i></dt>
-<dd>
-<p>線形方程式 <em><var>A</var> <var>x</var> = <var>b</var></em>の解 <var>x</var>を計算します。
-ここで、 <var>A</var>は平方行列、
-<var>b</var>は <var>A</var>と同じ数の行と任意の長さの列を持つ行列です。
-戻り値 <var>x</var>は <var>b</var>と同じサイズです。
+<dt><a name="index-linearinterpol"></a><u>関数:</u> <b>linearinterpol</b><i> (<var>points</var>)</i></dt>
+<dt><a name="index-linearinterpol-1"></a><u>関数:</u> <b>linearinterpol</b><i> (<var>points</var>, <var>option</var>)</i></dt>
+<dd><p>線形法で多項式内挿を計算します。
+引数 <var>points</var>は以下のいずれかでなければいけません:
 </p>
-<p><var>A</var>と <var>b</var>の要素は
-<code>float</code>を介して実の浮動小数点数に評価されなければいけません;
-従って、要素は任意の数値型か、数値定数のシンボルか、浮動小数点に評価される式であり得ます。
-<var>x</var>の要素はいつも浮動小数点数です。
-すべての算術は浮動小数演算として実行されます。
+<ul>
+<li>
+2列行列, <code>p:matrix([2,4],[5,6],[9,3])</code>,
+</li><li>
+対のリスト, <code>p: [[2,4],[5,6],[9,3]]</code>,
+</li><li>
+数のリスト, <code>p: [4,6,3]</code>,
+この場合、横座標は自動的に 1, 2, 3などに割り当てます。
+</li></ul>
+
+<p>最初の 2つの場合には、
+計算を行う前に対を最初の座標に関して並び替えます。
 </p>
-<p><code>dgesv</code>は <var>A</var>の LU分解を介して解を計算します。
+<p><var>option</var>引数を使って独立変数の名前を選択することが可能です。
+デフォルトでは <code>'x</code>です;
+別のものを定義するには <code>varname='z</code>のように書いてください。
+</p>
+<p><code>lagrange</code>, <code>cspline</code>, <code>ratinterpol</code>も参照してください。
 </p>
 <p>例:
 </p>
-<p><code>dgesv</code>は線形方程式 <em><var>A</var> <var>x</var> = <var>b</var></em>の解を計算します。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) A : matrix ([1, -2.5], [0.375, 5]);
-                               [   1    - 2.5 ]
-(%o1)                          [              ]
-                               [ 0.375    5   ]
-(%i2) b : matrix ([1.75], [-0.625]);
-                                  [  1.75   ]
-(%o2)                             [         ]
-                                  [ - 0.625 ]
-(%i3) x : dgesv (A, b);
-                            [  1.210526315789474  ]
-(%o3)                       [                     ]
-                            [ - 0.215789473684211 ]
-(%i4) dlange (inf_norm, b - A.x);
-(%o4)                                 0.0
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(interpol)$
+(%i2) p: matrix([7,2],[8,3],[1,5],[3,2],[6,7])$
+(%i3) linearinterpol(p);
+        13   3 x
+(%o3)  (-- - ---) charfun2(x, minf, 3)
+        2     2
+ + (x - 5) charfun2(x, 7, inf) + (37 - 5 x) charfun2(x, 6, 7)
+    5 x
+ + (--- - 3) charfun2(x, 3, 6)
+     3
+
+(%i4) f(x):=''%;
+                13   3 x
+(%o4)  f(x) := (-- - ---) charfun2(x, minf, 3)
+                2     2
+ + (x - 5) charfun2(x, 7, inf) + (37 - 5 x) charfun2(x, 6, 7)
+    5 x
+ + (--- - 3) charfun2(x, 3, 6)
+     3
+(%i5)  /* Evaluate the polynomial at some points */
+       map(f,[7.3,25/7,%pi]);
+                            62  5 %pi
+(%o5)                 [2.3, --, ----- - 3]
+                            21    3
+(%i6) %,numer;
+(%o6)  [2.3, 2.952380952380953, 2.235987755982989]
+(%i7) load(draw)$  /* load draw package */
+(%i8)  /* Plot the polynomial together with points */
+       draw2d(
+         color      = red,
+         key        = &quot;Linear interpolator&quot;,
+         explicit(f(x),x,-5,20),
+         point_size = 3,
+         color      = blue,
+         key        = &quot;Sample points&quot;,
+         points(args(p)))$
+(%i9)  /* Change variable name */
+       linearinterpol(p, varname='s);
+       13   3 s
+(%o9) (-- - ---) charfun2(s, minf, 3)
+       2     2
+ + (s - 5) charfun2(s, 7, inf) + (37 - 5 s) charfun2(s, 6, 7)
+    5 s
+ + (--- - 3) charfun2(s, 3, 6)
+     3
 </pre></td></tr></table>
 
-<p><var>b</var>は <var>A</var>と同じ数の行と任意の長さの列を持つ行列です。
-<var>x</var>は <var>b</var>と同じサイズです。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) A : matrix ([1, -0.15], [1.82, 2]);
-                               [  1    - 0.15 ]
-(%o1)                          [              ]
-                               [ 1.82    2    ]
-(%i2) b : matrix ([3.7, 1, 8], [-2.3, 5, -3.9]);
-                              [  3.7   1    8   ]
-(%o2)                         [                 ]
-                              [ - 2.3  5  - 3.9 ]
-(%i3) x : dgesv (A, b);
-      [  3.103827540695117   1.20985481742191    6.781786185657722  ]
-(%o3) [                                                             ]
-      [ - 3.974483062032557  1.399032116146062  - 8.121425428948527 ]
-(%i4) dlange (inf_norm, b - A . x);
-(%o4)                       1.1102230246251565E-15
-</pre></td></tr></table>
-
-<p><var>A</var>と <var>b</var>の要素は実の浮動小数点数に評価されなければいけません;
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) A : matrix ([5, -%pi], [1b0, 11/17]);
-                               [   5    - %pi ]
-                               [              ]
-(%o1)                          [         11   ]
-                               [ 1.0b0   --   ]
-                               [         17   ]
-(%i2) b : matrix ([%e], [sin(1)]);
-                                  [   %e   ]
-(%o2)                             [        ]
-                                  [ sin(1) ]
-(%i3) x : dgesv (A, b);
-                             [ 0.690375643155986 ]
-(%o3)                        [                   ]
-                             [ 0.233510982552952 ]
-(%i4) dlange (inf_norm, b - A . x);
-(%o4)                        2.220446049250313E-16
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-lapack">Package lapack</a>
- &middot;<a href="maxima_98.html#Category_003a-Linear-equations">Linear equations</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-interpol">Package interpol</a>
 </div></p>
 </dd></dl>
 
-<p><a name="Item_003a-dgesvd"></a>
+
+
+<p><a name="Item_003a-cspline"></a>
 </p><dl>
-<dt><a name="index-dgesvd"></a><u>関数:</u> <b>dgesvd</b><i> (<var>A</var>)</i></dt>
-<dt><a name="index-dgesvd-1"></a><u>関数:</u> <b>dgesvd</b><i> (<var>A</var>, <var>left_p</var>, <var>right_p</var>)</i></dt>
-<dd>
-<p>特異値から成る行列 <var>A</var>の特異値分解 (SVD)を計算します。
-オプションで左および右特異ベクトルを取ります。
+<dt><a name="index-cspline"></a><u>関数:</u> <b>cspline</b><i> (<var>points</var>)</i></dt>
+<dt><a name="index-cspline-1"></a><u>関数:</u> <b>cspline</b><i> (<var>points</var>, <var>option1</var>, <var>option2</var>, ...)</i></dt>
+<dd><p>三次スプライン法で多項式内挿を計算します。
+引数 <var>points</var>は以下のいずれかでなければいけません:
 </p>
-<p><var>A</var>の要素はすべて整数か浮動小数点数でなければいけません。
-<var>A</var>は(行と列が同じ数の)平方かもしれませんし、そうでないかもしれません。
+<ul>
+<li>
+2列行列, <code>p:matrix([2,4],[5,6],[9,3])</code>,
+</li><li>
+対のリスト, <code>p: [[2,4],[5,6],[9,3]]</code>,
+</li><li>
+数のリスト, <code>p: [4,6,3]</code>,
+この場合、横座標は自動的に1, 2, 3などに割り当てます。
+</li></ul>
+
+<p>最初の 2つの場合には、
+計算を行う前に対を最初の座標に関して並び替えます。
 </p>
-<p><em>m</em>を <var>A</var>の行数、<em>n</em>を列数とします。
-<var>A</var>の特異値分解は
-<em><var>A</var> = <var>U</var> . <var>Sigma</var> . <var>V</var>^T</em>のような 3つの行列
-<var>U</var>, <var>Sigma</var>, <var>V^T</var>から構成されます。
-ここで、 <var>U</var>は <em>m</em>掛け<em>m</em>のユニタリ行列、
-<var>Sigma</var>は <em>m</em>掛け<em>n</em>の対角行列、
-<var>V^T</var>は <em>n</em>掛け<em>n</em>のユニタリ行列です。
+<p>特定の必要性に合わせるため3つのオプションがあります:
+</p><ul>
+<li>
+<code>'d1</code>, デフォルトは <code>'unknown</code>, は <em>x_1</em>での一階導関数です;
+もし <code>'unknown</code>なら、
+ <em>x_1</em>での二階導関数は 0に等しいとします(自然な三次スプライン);
+もし数字だったら二階導関数をこの数字に基づいて計算します。
+
+</li><li>
+<code>'dn</code>, デフォルトは <code>'unknown</code>, は <em>x_n</em>での一階導関数です;
+もし <code>'unknown</code>なら、
+<em>x_n</em>での二階導関数は0に等しいとします(自然な三次スプライン);
+もし数字だったら二階導関数をこの数字に基づいて計算します。
+
+</li><li>
+<code>'varname</code>, デフォルトは <code>'x</code>, は独立変数の名前です。
+</li></ul>
+
+<p><code>lagrange</code>, <code>linearinterpol</code>, <code>ratinterpol</code>も参照してください。
 </p>
-<p><em>sigma[i]</em>を <em>Sigma</em>の対角要素、すなわち、
-<em><var>Sigma</var>[i, i] = <var>sigma</var>[i]</em>とします。
-要素 <em>sigma[i]</em>は <var>A</var>のいわゆる特異値です;
-これらは実数で、非負で、降順で返されます。
-<var>U</var>と <var>V</var>の最初の <em>min(m, n)</em>列は <var>A</var>の左と右特異ベクトルです。
-<code>dgesvd</code>は <var>V</var>自身ではなく <var>V</var>の転置を返すことに注意してください。
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(interpol)$
+(%i2) p:[[7,2],[8,2],[1,5],[3,2],[6,7]]$
+(%i3) /* Unknown first derivatives at the extremes
+         is equivalent to natural cubic splines */
+      cspline(p);
+              3         2
+        1159 x    1159 x    6091 x   8283
+(%o3)  (------- - ------- - ------ + ----) charfun2(x, minf, 3)
+         3288      1096      3288    1096
+            3         2
+      2587 x    5174 x    494117 x   108928
+ + (- ------- + ------- - -------- + ------) charfun2(x, 7, inf)
+       1644       137       1644      137
+          3          2
+    4715 x    15209 x    579277 x   199575
+ + (------- - -------- + -------- - ------) charfun2(x, 6, 7)
+     1644       274        1644      274
+            3         2
+      3287 x    2223 x    48275 x   9609
+ + (- ------- + ------- - ------- + ----) charfun2(x, 3, 6)
+       4932       274      1644     274
+
+(%i4) f(x):=''%$
+(%i5) /* Some evaluations */
+      map(f,[2.3,5/7,%pi]), numer;
+(%o5) [1.991460766423356, 5.823200187269903, 2.227405312429507]
+(%i6) load(draw)$  /* load draw package */
+(%i7) /* Plotting interpolating function */
+      draw2d(
+        color      = red,
+        key        = &quot;Cubic splines&quot;,
+        explicit(f(x),x,0,10),
+        point_size = 3,
+        color      = blue,
+        key        = &quot;Sample points&quot;,
+        points(p))$
+(%i8) /* New call, but giving values at the derivatives */
+      cspline(p,d1=0,dn=0);
+              3          2
+        1949 x    11437 x    17027 x   1247
+(%o8)  (------- - -------- + ------- + ----) charfun2(x, minf, 3)
+         2256       2256      2256     752
+            3          2
+      1547 x    35581 x    68068 x   173546
+ + (- ------- + -------- - ------- + ------) charfun2(x, 7, inf)
+        564       564        141      141
+         3          2
+    607 x    35147 x    55706 x   38420
+ + (------ - -------- + ------- - -----) charfun2(x, 6, 7)
+     188       564        141      47
+            3         2
+      3895 x    1807 x    5146 x   2148
+ + (- ------- + ------- - ------ + ----) charfun2(x, 3, 6)
+       5076       188      141      47
+(%i8) /* Defining new interpolating function */
+      g(x):=''%$
+(%i9) /* Plotting both functions together */
+      draw2d(
+        color      = black,
+        key        = &quot;Cubic splines (default)&quot;,
+        explicit(f(x),x,0,10),
+        color      = red,
+        key        = &quot;Cubic splines (d1=0,dn=0)&quot;,
+        explicit(g(x),x,0,10),
+        point_size = 3,
+        color      = blue,
+        key        = &quot;Sample points&quot;,
+        points(p))$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-interpol">Package interpol</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-ratinterpol"></a>
+</p><dl>
+<dt><a name="index-ratinterpol"></a><u>関数:</u> <b>ratinterpol</b><i> (<var>points</var>, <var>numdeg</var>)</i></dt>
+<dt><a name="index-ratinterpol-1"></a><u>関数:</u> <b>ratinterpol</b><i> (<var>points</var>, <var>numdeg</var>, <var>option1</var>)</i></dt>
+<dd><p><var>points</var>で与えられたデータと
+<var>numdeg</var>に等しい分子の次数の関して有理形内挿を生成します;
+分子の次数は自動的に計算されます。
+引数 <var>points</var>は以下のいずれかでなければいけません:
 </p>
-<p><code>dgesvd(<var>A</var>)</code>は <var>A</var>の特異値だけを計算します。
-<code>dgesvd(<var>A</var>, <var>left_p</var>, <var>right_p</var>)</code>は
-<var>A</var>の特異値と、
-<em><var>left_p</var> = <code>true</code></em>の時、左特異ベクトル、
-<em><var>right_p</var> = <code>true</code></em>の時、右特異ベクトルを計算します。
+<ul>
+<li>
+2列行列, <code>p:matrix([2,4],[5,6],[9,3])</code>,
+</li><li>
+対のリスト, <code>p: [[2,4],[5,6],[9,3]]</code>,
+</li><li>
+数のリスト, <code>p: [4,6,3]</code>,
+この場合、横座標は自動的に1, 2, 3などに割り当てます。
+</li></ul>
+
+<p>最初の2つの場合には、
+計算を行う前に対を最初の座標に関して並び替えます。
 </p>
-<p>3つの項目のリストを返します。
-一つ目の項目は特異値のリストです。
-二つ目の項目は <code>false</code>か、左特異ベクトルの行列です。
-三つ目の項目は <code>false</code>か、右特異ベクトルの行列です。
+<p>特定の必要性に合わせるためオプションが1つあります:
+</p><ul>
+<li>
+<code>'varname</code>, デフォルトは <code>'x</code>, は独立変数の名前です。
+</li></ul>
+
+<p><code>lagrange</code>, <code>linearinterpol</code>, <code>cspline</code>, <code>minpack_lsquares</code>, <code>lbfgs</code>も参照してください。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lapack)$
-(%i2) fpprintprec : 6;
-(%o2)                           6
-(%i3) M: matrix([1, 2, 3], [3.5, 0.5, 8], [-1, 2, -3], [4, 9, 7]);
-                        [  1    2    3  ]
-                        [               ]
-                        [ 3.5  0.5   8  ]
-(%o3)                   [               ]
-                        [ - 1   2   - 3 ]
-                        [               ]
-                        [  4    9    7  ]
-(%i4) dgesvd (M);
-(%o4)      [[14.4744, 6.38637, .452547], false, false]
-(%i5) [sigma, U, VT] : dgesvd (M, true, true);
-(%o5) [[14.4744, 6.38637, .452547], 
-[ - .256731  .00816168   .959029    - .119523 ]
-[                                             ]
-[ - .526456   .672116   - .206236   - .478091 ]
-[                                             ], 
-[  .107997   - .532278  - .0708315  - 0.83666 ]
-[                                             ]
-[ - .803287  - .514659  - .180867    .239046  ]
-[ - .374486  - .538209  - .755044 ]
-[                                 ]
-[  .130623   - .836799   0.5317   ]]
-[                                 ]
-[ - .917986   .100488    .383672  ]
-(%i6) m : length (U);
-(%o6)                           4
-(%i7) n : length (VT);
-(%o7)                           3
-(%i8) Sigma:
-        genmatrix(lambda ([i, j], if i=j then sigma[i] else 0),
-                  m, n);
-                  [ 14.4744     0        0    ]
-                  [                           ]
-                  [    0     6.38637     0    ]
-(%o8)             [                           ]
-                  [    0        0     .452547 ]
-                  [                           ]
-                  [    0        0        0    ]
-(%i9) U . Sigma . VT - M;
-          [  1.11022E-15        0.0       1.77636E-15 ]
-          [                                           ]
-          [  1.33227E-15    1.66533E-15       0.0     ]
-(%o9)     [                                           ]
-          [ - 4.44089E-16  - 8.88178E-16  4.44089E-16 ]
-          [                                           ]
-          [  8.88178E-16    1.77636E-15   8.88178E-16 ]
-(%i10) transpose (U) . U;
-       [     1.0      5.55112E-17    2.498E-16     2.77556E-17  ]
-       [                                                        ]
-       [ 5.55112E-17      1.0       5.55112E-17    4.16334E-17  ]
-(%o10) [                                                        ]
-       [  2.498E-16   5.55112E-17       1.0       - 2.08167E-16 ]
-       [                                                        ]
-       [ 2.77556E-17  4.16334E-17  - 2.08167E-16       1.0      ]
-(%i11) VT . transpose (VT);
-          [      1.0           0.0      - 5.55112E-17 ]
-          [                                           ]
-(%o11)    [      0.0           1.0       5.55112E-17  ]
-          [                                           ]
-          [ - 5.55112E-17  5.55112E-17       1.0      ]
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(interpol)$
+(%i2) load(draw)$
+(%i3) p:[[7.2,2.5],[8.5,2.1],[1.6,5.1],[3.4,2.4],[6.7,7.9]]$
+(%i4) for k:0 thru length(p)-1 do                                     
+        draw2d(
+          explicit(ratinterpol(p,k),x,0,9),                      
+          point_size = 3,                                        
+          points(p),                                             
+          title = concat(&quot;Degree of numerator = &quot;,k),            
+          yrange=[0,10])$
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-lapack">Package lapack</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-interpol">Package interpol</a>
 </div></p>
 </dd></dl>
 
-<p><a name="Item_003a-dlange"></a>
-</p><dl>
-<dt><a name="index-dlange"></a><u>関数:</u> <b>dlange</b><i> (<var>norm</var>, <var>A</var>)</i></dt>
-<dt><a name="index-zlange"></a><u>関数:</u> <b>zlange</b><i> (<var>norm</var>, <var>A</var>)</i></dt>
-<dd>
-<p>行列 <var>A</var>のノルムもしくはノルムのような関数を計算します。
-</p>
-<dl compact="compact">
-<dt> <code>max</code></dt>
-<dd><p><em>max(abs(A(i, j)))</em>を計算します。
-ここで <em>i</em>と <em>j</em>はそれぞれ行と列を行き渡ります。
-この関数は適切な行列ノルムではないことに注意してください。
-</p></dd>
-<dt> <code>one_norm</code></dt>
-<dd><p><var>A</var>の
-<em>L[1]</em>ノルム、すなわち、それぞれの列の要素の絶対値の和の最大値を計算します。
-</p></dd>
-<dt> <code>inf_norm</code></dt>
-<dd><p><var>A</var>の
-<em>L[inf]</em>ノルム、すなわち、それぞれの行の要素の絶対値の和の最大値を計算します。
-</p></dd>
-<dt> <code>frobenius</code></dt>
-<dd><p><var>A</var>の Frobeniusノルム、すなわち、行列要素の平方の和の平方根を計算します。
-</p></dd>
-</dl>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-lapack">Package lapack</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-dgemm"></a>
-</p><dl>
-<dt><a name="index-dgemm"></a><u>関数:</u> <b>dgemm</b><i> (<var>A</var>, <var>B</var>)</i></dt>
-<dt><a name="index-dgemm-1"></a><u>関数:</u> <b>dgemm</b><i> (<var>A</var>, <var>B</var>, <var>options</var>)</i></dt>
-<dd><p>2つの行列の積を計算します。オプションで積を三つ目の行列に足し算します。
-</p>
-<p>最も簡単な形式では、 <code>dgemm(<var>A</var>, <var>B</var>)</code>は
-2つの実行列 <var>A</var>と <var>B</var>の積を計算します。
-</p>
-<p>二番目の形式では、
-<code>dgemm</code>は
-<em><var>alpha</var> * <var>A</var> * <var>B</var> + <var>beta</var> * <var>C</var></em>を計算します。
-ここで <var>A</var>, <var>B</var>, <var>C</var>は適当なサイズの実行列であり、
-<var>alpha</var>と <var>beta</var>は実数です。
-オプションで、 <var>A</var>と/もしくは <var>B</var>は積を計算する前に転置を取ることができます。
-追加のパラメータはオプションのキーワード引数で指定できます:
-キーワード引数はオプションで、どんな順番でも指定できます。
-それらはすべて、形式 <code>key=val</code>を取ります。
-キーワード引数は以下の通りです:
-</p>
-<dl compact="compact">
-<dt> <code>C</code></dt>
-<dd><p>足すべき行列 <var>C</var>。
-デフォルトは <code>false</code>であり、行列を足さないことを意味します。
-</p></dd>
-<dt> <code>alpha</code></dt>
-<dd><p><var>A</var>と <var>B</var>の積をこの値に掛けます。
-デフォルトは 1です。
-</p></dd>
-<dt> <code>beta</code></dt>
-<dd><p>もし行列 <var>C</var>が与えられたら、
-この値を、足される前に<var>C</var>に掛けます。
-デフォルト値は 0で、これはたとえ<var>C</var>が与えられても
-<var>C</var>が足されないことを意味します。
-故に、必ず <var>beta</var>に零でない値を指定してください。
-</p></dd>
-<dt> <code>transpose_a</code></dt>
-<dd><p>もし <code>true</code>なら、
-<var>A</var>の代わりに <var>A</var>の転置を積に使います。
-デフォルトは <code>false</code>です。
-</p></dd>
-<dt> <code>transpose_b</code></dt>
-<dd><p>もし <code>true</code>なら
-<var>B</var>の代わりに <var>B</var>の転置を積に使います。
-デフォルトは <code>false</code>です。
-</p></dd>
-</dl>
-
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lapack)$
-(%i2) A : matrix([1,2,3],[4,5,6],[7,8,9]);
-                                  [ 1  2  3 ]
-                                  [         ]
-(%o2)                             [ 4  5  6 ]
-                                  [         ]
-                                  [ 7  8  9 ]
-(%i3) B : matrix([-1,-2,-3],[-4,-5,-6],[-7,-8,-9]);
-                               [ - 1  - 2  - 3 ]
-                               [               ]
-(%o3)                          [ - 4  - 5  - 6 ]
-                               [               ]
-                               [ - 7  - 8  - 9 ]
-(%i4) C : matrix([3,2,1],[6,5,4],[9,8,7]);
-                                  [ 3  2  1 ]
-                                  [         ]
-(%o4)                             [ 6  5  4 ]
-                                  [         ]
-                                  [ 9  8  7 ]
-(%i5) dgemm(A,B);
-                         [ - 30.0   - 36.0   - 42.0  ]
-                         [                           ]
-(%o5)                    [ - 66.0   - 81.0   - 96.0  ]
-                         [                           ]
-                         [ - 102.0  - 126.0  - 150.0 ]
-(%i6) A . B;
-                            [ - 30   - 36   - 42  ]
-                            [                     ]
-(%o6)                       [ - 66   - 81   - 96  ]
-                            [                     ]
-                            [ - 102  - 126  - 150 ]
-(%i7) dgemm(A,B,transpose_a=true);
-                         [ - 66.0  - 78.0   - 90.0  ]
-                         [                          ]
-(%o7)                    [ - 78.0  - 93.0   - 108.0 ]
-                         [                          ]
-                         [ - 90.0  - 108.0  - 126.0 ]
-(%i8) transpose(A) . B;
-                           [ - 66  - 78   - 90  ]
-                           [                    ]
-(%o8)                      [ - 78  - 93   - 108 ]
-                           [                    ]
-                           [ - 90  - 108  - 126 ]
-(%i9) dgemm(A,B,c=C,beta=1);
-                         [ - 27.0  - 34.0   - 41.0  ]
-                         [                          ]
-(%o9)                    [ - 60.0  - 76.0   - 92.0  ]
-                         [                          ]
-                         [ - 93.0  - 118.0  - 143.0 ]
-(%i10) A . B + C;
-                            [ - 27  - 34   - 41  ]
-                            [                    ]
-(%o10)                      [ - 60  - 76   - 92  ]
-                            [                    ]
-                            [ - 93  - 118  - 143 ]
-(%i11) dgemm(A,B,c=C,beta=1, alpha=-1);
-                            [ 33.0   38.0   43.0  ]
-                            [                     ]
-(%o11)                      [ 72.0   86.0   100.0 ]
-                            [                     ]
-                            [ 111.0  134.0  157.0 ]
-(%i12) -A . B + C;
-                               [ 33   38   43  ]
-                               [               ]
-(%o12)                         [ 72   86   100 ]
-                               [               ]
-                               [ 111  134  157 ]
-
-</pre></td></tr></table>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-lapack">Package lapack</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-zgeev"></a>
-</p><dl>
-<dt><a name="index-zgeev"></a><u>関数:</u> <b>zgeev</b><i> (<var>A</var>)</i></dt>
-<dt><a name="index-zgeev-1"></a><u>関数:</u> <b>zgeev</b><i> (<var>A</var>, <var>right_p</var>, <var>left_p</var>)</i></dt>
-<dd>
-<p><code>dgeev</code>同様、しかし行列  <var>A</var>は複素行列です。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-lapack">Package lapack</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-zheev"></a>
-</p><dl>
-<dt><a name="index-zheev"></a><u>関数:</u> <b>zheev</b><i> (<var>A</var>)</i></dt>
-<dt><a name="index-zheev-1"></a><u>関数:</u> <b>zheev</b><i> (<var>A</var>, <var>eigvec_p</var>)</i></dt>
-<dd>
-<p><code>zheev</code>同様、しかし行列 <var>A</var>は平方複素エルミート行列と仮定されます。
-もし <var>eigvec_p</var>が <code>true</code>なら、
-行列の固有ベクトルも計算します。
-</p>
-<p>実際には行列 <var>A</var>がエルミートであることはチェックしません。
-</p>
-<p><code>dgeev</code>と同じように2つの項目のリストを返します:
-固有値のリストと、 <code>false</code>または固有ベクトルの行列。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-lapack">Package lapack</a>
-</div></p>
-</dd></dl>
-
-
-
-<p><a name="Item_003a-lbfgs"></a>
+<p><a name="Item_003a-lapack"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#lapack" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_61.html#lbfgs" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#interpol" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_61.html#lapack" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -732,12 +613,12 @@ Euclideanノルムが 1に等しく、最大成分の虚部が
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年1月月14日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2014年4月月20日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

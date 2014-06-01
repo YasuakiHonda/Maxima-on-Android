@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年1月月14日 by texi2html 1.82
+<!-- Created on 2014年4月月20日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.32.1 Manual: 57. grobner</title>
+<title>Maxima 5.33.0 Manual: 57. graphs</title>
 
-<meta name="description" content="Maxima 5.32.1 Manual: 57. grobner">
-<meta name="keywords" content="Maxima 5.32.1 Manual: 57. grobner">
+<meta name="description" content="Maxima 5.33.0 Manual: 57. graphs">
+<meta name="keywords" content="Maxima 5.33.0 Manual: 57. graphs">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -156,879 +156,2871 @@ div.categorybox
 
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="grobner"></a>
+<a name="graphs"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_56.html#Visualization" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-grobner" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_56.html#Functions-and-Variables-for-ggf" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-graphs" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_56.html#graphs" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_56.html#ggf" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_58.html#impdiff" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_58.html#grobner" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="grobner-1"></a>
-<h1 class="chapter">57. grobner</h1>
+<a name="graphs-1"></a>
+<h1 class="chapter">57. graphs</h1>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-grobner">57.1 Introduction to grobner</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Introduction-to-graphs">57.1 Introduction to graphs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-grobner">57.2 Functions and Variables for grobner</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-graphs">57.2 Functions and Variables for graphs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Introduction-to-grobner"></a>
+<p><a name="Item_003a-Introduction-to-graphs"></a>
 </p><hr size="6">
-<a name="Introduction-to-grobner"></a>
+<a name="Introduction-to-graphs"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#grobner" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Notes-on-the-grobner-package" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#graphs" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-graphs" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#grobner" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#grobner" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_58.html#impdiff" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#graphs" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#graphs" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_58.html#grobner" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-grobner-1"></a>
-<h2 class="section">57.1 Introduction to grobner</h2>
+<a name="Introduction-to-graphs-1"></a>
+<h2 class="section">57.1 Introduction to graphs</h2>
 
-<p><code>grobner</code>は Maximaで Groebner基底を使うためのパッケージです。
+<p><code>graphs</code>パッケージは Maximaに無向グラフ
+(以下グラフ)とダイグラフ(以下ダイグラフ)のデータ構造を提供します。
+ダイグラフは <var>u</var>から <var>v</var>への有向辺と <var>v</var>から
+<var>u</var>への有向辺を持つことがありますが、
+グラフやダイグラフは単純です(多重辺もループも持ちません)。
 </p>
-<p>以下の関数を使うには &lsquo;<tt>grobner.lisp</tt>&rsquo;パッケージをロードしなければいけません。
+<p>内部的にはグラフは隣接リストで表現され、 lisp構造として実装されます。
+頂点はそれらの id (idは整数)で識別されます。
+辺/弧は長さ 2のリストで表現されます。
+グラフ/ダイグラフの頂点にラベルを割り当てることができ、
+グラフ/ダイグラフの辺/弧に重みを割り当てることができます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">load(grobner);
-</pre></td></tr></table>
-
-<table><tr><td>&nbsp;</td><td><pre class="example">demo(&quot;grobner.demo&quot;);
-</pre></td></tr></table>
-
-<p>もしくは
-</p><table><tr><td>&nbsp;</td><td><pre class="example">batch(&quot;grobner.demo&quot;)
-</pre></td></tr></table>
-<p>でデモを開始することができます。
+<p>グラフを描画するための <code>draw_graph</code>関数があります。
+グラフは頂点配置アルゴリズムを使って描画されます。
+<code>draw_graph</code>は
+<a href="http://www.graphviz.org">http://www.graphviz.org</a>から入手可能な graphvizプログラムを使うこともできます。
+<code>draw_graph</code>は Maxima <code>draw</code>パッケージに基づいています。
 </p>
-<p>デモの中の計算のいくつかは長い時間かかります。
-だから、デモの出力 &lsquo;<tt>grobner-demo.output</tt>&rsquo;を
-デモファイルと同じディレクトリに用意しています。
+<p><code>graphs</code>パッケージを使うには最初に <code>load(graphs)</code>でロードしてください。
 </p>
-<hr size="6">
-<a name="Notes-on-the-grobner-package"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-grobner" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Implementations-of-admissible-monomial-orders-in-grobner" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#grobner" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-grobner" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_58.html#impdiff" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection">57.1.1 Notes on the grobner package</h3>
-<p>パッケージは
-</p>
-<p>Marek Rychlik 
-</p>
-<p><a href="http://alamos.math.arizona.edu">http://alamos.math.arizona.edu</a>
-</p>
-<p>によって書かれ、
-General Public License(GPL)の条件の下、 2002-05-24にリリースされました。
-(ファイル &lsquo;<tt>grobner.lisp</tt>&rsquo;を参照してください。)
-このドキュメントはファイル
-</p><p align="left">&lsquo;<tt>README</tt>&rsquo;, &lsquo;<tt>grobner.lisp</tt>&rsquo;, &lsquo;<tt>grobner.demo</tt>&rsquo;, &lsquo;<tt>grobner-demo.output</tt>&rsquo;
-</p><p>から
-</p>
-<p>G&uuml;nter Nowakによって抽出されました。
-</p>
-<p>ドキュメントの改善に関する提案は
-<em>maxima</em>メーリングリスト
-<a href="mailto:maxima@math.utexas.edu">maxima@math.utexas.edu</a>で議論することができます。
-現在、コードは若干古くなっています。
-モダンな実装は以下に記載されている高速の <em>F4</em>アルゴリズムを使います。
-</p><table><tr><td>&nbsp;</td><td><pre class="smallformat">A new efficient algorithm for computing Gr&ouml;bner bases (F4) 
-Jean-Charles Faug&egrave;re
-LIP6/CNRS Universit&eacute; Paris VI 
-January 20, 1999
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Groebner-bases">Groebner bases</a>
- &middot;<a href="maxima_98.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
 </div></p>
-<hr size="6">
-<a name="Implementations-of-admissible-monomial-orders-in-grobner"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Notes-on-the-grobner-package" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-grobner" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#grobner" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-grobner" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_58.html#impdiff" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection">57.1.2 Implementations of admissible monomial orders in grobner</h3>
-
-<ul>
-<li> <code>lex</code>
-
-<p>純粋に辞書式の、単項式比較のデフォルト順序。
-</p></li><li> <code>grlex</code>
-
-<p>全次数順序。同点は辞書式で決めます。
-</p>
-</li><li> <code>grevlex</code>
-
-<p>全次数。同点は逆辞書式で決めます。
-</p>
-</li><li> <code>invlex</code>
-
-<p>逆時書式順序。
-</p>
-</li></ul>
-
-<p><a name="Item_003a-Functions-and-Variables-for-grobner"></a>
+<p><a name="Item_003a-Functions-and-Variables-for-graphs"></a>
 </p><hr size="6">
-<a name="Functions-and-Variables-for-grobner"></a>
+<a name="Functions-and-Variables-for-graphs"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Implementations-of-admissible-monomial-orders-in-grobner" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Global-switches-for-grobner" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-graphs" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Building-graphs" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#grobner" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#grobner" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_58.html#impdiff" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#graphs" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#graphs" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_58.html#grobner" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-grobner-1"></a>
-<h2 class="section">57.2 Functions and Variables for grobner</h2>
+<a name="Functions-and-Variables-for-graphs-1"></a>
+<h2 class="section">57.2 Functions and Variables for graphs</h2>
 
 <hr size="6">
-<a name="Global-switches-for-grobner"></a>
+<a name="Building-graphs"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-grobner" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Simple-operators-in-grobner" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-graphs" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Graph-properties" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#grobner" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-grobner" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_58.html#impdiff" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#graphs" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-graphs" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_58.html#grobner" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h3 class="subsection">57.2.1 Global switches for grobner</h3>
+<h3 class="subsection">57.2.1 Building graphs</h3>
 
-<p><a name="Item_003a-poly_005fmonomial_005forder"></a>
+<p><a name="Item_003a-create_005fgraph"></a>
 </p><dl>
-<dt><a name="index-poly_005fmonomial_005forder"></a><u>オブション変数:</u> <b>poly_monomial_order</b></dt>
-<dd><p>デフォルト値: <code>lex</code>
+<dt><a name="index-create_005fgraph"></a><u>関数:</u> <b>create_graph</b><i> (<var>v_list</var>, <var>e_list</var>)</i></dt>
+<dt><a name="index-create_005fgraph-1"></a><u>関数:</u> <b>create_graph</b><i> (<var>n</var>, <var>e_list</var>)</i></dt>
+<dt><a name="index-create_005fgraph-2"></a><u>関数:</u> <b>create_graph</b><i> (<var>v_list</var>, <var>e_list</var>, <var>directed</var>)</i></dt>
+<dd><p>頂点の集合 <var>v_list</var>上に辺 <var>e_list</var>を使って新しいグラフを生成します。
 </p>
-<p>このグローバルスイッチはどの単項式順序を多項式と Groebner基底計算で使うか制御します。
-もし設定しないなら <code>lex</code>を使います。
+<p><var>v_list</var>は頂点のリスト
+(<code>[v1, v2,..., vn]</code>)もしくは頂点ラベルを持つ頂点のリスト
+(<code>[[v1,l1], [v2,l2],..., [vn,ln]]</code>)です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<p><var>n</var>は頂点の数です。
+頂点は 0から n-1までの整数で識別されます。
+(訳注: 1から始まる Maximaのリストの添字の慣例とは異なることに注意してください。)
+</p>
+<p><var>e_list</var>は辺のリスト
+(<code>[e1, e2,..., em]</code>)もしくは辺の重みを持つ辺のリスト
+(<code>[[e1, w1], ..., [em, wm]]</code>)です。
+</p>
+<p>もし <var>directed</var>が <code>false</code>でないならダイグラフを返します。
+</p>
+<p>例1: 頂点 3つの循環を生成する。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : create_graph([1,2,3], [[1,2], [2,3], [1,3]])$
+(%i3) print_graph(g)$
+Graph on 3 vertices with 3 edges.
+Adjacencies:
+  3 :  1  2
+  2 :  3  1
+  1 :  3  2
+</pre></td></tr></table>
 
+<p>例2: 辺の重みを持つ頂点 3つの循環を生成する。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : create_graph([1,2,3], [[[1,2], 1.0], [[2,3], 2.0],
+                          [[1,3], 3.0]])$
+(%i3) print_graph(g)$
+Graph on 3 vertices with 3 edges.
+Adjacencies:
+  3 :  1  2
+  2 :  3  1
+  1 :  3  2
+</pre></td></tr></table>
 
-<p><a name="Item_003a-poly_005fcoefficient_005fring"></a>
+<p>例3: ダイグラフを生成する:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) d : create_graph(
+        [1,2,3,4],
+        [
+         [1,3], [1,4],
+         [2,3], [2,4]
+        ],
+        'directed = true)$
+(%i3) print_graph(d)$
+Digraph on 4 vertices with 4 arcs.
+Adjacencies:
+  4 :
+  3 :
+  2 :  4  3
+  1 :  4  3
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-copy_005fgraph"></a>
 </p><dl>
-<dt><a name="index-poly_005fcoefficient_005fring"></a><u>オブション変数:</u> <b>poly_coefficient_ring</b></dt>
-<dd><p>デフォルト値: <code>expression_ring</code>
+<dt><a name="index-copy_005fgraph"></a><u>関数:</u> <b>copy_graph</b><i> (<var>g</var>)</i></dt>
+<dd><p>グラフ <var>g</var>のコピーを返します。
 </p>
-<p>このスイッチは grober計算で使う多項式の係数環を示します。
-もし設定しないなら <em>maximaの</em> 一般式環を使います。
-もし望むならこの変数を <code>ring_of_integers</code>に設定できます。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
 
-<p><a name="Item_003a-poly_005fprimary_005felimination_005forder"></a>
+<p><a name="Item_003a-circulant_005fgraph"></a>
 </p><dl>
-<dt><a name="index-poly_005fprimary_005felimination_005forder"></a><u>オブション変数:</u> <b>poly_primary_elimination_order</b></dt>
-<dd><p>デフォルト値: <code>false</code>
+<dt><a name="index-circulant_005fgraph"></a><u>関数:</u> <b>circulant_graph</b><i> (<var>n</var>, <var>d</var>)</i></dt>
+<dd><p>パラメータ <var>n</var>と <var>d</var>を持つ巡回グラフを返します。
 </p>
-<p>消去ベース関数で消去される変数のデフォルト順序名。
-設定しないなら <code>lex</code>を使います。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : circulant_graph(10, [1,3])$
+(%i3) print_graph(g)$
+Graph on 10 vertices with 20 edges.
+Adjacencies:
+  9 :  2  6  0  8
+  8 :  1  5  9  7
+  7 :  0  4  8  6
+  6 :  9  3  7  5
+  5 :  8  2  6  4
+  4 :  7  1  5  3
+  3 :  6  0  4  2
+  2 :  9  5  3  1
+  1 :  8  4  2  0
+  0 :  7  3  9  1
+</pre></td></tr></table>
 
-<p><a name="Item_003a-poly_005fsecondary_005felimination_005forder"></a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-clebsch_005fgraph"></a>
 </p><dl>
-<dt><a name="index-poly_005fsecondary_005felimination_005forder"></a><u>オブション変数:</u> <b>poly_secondary_elimination_order</b></dt>
-<dd><p>デフォルト値: <code>false</code>
+<dt><a name="index-clebsch_005fgraph"></a><u>関数:</u> <b>clebsch_graph</b><i> ()</i></dt>
+<dd><p>Clebschグラフを返します。
 </p>
-<p>消去ベース関数で保持される変数のデフォルト順序名。
-設定しないなら <code>lex</code>を使います。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
 
-<p><a name="Item_003a-poly_005felimination_005forder"></a>
+<p><a name="Item_003a-complement_005fgraph"></a>
 </p><dl>
-<dt><a name="index-poly_005felimination_005forder"></a><u>オブション変数:</u> <b>poly_elimination_order</b></dt>
-<dd><p>デフォルト値: <code>false</code>
+<dt><a name="index-complement_005fgraph"></a><u>関数:</u> <b>complement_graph</b><i> (<var>g</var>)</i></dt>
+<dd><p>グラフ <var>g</var>の補グラフを返します。
 </p>
-<p>消去計算で使われるデフォルト消去順序名。
-設定したなら、
-変数 <code>poly_primary_elimination_order</code>と
-<code>poly_secondary_elimination_order</code>の設定を上書きします。
-ユーザーはこれが消去変数の数に有効な真の消去順序であることを保証しなければいけません。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
 
-<p><a name="Item_003a-poly_005freturn_005fterm_005flist"></a>
+<p><a name="Item_003a-complete_005fbipartite_005fgraph"></a>
 </p><dl>
-<dt><a name="index-poly_005freturn_005fterm_005flist"></a><u>オブション変数:</u> <b>poly_return_term_list</b></dt>
-<dd><p>デフォルト値: <code>false</code>
+<dt><a name="index-complete_005fbipartite_005fgraph"></a><u>関数:</u> <b>complete_bipartite_graph</b><i> (<var>n</var>, <var>m</var>)</i></dt>
+<dd><p><var>n+m</var>この頂点上の完全二部グラフを返します。
 </p>
-<p>もし <code>true</code>に設定したなら、
-このパッケージの関数すべては
-<em>maxima</em>一般式ではなく、
-それぞれの多項式を現在の単項式順序で並べた項のリストとして返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
 
-<p><a name="Item_003a-poly_005fgrobner_005fdebug"></a>
+<p><a name="Item_003a-complete_005fgraph"></a>
 </p><dl>
-<dt><a name="index-poly_005fgrobner_005fdebug"></a><u>オブション変数:</u> <b>poly_grobner_debug</b></dt>
-<dd><p>デフォルト値: <code>false</code>
+<dt><a name="index-complete_005fgraph"></a><u>関数:</u> <b>complete_graph</b><i> (<var>n</var>)</i></dt>
+<dd><p><var>n</var>この頂点上の完全グラフを返します。
 </p>
-<p>もし <code>true</code>に設定したなら、
-デバッグ用、トレース用出力を生成します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
 
-<p><a name="Item_003a-poly_005fgrobner_005falgorithm"></a>
+<p><a name="Item_003a-cycle_005fdigraph"></a>
 </p><dl>
-<dt><a name="index-poly_005fgrobner_005falgorithm"></a><u>オブション変数:</u> <b>poly_grobner_algorithm</b></dt>
-<dd><p>デフォルト値: <code>buchberger</code>
+<dt><a name="index-cycle_005fdigraph"></a><u>関数:</u> <b>cycle_digraph</b><i> (<var>n</var>)</i></dt>
+<dd><p><var>n</var>個の頂点上のダイグラフを返します。
 </p>
-<p>可能な値: 
-</p><ul>
-<li> <code>buchberger</code>
-</li><li> <code>parallel_buchberger</code>
-</li><li> <code>gebauer_moeller</code>
-</li></ul>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
 
-<p>Groebner基底を見つけるのに使うアルゴリズム名。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-poly_005ftop_005freduction_005fonly"></a>
+<p><a name="Item_003a-cycle_005fgraph"></a>
 </p><dl>
-<dt><a name="index-poly_005ftop_005freduction_005fonly"></a><u>オブション変数:</u> <b>poly_top_reduction_only</b></dt>
-<dd><p>デフォルト値: <code>false</code>
+<dt><a name="index-cycle_005fgraph"></a><u>関数:</u> <b>cycle_graph</b><i> (<var>n</var>)</i></dt>
+<dd><p><var>n</var>この頂点上の閉路を返します。
 </p>
-<p>もし <code>false</code>でないなら、
-可能な時はいつでも、頭項簡約を使います。
-頭項簡約は割り算アルゴリズムが最初の簡約後に停止することを意味します。
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-cuboctahedron_005fgraph"></a>
+</p><dl>
+<dt><a name="index-cuboctahedron_005fgraph"></a><u>関数:</u> <b>cuboctahedron_graph</b><i> (<var>n</var>)</i></dt>
+<dd><p>立方八面体グラフを返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-cube_005fgraph"></a>
+</p><dl>
+<dt><a name="index-cube_005fgraph"></a><u>関数:</u> <b>cube_graph</b><i> (<var>n</var>)</i></dt>
+<dd><p><var>n</var>次元立方体を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-dodecahedron_005fgraph"></a>
+</p><dl>
+<dt><a name="index-dodecahedron_005fgraph"></a><u>関数:</u> <b>dodecahedron_graph</b><i> ()</i></dt>
+<dd><p>十二面体グラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-empty_005fgraph"></a>
+</p><dl>
+<dt><a name="index-empty_005fgraph"></a><u>関数:</u> <b>empty_graph</b><i> (<var>n</var>)</i></dt>
+<dd><p><var>n</var>個の頂点上の空グラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-flower_005fsnark"></a>
+</p><dl>
+<dt><a name="index-flower_005fsnark"></a><u>関数:</u> <b>flower_snark</b><i> (<var>n</var>)</i></dt>
+<dd><p><var>4n</var>個の頂点上の花グラフを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) f5 : flower_snark(5)$
+(%i3) chromatic_index(f5);
+(%o3)                           4
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-from_005fadjacency_005fmatrix"></a>
+</p><dl>
+<dt><a name="index-from_005fadjacency_005fmatrix"></a><u>関数:</u> <b>from_adjacency_matrix</b><i> (<var>A</var>)</i></dt>
+<dd><p>隣接行列 <var>A</var>で表現されるグラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-frucht_005fgraph"></a>
+</p><dl>
+<dt><a name="index-frucht_005fgraph"></a><u>関数:</u> <b>frucht_graph</b><i> ()</i></dt>
+<dd><p>Fruchtグラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-graph_005fproduct"></a>
+</p><dl>
+<dt><a name="index-graph_005fproduct"></a><u>関数:</u> <b>graph_product</b><i> (<var>g1</var>, <var>g1</var>)</i></dt>
+<dd><p>グラフ <var>g1</var>と <var>g2</var>の直積を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) grid : graph_product(path_graph(3), path_graph(4))$
+(%i3) draw_graph(grid)$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<img src="figures/graphs01.gif" alt="figures/graphs01">
+
+<p><a name="Item_003a-graph_005funion"></a>
+</p><dl>
+<dt><a name="index-graph_005funion"></a><u>関数:</u> <b>graph_union</b><i> (<var>g1</var>, <var>g1</var>)</i></dt>
+<dd><p>グラフ <var>g1</var>と <var>g2</var>の和を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-grid_005fgraph"></a>
+</p><dl>
+<dt><a name="index-grid_005fgraph"></a><u>関数:</u> <b>grid_graph</b><i> (<var>n</var>, <var>m</var>)</i></dt>
+<dd><p><var>n x m</var>グリッドを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-great_005frhombicosidodecahedron_005fgraph"></a>
+</p><dl>
+<dt><a name="index-great_005frhombicosidodecahedron_005fgraph"></a><u>関数:</u> <b>great_rhombicosidodecahedron_graph</b><i> ()</i></dt>
+<dd><p>大菱形二十・十二面体グラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-great_005frhombicuboctahedron_005fgraph"></a>
+</p><dl>
+<dt><a name="index-great_005frhombicuboctahedron_005fgraph"></a><u>関数:</u> <b>great_rhombicuboctahedron_graph</b><i> ()</i></dt>
+<dd><p>大斜方立方八面体グラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-grotzch_005fgraph"></a>
+</p><dl>
+<dt><a name="index-grotzch_005fgraph"></a><u>関数:</u> <b>grotzch_graph</b><i> ()</i></dt>
+<dd><p>Grotzchグラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-heawood_005fgraph"></a>
+</p><dl>
+<dt><a name="index-heawood_005fgraph"></a><u>関数:</u> <b>heawood_graph</b><i> ()</i></dt>
+<dd><p>Heawoodグラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-icosahedron_005fgraph"></a>
+</p><dl>
+<dt><a name="index-icosahedron_005fgraph"></a><u>関数:</u> <b>icosahedron_graph</b><i> ()</i></dt>
+<dd><p>二十面体グラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-icosidodecahedron_005fgraph"></a>
+</p><dl>
+<dt><a name="index-icosidodecahedron_005fgraph"></a><u>関数:</u> <b>icosidodecahedron_graph</b><i> ()</i></dt>
+<dd><p>二十・十二面体グラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-induced_005fsubgraph"></a>
+</p><dl>
+<dt><a name="index-induced_005fsubgraph"></a><u>関数:</u> <b>induced_subgraph</b><i> (<var>V</var>, <var>g</var>)</i></dt>
+<dd><p>グラフ <var>g</var>の頂点の部分集合 <var>V</var>上の誘導部分グラフを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) p : petersen_graph()$
+(%i3) V : [0,1,2,3,4]$
+(%i4) g : induced_subgraph(V, p)$
+(%i5) print_graph(g)$
+Graph on 5 vertices with 5 edges.
+Adjacencies:
+  4 :  3  0
+  3 :  2  4
+  2 :  1  3
+  1 :  0  2
+  0 :  1  4
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-line_005fgraph"></a>
+</p><dl>
+<dt><a name="index-line_005fgraph"></a><u>関数:</u> <b>line_graph</b><i> (<var>g</var>)</i></dt>
+<dd><p>グラフ <var>g</var>の折れ線グラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-make_005fgraph"></a>
+</p><dl>
+<dt><a name="index-make_005fgraph"></a><u>関数:</u> <b>make_graph</b><i> (<var>vrt</var>, <var>f</var>)</i></dt>
+<dt><a name="index-make_005fgraph-1"></a><u>関数:</u> <b>make_graph</b><i> (<var>vrt</var>, <var>f</var>, <var>oriented</var>)</i></dt>
+<dd><p>述語論理関数 <var>f</var>を使ってグラフを生成します。
+</p>
+<p><var>vrt</var>は頂点か整数のリスト/集合です。
+もし <var>vrt</var>が整数なら、
+グラフの頂点は 1から <var>vrt</var>までの整数です。
+</p>
+<p><var>f</var>は述語論理関数です。
+もし <code>f(a,b)=true</code>なら
+2つの頂点 <var>a</var>と <var>b</var>を結合します。
+</p>
+<p>もし <var>directed</var>が <var>false</var>でないならグラフは有向です。
+</p>
+<p>例 1:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(graphs)$
+(%i2) g : make_graph(powerset({1,2,3,4,5}, 2), disjointp)$
+(%i3) is_isomorphic(g, petersen_graph());
+(%o3)                         true
+(%i4) get_vertex_label(1, g);
+(%o4)                        {1, 2}
+</pre></td></tr></table>
+
+<p>例 2:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(graphs)$
+(%i2) f(i, j) := is (mod(j, i)=0)$
+(%i3) g : make_graph(20, f, directed=true)$
+(%i4) out_neighbors(4, g);
+(%o4)                    [8, 12, 16, 20]
+(%i5) in_neighbors(18, g);
+(%o5)                    [1, 2, 3, 6, 9]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-mycielski_005fgraph"></a>
+</p><dl>
+<dt><a name="index-mycielski_005fgraph"></a><u>関数:</u> <b>mycielski_graph</b><i> (<var>g</var>)</i></dt>
+<dd><p>グラフ <var>g</var>の Mycielskiグラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-new_005fgraph"></a>
+</p><dl>
+<dt><a name="index-new_005fgraph"></a><u>関数:</u> <b>new_graph</b><i> ()</i></dt>
+<dd><p>頂点も辺も持たないグラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-path_005fdigraph"></a>
+</p><dl>
+<dt><a name="index-path_005fdigraph"></a><u>関数:</u> <b>path_digraph</b><i> (<var>n</var>)</i></dt>
+<dd><p><var>n</var>個の頂点上の有向道を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-path_005fgraph"></a>
+</p><dl>
+<dt><a name="index-path_005fgraph"></a><u>関数:</u> <b>path_graph</b><i> (<var>n</var>)</i></dt>
+<dd><p><var>n</var>個の頂点上の道を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-petersen_005fgraph"></a>
+</p><dl>
+<dt><a name="index-petersen_005fgraph"></a><u>関数:</u> <b>petersen_graph</b><i> ()</i></dt>
+<dt><a name="index-petersen_005fgraph-1"></a><u>関数:</u> <b>petersen_graph</b><i> (<var>n</var>, <var>d</var>)</i></dt>
+<dd><p>Petersenグラフ <var>P_{n,d}</var>を返します。
+<var>n</var>と <var>d</var>のデフォルト値は <code>n=5</code>と <code>d=2</code>です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-random_005fbipartite_005fgraph"></a>
+</p><dl>
+<dt><a name="index-random_005fbipartite_005fgraph"></a><u>関数:</u> <b>random_bipartite_graph</b><i> (<var>a</var>, <var>b</var>, <var>p</var>)</i></dt>
+<dd><p><code>a+b</code>個の頂点上のランダムな2部グラフを返します。
+辺それぞれは確率 <var>p</var>で存在します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-random_005fdigraph"></a>
+</p><dl>
+<dt><a name="index-random_005fdigraph"></a><u>関数:</u> <b>random_digraph</b><i> (<var>n</var>, <var>p</var>)</i></dt>
+<dd><p><code>n</code>個の頂点上のランダムなダイグラフを返します。
+弧それぞれは確率 <var>p</var>で存在します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-random_005fregular_005fgraph"></a>
+</p><dl>
+<dt><a name="index-random_005fregular_005fgraph"></a><u>関数:</u> <b>random_regular_graph</b><i> (<var>n</var>)</i></dt>
+<dt><a name="index-random_005fregular_005fgraph-1"></a><u>関数:</u> <b>random_regular_graph</b><i> (<var>n</var>, <var>d</var>)</i></dt>
+<dd><p><var>n</var>個の頂点上のランダムな <var>d</var>正則グラフを返します。
+<var>d</var>のデフォルト値は <code>d=3</code>です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-random_005fgraph"></a>
+</p><dl>
+<dt><a name="index-random_005fgraph"></a><u>関数:</u> <b>random_graph</b><i> (<var>n</var>, <var>p</var>)</i></dt>
+<dd><p><var>n</var>個の頂点上のランダムグラフを返します。
+辺それぞれは確率 <var>p</var>で存在します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-random_005fgraph1"></a>
+</p><dl>
+<dt><a name="index-random_005fgraph1"></a><u>関数:</u> <b>random_graph1</b><i> (<var>n</var>, <var>m</var>)</i></dt>
+<dd><p><var>n</var>個の頂点とランダムな <var>m</var>個の辺上のランダムグラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-random_005fnetwork"></a>
+</p><dl>
+<dt><a name="index-random_005fnetwork"></a><u>関数:</u> <b>random_network</b><i> (<var>n</var>, <var>p</var>, <var>w</var>)</i></dt>
+<dd><p><var>n</var>個の頂点上のランダムネットワークを返します。
+弧それぞれは確率 <var>p</var>で存在し、範囲 <code>[0,w]</code>の中に重みを持ちます。
+関数はリスト <code>[network, source, sink]</code>を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) [net, s, t] : random_network(50, 0.2, 10.0);
+(%o2)                   [DIGRAPH, 50, 51]
+(%i3) max_flow(net, s, t)$
+(%i4) first(%);
+(%o4)                   27.65981397932507
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-random_005ftournament"></a>
+</p><dl>
+<dt><a name="index-random_005ftournament"></a><u>関数:</u> <b>random_tournament</b><i> (<var>n</var>)</i></dt>
+<dd><p><var>n</var>個の頂点上のランダムなトーナメントを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-random_005ftree"></a>
+</p><dl>
+<dt><a name="index-random_005ftree"></a><u>関数:</u> <b>random_tree</b><i> (<var>n</var>)</i></dt>
+<dd><p><var>n</var>個の頂点上のランダムな木を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-small_005frhombicosidodecahedron_005fgraph"></a>
+</p><dl>
+<dt><a name="index-small_005frhombicosidodecahedron_005fgraph"></a><u>関数:</u> <b>small_rhombicosidodecahedron_graph</b><i> ()</i></dt>
+<dd><p>斜方二十・十二面体グラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-small_005frhombicuboctahedron_005fgraph"></a>
+</p><dl>
+<dt><a name="index-small_005frhombicuboctahedron_005fgraph"></a><u>関数:</u> <b>small_rhombicuboctahedron_graph</b><i> ()</i></dt>
+<dd><p>斜方立方八面体グラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-snub_005fcube_005fgraph"></a>
+</p><dl>
+<dt><a name="index-snub_005fcube_005fgraph"></a><u>関数:</u> <b>snub_cube_graph</b><i> ()</i></dt>
+<dd><p>変形立方体グラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-snub_005fdodecahedron_005fgraph"></a>
+</p><dl>
+<dt><a name="index-snub_005fdodecahedron_005fgraph"></a><u>関数:</u> <b>snub_dodecahedron_graph</b><i> ()</i></dt>
+<dd><p>変形十二面体グラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-truncated_005fcube_005fgraph"></a>
+</p><dl>
+<dt><a name="index-truncated_005fcube_005fgraph"></a><u>関数:</u> <b>truncated_cube_graph</b><i> ()</i></dt>
+<dd><p>切頂六面体グラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-truncated_005fdodecahedron_005fgraph"></a>
+</p><dl>
+<dt><a name="index-truncated_005fdodecahedron_005fgraph"></a><u>関数:</u> <b>truncated_dodecahedron_graph</b><i> ()</i></dt>
+<dd><p>切頂十二面体グラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+
+<p><a name="Item_003a-truncated_005ficosahedron_005fgraph"></a>
+</p><dl>
+<dt><a name="index-truncated_005ficosahedron_005fgraph"></a><u>関数:</u> <b>truncated_icosahedron_graph</b><i> ()</i></dt>
+<dd><p>切頂二十面体グラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+
+<p><a name="Item_003a-truncated_005ftetrahedron_005fgraph"></a>
+</p><dl>
+<dt><a name="index-truncated_005ftetrahedron_005fgraph"></a><u>関数:</u> <b>truncated_tetrahedron_graph</b><i> ()</i></dt>
+<dd><p>切頂四面体グラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-tutte_005fgraph"></a>
+</p><dl>
+<dt><a name="index-tutte_005fgraph"></a><u>関数:</u> <b>tutte_graph</b><i> ()</i></dt>
+<dd><p>Tutteグラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-underlying_005fgraph"></a>
+</p><dl>
+<dt><a name="index-underlying_005fgraph"></a><u>関数:</u> <b>underlying_graph</b><i> (<var>g</var>)</i></dt>
+<dd><p>ダイグラフ <var>g</var>の台グラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-wheel_005fgraph"></a>
+</p><dl>
+<dt><a name="index-wheel_005fgraph"></a><u>関数:</u> <b>wheel_graph</b><i> (<var>n</var>)</i></dt>
+<dd><p><var>n+1</var>個の頂点上の車輪グラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-constructions">Package graphs - constructions</a>
+</div></p></dd></dl>
 
 <hr size="6">
-<a name="Simple-operators-in-grobner"></a>
+<a name="Graph-properties"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Global-switches-for-grobner" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Other-functions-in-grobner" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#Building-graphs" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Modifying-graphs" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#grobner" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-grobner" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_58.html#impdiff" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#graphs" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-graphs" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_58.html#grobner" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h3 class="subsection">57.2.2 Simple operators in grobner</h3>
-<p><code>poly_add</code>, <code>poly_subtract</code>, <code>poly_multiply</code>, <code>poly_expt</code>は
-多項式の算出演算子です。
-これらは内部表現を使って実行されますが、
-結果は <em>maxima</em>一般形式に変換されます。
-</p>
-<p><a name="Item_003a-poly_005fadd"></a>
+<h3 class="subsection">57.2.2 Graph properties</h3>
+
+<p><a name="Item_003a-adjacency_005fmatrix"></a>
 </p><dl>
-<dt><a name="index-poly_005fadd"></a><u>関数:</u> <b>poly_add</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i></dt>
-<dd><p>2つの多項式 <var>poly1</var>と <var>poly2</var>を足します。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">
-(%i1) poly_add(z+x^2*y,x-z,[x,y,z]);
-                                    2
-(%o1)                              x  y + x
+<dt><a name="index-adjacency_005fmatrix"></a><u>関数:</u> <b>adjacency_matrix</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の隣接行列を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) c5 : cycle_graph(4)$
+(%i3) adjacency_matrix(c5);
+                         [ 0  1  0  1 ]
+                         [            ]
+                         [ 1  0  1  0 ]
+(%o3)                    [            ]
+                         [ 0  1  0  1 ]
+                         [            ]
+                         [ 1  0  1  0 ]
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
 
-<p><a name="Item_003a-poly_005fsubtract"></a>
+<p><a name="Item_003a-average_005fdegree"></a>
 </p><dl>
-<dt><a name="index-poly_005fsubtract"></a><u>関数:</u> <b>poly_subtract</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i></dt>
-<dd><p>多項式 <var>poly1</var>から <var>poly2</var>を引きます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">
-(%i1) poly_subtract(z+x^2*y,x-z,[x,y,z]);
-                                      2
-(%o1)                          2 z + x  y - x
+<dt><a name="index-average_005fdegree"></a><u>関数:</u> <b>average_degree</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>に関する平均次数を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) average_degree(grotzch_graph());
+                               40
+(%o2)                          --
+                               11
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
 
-<p><a name="Item_003a-poly_005fmultiply"></a>
+<p><a name="Item_003a-biconnected_005fcomponents"></a>
 </p><dl>
-<dt><a name="index-poly_005fmultiply"></a><u>関数:</u> <b>poly_multiply</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i></dt>
-<dd><p>多項式 <var>poly1</var>と <var>poly2</var>の積を返します。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">
-(%i2) poly_multiply(z+x^2*y,x-z,[x,y,z])-(z+x^2*y)*(x-z),expand;
-(%o1)                                  0
+<dt><a name="index-biconnected_005fcomponents"></a><u>関数:</u> <b>biconnected_components</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の2連結成分(の頂点集合)を返します
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : create_graph(
+            [1,2,3,4,5,6,7],
+            [
+             [1,2],[2,3],[2,4],[3,4],
+             [4,5],[5,6],[4,6],[6,7]
+            ])$
+(%i3) biconnected_components(g);
+(%o3)        [[6, 7], [4, 5, 6], [1, 2], [2, 3, 4]]
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<img src="figures/graphs13.gif" alt="figures/graphs13">
 
-<p><a name="Item_003a-poly_005fs_005fpolynomial"></a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-bipartition"></a>
 </p><dl>
-<dt><a name="index-poly_005fs_005fpolynomial"></a><u>関数:</u> <b>poly_s_polynomial</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i></dt>
-<dd><p>2つの多項式 <var>poly1</var>と <var>poly2</var>の
-<em>シジジー (syzygy)多項式</em> (<em>S多項式</em>)を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-poly_005fprimitive_005fpart"></a>
-</p><dl>
-<dt><a name="index-poly_005fprimitive_005fpart"></a><u>関数:</u> <b>poly_primitive_part</b><i> (<var>poly1</var>, <var>varlist</var>)</i></dt>
-<dd><p>多項式 <var>poly1</var>を係数の GCDで割ったものを返します。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) poly_primitive_part(35*y+21*x,[x,y]);
-(%o1)                              5 y + 3 x
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-poly_005fnormalize"></a>
-</p><dl>
-<dt><a name="index-poly_005fnormalize"></a><u>関数:</u> <b>poly_normalize</b><i> (<var>poly</var>, <var>varlist</var>)</i></dt>
-<dd><p>多項式 <var>poly1</var>を主係数で割ったものを返します。
-割り算が可能であることを仮定しています。
-これは体の場合には大丈夫ですが、環の場合にはいつも可能なわけではありません。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-<hr size="6">
-<a name="Other-functions-in-grobner"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Simple-operators-in-grobner" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Standard-postprocessing-of-Groebner-Bases" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#grobner" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-grobner" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_58.html#impdiff" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection">57.2.3 Other functions in grobner</h3>
-
-<p><a name="Item_003a-poly_005fexpand"></a>
-</p><dl>
-<dt><a name="index-poly_005fexpand"></a><u>関数:</u> <b>poly_expand</b><i> (<var>poly</var>, <var>varlist</var>)</i></dt>
-<dd><p>この関数は多項式を内部形式にパースします。
-もし <var>poly</var>が多項式を正確にパースしたら、それは
-<code>expand(<var>poly</var>)</code>と同値です。
-もし表現が変数
-<var>varlist</var>の多項式と互換性がないなら、結果はエラーです。
-式が正確に内部表現にパースするかテストするのに使うことができます。
-以下の例は添字付き変数と超越関数変数が許されることを例示します。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">
-(%i1) poly_expand((x-y)*(y+x),[x,y]);
-                                     2    2
-(%o1)                               x  - y
-(%i2) poly_expand((y+x)^2,[x,y]);
-                                2            2
-(%o2)                          y  + 2 x y + x
-(%i3) poly_expand((y+x)^5,[x,y]);
-                  5      4         2  3       3  2      4      5
-(%o3)            y  + 5 x y  + 10 x  y  + 10 x  y  + 5 x  y + x
-(%i4) poly_expand(-1-x*exp(y)+x^2/sqrt(y),[x]);
-                                          2
-                                  y      x
-(%o4)                       - x %e  + ------- - 1
-                                       sqrt(y)
-
-(%i5) poly_expand(-1-sin(x)^2+sin(x),[sin(x)]);
-                                2
-(%o5)                      - sin (x) + sin(x) - 1
-
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-poly_005fexpt"></a>
-</p><dl>
-<dt><a name="index-poly_005fexpt"></a><u>関数:</u> <b>poly_expt</b><i> (<var>poly</var>, <var>number</var>, <var>varlist</var>)</i></dt>
-<dd><p><var>poly</var>の正の整数 <var>number</var>のべき乗を返します。
-もし <var>number</var>が正の整数でないならエラーが生じます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">
-(%i1) poly_expt(x-y,3,[x,y])-(x-y)^3,expand;
-(%o1)                                  0
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-poly_005fcontent"></a>
-</p><dl>
-<dt><a name="index-poly_005fcontent"></a><u>関数:</u> <b>poly_content</b><i> (<var>poly</var>. <var>varlist</var>)</i></dt>
-<dd><p><code>poly_content</code>は係数の GCDを抽出します。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">
-(%i1) poly_content(35*y+21*x,[x,y]);
-(%o1)                                  7
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-poly_005fpseudo_005fdivide"></a>
-</p><dl>
-<dt><a name="index-poly_005fpseudo_005fdivide"></a><u>関数:</u> <b>poly_pseudo_divide</b><i> (<var>poly</var>, <var>polylist</var>, <var>varlist</var>)</i></dt>
-<dd><p>多項式 <var>poly</var>を <em>n</em>個の多項式のリスト <var>polylist</var>で擬似的に割ります。
-複数の値を返します。
-一番目の値は商のリスト <em>a</em>です。
-二番目の値は余り <em>r</em>です。
-三番目の値は、係数環(体である必要はありません)内で
-<var>polylist</var>が <em>c*poly</em>を割れるようなスカラ係数 <em>c</em>です。
-最後に四番目の値は実行された簡約の回数です。
-結果のオブジェクトは以下の等式を満たします:
-</p>
-<p><em>c*poly=sum(a[i]*polylist[i],i=1...n)+r</em>.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-poly_005fexact_005fdivide"></a>
-</p><dl>
-<dt><a name="index-poly_005fexact_005fdivide"></a><u>関数:</u> <b>poly_exact_divide</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i></dt>
-<dd><p>多項式 <var>poly1</var>を多項式 <var>poly2</var>で割ります。
-余りのない厳密な割り算が可能と仮定します。
-商を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-poly_005fnormal_005fform"></a>
-</p><dl>
-<dt><a name="index-poly_005fnormal_005fform"></a><u>関数:</u> <b>poly_normal_form</b><i> (<var>poly</var>, <var>polylist</var>, <var>varlist</var>)</i></dt>
-<dd><p><code>poly_normal_form</code>は多項式の集合 <var>polylist</var>に関して多項式
-<var>poly</var>の正規形を見つけます。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-poly_005fbuchberger_005fcriterion"></a>
-</p><dl>
-<dt><a name="index-poly_005fbuchberger_005fcriterion"></a><u>関数:</u> <b>poly_buchberger_criterion</b><i> (<var>polylist</var>, <var>varlist</var>)</i></dt>
-<dd><p>Buchberger判定 (criterion)を使ってもし <var>polylist</var>が現在の項順序に関して
-Groebner基底なら <code>true</code>を返します:
-Buchberger判定(criterion)は、
-<var>polylist</var>の2つの多項式 <em>h1</em>と <em>h2</em>すべてに関して、
-S多項式 <em>S(h1,h2)</em>が <var>polylist</var>を<em>法</em>として0に簡約されるというものです。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-poly_005fbuchberger"></a>
-</p><dl>
-<dt><a name="index-poly_005fbuchberger"></a><u>関数:</u> <b>poly_buchberger</b><i> (<var>polylist_fl</var> <var>varlist</var>)</i></dt>
-<dd><p><code>poly_buchberger</code>は多項式のリスト上で Buchbergerアルゴリズムを実行し、結果の
-Groebner基底を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-
-<hr size="6">
-<a name="Standard-postprocessing-of-Groebner-Bases"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Other-functions-in-grobner" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_58.html#impdiff" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#grobner" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-grobner" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_58.html#impdiff" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection">57.2.4 Standard postprocessing of Groebner Bases</h3>
-
-
-<p><em>K[ x[1],...,x[n] ]</em>上のイデアル <em>I</em>の
-<em>k番目の消去イデアル</em> <em>I_k</em>は
-イデアル <em>intersect(I, K[ x[k+1],...,x[n] ])</em>です。<br>
-<em>コロンイデアル</em> <em>I:J</em>は
-イデアル <em>h|for all w in J: w*h in I</em>です。.<br>
-イデアル <em>I:p^inf</em>はイデアル <em>h| there is a n in N: p^n*h in I</em>です。<br>
-イデアル <em>I:J^inf</em>はイデアル <em>h| there is a n in N and a p in J: p^n*h in I</em>です。<br>
-The <em>根基イデアル</em> <em>sqrt(I)</em>はイデアル
-<em>h| there is a n in N : h^n in I </em>です。
-</p>
-<p><a name="Item_003a-poly_005freduction"></a>
-</p><dl>
-<dt><a name="index-poly_005freduction"></a><u>関数:</u> <b>poly_reduction</b><i> (<var>polylist</var>, <var>varlist</var>)</i></dt>
-<dd><p><code>poly_reduction</code>は多項式のリスト <var>polylist</var>を簡約します。
-それぞれの多項式は他の多項式で完全に簡約されます。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-poly_005fminimization"></a>
-</p><dl>
-<dt><a name="index-poly_005fminimization"></a><u>関数:</u> <b>poly_minimization</b><i> (<var>polylist</var>, <var>varlist</var>)</i></dt>
-<dd><p><var>polylist</var>と同じ単項式イデアルの最小全域である、
-多項式リスト <var>polylist</var>の部分リストを返します。
-すなわち、部分リストの中の多項式の主単項式はすべて、他の多項式の主単項式を割りません。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-
-<p><a name="Item_003a-poly_005fnormalize_005flist"></a>
-</p><dl>
-<dt><a name="index-poly_005fnormalize_005flist"></a><u>関数:</u> <b>poly_normalize_list</b><i> (<var>polylist</var>, <var>varlist</var>)</i></dt>
-<dd><p><code>poly_normalize_list</code>は
-<code>poly_normalize</code>をリストの中の多項式それぞれに適用します。
-これはリスト <var>polylist</var>の中のすべての多項式を主係数で割ることを意味します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-poly_005fgrobner"></a>
-</p><dl>
-<dt><a name="index-poly_005fgrobner"></a><u>関数:</u> <b>poly_grobner</b><i> (<var>polylist</var>, <var>varlist</var>)</i></dt>
-<dd><p>多項式リスト <var>polylist</var>で張られたイデアルの Groebner基底を返します。
-グローバルフラグで影響を受けます。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-poly_005freduced_005fgrobner"></a>
-</p><dl>
-<dt><a name="index-poly_005freduced_005fgrobner"></a><u>関数:</u> <b>poly_reduced_grobner</b><i> (<var>polylist</var>, <var>varlist</var>)</i></dt>
-<dd><p>多項式リスト <var>polylist</var>で張られたイデアルの簡約 Groebner基底を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-
-<p><a name="Item_003a-poly_005fdepends_005fp"></a>
-</p><dl>
-<dt><a name="index-poly_005fdepends_005fp"></a><u>関数:</u> <b>poly_depends_p</b><i> (<var>poly</var>, <var>var</var>, <var>varlist</var>)</i></dt>
-<dd><p><code>poly_depends</code>は多項式が変数 <var>var</var>に依存するかテストします。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
- &middot;<a href="maxima_98.html#Category_003a-Predicate-functions">Predicate functions</a>
-</div></p>
-</dd></dl>
-
-
-<p><a name="Item_003a-poly_005felimination_005fideal"></a>
-</p><dl>
-<dt><a name="index-poly_005felimination_005fideal"></a><u>関数:</u> <b>poly_elimination_ideal</b><i> (<var>polylist</var>, <var>number</var>, <var>varlist</var>)</i></dt>
-<dd>
-
-<p><code>poly_elimination_ideal</code>は、
-(必ずしも Groebner基底である必要はない)生成多項式のリストとして指定されたイデアルの
-<em>number</em>番目の消去イデアルの Groebner基底を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-poly_005fcolon_005fideal"></a>
-</p><dl>
-<dt><a name="index-poly_005fcolon_005fideal"></a><u>関数:</u> <b>poly_colon_ideal</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i></dt>
-<dd>
-<p>コロンイデアル
-</p>
-<p><em>I(polylist1):I(polylist2)</em>
-</p>
-<p>の簡約 Groebner基底を返します。
-</p>
-<p>ここで <em>polylist1</em>と <em>polylist2</em>は 2つの多項式リストです。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-poly_005fideal_005fintersection"></a>
-</p><dl>
-<dt><a name="index-poly_005fideal_005fintersection"></a><u>関数:</u> <b>poly_ideal_intersection</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i></dt>
-<dd>
-<p><code>poly_ideal_intersection</code>は 2つのイデアルの交わりです。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-
-<p><a name="Item_003a-poly_005flcm"></a>
-</p><dl>
-<dt><a name="index-poly_005flcm"></a><u>関数:</u> <b>poly_lcm</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i></dt>
-<dd><p><var>poly1</var>と <var>poly2</var>の最小公倍数(式)を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
-
-<p><a name="poly_005fgcd"></a>
-<a name="Item_003a-poly_005fgcd"></a>
-</p><dl>
-<dt><a name="index-poly_005fgcd"></a><u>関数:</u> <b>poly_gcd</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i></dt>
-<dd>
-<p><var>poly1</var>と <var>poly2</var>の最大公約数(式)を返します。
-</p>
-<p><code><a href="maxima_14.html#ezgcd">ezgcd</a></code>,
- <code><a href="maxima_14.html#gcd">gcd</a></code>,
- <code><a href="maxima_14.html#gcdex">gcdex</a></code>,
-<code><a href="maxima_73.html#gcdivide">gcdivide</a></code>
-も参照してください。
+<dt><a name="index-bipartition"></a><u>関数:</u> <b>bipartition</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の頂点の二分割か、もし <var>gr</var>が二部でないなら空のリストを返します。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) p1:6*x^3+19*x^2+19*x+6; 
-                        3       2
-(%o1)                6 x  + 19 x  + 19 x + 6
-(%i2) p2:6*x^5+13*x^4+12*x^3+13*x^2+6*x;
-                  5       4       3       2
-(%o2)          6 x  + 13 x  + 12 x  + 13 x  + 6 x
-(%i3) poly_gcd(p1, p2, [x]);
-                            2
-(%o3)                    6 x  + 13 x + 6
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) h : heawood_graph()$
+(%i3) [A,B]:bipartition(h);
+(%o3)  [[8, 12, 6, 10, 0, 2, 4], [13, 5, 11, 7, 9, 1, 3]]
+(%i4) draw_graph(h, show_vertices=A, program=circular)$
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
 </div></p></dd></dl>
 
-<p><a name="Item_003a-poly_005fgrobner_005fequal"></a>
+<img src="figures/graphs02.gif" alt="figures/graphs02">
+
+<p><a name="Item_003a-chromatic_005findex"></a>
 </p><dl>
-<dt><a name="index-poly_005fgrobner_005fequal"></a><u>関数:</u> <b>poly_grobner_equal</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i></dt>
-<dd><p><code>poly_grobner_equal</code>は 2つの
-Groebner基底が同じイデアルを生成するかテストします。
-もし Groebner基底と仮定された2つの多項式リスト <var>polylist1</var>と
-<var>polylist2</var>が同じイデアルを生成するなら、 <code>true</code>を返します。
-そうでないなら <code>false</code>を返します。
-これは、一番目の基底のすべての多項式が二番目の基底を法として
-0に簡約されるかとその逆をチェックすることと同値です。
-以下の例では、一番目のリストが Groebner基底でないので結果が
-<code>false</code>であることに注意してください。
+<dt><a name="index-chromatic_005findex"></a><u>関数:</u> <b>chromatic_index</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の彩色指数を返します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) poly_grobner_equal([y+x,x-y],[x,y],[x,y]);
-(%o1)                         false
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) p : petersen_graph()$
+(%i3) chromatic_index(p);
+(%o3)                           4
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
 
-<p><a name="Item_003a-poly_005fgrobner_005fsubsetp"></a>
+<p><a name="Item_003a-chromatic_005fnumber"></a>
 </p><dl>
-<dt><a name="index-poly_005fgrobner_005fsubsetp"></a><u>関数:</u> <b>poly_grobner_subsetp</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i></dt>
-<dd>
-<p><code>poly_grobner_subsetp</code>は
-<var>polylist1</var>が生成するイデアルが
-<var>polylist2</var>が生成するイデアルに含まれるかテストします。
-このテストが常に成功するには <var>polylist2</var>が Groebner基底でなければいけません。
+<dt><a name="index-chromatic_005fnumber"></a><u>関数:</u> <b>chromatic_number</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の彩色数を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
- &middot;<a href="maxima_98.html#Category_003a-Predicate-functions">Predicate functions</a>
-</div></p>
-</dd></dl>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) chromatic_number(cycle_graph(5));
+(%o2)                           3
+(%i3) chromatic_number(cycle_graph(6));
+(%o3)                           2
+</pre></td></tr></table>
 
-<p><a name="Item_003a-poly_005fgrobner_005fmember"></a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-clear_005fedge_005fweight"></a>
 </p><dl>
-<dt><a name="index-poly_005fgrobner_005fmember"></a><u>関数:</u> <b>poly_grobner_member</b><i> (<var>poly</var>, <var>polylist</var>, <var>varlist</var>)</i></dt>
+<dt><a name="index-clear_005fedge_005fweight"></a><u>関数:</u> <b>clear_edge_weight</b><i> (<var>e</var>, <var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の辺  <var>e</var>の重みを削除します。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : create_graph(3, [[[0,1], 1.5], [[1,2], 1.3]])$
+(%i3) get_edge_weight([0,1], g);
+(%o3)                          1.5
+(%i4) clear_edge_weight([0,1], g)$
+(%i5) get_edge_weight([0,1], g);
+(%o5)                           1
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-clear_005fvertex_005flabel"></a>
+</p><dl>
+<dt><a name="index-clear_005fvertex_005flabel"></a><u>関数:</u> <b>clear_vertex_label</b><i> (<var>v</var>, <var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の頂点 <var>v</var>のラベルを削除します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : create_graph([[0,&quot;Zero&quot;], [1, &quot;One&quot;]], [[0,1]])$
+(%i3) get_vertex_label(0, g);
+(%o3)                         Zero
+(%i4) clear_vertex_label(0, g);
+(%o4)                         done
+(%i5) get_vertex_label(0, g);
+(%o5)                         false
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-connected_005fcomponents"></a>
+</p><dl>
+<dt><a name="index-connected_005fcomponents"></a><u>関数:</u> <b>connected_components</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の連携成分(の頂点集合)を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g: graph_union(cycle_graph(5), path_graph(4))$
+(%i3) connected_components(g);
+(%o3)            [[1, 2, 3, 4, 0], [8, 7, 6, 5]]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-diameter"></a>
+</p><dl>
+<dt><a name="index-diameter"></a><u>関数:</u> <b>diameter</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の直径を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) diameter(dodecahedron_graph());
+(%o2)                           5
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-edge_005fcoloring"></a>
+</p><dl>
+<dt><a name="index-edge_005fcoloring"></a><u>関数:</u> <b>edge_coloring</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の辺の最適色づけを返します。
+</p>
+<p>関数は彩色指数と <var>gr</var>の辺の色付けを表すリストを返します。
+</p>
+
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) p : petersen_graph()$
+(%i3) [ch_index, col] : edge_coloring(p);
+(%o3) [4, [[[0, 5], 3], [[5, 7], 1], [[0, 1], 1], [[1, 6], 2], 
+[[6, 8], 1], [[1, 2], 3], [[2, 7], 4], [[7, 9], 2], [[2, 3], 2], 
+[[3, 8], 3], [[5, 8], 2], [[3, 4], 1], [[4, 9], 4], [[6, 9], 3], 
+[[0, 4], 2]]]
+(%i4) assoc([0,1], col);
+(%o4)                           1
+(%i5) assoc([0,5], col);
+(%o5)                           3
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-degree_005fsequence"></a>
+</p><dl>
+<dt><a name="index-degree_005fsequence"></a><u>関数:</u> <b>degree_sequence</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の頂点次数のリストを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) degree_sequence(random_graph(10, 0.4));
+(%o2)            [2, 2, 2, 2, 2, 2, 3, 3, 3, 3]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-edge_005fconnectivity"></a>
+</p><dl>
+<dt><a name="index-edge_005fconnectivity"></a><u>関数:</u> <b>edge_connectivity</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の辺連結性を返します。
+</p>
+<p><code>min_edge_cut</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-edges"></a>
+</p><dl>
+<dt><a name="index-edges"></a><u>関数:</u> <b>edges</b><i> (<var>gr</var>)</i></dt>
+<dd><p>(有向)グラフ <var>gr</var>の辺(弧)のリストを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) edges(complete_graph(4));
+(%o2)   [[2, 3], [1, 3], [1, 2], [0, 3], [0, 2], [0, 1]]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-get_005fedge_005fweight"></a>
+</p><dl>
+<dt><a name="index-get_005fedge_005fweight"></a><u>関数:</u> <b>get_edge_weight</b><i> (<var>e</var>, <var>gr</var>)</i></dt>
+<dt><a name="index-get_005fedge_005fweight-1"></a><u>関数:</u> <b>get_edge_weight</b><i> (<var>e</var>, <var>gr</var>, <var>ifnot</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の辺 <var>e</var>の重みを返します。
+</p>
+<p>もし辺に割り当てられた重みがないなら、関数は 1を返します。
+もし辺がグラフの中に存在しないなら、関数はエラーをシグナルするか、オプション引数
+<var>ifnot</var>を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) c5 : cycle_graph(5)$
+(%i3) get_edge_weight([1,2], c5);
+(%o3)                           1
+(%i4) set_edge_weight([1,2], 2.0, c5);
+(%o4)                         done
+(%i5) get_edge_weight([1,2], c5);
+(%o5)                          2.0
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-get_005fvertex_005flabel"></a>
+</p><dl>
+<dt><a name="index-get_005fvertex_005flabel"></a><u>関数:</u> <b>get_vertex_label</b><i> (<var>v</var>, <var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の頂点 <var>v</var>のラベルを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : create_graph([[0,&quot;Zero&quot;], [1, &quot;One&quot;]], [[0,1]])$
+(%i3) get_vertex_label(0, g);
+(%o3)                         Zero
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-graph_005fcharpoly"></a>
+</p><dl>
+<dt><a name="index-graph_005fcharpoly"></a><u>関数:</u> <b>graph_charpoly</b><i> (<var>gr</var>, <var>x</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の(変数 <var>x</var>に関する)特性多項式を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) p : petersen_graph()$
+(%i3) graph_charpoly(p, x), factor;
+                                   5        4
+(%o3)               (x - 3) (x - 1)  (x + 2)
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-graph_005fcenter"></a>
+</p><dl>
+<dt><a name="index-graph_005fcenter"></a><u>関数:</u> <b>graph_center</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の中心を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : grid_graph(5,5)$
+(%i3) graph_center(g);
+(%o3)                         [12]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-graph_005feigenvalues"></a>
+</p><dl>
+<dt><a name="index-graph_005feigenvalues"></a><u>関数:</u> <b>graph_eigenvalues</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の固有値を返します。
+関数は maxima <code>eigenvalue</code>関数と同じフォーマットで固有値を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) p : petersen_graph()$
+(%i3) graph_eigenvalues(p);
+(%o3)               [[3, - 2, 1], [1, 4, 5]]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-graph_005fperiphery"></a>
+</p><dl>
+<dt><a name="index-graph_005fperiphery"></a><u>関数:</u> <b>graph_periphery</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の外周を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : grid_graph(5,5)$
+(%i3) graph_periphery(g);
+(%o3)                    [24, 20, 4, 0]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-graph_005fsize"></a>
+</p><dl>
+<dt><a name="index-graph_005fsize"></a><u>関数:</u> <b>graph_size</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の辺の数を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) p : petersen_graph()$
+(%i3) graph_size(p);
+(%o3)                          15
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-graph_005forder"></a>
+</p><dl>
+<dt><a name="index-graph_005forder"></a><u>関数:</u> <b>graph_order</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の頂点の数を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) p : petersen_graph()$
+(%i3) graph_order(p);
+(%o3)                          10
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-girth"></a>
+</p><dl>
+<dt><a name="index-girth"></a><u>関数:</u> <b>girth</b><i> (<var>gr</var>)</i></dt>
+<dd><p><var>gr</var>の最短閉路の長さを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : heawood_graph()$
+(%i3) girth(g);
+(%o3)                           6
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-hamilton_005fcycle"></a>
+</p><dl>
+<dt><a name="index-hamilton_005fcycle"></a><u>関数:</u> <b>hamilton_cycle</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の Hamilton閉路を返します。
+もし <var>gr</var>がハミルトニアンでないなら空のリストを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) c : cube_graph(3)$
+(%i3) hc : hamilton_cycle(c);
+(%o3)              [7, 3, 2, 6, 4, 0, 1, 5, 7]
+(%i4) draw_graph(c, show_edges=vertices_to_cycle(hc))$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<img src="figures/graphs03.gif" alt="figures/graphs03">
+
+<p><a name="Item_003a-hamilton_005fpath"></a>
+</p><dl>
+<dt><a name="index-hamilton_005fpath"></a><u>関数:</u> <b>hamilton_path</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の Hamilton経路を返します。
+もし <var>gr</var>が Hamilton経路を持たないなら空のリストを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) p : petersen_graph()$
+(%i3) hp : hamilton_path(p);
+(%o3)            [0, 5, 7, 2, 1, 6, 8, 3, 4, 9]
+(%i4) draw_graph(p, show_edges=vertices_to_path(hp))$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<img src="figures/graphs04.gif" alt="figures/graphs04">
+
+<p><a name="Item_003a-isomorphism"></a>
+</p><dl>
+<dt><a name="index-isomorphism"></a><u>関数:</u> <b>isomorphism</b><i> (<var>gr1</var>, <var>gr2</var>)</i></dt>
 <dd>
-<p>もし多項式 <var>poly</var>が Groebner基底であると仮定された多項式リスト
-<var>polylist</var>が生成するイデアルに属するなら、 <code>true</code>を返します。
+<p>グラフ/ダイグラフ <var>gr1</var>と <var>gr2</var>の間の同型写像を返します。
+もし <var>gr1</var>と <var>gr2</var>が同型でないなら、空のリストを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) clk5:complement_graph(line_graph(complete_graph(5)))$
+(%i3) isomorphism(clk5, petersen_graph());
+(%o3) [9 -&gt; 0, 2 -&gt; 1, 6 -&gt; 2, 5 -&gt; 3, 0 -&gt; 4, 1 -&gt; 5, 3 -&gt; 6, 
+                                          4 -&gt; 7, 7 -&gt; 8, 8 -&gt; 9]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-in_005fneighbors"></a>
+</p><dl>
+<dt><a name="index-in_005fneighbors"></a><u>関数:</u> <b>in_neighbors</b><i> (<var>v</var>, <var>gr</var>)</i></dt>
+<dd><p>ダイグラフ <var>gr</var>の頂点 <var>v</var>の内隣接点のリストを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) p : path_digraph(3)$
+(%i3) in_neighbors(2, p);
+(%o3)                          [1]
+(%i4) out_neighbors(2, p);
+(%o4)                          []
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-is_005fbiconnected"></a>
+</p><dl>
+<dt><a name="index-is_005fbiconnected"></a><u>関数:</u> <b>is_biconnected</b><i> (<var>gr</var>)</i></dt>
+<dd><p>もし <var>gr</var>が二連結なら <code>true</code>を、
 そうでないなら <code>false</code>を返します。
 </p>
-<p><code>poly_grobner_member</code>は多項式が
-Groebner基底であると仮定された多項式のリストが生成するイデアルに属するかテストします。
-<code>normal_form</code>が 0と同値です。
-</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) is_biconnected(cycle_graph(5));
+(%o2)                         true
+(%i3) is_biconnected(path_graph(5));
+(%o3)                         false
+</pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
 
-<p><a name="Item_003a-poly_005fideal_005fsaturation1"></a>
+<p><a name="Item_003a-is_005fbipartite"></a>
 </p><dl>
-<dt><a name="index-poly_005fideal_005fsaturation1"></a><u>関数:</u> <b>poly_ideal_saturation1</b><i> (<var>polylist</var>, <var>poly</var>, <var>varlist</var>)</i></dt>
-<dd><p>イデアル
+<dt><a name="index-is_005fbipartite"></a><u>関数:</u> <b>is_bipartite</b><i> (<var>gr</var>)</i></dt>
+<dd><p>もし <var>gr</var>が二部(二彩色)なら <code>true</code>を、
+そうでないなら <code>false</code>を返します。
 </p>
-<p>I(polylist):poly^inf
-の saturationの簡約 Groebner基底を返します。
-</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) is_bipartite(petersen_graph());
+(%o2)                         false
+(%i3) is_bipartite(heawood_graph());
+(%o3)                         true
+</pre></td></tr></table>
 
-<p>幾何学的に、代数的閉体上で、これは
-<var>poly</var>の多様体上で恒等的に 0とならない
-<var>polylist</var>が生成するイデアルの中の多項式の集合です。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
 
-<p><a name="Item_003a-poly_005fideal_005fsaturation"></a>
+<p><a name="Item_003a-is_005fconnected"></a>
 </p><dl>
-<dt><a name="index-poly_005fideal_005fsaturation"></a><u>関数:</u> <b>poly_ideal_saturation</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i></dt>
-<dd><p>イデアル
+<dt><a name="index-is_005fconnected"></a><u>関数:</u> <b>is_connected</b><i> (<var>gr</var>)</i></dt>
+<dd><p>もしグラフ <var>gr</var>が連結なら <code>true</code>を、
+そうでないなら <code>false</code>を返します。
 </p>
-<p>I(polylist1):I(polylist2)^inf
-の saturationの簡約 Groebner基底を返します。
-</p>
-<p>幾何学的に、代数的閉体上で、これは
-<var>polylist2</var>の多様体上で恒等的に 0とならない
-<var>polylist1</var>が生成するイデアルの中の多項式の集合です。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) is_connected(graph_union(cycle_graph(4), path_graph(3)));
+(%o2)                         false
+</pre></td></tr></table>
 
-<p><a name="Item_003a-poly_005fideal_005fpolysaturation1"></a>
-</p><dl>
-<dt><a name="index-poly_005fideal_005fpolysaturation1"></a><u>関数:</u> <b>poly_ideal_polysaturation1</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i></dt>
-<dd><p><var>polylist2</var>は 2個の多項式のリスト <code>[poly1,...,polyn]</code>です。
-多項式リスト <var>polylist1</var>が生成するイデアルの多項式リスト
-<var>polylist2</var>の多項式に関する連続 saturationの列によって得られるイデアル
-</p>
-<p>I(polylist):poly1^inf:...:polyn^inf
-</p>
-<p>の簡約 Groebner基底を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
 
-<p><a name="Item_003a-poly_005fideal_005fpolysaturation"></a>
+<p><a name="Item_003a-is_005fdigraph"></a>
 </p><dl>
-<dt><a name="index-poly_005fideal_005fpolysaturation"></a><u>関数:</u> <b>poly_ideal_polysaturation</b><i> (<var>polylist</var>, <var>polylistlist</var>, <var>varlist</var>)</i></dt>
-<dd><p><var>polylistlist</var>は多項式リスト n個のリスト <code>[polylist1,...,polylistn]</code>です。
-イデアル
+<dt><a name="index-is_005fdigraph"></a><u>関数:</u> <b>is_digraph</b><i> (<var>gr</var>)</i></dt>
+<dd><p>もし <var>gr</var>がダイグラフなら <code>true</code>を、
+そうでないなら <code>false</code>を返します。
 </p>
-<p>I(polylist):I(polylist_1)^inf:...:I(polylist_n)^inf
-の saturationの簡約 Groebner基底を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) is_digraph(path_graph(5));
+(%o2)                         false
+(%i3) is_digraph(path_digraph(5));
+(%o3)                         true
+</pre></td></tr></table>
 
-<p><a name="Item_003a-poly_005fsaturation_005fextension"></a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-is_005fedge_005fin_005fgraph"></a>
 </p><dl>
-<dt><a name="index-poly_005fsaturation_005fextension"></a><u>関数:</u> <b>poly_saturation_extension</b><i> (<var>poly</var>, <var>polylist</var>, <var>varlist1</var>, <var>varlist2</var>)</i></dt>
+<dt><a name="index-is_005fedge_005fin_005fgraph"></a><u>関数:</u> <b>is_edge_in_graph</b><i> (<var>e</var>, <var>gr</var>)</i></dt>
+<dd><p>もし <var>e</var>が(有向)グラフ <var>g</var>の辺(弧)なら <code>true</code>を、
+そうでないなら <code>false</code>を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) c4 : cycle_graph(4)$
+(%i3) is_edge_in_graph([2,3], c4);
+(%o3)                         true
+(%i4) is_edge_in_graph([3,2], c4);
+(%o4)                         true
+(%i5) is_edge_in_graph([2,4], c4);
+(%o5)                         false
+(%i6) is_edge_in_graph([3,2], cycle_digraph(4));
+(%o6)                         false
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-is_005fgraph"></a>
+</p><dl>
+<dt><a name="index-is_005fgraph"></a><u>関数:</u> <b>is_graph</b><i> (<var>gr</var>)</i></dt>
+<dd><p>もし <var>gr</var>がグラフなら <code>true</code>を、
+そうでないなら <code>false</code>を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) is_graph(path_graph(5));
+(%o2)                         true
+(%i3) is_graph(path_digraph(5));
+(%o3)                         false
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-is_005fgraph_005for_005fdigraph"></a>
+</p><dl>
+<dt><a name="index-is_005fgraph_005for_005fdigraph"></a><u>関数:</u> <b>is_graph_or_digraph</b><i> (<var>gr</var>)</i></dt>
+<dd><p>もし <var>gr</var>がグラフかダイグラフなら <code>true</code>を、
+そうでないなら <code>false</code>を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) is_graph_or_digraph(path_graph(5));
+(%o2)                         true
+(%i3) is_graph_or_digraph(path_digraph(5));
+(%o3)                         true
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-is_005fisomorphic"></a>
+</p><dl>
+<dt><a name="index-is_005fisomorphic"></a><u>関数:</u> <b>is_isomorphic</b><i> (<var>gr1</var>, <var>gr2</var>)</i></dt>
 <dd>
-<p><code>poly_saturation_extension</code>は有名な Rabinowitzのトリックを実装します。
+<p>もし グラフ/ダイグラフ <var>gr1</var>と <var>gr2</var>が同型なら <code>true</code>を、
+そうでないなら <code>false</code>を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<p><code>isomorphism</code>も参照してください。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) clk5:complement_graph(line_graph(complete_graph(5)))$
+(%i3) is_isomorphic(clk5, petersen_graph());
+(%o3)                         true
+</pre></td></tr></table>
 
-<p><a name="Item_003a-poly_005fpolysaturation_005fextension"></a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-is_005fplanar"></a>
 </p><dl>
-<dt><a name="index-poly_005fpolysaturation_005fextension"></a><u>関数:</u> <b>poly_polysaturation_extension</b><i> (<var>poly</var>, <var>polylist</var>, <var>varlist1</var>, <var>varlist2</var>)</i></dt>
+<dt><a name="index-is_005fplanar"></a><u>関数:</u> <b>is_planar</b><i> (<var>gr</var>)</i></dt>
 <dd>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-grobner">Package grobner</a>
-</div></p>
-</dd></dl>
+<p>もし <var>gr</var>が平面グラフなら <code>true</code>を、
+そうでないなら <code>false</code>を返します。
+</p>
+<p>使われているアルゴリズムはDemoucronのアルゴリズムです。
+これは二次時間アルゴリズムです。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) is_planar(dodecahedron_graph());
+(%o2)                         true
+(%i3) is_planar(petersen_graph());
+(%o3)                         false
+(%i4) is_planar(petersen_graph(10,2));
+(%o4)                         true
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-is_005fsconnected"></a>
+</p><dl>
+<dt><a name="index-is_005fsconnected"></a><u>関数:</u> <b>is_sconnected</b><i> (<var>gr</var>)</i></dt>
+<dd><p>もしダイグラフ <var>gr</var>が強連結なら <code>true</code>を、
+そうでないなら <code>false</code>を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) is_sconnected(cycle_digraph(5));
+(%o2)                         true
+(%i3) is_sconnected(path_digraph(5));
+(%o3)                         false
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-is_005fvertex_005fin_005fgraph"></a>
+</p><dl>
+<dt><a name="index-is_005fvertex_005fin_005fgraph"></a><u>関数:</u> <b>is_vertex_in_graph</b><i> (<var>v</var>, <var>gr</var>)</i></dt>
+<dd><p>もし <var>v</var>がグラフ <var>g</var>の頂点なら <code>true</code>を、
+そうでないなら <code>false</code>を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) c4 : cycle_graph(4)$
+(%i3) is_vertex_in_graph(0, c4);
+(%o3)                         true
+(%i4) is_vertex_in_graph(6, c4);
+(%o4)                         false
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-is_005ftree"></a>
+</p><dl>
+<dt><a name="index-is_005ftree"></a><u>関数:</u> <b>is_tree</b><i> (<var>gr</var>)</i></dt>
+<dd><p>もし <var>gr</var>が木なら <code>true</code>を、
+そうでないなら <code>false</code>を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) is_tree(random_tree(4));
+(%o2)                         true
+(%i3) is_tree(graph_union(random_tree(4), random_tree(5)));
+(%o3)                         false
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-laplacian_005fmatrix"></a>
+</p><dl>
+<dt><a name="index-laplacian_005fmatrix"></a><u>関数:</u> <b>laplacian_matrix</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の Laplace行列を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) laplacian_matrix(cycle_graph(5));
+                   [  2   - 1   0    0   - 1 ]
+                   [                         ]
+                   [ - 1   2   - 1   0    0  ]
+                   [                         ]
+(%o2)              [  0   - 1   2   - 1   0  ]
+                   [                         ]
+                   [  0    0   - 1   2   - 1 ]
+                   [                         ]
+                   [ - 1   0    0   - 1   2  ]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-max_005fclique"></a>
+</p><dl>
+<dt><a name="index-max_005fclique"></a><u>関数:</u> <b>max_clique</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の最大クリークを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : random_graph(100, 0.5)$
+(%i3) max_clique(g);
+(%o3)          [6, 12, 31, 36, 52, 59, 62, 63, 80]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-max_005fdegree"></a>
+</p><dl>
+<dt><a name="index-max_005fdegree"></a><u>関数:</u> <b>max_degree</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の頂点の最大次数と最大次数の頂点を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : random_graph(100, 0.02)$
+(%i3) max_degree(g);
+(%o3)                        [6, 79]
+(%i4) vertex_degree(95, g);
+(%o4)                           2
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-max_005fflow"></a>
+</p><dl>
+<dt><a name="index-max_005fflow"></a><u>関数:</u> <b>max_flow</b><i> (<var>net</var>, <var>s</var>, <var>t</var>)</i></dt>
+<dd><p>ソース <var>s</var>とシンク <var>t</var>を持ち
+ネットワーク <var>net</var>を通る最大フローを返します。
+</p>
+<p>関数は最大フローの値と最適フローで弧の重みを表現するリストを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) net : create_graph(
+  [1,2,3,4,5,6],
+  [[[1,2], 1.0],
+   [[1,3], 0.3],
+   [[2,4], 0.2],
+   [[2,5], 0.3],
+   [[3,4], 0.1],
+   [[3,5], 0.1],
+   [[4,6], 1.0],
+   [[5,6], 1.0]],
+  directed=true)$
+(%i3) [flow_value, flow] : max_flow(net, 1, 6);
+(%o3) [0.7, [[[1, 2], 0.5], [[1, 3], 0.2], [[2, 4], 0.2], 
+[[2, 5], 0.3], [[3, 4], 0.1], [[3, 5], 0.1], [[4, 6], 0.3], 
+[[5, 6], 0.4]]]
+(%i4) fl : 0$
+(%i5) for u in out_neighbors(1, net)
+     do fl : fl + assoc([1, u], flow)$
+(%i6) fl;
+(%o6)                          0.7
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-max_005findependent_005fset"></a>
+</p><dl>
+<dt><a name="index-max_005findependent_005fset"></a><u>関数:</u> <b>max_independent_set</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の最大独立集合を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) d : dodecahedron_graph()$
+(%i3) mi : max_independent_set(d);
+(%o3)             [0, 3, 5, 9, 10, 11, 18, 19]
+(%i4) draw_graph(d, show_vertices=mi)$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<img src="figures/graphs05.gif" alt="figures/graphs05">
+
+<p><a name="Item_003a-max_005fmatching"></a>
+</p><dl>
+<dt><a name="index-max_005fmatching"></a><u>関数:</u> <b>max_matching</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の最大マッチングを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) d : dodecahedron_graph()$
+(%i3) m : max_matching(d);
+(%o3) [[5, 7], [8, 9], [6, 10], [14, 19], [13, 18], [12, 17], 
+                               [11, 16], [0, 15], [3, 4], [1, 2]]
+(%i4) draw_graph(d, show_edges=m)$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<img src="figures/graphs06.gif" alt="figures/graphs06">
+
+<p><a name="Item_003a-min_005fdegree"></a>
+</p><dl>
+<dt><a name="index-min_005fdegree"></a><u>関数:</u> <b>min_degree</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の頂点の最小次数と最小次数の頂点を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : random_graph(100, 0.1)$
+(%i3) min_degree(g);
+(%o3)                        [3, 49]
+(%i4) vertex_degree(21, g);
+(%o4)                           9
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-min_005fedge_005fcut"></a>
+</p><dl>
+<dt><a name="index-min_005fedge_005fcut"></a><u>関数:</u> <b>min_edge_cut</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の最小切断辺を返します。
+</p>
+<p><code>edge_connectivity</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-min_005fvertex_005fcover"></a>
+</p><dl>
+<dt><a name="index-min_005fvertex_005fcover"></a><u>関数:</u> <b>min_vertex_cover</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の最小頂点被覆を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-min_005fvertex_005fcut"></a>
+</p><dl>
+<dt><a name="index-min_005fvertex_005fcut"></a><u>関数:</u> <b>min_vertex_cut</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の最小頂点切断を返します。
+</p>
+<p><code>vertex_connectivity</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-minimum_005fspanning_005ftree"></a>
+</p><dl>
+<dt><a name="index-minimum_005fspanning_005ftree"></a><u>関数:</u> <b>minimum_spanning_tree</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の最小全域木を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : graph_product(path_graph(10), path_graph(10))$
+(%i3) t : minimum_spanning_tree(g)$
+(%i4) draw_graph(g, show_edges=edges(t))$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<img src="figures/graphs07.gif" alt="figures/graphs07">
+
+<p><a name="Item_003a-neighbors"></a>
+</p><dl>
+<dt><a name="index-neighbors"></a><u>関数:</u> <b>neighbors</b><i> (<var>v</var>, <var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の頂点 <var>v</var>の隣接点のリストを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) p : petersen_graph()$
+(%i3) neighbors(3, p);
+(%o3)                       [4, 8, 2]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-odd_005fgirth"></a>
+</p><dl>
+<dt><a name="index-odd_005fgirth"></a><u>関数:</u> <b>odd_girth</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の最短奇閉路の長さを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : graph_product(cycle_graph(4), cycle_graph(7))$
+(%i3) girth(g);
+(%o3)                           4
+(%i4) odd_girth(g);
+(%o4)                           7
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-out_005fneighbors"></a>
+</p><dl>
+<dt><a name="index-out_005fneighbors"></a><u>関数:</u> <b>out_neighbors</b><i> (<var>v</var>, <var>gr</var>)</i></dt>
+<dd><p>ダイグラフ <var>gr</var>の頂点 <var>v</var>の外隣接点のリストを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) p : path_digraph(3)$
+(%i3) in_neighbors(2, p);
+(%o3)                          [1]
+(%i4) out_neighbors(2, p);
+(%o4)                          []
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-planar_005fembedding"></a>
+</p><dl>
+<dt><a name="index-planar_005fembedding"></a><u>関数:</u> <b>planar_embedding</b><i> (<var>gr</var>)</i></dt>
+<dd>
+<p><var>gr</var>の平面埋め込みでのfacial walkのリストを返します。
+もし <var>gr</var>が平面グラフでないなら <code>false</code>を返します。
+</p>
+<p>グラフ <var>gr</var>は二連結でなければいけません。
+</p>
+<p>使われるアルゴリズムは Demoucronのアルゴリズムです。
+これは二次時間アルゴリズムです。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) planar_embedding(grid_graph(3,3));
+(%o2) [[3, 6, 7, 8, 5, 2, 1, 0], [4, 3, 0, 1], [3, 4, 7, 6], 
+                                      [8, 7, 4, 5], [1, 2, 5, 4]]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-print_005fgraph"></a>
+</p><dl>
+<dt><a name="index-print_005fgraph"></a><u>関数:</u> <b>print_graph</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>についてのある情報を印字します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) c5 : cycle_graph(5)$
+(%i3) print_graph(c5)$
+Graph on 5 vertices with 5 edges.
+Adjacencies:
+  4 :  0  3
+  3 :  4  2
+  2 :  3  1
+  1 :  2  0
+  0 :  4  1
+(%i4) dc5 : cycle_digraph(5)$
+(%i5) print_graph(dc5)$
+Digraph on 5 vertices with 5 arcs.
+Adjacencies:
+  4 :  0
+  3 :  4
+  2 :  3
+  1 :  2
+  0 :  1
+(%i6) out_neighbors(0, dc5);
+(%o6)                          [1]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-radius"></a>
+</p><dl>
+<dt><a name="index-radius"></a><u>関数:</u> <b>radius</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の半径を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) radius(dodecahedron_graph());
+(%o2)                           5
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-set_005fedge_005fweight"></a>
+</p><dl>
+<dt><a name="index-set_005fedge_005fweight"></a><u>関数:</u> <b>set_edge_weight</b><i> (<var>e</var>, <var>w</var>, <var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の辺 <var>e</var>に重み <var>w</var>を割り当てます。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : create_graph([1, 2], [[[1,2], 1.2]])$
+(%i3) get_edge_weight([1,2], g);
+(%o3)                          1.2
+(%i4) set_edge_weight([1,2], 2.1, g);
+(%o4)                         done
+(%i5) get_edge_weight([1,2], g);
+(%o5)                          2.1
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-set_005fvertex_005flabel"></a>
+</p><dl>
+<dt><a name="index-set_005fvertex_005flabel"></a><u>関数:</u> <b>set_vertex_label</b><i> (<var>v</var>, <var>l</var>, <var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の頂点 <var>v</var>にラベル <var>l</var>を割り当てます。
+</p>
+
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : create_graph([[1, &quot;One&quot;], [2, &quot;Two&quot;]], [[1,2]])$
+(%i3) get_vertex_label(1, g);
+(%o3)                          One
+(%i4) set_vertex_label(1, &quot;oNE&quot;, g);
+(%o4)                         done
+(%i5) get_vertex_label(1, g);
+(%o5)                          oNE
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-shortest_005fpath"></a>
+</p><dl>
+<dt><a name="index-shortest_005fpath"></a><u>関数:</u> <b>shortest_path</b><i> (<var>u</var>, <var>v</var>, <var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の <var>u</var>から <var>v</var>までの最短経路を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) d : dodecahedron_graph()$
+(%i3) path : shortest_path(0, 7, d);
+(%o3)                   [0, 1, 19, 13, 7]
+(%i4) draw_graph(d, show_edges=vertices_to_path(path))$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<img src="figures/graphs08.gif" alt="figures/graphs08">
+
+<p><a name="Item_003a-shortest_005fweighted_005fpath"></a>
+</p><dl>
+<dt><a name="index-shortest_005fweighted_005fpath"></a><u>関数:</u> <b>shortest_weighted_path</b><i> (<var>u</var>, <var>v</var>, <var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の <var>u</var>から <var>v</var>までの最短重み付き経路とその長さを返します。
+</p>
+<p>重み付き経路の長さは経路内の辺の辺重みの和です。
+もし辺に重みがないなら、辺はデフォルト重み1を持ちます。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g: petersen_graph(20, 2)$
+(%i3) for e in edges(g) do set_edge_weight(e, random(1.0), g)$
+(%i4) shortest_weighted_path(0, 10, g);
+(%o4) [2.575143920268482, [0, 20, 38, 36, 34, 32, 30, 10]]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-strong_005fcomponents"></a>
+</p><dl>
+<dt><a name="index-strong_005fcomponents"></a><u>関数:</u> <b>strong_components</b><i> (<var>gr</var>)</i></dt>
+<dd><p>ダイグラフ <var>gr</var>の強成分を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) t : random_tournament(4)$
+(%i3) strong_components(t);
+(%o3)                 [[1], [0], [2], [3]]
+(%i4) vertex_out_degree(3, t);
+(%o4)                           3
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-topological_005fsort"></a>
+</p><dl>
+<dt><a name="index-topological_005fsort"></a><u>関数:</u> <b>topological_sort</b><i> (<var>dag</var>)</i></dt>
+<dd>
+<p>Returns a topological sorting of the vertices of a directed graph
+ダイグラフ <var>dag</var>の頂点のトポロジカルソートを返します。
+もし <var>dag</var>が有向無閉路グラフなら空のリストを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g:create_graph(
+         [1,2,3,4,5],
+         [
+          [1,2], [2,5], [5,3],
+          [5,4], [3,4], [1,3]
+         ],
+         directed=true)$
+(%i3) topological_sort(g);
+(%o3)                    [1, 2, 5, 3, 4]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-vertex_005fconnectivity"></a>
+</p><dl>
+<dt><a name="index-vertex_005fconnectivity"></a><u>関数:</u> <b>vertex_connectivity</b><i> (<var>g</var>)</i></dt>
+<dd><p>グラフ <var>g</var>の頂点連結性を返します。
+</p>
+<p><code>min_vertex_cut</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-vertex_005fdegree"></a>
+</p><dl>
+<dt><a name="index-vertex_005fdegree"></a><u>関数:</u> <b>vertex_degree</b><i> (<var>v</var>, <var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の頂点 <var>v</var>の次数を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-vertex_005fdistance"></a>
+</p><dl>
+<dt><a name="index-vertex_005fdistance"></a><u>関数:</u> <b>vertex_distance</b><i> (<var>u</var>, <var>v</var>, <var>gr</var>)</i></dt>
+<dd><p>(有向)グラフ <var>gr</var>の <var>u</var>と <var>v</var>の間の最短経路の長さを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) d : dodecahedron_graph()$
+(%i3) vertex_distance(0, 7, d);
+(%o3)                           4
+(%i4) shortest_path(0, 7, d);
+(%o4)                   [0, 1, 19, 13, 7]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-vertex_005feccentricity"></a>
+</p><dl>
+<dt><a name="index-vertex_005feccentricity"></a><u>関数:</u> <b>vertex_eccentricity</b><i> (<var>v</var>, <var>gr</var>)</i></dt>
+<dd>
+<p>グラフ <var>gr</var>の頂点 <var>v</var>の離心率を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g:cycle_graph(7)$
+(%i3) vertex_eccentricity(0, g);
+(%o3)                           3
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-vertex_005fin_005fdegree"></a>
+</p><dl>
+<dt><a name="index-vertex_005fin_005fdegree"></a><u>関数:</u> <b>vertex_in_degree</b><i> (<var>v</var>, <var>gr</var>)</i></dt>
+<dd><p>ダイグラフ <var>gr</var>の頂点 <var>v</var>の内次数を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) p5 : path_digraph(5)$
+(%i3) print_graph(p5)$
+Digraph on 5 vertices with 4 arcs.
+Adjacencies:
+  4 :
+  3 :  4
+  2 :  3
+  1 :  2
+  0 :  1
+(%i4) vertex_in_degree(4, p5);
+(%o4)                           1
+(%i5) in_neighbors(4, p5);
+(%o5)                          [3]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-vertex_005fout_005fdegree"></a>
+</p><dl>
+<dt><a name="index-vertex_005fout_005fdegree"></a><u>関数:</u> <b>vertex_out_degree</b><i> (<var>v</var>, <var>gr</var>)</i></dt>
+<dd><p>ダイグラフ <var>gr</var>の頂点 <var>v</var>の外次数を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) t : random_tournament(10)$
+(%i3) vertex_out_degree(0, t);
+(%o3)                           2
+(%i4) out_neighbors(0, t);
+(%o4)                        [7, 1]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-vertices"></a>
+</p><dl>
+<dt><a name="index-vertices"></a><u>関数:</u> <b>vertices</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の頂点のリストを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) vertices(complete_graph(4));
+(%o2)                     [3, 2, 1, 0]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-vertex_005fcoloring"></a>
+</p><dl>
+<dt><a name="index-vertex_005fcoloring"></a><u>関数:</u> <b>vertex_coloring</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の頂点の最適色付けを返します。
+</p>
+<p>関数は、彩色数と <var>gr</var>の頂点の色付けを表すリストを返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) p:petersen_graph()$
+(%i3) vertex_coloring(p);
+(%o3) [3, [[0, 2], [1, 3], [2, 2], [3, 3], [4, 1], [5, 3], 
+                                 [6, 1], [7, 1], [8, 2], [9, 2]]]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-wiener_005findex"></a>
+</p><dl>
+<dt><a name="index-wiener_005findex"></a><u>関数:</u> <b>wiener_index</b><i> (<var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>のWiener指数を返します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i2) wiener_index(dodecahedron_graph());
+(%o2)                          500
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-properties">Package graphs - properties</a>
+</div></p></dd></dl>
+
+<hr size="6">
+<a name="Modifying-graphs"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Graph-properties" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Reading-and-writing-to-files" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#graphs" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-graphs" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_58.html#grobner" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">57.2.3 Modifying graphs</h3>
+
+<p><a name="Item_003a-add_005fedge"></a>
+</p><dl>
+<dt><a name="index-add_005fedge"></a><u>関数:</u> <b>add_edge</b><i> (<var>e</var>, <var>gr</var>)</i></dt>
+<dd><p>辺 <var>e</var>をグラフ <var>gr</var>に加えます。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) p : path_graph(4)$
+(%i3) neighbors(0, p);
+(%o3)                          [1]
+(%i4) add_edge([0,3], p);
+(%o4)                         done
+(%i5) neighbors(0, p);
+(%o5)                        [3, 1]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-modifications">Package graphs - modifications</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-add_005fedges"></a>
+</p><dl>
+<dt><a name="index-add_005fedges"></a><u>関数:</u> <b>add_edges</b><i> (<var>e_list</var>, <var>gr</var>)</i></dt>
+<dd><p>リスト <var>e_list</var>の中の辺すべてをグラフ <var>gr</var>に加えます。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : empty_graph(3)$
+(%i3) add_edges([[0,1],[1,2]], g)$
+(%i4) print_graph(g)$
+Graph on 3 vertices with 2 edges.
+Adjacencies:
+  2 :  1
+  1 :  2  0
+  0 :  1
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-modifications">Package graphs - modifications</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-add_005fvertex"></a>
+</p><dl>
+<dt><a name="index-add_005fvertex"></a><u>関数:</u> <b>add_vertex</b><i> (<var>v</var>, <var>gr</var>)</i></dt>
+<dd><p>頂点 <var>v</var>をグラフ <var>gr</var>に加えます。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : path_graph(2)$
+(%i3) add_vertex(2, g)$
+(%i4) print_graph(g)$
+Graph on 3 vertices with 1 edges.
+Adjacencies:
+  2 :
+  1 :  0
+  0 :  1
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-modifications">Package graphs - modifications</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-add_005fvertices"></a>
+</p><dl>
+<dt><a name="index-add_005fvertices"></a><u>関数:</u> <b>add_vertices</b><i> (<var>v_list</var>, <var>gr</var>)</i></dt>
+<dd><p>リスト <var>v_list</var>の中の頂点すべてをグラフ <var>gr</var>に加えます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-modifications">Package graphs - modifications</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-connect_005fvertices"></a>
+</p><dl>
+<dt><a name="index-connect_005fvertices"></a><u>関数:</u> <b>connect_vertices</b><i> (<var>v_list</var>, <var>u_list</var>, <var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>に関して、リスト <var>v_list</var>内の頂点すべてをリスト
+<var>u_list</var>内の頂点に連結します。
+</p>
+
+<p><var>v_list</var>と <var>u_list</var>は1つの頂点か、頂点のリストを取り得ます。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g : empty_graph(4)$
+(%i3) connect_vertices(0, [1,2,3], g)$
+(%i4) print_graph(g)$
+Graph on 4 vertices with 3 edges.
+Adjacencies:
+  3 :  0
+  2 :  0
+  1 :  0
+  0 :  3  2  1
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-modifications">Package graphs - modifications</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-contract_005fedge"></a>
+</p><dl>
+<dt><a name="index-contract_005fedge"></a><u>関数:</u> <b>contract_edge</b><i> (<var>e</var>, <var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>の辺 <var>e</var>を縮約します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g: create_graph(
+      8, [[0,3],[1,3],[2,3],[3,4],[4,5],[4,6],[4,7]])$
+(%i3) print_graph(g)$
+Graph on 8 vertices with 7 edges.
+Adjacencies:
+  7 :  4
+  6 :  4
+  5 :  4
+  4 :  7  6  5  3
+  3 :  4  2  1  0
+  2 :  3
+  1 :  3
+  0 :  3
+(%i4) contract_edge([3,4], g)$
+(%i5) print_graph(g)$
+Graph on 7 vertices with 6 edges.
+Adjacencies:
+  7 :  3
+  6 :  3
+  5 :  3
+  3 :  5  6  7  2  1  0
+  2 :  3
+  1 :  3
+  0 :  3
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-modifications">Package graphs - modifications</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-remove_005fedge"></a>
+</p><dl>
+<dt><a name="index-remove_005fedge"></a><u>関数:</u> <b>remove_edge</b><i> (<var>e</var>, <var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>から辺 <var>e</var>を削除します。
+</p>
+<p>例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) c3 : cycle_graph(3)$
+(%i3) remove_edge([0,1], c3)$
+(%i4) print_graph(c3)$
+Graph on 3 vertices with 2 edges.
+Adjacencies:
+  2 :  0  1
+  1 :  2
+  0 :  2
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-modifications">Package graphs - modifications</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-remove_005fvertex"></a>
+</p><dl>
+<dt><a name="index-remove_005fvertex"></a><u>関数:</u> <b>remove_vertex</b><i> (<var>v</var>, <var>gr</var>)</i></dt>
+<dd><p>グラフ <var>gr</var>から頂点 <var>v</var>を削除します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+</div></p></dd></dl>
+
+<hr size="6">
+<a name="Reading-and-writing-to-files"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Modifying-graphs" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Visualization" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#graphs" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-graphs" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_58.html#grobner" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">57.2.4 Reading and writing to files</h3>
+
+<p><a name="Item_003a-dimacs_005fexport"></a>
+</p><dl>
+<dt><a name="index-dimacs_005fexport"></a><u>関数:</u> <b>dimacs_export</b><i> (<var>gr</var>, <var>fl</var>)</i></dt>
+<dt><a name="index-dimacs_005fexport-1"></a><u>関数:</u> <b>dimacs_export</b><i> (<var>gr</var>, <var>fl</var>, <var>comment1</var>, ..., <var>commentn</var>)</i></dt>
+<dd>
+<p>グラフをファイル <var>fl</var>にDIMACSフォーマットでエクスポートします。
+オプションのコメントはファイルの頭に加えられます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-io">Package graphs - io</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-dimacs_005fimport"></a>
+</p><dl>
+<dt><a name="index-dimacs_005fimport"></a><u>関数:</u> <b>dimacs_import</b><i> (<var>fl</var>)</i></dt>
+<dd>
+<p>DIMACSフォーマットのファイル <var>fl</var>からグラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-io">Package graphs - io</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-graph6_005fdecode"></a>
+</p><dl>
+<dt><a name="index-graph6_005fdecode"></a><u>関数:</u> <b>graph6_decode</b><i> (<var>str</var>)</i></dt>
+<dd>
+<p>文字列 <var>str</var>に graph6フォーマットで符号化されたグラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-io">Package graphs - io</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-graph6_005fencode"></a>
+</p><dl>
+<dt><a name="index-graph6_005fencode"></a><u>関数:</u> <b>graph6_encode</b><i> (<var>gr</var>)</i></dt>
+<dd>
+<p>グラフ <var>gr</var>を graph6フォーマットに符号化した文字列を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-io">Package graphs - io</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-graph6_005fexport"></a>
+</p><dl>
+<dt><a name="index-graph6_005fexport"></a><u>関数:</u> <b>graph6_export</b><i> (<var>gr_list</var>, <var>fl</var>)</i></dt>
+<dd>
+<p>リスト <var>gr_list</var>内のグラフをファイル <var>fl</var>に
+graph6フォーマットでエクスポートします。
+</p>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-io">Package graphs - io</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-graph6_005fimport"></a>
+</p><dl>
+<dt><a name="index-graph6_005fimport"></a><u>関数:</u> <b>graph6_import</b><i> (<var>fl</var>)</i></dt>
+<dd>
+<p>graph6フォーマットのファイル <var>fl</var>からグラフのリストを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-io">Package graphs - io</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-sparse6_005fdecode"></a>
+</p><dl>
+<dt><a name="index-sparse6_005fdecode"></a><u>関数:</u> <b>sparse6_decode</b><i> (<var>str</var>)</i></dt>
+<dd>
+<p>文字列 <var>str</var>に sparse6フォーマットで符号化されたグラフを返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-io">Package graphs - io</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-sparse6_005fencode"></a>
+</p><dl>
+<dt><a name="index-sparse6_005fencode"></a><u>関数:</u> <b>sparse6_encode</b><i> (<var>gr</var>)</i></dt>
+<dd>
+<p>グラフ <var>gr</var>を sparse6フォーマットに符号化した文字列を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-io">Package graphs - io</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-sparse6_005fexport"></a>
+</p><dl>
+<dt><a name="index-sparse6_005fexport"></a><u>関数:</u> <b>sparse6_export</b><i> (<var>gr_list</var>, <var>fl</var>)</i></dt>
+<dd>
+<p>リスト <var>gr_list</var>内のグラフをファイル <var>fl</var>に
+sparse6フォーマットでエクスポートします。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-io">Package graphs - io</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-sparse6_005fimport"></a>
+</p><dl>
+<dt><a name="index-sparse6_005fimport"></a><u>関数:</u> <b>sparse6_import</b><i> (<var>fl</var>)</i></dt>
+<dd>
+<p>sparse6フォーマットのファイル <var>fl</var>からグラフのリストを返します。
+</p>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-io">Package graphs - io</a>
+</div></p></dd></dl>
+
+<hr size="6">
+<a name="Visualization"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Reading-and-writing-to-files" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_58.html#grobner" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#graphs" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-graphs" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_58.html#grobner" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">57.2.5 Visualization</h3>
+
+<p><a name="Item_003a-draw_005fgraph"></a>
+</p><dl>
+<dt><a name="index-draw_005fgraph"></a><u>関数:</u> <b>draw_graph</b><i> (<var>graph</var>)</i></dt>
+<dt><a name="index-draw_005fgraph-1"></a><u>関数:</u> <b>draw_graph</b><i> (<var>graph</var>, <var>option1</var>, ..., <var>optionk</var>)</i></dt>
+<dd><p><code>draw</code>パッケージを使ってグラフを描画します。
+</p>
+<p>頂点を配置するのに使われるアルゴリズムはオプション引数 <var>program</var>で指定されます。
+デフォルト値は <code>program=spring_embedding</code>です。
+<var>draw_graph</var>は頂点を配置するのに graphvizプログラムも使うことができますが、
+graphvizを別途インストールしなければいけません。
+</p>
+<p>例 1:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g:grid_graph(10,10)$
+(%i3) m:max_matching(g)$
+(%i4) draw_graph(g,
+   spring_embedding_depth=100,
+   show_edges=m, edge_type=dots,
+   vertex_size=0)$
+</pre></td></tr></table>
+
+<img src="figures/graphs09.gif" alt="figures/graphs09">
+
+<p>例 2:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g:create_graph(16,
+    [
+     [0,1],[1,3],[2,3],[0,2],[3,4],[2,4],
+     [5,6],[6,4],[4,7],[6,7],[7,8],[7,10],[7,11],
+     [8,10],[11,10],[8,9],[11,12],[9,15],[12,13],
+     [10,14],[15,14],[13,14]
+    ])$
+(%i3) t:minimum_spanning_tree(g)$
+(%i4) draw_graph(
+    g,
+    show_edges=edges(t),
+    show_edge_width=4,
+    show_edge_color=green,
+    vertex_type=filled_square,
+    vertex_size=2
+    )$
+</pre></td></tr></table>
+
+<img src="figures/graphs10.gif" alt="figures/graphs10">
+
+<p>例 3:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) g:create_graph(16,
+    [
+     [0,1],[1,3],[2,3],[0,2],[3,4],[2,4],
+     [5,6],[6,4],[4,7],[6,7],[7,8],[7,10],[7,11],
+     [8,10],[11,10],[8,9],[11,12],[9,15],[12,13],
+     [10,14],[15,14],[13,14]
+    ])$
+(%i3) mi : max_independent_set(g)$
+(%i4) draw_graph(
+    g,
+    show_vertices=mi,
+    show_vertex_type=filled_up_triangle,
+    show_vertex_size=2,
+    edge_color=cyan,
+    edge_width=3,
+    show_id=true,
+    text_color=brown
+    )$
+</pre></td></tr></table>
+
+<img src="figures/graphs11.gif" alt="figures/graphs11">
+
+<p>例 4:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (graphs)$
+(%i2) net : create_graph(
+    [0,1,2,3,4,5],
+    [
+     [[0,1], 3], [[0,2], 2],
+     [[1,3], 1], [[1,4], 3],
+     [[2,3], 2], [[2,4], 2],
+     [[4,5], 2], [[3,5], 2]
+    ],
+    directed=true
+    )$
+(%i3) draw_graph(
+    net,
+    show_weight=true,
+    vertex_size=0,
+    show_vertices=[0,5],
+    show_vertex_type=filled_square,
+    head_length=0.2,
+    head_angle=10,
+    edge_color=&quot;dark-green&quot;,
+    text_color=blue
+    )$
+</pre></td></tr></table>
+
+<img src="figures/graphs12.gif" alt="figures/graphs12">
+
+<p>例 5:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(graphs)$
+(%i2) g: petersen_graph(20, 2);
+(%o2)                         GRAPH
+(%i3) draw_graph(g, redraw=true, program=planar_embedding);
+(%o3)                         done
+</pre></td></tr></table>
+
+<img src="figures/graphs14.gif" alt="figures/graphs14">
+
+<p>例 6:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(graphs)$
+(%i2) t: tutte_graph();
+(%o2)                         GRAPH
+(%i3) draw_graph(t, redraw=true, 
+                    fixed_vertices=[1,2,3,4,5,6,7,8,9]);
+(%o3)                         done
+</pre></td></tr></table>
+
+<img src="figures/graphs15.gif" alt="figures/graphs15">
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-draw_005fgraph_005fprogram"></a>
+</p><dl>
+<dt><a name="index-draw_005fgraph_005fprogram"></a><u>オプション変数:</u> <b>draw_graph_program</b></dt>
+<dd><p>デフォルト値: <var>spring_embedding</var>
+</p>
+<p>頂点を配置するのに使われるプログラムのデフォルト値は
+<code>draw_graph</code>プログラムです。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-show_005fid"></a>
+</p><dl>
+<dt><a name="index-show_005fid"></a><u>draw_graphオプション:</u> <b>show_id</b></dt>
+<dd><p>デフォルト値: <var>false</var>
+</p>
+<p>もし <var>true</var>なら頂点の idが表示されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-show_005flabel"></a>
+</p><dl>
+<dt><a name="index-show_005flabel"></a><u>draw_graphオプション:</u> <b>show_label</b></dt>
+<dd><p>デフォルト値: <var>false</var>
+</p>
+<p>もし <var>true</var>なら頂点のラベルが表示されます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
 
 
-<p><a name="Item_003a-impdiff"></a>
+<dl>
+<dt><a name="index-label_005falignment-1"></a><u>draw_graphオプション:</u> <b>label_alignment</b></dt>
+<dd><p>デフォルト値: <var>center</var>
+</p>
+<p>頂点のラベル/idをいかに整列させるか決めます。
+<code>left</code>, <code>center</code>, <code>right</code>であり得ます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-show_005fweight"></a>
+</p><dl>
+<dt><a name="index-show_005fweight"></a><u>draw_graphオプション:</u> <b>show_weight</b></dt>
+<dd><p>デフォルト値: <var>false</var>
+</p>
+<p>もし <var>true</var>なら辺の重みを表示します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-vertex_005ftype"></a>
+</p><dl>
+<dt><a name="index-vertex_005ftype"></a><u>draw_graphオプション:</u> <b>vertex_type</b></dt>
+<dd><p>デフォルト値: <var>circle</var>
+</p>
+<p>頂点をいかに表示するか定義します。
+可能な値に関しては <code>draw</code>パッケージの
+<var>point_type</var>オプションを参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-vertex_005fsize"></a>
+</p><dl>
+<dt><a name="index-vertex_005fsize"></a><u>draw_graphオプション:</u> <b>vertex_size</b></dt>
+<dd><p>頂点のサイズ。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-vertex_005fcolor"></a>
+</p><dl>
+<dt><a name="index-vertex_005fcolor"></a><u>draw_graphオプション:</u> <b>vertex_color</b></dt>
+<dd><p>頂点を表示するのに使う色。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-show_005fvertices"></a>
+</p><dl>
+<dt><a name="index-show_005fvertices"></a><u>draw_graphオプション:</u> <b>show_vertices</b></dt>
+<dd><p>デフォルト値: []
+</p>
+<p>選択された頂点を異なる色を使って表示。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-show_005fvertex_005ftype"></a>
+</p><dl>
+<dt><a name="index-show_005fvertex_005ftype"></a><u>draw_graphオプション:</u> <b>show_vertex_type</b></dt>
+<dd>
+<p><var>show_vertices</var>で指定された頂点をいかに表示するか定義します。
+可能な値については <code>draw</code>パッケージの
+<var>point_type</var>オプションを参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-show_005fvertex_005fsize"></a>
+</p><dl>
+<dt><a name="index-show_005fvertex_005fsize"></a><u>draw_graphオプション:</u> <b>show_vertex_size</b></dt>
+<dd><p><var>show_vertices</var>内の頂点のサイズ。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-show_005fvertex_005fcolor"></a>
+</p><dl>
+<dt><a name="index-show_005fvertex_005fcolor"></a><u>draw_graphオプション:</u> <b>show_vertex_color</b></dt>
+<dd><p><var>show_vertices</var>リスト内の頂点を表示するのに使う色。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-vertex_005fpartition"></a>
+</p><dl>
+<dt><a name="index-vertex_005fpartition"></a><u>draw_graphオプション:</u> <b>vertex_partition</b></dt>
+<dd><p>デフォルト値: []
+</p>
+<p>グラフの頂点の分割
+<code>[[v1,v2,...],...,[vk,...,vn]]</code>分割内のそれぞれのリストの頂点を
+異なる色で描画します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+
+<dl>
+<dt><a name="index-vertex_005fcoloring-1"></a><u>draw_graphオプション:</u> <b>vertex_coloring</b></dt>
+<dd><p>頂点の色付けを指定します。
+色付け <var>col</var>は
+<var>vertex_coloring</var>が返すようなフォーマットで指定されなければいけません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-edge_005fcolor"></a>
+</p><dl>
+<dt><a name="index-edge_005fcolor"></a><u>draw_graphオプション:</u> <b>edge_color</b></dt>
+<dd><p>辺を表示するのに使われる色。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-edge_005fwidth"></a>
+</p><dl>
+<dt><a name="index-edge_005fwidth"></a><u>draw_graphオプション:</u> <b>edge_width</b></dt>
+<dd><p>辺の幅。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-edge_005ftype"></a>
+</p><dl>
+<dt><a name="index-edge_005ftype"></a><u>draw_graphオプション:</u> <b>edge_type</b></dt>
+<dd><p>辺をどう表示するか定義します。
+<code>draw</code>パッケージの <var>line_type</var>オプションを参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-show_005fedges"></a>
+</p><dl>
+<dt><a name="index-show_005fedges"></a><u>draw_graphオプション:</u> <b>show_edges</b></dt>
+<dd><p>異なる色を使ってリスト <var>e_list</var>内で指定された辺を表示します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-show_005fedge_005fcolor"></a>
+</p><dl>
+<dt><a name="index-show_005fedge_005fcolor"></a><u>draw_graphオプション:</u> <b>show_edge_color</b></dt>
+<dd><p><var>show_edges</var>リスト内の辺を表示するのに使う色。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-show_005fedge_005fwidth"></a>
+</p><dl>
+<dt><a name="index-show_005fedge_005fwidth"></a><u>draw_graphオプション:</u> <b>show_edge_width</b></dt>
+<dd><p><var>show_edges</var>内の辺の幅。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-show_005fedge_005ftype"></a>
+</p><dl>
+<dt><a name="index-show_005fedge_005ftype"></a><u>draw_graphオプション:</u> <b>show_edge_type</b></dt>
+<dd><p><var>show_edges</var>内の辺を以下に表示するかを定義します。
+<code>draw</code>パッケージの <var>line_type</var>オプションを参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-edge_005fpartition"></a>
+</p><dl>
+<dt><a name="index-edge_005fpartition"></a><u>draw_graphオプション:</u> <b>edge_partition</b></dt>
+<dd><p>グラフの辺の分割
+<code>[[e1,e2,...],...,[ek,...,em]]</code>分割内のそれぞれのリストの辺を
+異なる色を使って描画します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+
+<dl>
+<dt><a name="index-edge_005fcoloring-1"></a><u>draw_graphオプション:</u> <b>edge_coloring</b></dt>
+<dd><p>辺の色付け。
+色付けは関数 <var>edge_coloring</var>が返すようなフォーマットで指定しなければいけません。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-redraw"></a>
+</p><dl>
+<dt><a name="index-redraw"></a><u>draw_graphオプション:</u> <b>redraw</b></dt>
+<dd><p>デフォルト値: <var>false</var>
+</p>
+<p>もし <code>true</code>なら、
+たとえ位置がグラフの以前の描画から保存されていても頂点位置を再計算します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+
+<dl>
+<dt><a name="index-head_005fangle-1"></a><u>draw_graphオプション:</u> <b>head_angle</b></dt>
+<dd><p>デフォルト値: 15
+</p>
+<p>(ダイグラフの)弧に表示される矢印の角度。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+
+<dl>
+<dt><a name="index-head_005flength-1"></a><u>draw_graphオプション:</u> <b>head_length</b></dt>
+<dd><p>デフォルト値: 0.1
+</p>
+<p>(ダイグラフの)弧に表示される矢印の長さ。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-spring_005fembedding_005fdepth"></a>
+</p><dl>
+<dt><a name="index-spring_005fembedding_005fdepth"></a><u>draw_graphオプション:</u> <b>spring_embedding_depth</b></dt>
+<dd><p>デフォルト値: 50
+</p>
+<p>バネ埋め込みグラフ描画アルゴリズムでの繰り返し回数。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+
+<dl>
+<dt><a name="index-terminal-1"></a><u>draw_graphオプション:</u> <b>terminal</b></dt>
+<dd><p>描画で使う端末。
+(<code>draw</code>パッケージの <var>terminal</var>オプションを参照してください。)
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+
+<dl>
+<dt><a name="index-file_005fname-1"></a><u>draw_graphオプション:</u> <b>file_name</b></dt>
+<dd><p>端末がスクリーンでないなら描画のファイル名。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-program"></a>
+</p><dl>
+<dt><a name="index-program"></a><u>draw_graphオプション:</u> <b>program</b></dt>
+<dd><p>グラフの頂点を配置するのに使われるプログラムを定義します。
+graphvizプログラム (dot, neato, twopi, circ, fdp)の1つ,
+<var>circular</var>, <var>spring_embedding</var>, <var>planar_embedding</var>を取り得ます。
+二連結平面グラフでは <var>planar_embedding</var>だけが利用可能です。
+<code>program=spring_embedding</code>の時、
+固定位置の頂点の集合が <var>fixed_vertices</var>オプションで指定可能です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-fixed_005fvertices"></a>
+</p><dl>
+<dt><a name="index-fixed_005fvertices"></a><u>draw_graphオプション:</u> <b>fixed_vertices</b></dt>
+<dd><p>正多角形沿いに固定された位置を持つ頂点のリストを指定します。
+<code>program=spring_embedding</code>の時、使うことができます。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-graphs-_002d-draw_005fgraphs-options">Package graphs - draw_graphs options</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-vertices_005fto_005fpath"></a>
+</p><dl>
+<dt><a name="index-vertices_005fto_005fpath"></a><u>関数:</u> <b>vertices_to_path</b><i> (<var>v_list</var>)</i></dt>
+<dd><p>頂点のリスト <var>v_list</var>を
+<var>v_list</var>で定義された経路の辺のリストに変換します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-vertices_005fto_005fcycle"></a>
+</p><dl>
+<dt><a name="index-vertices_005fto_005fcycle"></a><u>関数:</u> <b>vertices_to_cycle</b><i> (<var>v_list</var>)</i></dt>
+<dd><p>頂点のリスト <var>v_list</var>を
+<var>v_list</var>で定義された閉路の辺のリストに変換します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-graphs">Package graphs</a>
+</div></p></dd></dl>
+
+<p><a name="Item_003a-grobner"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#grobner" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_58.html#impdiff" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#graphs" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_58.html#grobner" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -1036,12 +3028,12 @@ Groebner基底であると仮定された多項式のリストが生成するイ
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年1月月14日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2014年4月月20日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

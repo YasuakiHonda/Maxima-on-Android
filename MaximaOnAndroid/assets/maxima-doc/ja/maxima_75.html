@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年1月月14日 by texi2html 1.82
+<!-- Created on 2014年4月月20日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.32.1 Manual: 75. stats</title>
+<title>Maxima 5.33.0 Manual: 75. solve_rec</title>
 
-<meta name="description" content="Maxima 5.32.1 Manual: 75. stats">
-<meta name="keywords" content="Maxima 5.32.1 Manual: 75. stats">
+<meta name="description" content="Maxima 5.33.0 Manual: 75. solve_rec">
+<meta name="keywords" content="Maxima 5.33.0 Manual: 75. solve_rec">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -156,1605 +156,363 @@ div.categorybox
 
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="stats"></a>
+<a name="solve_005frec"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_74.html#Functions-and-Variables-for-solve_005frec" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-stats" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_74.html#Package-sqdnst" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-solve_005frec" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_74.html#solve_005frec" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_74.html#simplification" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_76.html#stirling" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_76.html#stats" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="stats-1"></a>
-<h1 class="chapter">75. stats</h1>
+<a name="solve_005frec-1"></a>
+<h1 class="chapter">75. solve_rec</h1>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-stats">75.1 Introduction to stats</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Introduction-to-solve_005frec">75.1 Introduction to solve_rec</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-inference_005fresult">75.2 Functions and Variables for inference_result</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-stats">75.3 Functions and Variables for stats</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-special-distributions">75.4 Functions and Variables for special distributions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-solve_005frec">75.2 Functions and Variables for solve_rec</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Introduction-to-stats"></a>
+<p><a name="Item_003a-Introduction-to-solve_005frec"></a>
 </p><hr size="6">
-<a name="Introduction-to-stats"></a>
+<a name="Introduction-to-solve_005frec"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#stats" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-inference_005fresult" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#solve_005frec" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-solve_005frec" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#stats" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#stats" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_76.html#stirling" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#solve_005frec" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#solve_005frec" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_76.html#stats" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-stats-1"></a>
-<h2 class="section">75.1 Introduction to stats</h2>
+<a name="Introduction-to-solve_005frec-1"></a>
+<h2 class="section">75.1 Introduction to solve_rec</h2>
 
+<p><code>solve_rec</code>は多項式係数を持つ線形漸化式を解くためのパッケージです。
+</p>
+<p>デモが <code>demo(solve_rec);</code>で利用可能です。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;solve_rec&quot;)$
+</pre><pre class="example">(%i2) solve_rec((n+4)*s[n+2] + s[n+1] - (n+1)*s[n], s[n]);
+                                    n
+                 %k  (2 n + 3) (- 1)          %k
+                   1                            2
+(%o2)       s  = -------------------- + ---------------
+             n     (n + 1) (n + 2)      (n + 1) (n + 2)
+</pre></td></tr></table>
 
-<p>パッケージ <code>stats</code>は古典的な統計推定や仮説検定手続き一式を含みます。
-</p>
-<p>これらの関数はすべて、母集団推定と意思決定のための必要な結果を含む
-<code>inference_result</code> Maximaオブジェクトを返します。
-</p>
-<p>グローバル変数 <code>stats_numer</code>は、
-結果を浮動小数点フォーマットで与えるか、シンボルと有理数のフォーマットで与えるかを制御します;
-デフォルト値は <code>true</code>で、結果を浮動小数点フォーマットで返します。
-</p>
-<p>パッケージ <code>descriptive</code>はデータ構造(リストと行列)を操作するための
-いくつかのユーティリティを含みます;
-例えば、部分サンプルを抽出するためのもの。
-プレインテキストファイルからデータを読むためのパッケージ
-<code>numericalio</code>の使い方に関するいくつかの例も含みます。
-詳細は <code>descriptive</code>と <code>numericalio</code>を参照してください。
-</p>
-<p>パッケージ <code>stats</code>は、パッケージ <code>descriptive</code>, <code>distrib</code>, 
-<code>inference_result</code>をロードします。
-</p>
-<p>コメント、バグ、提案は、作者
-<var>&rsquo;mario AT edu DOT xunta DOT es&rsquo;</var>にコンタクトしてください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Statistical-inference">Statistical inference</a>
- &middot;<a href="maxima_98.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Linear-recurrences">Linear recurrences</a>
+ &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_99.html#Category_003a-Package-solve_005frec">Package solve_rec</a>
 </div></p>
-<p><a name="Item_003a-Functions-and-Variables-for-inference_005fresult"></a>
+<p><a name="Item_003a-Functions-and-Variables-for-solve_005frec"></a>
 </p><hr size="6">
-<a name="Functions-and-Variables-for-inference_005fresult"></a>
+<a name="Functions-and-Variables-for-solve_005frec"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-stats" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-stats" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-solve_005frec" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_76.html#stats" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#stats" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#stats" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_76.html#stirling" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#solve_005frec" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#solve_005frec" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_76.html#stats" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-inference_005fresult-1"></a>
-<h2 class="section">75.2 Functions and Variables for inference_result</h2>
+<a name="Functions-and-Variables-for-solve_005frec-1"></a>
+<h2 class="section">75.2 Functions and Variables for solve_rec</h2>
 
-<p><a name="Item_003a-inference_005fresult"></a>
+<p><a name="Item_003a-reduce_005forder"></a>
 </p><dl>
-<dt><a name="index-inference_005fresult"></a><u>関数:</u> <b>inference_result</b><i> (<var>title</var>, <var>values</var>, <var>numbers</var>)</i></dt>
+<dt><a name="index-reduce_005forder"></a><u>関数:</u> <b>reduce_order</b><i> (<var>rec</var>, <var>sol</var>, <var>var</var>)</i></dt>
 <dd>
-<p>statsの関数が返す型の <code>inference_result</code>オブジェクトを構成します。
-引数 <var>title</var>は手続き名の文字列です;
-<var>values</var>は形式 <code>symbol = value</code>の要素を持つリストであり、
-<var>numbers</var>は、どの値がデフォルトで表示されるか示す
-1から <code>length(<var>values</var>)</code>までの範囲の正の整数のリストです。
+<p>特殊解 <var>sol</var>が知られている時、線形漸化式 <var>rec</var>の次数を減らします。
 </p>
 <p>例:
 </p>
-<p>これは長方形に関する結果を示す簡単な例です。
-このオブジェクトのタイトルは文字列 <code>&quot;Rectangle&quot;</code>であり、
-<code>'base</code>, <code>'height</code>, <code>'diagonal</code>, <code>'area</code>,
-<code>'perimeter</code>と指名された 5つの結果を格納しますが、
-一番目、二番目、五番目と四番目だけが表示されます。
-<code>'diagonal</code>はこのオブジェクトに格納されますが、表示されません;
-その値にアクセスするには関数 <code>take_inference</code>を利用してください。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(inference_result)$
-(%i2) b: 3$ h: 2$
-(%i3) inference_result(&quot;Rectangle&quot;,
-                        ['base=b,
-                         'height=h,
-                         'diagonal=sqrt(b^2+h^2),
-                         'area=b*h,
-                         'perimeter=2*(b+h)],
-                        [1,2,5,4] );
-                        |   Rectangle
-                        |
-                        |    base = 3
-                        |
-(%o3)                   |   height = 2
-                        |
-                        | perimeter = 10
-                        |
-                        |    area = 6
-(%i4) take_inference('diagonal,%);
-(%o4)                        sqrt(13)
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) rec: x[n+2] = x[n+1] + x[n]/n;
+                                      x
+                                       n
+(%o3)               x      = x      + --
+                     n + 2    n + 1   n
+</pre><pre class="example">(%i4) solve_rec(rec, x[n]);
+WARNING: found some hypergeometrical solutions! 
+(%o4)                    x  = %k  n
+                          n     1
+</pre><pre class="example">(%i5) reduce_order(rec, n, x[n]);
+(%t5)                    x  = n %z
+                          n       n
+
+                           n - 1
+                           ====
+                           \
+(%t6)                %z  =  &gt;     %u
+                       n   /        %j
+                           ====
+                           %j = 0
+
+(%o6)             (- n - 2) %u     - %u
+                              n + 1     n
+</pre><pre class="example">(%i6) solve_rec((n+2)*%u[n+1] + %u[n], %u[n]);
+                                     n
+                            %k  (- 1)
+                              1
+(%o6)                 %u  = ----------
+                        n    (n + 1)!
+
+だから一般解は以下の通りです。
+
+             n - 1
+             ====        j
+             \      (- 1)
+       %k  n  &gt;    -------- + %k  n
+         2   /     (j + 1)!     1
+             ====
+             j = 0
 </pre></td></tr></table>
 
-<p><code>take_inference</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-solve_005frec">Package solve_rec</a>
 </div></p>
 </dd></dl>
 
-
-
-
-
-
-<p><a name="Item_003a-inferencep"></a>
+<p><a name="Item_003a-simplify_005fproducts"></a>
 </p><dl>
-<dt><a name="index-inferencep"></a><u>関数:</u> <b>inferencep</b><i> (<var>obj</var>)</i></dt>
-<dd>
-<p><var>obj</var>が <code>inference_result</code>オブジェクトか否かに依存して、
-<code>true</code>か <code>false</code>を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
-</dd></dl>
-
-
-
-
-
-
-<p><a name="Item_003a-items_005finference"></a>
-</p><dl>
-<dt><a name="index-items_005finference"></a><u>関数:</u> <b>items_inference</b><i> (<var>obj</var>)</i></dt>
-<dd>
-<p><var>obj</var>に格納された項目名のリストを返します。
-<var>obj</var>は <code>inference_result</code>オブジェクトでなければいけません。
-</p>
-<p>例:
-</p>
-<p><code>inference_result</code>オブジェクトは
-<code>'pi</code>と <code>'e</code>と名付けられた2つの値を格納しますが、二番目だけが表示されます。
-<code>items_inference</code>関数は、表示されるされないに関係なく、項目すべての名前を返します。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(inference_result)$
-(%i2) inference_result(&quot;Hi&quot;, ['pi=%pi,'e=%e],[2]);
-                            |   Hi
-(%o2)                       |
-                            | e = %e
-(%i3) items_inference(%);
-(%o3)                        [pi, e]
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
-</dd></dl>
-
-
-
-
-
-
-
-<p><a name="Item_003a-take_005finference"></a>
-</p><dl>
-<dt><a name="index-take_005finference"></a><u>関数:</u> <b>take_inference</b><i> (<var>n</var>, <var>obj</var>)</i></dt>
-<dt><a name="index-take_005finference-1"></a><u>関数:</u> <b>take_inference</b><i> (<var>name</var>, <var>obj</var>)</i></dt>
-<dt><a name="index-take_005finference-2"></a><u>関数:</u> <b>take_inference</b><i> (<var>list</var>, <var>obj</var>)</i></dt>
-<dd>
-<p>もし <var>n</var>が正の整数なら、
-<var>obj</var>に格納された <var>n</var>番目の値を返します。
-もし <var>name</var>が項目名なら、そう名付けられた項目を返します。
-もし一番目の引数が数やシンボルのリストなら、
-関数 <code>take_inference</code>は対応する結果のリストを返します。
-</p>
-<p>例:
-</p>
-<p>ある <code>inference_result</code>オブジェクトが与えられたとして、
-それに格納されたある情報を抽出するために関数
-<code>take_inference</code>がコールされます。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(inference_result)$
-(%i2) b: 3$ h: 2$
-(%i3) sol: inference_result(&quot;Rectangle&quot;,
-                            ['base=b,
-                             'height=h,
-                             'diagonal=sqrt(b^2+h^2),
-                             'area=b*h,
-                             'perimeter=2*(b+h)],
-                            [1,2,5,4] );
-                        |   Rectangle
-                        |
-                        |    base = 3
-                        |
-(%o3)                   |   height = 2
-                        |
-                        | perimeter = 10
-                        |
-                        |    area = 6
-(%i4) take_inference('base,sol);
-(%o4)                           3
-(%i5) take_inference(5,sol);
-(%o5)                          10
-(%i6) take_inference([1,'diagonal],sol);
-(%o6)                     [3, sqrt(13)]
-(%i7) take_inference(items_inference(sol),sol);
-(%o7)                [3, 2, sqrt(13), 6, 10]
-</pre></td></tr></table>
-
-<p><code>inference_result</code>と <code>take_inference</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
-</dd></dl>
-
-
-
-
-
-
-
-
-
-<p><a name="Item_003a-Functions-and-Variables-for-stats"></a>
-</p><hr size="6">
-<a name="Functions-and-Variables-for-stats"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-inference_005fresult" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-special-distributions" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#stats" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#stats" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_76.html#stirling" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<a name="Functions-and-Variables-for-stats-1"></a>
-<h2 class="section">75.3 Functions and Variables for stats</h2>
-
-
-<p><a name="Item_003a-stats_005fnumer"></a>
-</p><dl>
-<dt><a name="index-stats_005fnumer"></a><u>オプション変数:</u> <b>stats_numer</b></dt>
+<dt><a name="index-simplify_005fproducts"></a><u>オプション変数:</u> <b>simplify_products</b></dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
-<p>もし <code>stats_numer</code>が <code>true</code>なら、
-推定統計的関数は浮動小数点数で結果を返します。
-もし <code>false</code>なら、
-結果は記号と有理フォーマットで与えられます。
+<p>もし <code>simplify_products</code>が <code>true</code>なら、
+<code>solve_rec</code>は答えの積を整理しようとします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
- &middot;<a href="maxima_98.html#Category_003a-Numerical-evaluation">Numerical evaluation</a>
+<p>以下も参照してください: <code>solve_rec</code>.
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-solve_005frec">Package solve_rec</a>
 </div></p>
 </dd></dl>
 
-
-
-<p><a name="Item_003a-test_005fmean"></a>
+<p><a name="Item_003a-simplify_005fsum"></a>
 </p><dl>
-<dt><a name="index-test_005fmean"></a><u>関数:</u> <b>test_mean</b><i> (<var>x</var>)</i></dt>
-<dt><a name="index-test_005fmean-1"></a><u>関数:</u> <b>test_mean</b><i> (<var>x</var>, <var>options</var> ...)</i></dt>
+<dt><a name="index-simplify_005fsum"></a><u>関数:</u> <b>simplify_sum</b><i> (<var>expr</var>)</i></dt>
 <dd>
-<p>これは平均t検定です。
-引数 <var>x</var>は1次元標本を含むリストか列行列です。
-もしオプション <code>'asymptotic</code>が <code>true</code>なら、
-<i>中心極限定理</i>に基づいた漸近検定も実行します。
+<p><var>expr</var>に現れるすべての和を閉形式に整理しようとします。
 </p>
-<p>オプション:
-</p>
-<ul>
-<li>
-<code>'mean</code>, デフォルト <code>0</code>, はチェックされる平均値です。
-
-</li><li>
-<code>'alternative</code>, デフォルト <code>'twosided</code>, は対立仮説です;
-有効な値は次の通りです: <code>'twosided</code>, <code>'greater</code>, <code>'less</code>。
-
-</li><li>
-<code>'dev</code>, デフォルト <code>'unknown</code>, は既知の時の標準偏差値です;
-有効な値は次の通りです: <code>'unknown</code>か正の式。
-
-</li><li>
-<code>'conflevel</code>, デフォルト <code>95/100</code>, は信頼区間の信頼度です;
-(0,1)内の値を取る式でなければいけません。
-
-</li><li>
-<code>'asymptotic</code>, デフォルト <code>false</code>, は正確確率t検定か、
-<i>中心極限定理</i>に基づいた漸近検定かどちらを実行するかを示します;
-有効な値は <code>true</code>と <code>false</code>です。
-
-</li></ul>
-
-<p>関数 <code>test_mean</code>の出力は
-以下の結果を示す<code>inference_result</code> Maximaオブジェクトです:
-</p>
-<ol>
-<li>
-<code>'mean_estimate</code>: 標本平均。
-
-</li><li>
-<code>'conf_level</code>: ユーザーが選択した信頼度。
-
-</li><li>
-<code>'conf_interval</code>: 母平均の信頼度。
-
-</li><li>
-<code>'method</code>: 推定手続き。
-
-</li><li>
-<code>'hypotheses</code>: 検定される帰無と対立仮説。
-
-</li><li>
-<code>'statistic</code>: 帰無仮説を検定するために使われる標本統計の値。
-
-</li><li>
-<code>'distribution</code>: パラメータと合わせて、標本統計分布。
-
-</li><li>
-<code>'p_value</code>: 検定の<em>p</em>値
-
-</li></ol>
-
-<p>例:
-</p>
-<p>未知の分散で正確確率 <var>t</var>検定を実行します。
-片側対立 <em>H_1: mean&lt;50</em>に対して
-帰無仮説は <em>H_0: mean=50</em>です;
-結果に従うと、<em>p</em>値が大きすぎ、
-<em>H_0</em>を却下する証拠がありません。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
-(%i2) data: [78,64,35,45,45,75,43,74,42,42]$
-(%i3) test_mean(data,'conflevel=0.9,'alternative='less,'mean=50);
-          |                 MEAN TEST
-          |
-          |            mean_estimate = 54.3
-          |
-          |              conf_level = 0.9
-          |
-          | conf_interval = [minf, 61.51314273502712]
-          |
-(%o3)     |  method = Exact t-test. Unknown variance.
-          |
-          | hypotheses = H0: mean = 50 , H1: mean &lt; 50
-          |
-          |       statistic = .8244705235071678
-          |
-          |       distribution = [student_t, 9]
-          |
-          |        p_value = .7845100411786889
-</pre></td></tr></table>
-
-<p>今回、Maximaは <i>中心極限定理</i>に基づく漸近検定を実行します。
-両側対立 <em>H_1: not equal(mean, 50)</em>に対して
-帰無仮説は <em>H_0: equal(mean, 50)</em>です;
-結果に従うと、
-<em>p</em>値は非常に小さく、
-対立 <em>H_1</em>を指示して、<em>H_0</em>は却下すべきです。
-. Note that, as indicated by the 
-<code>Method</code>成分が示すように、
-この手続きは多くの標本に適用すべきです。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
-(%i2) test_mean([36,118,52,87,35,256,56,178,57,57,89,34,25,98,35,
-              98,41,45,198,54,79,63,35,45,44,75,42,75,45,45,
-              45,51,123,54,151],
-              'asymptotic=true,'mean=50);
-          |                       MEAN TEST
-          |
-          |           mean_estimate = 74.88571428571429
-          |
-          |                   conf_level = 0.95
-          |
-          | conf_interval = [57.72848600856194, 92.04294256286663]
-          |
-(%o2)     |    method = Large sample z-test. Unknown variance.
-          |
-          |       hypotheses = H0: mean = 50 , H1: mean # 50
-          |
-          |             statistic = 2.842831192874313
-          |
-          |             distribution = [normal, 0, 1]
-          |
-          |             p_value = .004471474652002261
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
-</dd></dl>
-
-
-
-
-
-
-
-<p><a name="Item_003a-test_005fmeans_005fdifference"></a>
-</p><dl>
-<dt><a name="index-test_005fmeans_005fdifference"></a><u>関数:</u> <b>test_means_difference</b><i> (<var>x1</var>, <var>x2</var>)</i></dt>
-<dt><a name="index-test_005fmeans_005fdifference-1"></a><u>関数:</u> <b>test_means_difference</b><i> (<var>x1</var>, <var>x2</var>, <var>options</var> ...)</i></dt>
-<dd>
-<p>これは2つの標本の平均の差 <var>t</var>検定です。
-引数 <var>x1</var>と <var>x2</var>は2つの独立標本を含むリストか列行列です。
-異なる未知の分散の場合
-(以下のオプション <code>'dev1</code>, <code>'dev2</code>, <code>'varequal</code>を参照してください)、
-自由度の次数はWelch近似を使って計算されます。
-もしオプション <code>'asymptotic</code>が <code>true</code>に設定されているなら
-<i>中心極限定理</i>に基づく漸近検定も実行します。
-</p>
-<p>オプション:
-</p>
-<ul>
-<li>
-<code>'alternative</code>, デフォルト <code>'twosided</code>, は対立仮説です;
-有効な値は次の通りです: <code>'twosided</code>, <code>'greater</code>, <code>'less</code>。
-
-</li><li>
-<code>'dev1</code>, デフォルト <code>'unknown</code>,
-既知の時、これは<var>x1</var>標本の標準偏差値です;
-有効な値は次の通りです: <code>'unknown</code>もしくは正の式。
-
-</li><li>
-<code>'dev2</code>, デフォルト <code>'unknown</code>, 
-既知の時、これは<var>x2</var>標本の標準偏差値です;
-有効な値は次の通りです: <code>'unknown</code>もしくは正の式。
-
-</li><li>
-<code>'varequal</code>, デフォルト <code>false</code>,
-分散を等しいと考えるか等しくないと考えるか;
-このオプションは
-　<code>'dev1</code>と <code>'dev2</code>の両方もしくはいずれかが <code>'unknown</code>の時だけ
-有効です。
-
-</li><li>
-<code>'conflevel</code>, デフォルト <code>95/100</code>,
-信頼区間の信頼度;
-(0,1)内の値を取る式でなければいけません。
-
-</li><li>
-<code>'asymptotic</code>, デフォルト <code>false</code>,
-正確確率 <var>t</var>検定か
-<i>中心極限定理</i>に基づく漸近検定どちらを実行するかを示します;
-有効な値は <code>true</code>と <code>false</code>です。
-
-</li></ul>
-
-<p>関数 <code>test_means_difference</code>の出力は
-以下の結果を示す<code>inference_result</code> Maximaオブジェクトです:
-</p>
-<ol>
-<li>
-<code>'diff_estimate</code>: 平均差推定。
-
-</li><li>
-<code>'conf_level</code>: ユーザーが選択した信頼度。
-
-</li><li>
-<code>'conf_interval</code>: 平均差の信頼区間。
-
-</li><li>
-<code>'method</code>: 推定手続き。
-
-</li><li>
-<code>'hypotheses</code>: 検定される帰無、対立仮説。
-
-</li><li>
-<code>'statistic</code>: 帰無仮説を検定するのに使われる標本統計値
-
-</li><li>
-<code>'distribution</code>: パラメータを伴う標本統計分布。
-
-</li><li>
-<code>'p_value</code>: 検定の<em>p</em>値。
-
-</li></ol>
-
-<p>例:
-</p>
-<p>母平均 <em>m_1</em>と <em>m_2</em>で対立 <em>H_1: m_1&gt;m_2</em>に対して
-2つの小さな標本 <var>x</var> <var>y</var>で平均が等しいか検定します;
-分散は未知で異なると仮定されます。
-</p>
-
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
-(%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
-(%i3) y: [1.2,6.9,38.7,20.4,17.2]$
-(%i4) test_means_difference(x,y,'alternative='greater);
-            |              DIFFERENCE OF MEANS TEST
-            |
-            |         diff_estimate = 20.31999999999999
-            |
-            |                 conf_level = 0.95
-            |
-            |    conf_interval = [- .04597417812882298, inf]
-            |
-(%o4)       |        method = Exact t-test. Welch approx.
-            |
-            | hypotheses = H0: mean1 = mean2 , H1: mean1 &gt; mean2
-            |
-            |           statistic = 1.838004300728477
-            |
-            |    distribution = [student_t, 8.62758740184604]
-            |
-            |            p_value = .05032746527991905
-</pre></td></tr></table>
-
-<p>前と同じ検定、
-しかし今回は分散が等しいと仮定されます。
-</p>
-
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
-(%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
-(%i3) y: matrix([1.2],[6.9],[38.7],[20.4],[17.2])$
-(%i4) test_means_difference(x,y,'alternative='greater,
-                                                 'varequal=true);
-            |              DIFFERENCE OF MEANS TEST
-            |
-            |         diff_estimate = 20.31999999999999
-            |
-            |                 conf_level = 0.95
-            |
-            |     conf_interval = [- .7722627696897568, inf]
-            |
-(%o4)       |   method = Exact t-test. Unknown equal variances
-            |
-            | hypotheses = H0: mean1 = mean2 , H1: mean1 &gt; mean2
-            |
-            |           statistic = 1.765996124515009
-            |
-            |           distribution = [student_t, 9]
-            |
-            |            p_value = .05560320992529344
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
-</dd></dl>
-
-
-
-
-
-
-
-<p><a name="Item_003a-test_005fvariance"></a>
-</p><dl>
-<dt><a name="index-test_005fvariance"></a><u>関数:</u> <b>test_variance</b><i> (<var>x</var>)</i></dt>
-<dt><a name="index-test_005fvariance-1"></a><u>関数:</u> <b>test_variance</b><i> (<var>x</var>, <var>options</var>, ...)</i></dt>
-<dd>
-<p>これは分散 <var>chi^2</var>検定です。
-引数 <var>x</var>は
-正規母集団から取られた1次元標本を含む
-リストか列行列です。
-</p>
-<p>オプション:
-</p>
-<ul>
-<li>
-<code>'mean</code>, デフォルト <code>'unknown</code>,
-は、既知の時、母平均です。
-
-</li><li>
-<code>'alternative</code>, デフォルト <code>'twosided</code>,
-対立仮説です;
-有効な値は次の通りです: <code>'twosided</code>, <code>'greater</code>, <code>'less</code>.
-
-</li><li>
-<code>'variance</code>, デフォルト <code>1</code>,
-これはチェックされる分散値(正)です。
-
-</li><li>
-<code>'conflevel</code>, デフォルト <code>95/100</code>,
-信頼区間の信頼度;
-(0,1)内の値を取る式でなければいけません。
-
-
-</li></ul>
-
-<p>関数 <code>test_variance</code>の出力は
-以下の結果を示す<code>inference_result</code> Maximaオブジェクトです:
-</p>
-<ol>
-<li>
-<code>'var_estimate</code>: 標本分散。
-
-</li><li>
-<code>'conf_level</code>: ユーザーが選択した信頼度。
-
-</li><li>
-<code>'conf_interval</code>: 母分散の信頼区間。
-
-</li><li>
-<code>'method</code>: 推定手続き。
-
-</li><li>
-<code>'hypotheses</code>: 検定される帰無、対立仮説。
-
-</li><li>
-<code>'statistic</code>: 帰無仮説を検定するのに使う標本統計値。
-
-</li><li>
-<code>'distribution</code>: パラメータを伴う標本統計分布。
-
-</li><li>
-<code>'p_value</code>: 検定の <em>p</em>値。
-
-</li></ol>
-
-<p>例:
-</p>
-<p>平均が未知の母集団の分散が200以上か検定します。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
-(%i2) x: [203,229,215,220,223,233,208,228,209]$
-(%i3) test_variance(x,'alternative='greater,'variance=200);
-             |                  VARIANCE TEST
-             |
-             |              var_estimate = 110.75
-             |
-             |                conf_level = 0.95
-             |
-             |     conf_interval = [57.13433376937479, inf]
-             |
-(%o3)        | method = Variance Chi-square test. Unknown mean.
-             |
-             |    hypotheses = H0: var = 200 , H1: var &gt; 200
-             |
-             |                 statistic = 4.43
-             |
-             |             distribution = [chi2, 8]
-             |
-             |           p_value = .8163948512777689
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
-</dd></dl>
-
-
-
-
-
-
-
-<p><a name="Item_003a-test_005fvariance_005fratio"></a>
-</p><dl>
-<dt><a name="index-test_005fvariance_005fratio"></a><u>関数:</u> <b>test_variance_ratio</b><i> (<var>x1</var>, <var>x2</var>)</i></dt>
-<dt><a name="index-test_005fvariance_005fratio-1"></a><u>関数:</u> <b>test_variance_ratio</b><i> (<var>x1</var>, <var>x2</var>, <var>options</var> ...)</i></dt>
-<dd>
-<p>これは2つの正規母集団の分散比 <var>F</var>検定です。
-引数 <var>x1</var>と <var>x2</var>は
-2つの独立標本を含むリストか列行列です。
-</p>
-<p>オプション:
-</p>
-<ul>
-<li>
-<code>'alternative</code>, デフォルト <code>'twosided</code>,
-は対立仮説です;
-有効な値は次の通りです: <code>'twosided</code>, <code>'greater</code>, <code>'less</code>.
-
-</li><li>
-<code>'mean1</code>, デフォルト <code>'unknown</code>,
-既知の時、これは<var>x1</var>が取られた母集団の平均です。
-
-</li><li>
-<code>'mean2</code>, デフォルト <code>'unknown</code>,
-既知の時、これは<var>x2</var>が取られた母集団の平均です。
-
-</li><li>
-<code>'conflevel</code>, デフォルト <code>95/100</code>,
-比の信頼区間の信頼度;
-(0,1)内の値を取る式でなければいけません。
-
-</li></ul>
-
-<p>関数 <code>test_variance_ratio</code>の出力は
-以下の結果を示す<code>inference_result</code> Maximaオブジェクトです:
-</p>
-<ol>
-<li>
-<code>'ratio_estimate</code>: 標本分散比。
-
-</li><li>
-<code>'conf_level</code>: ユーザーが選択した信頼度。
-
-</li><li>
-<code>'conf_interval</code>: 分散比の信頼区間。
-
-</li><li>
-<code>'method</code>: 推定手続き。
-
-</li><li>
-<code>'hypotheses</code>: 検定される帰無、対立仮説。
-
-</li><li>
-<code>'statistic</code>: 帰無仮説を検定するのに使われる標本統計値。
-
-</li><li>
-<code>'distribution</code>: パラメータを伴う標本統計分布。
-
-</li><li>
-<code>'p_value</code>: 検定の<em>p</em>値。
-
-</li></ol>
-
-
-<p>例:
-</p>
-<p>前者が後者より大きいという対立仮説に対して、
-2つの正規母集団の分散の等しさが
-</p>
-
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
-(%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
-(%i3) y: [1.2,6.9,38.7,20.4,17.2]$
-(%i4) test_variance_ratio(x,y,'alternative='greater);
-              |              VARIANCE RATIO TEST
-              |
-              |       ratio_estimate = 2.316933391522034
-              |
-              |               conf_level = 0.95
-              |
-              |    conf_interval = [.3703504689507268, inf]
-              |
-(%o4)         | method = Variance ratio F-test. Unknown means.
-              |
-              | hypotheses = H0: var1 = var2 , H1: var1 &gt; var2
-              |
-              |         statistic = 2.316933391522034
-              |
-              |            distribution = [f, 5, 4]
-              |
-              |          p_value = .2179269692254457
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
-</dd></dl>
-
-
-
-
-<p><a name="Item_003a-test_005fproportion"></a>
-</p><dl>
-<dt><a name="index-test_005fproportion"></a><u>関数:</u> <b>test_proportion</b><i> (<var>x</var>, <var>n</var>)</i></dt>
-<dt><a name="index-test_005fproportion-1"></a><u>関数:</u> <b>test_proportion</b><i> (<var>x</var>, <var>n</var>, <var>options</var> ...)</i></dt>
-<dd>
-<p>出現率推定。
-引数 <var>x</var>は
-未知の確率でのBernoulli実験の<var>n</var>回試行での成功回数です。
-</p>
-<p>オプション:
-</p>
-<ul>
-<li>
-<code>'proportion</code>, デフォルト <code>1/2</code>,
-はチェックされる出現率の値です。
-
-</li><li>
-<code>'alternative</code>, デフォルト <code>'twosided</code>,
-は対立仮説です;
-有効な値は次の通りです: <code>'twosided</code>, <code>'greater</code>, <code>'less</code>.
-
-</li><li>
-<code>'conflevel</code>, デフォルト <code>95/100</code>,
-比の信頼区間の信頼度;
-(0,1)内の値を取る式でなければいけません。
-
-</li><li>
-<code>'asymptotic</code>, デフォルト <code>false</code>,
-二項分布に基づく正確確率 <var>t</var>検定か
-<i>中心極限定理</i>に基づく漸近検定どちらを実行するかを示します;
-有効な値は <code>true</code>と <code>false</code>です。
-
-</li><li>
-<code>'correct</code>, デフォルト <code>true</code>,
-Yates補正が適用されるかどうかを示します。
-
-</li></ul>
-
-<p>The output of function
-関数 <code>test_proportion</code>の出力は
-以下の結果を示す
-<code>inference_result</code> Maximaオブジェクトです:
-</p>
-<ol>
-<li>
-<code>'sample_proportion</code>: 標本出現率。
-
-</li><li>
-<code>'conf_level</code>: ユーザーが選択した信頼度。
-
-</li><li>
-<code>'conf_interval</code>: 出現率のWilson信頼区間。
-
-</li><li>
-<code>'method</code>: 推定手続き。
-
-</li><li>
-<code>'hypotheses</code>: 検定される帰無、対立仮説。
-
-</li><li>
-<code>'statistic</code>: 帰無仮説を検定するのに使われる標本統計値。
-
-</li><li>
-<code>'distribution</code>: パラメータを伴う標本統計分布。
-
-</li><li>
-<code>'p_value</code>: 検定の<em>p</em>値。
-
-</li></ol>
-
-<p>例:
-</p>
-<p>正確確率検定を実行します。
-片側対立 <em>H_1: p&lt;1/2</em>に対して、
-帰無仮説は <em>H_0: p=1/2</em>です。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
-(%i2) test_proportion(45, 103, alternative = less);
-         |            PROPORTION TEST              
-         |                                         
-         | sample_proportion = .4368932038834951   
-         |                                         
-         |           conf_level = 0.95             
-         |                                         
-         | conf_interval = [0, 0.522714149150231]  
-         |                                         
-(%o2)    |     method = Exact binomial test.       
-         |                                         
-         | hypotheses = H0: p = 0.5 , H1: p &lt; 0.5  
-         |                                         
-         |             statistic = 45              
-         |                                         
-         |  distribution = [binomial, 103, 0.5]    
-         |                                         
-         |      p_value = .1184509388901454 
-</pre></td></tr></table>
-
-<p>両側漸近検定。信頼度は99/100です。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
-(%i2) fpprintprec:7$
-(%i3) test_proportion(45, 103, 
-                  conflevel = 99/100, asymptotic=true);
-      |                 PROPORTION TEST                  
-      |                                                  
-      |           sample_proportion = .43689             
-      |                                                  
-      |                conf_level = 0.99                 
-      |                                                  
-      |        conf_interval = [.31422, .56749]          
-      |                                                  
-(%o3) | method = Asympthotic test with Yates correction.
-      |                                                  
-      |     hypotheses = H0: p = 0.5 , H1: p # 0.5       
-      |                                                  
-      |               statistic = .43689                 
-      |                                                  
-      |      distribution = [normal, 0.5, .048872]       
-      |                                                  
-      |                p_value = .19662
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
-</dd></dl>
-
-
-
-
-
-<p><a name="Item_003a-test_005fproportions_005fdifference"></a>
-</p><dl>
-<dt><a name="index-test_005fproportions_005fdifference"></a><u>関数:</u> <b>test_proportions_difference</b><i> (<var>x1</var>, <var>n1</var>, <var>x2</var>, <var>n2</var>)</i></dt>
-<dt><a name="index-test_005fproportions_005fdifference-1"></a><u>関数:</u> <b>test_proportions_difference</b><i> (<var>x1</var>, <var>n1</var>, <var>x2</var>, <var>n2</var>, <var>options</var> ...)</i></dt>
-<dd>
-<p>2つの出現率の差の推定。
-引数 <var>x1</var>は
-一番目の母集団でのBernoulli実験の
-<var>n1</var>回の試行での成功回数であり、
-<var>x2</var>と <var>n2</var>は
-二番目の母集団での対応する値です。
-標本は独立で、検定は漸近です。
-</p>
-<p>オプション:
-</p>
-<ul>
-<li>
-<code>'alternative</code>, デフォルト <code>'twosided</code>,
-は対立仮説です;
-有効な値は次の通りです: <code>'twosided</code> (<code>p1 # p2</code>), <code>'greater</code> (<code>p1 &gt; p2</code>), <code>'less</code> (<code>p1 &lt; p2</code>).
-
-</li><li>
-<code>'conflevel</code>, デフォルト <code>95/100</code>,
-比の信頼区間の信頼度;
-(0,1)内の値を取る式でなければいけません。
-
-</li><li>
-<code>'correct</code>, デフォルト <code>true</code>,
-はYates補正が適用されるかどうかを示します。
-
-</li></ul>
-
-<p>関数 <code>test_proportions_difference</code>の出力は
-以下の結果を示す
-<code>inference_result</code> Maximaオブジェクトです:
-</p>
-<ol>
-<li>
-<code>'proportions</code>: 2つの標本出現率のリスト。
-
-</li><li>
-<code>'conf_level</code>: ユーザーが選択した信頼度。
-
-</li><li>
-<code>'conf_interval</code>: 出現率の差 <code>p1 - p2</code>の信頼区間。
-
-</li><li>
-<code>'method</code>: 推定手続きと
-標本サイズのいずれかが10より小さい場合の警告メッセージ
-
-</li><li>
-<code>'hypotheses</code>: 検定される帰無、対立仮説。
-
-</li><li>
-<code>'statistic</code>: 帰無仮説を検定するのに使われる標本統計値。
-
-</li><li>
-<code>'distribution</code>: パラメータを伴う標本統計分布。
-
-</li><li>
-<code>'p_value</code>: 検定の<em>p</em>値。
-
-</li></ol>
-
-<p>例:
-</p>
-<p>機械が250個のうち、10個の欠陥製品を製造しました。
-その機械は、ある保守作業のあと、
-150個のうち、4個の欠陥製品を製造しました。
-機械が改善したか知るために、
-対立 <code>H0:p1&gt;p2</code>に対して
-帰無仮説 <code>H0:p1=p2</code>を検定します。
-ここで、
-<code>p1</code>と <code>p2</code>は
-保守の前と後で製造された製品が欠陥である確率です。
-p値に従うと、対立を受け入れる十分な証拠はありません。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
-(%i2) fpprintprec:7$
-(%i3) test_proportions_difference(10, 250, 4, 150,
-                                alternative = greater);
-      |       DIFFERENCE OF PROPORTIONS TEST         
-      |                                              
-      |       proportions = [0.04, .02666667]        
-      |                                              
-      |              conf_level = 0.95               
-      |                                              
-      |      conf_interval = [- .02172761, 1]        
-      |                                              
-(%o3) | method = Asymptotic test. Yates correction.  
-      |                                              
-      |   hypotheses = H0: p1 = p2 , H1: p1 &gt; p2     
-      |                                              
-      |            statistic = .01333333             
-      |                                              
-      |    distribution = [normal, 0, .01898069]     
-      |                                              
-      |             p_value = .2411936 
-</pre></td></tr></table>
-
-<p>データが未知の時の漸近正規分布の正確確率標準偏差。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
-(%i2) stats_numer: false$
-(%i3) sol: test_proportions_difference(x1,n1,x2,n2)$
-(%i4) last(take_inference('distribution,sol));
-               1    1                  x2 + x1
-              (-- + --) (x2 + x1) (1 - -------)
-               n2   n1                 n2 + n1
-(%o4)    sqrt(---------------------------------)
-                           n2 + n1
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
-</dd></dl>
-
-
-
-
-
-
-
-<p><a name="Item_003a-test_005fsign"></a>
-</p><dl>
-<dt><a name="index-test_005fsign"></a><u>関数:</u> <b>test_sign</b><i> (<var>x</var>)</i></dt>
-<dt><a name="index-test_005fsign-1"></a><u>関数:</u> <b>test_sign</b><i> (<var>x</var>, <var>options</var> ...)</i></dt>
-<dd>
-<p>これは連続母集団のメジアンに関するノンパラメトリック符号検定です。
-引数 <var>x</var>は1次元標本を含むリストか列行列です。
-</p>
-<p>オプション:
-</p>
-<ul>
-<li>
-<code>'alternative</code>, デフォルト <code>'twosided</code>,
-は対立仮説です;
-有効な値は次の通りです: <code>'twosided</code>, <code>'greater</code>, <code>'less</code>.
-
-</li><li>
-<code>'median</code>, デフォルト <code>0</code>, はチェックされるメジアン値です。
-
-</li></ul>
-
-<p>関数 <code>test_sign</code>の出力は
-以下の結果を示す
-<code>inference_result</code> Maximaオブジェクトです:
-</p>
-<ol>
-<li>
-<code>'med_estimate</code>: 標本メジアン。
-
-</li><li>
-<code>'method</code>: 推定手続き。
-
-</li><li>
-<code>'hypotheses</code>: 検定される帰無、対立仮説。
-
-</li><li>
-<code>'statistic</code>: 帰無仮説を検定するのに使われる標本統計値。
-
-</li><li>
-<code>'distribution</code>: パラメータを伴う標本統計分布。
-
-</li><li>
-<code>'p_value</code>: 検定の<em>p</em>値。
-
-</li></ol>
-
-<p>例:
-</p>
-<p>対立 <em>H_1: median &gt; 6</em>に対して、
-標本が採られた母集団がメジアン6を持つかどうかチェックします。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
-(%i2) x: [2,0.1,7,1.8,4,2.3,5.6,7.4,5.1,6.1,6]$
-(%i3) test_sign(x,'median=6,'alternative='greater);
-               |                  SIGN TEST
-               |
-               |              med_estimate = 5.1
-               |
-               |      method = Non parametric sign test.
-               |
-(%o3)          | hypotheses = H0: median = 6 , H1: median &gt; 6
-               |
-               |                statistic = 7
-               |
-               |      distribution = [binomial, 10, 0.5]
-               |
-               |         p_value = .05468749999999989
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
-</dd></dl>
-
-
-
-
-
-
-
-
-
-<p><a name="Item_003a-test_005fsigned_005frank"></a>
-</p><dl>
-<dt><a name="index-test_005fsigned_005frank"></a><u>関数:</u> <b>test_signed_rank</b><i> (<var>x</var>)</i></dt>
-<dt><a name="index-test_005fsigned_005frank-1"></a><u>関数:</u> <b>test_signed_rank</b><i> (<var>x</var>, <var>options</var> ...)</i></dt>
-<dd>
-<p>これは
-連続母集団のメジアンに関する推定を行う
-Wilcoxonの符号順位検定です。
-引数 <var>x</var>は
-1次元標本を含む
-リストか列行列です。
-もし標本サイズが20より大きいか、複数の零すなわち引き分けがあれば、
-正規近似を実行します
-</p>
-<p><code>pdf_rank_test</code>と <code>cdf_rank_test</code>も参照してください。
-</p>
-<p>オプション:
-</p>
-<ul>
-<li>
-<code>'median</code>, デフォルト <code>0</code>,
-はチェックされるメジアン値です。
-
-</li><li>
-<code>'alternative</code>, デフォルト <code>'twosided</code>,
-は対立仮説です;
-有効な値は次の通りです: <code>'twosided</code>, <code>'greater</code> and <code>'less</code>.
-
-</li></ul>
-
-<p>関数 <code>test_signed_rank</code>の出力は
-以下の結果を持つ
-<code>inference_result</code> Maximaオブジェクトです:
-</p>
-<ol>
-<li>
-<code>'med_estimate</code>: 標本メジアン。
-
-</li><li>
-<code>'method</code>: 推定手続き。
-
-</li><li>
-<code>'hypotheses</code>: 検定される帰無、対立仮説。
-
-</li><li>
-<code>'statistic</code>: 帰無仮説を検定するのに使われる標本統計値。
-
-</li><li>
-<code>'distribution</code>: パラメータを伴う標本統計分布。
-
-</li><li>
-<code>'p_value</code>: 検定の<em>p</em>値。
-
-</li></ol>
-
-<p>例:
-</p>
-<p>対立 <em>H_1: median &gt; 15</em>に対して
-帰無仮説 <em>H_0: median = 15</em>をチェックします。
-引き分けがないので、これは正確確率検定です。
-</p>
-
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
-(%i2) x: [17.1,15.9,13.7,13.4,15.5,17.6]$
-(%i3) test_signed_rank(x,median=15,alternative=greater);
-                 |             SIGNED RANK TEST
-                 |
-                 |           med_estimate = 15.7
-                 |
-                 |           method = Exact test
-                 |
-(%o3)            | hypotheses = H0: med = 15 , H1: med &gt; 15
-                 |
-                 |              statistic = 14
-                 |
-                 |     distribution = [signed_rank, 6]
-                 |
-                 |            p_value = 0.28125
-</pre></td></tr></table>
-
-<p>Checks the null hypothesis <em>H_0: equal(median, 2.5)</em> against the 
-alternative <em>H_1: not equal(median, 2.5)</em>. This is an approximated test,
-since there are ties.
-</p>
-
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
-(%i2) y:[1.9,2.3,2.6,1.9,1.6,3.3,4.2,4,2.4,2.9,1.5,3,2.9,4.2,3.1]$
-(%i3) test_signed_rank(y,median=2.5);
-             |                 SIGNED RANK TEST
-             |
-             |                med_estimate = 2.9
-             |
-             |          method = Asymptotic test. Ties
-             |
-(%o3)        |    hypotheses = H0: med = 2.5 , H1: med # 2.5
-             |
-             |                 statistic = 76.5
-             |
-             | distribution = [normal, 60.5, 17.58195097251724]
-             |
-             |           p_value = .3628097734643669
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
-</dd></dl>
-
-
-
-
-
-
-
-<p><a name="Item_003a-test_005frank_005fsum"></a>
-</p><dl>
-<dt><a name="index-test_005frank_005fsum"></a><u>関数:</u> <b>test_rank_sum</b><i> (<var>x1</var>, <var>x2</var>)</i></dt>
-<dt><a name="index-test_005frank_005fsum-1"></a><u>関数:</u> <b>test_rank_sum</b><i> (<var>x1</var>, <var>x2</var>, <var>option</var>)</i></dt>
-<dd>
-<p>これは
-2つの連続母集団のメジアンを比較するWilcoxon-Mann-Whitney検定です。
-最初の2つの引数 <var>x1</var>と <var>x2</var>は
-2つの独立標本のデータを持つリストか列行列です。
-もし標本サイズのいずれかが10より大きいか、
-引き分けがあるなら、
-正規近似を実行します。
-</p>
-<p>オプション:
-</p>
-<ul>
-<li>
-<code>'alternative</code>, デフォルト <code>'twosided</code>,
-は対立仮説です;
-有効な値は次の通りです: <code>'twosided</code>, <code>'greater</code> and <code>'less</code>.
-
-</li></ul>
-
-<p>The output of function
-関数 <code>test_rank_sum</code>の出力は
-以下の結果を持つ
-<code>inference_result</code> Maximaオブジェクトです:
-</p>
-<ol>
-<li>
-<code>'method</code>: 推定手続き。
-
-</li><li>
-<code>'hypotheses</code>: 検定される帰無、対立仮説。
-
-</li><li>
-<code>'statistic</code>: 帰無仮説を検定するのに使われる標本統計値。
-
-</li><li>
-<code>'distribution</code>: パラメータを伴う標本統計分布。
-
-</li><li>
-<code>'p_value</code>: 検定の<em>p</em>値。
-
-</li></ol>
-
-<p>例:
-</p>
-<p>母集団が似たメジアンを持つかチェックします。
-標本サイズは小さく、正確確率検定がされます。
-</p>
-
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
-(%i2) x:[12,15,17,38,42,10,23,35,28]$
-(%i3) y:[21,18,25,14,52,65,40,43]$
-(%i4) test_rank_sum(x,y);
-              |                 RANK SUM TEST
-              |
-              |              method = Exact test
-              |
-              | hypotheses = H0: med1 = med2 , H1: med1 # med2
-(%o4)         |
-              |                 statistic = 22
-              |
-              |        distribution = [rank_sum, 9, 8]
-              |
-              |          p_value = .1995886466474702
-</pre></td></tr></table>
-
-<p>次は、
-より大きな標本で引き分けを含み、
-手続きは正規近似をします。
-対立仮説は <em>H_1: median1 &lt; median2</em>です。
-</p>
-
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
-(%i2) x: [39,42,35,13,10,23,15,20,17,27]$
-(%i3) y: [20,52,66,19,41,32,44,25,14,39,43,35,19,56,27,15]$
-(%i4) test_rank_sum(x,y,'alternative='less);
-             |                  RANK SUM TEST
-             |
-             |          method = Asymptotic test. Ties
-             |
-             |  hypotheses = H0: med1 = med2 , H1: med1 &lt; med2
-(%o4)        |
-             |                 statistic = 48.5
-             |
-             | distribution = [normal, 79.5, 18.95419580097078]
-             |
-             |           p_value = .05096985666598441
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
-</dd></dl>
-
-
-
-
-
-
-
-<p><a name="Item_003a-test_005fnormality"></a>
-</p><dl>
-<dt><a name="index-test_005fnormality"></a><u>関数:</u> <b>test_normality</b><i> (<var>x</var>)</i></dt>
-<dd>
-<p>正規性のShapiro-Wilk検定。
-引数 <var>x</var>は
-数のリストであり、
-標本サイズは2より大きく、5000以下でなければいけません。
-そうでないなら、関数 <code>test_normality</code>はエラーメッセージをシグナルします。
-</p>
-<p>参考文献:
-</p>
-<p>  [1] Algorithm AS R94, Applied Statistics (1995), vol.44, no.4, 547-551
-</p>
-<p>関数 <code>test_normality</code>の出力は
-以下の結果を持つ
-<code>inference_result</code> Maximaオブジェクトです:
-</p>
-<ol>
-<li>
-<code>'statistic</code>: <var>W</var>統計値
-
-</li><li>
-<code>'p_value</code>: 正規仮定の<em>p</em>値。
-
-</li></ol>
-
-<p>例:
-</p>
-<p>サイズ9の標本に基づいて母集団の正規性をチェックします。
-</p>
-
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
-(%i2) x:[12,15,17,38,42,10,23,35,28]$
-(%i3) test_normality(x);
-                       |      SHAPIRO - WILK TEST
-                       |
-(%o3)                  | statistic = .9251055695162436
-                       |
-                       |  p_value = .4361763918860381
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
-</dd></dl>
-
-
-
-
-
-
-
-
-
-<p><a name="Item_003a-linear_005fregression"></a>
-</p><dl>
-<dt><a name="index-linear_005fregression"></a><u>関数:</u> <b>linear_regression</b><i> (<var>x</var>)</i></dt>
-<dt><a name="index-linear_005fregression-1"></a><u>関数:</u> <b>linear_regression</b><i> (<var>x</var> <var>option</var>)</i></dt>
-<dd>
-<p>重回帰 <em>y_i = b0 + b1*x_1i + b2*x_2i + ... + bk*x_ki + u_i</em>。
-ここで <em>u_i</em>は <em>N(0,sigma)</em>個の独立確率変数です。
-引数 <var>x</var>は複数の列を持つ行列でなければいけません。
-最後の列は応答 (<em>y_i</em>)とみなされます。
-</p>
-<p>オプション:
-</p>
-<ul>
-<li>
-<code>'conflevel</code>, デフォルト <code>95/100</code>,
-比の信頼区間の信頼度;
-(0,1)内の値を取る式でなければいけません。
-</li></ul>
-
-<p>関数 <code>linear_regression</code>の出力は
-以下の結果を持つ
-<code>inference_result</code> Maximaオブジェクトです:
-</p>
-<ol>
-<li>
-<code>'b_estimation</code>: 回帰係数推定。
-
-</li><li>
-<code>'b_covariances</code>: 回帰係数推定の共分散行列。
-
-</li><li>
-<code>b_conf_int</code>: 回帰係数の信頼区間。
-
-</li><li>
-<code>b_statistics</code>: 係数テストの統計。
-
-</li><li>
-<code>b_p_values</code>: 係数テストのp値。
-
-</li><li>
-<code>b_distribution</code>: 係数テストの確率分布。
-
-</li><li>
-<code>v_estimation</code>: 不偏分散推定量。
-
-</li><li>
-<code>v_conf_int</code>: 分散信頼区間。
-
-</li><li>
-<code>v_distribution</code>: 分散テストの確率分布。
-
-</li><li>
-<code>residuals</code>: 残差。
-
-</li><li>
-<code>adc</code>: 調整済み決定係数。
-
-</li><li>
-<code>aic</code>: 赤池情報量規準。
-
-</li><li>
-<code>bic</code>: Bayes情報量規準。
-
-</li></ol>
-
-<p>上の項目 1, 4, 5, 6, 7, 8, 9, 11だけがこの順で、デフォルトで表示されます。
-残りはユーザーが関数 <code>items_inference</code>と <code>take_inference</code>を利用するまで
-隠されたままです。
+<p>この関数を初めて使うには、
+<code>load(simplify_sum)</code>で
+<code>simplify_sum</code>パッケージをロードしてください。
 </p>
 <p>例:
 </p>
-<p>線形モデルの三変量標本へのフィッティング。
-最後の列は応答 (<em>y_i</em>)と見なされます。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) load(&quot;stats&quot;)$
-(%i3) X:matrix(
-    [58,111,64],[84,131,78],[78,158,83],
-    [81,147,88],[82,121,89],[102,165,99],
-    [85,174,101],[102,169,102])$
-(%i4) fpprintprec: 4$
-(%i5) res: linear_regression(X);
-             |       LINEAR REGRESSION MODEL         
-             |                                       
-             | b_estimation = [9.054, .5203, .2397]  
-             |                                       
-             | b_statistics = [.6051, 2.246, 1.74]   
-             |                                       
-             | b_p_values = [.5715, .07466, .1423]   
-             |                                       
-(%o5)        |   b_distribution = [student_t, 5]     
-             |                                       
-             |         v_estimation = 35.27          
-             |                                       
-             |     v_conf_int = [13.74, 212.2]       
-             |                                       
-             |      v_distribution = [chi2, 5]       
-             |                                       
-             |             adc = .7922               
-(%i6) items_inference(res);
-(%o6) [b_estimation, b_covariances, b_conf_int, b_statistics, 
-b_p_values, b_distribution, v_estimation, v_conf_int, 
-v_distribution, residuals, adc, aic, bic]
-(%i7) take_inference('b_covariances, res);
-                  [  223.9    - 1.12   - .8532  ]
-                  [                             ]
-(%o7)             [ - 1.12    .05367   - .02305 ]
-                  [                             ]
-                  [ - .8532  - .02305   .01898  ]
-(%i8) take_inference('bic, res);
-(%o8)                          30.98
-(%i9) load(&quot;draw&quot;)$
-(%i10) draw2d(
-    points_joined = true,
-    grid = true,
-    points(take_inference('residuals, res)) )$
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;simplify_sum&quot;)$
+</pre><pre class="example">(%i2) sum(binomial(n+k,k)/2^k,k,1,n)+sum(binomial(2*n,2*k),k,1,n);
+        n                          n
+       ====                       ====
+       ¥     binomial(n + k, k)   ¥
+(%o2)   &gt;    ------------------ +  &gt;    binomial(2 n, 2 k)
+       /              k           /
+       ====          2            ====
+       k = 1                      k = 1
+</pre><pre class="example">(%i3) simplify_sum(%);
+
+                         2 n - 1    n
+(%o3)                   2        + 2  - 2
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
- &middot;<a href="maxima_98.html#Category_003a-Statistical-estimation">Statistical estimation</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-solve_005frec">Package solve_rec</a>
+ &middot;<a href="maxima_99.html#Category_003a-Sums-and-products">Sums and products</a>
+ &middot;<a href="maxima_99.html#Category_003a-Simplification-functions">Simplification functions</a>
 </div></p>
 </dd></dl>
 
 
+<dl>
+<dt><a name="index-solve_005frec"></a><u>関数:</u> <b>solve_rec</b><i> (<var>eqn</var>, <var>var</var>, [<var>init</var>])</i></dt>
+<dd><p>変数 <var>var</var>に関して多項式係数を持つ線形漸化式 <var>eqn</var>の超幾何解について解きます。
+オプション引数 <var>init</var>は初期条件です。
+</p>
+<p><code>solve_rec</code>は定数係数の線形漸化式を解くことができ、
+多項式係数の斉次線形漸化式の超幾何解と多項式係数の有理解を見つけ、
+Ricatti型漸化式を解くことができます。
+</p>
+<p>超幾何解を見つけるのに使われるアルゴリズムの実行時間は主係数と最小次数
+(trailing)係数の次数に関して指数的であることに注意してください。
+</p>
+<p>この関数を使うには最初に <code>load(solve_rec);</code>で
+<code>solve_rec</code>パッケージをロードしてください。
+</p>
+
+<p>定係数の線形漸化式の例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) solve_rec(a[n]=a[n-1]+a[n-2]+n/2^n, a[n]);
+                        n          n
+           (sqrt(5) - 1)  %k  (- 1)
+                            1           n
+(%o2) a  = ------------------------- - ----
+       n               n                  n
+                      2                5 2
+                                                n
+                                   (sqrt(5) + 1)  %k
+                                                    2    2
+                                 + ------------------ - ----
+                                            n              n
+                                           2            5 2
+</pre></td></tr></table>
+
+<p>多項式係数の線形漸化式の例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i7) 2*x*(x+1)*y[x] - (x^2+3*x-2)*y[x+1] + (x-1)*y[x+2];
+                         2
+(%o7) (x - 1) y      - (x  + 3 x - 2) y      + 2 x (x + 1) y
+               x + 2                   x + 1                x
+</pre><pre class="example">(%i8) solve_rec(%, y[x], y[1]=1, y[3]=3);
+                              x
+                           3 2    x!
+(%o9)                 y  = ---- - --
+                       x    4     2
+</pre></td></tr></table>
+
+<p>Ricatti型漸化式の例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) x*y[x+1]*y[x] - y[x+1]/(x+2) + y[x]/(x-1) = 0;
+                            y         y
+                             x + 1     x
+(%o2)         x y  y      - ------ + ----- = 0
+                 x  x + 1   x + 2    x - 1
+</pre><pre class="example">(%i3) solve_rec(%, y[x], y[3]=5)$
+</pre><pre class="example">(%i4) ratsimp(minfactorial(factcomb(%)));
+                                   3
+                               30 x  - 30 x
+(%o4) y  = - -------------------------------------------------
+       x        6      5       4       3       2
+             5 x  - 3 x  - 25 x  + 15 x  + 20 x  - 12 x - 1584
+</pre></td></tr></table>
 
 
+<p>以下も参照してください: <code>solve_rec_rat</code>, <code>simplify_products</code>,
+<code>product_use_gamma</code>。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-solve_005frec">Package solve_rec</a>
+</div></p>
+</dd></dl>
 
-
-<p><a name="Item_003a-Functions-and-Variables-for-special-distributions"></a>
-</p><hr size="6">
-<a name="Functions-and-Variables-for-special-distributions"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-stats" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_76.html#stirling" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#stats" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#stats" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_76.html#stirling" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<a name="Functions-and-Variables-for-special-distributions-1"></a>
-<h2 class="section">75.4 Functions and Variables for special distributions</h2>
-
-
-<p><a name="Item_003a-pdf_005fsigned_005frank"></a>
+<p><a name="Item_003a-solve_005frec_005frat"></a>
 </p><dl>
-<dt><a name="index-pdf_005fsigned_005frank"></a><u>関数:</u> <b>pdf_signed_rank</b><i> (<var>x</var>, <var>n</var>)</i></dt>
-<dd><p>符号順位統計の正確確率分布の確率密度関数。
-引数 <var>x</var>は実数であり、
-<var>n</var>は正の整数です。
+<dt><a name="index-solve_005frec_005frat"></a><u>関数:</u> <b>solve_rec_rat</b><i> (<var>eqn</var>, <var>var</var>, [<var>init</var>])</i></dt>
+<dd>
+<p>線形漸化式の有理解について解きます。
+引数の記述については solve_recを参照してください。
 </p>
-<p><code>test_signed_rank</code>も参照してください。
+<p>この関数を使うには最初に
+<code>load(solve_rec);</code>で <code>solve_rec</code>パッケージをロードしてください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) (x+4)*a[x+3] + (x+3)*a[x+2] - x*a[x+1] + (x^2-1)*a[x];
+(%o1)  (x + 4) a      + (x + 3) a      - x a
+                x + 3            x + 2      x + 1
+                                                   2
+                                               + (x  - 1) a
+                                                            x
+</pre><pre class="example">(%i2) solve_rec_rat(% = (x+2)/(x+1), a[x]);
+                       1
+(%o2)      a  = ---------------
+            x   (x - 1) (x + 1)
+</pre></td></tr></table>
+
+
+<p>以下も参照してください: <code>solve_rec</code>。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-solve_005frec">Package solve_rec</a>
 </div></p>
 </dd></dl>
 
-<p><a name="Item_003a-cdf_005fsigned_005frank"></a>
+<p><a name="Item_003a-product_005fuse_005fgamma"></a>
 </p><dl>
-<dt><a name="index-cdf_005fsigned_005frank"></a><u>関数:</u> <b>cdf_signed_rank</b><i> (<var>x</var>, <var>n</var>)</i></dt>
-<dd><p>符号順位統計の正確確率分布の累積密度関数。
-引数 <var>x</var>は実数であり、
-<var>n</var>は正の整数です。
+<dt><a name="index-product_005fuse_005fgamma"></a><u>オプション変数:</u> <b>product_use_gamma</b></dt>
+<dd><p>デフォルト値: <code>true</code>
 </p>
-<p><code>test_signed_rank</code>も参照してください。
+<p>積を整理する時、もし <code>product_use_gamma</code>が <code>true</code>なら、
+<code>solve_rec</code>は式の中にガンマ函数を導入します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
+
+<p>以下も参照してください: <code>simplify_products</code>, <code>solve_rec</code>。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-solve_005frec">Package solve_rec</a>
 </div></p>
 </dd></dl>
 
-<p><a name="Item_003a-pdf_005frank_005fsum"></a>
+<p><a name="Item_003a-summand_005fto_005frec"></a>
 </p><dl>
-<dt><a name="index-pdf_005frank_005fsum"></a><u>関数:</u> <b>pdf_rank_sum</b><i> (<var>x</var>, <var>n</var>, <var>m</var>)</i></dt>
-<dd><p>順位和統計の正確確率分布の確率密度関数。
-引数 <var>x</var>は実数であり、
-<var>n</var>と <var>m</var>はともに正の整数です。
+<dt><a name="index-summand_005fto_005frec"></a><u>関数:</u> <b>summand_to_rec</b><i> (<var>summand</var>, <var>k</var>, <var>n</var>)</i></dt>
+<dt><a name="index-summand_005fto_005frec-1"></a><u>関数:</u> <b>summand_to_rec</b><i> (<var>summand</var>, [<var>k</var>, <var>lo</var>, <var>hi</var>], <var>n</var>)</i></dt>
+<dd>
+<p>和
 </p>
-<p><code>test_rank_sum</code>も参照してください。
+<table><tr><td>&nbsp;</td><td><pre class="example">     hi
+    ====
+    \
+     &gt;     summand
+    /
+    ====
+  k = lo
+</pre></td></tr></table>
+
+<p>が満たす漸化式を返します。
+ここで、被和 (summand)は <var>k</var>と <var>n</var>に対して超幾何的です。
+もし <var>lo</var>と <var>hi</var>が省略されたら、
+それらは <code>lo = -inf</code>、<code>hi = inf</code>と仮定されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
+<p>この関数を初めて使うには
+<code>load(simplify_sum)</code>で
+<code>simplify_sum</code>パッケージをロードしてください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;simplify_sum&quot;)$
+</pre><pre class="example">(%i2) summand: binom(n,k);
+(%o2)                           binomial(n, k)
+</pre><pre class="example">(%i3) summand_to_rec(summand,k,n);
+(%o3)                      2 sm  - sm      = 0
+                               n     n + 1
+</pre><pre class="example">(%i7) summand: binom(n, k)/(k+1);
+                                binomial(n, k)
+(%o7)                           --------------
+                                    k + 1
+</pre><pre class="example">(%i8) summand_to_rec(summand, [k, 0, n], n);
+(%o8)               2 (n + 1) sm  - (n + 2) sm      = - 1
+                                n             n + 1
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-solve_005frec">Package solve_rec</a>
 </div></p>
 </dd></dl>
 
-<p><a name="Item_003a-cdf_005frank_005fsum"></a>
-</p><dl>
-<dt><a name="index-cdf_005frank_005fsum"></a><u>関数:</u> <b>cdf_rank_sum</b><i> (<var>x</var>, <var>n</var>, <var>m</var>)</i></dt>
-<dd><p>順位和統計の正確確率分布の累積密度関数。
-引数 <var>x</var>は実数であり、
-<var>n</var>と <var>m</var>はともに正の整数です。
-</p>
-<p><code>test_rank_sum</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_98.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
-</dd></dl>
-
-
-<p><a name="Item_003a-stirling"></a>
+<p><a name="Item_003a-stats"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#stats" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_76.html#stirling" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#solve_005frec" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_76.html#stats" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -1762,12 +520,12 @@ v_distribution, residuals, adc, aic, bic]
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年1月月14日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2014年4月月20日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 
