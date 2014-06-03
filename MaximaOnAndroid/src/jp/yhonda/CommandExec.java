@@ -46,9 +46,11 @@ public class CommandExec {
         }
     }
     public void maximaCmd(String mcmd) throws IOException, Exception  {
-        // プロセスの標準入力ストリーム取得
-        os = process.getOutputStream();
-        os.write(mcmd.getBytes("UTF-8"));
+    	if (!mcmd.equals("")) {
+    		// プロセスの標準入力ストリーム取得
+    		os = process.getOutputStream();
+    		os.write(mcmd.getBytes("UTF-8"));
+    	}
         while (true) {
             int c = is.read();
             if (c == 0x04) {

@@ -539,21 +539,37 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    			webview.loadUrl("javascript:window.UpdateInput('"+ escapeChars(cmdstr) +"<br>" +"')");
    			String resString=maximaProccess.getProcessResult();
    	        maximaProccess.clearStringBuilder();
-   	        while (resString.equals("start qepcad")) {
-		        List<String> list = new ArrayList<String>();
-		        list.add("/data/data/jp.yhonda/files/additions/qepcad/qepcad.sh");
-		        CommandExec qepcadcom = new CommandExec();
-		        try {
-		        	qepcadcom.execCommand(list);
-		        } catch (Exception e) {
-		        	Log.d("MoA","exception7");
-		        }
-		        try {
-		        	maximaProccess.maximaCmd("qepcad finished\n");		        
-		        } catch (Exception e) {
-		        	Log.d("MoA", "exception8");
-		        }
-		        resString=maximaProccess.getProcessResult();
+   	        while (!isPromptString(resString)) {
+	   	        if (resString.equals("start qepcad")) {
+	   	        
+			        List<String> list = new ArrayList<String>();
+			        list.add("/data/data/jp.yhonda/files/additions/qepcad/qepcad.sh");
+			        CommandExec qepcadcom = new CommandExec();
+			        try {
+			        	qepcadcom.execCommand(list);
+			        } catch (Exception e) {
+			        	Log.d("MoA","exception7");
+			        }
+			        try {
+			        	maximaProccess.maximaCmd("qepcad finished\n");		        
+			        } catch (Exception e) {
+			        	Log.d("MoA", "exception8");
+			        }
+   	        	} else if (!resString.equals("")) {
+   	        		displayMaximaCmdResults(resString);
+   		   	        try {
+   		   	        	maximaProccess.maximaCmd("");		        
+   		   	        } catch (Exception e) {
+   		   	        	Log.d("MoA", "exception8");
+   		   	        }
+   	        	} else {
+   		   	        try {
+   		   	        	maximaProccess.maximaCmd("");		        
+   		   	        } catch (Exception e) {
+   		   	        	Log.d("MoA", "exception8");
+   		   	        }
+   	        	}
+	   	        resString=maximaProccess.getProcessResult();
 	   	        maximaProccess.clearStringBuilder();
    	        }
 
@@ -577,6 +593,10 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    		}
 
    		return true;
+   	}
+   	
+   	private boolean isPromptString(String res) {
+   		return res.endsWith(") ");
    	}
    	
    	private String maxima_syntax_check(String cmd) {

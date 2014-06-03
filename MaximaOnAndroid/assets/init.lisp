@@ -78,10 +78,10 @@
 
 ;;; qepcad support
 (defun $system (&rest args)
-  (if (string> (first args) "sh -c")
+  (if (string> (first args) "bash -c")
     ;; perform qepcad
     (progn
-      (format t "start qepcad~A" *prompt-suffix*)
+      (format t "~Astart qepcad~A" *prompt-suffix* *prompt-suffix*)
       (read-line))))
 
 (let ((top (pop $file_search_lisp))) 
