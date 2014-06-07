@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on May, 25 2014 by texi2html 1.76 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people <dev@texi2html.cvshome.org>
+Send bugs and suggestions to <users@texi2html.cvshome.org>
+
+-->
+<head>
+<title>Untitled Document: 1. Introduction to qepmax</title>
+
+<meta name="description" content="Untitled Document: 1. Introduction to qepmax">
+<meta name="keywords" content="Untitled Document: 1. Introduction to qepmax">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.76">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[ &lt; ]</td>
+<td valign="middle" align="left">[<a href="#SEC2" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[ &lt;&lt; ]</td>
+<td valign="middle" align="left">[ Up ]</td>
+<td valign="middle" align="left">[<a href="#SEC5" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[Contents]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#SEC1">1. Introduction to qepmax</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC5">2. Functions and Variables for qepmax</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<a name="Introduction-to-qepmax"></a>
+<a name="SEC1"></a>
+<h2 class="section"> 1. Introduction to qepmax </h2>
+
+<p><code>Qepmax</code> is a <code>Qepcad B</code> - Maxima interfacing module written in
+Maxima language and Common Lisp. As <code>Qepcad B</code> provides so 
+called quantifier elimination in the real domain, <code>qepmax</code>
+adds this functionality to Maxima computer algebra system.
+</p>
+<p>With using quantifier elimination (Q.E. in short), a variety of problems 
+can be expressed and solved. Optimization problems with multi-variate 
+polynomials with equality and inequality constraints can be exactly(!) and
+symbolically(!!) solved. 
+</p>
+<p><code>Qepmax</code> requires <code>Qepcad B</code>, developed at and distributed from
+the United States Naval Academy. <code>Qepmax</code> users are suggested to visit 
+<a href="http://www.usna.edu/CS/~qepcad/B/QEPCAD.html">Qepcad B homepage</a> to 
+become familier with <code>Qepcad B</code>, to obtain the distribution package, and
+to know how to install it.
+</p>
+<p>Lincese terms of <code>Qepmax</code> can be found in each source files. 
+<code>Qepmax</code> package is in GPL v2.
+</p>
+<p><code>Qepmax</code> package is written by Yasuaki Honda, then Prof. 
+Dr. Reinhard Oldenburg of Goethe-Universität Frankfurt has
+contributed the improvements for allowing the use of logical 
+operators and rational functions as well as better function
+interface.
+</p>
+<p>Further, ehito-san has contributed the improvement of the
+treatment of rational functions, nested qe() call, and 
+strict rational function treatment.
+</p>
+<p>Hereafter is the quick introduction of:
+</p><ul>
+<li>
+What is Quantifier Elimination?
+</li><li>
+What does Qepcad B do?
+</li><li>
+What is qepmax package and how to use it?
+</li></ul>
+
+<hr size="6">
+<a name="SEC2"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC1" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC3" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC5" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[Contents]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="unnumberedsubsec"> What is Quantifier Elimination </h3>
+<p>A large size of problems can be expressed as a first order
+predicate logic with the following properties:
+</p><ul>
+<li>
+variables are in real number domain
+</li><li>
+predicates are =, &lt;, &gt;, &lt;=, &gt;=, #(not equal)
+</li><li>
+terms are polinomials or rational functions
+</li></ul>
+
+<p>A logical formula with some of its variables quntified is 
+called a Tarski sentence. 
+Example: a circle <em>x^2+y^2=1</em> and a line <em>y=x/2+1/3</em> 
+crosses with each other. Tarski sentence for this is:
+<em>E x, E y, x^2+y^2=1 and y=x/2+1/3</em>
+where E denotes the existential quantifier.
+</p>
+<p>The quntifier elimination is a technique to obtain the
+equivarent condition to the given Tarski sentence. The
+resulted condition does not contain any quantified variables.
+</p>
+<p>By using the quantifier elimination technique, we can obtain 
+an equivarent condition:
+<em>true</em>
+meaning that, yes, there is a point (x,y) which satisfies
+both circle and line formulas.
+</p>
+<p>On the other hand, from
+<em>E x, E y, x^2+y^2=1 and y=x/2+5</em>
+we will obtain
+<em>false</em>
+since there is no such intersection point (x,y).
+</p>
+<p>Further more, considering the following Tarski sentence with free variable a:
+<em>E x, E y, x^2+y^2=1 and y=x/2+a</em>
+</p>
+<p>Using the quantifier elimination, we obtain a condition on a:
+<em>4*a^2-5&lt;=0</em>
+</p>
+<p>So, while a is in this range, the circle and the line cross, but
+they don't cross if a is not in the range above.
+</p>
+<hr size="6">
+<a name="SEC3"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC2" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC4" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC5" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[Contents]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="unnumberedsubsec"> What does Qepcad B do? </h3>
+<p>Qepcad B is a software that implements a quantifier elimination
+algorithm called Cylindrical Algebraic Decomposition (CAD).
+The software is developed by Prof. Chris Brown of US Naval Academy.
+The homepage of the software is:
+<a href="http://www.usna.edu/CS/~qepcad/B/QEPCAD.html">http://www.usna.edu/CS/~qepcad/B/QEPCAD.html</a>
+</p>
+<p>On starting the program Qepcad B, the interactive session starts.
+You give a list of variables, number of free variables,
+a list of quntified variables, and a Tarski sentence with Qepcad B 
+syntax during the session. Alternatively, you can supply all
+such information in a file and Qepcad B processes it.
+Then the program computes the equivarent condition to the
+specified Tarski sentence, only including the free variables. 
+</p>
+<p>It is a fun to use Qepcad B directly from its command line 
+interface, as it provides many commands and options to use
+during the interactive sessions. 
+</p>
+<hr size="6">
+<a name="SEC4"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC3" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC5" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC5" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[Contents]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="unnumberedsubsec"> What is qepmax package and how to use it? </h3>
+<p>Qepmax is a Maxima package that calls Qepcad B internally using
+sysmtem() function to process Tarski sentence represented using
+Maxima syntax.
+</p>
+<p>Assuming it is correctly installed according to INSTALL, you
+can load the package by:
+</p><pre class="example">(%i1) load(&quot;qepmax.mac&quot;);
+</pre>
+<p>Qepmax package provides a function <code>qe(QFList, aLogicalExp)</code>.
+<code>QFList</code> is a list of quantified variables. <code>aLogicalExp</code> is an
+expression in the real domain. You can use =,&lt;,&gt;,&lt;=,&gt;=,# as
+the predicates, polynomials and rational functions as terms,
+and %and, %or, %not, %implies as the logical operators.
+In polimomials and rational functions, you can use rational
+numbers and variables as coefficients.
+</p>
+<p>The function <code>qe()</code> generates a temporary file that can be used for the
+input of Qepcad B. Then Qepcad B is invoked with the file contents
+supplied from standard input. Qepcad generates an output file in which
+quantifier elimination result is written.
+</p>
+<p>Then <code>qe()</code> read the output file and translate the result into Maxima
+formula and return it from qe(). You can of course use it for the futher 
+computation using Maxima.
+</p>
+<p>@opencatbox
+@category{Symbolic methods}  @category{Optimization} @category{Share packages} @category{Package qepmax}
+@closecatbox
+</p>
+<hr size="6">
+<a name="Functions-and-Variables-for-qepmax"></a>
+<a name="SEC5"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC4" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[ &gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[Contents]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 2. Functions and Variables for qepmax </h2>
+
+<dl>
+<dt><u>Function:</u> <b>qe</b><i> (<var>QFVList</var>, <var>LogicalExp</var>)</i>
+<a name="IDX1"></a>
+</dt>
+<dd><p>Compute a formula equivarent to <var>LogicalExp</var> with quantified
+variables specified in <var>QFVList</var>. The computed formula does NOT
+contain any quantified variables in <var>QFVList</var>.
+</p>
+<p>Before giving preciese syntax definition, here goes the examples
+appeared in the Quantifier Elimination explanation.
+</p>
+<pre class="example">(%i1) qe([[E,x],[E,y]], x^2+y^2=1 %and y=x/2+1/3);
+(%o1) true
+(%i2) qe([[E,x],[E,y]],x^2+y^2=1 %and y=x/2+5);
+(%o2) false
+[ qe1 ]
+</pre>
+
+<p><var>QFVList</var> is a list of pairs (two element list) of a quantifier 
+and a variable. A quantifier is one of <var>A,E,F,G,C</var>,and <var>Xk</var>, where k
+is a positive integer. Variables are ordinal Maxima variables, however,
+indexed variables are not supported. Quantifier <var>A</var> is the universal
+quantifier (for all). <var>E</var> is the existential quantifier (there exists).
+<var>F,G,C</var> are described in Qepcad B homepage. <var>Xk</var> is similar to
+<var>E</var>, but the number of existence is exactly k.
+</p>
+<p>An example of <var>QFVList</var> is [[A,x],[A,y]], meaning &quot;For all x and for
+all y in R&quot;. Another example is [[E,x],[A,y],[A,z]], meaning &quot;There exists
+x in R such that for all y and for all z in R&quot;. Variables appeared
+in <var>QVList</var> are called quantified variables.
+</p>
+<p><var>LogicalExp</var> is a boolean formula in which you can use %and, %or, %implies,
+and %not as boolean operators. Predicates in atomic formulas appeared in the 
+<var>LogicalExp</var> are restricted to <code>&lt;, &lt;=, &gt;, &gt;=, =, #</code>. Terms in the 
+atomic formulas are restricted to multivariate polynomials or rational functions
+with coefficients being rational numbers. Atomic formula may also be a maxima
+function which returns a boolean formula.
+</p>
+<p>Any quantified variables specified in the <var>QVList</var> can be used in the
+<var>LogicalExp</var>. Variables that are not specified in the <var>QVList</var> can
+also be used. They are called free variables.
+</p>
+<p>Couple of examples of <var>LogicalExp</var> are:
+</p><pre class="example">x^2&gt;=0
+y=x/2+m %and y&lt;x+1 %and y&lt;-x+1
+</pre>
+<p><code>qe</code> returns a boolean formula which only contains free variables  in 
+the <var>LogicalExp</var>, still the returned formula is equivalent to 
+<var>LogicalExp</var> quantified by <var>QVList</var>.
+</p>
+</dd></dl>
+
+
+<hr size="6">
+<a name="SEC_About"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC1" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[Contents]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1>About This Document</h1>
+<p>
+  This document was generated by <em>本田 康晃</em> on <em>May, 25 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+</p>
+<p>
+  The buttons in the navigation panels have the following meaning:
+</p>
+<table border="1">
+  <tr>
+    <th> Button </th>
+    <th> Name </th>
+    <th> Go to </th>
+    <th> From 1.2.3 go to</th>
+  </tr>
+  <tr>
+    <td align="center"> [ &lt; ] </td>
+    <td align="center">Back</td>
+    <td>previous section in reading order</td>
+    <td>1.2.2</td>
+  </tr>
+  <tr>
+    <td align="center"> [ &gt; ] </td>
+    <td align="center">Forward</td>
+    <td>next section in reading order</td>
+    <td>1.2.4</td>
+  </tr>
+  <tr>
+    <td align="center"> [ &lt;&lt; ] </td>
+    <td align="center">FastBack</td>
+    <td>beginning of this chapter or previous chapter</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td align="center"> [ Up ] </td>
+    <td align="center">Up</td>
+    <td>up section</td>
+    <td>1.2</td>
+  </tr>
+  <tr>
+    <td align="center"> [ &gt;&gt; ] </td>
+    <td align="center">FastForward</td>
+    <td>next chapter</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td align="center"> [Top] </td>
+    <td align="center">Top</td>
+    <td>cover (top) of document</td>
+    <td> &nbsp; </td>
+  </tr>
+  <tr>
+    <td align="center"> [Contents] </td>
+    <td align="center">Contents</td>
+    <td>table of contents</td>
+    <td> &nbsp; </td>
+  </tr>
+  <tr>
+    <td align="center"> [Index] </td>
+    <td align="center">Index</td>
+    <td>index</td>
+    <td> &nbsp; </td>
+  </tr>
+  <tr>
+    <td align="center"> [ ? ] </td>
+    <td align="center">About</td>
+    <td>about (help)</td>
+    <td> &nbsp; </td>
+  </tr>
+</table>
+
+<p>
+  where the <strong> Example </strong> assumes that the current position is at <strong> Subsubsection One-Two-Three </strong> of a document of the following structure:
+</p>
+
+<ul>
+  <li> 1. Section One
+    <ul>
+      <li>1.1 Subsection One-One
+        <ul>
+          <li>...</li>
+        </ul>
+      </li>
+      <li>1.2 Subsection One-Two
+        <ul>
+          <li>1.2.1 Subsubsection One-Two-One</li>
+          <li>1.2.2 Subsubsection One-Two-Two</li>
+          <li>1.2.3 Subsubsection One-Two-Three &nbsp; &nbsp;
+            <strong>&lt;== Current Position </strong></li>
+          <li>1.2.4 Subsubsection One-Two-Four</li>
+        </ul>
+      </li>
+      <li>1.3 Subsection One-Three
+        <ul>
+          <li>...</li>
+        </ul>
+      </li>
+      <li>1.4 Subsection One-Four</li>
+    </ul>
+  </li>
+</ul>
+
+<hr size="1">
+<p>
+ <font size="-1">
+  This document was generated by <em>本田 康晃</em> on <em>May, 25 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+ </font>
+ <br>
+
+</p>
+</body>
+</html>
