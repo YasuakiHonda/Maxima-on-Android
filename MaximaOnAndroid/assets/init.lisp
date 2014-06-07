@@ -107,7 +107,10 @@
                 "/data/data/jp.yhonda/files/qepcad_output.txt")
   (if (not (boundp '$qepcad_file_pattern))                                       
       (add2lnc '$qepcad_file_pattern $values))                                   
-  (defparameter $qepcad_file_pattern "/data/data/jp.yhonda/files/qepcad*.txt"))
+  (defparameter $qepcad_file_pattern "/data/data/jp.yhonda/files/qepcad*.txt")
+  (if (not (boundp '$qepcad_option))                                       
+      (add2lnc '$qepcad_option $values))                                   
+  (defparameter $qepcad_option " +N20000000 +L100000 "))
 
 ;;; always save support
 (defvar *save_file* "/data/data/jp.yhonda/files/saveddata")
