@@ -72,8 +72,15 @@ Then you can enjoy Maxima / Macsyma on your mobile phone or tablet.
                     What's new in this release
                 </h3>
                 <ul data-role="listview" data-inset="true">
-                    <li>Maxima 5.33.0 is supported.</li>
-                    <li>Qepcad is officially supported. See details in this manual.</li>
+                    <li>Dropbox is now supported on Maxima on Android. You can find
+                    how to use Dropbox with MoA in this manual.</li>
+                    <li>The version of the Japanese manual is updated to 5.33.0. Always thanks
+                    go to Ichikawa san for the translation!!</li>
+                    <li>The latest version of Qepmax is included.</li>
+                    <li>qe() function in Qepmax is greatly improved. qe() can be nested.
+                    qe() can be placed in batch files. Undrlying qepcad gets more stable.</li>
+                    <li>Functions for applying rules did not work. Now they work. Apply1,
+                    applyb1, apply2, applyb2 are affected.</li>
                 </ul>                
             </div>
             <div data-role="collapsible">
@@ -272,7 +279,55 @@ example(allroots);
 </pre>
 </div> <!-- Maxima Command Examples -->
 
+<div data-role="collapsible"> <!-- Dropbox support -->
+<H4>Dropbox support</H4>
+
+<p>
+Dropbox is one of the best known cloud storage services in the world. Maxima on Android 
+now supports Dropbox to provide the following functionality:
+<u>
+<li>To share Maxima code on PC with Android devices</li>
+<li>To write / edit Maxima code on Android devices</li>
+<li>To support loading the Maxima code in Dropbox into Maxima on Android</li>
+</u>
+</p>
+<p>
+Let us assume that
+<u>
+<li>you have an account of Dropbox,</li> 
+<li>you installed Dropbox application on your Android device and your PC, and</li>
+<li>sharing files through Dropbox between your Android device and PC already works</li>
+</u> 
+</p>
+<p>
+Here is step by step instructions on how to load shared files in Maxima on Android:
+<u>
+<li>You create a test.txt which contains couple of lines of Maxima codes,</li>
+<li>You put the file into Dropbox folder on your PC to share it,</li>
+<li>You make sure the file is there on your Dropbox application on your Android device, </li>
+<li>You may edit test.txt file with Dropbox text editor at any time,</li>
+<li>You export test.txt to the SD card by choosing Export and choosing SD card as the destination,</li>
+<li>The destination folder MUST be /sdcard/Download folder. Typically this is chosen by default,</li>
+<li>Run or return to Maxima on Android</li>
+<li>load(test); or load("test.txt");</li>
+<li>batch(test); should also work</li>
+</u>
+Repeating editing and exporting is the typical development cycle. Editing can be
+carried out either on Android or PC.  
+</p> 
+<p>
+There are two important things to note. One is that only the text file whose file name ends with 
+.txt can be editted on the Dropbox text editor. So, test.txt can be editted, but test.mac cannot be
+editted on Android.
+</p>
+<p>
+The other thing to note is that the folder to export must be /sdcard/Download. This folder is already added
+to the list of locations where Maxima searches files to load.
+</p>
+</div> <!-- Dropbox support -->
+
 <div data-role="collapsible"> <!-- Maxima Manual -->
+
 <H4>Maxima Manual</H4>
 
 <p>

@@ -78,11 +78,13 @@
 
 ;;; qepcad support
 (defun $system (&rest args)
-  (if (string> (first args) "bash -c")
-    ;; perform qepcad
-    (progn
-      (format t "~Astart qepcad~A" *prompt-suffix* *prompt-suffix*)
-      (read-line))))
+  (let ((bashline "bash -c 'export qe="))
+    (if (>= (string> (first args) bashline) 
+            (length bashline))
+      ;; perform qepcad
+      (progn
+        (format t "~Astart qepcad~A" *prompt-suffix* *prompt-suffix*)
+        (read-line)))))
 
 (let ((top (pop $file_search_lisp))) 
     (push "/data/data/jp.yhonda/files/additions/qepcad/qepmax/$$$.{lsp,lisp,fasl}" $file_search_lisp) 
