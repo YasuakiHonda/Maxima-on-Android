@@ -18,8 +18,11 @@
 
 package jp.yhonda;
 
+import java.io.File;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -55,7 +58,15 @@ public class HTMLActivity extends Activity {
     	    return true;
     	  }
       });
-      
+
+      if (Build.VERSION.SDK_INT >= 11) {
+    	  Intent intent=this.getIntent();
+    	  boolean hwaccel=intent.getBooleanExtra("hwaccel", true);
+    	  if (hwaccel==false) {
+    		  webview.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
+    	  }
+      }
+
       loadURLonCreate();
 
   }
@@ -75,7 +86,11 @@ public class HTMLActivity extends Activity {
     }
 
     public void loadURLonCreate() {
-		Intent origIntent=this.getIntent();
+    	File f=new File("/data/data/jp.yhonda/files/maxout.html");
+    	if (f.exists()==true) {
+    		Log.v("MoA", "loadURLonCreate"+String.valueOf(f.length()));
+    	}
+    	Intent origIntent=this.getIntent();
 	    String urlonCreate=origIntent.getStringExtra("url");
 	    webview.setContentDescription(urlonCreate);
 	    webview.loadUrl(urlonCreate);

@@ -90,7 +90,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
     	  boolean retval=false;
 		  switch (item.getItemId()) {
 		  case R.id.about:
-			   showHTML("file:///android_asset/About_MoA/index.html");
+			   showHTML("file:///android_asset/About_MoA/index.html",true);
 			   retval= true;
 			   break;
 		  case R.id.graph:
@@ -505,15 +505,15 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    				if (cmdstr.equals("sc;")) {this.scrollToEnd();return true;}
    				if (cmdstr.equals("quit();")) exitMOA();
    				if (cmdstr.equals("aboutme;")) {
-   					showHTML("file:///android_asset/docs/aboutMOA.html");
+   					showHTML("file:///android_asset/docs/aboutMOA.html",true);
    					return true;
    				}
    				if (cmdstr.equals("man;")) {
-   					showHTML("file://"+internalDir+"/additions/en/maxima.html");
+   					showHTML("file://"+internalDir+"/additions/en/maxima.html",true);
    					return true;
    				}
    				if (cmdstr.equals("manj;")) {
-   					showHTML("file://"+internalDir+"/additions/ja/maxima.html");
+   					showHTML("file://"+internalDir+"/additions/ja/maxima.html",true);
    					return true;
    				}
    				if (cmdstr.startsWith("textSize:")) {
@@ -584,7 +584,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
 		            Log.d("MoA","exception6");
 		        }
 		        if ((new File("/data/data/jp.yhonda/files/maxout.html")).exists()) {
-		        	showHTML("file:///data/data/jp.yhonda/files/maxout.html");
+		        	showGraph();
 		        }
 			}
 
@@ -685,10 +685,11 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    	    return buffer.toString();
    	}
    	
-   	private void showHTML(String url) {
+   	private void showHTML(String url, boolean hwaccel) {
       	Intent intent = new Intent(this,HTMLActivity.class);
       	intent.setAction(Intent.ACTION_VIEW);
       	intent.putExtra("url", url);
+      	intent.putExtra("hwaccel", hwaccel);
       	this.startActivity(intent);
    	}
    	private void showManual() {
@@ -701,7 +702,7 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    	}   	
    	private void showGraph() {
         if ((new File("/data/data/jp.yhonda/files/maxout.html")).exists()) {
-        	showHTML("file:///data/data/jp.yhonda/files/maxout.html");
+        	showHTML("file:///data/data/jp.yhonda/files/maxout.html",false);
         } else {
 			Toast.makeText(this, "No graph to show.", Toast.LENGTH_LONG).show();        	
         }
