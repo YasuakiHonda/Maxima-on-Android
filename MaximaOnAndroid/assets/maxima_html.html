@@ -18,7 +18,7 @@ under test directory. The name of the file is sample-dynamic-2.html -->
     extensions: ["tex2jax.js"],
     jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      displayMath: [ ['$$$$$$','$$$$$$'], ["\\[","\\]"] ],
       processEscapes: true
     },
     "SVG": { 
@@ -123,12 +123,40 @@ under test directory. The name of the file is sample-dynamic-2.html -->
 			MathJax.Hub.queue.Push([ "scrollToEnd", window ]);
 		}
 
+	        /*
+	        Internal function
+	        */
+	        function escDoller(text) {
+	            var i=text.indexOf('$');
+	            if (i==-1) {
+	              // $は見つからなかった
+	              return(text);
+	            } else if (i==0) {
+	              // 先頭が$だった
+	              return '\\'+'$'+escDoller(text.substring(1));
+	            } else {
+	              // $は２文字目以降だった
+	              // $の直前が\出ない場合、$の直前までの文字列と'\\'+'$'とescDoller(残り)
+	              // $の直前が\の場合、$の直前までの文字列と'$'とescDoller(残り)
+	              var a=text.substring(0,i);
+	              var b='';
+	              if (text.substring(i-1,i)=='\\') {
+	                b='$';
+	              } else {
+	                b='\\'+'$';
+	              }
+	              var c=escDoller(text.substring(i+1));
+	              return (a+b+c);
+	            }
+	        }
+
+
 		/*
 		    Java-JS Interface function
 		 */
 		window.UpdateMath = function(TeX) {
 			console.log("UpdateMath " + TeX);
-			var text = " $$ " + TeX + " $$ ";
+			var text = " $$$$$$ " + escDoller(TeX) + " $$$$$$ ";
 			var mathlist = document.getElementById("MathList");
 			var tnode = document.createTextNode(text);
 			MathJax.Hub.queue.Push([ "appendNode", window, tnode ]);

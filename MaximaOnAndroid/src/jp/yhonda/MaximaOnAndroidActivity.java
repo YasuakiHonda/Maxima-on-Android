@@ -630,15 +630,15 @@ public class MaximaOnAndroidActivity extends Activity implements TextView.OnEdit
    	
    	private void displayMaximaCmdResults(String resString) {
    		Log.v("MoA cmd", resString);
-		String [] resArray=resString.split("\\$\\$");
+		String [] resArray=resString.split("\\$\\$\\$\\$\\$\\$");
 		for (int i = 0 ; i < resArray.length ; i++) {
 			if (i%2 == 0) {
-				/* normal text, as we are outside of $$...$$ */
+				/* normal text, as we are outside of $$$$$$...$$$$$$ */
 				if (resArray[i].equals("")) continue;
 				String htmlStr=substitute(resArray[i],"\n","<br>");
 				webview.loadUrl("javascript:window.UpdateText('"+ htmlStr +"')");
 			} else {
-				/* tex commands, as we are inside of $$...$$ */
+				/* tex commands, as we are inside of $$$$$$...$$$$$$ */
 				String texStr=substCRinMBOX(resArray[i]);
 				texStr=substitute(texStr,"\n"," \\\\\\\\ ");
 				String urlstr="javascript:window.UpdateMath('"+ texStr +"')";
