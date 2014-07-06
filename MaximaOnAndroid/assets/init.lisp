@@ -83,7 +83,7 @@
             (length bashline))
       ;; perform qepcad
       (progn
-        (format t "~Astart qepcad~A" *prompt-suffix* *prompt-suffix*)
+        (format t "start qepcad~A" *prompt-suffix*)
         (read-line)))))
 
 (let ((top (pop $file_search_lisp))) 
