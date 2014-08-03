@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on May, 25 2014 by texi2html 1.76 -->
+<!-- Created on July, 27 2014 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -225,7 +225,7 @@ during the interactive sessions.
 </tr></table>
 <h3 class="unnumberedsubsec"> What is qepmax package and how to use it? </h3>
 <p>Qepmax is a Maxima package that calls Qepcad B internally using
-sysmtem() function to process Tarski sentence represented using
+system() function to process Tarski sentence represented using
 Maxima syntax.
 </p>
 <p>Assuming it is correctly installed according to INSTALL, you
@@ -312,6 +312,19 @@ atomic formulas are restricted to multivariate polynomials or rational functions
 with coefficients being rational numbers. Atomic formula may also be a maxima
 function which returns a boolean formula.
 </p>
+<p><code>Qepmax</code> supports the Extended Tarski Formula, the atomic formula
+of the form <code>var op etf_root(k, polynomial)</code>. Detailed semantics
+of this atomic formula is difficult explain here. Instead you should
+refer to the following URL
+<a href="http://www.usna.edu/CS/~qepcad/B/user/ETF.html">http://www.usna.edu/CS/~qepcad/B/user/ETF.html</a>.
+</p>
+<p>Here I give you a very typical example and its meaning. In the Q.E.,
+you may want to express some conditions on one of roots of an
+equation. Extended Tarski Formula can be used for this purpose. For an
+example, you can specify that <var>x</var> is a second smallest root of
+<code>x^2=2</code> by the atomic formula <code>x=etf_root(2,x^2-2)</code>. This is
+a shortcut of expressing that x is sqrt(2).
+</p>
 <p>Any quantified variables specified in the <var>QVList</var> can be used in the
 <var>LogicalExp</var>. Variables that are not specified in the <var>QVList</var> can
 also be used. They are called free variables.
@@ -326,6 +339,86 @@ the <var>LogicalExp</var>, still the returned formula is equivalent to
 </p>
 </dd></dl>
 
+<dl>
+<dt><u>Option variable:</u> <b>qepcad_installed_dir</b>
+<a name="IDX2"></a>
+</dt>
+<dd><p>Default value: <code>&quot;~/qepmax/qesource&quot;</code>
+</p>
+<p>By extracting Qepcad B source tarball, all the files are placed in the 
+directory <code>qesource</code>. This variable needs to be set up to point 
+that directory.
+</p>
+</dd></dl>
+
+<dl>
+<dt><u>Option variable:</u> <b>qepcad_input_file</b>
+<a name="IDX3"></a>
+</dt>
+<dd><p>Default value: <code>sconcat(maxima_tempdir, &quot;/qepcad_input.txt&quot;)</code>
+</p>
+<p><code>Qepmax</code> creates temporary files during its execution. One is
+the input file to the qepcad command. This variable can be used to
+specify the file path and the file name of the input file.
+</p>
+<p>The default value is the concatenation of <code>maxima_tempdir</code> and
+<code>&quot;/qepcad_input.txt&quot;</code>. Note that if you change the value of this
+variable, you should also consider to change the value of the variable
+<code>qepcad_file_pattern</code>.
+</p>
+</dd></dl>
+
+<dl>
+<dt><u>Option variable:</u> <b>qepcad_input_file</b>
+<a name="IDX4"></a>
+</dt>
+<dd><p>Default value: <code>sconcat(maxima_tempdir, &quot;/qepcad_output.txt&quot;)</code>
+</p>
+<p><code>Qepmax</code> creates temporary files during its execution. One is
+the output file to the qepcad command. This variable can be used to
+specify the file path and the file name of the output file.
+</p>
+<p>The default value is the concatenation of <code>maxima_tempdir</code> and
+<code>&quot;/qepcad_output.txt&quot;</code>. Note that if you change the value of this
+variable, you should also consider to change the value of the variable
+<code>qepcad_file_pattern</code>.
+</p>
+</dd></dl>
+
+<dl>
+<dt><u>Option variable:</u> <b>qepcad_file_pattern</b>
+<a name="IDX5"></a>
+</dt>
+<dd><p>Default value: <code>sconcat(maxima_tempdir,&quot;/qepcad_*.txt&quot;)</code>
+</p>
+<p><code>Qepmax</code> creates temporary files during its execution. Prior
+to the creation, if exists, <code>qepmax</code> deletes such temporary
+files using <code>rm</code> command using <code>system()</code> function.
+This variable is used to specify the files to be deleted.
+</p>
+<p>The default value is the concatenation of <code>maxima_tempdir</code> and
+<code>&quot;/qepcad_*.txt&quot;</code>, which are good for default file names of
+the input and output files. If you change the value of <code>qepcad_input_file</code>
+and / or <code>qepcad_output_file</code>, you should also consider to change
+the value of this variable.
+</p>
+</dd></dl>
+
+<dl>
+<dt><u>Option variable:</u> <b>qepcad_option</b>
+<a name="IDX6"></a>
+</dt>
+<dd><p>Default value: <code>&quot; +N20000000 +L10000 &quot;</code>
+</p>
+<p><code>Qepcad B</code> accepts several options. This variable is used to
+specify such options to be passed.
+</p>
+<p>The default value is &quot; +N20000000 +L10000 &quot;, which allocates more
+memory to the computation library used in <code>qepcad</code>.
+</p>
+</dd></dl>
+
+
 
 <hr size="6">
 <a name="SEC_About"></a>
@@ -337,7 +430,7 @@ the <var>LogicalExp</var>, still the returned formula is equivalent to
 </tr></table>
 <h1>About This Document</h1>
 <p>
-  This document was generated by <em>本田 康晃</em> on <em>May, 25 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>本田 康晃</em> on <em>July, 27 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
 </p>
 <p>
   The buttons in the navigation panels have the following meaning:
@@ -439,7 +532,7 @@ the <var>LogicalExp</var>, still the returned formula is equivalent to
 <hr size="1">
 <p>
  <font size="-1">
-  This document was generated by <em>本田 康晃</em> on <em>May, 25 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>本田 康晃</em> on <em>July, 27 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

@@ -125,6 +125,7 @@
 ($set_plot_option '((mlist) $plot_format $gnuplot))
 ($set_plot_option '((mlist) $gnuplot_term $canvas))
 ($set_plot_option '((mlist) $gnuplot_out_file "/data/data/jp.yhonda/files/maxout.html"))
+(setq $draw_graph_terminal '$canvas)
   
 (setq $display2d '$imaxima)
 
