@@ -26,10 +26,10 @@
 <div data-role="page" id="page1">
     <div data-role="content">
         <h2>
-            Maxima on Android 2.5
+            Maxima on Android 2.7
         </h2>
         <h5>
-            Copyright 2012, 2013, 2014 Yasuaki Honda
+            Copyright 2012, 2013, 2014, 2015 Yasuaki Honda
         </h5>
         <div data-role="collapsible-set" data-theme="a" data-content-theme="d">
             <div data-role="collapsible">
@@ -72,11 +72,9 @@ Then you can enjoy Maxima / Macsyma on your mobile phone or tablet.
                     What's new in this release
                 </h3>
                 <ul data-role="listview" data-inset="true">
-                    <li>Draw_graph() function in Graphs package now works.</li>
-                    <li>Drawing functions in the dynamics package now works. Evolution(),
-                    evolution2d(), staircase(), orbits() were affected.</li>
-                    <li>The latest version of qepmax package is included. This version supports
-                    Extended Tarski Formula. </li>
+                <li>CPU type identification scheme is entirely re-written for improvement.</li>
+                <li>Long awaited Application icon is added. You may need to re-install the app
+                to see the new icon.</li>
                 </ul>                
             </div>
             <div data-role="collapsible">
@@ -84,6 +82,11 @@ Then you can enjoy Maxima / Macsyma on your mobile phone or tablet.
                     Restrictions
                 </h3>
 <ul data-role="listview" data-inset="true">
+    <li>Functions Julia() and Mandelblot() does not work.</li>
+    <li>In some cases, :lisp command may produce an error when line termination is
+    automatically completed with '$'.</li>
+    <li>Some Android phone (e.g., SH-01G by Sharp Corp., Japan) displays output formula
+    with very very small phonts.</li>
     <li>The use of set_draw_defaults() in the draw package will cause draw(), draw2d(), and draw3d() to fail.</li>
     <li>multi-user is not supported. Only the owner of the device can install and use MoA correctly.</li>
     <li>load(lapack) will fail and it cannot be used.</li>
@@ -425,7 +428,7 @@ Note that the number of variables and degree gets large numbers, the speed gets 
 </div> <!-- Qepcad -->
 
 <div data-role="collapsible"> <!-- Working with your software keyboard -->
-<H4>Working with your software keyboard</H4>
+<H4>Working with your software/hardware keyboard</H4>
 
 <p>
 IMHO, the best software keyboard suitable for math input is the "Std Math Keyboard" 
@@ -444,7 +447,13 @@ Android 2.2, 2.3.
 you can do. Among them is for selecting the software keyboard for
 use. Try changing the software keyboard to Android keyboard.
 </p>
-</div> <!-- Working with your software keyboard -->
+<p>
+On using hardware keyboard (probably connected through Bluetooth), 
+you may find it useful to use tab key to select entire previous 
+input text. Typing something new will erase previous input
+text automatically.
+</p>
+</div> <!-- Working with your software/hardware keyboard -->
 
 <div data-role="collapsible"> <!-- Save/Restore the Maxima session -->
 <H4>Save/Restore the Maxima session</H4>

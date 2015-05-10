@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年4月月20日 by texi2html 1.82
+<!-- Created on 2014年9月月15日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.33.0 Manual: 78. stringproc</title>
+<title>Maxima 5.34.1 Manual: 78. stirling</title>
 
-<meta name="description" content="Maxima 5.33.0 Manual: 78. stringproc">
-<meta name="keywords" content="Maxima 5.33.0 Manual: 78. stringproc">
+<meta name="description" content="Maxima 5.34.1 Manual: 78. stirling">
+<meta name="keywords" content="Maxima 5.34.1 Manual: 78. stirling">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -137,7 +137,7 @@ div.categorybox
 -->
 </style>
 
-<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico"/>
 
 <script type="text/javascript"><!--
 
@@ -156,1355 +156,123 @@ div.categorybox
 
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="stringproc"></a>
+<a name="stirling"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_77.html#Functions-and-Variables-for-stirling" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-string-processing" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_77.html#Functions-and-Variables-for-special-distributions" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-stirling" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_77.html#stirling" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_77.html#stats" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#to_005fpoly_005fsolve" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_79.html#stringproc" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="stringproc-1"></a>
-<h1 class="chapter">78. stringproc</h1>
+<a name="stirling-1"></a>
+<h1 class="chapter">78. stirling</h1>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-string-processing">78.1 Introduction to string processing</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-input-and-output">78.2 Functions and Variables for input and output</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-characters">78.3 Functions and Variables for characters</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-strings">78.4 Functions and Variables for strings</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-stirling">78.1 Functions and Variables for stirling</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Introduction-to-string-processing"></a>
+<p><a name="Item_003a-Functions-and-Variables-for-stirling"></a>
 </p><hr size="6">
-<a name="Introduction-to-string-processing"></a>
+<a name="Functions-and-Variables-for-stirling"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#stringproc" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-input-and-output" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#stirling" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_79.html#stringproc" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#stringproc" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#stringproc" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#to_005fpoly_005fsolve" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#stirling" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#stirling" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_79.html#stringproc" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-string-processing-1"></a>
-<h2 class="section">78.1 Introduction to string processing</h2>
-
-<p><code>stringproc.lisp</code>は、 Maximaの文字列を扱う機能を拡大し、
-ファイル入出力に関するいくつかの役立つ関数を追加します。
-</p>
-<p>質問とバグに関しては、volkervannek at gmail dot comにメールしてください。
-</p>
-<p>Maximaでは、文字列は &quot;text&quot;とタイプすることで簡単に構成することができます。
-<code>stringp</code>は文字列かテストします。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) m: &quot;text&quot;;
-(%o1)                         text
-(%i2) stringp(m);
-(%o2)                         true
-</pre></td></tr></table>
-
-<p>文字は長さ 1の文字列として表されます。
-これらは Lisp文字ではありません。
-テストは <code>charp</code>で行うことができます。
-(関連として、<code>lcharp</code>と <code>cunlisp</code>を使った Lisp文字から Maxima文字への変換)
-</p>
-
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) c: &quot;e&quot;;
-(%o1)                           e
-(%i2) [charp(c),lcharp(c)];
-(%o2)                     [true, false]
-(%i3) supcase(c);
-(%o3)                           E
-(%i4) charp(%);
-(%o4)                         true
-</pre></td></tr></table>
-
-<p><code>stringproc.lisp</code>の中の文字を返す関数はすべて Maxima文字を返します。
-導入された文字が長さ
-1の文字列だという事実のおかげで、たくさんの文字列関数を文字にも使うことができます。
-既に見たように <code>supcase</code>は１例です。
-</p>
-<p>Maxima文字列の最初の文字は位置 1にあることを知ることは重要です。
-これは、 Maximaリストの中の最初の要素も位置 1にあるという事実によって設計されています。
-例えば、 <code>charat</code>や <code>charlist</code>の定義を見てください。
-</p>
-<p>応用として、文字列関数はしばしばファイルを扱う時に使われます。
-<code>stringproc.lisp</code>の中に役立つストリーム関数、印字関数を見つけるでしょう。
-以下の例はここで導入された関数のいくつかがいかに働くか示します。
-</p>
-<p>例: 
-</p>
-<p><code>openw</code>はファイルへの出力ストリームを返し、
-<code>printf</code>はこのファイルへのフォーマットされた書き込みを可能にします。
-詳細は <code>printf</code>を参照してください。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) s: openw(&quot;E:/file.txt&quot;);
-(%o1)                    #&lt;output stream E:/file.txt&gt;
-(%i2) for n:0 thru 10 do printf( s, &quot;~d &quot;, fib(n) );
-(%o2)                                done
-(%i3) printf( s, &quot;~%~d ~f ~a ~a ~f ~e ~a~%&quot;, 
-              42,1.234,sqrt(2),%pi,1.0e-2,1.0e-2,1.0b-2 );
-(%o3)                                false
-(%i4) close(s);
-(%o4)                                true
-</pre></td></tr></table>
-
-<p>ストリームを閉じた後、今度は入力方向で再び開くことができます。
-<code>readline</code>は行全体を１つの文字列として返します。
-現在、 <code>stringproc</code>パッケージは文字列を操作するたくさんの関数を提供しています。
-<code>split</code>や <code>tokens</code>でトークン化できます。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) s: openr(&quot;E:/file.txt&quot;);
-(%o5)                     #&lt;input stream E:/file.txt&gt;
-(%i6) readline(s);
-(%o6)                     0 1 1 2 3 5 8 13 21 34 55 
-(%i7) line: readline(s);
-(%o7)               42 1.234 sqrt(2) %pi 0.01 1.0E-2 1.0b-2
-(%i8) list: tokens(line);
-(%o8)           [42, 1.234, sqrt(2), %pi, 0.01, 1.0E-2, 1.0b-2]
-(%i9) map( parse_string, list );
-(%o9)            [42, 1.234, sqrt(2), %pi, 0.01, 0.01, 1.0b-2]
-(%i10) float(%);
-(%o10) [42.0, 1.234, 1.414213562373095, 3.141592653589793, 0.01,
-                                                     0.01, 0.01]
-(%i11) readline(s);
-(%o11)                               false
-(%i12) close(s)$
-</pre></td></tr></table>
-
-<p>ファイルの終わりに来ると、 <code>readline</code>は <code>false</code>を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Strings">Strings</a>
- &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-
-<p><a name="Item_003a-Functions-and-Variables-for-input-and-output"></a>
-</p><hr size="6">
-<a name="Functions-and-Variables-for-input-and-output"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-string-processing" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-characters" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#stringproc" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#stringproc" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#to_005fpoly_005fsolve" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<a name="Functions-and-Variables-for-input-and-output-1"></a>
-<h2 class="section">78.2 Functions and Variables for input and output</h2>
-
-<p>例: 
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) s: openw(&quot;E:/file.txt&quot;);
-(%o1)                     #&lt;output stream E:/file.txt&gt;
-(%i2) control: 
-&quot;~2tAn atom: ~20t~a~%~2tand a list: ~20t~{~r ~}~%~2t\
-and an integer: ~20t~d~%&quot;$
-(%i3) printf( s,control, 'true,[1,2,3],42 )$
-(%o3)                                false
-(%i4) close(s);
-(%o4)                                true
-(%i5) s: openr(&quot;E:/file.txt&quot;);
-(%o5)                     #&lt;input stream E:/file.txt&gt;
-(%i6) while stringp( tmp:readline(s) ) do print(tmp)$
-  An atom:          true 
-  and a list:       one two three  
-  and an integer:   42 
-(%i7) close(s)$
-</pre></td></tr></table>
-
-<p><a name="Item_003a-close"></a>
-</p><dl>
-<dt><a name="index-close"></a><u>関数:</u> <b>close</b><i> (<var>stream</var>)</i></dt>
-<dd><p><var>stream</var>を閉じて、もし <var>stream</var>が開いていたら
-<code>true</code>を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-File-input">File input</a>
- &middot;<a href="maxima_99.html#Category_003a-File-output">File output</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-flength"></a>
-</p><dl>
-<dt><a name="index-flength"></a><u>関数:</u> <b>flength</b><i> (<var>stream</var>)</i></dt>
-<dd><p><var>stream</var>の中の要素の数を返します。
-ここで <var>stream</var>はファイルからかファイルへのストリームでなければいけません。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-File-input">File input</a>
- &middot;<a href="maxima_99.html#Category_003a-File-output">File output</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-fposition"></a>
-</p><dl>
-<dt><a name="index-fposition"></a><u>関数:</u> <b>fposition</b><i> (<var>stream</var>)</i></dt>
-<dt><a name="index-fposition-1"></a><u>関数:</u> <b>fposition</b><i> (<var>stream</var>, <var>pos</var>)</i></dt>
-<dd>
-<p>もし <var>pos</var>が使われてないなら、 <var>stream</var>の中の現在位置を返します。
-もし <var>pos</var>が使われているなら、
-<code>fposition</code>は <var>stream</var>の中の位置を設定します。
-<var>pos</var>は正の数でなければいけません。
-ここで <var>stream</var>の最初の要素は位置 1にあります。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-File-input">File input</a>
- &middot;<a href="maxima_99.html#Category_003a-File-output">File output</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-freshline"></a>
-</p><dl>
-<dt><a name="index-freshline"></a><u>関数:</u> <b>freshline</b><i> ()</i></dt>
-<dt><a name="index-freshline-1"></a><u>関数:</u> <b>freshline</b><i> (<var>stream</var>)</i></dt>
-<dd><p>もし位置が行の最初でないなら
-(<var>stream</var>に)改行を書きます。
-<code>newline</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-File-output">File output</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="get_005foutput_005fstream_005fstring"></a>
-<a name="Item_003a-get_005foutput_005fstream_005fstring"></a>
-</p><dl>
-<dt><a name="index-get_005foutput_005fstream_005fstring"></a><u>関数:</u> <b>get_output_stream_string</b><i> (<var>stream</var>)</i></dt>
-<dd>
-<p>現在 <var>stream</var>に存在するすべての文字を含む文字列を返します。
-<var>stream</var>はオープンな文字列出力ストリームでなければいけません。
-戻り値の文字は <var>stream</var>から取り除かれます。
-</p>
-<p>例: <a href="#make_005fstring_005foutput_005fstream">make_string_output_stream</a>を参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="make_005fstring_005finput_005fstream"></a>
-<a name="Item_003a-make_005fstring_005finput_005fstream"></a>
-</p><dl>
-<dt><a name="index-make_005fstring_005finput_005fstream"></a><u>関数:</u> <b>make_string_input_stream</b><i> (<var>string</var>)</i></dt>
-<dt><a name="index-make_005fstring_005finput_005fstream-1"></a><u>関数:</u> <b>make_string_input_stream</b><i> (<var>string</var>, <var>start</var>)</i></dt>
-<dt><a name="index-make_005fstring_005finput_005fstream-2"></a><u>関数:</u> <b>make_string_input_stream</b><i> (<var>string</var>, <var>start</var>, <var>end</var>)</i></dt>
-<dd>
-<p><var>string</var>の一部とファイルの終了を含む入力ストリームを返します。
-オプション引数がない場合、ストリームは全体の文字列を含み、一番目の文字の前に位置されます。
-<var>start</var>と <var>end</var>はストリームに含まれた部分文字列を定義します。
-一番目の文字は位置 1で得られます。
-</p> 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) istream : make_string_input_stream(&quot;text&quot;, 1, 4);
-(%o1)              #&lt;string-input stream from &quot;text&quot;&gt;
-(%i2) (while (c : readchar(istream)) # false do sprint(c), newline())$
-t e x 
-(%i3) close(istream)$
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="make_005fstring_005foutput_005fstream"></a>
-<a name="Item_003a-make_005fstring_005foutput_005fstream"></a>
-</p><dl>
-<dt><a name="index-make_005fstring_005foutput_005fstream"></a><u>関数:</u> <b>make_string_output_stream</b><i> ()</i></dt>
-<dd>
-<p>文字を受け付ける出力ストリームを返します。
-このストリームに現在存在する文字は <a href="#get_005foutput_005fstream_005fstring">get_output_stream_string</a>を使って取り出すことができます。
-</p> 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) ostream : make_string_output_stream();
-(%o1)               #&lt;string-output stream 09622ea0&gt;
-(%i2) printf(ostream, &quot;foo&quot;)$
-
-(%i3) printf(ostream, &quot;bar&quot;)$
-
-(%i4) string : get_output_stream_string(ostream);
-(%o4)                            foobar
-(%i5) printf(ostream, &quot;baz&quot;)$
-
-(%i6) string : get_output_stream_string(ostream);
-(%o6)                              baz
-(%i7) close(ostream)$
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-newline"></a>
-</p><dl>
-<dt><a name="index-newline"></a><u>関数:</u> <b>newline</b><i> ()</i></dt>
-<dt><a name="index-newline-1"></a><u>関数:</u> <b>newline</b><i> (<var>stream</var>)</i></dt>
-<dd><p>(<var>stream</var>に)改行を書きます。
-<code>newline()</code>の使用の例に関しては、
-<code>sprint</code>を参照してください。
-<code>newline()</code>が期待通りに動かない
-いくつかの場合があることに注意してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-File-output">File output</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-opena"></a>
-</p><dl>
-<dt><a name="index-opena"></a><u>関数:</u> <b>opena</b><i> (<var>file</var>)</i></dt>
-<dd><p><var>file</var>への出力ストリームを返します。
-もし存在しているファイルを開いたら、
-<code>opena</code>はファイルの終わりに要素を追加します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-File-output">File output</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-openr"></a>
-</p><dl>
-<dt><a name="index-openr"></a><u>関数:</u> <b>openr</b><i> (<var>file</var>)</i></dt>
-<dd><p><var>file</var>への入力ストリームを返します。
-もし <var>file</var>が存在しないなら、生成されます。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-File-input">File input</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-openw"></a>
-</p><dl>
-<dt><a name="index-openw"></a><u>関数:</u> <b>openw</b><i> (<var>file</var>)</i></dt>
-<dd><p><var>file</var>への出力ストリームを返します。
-もし <var>file</var>が存在しないなら、生成されます。
-もし存在しているファイルを開いたら、
-<code>openw</code>は <var>file</var>を破壊的に変更します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-File-output">File output</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-printf"></a>
-</p><dl>
-<dt><a name="index-printf"></a><u>関数:</u> <b>printf</b><i> (<var>dest</var>, <var>string</var>)</i></dt>
-<dt><a name="index-printf-1"></a><u>関数:</u> <b>printf</b><i> (<var>dest</var>, <var>string</var>, <var>expr_1</var>, ..., <var>expr_n</var>)</i></dt>
-<dd>
-<p>制御文字列 <var>string</var>の文字を出力し、ティルデがディレクティブを導入することを観察することで
-フォーマットされた出力を生成します。
-ティルデの後の文字は、前置パラメータと修飾子が先立つこともありますが、どの種類のフォーマットが望まれているか指定します。
-ほとんどのディレクティブは1つか複数の要素の引数 <var>expr_1</var>, ..., <var>expr_n</var>を使い、出力を生成します。
-</p>
-<p>もし <var>dest</var>がストリームか <code>true</code>なら、 <code>printf</code>は <code>false</code>を返します。
-そうでなければ、 <code>printf</code>は出力を含む文字列を返します。
-</p>
-<p><code>printf</code>は Maximaの Common Lisp 関数 <code>format</code>を提供します。
-以下の例はこれら二つの関数の一般的な関係を具体的に示します。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) printf(true, &quot;R~dD~d~%&quot;, 2, 2);
-R2D2
-(%o1)                                false
-(%i2) :lisp (format t &quot;R~dD~d~%&quot; 2 2)
-R2D2
-NIL
-</pre></td></tr></table>
-
-<p>以下の記述は <code>printf</code>の可能性の雑なスケッチに限定されます。
-</p>
-<p>Lisp関数 <code>format</code>は詳細は多くの参考書籍に記述されています。
-例えば、 Guy L. Steeleによる無料のオンラインマニュアル &quot;Common Lisp the Language&quot;が役立つでしょう。
-それの chapter 22.3.3を参照してください。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">   ~%       改行
-   ~&amp;       行のフレッシュ
-   ~t       タブ
-   ~$       通貨記号
-   ~d       10進整数
-   ~b       2進整数
-   ~o       8進整数
-   ~x       16進整数
-   ~br      b進整数
-   ~r       整数を一字一字
-   ~p       複数形
-   ~f       浮動小数点
-   ~e       科学的記数法
-   ~g       大きさに応じて~fまたは~e
-   ~h       多倍長浮動小数点
-   ~a       Maxima関数文字列を使う
-   ~s       ~aと同様, しかし&quot;ダブルコーテーション&quot;で囲まれた出力
-   ~~       ~
-   ~&lt;       行揃え, ~&gt; 終端
-   ~(       大文字小文字変換, ~) 終端
-   ~[       選択, ~] 終端
-   ~{       繰り返し, ~} 終端
-</pre></td></tr></table>
-
-<p>多倍長浮動小数点に関するディレクティブ ~hは Lisp標準ではないので、以下に具体的に示します。
-</p>
-<p>ディレクティブ ~*はサポートされていないことに注意してください。
-</p>
-<p>もし <var>dest</var>がストリームか <code>true</code>なら、 <code>printf</code>は <code>false</code>を返します。
-そうでなければ、 <code>printf</code>は出力を含む文字列を返します。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) printf( false, &quot;~a ~a ~4f ~a ~@r&quot;, 
-              &quot;String&quot;,sym,bound,sqrt(12),144), bound = 1.234;
-(%o1)                 String sym 1.23 2*sqrt(3) CXLIV
-(%i2) printf( false,&quot;~{~a ~}&quot;,[&quot;one&quot;,2,&quot;THREE&quot;] );
-(%o2)                          one 2 THREE 
-(%i3) printf(true,&quot;~{~{~9,1f ~}~%~}&quot;,mat ),
-          mat = args(matrix([1.1,2,3.33],[4,5,6],[7,8.88,9]))$
-      1.1       2.0       3.3 
-      4.0       5.0       6.0 
-      7.0       8.9       9.0 
-(%i4) control: &quot;~:(~r~) bird~p ~[is~;are~] singing.&quot;$
-(%i5) printf( false,control, n,n,if n=1 then 1 else 2 ), n=2;
-(%o5)                    Two birds are singing.
-</pre></td></tr></table>
-
-<p>ディレクティブ ~hは多倍長浮動小数点を扱うために導入されました。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">~w,d,e,x,o,p@H
- w : width
- d : decimal digits behind floating point
- e : minimal exponent digits
- x : preferred exponent
- o : overflow character
- p : padding character
- @ : display sign for positive numbers
-</pre></td></tr></table>
-
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) fpprec : 1000$
-(%i2) printf(true, &quot;|~h|~%&quot;, 2.b0^-64)$
-|0.0000000000000000000542101086242752217003726400434970855712890625|
-(%i3) fpprec : 26$
-(%i4) printf(true, &quot;|~h|~%&quot;, sqrt(2))$
-|1.4142135623730950488016887|
-(%i5) fpprec : 24$
-(%i6) printf(true, &quot;|~h|~%&quot;, sqrt(2))$
-|1.41421356237309504880169|
-(%i7) printf(true, &quot;|~28h|~%&quot;, sqrt(2))$
-|   1.41421356237309504880169|
-(%i8) printf(true, &quot;|~28,,,,,'*h|~%&quot;, sqrt(2))$
-|***1.41421356237309504880169|
-(%i9) printf(true, &quot;|~,18h|~%&quot;, sqrt(2))$
-|1.414213562373095049|
-(%i10) printf(true, &quot;|~,,,-3h|~%&quot;, sqrt(2))$
-|1414.21356237309504880169b-3|
-(%i11) printf(true, &quot;|~,,2,-3h|~%&quot;, sqrt(2))$
-|1414.21356237309504880169b-03|
-(%i12) printf(true, &quot;|~20h|~%&quot;, sqrt(2))$
-|1.41421356237309504880169|
-(%i13) printf(true, &quot;|~20,,,,'+h|~%&quot;, sqrt(2))$
-|++++++++++++++++++++|
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-File-output">File output</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="readchar"></a>
-<a name="Item_003a-readchar"></a>
-</p><dl>
-<dt><a name="index-readchar"></a><u>関数:</u> <b>readchar</b><i> (<var>stream</var>)</i></dt>
-<dd>
-<p><var>stream</var>の一番目の文字を取り出し、返します。
-ファイルの終端になったら、 <code>readchar</code>は <code>false</code>を返します。
-</p>
-<p>例: <a href="#make_005fstring_005finput_005fstream">make_string_input_stream</a>を参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-File-input">File input</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-readline"></a>
-</p><dl>
-<dt><a name="index-readline"></a><u>関数:</u> <b>readline</b><i> (<var>stream</var>)</i></dt>
-<dd><p><var>stream</var>の現在位置から行の終わりまでの文字を含む文字列か、
-もしファイルの終わりが来たら <code>false</code>を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-File-input">File input</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="sprint"></a>
-<a name="Item_003a-sprint"></a>
-</p><dl>
-<dt><a name="index-sprint"></a><u>関数:</u> <b>sprint</b><i> (<var>expr_1</var>, &hellip;, <var>expr_n</var>)</i></dt>
-<dd>
-<p>引数を順に評価し、一番左から始まる「一行」に表示します。
-数は数の右隣に&rsquo;-&rsquo;と共に印字され、行の長さを無視します。
-もし中間行ブレークを置きたいなら、
-<code>newline()</code>― <code>stringproc.lisp</code> から自動ロードされます―
-が役に立つかもしれません。
-</p>
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) for n:0 thru 19 do sprint( fib(n) )$
-0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181
-(%i2) for n:0 thru 22 do ( 
-         sprint(fib(n)), if mod(n,10)=9 then newline() )$
-0 1 1 2 3 5 8 13 21 34 
-55 89 144 233 377 610 987 1597 2584 4181 
-6765 10946 17711 
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p></dd></dl>
-
-<p><a name="Item_003a-Functions-and-Variables-for-characters"></a>
-</p><hr size="6">
-<a name="Functions-and-Variables-for-characters"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-input-and-output" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-strings" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#stringproc" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#stringproc" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#to_005fpoly_005fsolve" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<a name="Functions-and-Variables-for-characters-1"></a>
-<h2 class="section">78.3 Functions and Variables for characters</h2>
-
-<p><a name="Item_003a-alphacharp"></a>
-</p><dl>
-<dt><a name="index-alphacharp"></a><u>関数:</u> <b>alphacharp</b><i> (<var>char</var>)</i></dt>
-<dd><p>もし <var>char</var>がアルファベット文字なら <code>true</code>を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-alphanumericp"></a>
-</p><dl>
-<dt><a name="index-alphanumericp"></a><u>関数:</u> <b>alphanumericp</b><i> (<var>char</var>)</i></dt>
-<dd><p>もし <var>char</var>がアルファベット文字か数字なら <code>true</code>を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-ascii"></a>
-</p><dl>
-<dt><a name="index-ascii"></a><u>関数:</u> <b>ascii</b><i> (<var>int</var>)</i></dt>
-<dd><p>ASCIIコード <var>int</var>( -1 &lt; int &lt; 256 )に対応する文字を返します。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) for n from 0 thru 255 do ( 
-   tmp: ascii(n), if alphacharp(tmp) then sprint(tmp),
-      if n=96 then newline() )$
-A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
-a b c d e f g h i j k l m n o p q r s t u v w x y z
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-cequal"></a>
-</p><dl>
-<dt><a name="index-cequal"></a><u>関数:</u> <b>cequal</b><i> (<var>char_1</var>, <var>char_2</var>)</i></dt>
-<dd><p>もし <var>char_1</var>と <var>char_2</var>が同じなら <code>true</code>を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-cequalignore"></a>
-</p><dl>
-<dt><a name="index-cequalignore"></a><u>関数:</u> <b>cequalignore</b><i> (<var>char_1</var>, <var>char_2</var>)</i></dt>
-<dd><p><code>cequal</code>と同様ですが、文字の大小を無視します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-cgreaterp"></a>
-</p><dl>
-<dt><a name="index-cgreaterp"></a><u>関数:</u> <b>cgreaterp</b><i> (<var>char_1</var>, <var>char_2</var>)</i></dt>
-<dd><p>もし <var>char_1</var>の ASCIIコードが <var>char_2</var>のそれより大きいなら
-<code>true</code>を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-cgreaterpignore"></a>
-</p><dl>
-<dt><a name="index-cgreaterpignore"></a><u>関数:</u> <b>cgreaterpignore</b><i> (<var>char_1</var>, <var>char_2</var>)</i></dt>
-<dd><p><code>cgreaterp</code>と同様ですが、文字の大小を無視します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-charp"></a>
-</p><dl>
-<dt><a name="index-charp"></a><u>関数:</u> <b>charp</b><i> (<var>obj</var>)</i></dt>
-<dd><p>もし <var>obj</var>が Maxima-文字なら <code>true</code>を返します。
-例えばイントロダクションを参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-cint"></a>
-</p><dl>
-<dt><a name="index-cint"></a><u>関数:</u> <b>cint</b><i> (<var>char</var>)</i></dt>
-<dd><p><var>char</var>の ASCIIコードを返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-clessp"></a>
-</p><dl>
-<dt><a name="index-clessp"></a><u>関数:</u> <b>clessp</b><i> (<var>char_1</var>, <var>char_2</var>)</i></dt>
-<dd><p>もし <var>char_1</var>の ASCIIコードが <var>char_2</var>のそれより小さいなら
-<code>true</code>を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-clesspignore"></a>
-</p><dl>
-<dt><a name="index-clesspignore"></a><u>関数:</u> <b>clesspignore</b><i> (<var>char_1</var>, <var>char_2</var>)</i></dt>
-<dd><p><code>clessp</code>と同様ですが、文字の大小を無視します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-constituent"></a>
-</p><dl>
-<dt><a name="index-constituent"></a><u>関数:</u> <b>constituent</b><i> (<var>char</var>)</i></dt>
-<dd><p>もし <var>char</var>がグラフィック文字であり、スペース文字でないなら、
-<code>true</code>を返します。
-グラフィック文字は見ることができる文字とスペース文字です。
-(<code>constituent</code>は、
-Paul Graham, ANSI Common Lisp, 1996, page 67で定義されています。)
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) for n from 0 thru 255 do ( 
-tmp: ascii(n), if constituent(tmp) then sprint(tmp) )$
-! &quot; #  %  ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ? @ A B
-C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c
-d e f g h i j k l m n o p q r s t u v w x y z { | } ~
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-cunlisp"></a>
-</p><dl>
-<dt><a name="index-cunlisp"></a><u>関数:</u> <b>cunlisp</b><i> (<var>lisp_char</var>)</i></dt>
-<dd><p>Lisp文字を Maxima文字に変換します。
-(必要としないでしょう。)
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-digitcharp"></a>
-</p><dl>
-<dt><a name="index-digitcharp"></a><u>関数:</u> <b>digitcharp</b><i> (<var>char</var>)</i></dt>
-<dd><p>もし <var>char</var>が 0から 9までの数字なら <code>true</code>を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-lcharp"></a>
-</p><dl>
-<dt><a name="index-lcharp"></a><u>関数:</u> <b>lcharp</b><i> (<var>obj</var>)</i></dt>
-<dd><p>もし <var>obj</var>が Lisp文字なら <code>true</code>を返します。
-(必要としないでしょう。)
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-lowercasep"></a>
-</p><dl>
-<dt><a name="index-lowercasep"></a><u>関数:</u> <b>lowercasep</b><i> (<var>char</var>)</i></dt>
-<dd><p>もし <var>char</var>が小文字なら <code>true</code>を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
+<a name="Functions-and-Variables-for-stirling-1"></a>
+<h2 class="section">78.1 Functions and Variables for stirling</h2>
 
 
 <dl>
-<dt><a name="index-newline-2"></a><u>変数:</u> <b>newline</b></dt>
-<dd><p>改行文字。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Global-variables">Global variables</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-space"></a>
-</p><dl>
-<dt><a name="index-space"></a><u>変数:</u> <b>space</b></dt>
-<dd><p>スペース文字。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Global-variables">Global variables</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-tab"></a>
-</p><dl>
-<dt><a name="index-tab"></a><u>変数:</u> <b>tab</b></dt>
-<dd><p>タブ文字。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Global-variables">Global variables</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-uppercasep"></a>
-</p><dl>
-<dt><a name="index-uppercasep"></a><u>関数:</u> <b>uppercasep</b><i> (<var>char</var>)</i></dt>
-<dd><p>もし <var>char</var>が大文字なら <code>true</code>を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-Functions-and-Variables-for-strings"></a>
-</p><hr size="6">
-<a name="Functions-and-Variables-for-strings"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-characters" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#to_005fpoly_005fsolve" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#stringproc" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#stringproc" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#to_005fpoly_005fsolve" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<a name="Functions-and-Variables-for-strings-1"></a>
-<h2 class="section">78.4 Functions and Variables for strings</h2>
-
-<p><a name="base64"></a>
-<a name="Item_003a-base64"></a>
-</p><dl>
-<dt><a name="index-base64"></a><u>関数:</u> <b>base64</b><i> (<var>string</var>)</i></dt>
+<dt><a name="index-stirling"></a><u>関数:</u> <b>stirling</b><i> (<var>z</var>,<var>n</var>)</i></dt>
+<dt><a name="index-stirling-1"></a><u>関数:</u> <b>stirling</b><i> (<var>z</var>,<var>n</var>,<var>pred</var>)</i></dt>
 <dd>
-<p><var>string</var>の base64表現を文字列として返します。
+<p><code>gamma(x)</code>を <em>O(1/x^(2n-1))</em> Stirling公式で置き換えます。
+<var>n</var>が非負の整数の時、エラーを知らせます。
+オプションの三番目の引数 <code>pred</code>があると、
+<code>pred</code>が trueの時だけ Stirling公式を適用します。
+</p>
+<p>参照文献: Abramowitz &amp; Stegun, &quot; Handbook of mathematical functions&quot;, 6.1.40.
 </p>
 <p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) base64 : base64(&quot;foo bar baz&quot;);
-(%o1)                       Zm9vIGJhciBiYXo=
-(%i2) string : base64_decode(base64);
-(%o2)                          foo bar baz
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (stirling)$
+
+(%i2) stirling(gamma(%alpha+x)/gamma(x),1);
+       1/2 - x             x + %alpha - 1/2
+(%o2) x        (x + %alpha)
+                                   1           1
+                            --------------- - ---- - %alpha
+                            12 (x + %alpha)   12 x
+                          %e
+(%i3) taylor(%,x,inf,1);
+                    %alpha       2    %alpha
+          %alpha   x       %alpha  - x       %alpha
+(%o3)/T/ x       + -------------------------------- + . . .
+                                 2 x
+(%i4) map('factor,%);
+                                       %alpha - 1
+         %alpha   (%alpha - 1) %alpha x
+(%o4)   x       + -------------------------------
+                                  2
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="base64_005fdecode"></a>
-<a name="Item_003a-base64_005fdecode"></a>
-</p><dl>
-<dt><a name="index-base64_005fdecode"></a><u>関数:</u> <b>base64_decode</b><i> (<var>base64-string</var>)</i></dt>
-<dd>
-<p>base64でコードされた文字列 <var>base64-string</var>を元の文字列にデコードします。
+<p>関数　<code>stirling</code>は変数　&rsquo;gamma&rsquo;と関数　gammaの違いを知っています:
 </p>
-<p>例: <a href="#base64">base64</a>を参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-charat"></a>
-</p><dl>
-<dt><a name="index-charat"></a><u>関数:</u> <b>charat</b><i> (<var>string</var>, <var>n</var>)</i></dt>
-<dd><p><var>string</var>の <var>n</var>番目の文字を返します。
-<var>string</var>の一番目の文字は <var>n</var> = 1で返されます。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) charat(&quot;Lisp&quot;,1);
-(%o1)                           L
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) stirling(gamma + gamma(x),0);
+                                    x - 1/2   - x
+(%o5)    gamma + sqrt(2) sqrt(%pi) x        %e
+(%i6) stirling(gamma(y) + gamma(x),0);
+                         y - 1/2   - y
+(%o6) sqrt(2) sqrt(%pi) y        %e
+                                              x - 1/2   - x
+                         + sqrt(2) sqrt(%pi) x        %e
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-charlist"></a>
-</p><dl>
-<dt><a name="index-charlist"></a><u>関数:</u> <b>charlist</b><i> (<var>string</var>)</i></dt>
-<dd><p><var>string</var>の文字すべてのリストを返します。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) charlist(&quot;Lisp&quot;);
-(%o1)                     [L, i, s, p]
-(%i2) %[1];
-(%o2)                           L
+<p>変数 <code>k</code>を含む項だけに
+Stirling公式を適用するためにオプションの三番目の引数を使います;
+例えば、
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i7) makegamma(pochhammer(a,k)/pochhammer(b,k));
+(%o7) (gamma(b)*gamma(k+a))/(gamma(a)*gamma(k+b))
+(%i8) stirling(%,1, lambda([s], not(freeof(k,s))));
+(%o8) (%e^(b-a)*gamma(b)*(k+a)^(k+a-1/2)*(k+b)^(-k-b+1/2))/gamma(a)
 </pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
+<p>項 <code>gamma(a)</code>と <code>gamma(b)</code>は、
+<code>k</code>を含まないので、
+Stirling公式はこれら２つの項に適用されませんでした。
+</p>
+<p>この関数を使うには最初に <code>load(&quot;stirling&quot;)</code>と書いてください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
+ &middot;<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_100.html#Category_003a-Package-stirling">Package stirling</a>
 </div></p>
 </dd></dl>
 
-<p><a name="Item_003a-eval_005fstring"></a>
-</p><dl>
-<dt><a name="index-eval_005fstring"></a><u>関数:</u> <b>eval_string</b><i> (<var>str</var>)</i></dt>
-<dd><p>文字列 <var>str</var>を Maxima式としてパースし、評価します。
-文字列 <var>str</var>は終端子(ドル記号 <code>$</code>またはセミコロン <code>;</code>)
-を持つかもしれませんし持たないかもしれません。
-</p>
-<p>もし複数あるなら、最初の式だけがパースされ、評価されます。
-</p>
-<p>もし <var>str</var>が文字列でないならエラーが出力されます。
-</p>
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) eval_string (&quot;foo: 42; bar: foo^2 + baz&quot;);
-(%o1)                       42
-(%i2) eval_string (&quot;(foo: 42, bar: foo^2 + baz)&quot;);
-(%o2)                   baz + 1764
-</pre></td></tr></table>
-
-<p><code>parse_string</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="md5sum"></a>
-<a name="Item_003a-md5sum"></a>
-</p><dl>
-<dt><a name="index-md5sum"></a><u>関数:</u> <b>md5sum</b><i> (<var>string</var>)</i></dt>
-<dd>
-<p><var>string</var>の md5チェックサムを文字列として返します。
-戻り値を整数にパースするためには、入力基数を 16に設定して、文字列をゼロで前置してください。
-</p>
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) string : md5sum(&quot;foo bar baz&quot;);
-(%o1)                  ab07acbb1e496801937adfa772424bf7
-(%i2) ibase : obase : 16.$
-
-(%i3) integer : parse_string(sconcat(0, string));
-(%o3)                 0ab07acbb1e496801937adfa772424bf7
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-parse_005fstring"></a>
-</p><dl>
-<dt><a name="index-parse_005fstring"></a><u>関数:</u> <b>parse_string</b><i> (<var>str</var>)</i></dt>
-<dd><p>文字列 <var>str</var>を Maxima式としてパースします(評価しません)。
-文字列 <var>str</var>は終端子(ドル記号 <code>$</code>またはセミコロン <code>;</code>)
-を持つかもしれませんし持たないかもしれません。
-</p>
-<p>もし複数あるなら、最初の式だけがパースされ、評価されます。
-</p>
-<p>もし <var>str</var>が文字列でないならエラーが出力されます。
-</p>
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) parse_string (&quot;foo: 42; bar: foo^2 + baz&quot;);
-(%o1)                    foo : 42
-(%i2) parse_string (&quot;(foo: 42, bar: foo^2 + baz)&quot;);
-                                   2
-(%o2)          (foo : 42, bar : foo  + baz)
-</pre></td></tr></table>
-
-<p><code>eval_string</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-scopy"></a>
-</p><dl>
-<dt><a name="index-scopy"></a><u>関数:</u> <b>scopy</b><i> (<var>string</var>)</i></dt>
-<dd><p><var>string</var>のコピーを新しい文字列として返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-sdowncase"></a>
-</p><dl>
-<dt><a name="index-sdowncase"></a><u>関数:</u> <b>sdowncase</b><i> (<var>string</var>)</i></dt>
-<dt><a name="index-sdowncase-1"></a><u>関数:</u> <b>sdowncase</b><i> (<var>string</var>, <var>start</var>)</i></dt>
-<dt><a name="index-sdowncase-2"></a><u>関数:</u> <b>sdowncase</b><i> (<var>string</var>, <var>start</var>, <var>end</var>)</i></dt>
-<dd><p><code>supcase</code>と同様ですが、大文字を小文字に変換します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-sequal"></a>
-</p><dl>
-<dt><a name="index-sequal"></a><u>関数:</u> <b>sequal</b><i> (<var>string_1</var>, <var>string_2</var>)</i></dt>
-<dd><p>もし <var>string_1</var>と <var>string_2</var>が同じ長さで、同じ文字を含むなら、
-<code>true</code>を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-sequalignore"></a>
-</p><dl>
-<dt><a name="index-sequalignore"></a><u>関数:</u> <b>sequalignore</b><i> (<var>string_1</var>, <var>string_2</var>)</i></dt>
-<dd><p><code>sequal</code>と同様ですが、文字の大小を無視します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-sexplode"></a>
-</p><dl>
-<dt><a name="index-sexplode"></a><u>関数:</u> <b>sexplode</b><i> (<var>string</var>)</i></dt>
-<dd><p><code>sexplode</code>は関数<code>charlist</code>の別名です。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-simplode"></a>
-</p><dl>
-<dt><a name="index-simplode"></a><u>関数:</u> <b>simplode</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-simplode-1"></a><u>関数:</u> <b>simplode</b><i> (<var>list</var>, <var>delim</var>)</i></dt>
-<dd><p><code>simplode</code>は式のリストを取り、それらを結合して文字列にします。
-もしデリミタ <var>delim</var>を指定しないなら、
-<code>simplode</code>はデリミタを使いません。
-<var>delim</var>は任意の文字列を取り得ます。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) simplode([&quot;xx[&quot;,3,&quot;]:&quot;,expand((x+y)^3)]);
-(%o1)             xx[3]:y^3+3*x*y^2+3*x^2*y+x^3
-(%i2) simplode( sexplode(&quot;stars&quot;),&quot; * &quot; );
-(%o2)                   s * t * a * r * s
-(%i3) simplode( [&quot;One&quot;,&quot;more&quot;,&quot;coffee.&quot;],&quot; &quot; );
-(%o3)                   One more coffee.
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-sinsert"></a>
-</p><dl>
-<dt><a name="index-sinsert"></a><u>関数:</u> <b>sinsert</b><i> (<var>seq</var>, <var>string</var>, <var>pos</var>)</i></dt>
-<dd><p><code>substring (<var>string</var>, 1, <var>pos</var> - 1)</code>と
-文字列
-<var>seq</var>、<code>substring (<var>string</var>, <var>pos</var>)</code>の結合となる文字列を返します。
-<var>string</var>の一番目の文字は位置 1にあることに注意してください。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) s: &quot;A submarine.&quot;$
-(%i2) concat( substring(s,1,3),&quot;yellow &quot;,substring(s,3) );
-(%o2)                  A yellow submarine.
-(%i3) sinsert(&quot;hollow &quot;,s,3);
-(%o3)                  A hollow submarine.
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-sinvertcase"></a>
-</p><dl>
-<dt><a name="index-sinvertcase"></a><u>関数:</u> <b>sinvertcase</b><i> (<var>string</var>)</i></dt>
-<dt><a name="index-sinvertcase-1"></a><u>関数:</u> <b>sinvertcase</b><i> (<var>string</var>, <var>start</var>)</i></dt>
-<dt><a name="index-sinvertcase-2"></a><u>関数:</u> <b>sinvertcase</b><i> (<var>string</var>, <var>start</var>, <var>end</var>)</i></dt>
-<dd><p>位置 <var>start</var>から <var>end</var>までのそれぞれの文字を逆順にすることを除いて
-<var>string</var>を返します。
-もし <var>end</var>を与えないなら、
-<var>start</var>から <var>string</var>の終わりまでのすべての文字列を置き換えます。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) sinvertcase(&quot;sInvertCase&quot;);
-(%o1)                      SiNVERTcASE
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-slength"></a>
-</p><dl>
-<dt><a name="index-slength"></a><u>関数:</u> <b>slength</b><i> (<var>string</var>)</i></dt>
-<dd><p><var>string</var>の中の文字の数を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-smake"></a>
-</p><dl>
-<dt><a name="index-smake"></a><u>関数:</u> <b>smake</b><i> (<var>num</var>, <var>char</var>)</i></dt>
-<dd><p><var>num</var>個の文字 <var>char</var>を持つ新しい文字列を返します。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) smake(3,&quot;w&quot;);
-(%o1)                          www
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-smismatch"></a>
-</p><dl>
-<dt><a name="index-smismatch"></a><u>関数:</u> <b>smismatch</b><i> (<var>string_1</var>, <var>string_2</var>)</i></dt>
-<dt><a name="index-smismatch-1"></a><u>関数:</u> <b>smismatch</b><i> (<var>string_1</var>, <var>string_2</var>, <var>test</var>)</i></dt>
-<dd><p><var>string_1</var>と <var>string_2</var>が異なる
-<var>string_1</var>の最初の文字の位置、または <code>false</code>を返します。
-マッチングのデフォルトのテスト関数は <code>sequal</code>です。
-もし <code>smismatch</code>が文字の大小を無視なければいけないなら、
-テストとして <code>sequalignore</code>を使ってください。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) smismatch(&quot;seven&quot;,&quot;seventh&quot;);
-(%o1)                           6
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-split"></a>
-</p><dl>
-<dt><a name="index-split"></a><u>関数:</u> <b>split</b><i> (<var>string</var>)</i></dt>
-<dt><a name="index-split-1"></a><u>関数:</u> <b>split</b><i> (<var>string</var>, <var>delim</var>)</i></dt>
-<dt><a name="index-split-2"></a><u>関数:</u> <b>split</b><i> (<var>string</var>, <var>delim</var>, <var>multiple</var>)</i></dt>
-<dd><p><var>string</var>のすべてのトークンのリストを返します。
-それぞれのトークンはパースされていない文字列です。
-<code>split</code>は <var>delim</var>をデリミタとして使います。
-もし <var>delim</var>が与えられないなら、
-スペース文字がデフォルトのデリミタです。
-<var>multiple</var>はデフォルトで <code>true</code>のブーリアン変数です。
-重複デリミタが 1つとして読まれます。
-これは、もしタブが複数スペース文字として保存されているなら、役立ちます。
-もし<var>multiple</var>が <code>false</code>に設定されるなら、
-それぞれのデリミタが有効です。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) split(&quot;1.2   2.3   3.4   4.5&quot;);
-(%o1)                 [1.2, 2.3, 3.4, 4.5]
-(%i2) split(&quot;first;;third;fourth&quot;,&quot;;&quot;,false);
-(%o2)               [first, , third, fourth]
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-sposition"></a>
-</p><dl>
-<dt><a name="index-sposition"></a><u>関数:</u> <b>sposition</b><i> (<var>char</var>, <var>string</var>)</i></dt>
-<dd><p><var>string</var>の中で <var>char</var>とマッチする最初の文字の位置を返します。
-<var>string</var>の一番目の文字は位置 1にあります。
-文字の大小を無視した文字のマッチに関しては，
-<code>ssearch</code>を参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-sremove"></a>
-</p><dl>
-<dt><a name="index-sremove"></a><u>関数:</u> <b>sremove</b><i> (<var>seq</var>, <var>string</var>)</i></dt>
-<dt><a name="index-sremove-1"></a><u>関数:</u> <b>sremove</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>)</i></dt>
-<dt><a name="index-sremove-2"></a><u>関数:</u> <b>sremove</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>)</i></dt>
-<dt><a name="index-sremove-3"></a><u>関数:</u> <b>sremove</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</i></dt>
-<dd><p><var>string</var>同様文字列を返しますが、
-<var>seq</var>とマッチする部分文字列すべてなしに返します。
-マッチのデフォルトのテスト関数は <code>sequal</code>です。
-もし <code>sremove</code>が <var>seq</var>を検索する間文字の大小を無視しなければいけないなら、
-テストとして <code>sequalignore</code>を使ってください。
-探索を限定するには <var>start</var>と <var>end</var>を使ってください。
-<var>string</var>の一番目の文字は位置 1にあることに注意してください。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) sremove(&quot;n't&quot;,&quot;I don't like coffee.&quot;);
-(%o1)                   I do like coffee.
-(%i2) sremove (&quot;DO &quot;,%,'sequalignore);
-(%o2)                    I like coffee.
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-sremovefirst"></a>
-</p><dl>
-<dt><a name="index-sremovefirst"></a><u>関数:</u> <b>sremovefirst</b><i> (<var>seq</var>, <var>string</var>)</i></dt>
-<dt><a name="index-sremovefirst-1"></a><u>関数:</u> <b>sremovefirst</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>)</i></dt>
-<dt><a name="index-sremovefirst-2"></a><u>関数:</u> <b>sremovefirst</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>)</i></dt>
-<dt><a name="index-sremovefirst-3"></a><u>関数:</u> <b>sremovefirst</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</i></dt>
-<dd><p><code>seq</code>とマッチする最初の文字列だけが削除されることを除いて、
-<code>sremove</code>同様です。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-sreverse"></a>
-</p><dl>
-<dt><a name="index-sreverse"></a><u>関数:</u> <b>sreverse</b><i> (<var>string</var>)</i></dt>
-<dd><p><var>string</var>の文字すべてが逆順の文字列を返します。
-</p>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-ssearch"></a>
-</p><dl>
-<dt><a name="index-ssearch"></a><u>関数:</u> <b>ssearch</b><i> (<var>seq</var>, <var>string</var>)</i></dt>
-<dt><a name="index-ssearch-1"></a><u>関数:</u> <b>ssearch</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>)</i></dt>
-<dt><a name="index-ssearch-2"></a><u>関数:</u> <b>ssearch</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>)</i></dt>
-<dt><a name="index-ssearch-3"></a><u>関数:</u> <b>ssearch</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</i></dt>
-<dd><p>文字列<var>seq</var>とマッチする <var>string</var>の最初の部分文字列の位置を返します。
-マッチのためのデフォルトのテスト関数は <code>sequal</code>です。
-もし <code>ssearch</code>が文字の大小を無視しなければいけないなら、
-テストとして <code>sequalignore</code>を使ってください。
-検索を限定するには <var>start</var>と <var>end</var>を使ってください。
-<var>string</var>の一番目の文字は位置 1にあることに注意してください。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) ssearch(&quot;~s&quot;,&quot;~{~S ~}~%&quot;,'sequalignore);
-(%o1)                                  4
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-ssort"></a>
-</p><dl>
-<dt><a name="index-ssort"></a><u>関数:</u> <b>ssort</b><i> (<var>string</var>)</i></dt>
-<dt><a name="index-ssort-1"></a><u>関数:</u> <b>ssort</b><i> (<var>string</var>, <var>test</var>)</i></dt>
-<dd><p><code>test (<var>c</var>, <var>d</var>)</code>が <code>false</code>、かつ、
-<code>test (<var>d</var>, <var>c</var>)</code>が <code>true</code>であるような 2つの連続する文字
-<var>c</var>と <var>d</var>がないような順で <var>string</var>の文字すべてを含む文字列を返します。
-</p>
-<p>ソートのためのデフォルトのテスト関数は <var>clessp</var>です。
-テスト関数一式は
-<code>{clessp, clesspignore, cgreaterp, cgreaterpignore, cequal, cequalignore}</code>です。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) ssort(&quot;I don't like Mondays.&quot;);
-(%o1)                    '.IMaddeiklnnoosty
-(%i2) ssort(&quot;I don't like Mondays.&quot;,'cgreaterpignore);
-(%o2)                 ytsoonnMlkIiedda.'   
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-ssubst"></a>
-</p><dl>
-<dt><a name="index-ssubst"></a><u>関数:</u> <b>ssubst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>)</i></dt>
-<dt><a name="index-ssubst-1"></a><u>関数:</u> <b>ssubst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>)</i></dt>
-<dt><a name="index-ssubst-2"></a><u>関数:</u> <b>ssubst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>)</i></dt>
-<dt><a name="index-ssubst-3"></a><u>関数:</u> <b>ssubst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</i></dt>
-<dd><p><var>string</var>の中の <var>old</var>にマッチするすべての部分文字列を
-<var>new</var>で置き換えた文字列を返します。
-<var>old</var>と <var>new</var>は同じ長さである必要はありません。
-マッチのためのデフォルトのテスト関数は <code>sequal</code>です。
-もし <code>ssubst</code>が oldを検索する間大文字小文字を無視すべきなら、
-テストとして <code>sequalignore</code>を使ってください。
-検索を制限するには <var>start</var>と <var>end</var>を使ってください。
-<var>string</var>の一番目の文字は位置 1にあることに注意してください。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) ssubst(&quot;like&quot;,&quot;hate&quot;,&quot;I hate Thai food. I hate green tea.&quot;);
-(%o1)          I like Thai food. I like green tea.
-(%i2) ssubst(&quot;Indian&quot;,&quot;thai&quot;,%,'sequalignore,8,12);
-(%o2)         I like Indian food. I like green tea.
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-ssubstfirst"></a>
-</p><dl>
-<dt><a name="index-ssubstfirst"></a><u>関数:</u> <b>ssubstfirst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>)</i></dt>
-<dt><a name="index-ssubstfirst-1"></a><u>関数:</u> <b>ssubstfirst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>)</i></dt>
-<dt><a name="index-ssubstfirst-2"></a><u>関数:</u> <b>ssubstfirst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>)</i></dt>
-<dt><a name="index-ssubstfirst-3"></a><u>関数:</u> <b>ssubstfirst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</i></dt>
-<dd><p><var>old</var>とマッチする最初の部分文字列だけを置き換えることを除いて、
-<code>subst</code>と同様です。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-strim"></a>
-</p><dl>
-<dt><a name="index-strim"></a><u>関数:</u> <b>strim</b><i> (<var>seq</var>,<var>string</var>)</i></dt>
-<dd><p><var>string</var>の両端から <var>seq</var>に現れるすべての文字を除いた文字列を返します。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) &quot;/* comment */&quot;$
-(%i2) strim(&quot; /*&quot;,%);
-(%o2)                        comment
-(%i3) slength(%);
-(%o3)                           7
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-striml"></a>
-</p><dl>
-<dt><a name="index-striml"></a><u>関数:</u> <b>striml</b><i> (<var>seq</var>, <var>string</var>)</i></dt>
-<dd><p><var>string</var>の左端だけトリムすることを除いて
-<code>strim</code>と同様です。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-strimr"></a>
-</p><dl>
-<dt><a name="index-strimr"></a><u>関数:</u> <b>strimr</b><i> (<var>seq</var>, <var>string</var>)</i></dt>
-<dd><p><var>string</var>の右端だけトリムすることを除いて
-<code>strim</code>と同様です。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-stringp"></a>
-</p><dl>
-<dt><a name="index-stringp"></a><u>関数:</u> <b>stringp</b><i> (<var>obj</var>)</i></dt>
-<dd><p><var>obj</var>が文字列なら <code>true</code>を返します。
-例はイントロダクションを参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-substring"></a>
-</p><dl>
-<dt><a name="index-substring"></a><u>関数:</u> <b>substring</b><i> (<var>string</var>, <var>start</var>)</i></dt>
-<dt><a name="index-substring-1"></a><u>関数:</u> <b>substring</b><i> (<var>string</var>, <var>start</var>, <var>end</var>)</i></dt>
-<dd><p>位置 <var>start</var>で始まり位置 <var>end</var>で終わる
-<var>string</var>の部分文字列を返します。
-位置 <var>end</var>の文字は含まれません。
-もし <var>end</var>が与えられないなら、部分文字列は文字列の残りを含みます。
-<var>string</var>の一番目の文字は位置 1にあることに注意してください。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) substring(&quot;substring&quot;,4);
-(%o1)                        string
-(%i2) substring(%,4,6);
-(%o2)                          in
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-supcase"></a>
-</p><dl>
-<dt><a name="index-supcase"></a><u>関数:</u> <b>supcase</b><i> (<var>string</var>)</i></dt>
-<dt><a name="index-supcase-1"></a><u>関数:</u> <b>supcase</b><i> (<var>string</var>, <var>start</var>)</i></dt>
-<dt><a name="index-supcase-2"></a><u>関数:</u> <b>supcase</b><i> (<var>string</var>, <var>start</var>, <var>end</var>)</i></dt>
-<dd><p><var>string</var>の位置 <var>start</var>から
-<var>end</var>までの小文字を対応する大文字に置き換えた文字列を返します。
-もし <var>end</var>が与えられないなら、
-<var>start</var>から <var>string</var>の終わりまでのすべての小文字が置き換えられます。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) supcase(&quot;english&quot;,1,2);
-(%o1)                        English
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-tokens"></a>
-</p><dl>
-<dt><a name="index-tokens"></a><u>関数:</u> <b>tokens</b><i> (<var>string</var>)</i></dt>
-<dt><a name="index-tokens-1"></a><u>関数:</u> <b>tokens</b><i> (<var>string</var>, <var>test</var>)</i></dt>
-<dd><p><var>string</var>から抽出されたトークンのリストを返します。
-トークンは、文字があるテスト関数を満たす部分文字列です。
-もしtestを与えないなら、
-<var>constituent</var>をデフォルトテストとして使います。
-<code>{constituent, alphacharp, digitcharp, lowercasep, uppercasep, charp, characterp, alphanumericp}</code>はテスト関数一式です。
-(<code>tokens</code>の LispバージョンはPaul Grahamによって書かれました。
- ANSI Common Lisp, 1996, page 67.)
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) tokens(&quot;24 October 2005&quot;);
-(%o1)                  [24, October, 2005]
-(%i2) tokens(&quot;05-10-24&quot;,'digitcharp);
-(%o2)                     [05, 10, 24]
-(%i3) map(parse_string,%);
-(%o3)                      [5, 10, 24]
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-to_005fpoly_005fsolve"></a>
+<p><a name="Item_003a-stringproc"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#stringproc" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#to_005fpoly_005fsolve" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#stirling" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_79.html#stringproc" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -1512,12 +280,12 @@ d e f g h i j k l m n o p q r s t u v w x y z { | } ~
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年4月月20日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

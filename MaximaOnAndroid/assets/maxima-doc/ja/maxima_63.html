@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年4月月20日 by texi2html 1.82
+<!-- Created on 2014年9月月15日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.33.0 Manual: 63. lindstedt</title>
+<title>Maxima 5.34.1 Manual: 63. lbfgs</title>
 
-<meta name="description" content="Maxima 5.33.0 Manual: 63. lindstedt">
-<meta name="keywords" content="Maxima 5.33.0 Manual: 63. lindstedt">
+<meta name="description" content="Maxima 5.34.1 Manual: 63. lbfgs">
+<meta name="keywords" content="Maxima 5.34.1 Manual: 63. lbfgs">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -137,7 +137,7 @@ div.categorybox
 -->
 </style>
 
-<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico"/>
 
 <script type="text/javascript"><!--
 
@@ -156,100 +156,416 @@ div.categorybox
 
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="lindstedt"></a>
+<a name="lbfgs"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_62.html#Functions-and-Variables-for-lbfgs" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-lindstedt" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_62.html#Functions-and-Variables-for-lapack" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-lbfgs" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_62.html#lbfgs" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#lapack" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_64.html#linearalgebra" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_64.html#lindstedt" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="lindstedt-1"></a>
-<h1 class="chapter">63. lindstedt</h1>
+<a name="lbfgs-1"></a>
+<h1 class="chapter">63. lbfgs</h1>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-lindstedt">63.1 Functions and Variables for lindstedt</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Introduction-to-lbfgs">63.1 Introduction to lbfgs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-lbfgs">63.2 Functions and Variables for lbfgs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Functions-and-Variables-for-lindstedt"></a>
+<p><a name="Item_003a-Introduction-to-lbfgs"></a>
 </p><hr size="6">
-<a name="Functions-and-Variables-for-lindstedt"></a>
+<a name="Introduction-to-lbfgs"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#lindstedt" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_64.html#linearalgebra" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#lbfgs" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-lbfgs" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#lindstedt" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#lindstedt" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_64.html#linearalgebra" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#lbfgs" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#lbfgs" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_64.html#lindstedt" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-lindstedt-1"></a>
-<h2 class="section">63.1 Functions and Variables for lindstedt</h2>
+<a name="Introduction-to-lbfgs-1"></a>
+<h2 class="section">63.1 Introduction to lbfgs</h2>
 
-
-<p><a name="Item_003a-Lindstedt"></a>
-</p><dl>
-<dt><a name="index-Lindstedt"></a><u>関数:</u> <b>Lindstedt</b><i> (<var>eq</var>,<var>pvar</var>,<var>torder</var>,<var>ic</var>)</i></dt>
-<dd><p>これは Lindstedtコードでの最初のパスです。
-摂動方程式上の初期条件が <em>i&gt;0</em>に対して <em>z[i]=0, z&rsquo;[i]=0</em>で、
-入力した初期条件―
-(<var>%k1</var>と <var>%k2</var>だけでなく)任意の定数があり得ます―で問題を解くことができます。
-<var>ic</var>は初期条件のリストです。
+<p><code>lbfgs</code>は L-BFGS algorithm [1]の実装であり、
+限定メモリ準Newton (BFGS)アルゴリズムによって無制約な最小化問題を解きます。
+Hessian行列の逆元全体の代わりに低ランク近似が保存されるので、限定メモリと呼ばれます。
+最初、
+Jorge J. Mor&eacute;とDavid J. Thuenteが最初に書いたいくつかの関数を組み入れて
+Jorge Nocedalがプログラムを Fortranで書き、
+プログラム <code>f2cl</code>によって Lispに自動翻訳されました。
 </p>
-<p>初期条件を与えない時、
-摂動方程式の中の定数がゼロ次方程式解と同じなので、問題が起こります。
-また Van der Pol方程式のように、摂動方程式の初期条件が <em>i&gt;0</em>に対して
-<em>z[i]=0, z&rsquo;[i]=0</em>でない時、問題が起こります。
+<p>Maximaパッケージ
+<code>lbfgs</code>は翻訳されたコードといくつかの詳細を扱うインターフェース関数からなります。
+</p>
+<p>参考文献:
+</p>
+<p>[1] D. Liu and J. Nocedal. &quot;On the limited memory BFGS method for large
+scale optimization&quot;. <i>Mathematical Programming B</i> 45:503&ndash;528 (1989)
+</p>
+<p>[2] <a href="http://netlib.org/opt/lbfgs_um.shar">http://netlib.org/opt/lbfgs_um.shar</a>
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a>
+  &middot;<a href="maxima_100.html#Category_003a-Optimization">Optimization</a>
+ &middot;<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_100.html#Category_003a-Package-lbfgs">Package lbfgs</a>
+</div></p>
+<p><a name="Item_003a-Functions-and-Variables-for-lbfgs"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-lbfgs"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-lbfgs" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_64.html#lindstedt" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#lbfgs" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#lbfgs" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_64.html#lindstedt" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Functions-and-Variables-for-lbfgs-1"></a>
+<h2 class="section">63.2 Functions and Variables for lbfgs</h2>
+
+
+<dl>
+<dt><a name="index-lbfgs"></a><u>関数:</u> <b>lbfgs</b><i> (<var>FOM</var>, <var>X</var>, <var>X0</var>, <var>epsilon</var>, <var>iprint</var>)</i></dt>
+<dt><a name="index-lbfgs-1"></a><u>関数:</u> <b>lbfgs</b><i> ([<var>FOM</var>, <var>grad</var>], <var>X</var>, <var>X0</var>, <var>epsilon</var>, <var>iprint</var>)</i></dt>
+<dd>
+<p>初期見積もり <var>X0</var>から始めて
+変数リスト <var>X</var>上での、
+<em>norm(grad(FOM)) &lt; epsilon*max(1, norm(X))</em>のような性能指標
+<var>FOM</var>の無制約最小化の近似解を見つけます。
+</p>
+<p>もし与えられたなら、 <var>grad</var>は <var>FOM</var>の多変数 <var>X</var>に関する勾配です。
+<var>grad</var>は <var>X</var>の要素それぞれに対して要素を1つ持つリストかリストを返す関数です。
+もし与えられなかったら、勾配を記号微分で自動的に計算します。
+もし <var>FOM</var>が関数なら、勾配 <var>grad</var>を共有しなければいけません。
+</p>
+<p>適用されるアルゴリズムは限定メモリ準 Newton(BFGS)アルゴリズム [1]です。
+Hessian行列の逆元全体の代わりに低ランク近似が保存されるので、限定メモリと呼ばれます。
+アルゴリズムのそれぞれの繰り返しは直線探索です。
+すなわち、変数 <var>X</var>に関して、近似 Hessian逆元から計算される探索方向の線
+(ray)に沿っての探索です。
+FOMはいつも直線探索でうまく減少します。
+(いつもではありませんが)普通 FOMの勾配のノルムも減少します。
+</p>
+<p><var>iprint</var>は <code>lbfgs</code>が印字する進捗メッセージを制御します。
+</p>
+<dl compact="compact">
+<dt> <code>iprint[1]</code></dt>
+<dd><p><code><var>iprint</var>[1]</code> controls the frequency of progress messages.
+</p><dl compact="compact">
+<dt> <code>iprint[1] &lt; 0</code></dt>
+<dd><p>進捗メッセージなし。
+</p></dd>
+<dt> <code>iprint[1] = 0</code></dt>
+<dd><p>最初と最後の繰り返しでメッセージ。
+</p></dd>
+<dt> <code>iprint[1] &gt; 0</code></dt>
+<dd><p>毎<code><var>iprint</var>[1]</code>回の繰り返してメッセージを印字する。
+</p></dd>
+</dl>
+</dd>
+<dt> <code>iprint[2]</code></dt>
+<dd><p><code><var>iprint</var>[2]</code>は進捗メッセージの量を制御します。
+</p><dl compact="compact">
+<dt> <code>iprint[2] = 0</code></dt>
+<dd><p>繰り返し回数、 <var>FOM</var>の評価回数、 <var>FOM</var>の値、
+<var>FOM</var>の勾配のノルム、ステップ長を印字します。
+</p></dd>
+<dt> <code>iprint[2] = 1</code></dt>
+<dd><p><code><var>iprint</var>[2] = 0</code>に加えて、
+<var>X0</var>と <var>X0</var>で評価された <var>FOM</var>の勾配を印字します。
+</p></dd>
+<dt> <code>iprint[2] = 2</code></dt>
+<dd><p><code><var>iprint</var>[2] = 1</code>に加えて、
+繰り返しそれぞれで <var>X</var>の値を印字します。
+</p></dd>
+<dt> <code>iprint[2] = 3</code></dt>
+<dd><p><code><var>iprint</var>[2] = 2</code>に加えて、
+繰り返しそれぞれで <var>FOM</var>の勾配を印字します。
+</p></dd>
+</dl>
+</dd>
+</dl>
+
+<p><code>lbfgs</code>が印字する列は以下の通りです。
+</p>
+<dl compact="compact">
+<dt> <code>I</code></dt>
+<dd><p>繰り返し関数。それぞれの直線探索で増えます。
+</p></dd>
+<dt> <code>NFN</code></dt>
+<dd><p>性能指標の評価回数。
+</p></dd>
+<dt> <code>FUNC</code></dt>
+<dd><p>最も最近の直線探索の最後での性能指標の値。
+</p></dd>
+<dt> <code>GNORM</code></dt>
+<dd><p>最も最近の直線探索の最後での性能指標の勾配のノルム。
+</p></dd>
+<dt> <code>STEPLENGTH</code></dt>
+<dd><p>探索アルゴリズムの内部パラメータ。
+</p></dd>
+</dl>
+
+<p>アルゴリズムの詳細に関係する付加情報は、元々の Fortranコード[2]のコメントに見つけられます。
+</p>
+<p><code>lbfgs_nfeval_max</code>と <code>lbfgs_ncorrections</code>も参照してください。
+</p>
+<p>参考文献:
+</p>
+<p>[1] D. Liu and J. Nocedal. &quot;On the limited memory BFGS method for large
+scale optimization&quot;. <i>Mathematical Programming B</i> 45:503&ndash;528 (1989)
+</p>
+<p>[2] <a href="http://netlib.org/opt/lbfgs_um.shar">http://netlib.org/opt/lbfgs_um.shar</a>
 </p>
 <p>例:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;makeOrders&quot;)$
+</p>
+<p>Netlibの LBFGSパッケージの中で、プログラム sdrive.f中の、
+FGCOMPUTEが計算したのと同じ FOM。
+問題の変数が添字付き変数であることに注意してください。
+FOMは <em>u[k] = 1</em>(<em>k = 1, ..., 8</em>)で 0に等しい厳密な最小を持ちます。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lbfgs)$
+(%i2) t1[j] := 1 - u[j];
+(%o2)                     t1  := 1 - u
+                            j         j
+(%i3) t2[j] := 10*(u[j + 1] - u[j]^2);
+                                          2
+(%o3)                t2  := 10 (u      - u )
+                       j         j + 1    j
+(%i4) n : 8;
+(%o4)                           8
+(%i5) FOM : sum (t1[2*j - 1]^2 + t2[2*j - 1]^2, j, 1, n/2);
+                 2 2           2              2 2           2
+(%o5) 100 (u  - u )  + (1 - u )  + 100 (u  - u )  + (1 - u )
+            8    7           7           6    5           5
+                     2 2           2              2 2           2
+        + 100 (u  - u )  + (1 - u )  + 100 (u  - u )  + (1 - u )
+                4    3           3           2    1           1
+(%i6) lbfgs (FOM, '[u[1],u[2],u[3],u[4],u[5],u[6],u[7],u[8]],
+       [-1.2, 1, -1.2, 1, -1.2, 1, -1.2, 1], 1e-3, [1, 0]);
+*************************************************
+  N=    8   NUMBER OF CORRECTIONS=25
+       INITIAL VALUES
+ F=  9.680000000000000D+01   GNORM=  4.657353755084533D+02
+*************************************************
+</pre></td></tr></table>
+<table><tr><td>&nbsp;</td><td><pre class="example"> I NFN   FUNC                    GNORM                   STEPLENGTH
 
-(%i2) load(&quot;lindstedt&quot;)$
-
-(%i3) Lindstedt('diff(x,t,2)+x-(e*x^3)/6,e,2,[1,0]);
-          2
-         e  (cos(5 T) - 24 cos(3 T) + 23 cos(T))
-(%o3) [[[---------------------------------------
-                          36864
-   e (cos(3 T) - cos(T))
- - --------------------- + cos(T)],
-            192
-          2
-       7 e    e
-T = (- ---- - -- + 1) t]]
-       3072   16
+ 1   3   1.651479526340304D+01   4.324359291335977D+00   7.926153934390631D-04
+ 2   4   1.650209316638371D+01   3.575788161060007D+00   1.000000000000000D+00
+ 3   5   1.645461701312851D+01   6.230869903601577D+00   1.000000000000000D+00
+ 4   6   1.636867301275588D+01   1.177589920974980D+01   1.000000000000000D+00
+ 5   7   1.612153014409201D+01   2.292797147151288D+01   1.000000000000000D+00
+ 6   8   1.569118407390628D+01   3.687447158775571D+01   1.000000000000000D+00
+ 7   9   1.510361958398942D+01   4.501931728123679D+01   1.000000000000000D+00
+ 8  10   1.391077875774293D+01   4.526061463810630D+01   1.000000000000000D+00
+ 9  11   1.165625686278198D+01   2.748348965356907D+01   1.000000000000000D+00
+10  12   9.859422687859144D+00   2.111494974231706D+01   1.000000000000000D+00
+11  13   7.815442521732282D+00   6.110762325764183D+00   1.000000000000000D+00
+12  15   7.346380905773044D+00   2.165281166715009D+01   1.285316401779678D-01
+13  16   6.330460634066464D+00   1.401220851761508D+01   1.000000000000000D+00
+14  17   5.238763939854303D+00   1.702473787619218D+01   1.000000000000000D+00
+15  18   3.754016790406625D+00   7.981845727632704D+00   1.000000000000000D+00
+16  20   3.001238402313225D+00   3.925482944745832D+00   2.333129631316462D-01
+17  22   2.794390709722064D+00   8.243329982586480D+00   2.503577283802312D-01
+18  23   2.563783562920545D+00   1.035413426522664D+01   1.000000000000000D+00
+19  24   2.019429976373283D+00   1.065187312340952D+01   1.000000000000000D+00
+20  25   1.428003167668592D+00   2.475962450735100D+00   1.000000000000000D+00
+21  27   1.197874264859232D+00   8.441707983339661D+00   4.303451060697367D-01
+22  28   9.023848942003913D-01   1.113189216665625D+01   1.000000000000000D+00
+23  29   5.508226405855795D-01   2.380830599637816D+00   1.000000000000000D+00
+24  31   3.902893258879521D-01   5.625595817143044D+00   4.834988416747262D-01
+25  32   3.207542206881058D-01   1.149444645298493D+01   1.000000000000000D+00
+26  33   1.874468266118200D-01   3.632482152347445D+00   1.000000000000000D+00
+27  34   9.575763380282112D-02   4.816497449000391D+00   1.000000000000000D+00
+28  35   4.085145106760390D-02   2.087009347116811D+00   1.000000000000000D+00
+29  36   1.931106005512628D-02   3.886818624052740D+00   1.000000000000000D+00
+30  37   6.894000636920714D-03   3.198505769992936D+00   1.000000000000000D+00
+31  38   1.443296008850287D-03   1.590265460381961D+00   1.000000000000000D+00
+32  39   1.571766574930155D-04   3.098257002223532D-01   1.000000000000000D+00
+33  40   1.288011779655132D-05   1.207784334505595D-02   1.000000000000000D+00
+34  41   1.806140190993455D-06   4.587890258846915D-02   1.000000000000000D+00
+35  42   1.769004612050548D-07   1.790537363138099D-02   1.000000000000000D+00
+36  43   3.312164244118216D-10   6.782068546986653D-04   1.000000000000000D+00
+</pre></td></tr></table>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+ THE MINIMIZATION TERMINATED WITHOUT DETECTING ERRORS.
+ IFLAG = 0
+(%o6) [u  = 1.000005339816132, u  = 1.000009942840108, 
+        1                       2
+u  = 1.000005339816132, u  = 1.000009942840108, 
+ 3                       4
+u  = 1.000005339816132, u  = 1.000009942840108, 
+ 5                       6
+u  = 1.000005339816132, u  = 1.000009942840108]
+ 7                       8
 </pre></td></tr></table>
 
-<p>この関数を使うには、最初に <code>load(&quot;makeOrders&quot;)</code>と
-<code>load(&quot;lindstedt&quot;)</code>を書いてください。
+<p>回帰問題。
+FOMは予言値 <em>F(X[i])</em>と観測値 <em>Y[i]</em>の二乗平均差です。
+関数 <em>F</em>は有界な単調関数(いわゆる「シグモイド」函数)です。
+この例では、 <em>F</em>のパラメータに関して <code>lbfgs</code>は近似値を計算し、
+<code>plot2d</code>は <em>F</em>の観測データとの比較を表示します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Differential-equations">Differential equations</a>
- &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-lindstedt">Package lindstedt</a>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lbfgs)$
+(%i2) FOM : '((1/length(X))*sum((F(X[i]) - Y[i])^2, i, 1,
+                                                length(X)));
+                               2
+               sum((F(X ) - Y ) , i, 1, length(X))
+                       i     i
+(%o2)          -----------------------------------
+                            length(X)
+(%i3) X : [1, 2, 3, 4, 5];
+(%o3)                    [1, 2, 3, 4, 5]
+(%i4) Y : [0, 0.5, 1, 1.25, 1.5];
+(%o4)                [0, 0.5, 1, 1.25, 1.5]
+(%i5) F(x) := A/(1 + exp(-B*(x - C)));
+                                   A
+(%o5)            F(x) := ----------------------
+                         1 + exp((- B) (x - C))
+(%i6) ''FOM;
+                A               2            A                2
+(%o6) ((----------------- - 1.5)  + (----------------- - 1.25)
+          - B (5 - C)                  - B (4 - C)
+        %e            + 1            %e            + 1
+            A             2            A               2
+ + (----------------- - 1)  + (----------------- - 0.5)
+      - B (3 - C)                - B (2 - C)
+    %e            + 1          %e            + 1
+             2
+            A
+ + --------------------)/5
+      - B (1 - C)     2
+   (%e            + 1)
+(%i7) estimates : lbfgs (FOM, '[A, B, C], [1, 1, 1], 1e-4, [1, 0]);
+*************************************************
+  N=    3   NUMBER OF CORRECTIONS=25
+       INITIAL VALUES
+ F=  1.348738534246918D-01   GNORM=  2.000215531936760D-01
+*************************************************
+
+</pre></td></tr></table>
+<table><tr><td>&nbsp;</td><td><pre class="example">I  NFN  FUNC                    GNORM                   STEPLENGTH
+1    3  1.177820636622582D-01   9.893138394953992D-02   8.554435968992371D-01  
+2    6  2.302653892214013D-02   1.180098521565904D-01   2.100000000000000D+01  
+3    8  1.496348495303004D-02   9.611201567691624D-02   5.257340567840710D-01  
+4    9  7.900460841091138D-03   1.325041647391314D-02   1.000000000000000D+00  
+5   10  7.314495451266914D-03   1.510670810312226D-02   1.000000000000000D+00  
+6   11  6.750147275936668D-03   1.914964958023037D-02   1.000000000000000D+00  
+7   12  5.850716021108202D-03   1.028089194579382D-02   1.000000000000000D+00  
+8   13  5.778664230657800D-03   3.676866074532179D-04   1.000000000000000D+00  
+9   14  5.777818823650780D-03   3.010740179797108D-04   1.000000000000000D+00  
+</pre></td></tr></table>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+ THE MINIMIZATION TERMINATED WITHOUT DETECTING ERRORS.
+ IFLAG = 0
+(%o7) [A = 1.461933911464101, B = 1.601593973254801, 
+                                           C = 2.528933072164855]
+(%i8) plot2d ([F(x), [discrete, X, Y]], [x, -1, 6]), ''estimates;
+(%o8) 
+</pre></td></tr></table>
+
+<p>FOMの勾配が(自動的に計算される代わりに)指定されます。
+FOMとその勾配の両方を関数として <code>lbfgs</code>に渡します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lbfgs)$
+(%i2) F(a, b, c) := (a - 5)^2 + (b - 3)^4 + (c - 2)^6$
+(%i3) define(F_grad(a, b, c),
+             map (lambda ([x], diff (F(a, b, c), x)), [a, b, c]))$
+(%i4) estimates : lbfgs ([F, F_grad],
+                   [a, b, c], [0, 0, 0], 1e-4, [1, 0]);
+*************************************************
+  N=    3   NUMBER OF CORRECTIONS=25
+       INITIAL VALUES
+ F=  1.700000000000000D+02   GNORM=  2.205175729958953D+02
+*************************************************
+
+</pre></td></tr></table>
+<table><tr><td>&nbsp;</td><td><pre class="example">   I  NFN     FUNC                    GNORM                   STEPLENGTH
+
+   1    2     6.632967565917637D+01   6.498411132518770D+01   4.534785987412505D-03  
+   2    3     4.368890936228036D+01   3.784147651974131D+01   1.000000000000000D+00  
+   3    4     2.685298972775191D+01   1.640262125898520D+01   1.000000000000000D+00  
+   4    5     1.909064767659852D+01   9.733664001790506D+00   1.000000000000000D+00  
+   5    6     1.006493272061515D+01   6.344808151880209D+00   1.000000000000000D+00  
+   6    7     1.215263596054292D+00   2.204727876126877D+00   1.000000000000000D+00  
+   7    8     1.080252896385329D-02   1.431637116951845D-01   1.000000000000000D+00  
+   8    9     8.407195124830860D-03   1.126344579730008D-01   1.000000000000000D+00  
+   9   10     5.022091686198525D-03   7.750731829225275D-02   1.000000000000000D+00  
+  10   11     2.277152808939775D-03   5.032810859286796D-02   1.000000000000000D+00  
+  11   12     6.489384688303218D-04   1.932007150271009D-02   1.000000000000000D+00  
+  12   13     2.075791943844547D-04   6.964319310814365D-03   1.000000000000000D+00  
+  13   14     7.349472666162258D-05   4.017449067849554D-03   1.000000000000000D+00  
+  14   15     2.293617477985238D-05   1.334590390856715D-03   1.000000000000000D+00  
+  15   16     7.683645404048675D-06   6.011057038099202D-04   1.000000000000000D+00  
+</pre></td></tr></table>
+<table><tr><td>&nbsp;</td><td><pre class="example">
+ THE MINIMIZATION TERMINATED WITHOUT DETECTING ERRORS.
+ IFLAG = 0
+(%o4) [a = 5.000086823042934, b = 3.052395429705181, 
+                                           c = 1.927980629919583]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lbfgs">Package lbfgs</a>
 </div></p>
 </dd></dl>
 
-<p><a name="Item_003a-linearalgebra"></a>
+<p><a name="Item_003a-lbfgs_005fnfeval_005fmax"></a>
+</p><dl>
+<dt><a name="index-lbfgs_005fnfeval_005fmax"></a><u>変数:</u> <b>lbfgs_nfeval_max</b></dt>
+<dd><p>デフォルト値: 100
+</p>
+<p><code>lbfgs_nfeval_max</code>は、<code>lbfgs</code>がする性能指標 (FOM)の評価の最大回数です。
+<code>lbfgs_nfeval_max</code>に届いた時、
+<code>lbfgs</code>は最後に成功した直線探索の結果を返します。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lbfgs">Package lbfgs</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-lbfgs_005fncorrections"></a>
+</p><dl>
+<dt><a name="index-lbfgs_005fncorrections"></a><u>変数:</u> <b>lbfgs_ncorrections</b></dt>
+<dd><p>デフォルト値: 25
+</p>
+<p><code>lbfgs_ncorrections</code>は <code>lbfgs</code>が保つ近似逆
+Hessian行列に適用された修正回数です。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lbfgs">Package lbfgs</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-lindstedt"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#lindstedt" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_64.html#linearalgebra" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#lbfgs" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_64.html#lindstedt" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -257,12 +573,12 @@ T = (- ---- - -- + 1) t]]
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年4月月20日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年4月月20日 by texi2html 1.82
+<!-- Created on 2014年9月月15日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.33.0 Manual: 66. minpack</title>
+<title>Maxima 5.34.1 Manual: 66. lsquares</title>
 
-<meta name="description" content="Maxima 5.33.0 Manual: 66. minpack">
-<meta name="keywords" content="Maxima 5.33.0 Manual: 66. minpack">
+<meta name="description" content="Maxima 5.34.1 Manual: 66. lsquares">
+<meta name="keywords" content="Maxima 5.34.1 Manual: 66. lsquares">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -137,7 +137,7 @@ div.categorybox
 -->
 </style>
 
-<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico"/>
 
 <script type="text/javascript"><!--
 
@@ -156,200 +156,606 @@ div.categorybox
 
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="minpack"></a>
+<a name="lsquares"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_65.html#Functions-and-Variables-for-lsquares" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-minpack" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_65.html#Functions-and-Variables-for-linearalgebra" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-lsquares" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_65.html#lsquares" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_65.html#linearalgebra" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_67.html#makeOrders" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_67.html#minpack" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="minpack-1"></a>
-<h1 class="chapter">66. minpack</h1>
+<a name="lsquares-1"></a>
+<h1 class="chapter">66. lsquares</h1>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-minpack">66.1 Introduction to minpack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Introduction-to-lsquares">66.1 Introduction to lsquares</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-minpack">66.2 Functions and Variables for minpack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-lsquares">66.2 Functions and Variables for lsquares</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Introduction-to-minpack"></a>
+<p><a name="Item_003a-Introduction-to-lsquares"></a>
 </p><hr size="6">
-<a name="Introduction-to-minpack"></a>
+<a name="Introduction-to-lsquares"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#minpack" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-minpack" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#lsquares" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-lsquares" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#minpack" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#minpack" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_67.html#makeOrders" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#lsquares" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#lsquares" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_67.html#minpack" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-minpack-1"></a>
-<h2 class="section">66.1 Introduction to minpack</h2>
+<a name="Introduction-to-lsquares-1"></a>
+<h2 class="section">66.1 Introduction to lsquares</h2>
 
-<p><code>Minpack</code>は Netlibで入手可能な Fortranライブラリ MINPACKの
-(<code>f2cl</code>を介した) Common Lisp翻訳です。
+<p><code>lsquares</code>は数値データからモデルのパラメータを見積もる最小二乗法を実装するための
+関数のコレクションです。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a>
- &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-minpack">Package minpack</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-minpack">Package minpack</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Statistical-estimation">Statistical estimation</a>
+ &middot;<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_100.html#Category_003a-Package-lsquares">Package lsquares</a>
 </div></p>
-<p><a name="Item_003a-Functions-and-Variables-for-minpack"></a>
+
+<p><a name="Item_003a-Functions-and-Variables-for-lsquares"></a>
 </p><hr size="6">
-<a name="Functions-and-Variables-for-minpack"></a>
+<a name="Functions-and-Variables-for-lsquares"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-minpack" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_67.html#makeOrders" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-lsquares" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_67.html#minpack" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#minpack" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#minpack" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_67.html#makeOrders" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#lsquares" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#lsquares" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_67.html#minpack" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-minpack-1"></a>
-<h2 class="section">66.2 Functions and Variables for minpack</h2>
+<a name="Functions-and-Variables-for-lsquares-1"></a>
+<h2 class="section">66.2 Functions and Variables for lsquares</h2>
 
-<p><a name="Item_003a-minpack_005flsquares"></a>
+<p><a name="Item_003a-lsquares_005festimates"></a>
 </p><dl>
-<dt><a name="index-minpack_005flsquares"></a><u>関数:</u> <b>minpack_lsquares</b><i> (<var>flist</var>, <var>varlist</var>, <var>guess</var> [, <var>tolerance</var>, <var>jacobian</var>])</i></dt>
+<dt><a name="index-lsquares_005festimates"></a><u>関数:</u> <b>lsquares_estimates</b><i> (<var>D</var>, <var>x</var>, <var>e</var>, <var>a</var>)</i></dt>
+<dt><a name="index-lsquares_005festimates-1"></a><u>関数:</u> <b>lsquares_estimates</b><i> (<var>D</var>, <var>x</var>, <var>e</var>, <var>a</var>, initial = <var>L</var>, tol = <var>t</var>)</i></dt>
 <dd>
-<p>リスト <var>flist</var>の関数の平方の和を最小化する点を計算します。
-変数はリスト <var>varlist</var>の中にあります。
-最適点の初期推測は <var>guess</var>で供給されなければいけません。
+<p>最小二乗の方法で決定されるような変数 <var>x</var>と <var>a</var>の方程式 <var>e</var>をデータ
+<var>D</var>に最良フィットするパラメータ <var>a</var>を見積もります。
+<code>lsquares_estimates</code>は最初に厳密な解を探し、それが失敗したら近似的な解を探します。
 </p>
-<p>オプションのキーワード引数 <var>tolerance</var>と
-<var>jacobian</var>はアルゴリズム上のある制御を提供します。
-<var>tolerance</var>は平方の和に関する望みの見積もり相対誤差です。
-<var>jacobian</var>は Jacobianを指定するのに使うことができます。
-もし <var>jacobian</var>が与えられず(デフォルトの) <code>true</code> なら、
-Jacobianを <var>flist</var>から計算します。
-もし <var>jacobian</var>が <code>false</code>なら数値近似を使います。
+<p>戻り値は形式 <code>[a = ..., b = ..., c = ...]</code>の等式のリストのリストです。
+リストのそれぞれの要素は二乗平均誤差の、個別の等価な最小です。
 </p>
-<p><code>minpack_lsquares</code>はリストを返します。
-一番目の項目は見積られた解です;
-二番目は平方の和で，三番目はアルゴリズムの成功を示します。
-可能な値は以下の通りです。
+<p>データ <var>D</var>は行列でなければいけません。
+行それぞれは(文脈によって「レコード」とか「ケース」とか呼ばれる)1つのデータで、
+列それぞれはすべてのデータに関するある変数の値を含みます。
+変数のリスト <var>x</var>は <var>D</var>の列それぞれの名前を与えます。
+解析をしない列にも名前を与えます。
 </p>
-<dl compact="compact">
-<dt> <code>0</code></dt>
-<dd><p>不適切な入力パラメータ。
-</p></dd>
-<dt> <code>1</code></dt>
-<dd><p>アルゴリズムが平方の和の相対誤差がせいぜい <code>tolerance</code>と見積もります。
-</p></dd>
-<dt> <code>2</code></dt>
-<dd><p>アルゴリズムがxと解の相対誤差がせいぜい <code>tolerance</code>と見積もります。
-</p></dd>
-<dt> <code>3</code></dt>
-<dd><p>info = 1と info = 2の条件が両方とも成立します。
-</p></dd>
-<dt> <code>4</code></dt>
-<dd><p>fvec が機械精度の jacobianの列に直交的です。
-</p></dd>
-<dt> <code>5</code></dt>
-<dd><p>iflag = 1が 100*(n+1)に至る fcnへのコールの回数
-</p></dd>
-<dt> <code>6</code></dt>
-<dd><p>tolが小さすぎます。平方の和の更なる減少は不可能です。
-</p></dd>
-<dt> <code>7</code></dt>
-<dd><p>tolが小さすぎます。近似解 xの更なる改善は不可能です。
-</p></dd>
-</dl>
-
-<table><tr><td>&nbsp;</td><td><pre class="example">/* Problem 6: Powell singular function */
-(%i1) powell(x1,x2,x3,x4) := 
-         [x1+10*x2, sqrt(5)*(x3-x4), (x2-2*x3)^2, 
-              sqrt(10)*(x1-x4)^2]$
-(%i2) minpack_lsquares(powell(x1,x2,x3,x4), [x1,x2,x3,x4], 
-                       [3,-1,0,1]);
-(%o2) [[1.652117596168394e-17, - 1.652117596168393e-18, 
-        2.643388153869468e-18, 2.643388153869468e-18], 
-       6.109327859207777e-34, 4] 
+<p>パラメータのリスト <var>a</var>は見積もられるパラメータの名前を与えます。
+方程式 <var>e</var>は変数 <var>x</var>と <var>a</var>に関する式か等式です;
+もし <var>e</var>が等式でないなら <code><var>e</var> = 0</code>と同様に扱われます。
+</p>
+<p><code>lsquares_estimates</code>の付加引数は等式として指定され、
+厳密な結果が見つからなかった時、数値方法で見積もりを見つけるためにコールされる関数
+<code>lbfgs</code>へそのまま渡されます。
+</p>
+<p>もしある厳密解が (<code>solve</code>を介して)見つけることができるなら、データ
+<var>D</var>は非数値を含むかもしれません。
+しかし、もし厳密解が見つからないなら <var>D</var>の要素それぞれは数値でなければいけません。
+これは数リテラル(整数、有理数、通常の浮動小数点、多倍長浮動小数点)はもちろん、
+<code>%pi</code>や <code>%e</code>のような数値定数を含みます。
+数値計算は通常の浮動小数点算出で実行されます。
+他の種類の数値は計算のため、すべて通常の浮動小数点に変換されます。
+</p>
+<p><code>load(lsquares)</code>はこの関数をロードします。
+</p>
+<p><code>lsquares_estimates_exact</code>,
+<code>lsquares_estimates_approximate</code>,<br>
+<code>lsquares_mse</code>,
+<code>lsquares_residuals</code>,
+<code>lsquares_residual_mse</code>も参照してください。
+</p>
+<p>例:
+</p>
+<p>厳密解が見つかる問題。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lsquares)$
+(%i2) M : matrix (
+        [1,1,1], [3/2,1,2], [9/4,2,1], [3,2,2], [2,2,1]);
+</pre><pre class="example">                                  [ 1  1  1 ]
+                                  [         ]
+                                  [ 3       ]
+                                  [ -  1  2 ]
+                                  [ 2       ]
+                                  [         ]
+(%o2)                             [ 9       ]
+                                  [ -  2  1 ]
+                                  [ 4       ]
+                                  [         ]
+                                  [ 3  2  2 ]
+                                  [         ]
+                                  [ 2  2  1 ]
+</pre><pre class="example">(%i3) lsquares_estimates (
+         M, [z,x,y], (z+D)^2 = A*x+B*y+C, [A,B,C,D]);
+                         59        27      10921        107
+(%o3)            [[A = - --, B = - --, C = -----, D = - ---]]
+                         16        16      1024         32
 </pre></td></tr></table>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">/* Same problem but use numerical approximation to Jacobian */
-(%i3) minpack_lsquares(powell(x1,x2,x3,x4), [x1,x2,x3,x4], 
-                       [3,-1,0,1], jacobian = false);
-(%o3) [[5.060282149485331e-11, - 5.060282149491206e-12, 
-        2.179447843547218e-11, 2.179447843547218e-11], 
-       3.534491794847031e-21, 5]
+<p>厳密解が見つからない問題。
+だから <code>lsquares_estimates</code>は数値近似に頼ります。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lsquares)$
+(%i2) M : matrix ([1, 1], [2, 7/4], [3, 11/4], [4, 13/4]);
+                                   [ 1  1  ]
+                                   [       ]
+                                   [    7  ]
+                                   [ 2  -  ]
+                                   [    4  ]
+                                   [       ]
+(%o2)                              [    11 ]
+                                   [ 3  -- ]
+                                   [    4  ]
+                                   [       ]
+                                   [    13 ]
+                                   [ 4  -- ]
+                                   [    4  ]
+(%i3) lsquares_estimates (
+  M, [x,y], y=a*x^b+c, [a,b,c], initial=[3,3,3], iprint=[-1,0]);
+(%o3) [[a = 1.387365874920637, b = .7110956639593767, 
+                                        c = - .4142705622439105]]
 </pre></td></tr></table>
 
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lsquares">Package lsquares</a>
+ &middot;<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div></p>
 </dd></dl>
 
-<p><a name="Item_003a-minpack_005fsolve"></a>
+<p><a name="Item_003a-lsquares_005festimates_005fexact"></a>
 </p><dl>
-<dt><a name="index-minpack_005fsolve"></a><u>関数:</u> <b>minpack_solve</b><i> (<var>flist</var>, <var>varlist</var>, <var>guess</var> [, <var>tolerance</var>, <var>jacobian</var>])</i></dt>
-<dd><p><code>n</code>個の未知数に関する <code>n</code>個の方程式系を解きます。
-<code>n</code>個の方程式形はリスト <var>flist</var>で与えられます。
-解の初期推測は <var>guess</var>の中で提供されます。
+<dt><a name="index-lsquares_005festimates_005fexact"></a><u>関数:</u> <b>lsquares_estimates_exact</b><i> (<var>MSE</var>, <var>a</var>)</i></dt>
+<dd>
+<p>方程式系を構成し、<code>solve</code>を介して記号的にそれらを解くことを試みることで、平均二乗誤差
+<var>MSE</var>を最小化するパラメータ <var>a</var>を見積もります。
+平均二乗誤差は <code>lsquares_mse</code>が返すようなパラメータ <var>a</var>の式です。
 </p>
-<p>オプションのキーワード引数 <var>tolerance</var>と
-<var>jacobian</var>はアルゴリズム上のある制御を提供します。
-<var>tolerance</var>は平方の和に関して望まれる見積り相対誤差です。
-<var>jacobian</var>は Jacobianを指定するのに使うことができます。
-もし <var>jacobian</var>を与えないか、(デフォルトの) <code>true</code>なら、
-Jacobianを <var>flist</var>から計算します。
-もし <var>jacobian</var>が <code>false</code>なら数値近似を使います。
+<p>戻り値は形式 <code>[a = ..., b = ..., c = ...]</code>の等式のリストのリストです。
+戻り値は、 0個か 1個、 2以上の要素を含むかもしれません。
+もし複数の要素が返されたら、それぞれは個別の、平均二乗誤差の等価最小を表します。
 </p>
-<p><code>minpack_solve</code>はリストを返します。
-一番目の項目は見積られた解です;
-二番目は平方の和で，三番目はアルゴリズムの成功を示します。
-可能な値は以下の通りです。
+<p><code>lsquares_estimates</code>,
+<code>lsquares_estimates_approximate</code>,
+<code>lsquares_mse</code>,<br>
+<code>lsquares_residuals</code>,
+<code>lsquares_residual_mse</code>も参照してください。
 </p>
-<dl compact="compact">
-<dt> <code>0</code></dt>
-<dd><p>不適切な入力パラメータ。
-</p></dd>
-<dt> <code>1</code></dt>
-<dd><p>アルゴリズムが、解の相対誤差がせいぜい <code>tolerance</code>と見積もります。
-</p></dd>
-<dt> <code>2</code></dt>
-<dd><p>iflag = 1で fcnをコールした回数が 100*(n+1)に達しました。
-</p></dd>
-<dt> <code>3</code></dt>
-<dd><p>tolが小さ過ぎます。平方和の中で換算がこれ以上不可能です。
-</p></dd>
-<dt> <code>4</code></dt>
-<dd><p>繰り返しがよい進捗を産んでいません。
-</p></dd>
-</dl>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lsquares)$
+(%i2) M : matrix (
+         [1,1,1], [3/2,1,2], [9/4,2,1], [3,2,2], [2,2,1]);
+                           [ 1  1  1 ]
+                           [         ]
+                           [ 3       ]
+                           [ -  1  2 ]
+                           [ 2       ]
+                           [         ]
+(%o2)                      [ 9       ]
+                           [ -  2  1 ]
+                           [ 4       ]
+                           [         ]
+                           [ 3  2  2 ]
+                           [         ]
+                           [ 2  2  1 ]
+(%i3) mse : lsquares_mse (M, [z, x, y], (z + D)^2 = A*x + B*y + C);
+           5
+          ====
+          \                 2                         2
+           &gt;    ((D + M    )  - C - M     B - M     A)
+          /            i, 1          i, 3      i, 2
+          ====
+          i = 1
+(%o3)     ---------------------------------------------
+                                5
+(%i4) lsquares_estimates_exact (mse, [A, B, C, D]);
+                  59        27      10921        107
+(%o4)     [[A = - --, B = - --, C = -----, D = - ---]]
+                  16        16      1024         32
+</pre></td></tr></table>
 
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lsquares">Package lsquares</a>
+</div></p>
+</dd></dl>
 
+<p><a name="Item_003a-lsquares_005festimates_005fapproximate"></a>
+</p><dl>
+<dt><a name="index-lsquares_005festimates_005fapproximate"></a><u>関数:</u> <b>lsquares_estimates_approximate</b><i> (<var>MSE</var>, <var>a</var>, initial = <var>L</var>, tol = <var>t</var>)</i></dt>
+<dd>
+<p>平均二乗誤差 <var>MSE</var>を最小化するパラメータ <var>a</var>を数値最小化関数
+<code>lbfgs</code>を介して見積もります。
+平均二乗誤差は <code>lsquares_mse</code>が返すようなパラメータ <var>a</var>の式です。
+</p>
+
+<p><code>lsquares_estimates_approximate</code>が返す解は平均二乗誤差の
+(たぶん大域ですが)局所最小値です。
+<code>lsquares_estimates_exact</code>との一貫性のため、戻り値は要素 1つ、すなわち、形式
+<code>[a = ..., b = ..., c = ...]</code>の等式のリストを持つ入れ子のリストです。
+</p>
+<p><code>lsquares_estimates_approximate</code>の付加引数は等式として指定され、
+数値方法で見積もりを見つけるためにコールされる関数 <code>lbfgs</code>へそのまま渡されます。
+</p>
+<p>パラメータが数値が割り当てられた時 <var>MSE</var>は数に評価されなければいけません。
+これは <var>MSE</var>を構成するデータが <code>%pi</code>や<code>%e</code>、数リテラル
+(整数、有理数、通常の浮動小数点、多倍長浮動小数点)のような数値定数だけを含むことを
+要求します。
+数値計算は通常の浮動小数点算出で実行されます。
+他の種類の数値は計算のため、すべて通常の浮動小数点に変換されます。
+</p>
+<p><code>load(lsquares)</code>はこの関数をロードします。
+</p>
+<p><code>lsquares_estimates</code>,
+<code>lsquares_estimates_exact</code>,
+<code>lsquares_mse</code>,
+<code>lsquares_residuals</code>,
+<code>lsquares_residual_mse</code>も参照してください。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lsquares)$
+(%i2) M : matrix (
+         [1,1,1], [3/2,1,2], [9/4,2,1], [3,2,2], [2,2,1]);
+                           [ 1  1  1 ]
+                           [         ]
+                           [ 3       ]
+                           [ -  1  2 ]
+                           [ 2       ]
+                           [         ]
+(%o2)                      [ 9       ]
+                           [ -  2  1 ]
+                           [ 4       ]
+                           [         ]
+                           [ 3  2  2 ]
+                           [         ]
+                           [ 2  2  1 ]
+(%i3) mse : lsquares_mse (M, [z, x, y], (z + D)^2 = A*x + B*y + C);
+           5
+          ====
+          \                 2                         2
+           &gt;    ((D + M    )  - C - M     B - M     A)
+          /            i, 1          i, 3      i, 2
+          ====
+          i = 1
+(%o3)     ---------------------------------------------
+                                5
+(%i4) lsquares_estimates_approximate (
+              mse, [A, B, C, D], iprint = [-1, 0]);
+(%o4) [[A = - 3.67850494740174, B = - 1.683070351177813, 
+                 C = 10.63469950148635, D = - 3.340357993175206]]
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lsquares">Package lsquares</a>
+ &middot;<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-lsquares_005fmse"></a>
+</p><dl>
+<dt><a name="index-lsquares_005fmse"></a><u>関数:</u> <b>lsquares_mse</b><i> (<var>D</var>, <var>x</var>, <var>e</var>)</i></dt>
+<dd>
+<p>平均二乗誤差 (MSE)、すなわち、変数 <var>x</var>の 方程式<var>e</var>に関するデータ
+<var>D</var>の和の式を返します。
+</p>
+<p>MSEは以下のように定義されます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">                    n
+                   ====
+               1   \                        2
+               -    &gt;    (lhs(e ) - rhs(e ))
+               n   /           i         i
+                   ====
+                   i = 1
+</pre></td></tr></table>
+
+<p>ここで、 <var>n</var>はデータ数で、
+<code><var>e</var>[i]</code>は、 <code>i</code>番目のデータ
+<code><var>D</var>[i]</code>から値を割り当てられた
+<var>x</var>の中の変数に対して評価された方程式 <var>e</var>です。
+</p>
+<p><code>load(lsquares)</code>はこの関数をロードします。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lsquares)$
+(%i2) M : matrix (
+         [1,1,1], [3/2,1,2], [9/4,2,1], [3,2,2], [2,2,1]);
+                           [ 1  1  1 ]
+                           [         ]
+                           [ 3       ]
+                           [ -  1  2 ]
+                           [ 2       ]
+                           [         ]
+(%o2)                      [ 9       ]
+                           [ -  2  1 ]
+                           [ 4       ]
+                           [         ]
+                           [ 3  2  2 ]
+                           [         ]
+                           [ 2  2  1 ]
+</pre></td></tr></table>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) mse : lsquares_mse (M, [z, x, y], (z + D)^2 = A*x + B*y + C);
+           5
+          ====
+          \                 2                         2
+           &gt;    ((D + M    )  - C - M     B - M     A)
+          /            i, 1          i, 3      i, 2
+          ====
+          i = 1
+(%o3)     ---------------------------------------------
+                                5
+</pre></td></tr></table>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) diff (mse, D);
+         5
+        ====
+        \                             2
+      4  &gt;    (D + M    ) ((D + M    )  - C - M     B - M     A)
+        /           i, 1         i, 1          i, 3      i, 2
+        ====
+        i = 1
+(%o4) ----------------------------------------------------------
+                                  5
+</pre></td></tr></table>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) ''mse, nouns;
+</pre><pre class="example">               2                 2         9 2               2
+(%o5) (((D + 3)  - C - 2 B - 2 A)  + ((D + -)  - C - B - 2 A)
+                                           4
+           2               2         3 2               2
+ + ((D + 2)  - C - B - 2 A)  + ((D + -)  - C - 2 B - A)
+                                     2
+           2             2
+ + ((D + 1)  - C - B - A) )/5
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lsquares">Package lsquares</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-lsquares_005fresiduals"></a>
+</p><dl>
+<dt><a name="index-lsquares_005fresiduals"></a><u>関数:</u> <b>lsquares_residuals</b><i> (<var>D</var>, <var>x</var>, <var>e</var>, <var>a</var>)</i></dt>
+<dd>
+<p>指定されたパラメータ <var>a</var>とデータ <var>D</var>での方程式 <var>e</var>に関する残差を返します。
+</p>
+
+<p><var>D</var>は行列で、 <var>x</var>は変数のリスト、 <var>e</var>は方程式か一般式です;
+もし方程式でないなら、 <var>e</var>は <code><var>e</var> = 0</code>であるかのように扱われます。
+<var>a</var>は <var>x</var>を除いた <var>e</var>の任意の自由変数に値を指定する方程式のリストです。
+</p>
+<p>残差は以下のように定義されます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">                        lhs(e ) - rhs(e )
+                             i         i
+</pre></td></tr></table>
+
+<p>ここで、 <code><var>e</var>[i]</code>は、
+<var>a</var>から任意の残りの自由変数を割り当てて、
+<code>i</code>番目のデータ <code><var>D</var>[i]</code>から値を割り当てられた
+<var>x</var>の中の変数に対して評価された方程式 <var>e</var>です。
+</p>
+<p><code>load(lsquares)</code>はこの関数をロードします。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lsquares)$
+(%i2) M : matrix (
+         [1,1,1], [3/2,1,2], [9/4,2,1], [3,2,2], [2,2,1]);
+                                  [ 1  1  1 ]
+                                  [         ]
+                                  [ 3       ]
+                                  [ -  1  2 ]
+                                  [ 2       ]
+                                  [         ]
+(%o2)                             [ 9       ]
+                                  [ -  2  1 ]
+                                  [ 4       ]
+                                  [         ]
+                                  [ 3  2  2 ]
+                                  [         ]
+                                  [ 2  2  1 ]
+(%i3) a : lsquares_estimates (
+          M, [z,x,y], (z+D)^2 = A*x+B*y+C, [A,B,C,D]);
+                         59        27      10921        107
+(%o3)            [[A = - --, B = - --, C = -----, D = - ---]]
+                         16        16      1024         32
+(%i4) lsquares_residuals (
+          M, [z,x,y], (z+D)^2 = A*x+B*y+C, first(a));
+                            13    13    13  13  13
+(%o4)                      [--, - --, - --, --, --]
+                            64    64    32  64  64
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lsquares">Package lsquares</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-lsquares_005fresidual_005fmse"></a>
+</p><dl>
+<dt><a name="index-lsquares_005fresidual_005fmse"></a><u>関数:</u> <b>lsquares_residual_mse</b><i> (<var>D</var>, <var>x</var>, <var>e</var>, <var>a</var>)</i></dt>
+<dd>
+<p>指定されたパラメータ <var>a</var>とデータ <var>D</var>での方程式
+<var>e</var>に関する残差平均二乗誤差を返します。
+</p>
+<p>残差 MSEは以下のように定義されます:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">                    n
+                   ====
+               1   \                        2
+               -    &gt;    (lhs(e ) - rhs(e ))
+               n   /           i         i
+                   ====
+                   i = 1
+</pre></td></tr></table>
+
+<p>ここで、
+<code><var>e</var>[i]</code>は、
+<var>a</var>から任意の残りの自由変数を割り当てて、
+<code>i</code>番目のデータ <code><var>D</var>[i]</code>から値を割り当てられた
+<var>x</var>の中の変数に対して評価された方程式 <var>e</var>です。
+</p>
+<p><code>load(lsquares)</code>はこの関数をロードします。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lsquares)$
+(%i2) M : matrix (
+         [1,1,1], [3/2,1,2], [9/4,2,1], [3,2,2], [2,2,1]);
+                           [ 1  1  1 ]
+                           [         ]
+                           [ 3       ]
+                           [ -  1  2 ]
+                           [ 2       ]
+                           [         ]
+(%o2)                      [ 9       ]
+                           [ -  2  1 ]
+                           [ 4       ]
+                           [         ]
+                           [ 3  2  2 ]
+                           [         ]
+                           [ 2  2  1 ]
+(%i3) a : lsquares_estimates (
+             M, [z,x,y], (z+D)^2 = A*x+B*y+C, [A,B,C,D]);
+
+                  59        27      10921        107
+(%o3)     [[A = - --, B = - --, C = -----, D = - ---]]
+                  16        16      1024         32
+(%i4) lsquares_residual_mse (
+             M, [z,x,y], (z + D)^2 = A*x + B*y + C, first (a));
+                              169
+(%o4)                         ----
+                              2560
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lsquares">Package lsquares</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-plsquares"></a>
+</p><dl>
+<dt><a name="index-plsquares"></a><u>関数:</u> <b>plsquares</b><i> (<var>Mat</var>,<var>VarList</var>,<var>depvars</var>)</i></dt>
+<dt><a name="index-plsquares-1"></a><u>関数:</u> <b>plsquares</b><i> (<var>Mat</var>,<var>VarList</var>,<var>depvars</var>,<var>maxexpon</var>)</i></dt>
+<dt><a name="index-plsquares-2"></a><u>関数:</u> <b>plsquares</b><i> (<var>Mat</var>,<var>VarList</var>,<var>depvars</var>,<var>maxexpon</var>,<var>maxdegree</var>)</i></dt>
+<dd><p>「最小二乗」法によるデータ表の多変数多項式調整。
+<var>Mat</var>はデータを含む行列であり、
+<var>VarList</var>は変数名 (Mat列それぞれの名前ですが、
+Mat列を無視する際には変数名の代わりに&quot;-&quot;)のリストであり、
+<var>depvars</var>は従属変数の名前か、
+従属変数の1つ以上の名前(その名前 <var>VarList</var>の中になければいけません)のリストであり、
+<var>maxexpon</var>はオプションの、独立変数それぞれの最大指数(デフォルト1)であり、
+<var>maxdegree</var>はオプションの最大多項式次数(デフォルトで <var>maxexpon</var>)です;
+それぞれの項の指数の和は <var>maxdegree</var>以下でなければいけないことに注意してください。
+もし <code>maxdgree = 0</code>なら制限は適用されません。
+</p>
+<p>もし <var>depvars</var>が(リストではなく)従属変数の名前なら、
+<code>plsquares</code>は調整された多項式を返します。
+もし <var>depvars</var>が1つ以上の従属変数のリストなら、
+<code>plsquares</code>は調整された多項式のリストを返します。
+適合度について知らせるために決定係数が表示されます。
+それは 0(無相関)から 1(厳密相関)までの範囲です。
+これらの値はグローバル変数 <var>DETCOEF</var>(もし
+<var>depvars</var>がリストならリスト)にも保管されます。
+</p>
+
+<p>多変数線形調整の簡単な例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;plsquares&quot;)$
+
+(%i2) plsquares(matrix([1,2,0],[3,5,4],[4,7,9],[5,8,10]),
+                [x,y,z],z);
+     Determination Coefficient for z = .9897039897039897
+                       11 y - 9 x - 14
+(%o2)              z = ---------------
+                              3
+</pre></td></tr></table>
+
+<p>次数制限のない同じ例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i3) plsquares(matrix([1,2,0],[3,5,4],[4,7,9],[5,8,10]),
+                [x,y,z],z,1,0);
+     Determination Coefficient for z = 1.0
+                    x y + 23 y - 29 x - 19
+(%o3)           z = ----------------------
+                              6
+</pre></td></tr></table>
+
+<p>N面ポリゴンは何本の対角線を持ちますか？
+いくつの多項式次数を使うべきですか？
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i4) plsquares(matrix([3,0],[4,2],[5,5],[6,9],[7,14],[8,20]),
+                [N,diagonals],diagonals,5);
+     Determination Coefficient for diagonals = 1.0
+                                2
+                               N  - 3 N
+(%o4)              diagonals = --------
+                                  2
+(%i5) ev(%, N=9);   /* Testing for a 9 sides polygon */
+(%o5)                 diagonals = 27
+</pre></td></tr></table>
+
+<p>何通りの方法でn掛けnのチェス盤に2つのクィーンを取られないように置けますか？
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i6) plsquares(matrix([0,0],[1,0],[2,0],[3,8],[4,44]),
+                [n,positions],[positions],4);
+     Determination Coefficient for [positions] = [1.0]
+</pre><pre class="example">                         4       3      2
+                      3 n  - 10 n  + 9 n  - 2 n
+(%o6)    [positions = -------------------------]
+                                  6
+</pre><pre class="example">(%i7) ev(%[1], n=8); /* Testing for a (8 x 8) chessboard */
+(%o7)                positions = 1288
+</pre></td></tr></table>
+
+<p>6つの従属変数を持つ例:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i8) mtrx:matrix([0,0,0,0,0,1,1,1],[0,1,0,1,1,1,0,0],
+                  [1,0,0,1,1,1,0,0],[1,1,1,1,0,0,0,1])$
+(%i8) plsquares(mtrx,[a,b,_And,_Or,_Xor,_Nand,_Nor,_Nxor],
+                     [_And,_Or,_Xor,_Nand,_Nor,_Nxor],1,0);
+      Determination Coefficient for
+[_And, _Or, _Xor, _Nand, _Nor, _Nxor] =
+[1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+(%o2) [_And = a b, _Or = - a b + b + a,
+_Xor = - 2 a b + b + a, _Nand = 1 - a b,
+_Nor = a b - b - a + 1, _Nxor = 2 a b - b - a + 1]
+</pre></td></tr></table>
+
+<p>この関数を使うには最初に <code>load(&quot;lsquares&quot;)</code>と書いてください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lsquares">Package lsquares</a>
+ &middot;<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div></p>
 </dd></dl>
 
 
-<p><a name="Item_003a-makeOrders"></a>
+<p><a name="Item_003a-minpack"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#minpack" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_67.html#makeOrders" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#lsquares" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_67.html#minpack" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -357,12 +763,12 @@ Jacobianを <var>flist</var>から計算します。
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年4月月20日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

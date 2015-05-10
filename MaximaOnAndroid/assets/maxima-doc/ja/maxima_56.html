@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年4月月20日 by texi2html 1.82
+<!-- Created on 2014年9月月15日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.33.0 Manual: 56. ggf</title>
+<title>Maxima 5.34.1 Manual: 56. fractals</title>
 
-<meta name="description" content="Maxima 5.33.0 Manual: 56. ggf">
-<meta name="keywords" content="Maxima 5.33.0 Manual: 56. ggf">
+<meta name="description" content="Maxima 5.34.1 Manual: 56. fractals">
+<meta name="keywords" content="Maxima 5.34.1 Manual: 56. fractals">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -137,7 +137,7 @@ div.categorybox
 -->
 </style>
 
-<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico"/>
 
 <script type="text/javascript"><!--
 
@@ -156,118 +156,407 @@ div.categorybox
 
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="ggf"></a>
+<a name="fractals"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_55.html#Definitions-for-Peano-maps" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-ggf" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_55.html#Functions-and-Variables-for-finance" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-fractals" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_55.html#fractals" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_55.html#finance" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_57.html#graphs" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_57.html#ggf" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="ggf-1"></a>
-<h1 class="chapter">56. ggf</h1>
+<a name="fractals-1"></a>
+<h1 class="chapter">56. fractals</h1>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-ggf">56.1 Functions and Variables for ggf</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Introduction-to-fractals">56.1 Introduction to fractals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Definitions-for-IFS-fractals">56.2 Definitions for IFS fractals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Definitions-for-complex-fractals">56.3 Definitions for complex fractals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Definitions-for-Koch-snowflakes">56.4 Definitions for Koch snowflakes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Definitions-for-Peano-maps">56.5 Definitions for Peano maps</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Functions-and-Variables-for-ggf"></a>
+
+
+
+<p><a name="Item_003a-Introduction-to-fractals"></a>
 </p><hr size="6">
-<a name="Functions-and-Variables-for-ggf"></a>
+<a name="Introduction-to-fractals"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#ggf" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_57.html#graphs" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#fractals" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Definitions-for-IFS-fractals" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#ggf" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#ggf" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_57.html#graphs" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#fractals" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#fractals" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_57.html#ggf" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-ggf-1"></a>
-<h2 class="section">56.1 Functions and Variables for ggf</h2>
+<a name="Introduction-to-fractals-1"></a>
+<h2 class="section">56.1 Introduction to fractals</h2>
 
-<p><a name="Item_003a-GGFINFINITY"></a>
+
+<p>このパッケージはよく知られているフラクタルをいくつか定義します:
+</p>
+<p>- ランダム IFS(反復函数系)を使って: Sierpinski三角形、木、シダ
+</p>
+<p>- 複素フラクタル: Mandelbrotと Julia集合
+</p>
+<p>- Koch雪片集合
+</p>
+<p>- Peano写像: Sierpinskiと Hilbert写像
+</p>
+<p>著者: Jos&eacute; Ram&iacute;rez Labrador.
+</p>
+<p>質問、提案、バグに関しては、 pepe DOT ramirez AAATTT uca DOT esまで、
+私に気兼ねせずコンタクトしてください。
+</p>
+<p><a name="Item_003a-Definitions-for-IFS-fractals"></a>
+</p><hr size="6">
+<a name="Definitions-for-IFS-fractals"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-fractals" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Definitions-for-complex-fractals" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#fractals" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#fractals" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_57.html#ggf" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Definitions-for-IFS-fractals-1"></a>
+<h2 class="section">56.2 Definitions for IFS fractals</h2>
+
+<p>いくつかのフラクタルは
+縮小アフィン変換をランダムに繰り返し適用することで生成することができます;
+Hoggar S. G., &quot;Mathematics for computer graphics&quot;, Cambridge University
+Press 1994を参照してください。
+</p>
+<p>いくつかの縮小アフィン変換のリストを定義して、
+繰り返しの中で変換をランダムに選択します。
+変換の選択の確率は縮小比に関係しなければいけません。
+</p>
+<p>変換を変えて別のフラクタルを見つけることができます。
+</p>
+<p><a name="Item_003a-sierpinskiale"></a>
 </p><dl>
-<dt><a name="index-GGFINFINITY"></a><u>オプション変数:</u> <b>GGFINFINITY</b></dt>
-<dd><p>デフォルト値: 3
+<dt><a name="index-sierpinskiale"></a><u>関数:</u> <b>sierpinskiale</b><i> (<var>n</var>)</i></dt>
+<dd>
+<p>Sierpinski三角形: 3つの縮小写像; .5の縮小定数と変形;
+すべての写像は同じ縮小比です。
+引数 <var>n</var>は十分大きく、10000以上でなければいけません、
 </p>
-<p>これは関数 <code>ggf</code>のオプション変数です。
+<p>例:
 </p>
-<p>母関数の連分数を計算する時、
-(厳密に) <var>GGFINFINITY</var>より大きな次数を持つ部分商は捨てます。
-現在のコンバージェントは母関数の正確な値として考えられます;
-部分商すべての次数はたいてい 0か 1です;
-もしより大きな値を使うなら、十分精度の高い計算を行うために十分な項を与えるべきです。
-</p>
-<p><code>ggf</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ggf">Package ggf</a>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(fractals)$
+(%i2) n: 10000$
+(%i3) plot2d([discrete,sierpinskiale(n)], [style,dots])$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
 </div></p>
 </dd></dl>
 
-
-<p><a name="Item_003a-GGFCFMAX"></a>
+<p><a name="Item_003a-treefale"></a>
 </p><dl>
-<dt><a name="index-GGFCFMAX"></a><u>オプション変数:</u> <b>GGFCFMAX</b></dt>
-<dd><p>デフォルト値: 3
+<dt><a name="index-treefale"></a><u>関数:</u> <b>treefale</b><i> (<var>n</var>)</i></dt>
+<dd>
+<p>すべて同じ縮小比を持つ3つの縮小写像。
+引数 <var>n</var>は十分大きく、10000以上でなければいけません、
 </p>
-<p>これは関数 <code>ggf</code>のオプション変数です。
+<p>例:
 </p>
-<p>母関数の連分数を計算する時、もし
-<var>GGFCFMAX</var>個の部分商を計算した後、よい結果が見つからないなら
-(<var>GGFINFINITY</var>フラグを参照してください)、
-母関数を２つの多項式の分数でないようにみなし、関数を抜けます。
-もっと複雑な母関数のためにより大きな値を自由に入れてください。
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(fractals)$
+(%i2) n: 10000$
+(%i3) plot2d([discrete,treefale(n)], [style,dots])$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-fernfale"></a>
+</p><dl>
+<dt><a name="index-fernfale"></a><u>関数:</u> <b>fernfale</b><i> (<var>n</var>)</i></dt>
+<dd>
+<p>変換を選択する確率が縮小比に関係する、4つの縮小写像。
+引数 <var>n</var>は十分大きく、10000以上でなければいけません、
 </p>
-<p><code>ggf</code>も参照してください。
+<p>例:
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-ggf">Package ggf</a>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(fractals)$
+(%i2) n: 10000$
+(%i3) plot2d([discrete,fernfale(n)], [style,dots])$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-Definitions-for-complex-fractals"></a>
+</p><hr size="6">
+<a name="Definitions-for-complex-fractals"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Definitions-for-IFS-fractals" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Definitions-for-Koch-snowflakes" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#fractals" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#fractals" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_57.html#ggf" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Definitions-for-complex-fractals-1"></a>
+<h2 class="section">56.3 Definitions for complex fractals</h2>
+
+<p><a name="Item_003a-mandelbrot_005fset"></a>
+</p><dl>
+<dt><a name="index-mandelbrot_005fset"></a><u>関数:</u> <b>mandelbrot_set</b><i> (<var>x</var>, <var>y</var>)</i></dt>
+<dd>
+<p>Mandelbrot集合。
+</p>
+<p>例:
+</p>
+<p>たくさんの演算を実行しなければいけないので、このプログラムは時間がかかります;
+計算時間は格子点の数にも関係します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(fractals)$
+(%i2) plot3d (mandelbrot_set, [x, -2.5, 1], [y, -1.5, 1.5],
+                [gnuplot_preamble, &quot;set view map&quot;],
+                [gnuplot_pm3d, true],
+                [grid, 150, 150])$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
 </div></p>
 </dd></dl>
 
 
-<dl>
-<dt><a name="index-ggf"></a><u>関数:</u> <b>ggf</b><i> (<var>l</var>)</i></dt>
-<dd><p>(もし母関数が２つの多項式の分数なら)
-与えられた最初の数項に対する数列の母関数を計算します。
-<var>l</var>は数のリストです。
+
+
+<p><a name="Item_003a-julia_005fset"></a>
+</p><dl>
+<dt><a name="index-julia_005fset"></a><u>関数:</u> <b>julia_set</b><i> (<var>x</var>, <var>y</var>)</i></dt>
+<dd>
+<p>Julia集合。
 </p>
-<p>解は２つの多項式の分数として返されます。
-解が見つからなかったら <code>done</code>を返します。
+<p>たくさんの演算を実行しなければいけないので、このプログラムは時間がかかります;
+計算時間は格子点の数にも関係します。
 </p>
-<p>この関数はグローバル変数
-<var>GGFINFINITY</var>と <var>GGFCFMAX</var>で制御されます。
-<var>GGFINFINITY</var>と <var>GGFCFMAX</var>も参照してください。
+<p>例:
 </p>
-<p>この関数を使うには最初に <code>load(&quot;ggf&quot;)</code>と書いてください。
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(fractals)$
+(%i2) plot3d (julia_set, [x, -2, 1], [y, -1.5, 1.5],
+                [gnuplot_preamble, &quot;set view map&quot;],
+                [gnuplot_pm3d, true],
+                [grid, 150, 150])$
+</pre></td></tr></table>
+
+<p>See also <code>julia_parameter</code>.
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Generating-functions">Generating functions</a>
- &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-ggf">Package ggf</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
 </div></p>
 </dd></dl>
 
-<p><a name="Item_003a-graphs"></a>
+
+
+
+<p><a name="Item_003a-julia_005fparameter"></a>
+</p><dl>
+<dt><a name="index-julia_005fparameter"></a><u>オプション変数:</u> <b>julia_parameter</b></dt>
+<dd><p>デフォルト値: <code>%i</code>
+</p>
+<p>Juliaフラクタルの複素パラメータ。
+デフォルト値は<code>%i</code>です;
+値<code>-.745+%i*.113002</code>, 
+<code>-.39054-%i*.58679</code>, <code>-.15652+%i*1.03225</code>, <code>-.194+%i*.6557</code>, 
+<code>.011031-%i*.67037</code>などはいかがでしょう。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
+</div></p>
+</dd></dl>
+
+
+
+
+
+<p><a name="Item_003a-julia_005fsin"></a>
+</p><dl>
+<dt><a name="index-julia_005fsin"></a><u>関数:</u> <b>julia_sin</b><i> (<var>x</var>, <var>y</var>)</i></dt>
+<dd>
+<p>関数 <code>julia_set</code>が変換 <code>julia_parameter+z^2</code>を実装する一方、関数
+<code>julia_sin</code>は <code>julia_parameter*sin(z)</code>を実装します。
+詳細はソースコードを参照してください。
+</p>
+<p>たくさんの sinを計算するので、このプログラムは重いです。
+</p>
+<p>例:
+</p>
+<p>たくさんの演算を実行しなければいけないので、このプログラムは時間がかかります;
+計算時間は格子点の数にも関係します。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(fractals)$
+(%i2) julia_parameter:1+.1*%i$
+(%i3) plot3d (julia_sin, [x, -2, 2], [y, -3, 3], 
+                [gnuplot_preamble, &quot;set view map&quot;],
+                [gnuplot_pm3d, true],
+                [grid, 150, 150])$
+</pre></td></tr></table>
+
+<p><code>julia_parameter</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-Definitions-for-Koch-snowflakes"></a>
+</p><hr size="6">
+<a name="Definitions-for-Koch-snowflakes"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Definitions-for-complex-fractals" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Definitions-for-Peano-maps" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#fractals" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#fractals" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_57.html#ggf" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Definitions-for-Koch-snowflakes-1"></a>
+<h2 class="section">56.4 Definitions for Koch snowflakes</h2>
+
+
+
+<p><a name="Item_003a-snowmap"></a>
+</p><dl>
+<dt><a name="index-snowmap"></a><u>関数:</u> <b>snowmap</b><i> (<var>ent</var>, <var>nn</var>)</i></dt>
+<dd>
+<p>Koch雪片集合。
+関数 <code>snowmap</code>は複素平面内の初期値の閉多角形の頂点上に雪
+Koch写像をプロットします。
+ここで多角形の向きが重要です。
+引数 <var>nn</var>は Koch変換の繰り返し適用の回数です;
+<var>nn</var>は小さく(5か6で)なければいけません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(fractals)$
+(%i2) plot2d([discrete,
+              snowmap([1,exp(%i*%pi*2/3),exp(-%i*%pi*2/3),1],4)])$
+(%i3) plot2d([discrete,
+              snowmap([1,exp(-%i*%pi*2/3),exp(%i*%pi*2/3),1],4)])$
+(%i4) plot2d([discrete, snowmap([0,1,1+%i,%i,0],4)])$
+(%i5) plot2d([discrete, snowmap([0,%i,1+%i,1,0],4)])$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-Definitions-for-Peano-maps"></a>
+</p><hr size="6">
+<a name="Definitions-for-Peano-maps"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Definitions-for-Koch-snowflakes" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_57.html#ggf" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#fractals" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#fractals" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_57.html#ggf" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Definitions-for-Peano-maps-1"></a>
+<h2 class="section">56.5 Definitions for Peano maps</h2>
+
+<p>ある面積を覆う連続曲線。
+警告: <var>n</var>と共に点の数は指数関数的に増加します。
+</p>
+
+<p><a name="Item_003a-hilbertmap"></a>
+</p><dl>
+<dt><a name="index-hilbertmap"></a><u>関数:</u> <b>hilbertmap</b><i> (<var>nn</var>)</i></dt>
+<dd>
+<p>Hilbert写像。
+<var>nn</var>は(例えば 5とか)小さくなければいけません。
+もし 7以上なら Maximaはクラッシュするかもしれません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(fractals)$
+(%i2) plot2d([discrete,hilbertmap(6)])$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-sierpinskimap"></a>
+</p><dl>
+<dt><a name="index-sierpinskimap"></a><u>関数:</u> <b>sierpinskimap</b><i> (<var>nn</var>)</i></dt>
+<dd>
+<p>Sierpinski写像。
+<var>nn</var>は(例えば5とか)小さくなければいけません。
+もし 7以上なら Maximaはクラッシュするかもしれません。
+</p>
+<p>例:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(fractals)$
+(%i2) plot2d([discrete,sierpinskimap(6)])$
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-ggf"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#ggf" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_57.html#graphs" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#fractals" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_57.html#ggf" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -275,12 +564,12 @@ div.categorybox
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年4月月20日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

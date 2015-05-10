@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 1 2014 by texi2html 1.76 -->
+<!-- Created on September, 8 2014 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -136,7 +136,7 @@ div.categorybox
 -->
 </style>
 
-<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico"/>
 </head>
 
 <body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
@@ -960,7 +960,7 @@ than one.
 <dt><u>Funktion:</u> <b>md5sum</b><i> (<var>string</var>)</i>
 <a name="IDX2687"></a>
 </dt>
-<dd><p>Gibt die md5-Pr&uuml;fsumme von <var>string</var> als String zur&uuml;ck. 
+<dd><p>Gibt die md5-Pr&uuml;fsumme von <var>string</var> als String mit 32 hexadezimalen Zeichen zur&uuml;ck. 
 Um den R&uuml;ckgabewert in eine nat&uuml;rliche Zahl zu parsen, 
 setzen Sie bitte die Eingabebasis auf 16 und f&uuml;gen eine Null vor den String.
 </p>
@@ -1048,13 +1048,33 @@ and contain the same characters.
 </p>
 </dd></dl>
 
+<p><a name="sha1sum"></a>
+</p><dl>
+<dt><u>Funktion:</u> <b>sha1sum</b><i> (<var>string</var>)</i>
+<a name="IDX2696"></a>
+</dt>
+<dd><p>Gibt den SHA1-Fingerprint von <var>string</var> als String mit 48 hexadezimalen Zeichen zur&uuml;ck. 
+Um den R&uuml;ckgabewert in eine nat&uuml;rliche Zahl zu parsen, 
+setzen Sie bitte die Eingabebasis auf 16 und f&uuml;gen eine Null vor den String.
+</p>
+<p>Beispiel:
+</p>
+<pre class="example">(%i1) string : sha1sum(&quot;foo bar baz&quot;);
+(%o1)              c7567e8b39e2428e38bf9c9226ac68de4c67dc39
+(%i2) ibase : obase : 16.$
+
+(%i3) integer : parse_string(sconcat(0, string));
+(%o3)              0c7567e8b39e2428e38bf9c9226ac68de4c67dc39
+</pre></dd></dl>
+
+
 <p><a name="simplode"></a>
 </p><dl>
 <dt><u>Function:</u> <b>simplode</b><i> (<var>list</var>)  </i>
-<a name="IDX2696"></a>
+<a name="IDX2697"></a>
 </dt>
 <dt><u>Function:</u> <b>simplode</b><i> (<var>list</var>, <var>delim</var>)</i>
-<a name="IDX2697"></a>
+<a name="IDX2698"></a>
 </dt>
 <dd><p><code>simplode</code> takes a list of expressions and concatenates them into a string.
 If no delimiter <var>delim</var> is specified, <code>simplode</code> uses no delimiter.
@@ -1073,7 +1093,7 @@ If no delimiter <var>delim</var> is specified, <code>simplode</code> uses no del
 <p><a name="sinsert"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sinsert</b><i> (<var>seq</var>, <var>string</var>, <var>pos</var>)</i>
-<a name="IDX2698"></a>
+<a name="IDX2699"></a>
 </dt>
 <dd><p>Returns a string that is a concatenation of <code>substring (<var>string</var>, 
 1, <var>pos</var> - 1)</code>, the string <var>seq</var> and <code>substring (<var>string</var>, 
@@ -1091,13 +1111,13 @@ If no delimiter <var>delim</var> is specified, <code>simplode</code> uses no del
 <p><a name="sinvertcase"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sinvertcase</b><i> (<var>string</var>)  </i>
-<a name="IDX2699"></a>
-</dt>
-<dt><u>Function:</u> <b>sinvertcase</b><i> (<var>string</var>, <var>start</var>)  </i>
 <a name="IDX2700"></a>
 </dt>
-<dt><u>Function:</u> <b>sinvertcase</b><i> (<var>string</var>, <var>start</var>, <var>end</var>)</i>
+<dt><u>Function:</u> <b>sinvertcase</b><i> (<var>string</var>, <var>start</var>)  </i>
 <a name="IDX2701"></a>
+</dt>
+<dt><u>Function:</u> <b>sinvertcase</b><i> (<var>string</var>, <var>start</var>, <var>end</var>)</i>
+<a name="IDX2702"></a>
 </dt>
 <dd><p>Returns <var>string</var> except that each character from position <var>start</var> to 
 <var>end</var> is inverted.  If <var>end</var> is not given, all characters from 
@@ -1112,7 +1132,7 @@ If no delimiter <var>delim</var> is specified, <code>simplode</code> uses no del
 <p><a name="slength"></a>
 </p><dl>
 <dt><u>Function:</u> <b>slength</b><i> (<var>string</var>)</i>
-<a name="IDX2702"></a>
+<a name="IDX2703"></a>
 </dt>
 <dd><p>Returns the number of characters in <var>string</var>.
 </p></dd></dl>
@@ -1120,7 +1140,7 @@ If no delimiter <var>delim</var> is specified, <code>simplode</code> uses no del
 <p><a name="smake"></a>
 </p><dl>
 <dt><u>Function:</u> <b>smake</b><i> (<var>num</var>, <var>char</var>)</i>
-<a name="IDX2703"></a>
+<a name="IDX2704"></a>
 </dt>
 <dd><p>Returns a new string with a number of <var>num</var> characters <var>char</var>.
 </p>
@@ -1133,10 +1153,10 @@ If no delimiter <var>delim</var> is specified, <code>simplode</code> uses no del
 <p><a name="smismatch"></a>
 </p><dl>
 <dt><u>Function:</u> <b>smismatch</b><i> (<var>string_1</var>, <var>string_2</var>) </i>
-<a name="IDX2704"></a>
+<a name="IDX2705"></a>
 </dt>
 <dt><u>Function:</u> <b>smismatch</b><i> (<var>string_1</var>, <var>string_2</var>, <var>test</var>)</i>
-<a name="IDX2705"></a>
+<a name="IDX2706"></a>
 </dt>
 <dd><p>Returns the position of the first character of <var>string_1</var> at which 
 <var>string_1</var> and <var>string_2</var> differ or <code>false</code>.  Default test function
@@ -1154,13 +1174,13 @@ for matching is <code><a href="#sequal">sequal</a></code>.
 <p><a name="split"></a>
 </p><dl>
 <dt><u>Function:</u> <b>split</b><i> (<var>string</var>)  </i>
-<a name="IDX2706"></a>
-</dt>
-<dt><u>Function:</u> <b>split</b><i> (<var>string</var>, <var>delim</var>)  </i>
 <a name="IDX2707"></a>
 </dt>
-<dt><u>Function:</u> <b>split</b><i> (<var>string</var>, <var>delim</var>, <var>multiple</var>)</i>
+<dt><u>Function:</u> <b>split</b><i> (<var>string</var>, <var>delim</var>)  </i>
 <a name="IDX2708"></a>
+</dt>
+<dt><u>Function:</u> <b>split</b><i> (<var>string</var>, <var>delim</var>, <var>multiple</var>)</i>
+<a name="IDX2709"></a>
 </dt>
 <dd><p>Returns the list of all tokens in <var>string</var>.
 Each token is an unparsed string.
@@ -1182,7 +1202,7 @@ If <var>multiple</var> is set to <code>false</code>, each delimiter is noted.
 <p><a name="sposition"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sposition</b><i> (<var>char</var>, <var>string</var>)</i>
-<a name="IDX2709"></a>
+<a name="IDX2710"></a>
 </dt>
 <dd><p>Returns the position of the first character in <var>string</var> which matches 
 <var>char</var>.  The first character in <var>string</var> is in position 1.
@@ -1193,16 +1213,16 @@ For matching characters ignoring case see <code><a href="#ssearch">ssearch</a></
 <p><a name="sremove"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sremove</b><i> (<var>seq</var>, <var>string</var>)  </i>
-<a name="IDX2710"></a>
-</dt>
-<dt><u>Function:</u> <b>sremove</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>)  </i>
 <a name="IDX2711"></a>
 </dt>
-<dt><u>Function:</u> <b>sremove</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>)  </i>
+<dt><u>Function:</u> <b>sremove</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>)  </i>
 <a name="IDX2712"></a>
 </dt>
-<dt><u>Function:</u> <b>sremove</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</i>
+<dt><u>Function:</u> <b>sremove</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>)  </i>
 <a name="IDX2713"></a>
+</dt>
+<dt><u>Function:</u> <b>sremove</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</i>
+<a name="IDX2714"></a>
 </dt>
 <dd><p>Returns a string like <var>string</var> but without all substrings matching 
 <var>seq</var>.  Default test function for matching is <code><a href="#sequal">sequal</a></code>.
@@ -1223,16 +1243,16 @@ Note that the first character in <var>string</var> is in position 1.
 <p><a name="sremovefirst"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sremovefirst</b><i> (<var>seq</var>, <var>string</var>)  </i>
-<a name="IDX2714"></a>
-</dt>
-<dt><u>Function:</u> <b>sremovefirst</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>)  </i>
 <a name="IDX2715"></a>
 </dt>
-<dt><u>Function:</u> <b>sremovefirst</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>)  </i>
+<dt><u>Function:</u> <b>sremovefirst</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>)  </i>
 <a name="IDX2716"></a>
 </dt>
-<dt><u>Function:</u> <b>sremovefirst</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</i>
+<dt><u>Function:</u> <b>sremovefirst</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>)  </i>
 <a name="IDX2717"></a>
+</dt>
+<dt><u>Function:</u> <b>sremovefirst</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</i>
+<a name="IDX2718"></a>
 </dt>
 <dd><p>Like <code>sremove</code> except that only the first substring that matches <code>seq</code>
 is removed.
@@ -1241,7 +1261,7 @@ is removed.
 <p><a name="sreverse"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sreverse</b><i> (<var>string</var>) </i>
-<a name="IDX2718"></a>
+<a name="IDX2719"></a>
 </dt>
 <dd><p>Returns a string with all the characters of <var>string</var> in reverse order.
 </p></dd></dl>
@@ -1249,16 +1269,16 @@ is removed.
 <p><a name="ssearch"></a>
 </p><dl>
 <dt><u>Function:</u> <b>ssearch</b><i> (<var>seq</var>, <var>string</var>)  </i>
-<a name="IDX2719"></a>
-</dt>
-<dt><u>Function:</u> <b>ssearch</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>)  </i>
 <a name="IDX2720"></a>
 </dt>
-<dt><u>Function:</u> <b>ssearch</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>)  </i>
+<dt><u>Function:</u> <b>ssearch</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>)  </i>
 <a name="IDX2721"></a>
 </dt>
-<dt><u>Function:</u> <b>ssearch</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</i>
+<dt><u>Function:</u> <b>ssearch</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>)  </i>
 <a name="IDX2722"></a>
+</dt>
+<dt><u>Function:</u> <b>ssearch</b><i> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</i>
+<a name="IDX2723"></a>
 </dt>
 <dd><p>Returns the position of the first substring of <var>string</var> that matches the 
 string <var>seq</var>.  Default test function for matching is <code><a href="#sequal">sequal</a></code>.
@@ -1277,10 +1297,10 @@ string <var>seq</var>.  Default test function for matching is <code><a href="#se
 <p><a name="ssort"></a>
 </p><dl>
 <dt><u>Function:</u> <b>ssort</b><i> (<var>string</var>) </i>
-<a name="IDX2723"></a>
+<a name="IDX2724"></a>
 </dt>
 <dt><u>Function:</u> <b>ssort</b><i> (<var>string</var>, <var>test</var>) </i>
-<a name="IDX2724"></a>
+<a name="IDX2725"></a>
 </dt>
 <dd><p>Returns a string that contains all characters from <var>string</var> in an order such
 there are no two successive characters <var>c</var> and <var>d</var> such that
@@ -1308,16 +1328,16 @@ there are no two successive characters <var>c</var> and <var>d</var> such that
 <p><a name="ssubst"></a>
 </p><dl>
 <dt><u>Function:</u> <b>ssubst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>) </i>
-<a name="IDX2725"></a>
-</dt>
-<dt><u>Function:</u> <b>ssubst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>) </i>
 <a name="IDX2726"></a>
 </dt>
-<dt><u>Function:</u> <b>ssubst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>) </i>
+<dt><u>Function:</u> <b>ssubst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>) </i>
 <a name="IDX2727"></a>
 </dt>
-<dt><u>Function:</u> <b>ssubst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>) </i>
+<dt><u>Function:</u> <b>ssubst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>) </i>
 <a name="IDX2728"></a>
+</dt>
+<dt><u>Function:</u> <b>ssubst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>) </i>
+<a name="IDX2729"></a>
 </dt>
 <dd><p>Returns a string like <var>string</var> except that all substrings matching <var>old</var>
 are replaced by <var>new</var>.  <var>old</var> and <var>new</var> need not to be of the same 
@@ -1339,16 +1359,16 @@ Note that the first character in <var>string</var> is in position 1.
 <p><a name="ssubstfirst"></a>
 </p><dl>
 <dt><u>Function:</u> <b>ssubstfirst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>) </i>
-<a name="IDX2729"></a>
-</dt>
-<dt><u>Function:</u> <b>ssubstfirst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>) </i>
 <a name="IDX2730"></a>
 </dt>
-<dt><u>Function:</u> <b>ssubstfirst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>) </i>
+<dt><u>Function:</u> <b>ssubstfirst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>) </i>
 <a name="IDX2731"></a>
 </dt>
-<dt><u>Function:</u> <b>ssubstfirst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>) </i>
+<dt><u>Function:</u> <b>ssubstfirst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>) </i>
 <a name="IDX2732"></a>
+</dt>
+<dt><u>Function:</u> <b>ssubstfirst</b><i> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>) </i>
+<a name="IDX2733"></a>
 </dt>
 <dd><p>Like <code><a href="maxima_6.html#subst">subst</a></code>
  except that only the first substring that matches <var>old</var>
@@ -1358,7 +1378,7 @@ is replaced.
 <p><a name="strim"></a>
 </p><dl>
 <dt><u>Function:</u> <b>strim</b><i> (<var>seq</var>,<var>string</var>) </i>
-<a name="IDX2733"></a>
+<a name="IDX2734"></a>
 </dt>
 <dd><p>Returns a string like <var>string</var>, but with all characters that appear in 
 <var>seq</var> removed from both ends.
@@ -1375,7 +1395,7 @@ is replaced.
 <p><a name="striml"></a>
 </p><dl>
 <dt><u>Function:</u> <b>striml</b><i> (<var>seq</var>, <var>string</var>) </i>
-<a name="IDX2734"></a>
+<a name="IDX2735"></a>
 </dt>
 <dd><p>Like <code><a href="#strim">strim</a></code>
  except that only the left end of <var>string</var> is trimmed.
@@ -1384,7 +1404,7 @@ is replaced.
 <p><a name="strimr"></a>
 </p><dl>
 <dt><u>Function:</u> <b>strimr</b><i> (<var>seq</var>, <var>string</var>) </i>
-<a name="IDX2735"></a>
+<a name="IDX2736"></a>
 </dt>
 <dd><p>Like <code><a href="#strim">strim</a></code>
  except that only the right end of string is trimmed.
@@ -1393,7 +1413,7 @@ is replaced.
 <p><a name="stringp"></a>
 </p><dl>
 <dt><u>Function:</u> <b>stringp</b><i> (<var>obj</var>)</i>
-<a name="IDX2736"></a>
+<a name="IDX2737"></a>
 </dt>
 <dd><p>Returns <code>true</code> if <var>obj</var> is a string.
 See introduction for example.
@@ -1402,10 +1422,10 @@ See introduction for example.
 <p><a name="substring"></a>
 </p><dl>
 <dt><u>Function:</u> <b>substring</b><i> (<var>string</var>, <var>start</var>)</i>
-<a name="IDX2737"></a>
+<a name="IDX2738"></a>
 </dt>
 <dt><u>Function:</u> <b>substring</b><i> (<var>string</var>, <var>start</var>, <var>end</var>) </i>
-<a name="IDX2738"></a>
+<a name="IDX2739"></a>
 </dt>
 <dd><p>Returns the substring of <var>string</var> beginning at position <var>start</var> and 
 ending at position <var>end</var>.  The character at position <var>end</var> is not 
@@ -1423,13 +1443,13 @@ string.  Note that the first character in <var>string</var> is in position 1.
 <p><a name="supcase"></a>
 </p><dl>
 <dt><u>Function:</u> <b>supcase</b><i> (<var>string</var>) </i>
-<a name="IDX2739"></a>
-</dt>
-<dt><u>Function:</u> <b>supcase</b><i> (<var>string</var>, <var>start</var>) </i>
 <a name="IDX2740"></a>
 </dt>
-<dt><u>Function:</u> <b>supcase</b><i> (<var>string</var>, <var>start</var>, <var>end</var>) </i>
+<dt><u>Function:</u> <b>supcase</b><i> (<var>string</var>, <var>start</var>) </i>
 <a name="IDX2741"></a>
+</dt>
+<dt><u>Function:</u> <b>supcase</b><i> (<var>string</var>, <var>start</var>, <var>end</var>) </i>
+<a name="IDX2742"></a>
 </dt>
 <dd><p>Returns <var>string</var> except that lowercase characters from position <var>start</var> 
 to <var>end</var> are replaced by the corresponding uppercase ones.  If <var>end</var> is 
@@ -1445,10 +1465,10 @@ are replaced.
 <p><a name="tokens"></a>
 </p><dl>
 <dt><u>Function:</u> <b>tokens</b><i> (<var>string</var>) </i>
-<a name="IDX2742"></a>
+<a name="IDX2743"></a>
 </dt>
 <dt><u>Function:</u> <b>tokens</b><i> (<var>string</var>, <var>test</var>) </i>
-<a name="IDX2743"></a>
+<a name="IDX2744"></a>
 </dt>
 <dd><p>Returns a list of tokens, which have been extracted from <var>string</var>.
 The tokens are substrings whose characters satisfy a certain test function.
@@ -1484,7 +1504,7 @@ If <var>test</var> is not given, <var>constituent</var> is used as the default t
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>April, 1 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>September, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

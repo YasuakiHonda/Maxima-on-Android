@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 3 2014 by texi2html 1.76 -->
+<!-- Created on September, 23 2014 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Maxima 5.33.0 Manual: 45. contrib_ode</title>
+<title>Maxima 5.34.1 Manual: 45. cobyla</title>
 
-<meta name="description" content="Maxima 5.33.0 Manual: 45. contrib_ode">
-<meta name="keywords" content="Maxima 5.33.0 Manual: 45. contrib_ode">
+<meta name="description" content="Maxima 5.34.1 Manual: 45. cobyla">
+<meta name="keywords" content="Maxima 5.34.1 Manual: 45. cobyla">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -136,718 +136,269 @@ div.categorybox
 -->
 </style>
 
-<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico"/>
 </head>
 
 <body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="contrib_005fode"></a>
-<a name="SEC226"></a>
+<a name="cobyla"></a>
+<a name="SEC224"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_44.html#SEC225" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC227" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_44.html#SEC223" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC225" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima_44.html#SEC222" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_46.html#SEC232" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_46.html#SEC228" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter"> 45. contrib_ode </h1>
+<h1 class="chapter"> 45. cobyla </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC227">45.1 Introduction to contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC225">45.1 Introduction to cobyla</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC228">45.2 Functions and Variables for contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC226">45.2 Functions and Variables for cobyla</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC229">45.3 Possible improvements to contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC230">45.4 Test cases for contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC231">45.5 References for contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC227">45.3 Examples for cobyla</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Introduction-to-contrib_005fode"></a>
+<p><a name="Item_003a-Introduction-to-cobyla"></a>
 </p><hr size="6">
-<a name="Introduction-to-contrib_005fode"></a>
+<a name="Introduction-to-cobyla"></a>
+<a name="SEC225"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC226" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC228" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC224" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC226" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC226" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC226" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_46.html#SEC232" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC224" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC224" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_46.html#SEC228" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
+<h2 class="section"> 45.1 Introduction to cobyla </h2>
 
-<a name="SEC227"></a>
-<h2 class="section"> 45.1 Introduction to contrib_ode </h2>
-
-<p>Maxima's ordinary differential equation (ODE) solver <code>ode2</code> solves
-elementary linear ODEs of first and second order.  The function
-<code>contrib_ode</code> extends <code>ode2</code> with additional methods for linear
-and non-linear first order ODEs and linear homogeneous second order ODEs.  
-The code is still under development and the calling sequence may change
-in future releases.  Once the code has stabilized it may be
-moved from the contrib directory and integrated into Maxima.
+<p><code>fmin_cobyla</code> is a Common Lisp translation (via <code>f2cl</code>) of the
+Fortran constrained optimization routine COBYLA by Powell[1][2][3].  
 </p>
-<p>This package must be loaded with the command <code>load('contrib_ode)</code>
-before use.
+<p>COBYLA minimizes an objective function F(X) subject to M inequality
+constraints of the form g(X) &gt;= 0 on X, where X is a vector of
+variables that has N components.
 </p>
-<p>The calling convention for <code>contrib_ode</code> is identical to <code>ode2</code>.  
-It takes
-three arguments: an ODE (only the left hand side need be given if the
-right hand side is 0), the dependent variable, and the independent
-variable.  When successful, it returns a list of solutions.
+<p>Equality constraints g(X)=0 can often be implemented by a pair of inequality 
+constraints g(X)&gt;=0 and -g(X)&gt;= 0.  Maxima's interface to COBYLA
+allows equality constraints and internally converts the equality
+constraints to a pair of inequality constraints.
 </p>
-<p>The form of the solution differs from <code>ode2</code>.
-As non-linear equations can have multiple solutions, 
-<code>contrib_ode</code> returns a list of solutions.  Each  solution can 
-have a number of forms:
-</p><ul>
-<li>
-an explicit solution for the dependent variable,
-
-</li><li>
-an implicit solution for the dependent variable,
-
-</li><li>
-a parametric solution in terms of variable <code>%t</code>, or
-
-</li><li>
-a tranformation into another ODE in variable <code>%u</code>.
-
-</li></ul>
-
-<p><code>%c</code> is used to represent the constant of integration for first order equations.
-<code>%k1</code> and <code>%k2</code> are the constants for second order equations.  
-If <code>contrib_ode</code>
-cannot obtain a solution for whatever reason, it returns <code>false</code>, after
-perhaps printing out an error message.
+<p>The algorithm employs linear approximations to the
+objective and constraint functions, the approximations being formed by
+linear interpolation at N+1 points in the space of the variables.
+The interpolation points are regarded as vertices of a simplex. The
+parameter RHO controls the size of the simplex and it is reduced
+automatically from RHOBEG to RHOEND. For each RHO the subroutine tries
+to achieve a good vector of variables for the current size, and then
+RHO is reduced until the value RHOEND is reached. Therefore RHOBEG and
+RHOEND should be set to reasonable initial changes to and the required   
+accuracy in the variables respectively, but this accuracy should be
+viewed as a subject for experimentation because it is not guaranteed.
+The routine treats each constraint individually when calculating
+a change to the variables, rather than lumping the constraints together
+into a single penalty function. The name of the subroutine is derived
+from the phrase Constrained Optimization BY Linear Approximations.
 </p>
-<p>It is necessary to return a list of solutions, as even first order
-non-linear ODEs can have multiple solutions.  For example:
+
+<p>References:
 </p>
-<pre class="example">(%i1) load('contrib_ode)$
-
-(%i2) eqn:x*'diff(y,x)^2-(1+x*y)*'diff(y,x)+y=0;
-
-                    dy 2             dy
-(%o2)            x (--)  - (x y + 1) -- + y = 0
-                    dx               dx
-(%i3) contrib_ode(eqn,y,x);
-
-                                             x
-(%o3)             [y = log(x) + %c, y = %c %e ]
-(%i4) method;
-
-(%o4)                        factor
-</pre>
-<p>Nonlinear ODEs can have singular solutions without constants of
-integration, as in the second solution of the following example:
+<p>[1] Fortran Code is from <a href="http://plato.asu.edu/sub/nlores.html#general">http://plato.asu.edu/sub/nlores.html#general</a>
 </p>
-<pre class="example">(%i1) load('contrib_ode)$
-
-(%i2) eqn:'diff(y,x)^2+x*'diff(y,x)-y=0;
-
-                       dy 2     dy
-(%o2)                 (--)  + x -- - y = 0
-                       dx       dx
-(%i3) contrib_ode(eqn,y,x);
-
-                                           2
-                                 2        x
-(%o3)              [y = %c x + %c , y = - --]
-                                          4
-(%i4) method;
-
-(%o4)                       clairault
-</pre>
-
-<p>The following ODE has two parametric solutions in terms of the dummy
-variable <code>%t</code>.  In this case the parametric solutions can be manipulated
-to give explicit solutions.
+<p>[2] M. J. D. Powell, &quot;A direct search optimization method that models the objective and constraint functions by linear interpolation,&quot; in Advances in Optimization and Numerical Analysis, eds. S. Gomez and J.-P. Hennart (Kluwer Academic: Dordrecht, 1994), p. 51-67. 
 </p>
-<pre class="example">(%i1) load('contrib_ode)$
-
-(%i2) eqn:'diff(y,x)=(x+y)^2;
-
-                          dy          2
-(%o2)                     -- = (y + x)
-                          dx
-(%i3) contrib_ode(eqn,y,x);
-
-(%o3) [[x = %c - atan(sqrt(%t)), y = - x - sqrt(%t)], 
-                     [x = atan(sqrt(%t)) + %c, y = sqrt(%t) - x]]
-(%i4) method;
-
-(%o4)                       lagrange
-</pre>
-<p>The following example (Kamke 1.112) demonstrates an implicit solution.
-</p>
-<pre class="example">(%i1) load('contrib_ode)$
-
-(%i2) assume(x&gt;0,y&gt;0);
-
-(%o2)                    [x &gt; 0, y &gt; 0]
-(%i3) eqn:x*'diff(y,x)-x*sqrt(y^2+x^2)-y;
-
-                     dy           2    2
-(%o3)              x -- - x sqrt(y  + x ) - y
-                     dx
-(%i4) contrib_ode(eqn,y,x);
-
-                                  y
-(%o4)                  [x - asinh(-) = %c]
-                                  x
-(%i5) method;
-
-(%o5)                          lie
-</pre>
- 
-
-<p>The following Riccati equation is transformed into a linear
-second order ODE in the variable <code>%u</code>.  Maxima is unable to
-solve the new ODE, so it is returned unevaluated.
-</p><pre class="example">(%i1) load('contrib_ode)$
-
-(%i2) eqn:x^2*'diff(y,x)=a+b*x^n+c*x^2*y^2;
-
-                    2 dy      2  2      n
-(%o2)              x  -- = c x  y  + b x  + a
-                      dx
-(%i3) contrib_ode(eqn,y,x);
-
-               d%u
-               ---                            2
-               dx        2     n - 2   a     d %u
-(%o3)  [[y = - ----, %u c  (b x      + --) + ---- c = 0]]
-               %u c                     2      2
-                                       x     dx
-(%i4) method;
-
-(%o4)                        riccati
-</pre>
-
-<p>For first order ODEs <code>contrib_ode</code> calls <code>ode2</code>.  It then tries the
-following methods: factorization, Clairault, Lagrange, Riccati,
-Abel and Lie symmetry methods.  The Lie method is not attempted
-on Abel equations if the Abel method fails, but it is tried
-if the Riccati method returns an unsolved second order ODE.
-</p>
-<p>For second order ODEs <code>contrib_ode</code> calls <code>ode2</code> then <code>odelin</code>.
-</p>
-<p>Extensive debugging traces and messages are displayed if the command
-<code>put('contrib_ode,true,'verbose)</code> is executed.
+<p>[3] M. J. D. Powell, &quot;Direct search algorithms for optimization calculations,&quot; Acta Numerica 7, 287-336 (1998).  Also available as University of Cambridge, Department of Applied Mathematics and Theoretical Physics,  Numerical Analysis Group, Report NA1998/04 from <a href="http://www.damtp.cam.ac.uk/user/na/reports.html">http://www.damtp.cam.ac.uk/user/na/reports.html</a>
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Differential-equations">Differential equations</a> &middot;
-<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a> &middot;
-<a href="maxima_99.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a>  &middot;
+<a href="maxima_100.html#Category_003a-Optimization">Optimization</a> &middot;
+<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a> &middot;
+<a href="maxima_100.html#Category_003a-Package-cobyla">Package cobyla</a>
 </div>
 </p>
-
-<p><a name="Item_003a-Functions-and-Variables-for-contrib_005fode"></a>
+<p><a name="Item_003a-Functions-and-Variables-for-cobyla"></a>
 </p><hr size="6">
-<a name="Functions-and-Variables-for-contrib_005fode"></a>
-<a name="SEC228"></a>
+<a name="Functions-and-Variables-for-cobyla"></a>
+<a name="SEC226"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC227" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC229" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC225" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC227" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC226" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC226" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_46.html#SEC232" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC224" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC224" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_46.html#SEC228" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 45.2 Functions and Variables for contrib_ode </h2>
+<h2 class="section"> 45.2 Functions and Variables for cobyla </h2>
 
-
-<dl>
-<dt><u>Function:</u> <b>contrib_ode</b><i> (<var>eqn</var>, <var>y</var>, <var>x</var>)</i>
-<a name="IDX1651"></a>
-</dt>
-<dd><p>Returns a list of solutions of the ODE <var>eqn</var> with 
-independent variable <var>x</var> and dependent variable <var>y</var>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div>
-</p>
-</dd></dl>
-
-<p><a name="Item_003a-odelin"></a>
+<p><a name="Item_003a-fmin_005fcobyla"></a>
 </p><dl>
-<dt><u>Function:</u> <b>odelin</b><i> (<var>eqn</var>, <var>y</var>, <var>x</var>)</i>
-<a name="IDX1652"></a>
-</dt>
-<dd><p><code>odelin</code> solves linear homogeneous ODEs of first and 
-second order with 
-independent variable <var>x</var> and dependent variable <var>y</var>.  
-It returns a fundamental solution set of the ODE.
-</p>
-<p>For second order ODEs, <code>odelin</code> uses a method, due to Bronstein
-and Lafaille, that searches for solutions in terms of given 
-special functions. 
-</p>
-<pre class="example">(%i1) load('contrib_ode);
-
-(%i2) odelin(x*(x+1)*'diff(y,x,2)+(x+5)*'diff(y,x,1)+(-4)*y,y,x);
-...trying factor method
-...solving 7 equations in 4 variables
-...trying the Bessel solver
-...solving 1 equations in 2 variables
-...trying the F01 solver
-...solving 1 equations in 3 variables
-...trying the spherodial wave solver
-...solving 1 equations in 4 variables
-...trying the square root Bessel solver
-...solving 1 equations in 2 variables
-...trying the 2F1 solver
-...solving 9 equations in 5 variables
-       gauss_a(- 6, - 2, - 3, - x)  gauss_b(- 6, - 2, - 3, - x)
-(%o2) {---------------------------, ---------------------------}
-                    4                            4
-                   x                            x
-
-</pre>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div>
-</p>
-</dd></dl>
-
-<p><a name="Item_003a-ode_005fcheck"></a>
-</p><dl>
-<dt><u>Function:</u> <b>ode_check</b><i> (<var>eqn</var>, <var>soln</var>)</i>
-<a name="IDX1653"></a>
-</dt>
-<dd><p>Returns the value of ODE <var>eqn</var> after substituting a
-possible solution <var>soln</var>.  The value is equivalent to 
-zero if <var>soln</var> is a solution of <var>eqn</var>.
-</p>
-<pre class="example">(%i1) load('contrib_ode)$
-
-(%i2) eqn:'diff(y,x,2)+(a*x+b)*y;
-
-                         2
-                        d y
-(%o2)                   --- + (a x + b) y
-                          2
-                        dx
-(%i3) ans:[y = bessel_y(1/3,2*(a*x+b)^(3/2)/(3*a))*%k2*sqrt(a*x+b)
-         +bessel_j(1/3,2*(a*x+b)^(3/2)/(3*a))*%k1*sqrt(a*x+b)];
-
-                                  3/2
-                    1  2 (a x + b)
-(%o3) [y = bessel_y(-, --------------) %k2 sqrt(a x + b)
-                    3       3 a
-                                          3/2
-                            1  2 (a x + b)
-                 + bessel_j(-, --------------) %k1 sqrt(a x + b)]
-                            3       3 a
-(%i4) ode_check(eqn,ans[1]);
-
-(%o4)                           0
-</pre>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div>
-</p>
-</dd></dl>
-
-<p><a name="Item_003a-method"></a>
-</p><dl>
-<dt><u>System variable:</u> <b>method</b>
-<a name="IDX1654"></a>
-</dt>
-<dd><p>The variable <code>method</code> is set to the successful solution
-method. 
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div>
-</p>
-</dd></dl>
-
-<p><a name="Item_003a-_0025c"></a>
-</p><dl>
-<dt><u>Variable:</u> <b>%c</b>
-<a name="IDX1655"></a>
-</dt>
-<dd><p><code>%c</code> is the integration constant for first order ODEs.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div>
-</p>
-</dd></dl>
-
-<p><a name="Item_003a-_0025k1"></a>
-</p><dl>
-<dt><u>Variable:</u> <b>%k1</b>
-<a name="IDX1656"></a>
-</dt>
-<dd><p><code>%k1</code> is the first integration constant for second order ODEs.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div>
-</p>
-</dd></dl>
-
-<p><a name="Item_003a-_0025k2"></a>
-</p><dl>
-<dt><u>Variable:</u> <b>%k2</b>
-<a name="IDX1657"></a>
-</dt>
-<dd><p><code>%k2</code> is the second integration constant for second order ODEs.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div>
-</p>
-</dd></dl>
-
-<p><a name="Item_003a-gauss_005fa"></a>
-</p><dl>
-<dt><u>Function:</u> <b>gauss_a</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i>
-<a name="IDX1658"></a>
-</dt>
-<dd><p><code>gauss_a(a,b,c,x)</code> and <code>gauss_b(a,b,c,x)</code> are 2F1 
-geometric functions.  They represent any two independent
-solutions of the hypergeometric differential equation 
-<code>x(1-x) diff(y,x,2) + [c-(a+b+1)x] diff(y,x) - aby = 0</code> (A&amp;S 15.5.1).  
-</p>
-<p>The only use of these functions is in solutions of ODEs returned by 
-<code>odelin</code> and <code>contrib_ode</code>.  The definition and use of these 
-functions may change in future releases of Maxima.
-</p>
-<p>See also <code>gauss_b</code>, <code>dgauss_a</code> and <code>gauss_b</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div>
-</p>
-</dd></dl>
-
-<p><a name="Item_003a-gauss_005fb"></a>
-</p><dl>
-<dt><u>Function:</u> <b>gauss_b</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i>
-<a name="IDX1659"></a>
-</dt>
-<dd><p>See <code>gauss_a</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div>
-</p>
-</dd></dl>
-
-<p><a name="Item_003a-dgauss_005fa"></a>
-</p><dl>
-<dt><u>Function:</u> <b>dgauss_a</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i>
+<dt><u>Function:</u> <b>fmin_cobyla</b><i> (<var>F</var>, <var>X</var>, <var>Y</var>)</i>
 <a name="IDX1660"></a>
 </dt>
-<dd><p>The derivative with respect to <var>x</var> of <code>gauss_a(<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div>
-</p>
-</dd></dl>
-
-<p><a name="Item_003a-dgauss_005fb"></a>
-</p><dl>
-<dt><u>Function:</u> <b>dgauss_b</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i>
+<dt><u>Function:</u> <b>fmin_cobyla</b><i> (<var>F</var>, <var>X</var>, <var>Y</var>, optional_args)</i>
 <a name="IDX1661"></a>
 </dt>
-<dd><p>The derivative with respect to <var>x</var> of <code>gauss_b(<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</code>.
+<dd><p>Returns an approximate minimum of the expression <var>F</var> with respect
+to the variables <var>X</var>, subject to an optional set of constraints.
+<var>Y</var> is a list of initial guesses for <var>X</var>.
 </p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div>
+<p><var>F</var> must be an ordinary expressions, not names of functions or lambda expressions.
 </p>
-</dd></dl>
-
-
-<p><a name="Item_003a-kummer_005fm"></a>
-</p><dl>
-<dt><u>Function:</u> <b>kummer_m</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i>
-<a name="IDX1662"></a>
-</dt>
-<dd><p>Kummer's M function, as defined in Abramowitz and Stegun,
-<i>Handbook of Mathematical Functions</i>, Section 13.1.2.
+<p><code>optional_args</code> represents additional arguments,
+specified as <code><var>symbol</var> = <var>value</var></code>.
+The optional arguments recognized are:
 </p>
-<p>The only use of this function is in solutions of ODEs returned by 
-<code>odelin</code> and <code>contrib_ode</code>.  The definition and use of this 
-function may change in future releases of Maxima.
-</p>
-<p>See also <code>kummer_u</code>, <code>dkummer_m</code> and <code>dkummer_u</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div>
-</p>
-</dd></dl>
-
-<p><a name="Item_003a-kummer_005fu"></a>
-</p><dl>
-<dt><u>Function:</u> <b>kummer_u</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i>
-<a name="IDX1663"></a>
-</dt>
-<dd><p>Kummer's U function, as defined in Abramowitz and Stegun,
-<i>Handbook of Mathematical Functions</i>, Section 13.1.3.
-</p>
-<p>See <code>kummer_m</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div>
-</p>
-</dd></dl>
-
-<p><a name="Item_003a-dkummer_005fm"></a>
-</p><dl>
-<dt><u>Function:</u> <b>dkummer_m</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i>
-<a name="IDX1664"></a>
-</dt>
-<dd><p>The derivative with respect to <var>x</var> of <code>kummer_m(<var>a</var>, <var>b</var>, <var>x</var>)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div>
-</p>
-</dd></dl>
-
-<p><a name="Item_003a-dkummer_005fu"></a>
-</p><dl>
-<dt><u>Function:</u> <b>dkummer_u</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i>
-<a name="IDX1665"></a>
-</dt>
-<dd><p>The derivative with respect to <var>x</var> of <code>kummer_u(<var>a</var>, <var>b</var>, <var>x</var>)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div>
-</p>
-</dd></dl>
-
-
-
-<p><a name="Item_003a-Possible-improvements-to-contrib_005fode"></a>
-</p><hr size="6">
-<a name="Possible-improvements-to-contrib_005fode"></a>
-<a name="SEC229"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC228" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC230" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC226" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC226" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_46.html#SEC232" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 45.3 Possible improvements to contrib_ode </h2>
-
-
-<p>These routines are work in progress.  I still need to:
-</p>
-<ul>
+<dl compact="compact">
+<dt> <code>constraints</code></dt>
+<dd><p>List of inequality and equality constraints that must be satisfied by
+<var>X</var>.  The inequality constraints must be actual inequalities of
+the form <code>g(<var>X</var>) &gt;= h(<var>X</var>)</code> or <code>g(<var>X</var>) &lt;=
+h(<var>X</var>)</code>.  The equality constraints must be of the form
+<code>g(<var>X</var>) = h(<var>X</var>)</code>. 
+</p></dd>
+<dt> <code>rhobeg</code></dt>
+<dd><p>Initial value of the internal RHO variable which controls 
+the size of simplex.  (Defaults to 1.0)
+</p></dd>
+<dt> <code>rhoend</code> </dt>
+<dd><p>The desired final value rho parameter.  It is approximately
+ the accuracy in the variables. (Defaults to 1d-6.)
+</p></dd>
+<dt> <code>iprint</code></dt>
+<dd><p> Verbose output level.  (Defaults to 0)
+</p><ul class="toc">
 <li>
-Extend the FACTOR method <code>ode1_factor</code> to work for multiple roots.
-
+0 - No output
 </li><li>
-Extend the FACTOR method <code>ode1_factor</code> to attempt to solve higher
-  order factors.  At present it only attemps to solve linear factors.
-
+1 - Summary at the end of the calculation
 </li><li>
-Fix the LAGRANGE routine <code>ode1_lagrange</code> to prefer real roots over
-  complex roots.
-
+2 - Each new value of RHO and SIGMA is printed, including 
+ the vector of variables, some function information when RHO is reduced.
 </li><li>
-Add additional methods for Riccati equations.
-
-</li><li>
-Improve the detection of Abel equations of second kind.  The exisiting
-  pattern matching is weak.
-
-</li><li>
-Work on the Lie symmetry group routine <code>ode1_lie</code>.  There are quite a
-  few problems with it: some parts are unimplemented; some test cases
-  seem to run forever; other test cases crash; yet others return very
-  complex &quot;solutions&quot;.  I wonder if it really ready for release yet.
-
-</li><li>
-Add more test cases.
-
+3 - Like 2, but information is printed when F(X) is computed.
 </li></ul>
+</dd>
+<dt> <code>maxfun</code></dt>
+<dd><p>The maximum number of function evaluations.  (Defaults to 1000).
+</p></dd>
+</dl>
 
-<p><a name="Item_003a-Test-cases-for-contrib_005fode"></a>
-</p><hr size="6">
-<a name="Test-cases-for-contrib_005fode"></a>
-<a name="SEC230"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC229" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC231" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC226" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC226" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_46.html#SEC232" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 45.4 Test cases for contrib_ode </h2>
-
-
-<p>The routines have been tested on a approximately one thousand  test cases 
-from Murphy,
-Kamke, Zwillinger and elsewhere.  These are included in the tests subdirectory.
-</p>
-<ul>
+<p>On return, a vector is given:
+</p><ol>
 <li>
-The Clairault routine <code>ode1_clairault</code> finds all known solutions,
-  including singular solutions, of the Clairault equations in Murphy and
-  Kamke.
-
+The value of the variables giving the minimum.  This is a list of
+elements of the form <code><var>var</var> = <var>value</var></code> for each of the
+variables listed in <var>X</var>.
 </li><li>
-The other routines often return a single solution when multiple
-  solutions exist.
-
+The minimized function value
 </li><li>
-Some of the &quot;solutions&quot; from <code>ode1_lie</code> are overly complex and
-  impossible to check.
-
+The number of function evaluations.
 </li><li>
-There are some crashes.
-
-</li></ul>
-
-<p><a name="Item_003a-References-for-contrib_005fode"></a>
-</p><hr size="6">
-<a name="References-for-contrib_005fode"></a>
-<a name="SEC231"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC230" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_46.html#SEC232" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC226" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC226" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_46.html#SEC232" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 45.5 References for contrib_ode </h2>
-
-
-<ol>
+Return code with the following meanings
+ <ol>
 <li>
-E. Kamke, Differentialgleichungen Losungsmethoden und Losungen, Vol 1,
-    Geest &amp; Portig, Leipzig, 1961
-
-</li><li>
-G. M. Murphy, Ordinary Differential Equations and Their Solutions,
-    Van Nostrand, New York, 1960
-
-</li><li>
-D. Zwillinger, Handbook of Differential Equations, 3rd edition,
-    Academic Press, 1998
-
-</li><li>
-F. Schwarz, Symmetry Analysis of Abel's Equation, Studies in
-    Applied Mathematics, 100:269-294 (1998)
-
-</li><li>
-F. Schwarz, Algorithmic Solution of Abel's Equation,
-    Computing 61, 39-49 (1998)
-
-</li><li>
-E. S. Cheb-Terrab, A. D. Roche, Symmetries and First Order
-    ODE Patterns, Computer Physics Communications 113 (1998), p 239.
-    (<a href="http://lie.uwaterloo.ca/papers/ode_vii.pdf">http://lie.uwaterloo.ca/papers/ode_vii.pdf</a>)
-
-</li><li>
-E. S. Cheb-Terrab, T. Kolokolnikov,  First Order ODEs,
-    Symmetries and Linear Transformations, European Journal of
-    Applied Mathematics, Vol. 14, No. 2, pp. 231-246 (2003).
-    (<a href="http://arxiv.org/abs/math-ph/0007023">http://arxiv.org/abs/math-ph/0007023</a>,<br>
-    <a href="http://lie.uwaterloo.ca/papers/ode_iv.pdf">http://lie.uwaterloo.ca/papers/ode_iv.pdf</a>)
-
-</li><li>
-G. W. Bluman, S. C. Anco, Symmetry and Integration Methods for
-    Differential Equations, Springer, (2002)
-
-</li><li> 
-M. Bronstein, S. Lafaille,
-Solutions of linear ordinary differential equations in terms
-of special functions,
-Proceedings of ISSAC 2002, Lille, ACM Press, 23-28. 
-(<a href="http://www-sop.inria.fr/cafe/Manuel.Bronstein/publications/issac2002.pdf">http://www-sop.inria.fr/cafe/Manuel.Bronstein/publications/issac2002.pdf</a>)
-
-
+ 0 - No errors.
+ </li><li>
+ 1 - Limit on maximum number of function evaluations reached.
+ </li><li>
+ 2 - Rounding errors inhibiting progress.
+ </li></ol>
 </li></ol>
 
-<p><a name="Item_003a-descriptive"></a>
+<p><code>load(fmin_cobyla)</code> loads this function.
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-bf_005ffmin_005fcobyla"></a>
+</p><dl>
+<dt><u>Function:</u> <b>bf_fmin_cobyla</b><i> (<var>F</var>, <var>X</var>, <var>Y</var>)</i>
+<a name="IDX1662"></a>
+</dt>
+<dt><u>Function:</u> <b>bf_fmin_cobyla</b><i> (<var>F</var>, <var>X</var>, <var>Y</var>, optional_args)</i>
+<a name="IDX1663"></a>
+</dt>
+<dd><p>This function is identical to <code>fmin_cobyla</code>, except that bigfloat
+operations are used, and the default value for <var>rhoend</var> is
+<code>10^(fpprec/2)</code>. 
+</p>
+<p>See <code>fmin_cobyla</code> for more information.
+</p>
+<p><code>load(bf_fmin_cobyla)</code> loads this function.
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-Examples-for-cobyla"></a>
+</p><hr size="6">
+<a name="Examples-for-cobyla"></a>
+<a name="SEC227"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC226" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_46.html#SEC228" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC224" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC224" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_46.html#SEC228" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 45.3 Examples for cobyla </h2>
+
+<p>Minimize x1*x2 with 1-x1^2-x2^2 &gt;= 0.  
+The theoretical solution is x1 = 1/sqrt(2), x2 = -1/sqrt(2).
+</p>
+<pre class="example">(%i1) load(fmin_cobyla)$
+(%i2) fmin_cobyla(x1*x2, [x1, x2], [1,1], 
+                  constraints = [x1^2+x2^2&lt;=1], iprint=1);
+   Normal return from subroutine COBYLA
+
+   NFVALS =   66   F =-5.000000E-01    MAXCV = 1.999845E-12
+   X = 7.071058E-01  -7.071077E-01
+(%o2) [[x1 = 0.70710584934848, x2 = - 0.7071077130248], 
+       - 0.49999999999926, [[-1.999955756559757e-12],[]], 66]
+</pre>
+<p>There are additional examples in the share/cobyla/ex directory.
+</p>
+
+<p><a name="Item_003a-contrib_005fode"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC226" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_46.html#SEC232" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC224" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_46.html#SEC228" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -855,12 +406,12 @@ Proceedings of ISSAC 2002, Lille, ACM Press, 23-28.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>本田 康晃</em> on <em>April, 3 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>本田 康晃</em> on <em>September, 23 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

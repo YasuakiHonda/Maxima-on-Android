@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年4月月20日 by texi2html 1.82
+<!-- Created on 2014年9月月15日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.33.0 Manual: 73. simplex</title>
+<title>Maxima 5.34.1 Manual: 73. romberg</title>
 
-<meta name="description" content="Maxima 5.33.0 Manual: 73. simplex">
-<meta name="keywords" content="Maxima 5.33.0 Manual: 73. simplex">
+<meta name="description" content="Maxima 5.34.1 Manual: 73. romberg">
+<meta name="keywords" content="Maxima 5.34.1 Manual: 73. romberg">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -137,7 +137,7 @@ div.categorybox
 -->
 </style>
 
-<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico"/>
 
 <script type="text/javascript"><!--
 
@@ -156,240 +156,253 @@ div.categorybox
 
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="simplex"></a>
+<a name="romberg"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_72.html#Functions-and-Variables-for-romberg" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-simplex" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_72.html#Functions-and-Variables-for-orthogonal-polynomials" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-romberg" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_72.html#romberg" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#orthopoly" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#simplification" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_74.html#simplex" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="simplex-1"></a>
-<h1 class="chapter">73. simplex</h1>
+<a name="romberg-1"></a>
+<h1 class="chapter">73. romberg</h1>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-simplex">73.1 Introduction to simplex</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-simplex">73.2 Functions and Variables for simplex</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-romberg">73.1 Functions and Variables for romberg</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Introduction-to-simplex"></a>
+<p><a name="Item_003a-Functions-and-Variables-for-romberg"></a>
 </p><hr size="6">
-<a name="Introduction-to-simplex"></a>
+<a name="Functions-and-Variables-for-romberg"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#simplex" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-simplex" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#romberg" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_74.html#simplex" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#simplex" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#simplex" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#simplification" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#romberg" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#romberg" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_74.html#simplex" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-simplex-1"></a>
-<h2 class="section">73.1 Introduction to simplex</h2>
+<a name="Functions-and-Variables-for-romberg-1"></a>
+<h2 class="section">73.1 Functions and Variables for romberg</h2>
 
-<p><code>simplex</code>はシンプレックスアルゴリズムを使った線形最適化のパッケージです。
+
+<dl>
+<dt><a name="index-romberg"></a><u>関数:</u> <b>romberg</b><i> (<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</i></dt>
+<dt><a name="index-romberg-1"></a><u>関数:</u> <b>romberg</b><i> (<var>F</var>, <var>a</var>, <var>b</var>)</i></dt>
+<dd>
+<p>Romberg法による数値積分を計算します。
+</p>
+<p><code>romberg(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>は積分
+<code>integrate(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>の概算を返します。
+</p>
+<p><var>expr</var>は、
+<var>x</var>が浮動小数点値にバインドされた時
+浮動小数点値に評価される式でなければいけません。
+</p>
+<p><code>romberg(<var>F</var>, <var>a</var>, <var>b</var>)</code>は積分
+<code>integrate(<var>F</var>(x), x, <var>a</var>, <var>b</var>)</code>の概算を返します。
+ここで、 <code>x</code>は <var>F</var>の名付けられない唯一の引数を表します;
+実際の引数は <code>x</code>と名付けられません。
+<var>F</var>は、引数が浮動小数点値の時、浮動小数点値を返す
+Maximaか Lispの関数でなければいけません。
+<var>F</var>は翻訳またはコンパイルされた Maxima関数を指定することができます。
+</p>
+<p>グローバル変数 <code>rombergabs</code>と <code>rombergtol</code>が
+<code>romberg</code>の精度を決定します。
+<code>romberg</code>は、連続する近似の間の絶対差が 
+<code>rombergabs</code>よりも小さい時か、連続する近似に関する相対差が
+<code>rombergtol</code>よりも小さい時、成功のうちに終了します。
+従って、
+<code>rombergabs</code>が 0.0 (デフォルト)の時、
+相対誤差テストだけが <code>romberg</code>に効果を持ちます。
+</p>
+<p><code>romberg</code>は、
+あきらめる前に、せいぜい <code>rombergit</code>回、ステップサイズを半分にします;
+それゆえ関数評価の最大回数は <code>2^rombergit</code>です。
+もし <code>rombergabs</code>や
+<code>rombergtol</code>によって確立される誤差基準が満たされないなら、
+<code>romberg</code>はエラーメッセージを印字します。
+<code>romberg</code>はいつも、少なくとも <code>rombergmin</code>回の繰り返しを行います;
+これは、被積分関数が振動的な時、見せかけの終了を防ぐつもりの発見的方法です。
+</p>
+<p><code>romberg</code>は、積分変数を特定の値にバインド(する前ではなく)した後、
+被積分関数を繰り返し評価します。
+この評価ポリシーは、多次元積分を計算するための
+<code>romberg</code>の入れ子のコールを可能にします。
+しかしながら、誤差計算は入れ子の積分の誤差を考慮しないので、
+エラーは過小評価されるかもしれません。
+また、多次元問題のために特別に工夫された方法は
+より少ない関数評価で同じ精度をもたらす可能性があります。
+</p>
+<p><code>load(romberg)</code>はこの関数をロードします。
+</p>
+<p><code>QUADPACK</code>、数値積分関数のコレクションも参照してください。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;simplex&quot;)$
-(%i2) minimize_lp(x+y, [3*x+2*y&gt;2, x+4*y&gt;3]);
-                  9        7       1
-(%o2)            [--, [y = --, x = -]]
-                  10       10      5
+<p>1次元積分。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (romberg);
+(%o1)    /usr/share/maxima/5.11.0/share/numeric/romberg.lisp
+(%i2) f(x) := 1/((x - 1)^2 + 1/100) + 1/((x - 2)^2 + 1/1000)
+              + 1/((x - 3)^2 + 1/200);
+                    1                 1                1
+(%o2) f(x) := -------------- + --------------- + --------------
+                     2    1           2    1            2    1
+              (x - 1)  + ---   (x - 2)  + ----   (x - 3)  + ---
+                         100              1000              200
+(%i3) rombergtol : 1e-6;
+(%o3)                 9.9999999999999995E-7
+(%i4) rombergit : 15;
+(%o4)                          15
+(%i5) estimate : romberg (f(x), x, -5, 5);
+(%o5)                   173.6730736617464
+(%i6) exact : integrate (f(x), x, -5, 5);
+(%o6) 10 sqrt(10) atan(70 sqrt(10))
+ + 10 sqrt(10) atan(30 sqrt(10)) + 10 sqrt(2) atan(80 sqrt(2))
+ + 10 sqrt(2) atan(20 sqrt(2)) + 10 atan(60) + 10 atan(40)
+(%i7) abs (estimate - exact) / exact, numer;
+(%o7)                7.5527060865060088E-11
 </pre></td></tr></table>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a>
- &middot;<a href="maxima_99.html#Category_003a-Optimization">Optimization</a>
- &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-simplex">Package simplex</a>
+<p><code>romberg</code>の入れ子のコールで実装された 2次元積分。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (romberg);
+(%o1)    /usr/share/maxima/5.11.0/share/numeric/romberg.lisp
+(%i2) g(x, y) := x*y / (x + y);
+                                    x y
+(%o2)                   g(x, y) := -----
+                                   x + y
+(%i3) rombergtol : 1e-6;
+(%o3)                 9.9999999999999995E-7
+(%i4) estimate : romberg (romberg (g(x, y), y, 0, x/2), x, 1, 3);
+(%o4)                   0.81930239628356
+(%i5) assume (x &gt; 0);
+(%o5)                        [x &gt; 0]
+(%i6) integrate (integrate (g(x, y), y, 0, x/2), x, 1, 3);
+                                          3
+                                    2 log(-) - 1
+                    9                     2        9
+(%o6)       - 9 log(-) + 9 log(3) + ------------ + -
+                    2                    6         2
+(%i7) exact : radcan (%);
+                    26 log(3) - 26 log(2) - 13
+(%o7)             - --------------------------
+                                3
+(%i8) abs (estimate - exact) / exact, numer;
+(%o8)                1.3711979871851024E-10
+</pre></td></tr></table>
+
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-romberg">Package romberg</a>
+ &middot;<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a>
 </div></p>
-<p><a name="Item_003a-Functions-and-Variables-for-simplex"></a>
+</dd></dl>
+
+<p><a name="Item_003a-rombergabs"></a>
+</p><dl>
+<dt><a name="index-rombergabs"></a><u>オプション変数:</u> <b>rombergabs</b></dt>
+<dd><p>デフォルト値: 0.0
+</p>
+<p>グローバル変数 <code>rombergabs</code>と <code>rombergtol</code>は
+<code>romberg</code>の精度を決定します。
+<code>romberg</code>は、連続する近似の間の絶対差が
+<code>rombergabs</code>よりも小さい時か、連続する近似に関する相対差が
+<code>rombergtol</code>よりも小さい時、成功のうちに終了します。
+従って、 <code>rombergabs</code>が 0.0 (デフォルト)の時、
+相対誤差テストだけが <code>romberg</code>に効果を持ちます。
+</p>
+<p><code>rombergit</code>と <code>rombergmin</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-romberg">Package romberg</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-rombergit"></a>
+</p><dl>
+<dt><a name="index-rombergit"></a><u>オプション変数:</u> <b>rombergit</b></dt>
+<dd><p>デフォルト値: 11
+</p>
+<p><code>romberg</code>は、あきらめる前に、せいぜい
+<code>rombergit</code>回、ステップサイズを半分にします;
+それゆえ、関数評価の最大回数は <code>2^rombergit</code>です。
+<code>romberg</code>はいつも、少なくとも <code>rombergmin</code>回の繰り返しを行います;
+これは、被積分関数が振動的な時、見せかけの終了を防ぐつもりの発見的方法です。
+</p>
+<p><code>rombergabs</code>と <code>rombergtol</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-romberg">Package romberg</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-rombergmin"></a>
+</p><dl>
+<dt><a name="index-rombergmin"></a><u>オプション変数:</u> <b>rombergmin</b></dt>
+<dd><p>デフォルト値: 0
+</p>
+<p><code>romberg</code>はいつも、少なくとも <code>rombergmin</code>回の繰り返しを行います;
+これは、被積分関数が振動的な時、見せかけの終了を防ぐつもりの発見的方法です。
+</p>
+<p><code>rombergit</code>, <code>rombergabs</code>, <code>rombergtol</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-romberg">Package romberg</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-rombergtol"></a>
+</p><dl>
+<dt><a name="index-rombergtol"></a><u>オプション変数:</u> <b>rombergtol</b></dt>
+<dd><p>デフォルト値: 1e-4
+</p>
+<p>グローバル変数 <code>rombergabs</code>と <code>rombergtol</code>は
+<code>romberg</code>の精度を決定されます。
+<code>romberg</code>は、連続する近似の間の絶対差が
+<code>rombergabs</code>よりも小さい時か、連続する近似に関する相対差が
+<code>rombergtol</code>よりも小さい時、成功のうちに終了します。
+従って、 <code>rombergabs</code>が 0.0 (デフォルト)の時、
+相対誤差テストだけが <code>romberg</code>に効果を持ちます。
+</p>
+<p><code>rombergit</code>と <code>rombergmin</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-romberg">Package romberg</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-simplex"></a>
 </p><hr size="6">
-<a name="Functions-and-Variables-for-simplex"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-simplex" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#simplification" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#romberg" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_74.html#simplex" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#simplex" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#simplex" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#simplification" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<a name="Functions-and-Variables-for-simplex-1"></a>
-<h2 class="section">73.2 Functions and Variables for simplex</h2>
-
-<p><a name="Item_003a-epsilon_005flp"></a>
-</p><dl>
-<dt><a name="index-epsilon_005flp"></a><u>オプション変数:</u> <b>epsilon_lp</b></dt>
-<dd><p>デフォルト値: <code>10^-8</code>
-</p>
-<p><code>linear_program</code>の数値計算で使われるイプシロン。
-</p>
-<p>以下も参照してください: <code>linear_program</code>
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-simplex">Package simplex</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-linear_005fprogram"></a>
-</p><dl>
-<dt><a name="index-linear_005fprogram"></a><u>関数:</u> <b>linear_program</b><i> (<var>A</var>, <var>b</var>, <var>c</var>)</i></dt>
-<dd>
-<p><code>linear_program</code>はシンプレックスアルゴリズムの実装です。
-<code>linear_program(A, b, c)</code>は、
-<code>A.x = b</code>かつ <code>x &gt;= 0</code>を満たすベクトルの中で
-<code>c.x</code>が可能な最小となるベクトル <var>x</var>を計算します。
-引数 <var>A</var>は行列で、引数 <var>b</var>と <var>c</var>はリストです。
-</p>
-<p><code>linear_program</code>は、最小化ベクトル <var>x</var>と最小値
-<code>c.x</code>を含むリストを返します。
-もし問題が有界でないなら、 &quot;Problem not bounded!&quot;を返し、
-もし問題が実現可能でないなら、 &quot;Problem not feasible!&quot;を返します。
-</p>
-<p>この関数を使うためには、最初に <code>load(simplex);</code>で
-<code>simplex</code>パッケージをロードしてください。
-</p>
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) A: matrix([1,1,-1,0], [2,-3,0,-1], [4,-5,0,0])$
-(%i3) b: [1,1,6]$
-(%i4) c: [1,-2,0,0]$
-(%i5) linear_program(A, b, c);
-                   13     19        3
-(%o5)            [[--, 4, --, 0], - -]
-                   2      2         2
-</pre></td></tr></table>
-
-<p>以下も参照してください: <code>minimize_lp</code>, <code>scale_lp</code>, <code>epsilon_lp</code>
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-simplex">Package simplex</a>
- &middot;<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-maximize_005flp"></a>
-</p><dl>
-<dt><a name="index-maximize_005flp"></a><u>関数:</u> <b>maximize_lp</b><i> (<var>obj</var>, <var>cond</var>, [<var>pos</var>])</i></dt>
-<dd>
-<p>いくつかの線形制約 <var>cond</var>に従う線形目標関数 <var>obj</var>を最大化します。
-引数と戻り値の詳細な記述に関しては、
-<code>minimize_lp</code>を参照してください。
-</p>
-
-<p>以下も参照してください: <code>minimize_lp</code>.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-simplex">Package simplex</a>
- &middot;<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-minimize_005flp"></a>
-</p><dl>
-<dt><a name="index-minimize_005flp"></a><u>関数:</u> <b>minimize_lp</b><i> (<var>obj</var>, <var>cond</var>, [<var>pos</var>])</i></dt>
-<dd>
-<p>いくつかの線形制約 <var>cond</var>に従う線形目標関数 <var>obj</var>を最小化します。
-<var>cond</var>は線形等式や不等式のリストです。
-厳密な不等式では、 <code>&gt;</code>は <code>&gt;=</code>に、
-<code>&lt;</code>は <code>&lt;=</code>に置き換えられます。
-オプションの引数 <var>pos</var>は正と仮定される決定変数のリストです。
-</p>
-<p>もし最小が存在するなら、
-<code>minimize_lp</code>は目標関数の最小値と最小が得られる決定変数値のリストを含むリストです。
-もし問題が有界でないなら、
-<code>minimize_lp</code>は &quot;Problem not bounded!&quot;を返し、
-もし問題が実現可能でないなら、 &quot;Ploblem not feasible!&quot;を返します。
-</p>
-<p>決定変数はデフォルトでは非負とは仮定されません。
-もし決定変数すべてが正なら、
-<code>nonegative_lp</code>を <code>true</code>に設定してください。
-もし決定変数のいくつかだけが正なら、オプション引数
-<var>pos</var>の中でそれらをリストしてください。
- (これは制約を足すより効率的だということに注意してください。)
-</p>
-<p><code>minimize_lp</code>は Maximaの
-<code>linear_program</code>関数で実装されたシンプレックスアルゴリズムを使います。
-</p>
-<p>この関数を使うためには、最初に <code>load(simplex);</code>で
-<code>simplex</code>パッケージをロードしてください。
-</p>
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) minimize_lp(x+y, [3*x+y=0, x+2*y&gt;2]);
-                      4       6        2
-(%o1)                [-, [y = -, x = - -]]
-                      5       5        5
-(%i2) minimize_lp(x+y, [3*x+y&gt;0, x+2*y&gt;2]), nonegative_lp=true;
-(%o2)                [1, [y = 1, x = 0]]
-(%i3) minimize_lp(x+y, [3*x+y=0, x+2*y&gt;2]), nonegative_lp=true;
-(%o3)                Problem not feasible!
-(%i4) minimize_lp(x+y, [3*x+y&gt;0]);
-(%o4)                Problem not bounded!
-</pre></td></tr></table>
-
-
-<p>いかも参照してください: <code>maximize_lp</code>, <code>nonegative_lp</code>, <code>epsilon_lp</code>。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-simplex">Package simplex</a>
- &middot;<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-nonegative_005flp"></a>
-</p><dl>
-<dt><a name="index-nonegative_005flp"></a><u>オプション変数:</u> <b>nonegative_lp</b></dt>
-<dd><p>デフォルト値: <code>false</code>
-</p>
-<p>もし <code>nonegative_lp</code>が trueなら、
-<code>minimize_lp</code>と <code>maximize_lp</code>の決定変数すべては正と仮定されます。
-</p>
-<p>以下も参照してください: <code>minimize_lp</code>。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-simplex">Package simplex</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-simplification"></a>
-</p><hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#simplex" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#simplification" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年4月月20日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

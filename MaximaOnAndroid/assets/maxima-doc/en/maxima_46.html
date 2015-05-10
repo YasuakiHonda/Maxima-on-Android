@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 3 2014 by texi2html 1.76 -->
+<!-- Created on September, 23 2014 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Maxima 5.33.0 Manual: 46. descriptive</title>
+<title>Maxima 5.34.1 Manual: 46. contrib_ode</title>
 
-<meta name="description" content="Maxima 5.33.0 Manual: 46. descriptive">
-<meta name="keywords" content="Maxima 5.33.0 Manual: 46. descriptive">
+<meta name="description" content="Maxima 5.34.1 Manual: 46. contrib_ode">
+<meta name="keywords" content="Maxima 5.34.1 Manual: 46. contrib_ode">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -136,2424 +136,718 @@ div.categorybox
 -->
 </style>
 
-<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico"/>
 </head>
 
 <body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="descriptive"></a>
-<a name="SEC232"></a>
+<a name="contrib_005fode"></a>
+<a name="SEC228"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_45.html#SEC231" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC233" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_45.html#SEC227" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC229" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_45.html#SEC226" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_45.html#SEC224" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#SEC237" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#SEC234" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter"> 46. descriptive </h1>
+<h1 class="chapter"> 46. contrib_ode </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC233">46.1 Introduction to descriptive</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC229">46.1 Introduction to contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC234">46.2 Functions and Variables for data manipulation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC230">46.2 Functions and Variables for contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC235">46.3 Functions and Variables for descriptive statistics</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC231">46.3 Possible improvements to contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC236">46.4 Functions and Variables for statistical graphs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC232">46.4 Test cases for contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC233">46.5 References for contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Introduction-to-descriptive"></a>
+<p><a name="Item_003a-Introduction-to-contrib_005fode"></a>
 </p><hr size="6">
-<a name="Introduction-to-descriptive"></a>
-<a name="SEC233"></a>
+<a name="Introduction-to-contrib_005fode"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC232" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC234" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC228" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC230" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC232" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC232" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#SEC237" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#SEC234" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 46.1 Introduction to descriptive </h2>
 
-<p>Package <code>descriptive</code> contains a set of functions for 
-making descriptive statistical computations and graphing. 
-Together with the source code there are three data sets in 
-your Maxima tree: <code>pidigits.data</code>, <code>wind.data</code> and <code>biomed.data</code>.
+<a name="SEC229"></a>
+<h2 class="section"> 46.1 Introduction to contrib_ode </h2>
+
+<p>Maxima's ordinary differential equation (ODE) solver <code>ode2</code> solves
+elementary linear ODEs of first and second order.  The function
+<code>contrib_ode</code> extends <code>ode2</code> with additional methods for linear
+and non-linear first order ODEs and linear homogeneous second order ODEs.  
+The code is still under development and the calling sequence may change
+in future releases.  Once the code has stabilized it may be
+moved from the contrib directory and integrated into Maxima.
 </p>
-<p>Any statistics manual can be used as a reference to the functions in package <code>descriptive</code>.
+<p>This package must be loaded with the command <code>load('contrib_ode)</code>
+before use.
 </p>
-<p>For comments, bugs or suggestions, please contact me at <var>'mario AT edu DOT xunta DOT es'</var>.
+<p>The calling convention for <code>contrib_ode</code> is identical to <code>ode2</code>.  
+It takes
+three arguments: an ODE (only the left hand side need be given if the
+right hand side is 0), the dependent variable, and the independent
+variable.  When successful, it returns a list of solutions.
 </p>
-<p>Here is a simple example on how the descriptive functions in <code>descriptive</code> do they work, depending on the nature of their arguments, lists or matrices,
+<p>The form of the solution differs from <code>ode2</code>.
+As non-linear equations can have multiple solutions, 
+<code>contrib_ode</code> returns a list of solutions.  Each  solution can 
+have a number of forms:
+</p><ul>
+<li>
+an explicit solution for the dependent variable,
+
+</li><li>
+an implicit solution for the dependent variable,
+
+</li><li>
+a parametric solution in terms of variable <code>%t</code>, or
+
+</li><li>
+a tranformation into another ODE in variable <code>%u</code>.
+
+</li></ul>
+
+<p><code>%c</code> is used to represent the constant of integration for first order equations.
+<code>%k1</code> and <code>%k2</code> are the constants for second order equations.  
+If <code>contrib_ode</code>
+cannot obtain a solution for whatever reason, it returns <code>false</code>, after
+perhaps printing out an error message.
 </p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) /* univariate sample */   mean ([a, b, c]);
-                            c + b + a
-(%o2)                       ---------
-                                3
-(%i3) matrix ([a, b], [c, d], [e, f]);
-                            [ a  b ]
-                            [      ]
-(%o3)                       [ c  d ]
-                            [      ]
-                            [ e  f ]
-(%i4) /* multivariate sample */ mean (%);
-                      e + c + a  f + d + b
-(%o4)                [---------, ---------]
-                          3          3
+<p>It is necessary to return a list of solutions, as even first order
+non-linear ODEs can have multiple solutions.  For example:
+</p>
+<pre class="example">(%i1) load('contrib_ode)$
+
+(%i2) eqn:x*'diff(y,x)^2-(1+x*y)*'diff(y,x)+y=0;
+
+                    dy 2             dy
+(%o2)            x (--)  - (x y + 1) -- + y = 0
+                    dx               dx
+(%i3) contrib_ode(eqn,y,x);
+
+                                             x
+(%o3)             [y = log(x) + %c, y = %c %e ]
+(%i4) method;
+
+(%o4)                        factor
 </pre>
-<p>Note that in multivariate samples the mean is calculated for each column.
+<p>Nonlinear ODEs can have singular solutions without constants of
+integration, as in the second solution of the following example:
 </p>
-<p>In case of several samples with possible different sizes, the Maxima function <code>map</code> can be used to get the desired results for each sample,
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) map (mean, [[a, b, c], [d, e]]);
-                        c + b + a  e + d
-(%o2)                  [---------, -----]
-                            3        2
+<pre class="example">(%i1) load('contrib_ode)$
+
+(%i2) eqn:'diff(y,x)^2+x*'diff(y,x)-y=0;
+
+                       dy 2     dy
+(%o2)                 (--)  + x -- - y = 0
+                       dx       dx
+(%i3) contrib_ode(eqn,y,x);
+
+                                           2
+                                 2        x
+(%o3)              [y = %c x + %c , y = - --]
+                                          4
+(%i4) method;
+
+(%o4)                       clairault
 </pre>
-<p>In this case, two samples of sizes 3 and 2 were stored into a list.
+
+<p>The following ODE has two parametric solutions in terms of the dummy
+variable <code>%t</code>.  In this case the parametric solutions can be manipulated
+to give explicit solutions.
 </p>
-<p>Univariate samples must be stored in lists like
-</p>
-<pre class="example">(%i1) s1 : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5];
-(%o1)           [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
+<pre class="example">(%i1) load('contrib_ode)$
+
+(%i2) eqn:'diff(y,x)=(x+y)^2;
+
+                          dy          2
+(%o2)                     -- = (y + x)
+                          dx
+(%i3) contrib_ode(eqn,y,x);
+
+(%o3) [[x = %c - atan(sqrt(%t)), y = - x - sqrt(%t)], 
+                     [x = atan(sqrt(%t)) + %c, y = sqrt(%t) - x]]
+(%i4) method;
+
+(%o4)                       lagrange
 </pre>
-<p>and multivariate samples in matrices as in
+<p>The following example (Kamke 1.112) demonstrates an implicit solution.
 </p>
-<pre class="example">(%i1) s2 : matrix ([13.17, 9.29], [14.71, 16.88], [18.50, 16.88],
-             [10.58, 6.63], [13.33, 13.25], [13.21,  8.12]);
-                        [ 13.17  9.29  ]
-                        [              ]
-                        [ 14.71  16.88 ]
-                        [              ]
-                        [ 18.5   16.88 ]
-(%o1)                   [              ]
-                        [ 10.58  6.63  ]
-                        [              ]
-                        [ 13.33  13.25 ]
-                        [              ]
-                        [ 13.21  8.12  ]
+<pre class="example">(%i1) load('contrib_ode)$
+
+(%i2) assume(x&gt;0,y&gt;0);
+
+(%o2)                    [x &gt; 0, y &gt; 0]
+(%i3) eqn:x*'diff(y,x)-x*sqrt(y^2+x^2)-y;
+
+                     dy           2    2
+(%o3)              x -- - x sqrt(y  + x ) - y
+                     dx
+(%i4) contrib_ode(eqn,y,x);
+
+                                  y
+(%o4)                  [x - asinh(-) = %c]
+                                  x
+(%i5) method;
+
+(%o5)                          lie
 </pre>
-<p>In this case, the number of columns equals the random variable dimension and the number of rows is the sample size.
-</p>
-<p>Data can be introduced by hand, but big samples are usually stored in plain text files. For example, file <code>pidigits.data</code> contains the first 100 digits of number <code>%pi</code>:
-</p><pre class="example">      3
-      1
-      4
-      1
-      5
-      9
-      2
-      6
-      5
-      3 ...
+ 
+
+<p>The following Riccati equation is transformed into a linear
+second order ODE in the variable <code>%u</code>.  Maxima is unable to
+solve the new ODE, so it is returned unevaluated.
+</p><pre class="example">(%i1) load('contrib_ode)$
+
+(%i2) eqn:x^2*'diff(y,x)=a+b*x^n+c*x^2*y^2;
+
+                    2 dy      2  2      n
+(%o2)              x  -- = c x  y  + b x  + a
+                      dx
+(%i3) contrib_ode(eqn,y,x);
+
+               d%u
+               ---                            2
+               dx        2     n - 2   a     d %u
+(%o3)  [[y = - ----, %u c  (b x      + --) + ---- c = 0]]
+               %u c                     2      2
+                                       x     dx
+(%i4) method;
+
+(%o4)                        riccati
 </pre>
-<p>In order to load these digits in Maxima,
+
+<p>For first order ODEs <code>contrib_ode</code> calls <code>ode2</code>.  It then tries the
+following methods: factorization, Clairault, Lagrange, Riccati,
+Abel and Lie symmetry methods.  The Lie method is not attempted
+on Abel equations if the Abel method fails, but it is tried
+if the Riccati method returns an unsolved second order ODE.
 </p>
-<pre class="example">(%i1) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i2) length (s1);
-(%o2)                          100
-</pre>
-<p>On the other hand, file <code>wind.data</code> contains daily average wind speeds at 5 meteorological stations in the Republic of Ireland (This is part of a data set taken at 12 meteorological stations. The original file is freely downloadable from the StatLib Data Repository and its analysis is discused in Haslett, J., Raftery, A. E. (1989) <var>Space-time Modelling with Long-memory Dependence: Assessing Ireland's Wind Power Resource, with Discussion</var>. Applied Statistics 38, 1-50). This loads the data:
+<p>For second order ODEs <code>contrib_ode</code> calls <code>ode2</code> then <code>odelin</code>.
 </p>
-<pre class="example">(%i1) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i2) length (s2);
-(%o2)                          100
-(%i3) s2 [%]; /* last record */
-(%o3)            [3.58, 6.0, 4.58, 7.62, 11.25]
-</pre>
-<p>Some samples contain non numeric data. As an example, file <code>biomed.data</code> (which is part of another bigger one downloaded from the StatLib Data Repository) contains four blood measures taken from two groups of patients, <code>A</code> and <code>B</code>, of different ages,
+<p>Extensive debugging traces and messages are displayed if the command
+<code>put('contrib_ode,true,'verbose)</code> is executed.
 </p>
-<pre class="example">(%i1) s3 : read_matrix (file_search (&quot;biomed.data&quot;))$
-(%i2) length (s3);
-(%o2)                          100
-(%i3) s3 [1]; /* first record */
-(%o3)            [A, 30, 167.0, 89.0, 25.6, 364]
-</pre>
-<p>The first individual belongs to group <code>A</code>, is 30 years old and his/her blood measures were 167.0, 89.0, 25.6 and 364.
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Differential-equations">Differential equations</a> &middot;
+<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a> &middot;
+<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
 </p>
-<p>One must take care when working with categorical data. In the next example, symbol <code>a</code> is asigned a value in some previous moment and then a sample with categorical value <code>a</code> is taken,
+
+<p><a name="Item_003a-Functions-and-Variables-for-contrib_005fode"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-contrib_005fode"></a>
+<a name="SEC230"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC229" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC231" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#SEC234" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 46.2 Functions and Variables for contrib_ode </h2>
+
+
+<dl>
+<dt><u>Function:</u> <b>contrib_ode</b><i> (<var>eqn</var>, <var>y</var>, <var>x</var>)</i>
+<a name="IDX1664"></a>
+</dt>
+<dd><p>Returns a list of solutions of the ODE <var>eqn</var> with 
+independent variable <var>x</var> and dependent variable <var>y</var>.
 </p>
-<pre class="example">(%i1) a : 1$
-(%i2) matrix ([a, 3], [b, 5]);
-                            [ 1  3 ]
-(%o2)                       [      ]
-                            [ b  5 ]
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-odelin"></a>
+</p><dl>
+<dt><u>Function:</u> <b>odelin</b><i> (<var>eqn</var>, <var>y</var>, <var>x</var>)</i>
+<a name="IDX1665"></a>
+</dt>
+<dd><p><code>odelin</code> solves linear homogeneous ODEs of first and 
+second order with 
+independent variable <var>x</var> and dependent variable <var>y</var>.  
+It returns a fundamental solution set of the ODE.
+</p>
+<p>For second order ODEs, <code>odelin</code> uses a method, due to Bronstein
+and Lafaille, that searches for solutions in terms of given 
+special functions. 
+</p>
+<pre class="example">(%i1) load('contrib_ode);
+
+(%i2) odelin(x*(x+1)*'diff(y,x,2)+(x+5)*'diff(y,x,1)+(-4)*y,y,x);
+...trying factor method
+...solving 7 equations in 4 variables
+...trying the Bessel solver
+...solving 1 equations in 2 variables
+...trying the F01 solver
+...solving 1 equations in 3 variables
+...trying the spherodial wave solver
+...solving 1 equations in 4 variables
+...trying the square root Bessel solver
+...solving 1 equations in 2 variables
+...trying the 2F1 solver
+...solving 9 equations in 5 variables
+       gauss_a(- 6, - 2, - 3, - x)  gauss_b(- 6, - 2, - 3, - x)
+(%o2) {---------------------------, ---------------------------}
+                    4                            4
+                   x                            x
+
 </pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Descriptive-statistics">Descriptive statistics</a> &middot;
-<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a> &middot;
-<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
 </div>
 </p>
-<p><a name="Item_003a-Functions-and-Variables-for-data-manipulation"></a>
-</p><hr size="6">
-<a name="Functions-and-Variables-for-data-manipulation"></a>
-<a name="SEC234"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC233" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC235" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC232" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC232" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#SEC237" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 46.2 Functions and Variables for data manipulation </h2>
+</dd></dl>
 
-
-
-<p><a name="Item_003a-build_005fsample"></a>
+<p><a name="Item_003a-ode_005fcheck"></a>
 </p><dl>
-<dt><u>Function:</u> <b>build_sample</b><i> (<var>list</var>)</i>
+<dt><u>Function:</u> <b>ode_check</b><i> (<var>eqn</var>, <var>soln</var>)</i>
 <a name="IDX1666"></a>
 </dt>
-<dt><u>Function:</u> <b>build_sample</b><i> (<var>matrix</var>)</i>
+<dd><p>Returns the value of ODE <var>eqn</var> after substituting a
+possible solution <var>soln</var>.  The value is equivalent to 
+zero if <var>soln</var> is a solution of <var>eqn</var>.
+</p>
+<pre class="example">(%i1) load('contrib_ode)$
+
+(%i2) eqn:'diff(y,x,2)+(a*x+b)*y;
+
+                         2
+                        d y
+(%o2)                   --- + (a x + b) y
+                          2
+                        dx
+(%i3) ans:[y = bessel_y(1/3,2*(a*x+b)^(3/2)/(3*a))*%k2*sqrt(a*x+b)
+         +bessel_j(1/3,2*(a*x+b)^(3/2)/(3*a))*%k1*sqrt(a*x+b)];
+
+                                  3/2
+                    1  2 (a x + b)
+(%o3) [y = bessel_y(-, --------------) %k2 sqrt(a x + b)
+                    3       3 a
+                                          3/2
+                            1  2 (a x + b)
+                 + bessel_j(-, --------------) %k1 sqrt(a x + b)]
+                            3       3 a
+(%i4) ode_check(eqn,ans[1]);
+
+(%o4)                           0
+</pre>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-method"></a>
+</p><dl>
+<dt><u>System variable:</u> <b>method</b>
 <a name="IDX1667"></a>
 </dt>
-<dd><p>Builds a sample from a table of absolute frequencies.
-The input table can be a matrix or a list of lists, all of
-them of equal size. The number of columns or the length of
-the lists must be greater than 1. The last element of each
-row or list is interpreted as the absolute frequency.
-The output is always a sample in matrix form.
+<dd><p>The variable <code>method</code> is set to the successful solution
+method. 
 </p>
-<p>Examples:
-</p>
-<p>Univariate frequency table.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) sam1: build_sample([[6,1], [j,2], [2,1]]);
-                       [ 6 ]
-                       [   ]
-                       [ j ]
-(%o2)                  [   ]
-                       [ j ]
-                       [   ]
-                       [ 2 ]
-(%i3) mean(sam1);
-                      2 j + 8
-(%o3)                [-------]
-                         4
-(%i4) barsplot(sam1) $
-</pre>
-<p>Multivariate frequency table.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) sam2: build_sample([[6,3,1], [5,6,2], [u,2,1],[6,8,2]]) ;
-                           [ 6  3 ]
-                           [      ]
-                           [ 5  6 ]
-                           [      ]
-                           [ 5  6 ]
-(%o2)                      [      ]
-                           [ u  2 ]
-                           [      ]
-                           [ 6  8 ]
-                           [      ]
-                           [ 6  8 ]
-(%i3) cov(sam2);
-       [   2                 2                            ]
-       [  u  + 158   (u + 28)     2 u + 174   11 (u + 28) ]
-       [  -------- - ---------    --------- - ----------- ]
-(%o3)  [     6          36            6           12      ]
-       [                                                  ]
-       [ 2 u + 174   11 (u + 28)            21            ]
-       [ --------- - -----------            --            ]
-       [     6           12                 4             ]
-(%i4) barsplot(sam2, grouping=stacked) $
-</pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
 </div>
-</p></dd></dl>
+</p>
+</dd></dl>
 
-
-
-<p><a name="Item_003a-continuous_005ffreq"></a>
+<p><a name="Item_003a-_0025c"></a>
 </p><dl>
-<dt><u>Function:</u> <b>continuous_freq</b><i> (<var>list</var>)</i>
+<dt><u>Variable:</u> <b>%c</b>
 <a name="IDX1668"></a>
 </dt>
-<dt><u>Function:</u> <b>continuous_freq</b><i> (<var>list</var>, <var>m</var>)</i>
+<dd><p><code>%c</code> is the integration constant for first order ODEs.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-_0025k1"></a>
+</p><dl>
+<dt><u>Variable:</u> <b>%k1</b>
 <a name="IDX1669"></a>
 </dt>
-<dd><p>The argument of <code>continuous_freq</code> must be a list of numbers.
-Divides the range in intervals and counts how many values
-are inside them. The second argument is optional and either
-equals the number of classes we want, 10 by default, or
-equals a list containing the class limits and the number of
-classes we want, or a list containing only the limits.
-Argument <var>list</var> must be a list of (2 or 3) real numbers.
-If sample values are all equal, this function returns only
-one class of amplitude 2.
+<dd><p><code>%k1</code> is the first integration constant for second order ODEs.
 </p>
-<p>Examples:
-</p>
-<p>Optional argument indicates the number of classes we want.
-The first list in the output contains the interval limits, and
-the second the corresponding counts: there are 16 digits inside 
-the interval <code>[0, 1.8]</code>, 24 digits in <code>(1.8, 3.6]</code>, and so on.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) continuous_freq (s1, 5);
-(%o3) [[0, 1.8, 3.6, 5.4, 7.2, 9.0], [16, 24, 18, 17, 25]]
-</pre>
-<p>Optional argument indicates we want 7 classes with limits
--2 and 12:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) continuous_freq (s1, [-2,12,7]);
-(%o3) [[- 2, 0, 2, 4, 6, 8, 10, 12], [8, 20, 22, 17, 20, 13, 0]]
-</pre>
-<p>Optional argument indicates we want the default number of classes with limits
--2 and 12:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) continuous_freq (s1, [-2,12]);
-                3  4  11  18     32  39  46  53
-(%o3)  [[- 2, - -, -, --, --, 5, --, --, --, --, 12], 
-                5  5  5   5      5   5   5   5
-               [0, 8, 20, 12, 18, 9, 8, 25, 0, 0]]
-</pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
 </div>
-</p></dd></dl>
+</p>
+</dd></dl>
 
-
-
-<p><a name="Item_003a-discrete_005ffreq"></a>
+<p><a name="Item_003a-_0025k2"></a>
 </p><dl>
-<dt><u>Function:</u> <b>discrete_freq</b><i> (<var>list</var>)</i>
+<dt><u>Variable:</u> <b>%k2</b>
 <a name="IDX1670"></a>
 </dt>
-<dd><p>Counts absolute frequencies in discrete samples, both numeric and categorical. Its unique argument is a list,
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) discrete_freq (s1);
-(%o3) [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
-                             [8, 8, 12, 12, 10, 8, 9, 8, 12, 13]]
-</pre>
-<p>The first list gives the sample values and the second their absolute frequencies. Commands <code>? col</code> and <code>? transpose</code> should help you to understand the last input.
+<dd><p><code>%k2</code> is the second integration constant for second order ODEs.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
 </div>
-</p></dd></dl>
+</p>
+</dd></dl>
 
-
-
-
-<p><a name="Item_003a-standardize"></a>
+<p><a name="Item_003a-gauss_005fa"></a>
 </p><dl>
-<dt><u>Function:</u> <b>standardize</b><i> (<var>list</var>)</i>
+<dt><u>Function:</u> <b>gauss_a</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i>
 <a name="IDX1671"></a>
 </dt>
-<dt><u>Function:</u> <b>standardize</b><i> (<var>matrix</var>)</i>
+<dd><p><code>gauss_a(a,b,c,x)</code> and <code>gauss_b(a,b,c,x)</code> are 2F1 
+geometric functions.  They represent any two independent
+solutions of the hypergeometric differential equation 
+<code>x(1-x) diff(y,x,2) + [c-(a+b+1)x] diff(y,x) - aby = 0</code> (A&amp;S 15.5.1).  
+</p>
+<p>The only use of these functions is in solutions of ODEs returned by 
+<code>odelin</code> and <code>contrib_ode</code>.  The definition and use of these 
+functions may change in future releases of Maxima.
+</p>
+<p>See also <code>gauss_b</code>, <code>dgauss_a</code> and <code>gauss_b</code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-gauss_005fb"></a>
+</p><dl>
+<dt><u>Function:</u> <b>gauss_b</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i>
 <a name="IDX1672"></a>
 </dt>
-<dd><p>Subtracts to each element of the list the sample mean and divides
-the result by the standard deviation. When the input is a matrix,
-<code>standardize</code> subtracts to each row the multivariate mean, and then
-divides each component by the corresponding standard deviation.
+<dd><p>See <code>gauss_a</code>.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
 </div>
-</p></dd></dl>
+</p>
+</dd></dl>
 
-
-
-
-<p><a name="Item_003a-subsample"></a>
+<p><a name="Item_003a-dgauss_005fa"></a>
 </p><dl>
-<dt><u>Function:</u> <b>subsample</b><i> (<var>data_matrix</var>, <var>predicate_function</var>)</i>
+<dt><u>Function:</u> <b>dgauss_a</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i>
 <a name="IDX1673"></a>
 </dt>
-<dt><u>Function:</u> <b>subsample</b><i> (<var>data_matrix</var>, <var>predicate_function</var>, <var>col_num1</var>, <var>col_num2</var>, ...)</i>
+<dd><p>The derivative with respect to <var>x</var> of <code>gauss_a(<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-dgauss_005fb"></a>
+</p><dl>
+<dt><u>Function:</u> <b>dgauss_b</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i>
 <a name="IDX1674"></a>
 </dt>
-<dd><p>This is a sort of variant of the Maxima <code>submatrix</code> function.
-The first argument is the data matrix, the second is a predicate function
-and optional additional arguments are the numbers of the columns to be taken.
-Its behaviour is better understood with examples.
+<dd><p>The derivative with respect to <var>x</var> of <code>gauss_b(<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</code>.
 </p>
-<p>These are multivariate records in which the wind speed
-in the first meteorological station were greater than 18.
-See that in the lambda expression the <var>i</var>-th component is
-refered to as <code>v[i]</code>.
-</p><pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) subsample (s2, lambda([v], v[1] &gt; 18));
-              [ 19.38  15.37  15.12  23.09  25.25 ]
-              [                                   ]
-              [ 18.29  18.66  19.08  26.08  27.63 ]
-(%o3)         [                                   ]
-              [ 20.25  21.46  19.95  27.71  23.38 ]
-              [                                   ]
-              [ 18.79  18.96  14.46  26.38  21.84 ]
-</pre>
-<p>In the following example, we request only the first, second and fifth
-components of those records with wind speeds greater or equal than 16
-in station number 1 and less than 25 knots in station number 4. The sample
-contains only data from stations 1, 2 and 5. In this case,
-the predicate function is defined as an ordinary Maxima function.
-</p><pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) g(x):= x[1] &gt;= 16 and x[4] &lt; 25$
-(%i4) subsample (s2, g, 1, 2, 5);
-                     [ 19.38  15.37  25.25 ]
-                     [                     ]
-                     [ 17.33  14.67  19.58 ]
-(%o4)                [                     ]
-                     [ 16.92  13.21  21.21 ]
-                     [                     ]
-                     [ 17.25  18.46  23.87 ]
-</pre>
-<p>Here is an example with the categorical variables of <code>biomed.data</code>.
-We want the records corresponding to those patients in group <code>B</code>
-who are older than 38 years.
-</p><pre class="example">(%i1) load (descriptive)$
-(%i2) s3 : read_matrix (file_search (&quot;biomed.data&quot;))$
-(%i3) h(u):= u[1] = B and u[2] &gt; 38 $
-(%i4) subsample (s3, h);
-                [ B  39  28.0  102.3  17.1  146 ]
-                [                               ]
-                [ B  39  21.0  92.4   10.3  197 ]
-                [                               ]
-                [ B  39  23.0  111.5  10.0  133 ]
-                [                               ]
-                [ B  39  26.0  92.6   12.3  196 ]
-(%o4)           [                               ]
-                [ B  39  25.0  98.7   10.0  174 ]
-                [                               ]
-                [ B  39  21.0  93.2   5.9   181 ]
-                [                               ]
-                [ B  39  18.0  95.0   11.3  66  ]
-                [                               ]
-                [ B  39  39.0  88.5   7.6   168 ]
-</pre>
-<p>Probably, the statistical analysis will involve only the blood measures,
-</p><pre class="example">(%i1) load (descriptive)$
-(%i2) s3 : read_matrix (file_search (&quot;biomed.data&quot;))$
-(%i3) subsample (s3, lambda([v], v[1] = B and v[2] &gt; 38),
-                 3, 4, 5, 6);
-                   [ 28.0  102.3  17.1  146 ]
-                   [                        ]
-                   [ 21.0  92.4   10.3  197 ]
-                   [                        ]
-                   [ 23.0  111.5  10.0  133 ]
-                   [                        ]
-                   [ 26.0  92.6   12.3  196 ]
-(%o3)              [                        ]
-                   [ 25.0  98.7   10.0  174 ]
-                   [                        ]
-                   [ 21.0  93.2   5.9   181 ]
-                   [                        ]
-                   [ 18.0  95.0   11.3  66  ]
-                   [                        ]
-                   [ 39.0  88.5   7.6   168 ]
-</pre>
-<p>This is the multivariate mean of <code>s3</code>,
-</p><pre class="example">(%i1) load (descriptive)$
-(%i2) s3 : read_matrix (file_search (&quot;biomed.data&quot;))$
-(%i3) mean (s3);
-       65 B + 35 A  317          6 NA + 8144.999999999999
-(%o3) [-----------, ---, 87.178, ------------------------, 
-           100      10                     100
-                                                    3 NA + 19587
-                                            18.123, ------------]
-                                                        100
-</pre>
-<p>Here, the first component is meaningless, since <code>A</code> and <code>B</code> are categorical, the second component is the mean age of individuals in rational form, and the fourth and last values exhibit some strange behaviour. This is because symbol <code>NA</code> is used here to indicate <var>non available</var> data, and the two means are nonsense. A possible solution would be to take out from the matrix those rows with <code>NA</code> symbols, although this deserves some loss of information.
-</p><pre class="example">(%i1) load (descriptive)$
-(%i2) s3 : read_matrix (file_search (&quot;biomed.data&quot;))$
-(%i3) g(v):= v[4] # NA and v[6] # NA $
-(%i4) mean (subsample (s3, g, 3, 4, 5, 6));
-(%o4) [79.4923076923077, 86.2032967032967, 16.93186813186813, 
-                                                            2514
-                                                            ----]
-                                                             13
-</pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
 </div>
-</p></dd></dl>
+</p>
+</dd></dl>
 
 
-
-
-
-<p><a name="Item_003a-transform_005fsample"></a>
+<p><a name="Item_003a-kummer_005fm"></a>
 </p><dl>
-<dt><u>Function:</u> <b>transform_sample</b><i> (<var>matrix</var>, <var>varlist</var>, <var>exprlist</var>)</i>
+<dt><u>Function:</u> <b>kummer_m</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i>
 <a name="IDX1675"></a>
 </dt>
-<dd><p>Transforms the sample <var>matrix</var>, where each column is called according to
-<var>varlist</var>, following expressions in <var>exprlist</var>.
+<dd><p>Kummer's M function, as defined in Abramowitz and Stegun,
+<i>Handbook of Mathematical Functions</i>, Section 13.1.2.
 </p>
-<p>Examples:
+<p>The only use of this function is in solutions of ODEs returned by 
+<code>odelin</code> and <code>contrib_ode</code>.  The definition and use of this 
+function may change in future releases of Maxima.
 </p>
-<p>The second argument assigns names to the three columns. With these names,
-a list of expressions define the transformation of the sample.
+<p>See also <code>kummer_u</code>, <code>dkummer_m</code> and <code>dkummer_u</code>.
 </p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) data: matrix([3,2,7],[3,7,2],[8,2,4],[5,2,4]) $
-(%i3) transform_sample(data, [a,b,c], [c, a*b, log(a)]);
-                               [ 7  6   log(3) ]
-                               [               ]
-                               [ 2  21  log(3) ]
-(%o3)                          [               ]
-                               [ 4  16  log(8) ]
-                               [               ]
-                               [ 4  10  log(5) ]
-</pre>
-<p>Add a constant column and remove the third variable.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) data: matrix([3,2,7],[3,7,2],[8,2,4],[5,2,4]) $
-(%i3) transform_sample(data, [a,b,c], [makelist(1,k,length(data)),a,b]);
-                                  [ 1  3  2 ]
-                                  [         ]
-                                  [ 1  3  7 ]
-(%o3)                             [         ]
-                                  [ 1  8  2 ]
-                                  [         ]
-                                  [ 1  5  2 ]
-</pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
 </div>
-</p></dd></dl>
+</p>
+</dd></dl>
 
-
-
-
-
-
-
-<p><a name="Item_003a-Functions-and-Variables-for-descriptive-statistics"></a>
-</p><hr size="6">
-<a name="Functions-and-Variables-for-descriptive-statistics"></a>
-<a name="SEC235"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC234" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC236" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC232" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC232" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#SEC237" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 46.3 Functions and Variables for descriptive statistics </h2>
-
-
-
-<p><a name="Item_003a-mean"></a>
+<p><a name="Item_003a-kummer_005fu"></a>
 </p><dl>
-<dt><u>Function:</u> <b>mean</b><i> (<var>list</var>)</i>
+<dt><u>Function:</u> <b>kummer_u</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i>
 <a name="IDX1676"></a>
 </dt>
-<dt><u>Function:</u> <b>mean</b><i> (<var>matrix</var>)</i>
+<dd><p>Kummer's U function, as defined in Abramowitz and Stegun,
+<i>Handbook of Mathematical Functions</i>, Section 13.1.3.
+</p>
+<p>See <code>kummer_m</code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-dkummer_005fm"></a>
+</p><dl>
+<dt><u>Function:</u> <b>dkummer_m</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i>
 <a name="IDX1677"></a>
 </dt>
-<dd><p>This is the sample mean, defined as
-</p><pre class="example">                       n
-                     ====
-             _   1   \
-             x = -    &gt;    x
-                 n   /      i
-                     ====
-                     i = 1
-</pre>
-<p>Example:
+<dd><p>The derivative with respect to <var>x</var> of <code>kummer_m(<var>a</var>, <var>b</var>, <var>x</var>)</code>.
 </p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) mean (s1);
-                               471
-(%o3)                          ---
-                               100
-(%i4) %, numer;
-(%o4)                         4.71
-(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i6) mean (s2);
-(%o6)     [9.9485, 10.1607, 10.8685, 15.7166, 14.8441]
-</pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
 </div>
-</p></dd></dl>
+</p>
+</dd></dl>
 
-
-
-<p><a name="Item_003a-var"></a>
+<p><a name="Item_003a-dkummer_005fu"></a>
 </p><dl>
-<dt><u>Function:</u> <b>var</b><i> (<var>list</var>)</i>
+<dt><u>Function:</u> <b>dkummer_u</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i>
 <a name="IDX1678"></a>
 </dt>
-<dt><u>Function:</u> <b>var</b><i> (<var>matrix</var>)</i>
-<a name="IDX1679"></a>
-</dt>
-<dd><p>This is the sample variance, defined as
-</p><pre class="example">                     n
-                   ====
-           2   1   \          _ 2
-          s  = -    &gt;    (x - x)
-               n   /       i
-                   ====
-                   i = 1
-</pre>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) var (s1), numer;
-(%o3)                   8.425899999999999
-</pre>
-<p>See also function <code>var1</code>.
+<dd><p>The derivative with respect to <var>x</var> of <code>kummer_u(<var>a</var>, <var>b</var>, <var>x</var>)</code>.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-var1"></a>
-</p><dl>
-<dt><u>Function:</u> <b>var1</b><i> (<var>list</var>)</i>
-<a name="IDX1680"></a>
-</dt>
-<dt><u>Function:</u> <b>var1</b><i> (<var>matrix</var>)</i>
-<a name="IDX1681"></a>
-</dt>
-<dd><p>This is the sample variance, defined as
-</p><pre class="example">                     n
-                   ====
-               1   \          _ 2
-              ---   &gt;    (x - x)
-              n-1  /       i
-                   ====
-                   i = 1
-</pre>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) var1 (s1), numer;
-(%o3)                    8.5110101010101
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) var1 (s2);
-(%o5) [17.39586540404041, 15.13912778787879, 15.63204924242424, 
-                            32.50152569696971, 24.66977392929294]
-</pre>
-<p>See also function <code>var</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-std"></a>
-</p><dl>
-<dt><u>Function:</u> <b>std</b><i> (<var>list</var>)</i>
-<a name="IDX1682"></a>
-</dt>
-<dt><u>Function:</u> <b>std</b><i> (<var>matrix</var>)</i>
-<a name="IDX1683"></a>
-</dt>
-<dd><p>This is the the square root of function <code>var</code>, the variance with denominator <em>n</em>.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) std (s1), numer;
-(%o3)                   2.902740084816414
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) std (s2);
-(%o5) [4.149928523480858, 3.871399812729241, 3.933920277534866, 
-                            5.672434260526957, 4.941970881136392]
-</pre>
-<p>See also functions <code>var</code> and <code>std1</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-std1"></a>
-</p><dl>
-<dt><u>Function:</u> <b>std1</b><i> (<var>list</var>)</i>
-<a name="IDX1684"></a>
-</dt>
-<dt><u>Function:</u> <b>std1</b><i> (<var>matrix</var>)</i>
-<a name="IDX1685"></a>
-</dt>
-<dd><p>This is the the square root of function <code>var1</code>, the variance with denominator <em>n-1</em>.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) std1 (s1), numer;
-(%o3)                   2.917363553109228
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) std1 (s2);
-(%o5) [4.170835096721089, 3.89090320978032, 3.953738641137555, 
-                            5.701010936401517, 4.966867617451963]
-</pre>
-<p>See also functions <code>var1</code> and <code>std</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-noncentral_005fmoment"></a>
-</p><dl>
-<dt><u>Function:</u> <b>noncentral_moment</b><i> (<var>list</var>, <var>k</var>)</i>
-<a name="IDX1686"></a>
-</dt>
-<dt><u>Function:</u> <b>noncentral_moment</b><i> (<var>matrix</var>, <var>k</var>)</i>
-<a name="IDX1687"></a>
-</dt>
-<dd><p>The non central moment of order <em>k</em>, defined as
-</p><pre class="example">                       n
-                     ====
-                 1   \      k
-                 -    &gt;    x
-                 n   /      i
-                     ====
-                     i = 1
-</pre>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) noncentral_moment (s1, 1), numer; /* the mean */
-(%o3)                         4.71
-(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i6) noncentral_moment (s2, 5);
-(%o6) [319793.8724761505, 320532.1923892463,
-      391249.5621381556, 2502278.205988911, 1691881.797742255]
-</pre>
-<p>See also function <code>central_moment</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-central_005fmoment"></a>
-</p><dl>
-<dt><u>Function:</u> <b>central_moment</b><i> (<var>list</var>, <var>k</var>)</i>
-<a name="IDX1688"></a>
-</dt>
-<dt><u>Function:</u> <b>central_moment</b><i> (<var>matrix</var>, <var>k</var>)</i>
-<a name="IDX1689"></a>
-</dt>
-<dd><p>The central moment of order <em>k</em>, defined as
-</p><pre class="example">                    n
-                  ====
-              1   \          _ k
-              -    &gt;    (x - x)
-              n   /       i
-                  ====
-                  i = 1
-</pre>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) central_moment (s1, 2), numer; /* the variance */
-(%o3)                   8.425899999999999
-(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i6) central_moment (s2, 3);
-(%o6) [11.29584771375004, 16.97988248298583, 5.626661952750102,
-                             37.5986572057918, 25.85981904394192]
-</pre>
-<p>See also functions <code>central_moment</code> and <code>mean</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-cv"></a>
-</p><dl>
-<dt><u>Function:</u> <b>cv</b><i> (<var>list</var>)</i>
-<a name="IDX1690"></a>
-</dt>
-<dt><u>Function:</u> <b>cv</b><i> (<var>matrix</var>)</i>
-<a name="IDX1691"></a>
-</dt>
-<dd><p>The variation coefficient is the quotient between the sample standard deviation (<code>std</code>) and the <code>mean</code>,
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) cv (s1), numer;
-(%o3)                   .6193977819764815
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) cv (s2);
-(%o5) [.4192426091090204, .3829365309260502, 0.363779605385983, 
-                            .3627381836021478, .3346021393989506]
-</pre>
-<p>See also functions <code>std</code> and <code>mean</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-smin"></a>
-</p><dl>
-<dt><u>Function:</u> <b>smin</b><i> (<var>list</var>)</i>
-<a name="IDX1692"></a>
-</dt>
-<dt><u>Function:</u> <b>smin</b><i> (<var>matrix</var>)</i>
-<a name="IDX1693"></a>
-</dt>
-<dd><p>This is the minimum value of the sample <var>list</var>.
-When the argument is a matrix, <code>smin</code> returns
-a list containing the minimum values of the columns,
-which are associated to statistical variables.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) smin (s1);
-(%o3)                           0
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) smin (s2);
-(%o5)             [0.58, 0.5, 2.67, 5.25, 5.17]
-</pre>
-<p>See also function <code>smax</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-smax"></a>
-</p><dl>
-<dt><u>Function:</u> <b>smax</b><i> (<var>list</var>)</i>
-<a name="IDX1694"></a>
-</dt>
-<dt><u>Function:</u> <b>smax</b><i> (<var>matrix</var>)</i>
-<a name="IDX1695"></a>
-</dt>
-<dd><p>This is the maximum value of the sample <var>list</var>.
-When the argument is a matrix, <code>smax</code> returns
-a list containing the maximum values of the columns,
-which are associated to statistical variables.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) smax (s1);
-(%o3)                           9
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) smax (s2);
-(%o5)          [20.25, 21.46, 20.04, 29.63, 27.63]
-</pre>
-<p>See also function <code>smin</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-range"></a>
-</p><dl>
-<dt><u>Function:</u> <b>range</b><i> (<var>list</var>)</i>
-<a name="IDX1696"></a>
-</dt>
-<dt><u>Function:</u> <b>range</b><i> (<var>matrix</var>)</i>
-<a name="IDX1697"></a>
-</dt>
-<dd><p>The range is the difference between the extreme values.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) range (s1);
-(%o3)                           9
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) range (s2);
-(%o5)          [19.67, 20.96, 17.37, 24.38, 22.46]
-</pre>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-quantile"></a>
-</p><dl>
-<dt><u>Function:</u> <b>quantile</b><i> (<var>list</var>, <var>p</var>)</i>
-<a name="IDX1698"></a>
-</dt>
-<dt><u>Function:</u> <b>quantile</b><i> (<var>matrix</var>, <var>p</var>)</i>
-<a name="IDX1699"></a>
-</dt>
-<dd><p>This is the <var>p</var>-quantile, with <var>p</var> a number in <em>[0, 1]</em>, of the sample <var>list</var>.
-Although there are several definitions for the sample quantile (Hyndman, R. J., Fan, Y. (1996) <var>Sample quantiles in statistical packages</var>. American Statistician, 50, 361-365), the one based on linear interpolation is implemented in package <code>descriptive</code>.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) /* 1st and 3rd quartiles */
-         [quantile (s1, 1/4), quantile (s1, 3/4)], numer;
-(%o3)                      [2.0, 7.25]
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) quantile (s2, 1/4);
-(%o5)    [7.2575, 7.477500000000001, 7.82, 11.28, 11.48]
-</pre>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-median"></a>
-</p><dl>
-<dt><u>Function:</u> <b>median</b><i> (<var>list</var>)</i>
-<a name="IDX1700"></a>
-</dt>
-<dt><u>Function:</u> <b>median</b><i> (<var>matrix</var>)</i>
-<a name="IDX1701"></a>
-</dt>
-<dd><p>Once the sample is ordered, if the sample size is odd the median is the central value, otherwise it is the mean of the two central values.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) median (s1);
-                                9
-(%o3)                           -
-                                2
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) median (s2);
-(%o5)         [10.06, 9.855, 10.73, 15.48, 14.105]
-</pre>
-<p>The median is the 1/2-quantile.
-</p>
-<p>See also function <code>quantile</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-qrange"></a>
-</p><dl>
-<dt><u>Function:</u> <b>qrange</b><i> (<var>list</var>)</i>
-<a name="IDX1702"></a>
-</dt>
-<dt><u>Function:</u> <b>qrange</b><i> (<var>matrix</var>)</i>
-<a name="IDX1703"></a>
-</dt>
-<dd><p>The interquartilic range is the difference between the third and first quartiles, <code>quantile(<var>list</var>,3/4) - quantile(<var>list</var>,1/4)</code>,
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) qrange (s1);
-                               21
-(%o3)                          --
-                               4
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) qrange (s2);
-(%o5) [5.385, 5.572499999999998, 6.022500000000001, 
-                            8.729999999999999, 6.649999999999999]
-</pre>
-<p>See also function <code>quantile</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-mean_005fdeviation"></a>
-</p><dl>
-<dt><u>Function:</u> <b>mean_deviation</b><i> (<var>list</var>)</i>
-<a name="IDX1704"></a>
-</dt>
-<dt><u>Function:</u> <b>mean_deviation</b><i> (<var>matrix</var>)</i>
-<a name="IDX1705"></a>
-</dt>
-<dd><p>The mean deviation, defined as
-</p><pre class="example">                     n
-                   ====
-               1   \          _
-               -    &gt;    |x - x|
-               n   /       i
-                   ====
-                   i = 1
-</pre>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) mean_deviation (s1);
-                               51
-(%o3)                          --
-                               20
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) mean_deviation (s2);
-(%o5) [3.287959999999999, 3.075342, 3.23907, 4.715664000000001, 
-                                               4.028546000000002]
-</pre>
-<p>See also function <code>mean</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-median_005fdeviation"></a>
-</p><dl>
-<dt><u>Function:</u> <b>median_deviation</b><i> (<var>list</var>)</i>
-<a name="IDX1706"></a>
-</dt>
-<dt><u>Function:</u> <b>median_deviation</b><i> (<var>matrix</var>)</i>
-<a name="IDX1707"></a>
-</dt>
-<dd><p>The median deviation, defined as
-</p><pre class="example">                 n
-               ====
-           1   \
-           -    &gt;    |x - med|
-           n   /       i
-               ====
-               i = 1
-</pre><p>where <code>med</code> is the median of <var>list</var>.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) median_deviation (s1);
-                                5
-(%o3)                           -
-                                2
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) median_deviation (s2);
-(%o5)           [2.75, 2.755, 3.08, 4.315, 3.31]
-</pre>
-<p>See also function <code>mean</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-harmonic_005fmean"></a>
-</p><dl>
-<dt><u>Function:</u> <b>harmonic_mean</b><i> (<var>list</var>)</i>
-<a name="IDX1708"></a>
-</dt>
-<dt><u>Function:</u> <b>harmonic_mean</b><i> (<var>matrix</var>)</i>
-<a name="IDX1709"></a>
-</dt>
-<dd><p>The harmonic mean, defined as
-</p><pre class="example">                  n
-               --------
-                n
-               ====
-               \     1
-                &gt;    --
-               /     x
-               ====   i
-               i = 1
-</pre>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) y : [5, 7, 2, 5, 9, 5, 6, 4, 9, 2, 4, 2, 5]$
-(%i3) harmonic_mean (y), numer;
-(%o3)                   3.901858027632205
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) harmonic_mean (s2);
-(%o5) [6.948015590052786, 7.391967752360356, 9.055658197151745, 
-                            13.44199028193692, 13.01439145898509]
-</pre>
-<p>See also functions <code>mean</code> and <code>geometric_mean</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
 </div>
 </p>
 </dd></dl>
 
 
 
-<p><a name="Item_003a-geometric_005fmean"></a>
-</p><dl>
-<dt><u>Function:</u> <b>geometric_mean</b><i> (<var>list</var>)</i>
-<a name="IDX1710"></a>
-</dt>
-<dt><u>Function:</u> <b>geometric_mean</b><i> (<var>matrix</var>)</i>
-<a name="IDX1711"></a>
-</dt>
-<dd><p>The geometric mean, defined as
-</p><pre class="example">                 /  n      \ 1/n
-                 | /===\   |
-                 |  ! !    |
-                 |  ! !  x |
-                 |  ! !   i|
-                 | i = 1   |
-                 \         /
-</pre>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) y : [5, 7, 2, 5, 9, 5, 6, 4, 9, 2, 4, 2, 5]$
-(%i3) geometric_mean (y), numer;
-(%o3)                   4.454845412337012
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) geometric_mean (s2);
-(%o5) [8.82476274347979, 9.22652604739361, 10.0442675714889, 
-                            14.61274126349021, 13.96184163444275]
-</pre>
-<p>See also functions <code>mean</code> and <code>harmonic_mean</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-kurtosis"></a>
-</p><dl>
-<dt><u>Function:</u> <b>kurtosis</b><i> (<var>list</var>)</i>
-<a name="IDX1712"></a>
-</dt>
-<dt><u>Function:</u> <b>kurtosis</b><i> (<var>matrix</var>)</i>
-<a name="IDX1713"></a>
-</dt>
-<dd><p>The kurtosis coefficient, defined as
-</p><pre class="example">                    n
-                  ====
-            1     \          _ 4
-           ----    &gt;    (x - x)  - 3
-              4   /       i
-           n s    ====
-                  i = 1
-</pre>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) kurtosis (s1), numer;
-(%o3)                  - 1.273247946514421
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) kurtosis (s2);
-(%o5) [- .2715445622195385, 0.119998784429451, 
-     - .4275233490482861, - .6405361979019522, - .4952382132352935]
-</pre>
-<p>See also functions <code>mean</code>, <code>var</code> and <code>skewness</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-skewness"></a>
-</p><dl>
-<dt><u>Function:</u> <b>skewness</b><i> (<var>list</var>)</i>
-<a name="IDX1714"></a>
-</dt>
-<dt><u>Function:</u> <b>skewness</b><i> (<var>matrix</var>)</i>
-<a name="IDX1715"></a>
-</dt>
-<dd><p>The skewness coefficient, defined as
-</p><pre class="example">                    n
-                  ====
-            1     \          _ 3
-           ----    &gt;    (x - x)
-              3   /       i
-           n s    ====
-                  i = 1
-</pre>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) skewness (s1), numer;
-(%o3)                  .009196180476450424
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) skewness (s2);
-(%o5) [.1580509020000978, .2926379232061854, .09242174416107717, 
-                            .2059984348148687, .2142520248890831]
-</pre>
-<p>See also functions <code>mean</code>, <code>var</code> and <code>kurtosis</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-pearson_005fskewness"></a>
-</p><dl>
-<dt><u>Function:</u> <b>pearson_skewness</b><i> (<var>list</var>)</i>
-<a name="IDX1716"></a>
-</dt>
-<dt><u>Function:</u> <b>pearson_skewness</b><i> (<var>matrix</var>)</i>
-<a name="IDX1717"></a>
-</dt>
-<dd><p>Pearson's skewness coefficient, defined as 
-</p><pre class="example">                _
-             3 (x - med)
-             -----------
-                  s
-</pre><p>where <var>med</var> is the median of <var>list</var>.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) pearson_skewness (s1), numer;
-(%o3)                   .2159484029093895
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) pearson_skewness (s2);
-(%o5) [- .08019976629211892, .2357036272952649, 
-         .1050904062491204, .1245042340592368, .4464181795804519]
-</pre>
-<p>See also functions <code>mean</code>, <code>var</code> and <code>median</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-quartile_005fskewness"></a>
-</p><dl>
-<dt><u>Function:</u> <b>quartile_skewness</b><i> (<var>list</var>)</i>
-<a name="IDX1718"></a>
-</dt>
-<dt><u>Function:</u> <b>quartile_skewness</b><i> (<var>matrix</var>)</i>
-<a name="IDX1719"></a>
-</dt>
-<dd><p>The quartile skewness coefficient, defined as 
-</p><pre class="example">               c    - 2 c    + c
-                3/4      1/2    1/4
-               --------------------
-                   c    - c
-                    3/4    1/4
-</pre><p>where <em>c_p</em> is the <var>p</var>-quantile of sample <var>list</var>.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) quartile_skewness (s1), numer;
-(%o3)                  .04761904761904762
-(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i5) quartile_skewness (s2);
-(%o5) [- 0.0408542246982353, .1467025572005382, 
-       0.0336239103362392, .03780068728522298, .2105263157894735]
-</pre>
-<p>See also function <code>quantile</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-cov"></a>
-</p><dl>
-<dt><u>Function:</u> <b>cov</b><i> (<var>matrix</var>)</i>
-<a name="IDX1720"></a>
-</dt>
-<dd><p>The covariance matrix of the multivariate sample, defined as
-</p><pre class="example">              n
-             ====
-          1  \           _        _
-      S = -   &gt;    (X  - X) (X  - X)'
-          n  /       j        j
-             ====
-             j = 1
-</pre><p>where <em>X_j</em> is the <em>j</em>-th row of the sample matrix.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) fpprintprec : 7$  /* change precision for pretty output */
-(%i4) cov (s2);
-      [ 17.22191  13.61811  14.37217  19.39624  15.42162 ]
-      [                                                  ]
-      [ 13.61811  14.98774  13.30448  15.15834  14.9711  ]
-      [                                                  ]
-(%o4) [ 14.37217  13.30448  15.47573  17.32544  16.18171 ]
-      [                                                  ]
-      [ 19.39624  15.15834  17.32544  32.17651  20.44685 ]
-      [                                                  ]
-      [ 15.42162  14.9711   16.18171  20.44685  24.42308 ]
-</pre>
-<p>See also function <code>cov1</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-cov1"></a>
-</p><dl>
-<dt><u>Function:</u> <b>cov1</b><i> (<var>matrix</var>)</i>
-<a name="IDX1721"></a>
-</dt>
-<dd><p>The covariance matrix of the multivariate sample, defined as
-</p><pre class="example">              n
-             ====
-         1   \           _        _
-   S  = ---   &gt;    (X  - X) (X  - X)'
-    1   n-1  /       j        j
-             ====
-             j = 1
-</pre><p>where <em>X_j</em> is the <em>j</em>-th row of the sample matrix.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) fpprintprec : 7$ /* change precision for pretty output */
-(%i4) cov1 (s2);
-      [ 17.39587  13.75567  14.51734  19.59216  15.5774  ]
-      [                                                  ]
-      [ 13.75567  15.13913  13.43887  15.31145  15.12232 ]
-      [                                                  ]
-(%o4) [ 14.51734  13.43887  15.63205  17.50044  16.34516 ]
-      [                                                  ]
-      [ 19.59216  15.31145  17.50044  32.50153  20.65338 ]
-      [                                                  ]
-      [ 15.5774   15.12232  16.34516  20.65338  24.66977 ]
-</pre>
-<p>See also function <code>cov</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-global_005fvariances"></a>
-</p><dl>
-<dt><u>Function:</u> <b>global_variances</b><i> (<var>matrix</var>)</i>
-<a name="IDX1722"></a>
-</dt>
-<dt><u>Function:</u> <b>global_variances</b><i> (<var>matrix</var>, <var>options</var> ...)</i>
-<a name="IDX1723"></a>
-</dt>
-<dd><p>Function <code>global_variances</code> returns a list of global variance measures:
-</p>
-<ul>
-<li>
-<var>total variance</var>: <code>trace(S_1)</code>,
-</li><li>
-<var>mean variance</var>: <code>trace(S_1)/p</code>,
-</li><li>
-<var>generalized variance</var>: <code>determinant(S_1)</code>,
-</li><li>
-<var>generalized standard deviation</var>: <code>sqrt(determinant(S_1))</code>,
-</li><li>
-<var>efective variance</var> <code>determinant(S_1)^(1/p)</code>, (defined in: Pe&ntilde;a, D. (2002) <var>An&aacute;lisis de datos multivariantes</var>; McGraw-Hill, Madrid.)
-</li><li>
-<var>efective standard deviation</var>: <code>determinant(S_1)^(1/(2*p))</code>.
-</li></ul>
-<p>where <var>p</var> is the dimension of the multivariate random variable and <em>S_1</em> the covariance matrix returned by <code>cov1</code>.
-</p>
-<p>Option:
-</p>
-<ul>
-<li>
-<code>'data</code>, default <code>'true</code>, indicates whether the input matrix contains the sample data,
-in which case the covariance matrix <code>cov1</code> must be calculated, or not, and then the covariance
-matrix (symmetric) must be given, instead of the data.
-</li></ul>
-
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) global_variances (s2);
-(%o3) [105.338342060606, 21.06766841212119, 12874.34690469686, 
-         113.4651792608501, 6.636590811800795, 2.576158149609762]
-</pre>
-<p>Calculate the <code>global_variances</code> from the covariance matrix.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) s : cov1 (s2)$
-(%i4) global_variances (s, data=false);
-(%o4) [105.338342060606, 21.06766841212119, 12874.34690469686, 
-         113.4651792608501, 6.636590811800795, 2.576158149609762]
-</pre>
-<p>See also <code>cov</code> and <code>cov1</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-cor"></a>
-</p><dl>
-<dt><u>Function:</u> <b>cor</b><i> (<var>matrix</var>)</i>
-<a name="IDX1724"></a>
-</dt>
-<dt><u>Function:</u> <b>cor</b><i> (<var>matrix</var>, <var>logical_value</var>)</i>
-<a name="IDX1725"></a>
-</dt>
-<dd><p>The correlation matrix of the multivariate sample.
-</p>
-<p>Option:
-</p>
-<ul>
-<li>
-<code>'data</code>, default <code>'true</code>, indicates whether the input matrix contains the sample data,
-in which case the covariance matrix <code>cov1</code> must be calculated, or not, and then the covariance
-matrix (symmetric) must be given, instead of the data.
-</li></ul>
-
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) fpprintprec : 7 $
-(%i3) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i4) cor (s2);
-      [   1.0     .8476339  .8803515  .8239624  .7519506 ]
-      [                                                  ]
-      [ .8476339    1.0     .8735834  .6902622  0.782502 ]
-      [                                                  ]
-(%o4) [ .8803515  .8735834    1.0     .7764065  .8323358 ]
-      [                                                  ]
-      [ .8239624  .6902622  .7764065    1.0     .7293848 ]
-      [                                                  ]
-      [ .7519506  0.782502  .8323358  .7293848    1.0    ]
-</pre>
-<p>Calculate de correlation matrix from the covariance matrix.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) fpprintprec : 7 $
-(%i3) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i4) s : cov1 (s2)$
-(%i5) cor (s, data=false); /* this is faster */
-      [   1.0     .8476339  .8803515  .8239624  .7519506 ]
-      [                                                  ]
-      [ .8476339    1.0     .8735834  .6902622  0.782502 ]
-      [                                                  ]
-(%o5) [ .8803515  .8735834    1.0     .7764065  .8323358 ]
-      [                                                  ]
-      [ .8239624  .6902622  .7764065    1.0     .7293848 ]
-      [                                                  ]
-      [ .7519506  0.782502  .8323358  .7293848    1.0    ]
-</pre>
-<p>See also <code>cov</code> and <code>cov1</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-list_005fcorrelations"></a>
-</p><dl>
-<dt><u>Function:</u> <b>list_correlations</b><i> (<var>matrix</var>)</i>
-<a name="IDX1726"></a>
-</dt>
-<dt><u>Function:</u> <b>list_correlations</b><i> (<var>matrix</var>, <var>options</var> ...)</i>
-<a name="IDX1727"></a>
-</dt>
-<dd><p>Function <code>list_correlations</code> returns a list of correlation measures:
-</p>
-<ul>
-<li>
-<var>precision matrix</var>: the inverse of the covariance matrix <em>S_1</em>,
-<pre class="example">       -1     ij
-      S   = (s  )             
-       1         i,j = 1,2,...,p
-</pre>
-</li><li>
-<var>multiple correlation vector</var>:  <em>(R_1^2, R_2^2, ..., R_p^2)</em>, with 
-<pre class="example">       2          1
-      R  = 1 - -------
-       i        ii
-               s   s
-                    ii
-</pre><p>being an indicator of the goodness of fit of the linear multivariate regression model on <em>X_i</em> when the rest of variables are used as regressors.
-</p>
-</li><li>
-<var>partial correlation matrix</var>: with element <em>(i, j)</em> being
-<pre class="example">                         ij
-                        s
-      r        = - ------------
-       ij.rest     / ii  jj\ 1/2
-                   |s   s  |
-                   \       /
-</pre>
-</li></ul>
-
-<p>Option:
-</p>
-<ul>
-<li>
-<code>'data</code>, default <code>'true</code>, indicates whether the input matrix contains the sample data,
-in which case the covariance matrix <code>cov1</code> must be calculated, or not, and then the covariance
-matrix (symmetric) must be given, instead of the data.
-</li></ul>
-
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) z : list_correlations (s2)$
-(%i4) fpprintprec : 5$ /* for pretty output */
-(%i5) z[1];  /* precision matrix */
-      [  .38486   - .13856   - .15626   - .10239    .031179  ]
-      [                                                      ]
-      [ - .13856   .34107    - .15233    .038447   - .052842 ]
-      [                                                      ]
-(%o5) [ - .15626  - .15233    .47296    - .024816  - .10054  ]
-      [                                                      ]
-      [ - .10239   .038447   - .024816   .10937    - .034033 ]
-      [                                                      ]
-      [ .031179   - .052842  - .10054   - .034033   .14834   ]
-(%i6) z[2];  /* multiple correlation vector */
-(%o6)      [.85063, .80634, .86474, .71867, .72675]
-(%i7) z[3];  /* partial correlation matrix */
-      [  - 1.0     .38244   .36627   .49908   - .13049 ]
-      [                                                ]
-      [  .38244    - 1.0    .37927  - .19907   .23492  ]
-      [                                                ]
-(%o7) [  .36627    .37927   - 1.0    .10911    .37956  ]
-      [                                                ]
-      [  .49908   - .19907  .10911   - 1.0     .26719  ]
-      [                                                ]
-      [ - .13049   .23492   .37956   .26719    - 1.0   ]
-</pre>
-<p>See also <code>cov</code> and <code>cov1</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-
-<p><a name="Item_003a-principal_005fcomponents"></a>
-</p><dl>
-<dt><u>Function:</u> <b>principal_components</b><i> (<var>matrix</var>)</i>
-<a name="IDX1728"></a>
-</dt>
-<dt><u>Function:</u> <b>principal_components</b><i> (<var>matrix</var>, <var>options</var> ...)</i>
-<a name="IDX1729"></a>
-</dt>
-<dd><p>Calculates the principal componentes of a multivariate sample. Principal components are
-used in multivariate statistical analysis to reduce the dimensionality of the sample.
-</p>
-<p>Option:
-</p>
-<ul>
-<li>
-<code>'data</code>, default <code>'true</code>, indicates whether the input matrix contains the sample data,
-in which case the covariance matrix <code>cov1</code> must be calculated, or not, and then the covariance
-matrix (symmetric) must be given, instead of the data.
-</li></ul>
-
-<p>The output of function <code>principal_components</code> is a list with the following results:
-</p>
-<ul>
-<li>
-variances of the principal components,
-</li><li>
-percentage of total variance explained by each principal component,
-</li><li>
-rotation matrix.
-</li></ul>
-
-<p>Examples:
-</p>
-<p>In this sample, the first component explains 83.13 per cent of total 
-variance.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) fpprintprec:4 $
-(%i4) res: principal_components(s2);
-0 errors, 0 warnings
-(%o4) [[87.57, 8.753, 5.515, 1.889, 1.613], 
-[83.13, 8.31, 5.235, 1.793, 1.531], 
-[ .4149  .03379   - .4757  - 0.581   - .5126 ]
-[                                            ]
-[ 0.369  - .3657  - .4298   .7237    - .1469 ]
-[                                            ]
-[ .3959  - .2178  - .2181  - .2749    .8201  ]]
-[                                            ]
-[ .5548   .7744    .1857    .2319    .06498  ]
-[                                            ]
-[ .4765  - .4669   0.712   - .09605  - .1969 ]
-(%i5) /* accumulated percentages  */
-    block([ap: copy(res[2])],
-      for k:2 thru length(ap) do ap[k]: ap[k]+ap[k-1],
-      ap);
-(%o5)                 [83.13, 91.44, 96.68, 98.47, 100.0]
-(%i6) /* sample dimension */
-      p: length(first(res));
-(%o6)                                  5
-(%i7) /* plot percentages to select number of
-         principal components for further work */
-     draw2d(
-        fill_density = 0.2,
-        apply(bars, makelist([k, res[2][k], 1/2], k, p)),
-        points_joined = true,
-        point_type    = filled_circle,
-        point_size    = 3,
-        points(makelist([k, res[2][k]], k, p)),
-        xlabel = &quot;Variances&quot;,
-        ylabel = &quot;Percentages&quot;,
-        xtics  = setify(makelist([concat(&quot;PC&quot;,k),k], k, p))) $
-</pre>
-<p>In case de covariance matrix is known, it can be passed to the function,
-but option <code>data=false</code> must be used.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) S: matrix([1,-2,0],[-2,5,0],[0,0,2]);
-                                [  1   - 2  0 ]
-                                [             ]
-(%o2)                           [ - 2   5   0 ]
-                                [             ]
-                                [  0    0   2 ]
-(%i3) fpprintprec:4 $
-(%i4) /* the argumment is a covariance matrix */
-      res: principal_components(S, data=false);
-0 errors, 0 warnings
-                                                  [ - .3827  0.0  .9239 ]
-                                                  [                     ]
-(%o4) [[5.828, 2.0, .1716], [72.86, 25.0, 2.145], [  .9239   0.0  .3827 ]]
-                                                  [                     ]
-                                                  [   0.0    1.0   0.0  ]
-(%i5) /* transformation to get the principal components
-         from original records */
-      matrix([a1,b2,c3],[a2,b2,c2]).last(res);
-             [ .9239 b2 - .3827 a1  1.0 c3  .3827 b2 + .9239 a1 ]
-(%o5)        [                                                  ]
-             [ .9239 b2 - .3827 a2  1.0 c2  .3827 b2 + .9239 a2 ]
-</pre>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-Functions-and-Variables-for-statistical-graphs"></a>
+<p><a name="Item_003a-Possible-improvements-to-contrib_005fode"></a>
 </p><hr size="6">
-<a name="Functions-and-Variables-for-statistical-graphs"></a>
-<a name="SEC236"></a>
+<a name="Possible-improvements-to-contrib_005fode"></a>
+<a name="SEC231"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC235" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#SEC237" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC230" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC232" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC232" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC232" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#SEC237" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#SEC234" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 46.4 Functions and Variables for statistical graphs </h2>
+<h2 class="section"> 46.3 Possible improvements to contrib_ode </h2>
 
 
-
-<p><a name="Item_003a-barsplot"></a>
-</p><dl>
-<dt><u>Function:</u> <b>barsplot</b><i> (<var>data1</var>, <var>data2</var>, &hellip;, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
-<a name="IDX1730"></a>
-</dt>
-<dt><u>Function:</u> <b>barsplot_description</b><i> (&hellip;)</i>
-<a name="IDX1731"></a>
-</dt>
-<dd><p>Plots bars diagrams for discrete statistical variables,
-both for one or multiple samples.
-</p>
-<p><var>data</var> can be a list of outcomes representing one sample, or a 
-matrix of <var>m</var> rows and <var>n</var> columns, representing <var>n</var> samples of size 
-<var>m</var> each.
-</p>
-<p>Available options are:
+<p>These routines are work in progress.  I still need to:
 </p>
 <ul>
 <li>
-<var>box_width</var> (default, <code>3/4</code>): relative width of rectangles. This 
-value must be in the range <code>[0,1]</code>.
+Extend the FACTOR method <code>ode1_factor</code> to work for multiple roots.
 
 </li><li>
-<var>grouping</var> (default, <code>clustered</code>): indicates how multiple samples are
-shown. Valid values are: <code>clustered</code> and <code>stacked</code>.
+Extend the FACTOR method <code>ode1_factor</code> to attempt to solve higher
+  order factors.  At present it only attemps to solve linear factors.
 
 </li><li>
-<var>groups_gap</var> (default, <code>1</code>): a positive integer number representing 
-the gap between two consecutive groups of bars.
+Fix the LAGRANGE routine <code>ode1_lagrange</code> to prefer real roots over
+  complex roots.
 
 </li><li>
-<var>bars_colors</var> (default, <code>[]</code>): a list of colors for multiple samples.
-When there are more samples than specified colors, the extra necesary colors 
-are chosen at random. See <code>color</code> to learn more about them.
+Add additional methods for Riccati equations.
 
 </li><li>
-<var>frequency</var> (default, <code>absolute</code>): indicates the scale of the
-ordinates. Possible values are:  <code>absolute</code>, <code>relative</code>, 
-and <code>percent</code>.
+Improve the detection of Abel equations of second kind.  The exisiting
+  pattern matching is weak.
 
 </li><li>
-<var>ordering</var> (default, <code>orderlessp</code>): possible values are <code>orderlessp</code> or <code>ordergreatp</code>,
-indicating how statistical outcomes should be ordered on the <var>x</var>-axis.
+Work on the Lie symmetry group routine <code>ode1_lie</code>.  There are quite a
+  few problems with it: some parts are unimplemented; some test cases
+  seem to run forever; other test cases crash; yet others return very
+  complex &quot;solutions&quot;.  I wonder if it really ready for release yet.
 
 </li><li>
-<var>sample_keys</var> (default, <code>[]</code>): a list with the strings to be used in the legend.
-When the list length is other than 0 or the number of samples, an error message is returned.
-
-</li><li>
-<var>start_at</var> (default, <code>0</code>): indicates where the plot begins to be plotted on the
-x axis.
-
-</li><li>
-All global <code>draw</code> options, except <code>xtics</code>, which is 
-internally assigned by <code>barsplot</code>.
-If you want to set your own values for this option or want to build
-complex scenes, make use of <code>barsplot_description</code>. See example below.
-
-</li><li>
-The following local <code>draw</code> options: <code>key</code>, <code>color</code>, 
-<code>fill_color</code>, <code>fill_density</code> and <code>line_width</code>. See also
-<code>bars</code>.
+Add more test cases.
 
 </li></ul>
 
-<p>Function <code>barsplot_description</code> creates a graphic object
-suitable for creating complex scenes, together with other
-graphic objects. There is also a function <code>wxbarsplot</code> for 
-creating embedded histograms in interfaces wxMaxima and iMaxima.
-</p>
-<p>Examples:
-</p>
-<p>Univariate sample in matrix form. Absolute frequencies.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) m : read_matrix (file_search (&quot;biomed.data&quot;))$
-(%i3) barsplot(
-        col(m,2),
-        title        = &quot;Ages&quot;,
-        xlabel       = &quot;years&quot;,
-        box_width    = 1/2,
-        fill_density = 3/4)$
-</pre>
-<p>Two samples of different sizes, with
-relative frequencies and user declared colors.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) l1:makelist(random(10),k,1,50)$
-(%i3) l2:makelist(random(10),k,1,100)$
-(%i4) barsplot(
-        l1,l2,
-        box_width    = 1,
-        fill_density = 1,
-        bars_colors  = [black, grey],
-        frequency = relative,
-        sample_keys = [&quot;A&quot;, &quot;B&quot;])$
-</pre>
-<p>Four non numeric samples of equal size.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) barsplot(
-        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
-        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
-        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
-        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
-        title  = &quot;Asking for something to four groups&quot;,
-        ylabel = &quot;# of individuals&quot;,
-        groups_gap   = 3,
-        fill_density = 0.5,
-        ordering     = ordergreatp)$
-</pre>
-<p>Stacked bars.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) barsplot(
-        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
-        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
-        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
-        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
-        title  = &quot;Asking for something to four groups&quot;,
-        ylabel = &quot;# of individuals&quot;,
-        grouping     = stacked,
-        fill_density = 0.5,
-        ordering     = ordergreatp)$
-</pre>
-<p><code>barsplot</code> in a multiplot context.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) l1:makelist(random(10),k,1,50)$
-(%i3) l2:makelist(random(10),k,1,100)$
-(%i4) bp1 : 
-        barsplot_description(
-         l1,
-         box_width = 1,
-         fill_density = 0.5,
-         bars_colors = [blue],
-         frequency = relative)$
-(%i5) bp2 : 
-        barsplot_description(
-         l2,
-         box_width = 1,
-         fill_density = 0.5,
-         bars_colors = [red],
-         frequency = relative)$
-(%i6) draw(gr2d(bp1), gr2d(bp2))$
-</pre>
-<p>For bars diagrams related options, see <code>bars</code> of package <code>draw</code>.
-See also functions <code>histogram</code> and <code>piechart</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a> &middot;
-<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
-</div>
-</p></dd></dl>
+<p><a name="Item_003a-Test-cases-for-contrib_005fode"></a>
+</p><hr size="6">
+<a name="Test-cases-for-contrib_005fode"></a>
+<a name="SEC232"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC231" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC233" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#SEC234" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 46.4 Test cases for contrib_ode </h2>
 
 
-
-<p><a name="Item_003a-boxplot"></a>
-</p><dl>
-<dt><u>Function:</u> <b>boxplot</b><i> (<var>data</var>)</i>
-<a name="IDX1732"></a>
-</dt>
-<dt><u>Function:</u> <b>boxplot</b><i> (<var>data</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
-<a name="IDX1733"></a>
-</dt>
-<dt><u>Function:</u> <b>boxplot_description</b><i> (&hellip;)</i>
-<a name="IDX1734"></a>
-</dt>
-<dd><p>This function plots box-and-whishker diagrams. Argument <var>data</var> can be a list,
-which is not of great interest, since these diagrams are mainly used for
-comparing different samples, or a matrix, so it is possible to compare
-two or more components of a multivariate statistical variable. 
-But it is also allowed <var>data</var> to be a list of samples with 
-possible different sample sizes, in fact this is the only function 
-in package <code>descriptive</code> that admits this type of data structure.
-</p>
-<p>Available options are:
+<p>The routines have been tested on a approximately one thousand  test cases 
+from Murphy,
+Kamke, Zwillinger and elsewhere.  These are included in the tests subdirectory.
 </p>
 <ul>
 <li>
-<var>box_width</var> (default, <code>3/4</code>): relative width of boxes.
-This  value must be in the range <code>[0,1]</code>.
+The Clairault routine <code>ode1_clairault</code> finds all known solutions,
+  including singular solutions, of the Clairault equations in Murphy and
+  Kamke.
 
 </li><li>
-<var>box_orientation</var> (default, <code>vertical</code>): possible values: <code>vertical</code>
-and <code>horizontal</code>.
+The other routines often return a single solution when multiple
+  solutions exist.
 
 </li><li>
-All <code>draw</code> options, except <code>points_joined</code>, <code>point_size</code>, <code>point_type</code>,
-<code>xtics</code>, <code>ytics</code>, <code>xrange</code>, and <code>yrange</code>, which are
-internally assigned by <code>boxplot</code>.
-If you want to set your own values for this options or want to build
-complex scenes, make use of <code>boxplot_description</code>.
+Some of the &quot;solutions&quot; from <code>ode1_lie</code> are overly complex and
+  impossible to check.
 
 </li><li>
-The following local <code>draw</code> options: <code>key</code>, <code>color</code>, 
-and <code>line_width</code>.
+There are some crashes.
 
 </li></ul>
 
-<p>Function <code>boxplot_description</code> creates a graphic object
-suitable for creating complex scenes, together with other
-graphic objects. There is also a function <code>wxboxplot</code> for 
-creating embedded histograms in interfaces wxMaxima and iMaxima.
-</p>
-<p>Examples:
-</p>
-<p>Box-and-whishker diagram from a multivariate sample.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix(file_search(&quot;wind.data&quot;))$
-(%i3) boxplot(s2,
-        box_width  = 0.2,
-        title      = &quot;Windspeed in knots&quot;,
-        xlabel     = &quot;Stations&quot;,
-        color      = red,
-        line_width = 2)$
-</pre>
-<p>Box-and-whishker diagram from three samples of different sizes.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) A :
-       [[6, 4, 6, 2, 4, 8, 6, 4, 6, 4, 3, 2],
-        [8, 10, 7, 9, 12, 8, 10],
-        [16, 13, 17, 12, 11, 18, 13, 18, 14, 12]]$
-(%i3) boxplot (A, box_orientation = horizontal)$
-</pre>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a> &middot;
-<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
-</div>
-</p></dd></dl>
+<p><a name="Item_003a-References-for-contrib_005fode"></a>
+</p><hr size="6">
+<a name="References-for-contrib_005fode"></a>
+<a name="SEC233"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC232" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#SEC234" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#SEC234" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 46.5 References for contrib_ode </h2>
 
 
-
-<p><a name="Item_003a-histogram"></a>
-</p><dl>
-<dt><u>Function:</u> <b>histogram</b><i> (<var>list</var>)</i>
-<a name="IDX1735"></a>
-</dt>
-<dt><u>Function:</u> <b>histogram</b><i> (<var>list</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
-<a name="IDX1736"></a>
-</dt>
-<dt><u>Function:</u> <b>histogram</b><i> (<var>one_column_matrix</var>)</i>
-<a name="IDX1737"></a>
-</dt>
-<dt><u>Function:</u> <b>histogram</b><i> (<var>one_column_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
-<a name="IDX1738"></a>
-</dt>
-<dt><u>Function:</u> <b>histogram</b><i> (<var>one_row_matrix</var>)</i>
-<a name="IDX1739"></a>
-</dt>
-<dt><u>Function:</u> <b>histogram</b><i> (<var>one_row_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
-<a name="IDX1740"></a>
-</dt>
-<dt><u>Function:</u> <b>histogram_description</b><i> (&hellip;)</i>
-<a name="IDX1741"></a>
-</dt>
-<dd><p>This function plots an histogram from a continuous sample.
-Sample data must be stored in a list of numbers or a one dimensional matrix.
-</p>
-<p>Available options are:
-</p>
-<ul>
+<ol>
 <li>
-<var>nclasses</var> (default, <code>10</code>): number of classes of the histogram, or
-a list indicating the limits of the classes and the number of them, or
-only the limits.
+E. Kamke, Differentialgleichungen Losungsmethoden und Losungen, Vol 1,
+    Geest &amp; Portig, Leipzig, 1961
 
 </li><li>
-<var>frequency</var> (default, <code>absolute</code>): indicates the scale of the
-ordinates. Possible values are:  <code>absolute</code>, <code>relative</code>,  <code>percent</code>,
-and <code>density</code>. With <code>density</code>, the histogram area has a total area of one.
+G. M. Murphy, Ordinary Differential Equations and Their Solutions,
+    Van Nostrand, New York, 1960
 
 </li><li>
-<var>htics</var> (default, <code>auto</code>): format of the histogram tics. Possible
-values are: <code>auto</code>, <code>endpoints</code>, <code>intervals</code>, or a list
-of labels. 
+D. Zwillinger, Handbook of Differential Equations, 3rd edition,
+    Academic Press, 1998
 
 </li><li>
-All global <code>draw</code> options, except <code>xrange</code>, <code>yrange</code>, 
-and <code>xtics</code>, which are internally assigned by <code>histogram</code>.
-If you want to set your own values for these options, make use of 
-<code>histogram_description</code>. See examples bellow.
+F. Schwarz, Symmetry Analysis of Abel's Equation, Studies in
+    Applied Mathematics, 100:269-294 (1998)
 
 </li><li>
-The following local <code>draw</code> options: <code>key</code>, <code>color</code>, 
-<code>fill_color</code>, <code>fill_density</code> and <code>line_width</code>. See also
-<code>bars</code>.
-
-</li></ul>
-
-<p>Function <code>histogram_description</code> creates a graphic object
-suitable for creating complex scenes, together with other
-graphic objects. There is also a function <code>wxhistogram</code> for 
-creating embedded histograms in interfaces wxMaxima and iMaxima.
-</p>
-<p>Examples:
-</p>
-<p>A simple with eight classes:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) histogram (
-           s1,
-           nclasses     = 8,
-           title        = &quot;pi digits&quot;,
-           xlabel       = &quot;digits&quot;,
-           ylabel       = &quot;Absolute frequency&quot;,
-           fill_color   = grey,
-           fill_density = 0.6)$
-</pre>
-<p>Setting the limits of the histogram to -2 and 12, with 3 classes.
-Also, we introduce predefined tics:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) histogram (
-           s1,
-           nclasses     = [-2,12,3],
-           htics        = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;],
-           terminal     = png,
-           fill_color   = &quot;#23afa0&quot;,
-           fill_density = 0.6)$
-</pre>
-<p>We make use of <code>histogram_description</code> for setting 
-the <code>xrange</code> and adding an explicit curve into the scene:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) ( load(&quot;distrib&quot;),
-        m: 14, s: 2,
-        s2: random_normal(m, s, 1000) ) $
-(%i3) draw2d(
-        grid   = true,
-        xrange = [5, 25],
-        histogram_description(
-          s2,
-          nclasses     = 9,
-          frequency    = density,
-          fill_density = 0.5),
-        explicit(pdf_normal(x,m,s), x, m - 3*s, m + 3* s))$
-</pre>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a> &middot;
-<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
-</div>
-</p></dd></dl>
-
-
-
-
-<p><a name="Item_003a-piechart"></a>
-</p><dl>
-<dt><u>Function:</u> <b>piechart</b><i> (<var>list</var>)</i>
-<a name="IDX1742"></a>
-</dt>
-<dt><u>Function:</u> <b>piechart</b><i> (<var>list</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
-<a name="IDX1743"></a>
-</dt>
-<dt><u>Function:</u> <b>piechart</b><i> (<var>one_column_matrix</var>)</i>
-<a name="IDX1744"></a>
-</dt>
-<dt><u>Function:</u> <b>piechart</b><i> (<var>one_column_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
-<a name="IDX1745"></a>
-</dt>
-<dt><u>Function:</u> <b>piechart</b><i> (<var>one_row_matrix</var>)</i>
-<a name="IDX1746"></a>
-</dt>
-<dt><u>Function:</u> <b>piechart</b><i> (<var>one_row_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
-<a name="IDX1747"></a>
-</dt>
-<dt><u>Function:</u> <b>piechart_description</b><i> (&hellip;)</i>
-<a name="IDX1748"></a>
-</dt>
-<dd><p>Similar to <code>barsplot</code>, but plots sectors instead of rectangles.
-</p>
-<p>Available options are:
-</p>
-<ul>
-<li>
-<var>sector_colors</var> (default, <code>[]</code>): a list of colors for sectors.
-When there are more sectors than specified colors, the extra necesary colors 
-are chosen at random. See <code>color</code> to learn more about them.
+F. Schwarz, Algorithmic Solution of Abel's Equation,
+    Computing 61, 39-49 (1998)
 
 </li><li>
-<var>pie_center</var> (default, <code>[0,0]</code>): diagram's center.
+E. S. Cheb-Terrab, A. D. Roche, Symmetries and First Order
+    ODE Patterns, Computer Physics Communications 113 (1998), p 239.
+    (<a href="http://lie.uwaterloo.ca/papers/ode_vii.pdf">http://lie.uwaterloo.ca/papers/ode_vii.pdf</a>)
 
 </li><li>
-<var>pie_radius</var> (default, <code>1</code>): diagram's radius.
+E. S. Cheb-Terrab, T. Kolokolnikov,  First Order ODEs,
+    Symmetries and Linear Transformations, European Journal of
+    Applied Mathematics, Vol. 14, No. 2, pp. 231-246 (2003).
+    (<a href="http://arxiv.org/abs/math-ph/0007023">http://arxiv.org/abs/math-ph/0007023</a>,<br>
+    <a href="http://lie.uwaterloo.ca/papers/ode_iv.pdf">http://lie.uwaterloo.ca/papers/ode_iv.pdf</a>)
 
 </li><li>
-All global <code>draw</code> options, except <code>key</code>, which is 
-internally assigned by <code>piechart</code>.
-If you want to set your own values for this option or want to build
-complex scenes, make use of <code>piechart_description</code>.
+G. W. Bluman, S. C. Anco, Symmetry and Integration Methods for
+    Differential Equations, Springer, (2002)
 
-</li><li>
-The following local <code>draw</code> options: <code>key</code>, <code>color</code>, 
-<code>fill_density</code> and <code>line_width</code>. See also
-<code>ellipse</code>.
-
-</li></ul>
-
-<p>Function <code>piechart_description</code> creates a graphic object
-suitable for creating complex scenes, together with other
-graphic objects. There is also a function <code>wxpiechart</code> for 
-creating embedded histograms in interfaces wxMaxima and iMaxima.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) piechart(
-        s1,
-        xrange  = [-1.1, 1.3],
-        yrange  = [-1.1, 1.1],
-        title   = &quot;Digit frequencies in pi&quot;)$
-</pre>
-<p>See also function <code>barsplot</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a> &middot;
-<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
-</div>
-</p></dd></dl>
+</li><li> 
+M. Bronstein, S. Lafaille,
+Solutions of linear ordinary differential equations in terms
+of special functions,
+Proceedings of ISSAC 2002, Lille, ACM Press, 23-28. 
+(<a href="http://www-sop.inria.fr/cafe/Manuel.Bronstein/publications/issac2002.pdf">http://www-sop.inria.fr/cafe/Manuel.Bronstein/publications/issac2002.pdf</a>)
 
 
+</li></ol>
 
-<p><a name="Item_003a-scatterplot"></a>
-</p><dl>
-<dt><u>Function:</u> <b>scatterplot</b><i> (<var>list</var>)</i>
-<a name="IDX1749"></a>
-</dt>
-<dt><u>Function:</u> <b>scatterplot</b><i> (<var>list</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
-<a name="IDX1750"></a>
-</dt>
-<dt><u>Function:</u> <b>scatterplot</b><i> (<var>matrix</var>)</i>
-<a name="IDX1751"></a>
-</dt>
-<dt><u>Function:</u> <b>scatterplot</b><i> (<var>matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
-<a name="IDX1752"></a>
-</dt>
-<dt><u>Function:</u> <b>scatterplot_description</b><i> (&hellip;)</i>
-<a name="IDX1753"></a>
-</dt>
-<dd><p>Plots scatter diagrams both for univariate (<var>list</var>) and multivariate 
-(<var>matrix</var>) samples.
-</p>
-<p>Available options are the same admitted by <code>histogram</code>.
-</p>
-<p>Function <code>scatterplot_description</code> creates a graphic object
-suitable for creating complex scenes, together with other
-graphic objects. There is also a function <code>wxscatterplot</code> for 
-creating embedded histograms in interfaces wxMaxima and iMaxima.
-</p>
-<p>Examples:
-</p>
-<p>Univariate scatter diagram from a simulated Gaussian sample. 
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) load (distrib)$
-(%i3) scatterplot(
-        random_normal(0,1,200),
-        xaxis      = true,
-        point_size = 2,
-        dimensions = [600,150])$
-</pre>
-<p>Two dimensional scatter plot.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) scatterplot(
-       submatrix(s2, 1,2,3),
-       title      = &quot;Data from stations #4 and #5&quot;,
-       point_type = diamant,
-       point_size = 2,
-       color      = blue)$
-</pre>
-<p>Three dimensional scatter plot.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) scatterplot(submatrix (s2, 1,2), nclasses=4)$
-</pre>
-<p>Five dimensional scatter plot, with five classes histograms.
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) scatterplot(
-        s2,
-        nclasses     = 5,
-        frequency    = relative,
-        fill_color   = blue,
-        fill_density = 0.3,
-        xtics        = 5)$
-</pre>
-<p>For plotting isolated or line-joined points in two and three dimensions,
-see <code>points</code>. See also <code>histogram</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a> &middot;
-<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
-</div>
-</p></dd></dl>
-
-
-
-<p><a name="Item_003a-starplot"></a>
-</p><dl>
-<dt><u>Function:</u> <b>starplot</b><i> (<var>data1</var>, <var>data2</var>, &hellip;, <var>option_1</var>, <var>option_2</var>, &hellip;)</i>
-<a name="IDX1754"></a>
-</dt>
-<dt><u>Function:</u> <b>starplot_description</b><i> (&hellip;)</i>
-<a name="IDX1755"></a>
-</dt>
-<dd><p>Plots star diagrams for discrete statistical variables,
-both for one or multiple samples.
-</p>
-<p><var>data</var> can be a list of outcomes representing one sample, or a 
-matrix of <var>m</var> rows and <var>n</var> columns, representing <var>n</var> samples of size 
-<var>m</var> each.
-</p>
-<p>Available options are:
-</p>
-<ul>
-<li>
-<var>stars_colors</var> (default, <code>[]</code>): a list of colors for multiple samples.
-When there are more samples than specified colors, the extra necesary colors 
-are chosen at random. See <code>color</code> to learn more about them.
-
-</li><li>
-<var>frequency</var> (default, <code>absolute</code>): indicates the scale of the
-radii. Possible values are:  <code>absolute</code> and <code>relative</code>.
-
-</li><li>
-<var>ordering</var> (default, <code>orderlessp</code>): possible values are <code>orderlessp</code> or <code>ordergreatp</code>,
-indicating how statistical outcomes should be ordered.
-
-</li><li>
-<var>sample_keys</var> (default, <code>[]</code>): a list with the strings to be used in the legend.
-When the list length is other than 0 or the number of samples, an error message is returned.
-
-
-</li><li>
-<var>star_center</var> (default, <code>[0,0]</code>): diagram's center.
-
-</li><li>
-<var>star_radius</var> (default, <code>1</code>): diagram's radius.
-
-</li><li>
-All global <code>draw</code> options, except <code>points_joined</code>, <code>point_type</code>, 
-and <code>key</code>, which are internally assigned by <code>starplot</code>.
-If you want to set your own values for this options or want to build
-complex scenes, make use of <code>starplot_description</code>.
-
-</li><li>
-The following local <code>draw</code> option: <code>line_width</code>.
-
-</li></ul>
-
-<p>Function <code>starplot_description</code> creates a graphic object
-suitable for creating complex scenes, together with other
-graphic objects. There is also a function <code>wxstarplot</code> for 
-creating embedded histograms in interfaces wxMaxima and iMaxima.
-</p>
-<p>Example:
-</p>
-<p>Plot based on absolute frequencies.
-Location and radius defined by the user. 
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) l1: makelist(random(10),k,1,50)$
-(%i3) l2: makelist(random(10),k,1,200)$
-(%i4) starplot(
-        l1, l2,
-        stars_colors = [blue,red],
-        sample_keys = [&quot;1st sample&quot;, &quot;2nd sample&quot;],
-        star_center = [1,2],
-        star_radius = 4,
-        proportional_axes = xy,
-        line_width = 2 ) $ 
-</pre>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a> &middot;
-<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
-</div>
-</p></dd></dl>
-
-
-<p><a name="Item_003a-stemplot"></a>
-</p><dl>
-<dt><u>Function:</u> <b>stemplot</b><i> (<var>data</var>)</i>
-<a name="IDX1756"></a>
-</dt>
-<dt><u>Function:</u> <b>stemplot</b><i> (<var>data</var>, <var>option</var>)</i>
-<a name="IDX1757"></a>
-</dt>
-<dd><p>Plots stem and leaf diagrams.
-</p>
-<p>Unique available option is:
-</p>
-<ul>
-<li>
-<var>leaf_unit</var> (default, <code>1</code>): indicates the unit of the leaves; must be a
-power of 10.
-
-</li></ul>
-
-<p>Example:
-</p>
-<pre class="example">(%i1) load (descriptive)$
-(%i2) load(distrib)$
-(%i3) stemplot(
-        random_normal(15, 6, 100),
-        leaf_unit = 0.1);
--5|4
- 0|37
- 1|7
- 3|6
- 4|4
- 5|4
- 6|57
- 7|0149
- 8|3
- 9|1334588
-10|07888
-11|01144467789
-12|12566889
-13|24778
-14|047
-15|223458
-16|4
-17|11557
-18|000247
-19|4467799
-20|00
-21|1
-22|2335
-23|01457
-24|12356
-25|455
-27|79
-key: 6|3 =  6.3
-(%o3)                  done
-</pre>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a> &middot;
-<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
-</div>
-</p></dd></dl>
-
-
-<p><a name="Item_003a-diag"></a>
+<p><a name="Item_003a-descriptive"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC232" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#SEC237" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC228" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#SEC234" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -2561,12 +855,12 @@ key: 6|3 =  6.3
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>本田 康晃</em> on <em>April, 3 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>本田 康晃</em> on <em>September, 23 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

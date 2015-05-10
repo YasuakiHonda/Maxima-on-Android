@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年4月月20日 by texi2html 1.82
+<!-- Created on 2014年9月月15日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.33.0 Manual: 46. descriptive</title>
+<title>Maxima 5.34.1 Manual: 46. contrib_ode</title>
 
-<meta name="description" content="Maxima 5.33.0 Manual: 46. descriptive">
-<meta name="keywords" content="Maxima 5.33.0 Manual: 46. descriptive">
+<meta name="description" content="Maxima 5.34.1 Manual: 46. contrib_ode">
+<meta name="keywords" content="Maxima 5.34.1 Manual: 46. contrib_ode">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -137,7 +137,7 @@ div.categorybox
 -->
 </style>
 
-<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico"/>
 
 <script type="text/javascript"><!--
 
@@ -156,2255 +156,647 @@ div.categorybox
 
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="descriptive"></a>
+<a name="contrib_005fode"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_45.html#References-for-contrib_005fode" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-descriptive" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_45.html#Examples-for-cobyla" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-contrib_005fode" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_45.html#contrib_005fode" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_45.html#cobyla" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#diag" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#descriptive" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="descriptive-1"></a>
-<h1 class="chapter">46. descriptive</h1>
+<a name="contrib_005fode-1"></a>
+<h1 class="chapter">46. contrib_ode</h1>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-descriptive">46.1 Introduction to descriptive</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Introduction-to-contrib_005fode">46.1 Introduction to contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-data-manipulation">46.2 Functions and Variables for data manipulation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-contrib_005fode">46.2 Functions and Variables for contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-descriptive-statistics">46.3 Functions and Variables for descriptive statistics</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Possible-improvements-to-contrib_005fode">46.3 Possible improvements to contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-statistical-graphs">46.4 Functions and Variables for statistical graphs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Test-cases-for-contrib_005fode">46.4 Test cases for contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#References-for-contrib_005fode">46.5 References for contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Introduction-to-descriptive"></a>
+<p><a name="Item_003a-Introduction-to-contrib_005fode"></a>
 </p><hr size="6">
-<a name="Introduction-to-descriptive"></a>
+<a name="Introduction-to-contrib_005fode"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#descriptive" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-data-manipulation" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#contrib_005fode" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-contrib_005fode" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#descriptive" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#descriptive" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#diag" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#contrib_005fode" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#contrib_005fode" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#descriptive" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-descriptive-1"></a>
-<h2 class="section">46.1 Introduction to descriptive</h2>
 
-<p>パッケージ
-<code>descriptive</code>には記述統計計算とグラフ作成を行うための関数一式が入っています。
-ソースコードと一緒に Maximaツリーに３つのデータセットがあります:
-<code>pidigits.data</code>, <code>wind.data</code>, <code>biomed.data</code>
+<a name="Introduction-to-contrib_005fode-1"></a>
+<h2 class="section">46.1 Introduction to contrib_ode</h2>
+
+<p>Maximaの常微分方程式 (ODE)ソルバ <code>ode2</code>は一階と二階の初等線形 ODEを解きます。
+関数 <code>contrib_ode</code>は線形と非線形一階 ODEと線形斉次二階 ODEに関する追加の方法で
+<code>ode2</code>を拡張します。
+コードはまだ開発中で、コールの順序は将来のリリースで変わるかもしれません。
+一旦コードが安定化したら、投稿ディレクトリから移して Maximaに統合されるかもしれません。
 </p>
-<p>パッケージ <code>descriptive</code>の関数の参考文献として、
-どんな統計マニュアルでも使うことができます。
+<p>このパッケージは、使用前にコマンド
+<code>load('contrib_ode)</code>でロードしなければいけません。
 </p>
-<p>コメント、バグ、提案は、
-<var>&rsquo;mario AT edu DOT xunta DOT es&rsquo;</var>にコンタクトしてください。
+<p><code>contrib_ode</code>のコール取り決めは <code>ode2</code>と同一です。
+３つの引数を取ります:
+ODE (右辺が 0なら左辺だけでもいいです)、
+従属変数、独立変数。
+成功した時、解のリストを返します。
 </p>
-<p>以下は、
-<code>descriptive</code>の中の記述関数が引数やリスト、行列の性質に依存して如何に機能するか
-を示す簡単な例です。
+<p>解の形式は <code>ode2</code>と異なります。
+非線形方程式は複数解を持つので、
+<code>contrib_ode</code>は解のリストを返します。
+解それぞれは複数の形式を持ちます:
+</p><ul>
+<li>
+従属変数の陽解、
+
+</li><li>
+従属変数の陰解、
+
+</li><li>
+変数 <code>%t</code>を使ったパラメトリック解、または、
+
+</li><li>
+変数 <code>%u</code>に関する別のODEへの変換
+
+</li></ul>
+
+<p><code>%c</code>は一階方程式の積分定数を表すのに使われます。
+<code>%k1</code>と <code>%k2</code>は二階方程式の定数を表すのに使われます。
+もし <code>contrib_ode</code>がいかなる理由でも解を得られないなら、
+たぶんエラーメッセージを印字した後 <code>false</code>を返します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-</pre><pre class="example">(%i2) /* univariate sample */   mean ([a, b, c]);
-                            c + b + a
-(%o2)                       ---------
-                                3
-</pre><pre class="example">(%i3) matrix ([a, b], [c, d], [e, f]);
-                            [ a  b ]
-                            [      ]
-(%o3)                       [ c  d ]
-                            [      ]
-                            [ e  f ]
-</pre><pre class="example">(%i4) /* multivariate sample */ mean (%);
-                      e + c + a  f + d + b
-(%o4)                [---------, ---------]
-                          3          3
+<p>一階非線形 ODEは複数解を持ち得るので、解のリストを返す必要があります。
+例えば:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load('contrib_ode)$
+
+(%i2) eqn:x*'diff(y,x)^2-(1+x*y)*'diff(y,x)+y=0;
+
+                    dy 2             dy
+(%o2)            x (--)  - (x y + 1) -- + y = 0
+                    dx               dx
+(%i3) contrib_ode(eqn,y,x);
+
+                                             x
+(%o3)             [y = log(x) + %c, y = %c %e ]
+(%i4) method;
+
+(%o4)                        factor
 </pre></td></tr></table>
 
-<p>多変数標本では平均は列それぞれに関して計算されることに注意してください。
+<p>以下の例の二番目の解のように、
+非線形ODEは積分定数を持たない特異解を持ち得ます:
 </p>
-<p>異なるサイズかもしれない複数の標本の場合、
-Maxima関数 <code>map</code>を使って標本それぞれに対して望みの結果を得ることができます。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-</pre><pre class="example">(%i2) map (mean, [[a, b, c], [d, e]]);
-                        c + b + a  e + d
-(%o2)                  [---------, -----]
-                            3        2
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load('contrib_ode)$
+
+(%i2) eqn:'diff(y,x)^2+x*'diff(y,x)-y=0;
+
+                       dy 2     dy
+(%o2)                 (--)  + x -- - y = 0
+                       dx       dx
+(%i3) contrib_ode(eqn,y,x);
+
+                                           2
+                                 2        x
+(%o3)              [y = %c x + %c , y = - --]
+                                          4
+(%i4) method;
+
+(%o4)                       clairault
 </pre></td></tr></table>
 
-<p>この場合、サイズ 3と 2の２つの標本がリストに格納されました。
+
+<p>以下の ODEはダミー変数 <code>%t</code>を使った２つのパラメトリック解を持ちます。
+この場合、パラメトリック解を操作して陽解を与えることができます。
 </p>
-<p>１変数標本は以下のようにリストに格納されなければいけません。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) s1 : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5];
-(%o1)           [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load('contrib_ode)$
+
+(%i2) eqn:'diff(y,x)=(x+y)^2;
+
+                          dy          2
+(%o2)                     -- = (y + x)
+                          dx
+(%i3) contrib_ode(eqn,y,x);
+
+(%o3) [[x = %c - atan(sqrt(%t)), y = - x - sqrt(%t)], 
+                     [x = atan(sqrt(%t)) + %c, y = sqrt(%t) - x]]
+(%i4) method;
+
+(%o4)                       lagrange
 </pre></td></tr></table>
 
-<p>多変数標本は以下のように行列に格納されなければいけません。
+<p>以下の例 (Kamke 1.112)は陰解を例示します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) s2 : matrix ([13.17, 9.29], [14.71, 16.88], [18.50, 16.88],
-             [10.58, 6.63], [13.33, 13.25], [13.21,  8.12]);
-                        [ 13.17  9.29  ]
-                        [              ]
-                        [ 14.71  16.88 ]
-                        [              ]
-                        [ 18.5   16.88 ]
-(%o1)                   [              ]
-                        [ 10.58  6.63  ]
-                        [              ]
-                        [ 13.33  13.25 ]
-                        [              ]
-                        [ 13.21  8.12  ]
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load('contrib_ode)$
+
+(%i2) assume(x&gt;0,y&gt;0);
+
+(%o2)                    [x &gt; 0, y &gt; 0]
+(%i3) eqn:x*'diff(y,x)-x*sqrt(y^2+x^2)-y;
+
+                     dy           2    2
+(%o3)              x -- - x sqrt(y  + x ) - y
+                     dx
+(%i4) contrib_ode(eqn,y,x);
+
+                                  y
+(%o4)                  [x - asinh(-) = %c]
+                                  x
+(%i5) method;
+
+(%o5)                          lie
 </pre></td></tr></table>
 
-<p>この場合、列の数は確率変数次元に等しく、行の数はサンプルのサイズです。
-</p>
-<p>データは手で入力することができますが、
-大きな標本は普通プレインテキストファイルの中に格納されています。
-例えば、ファイル <code>pidigits.data</code>は数 <code>%pi</code>の最初の100桁を含みます:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">      3
-      1
-      4
-      1
-      5
-      9
-      2
-      6
-      5
-      3 ...
+ 
+<p>以下の Riccati方程式は
+変数 <code>%u</code>に関する線形二階 ODEに変換されます。
+Maximaは新しい ODEを解くことができません。
+なので未評価で返します。
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load('contrib_ode)$
+
+(%i2) eqn:x^2*'diff(y,x)=a+b*x^n+c*x^2*y^2;
+
+                    2 dy      2  2      n
+(%o2)              x  -- = c x  y  + b x  + a
+                      dx
+(%i3) contrib_ode(eqn,y,x);
+
+               d%u
+               ---                            2
+               dx        2     n - 2   a     d %u
+(%o3)  [[y = - ----, %u c  (b x      + --) + ---- c = 0]]
+               %u c                     2      2
+                                       x     dx
+(%i4) method;
+
+(%o4)                        riccati
 </pre></td></tr></table>
 
-<p>Maximaでこれらの桁をロードするためには、
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i2) length (s1);
-(%o2)                          100
-</pre></td></tr></table>
 
-<p>他方、ファイル <code>wind.data</code>は
-アイルランド共和国の５つの気象台の毎日の平均風速を含みます。
-(これは１２の気象台で取得されたデータセットの一部です。
-元のファイルは StatLib Data Repositoryから無料でダウンロードでき、
-その分析は Haslett, J., Raftery, A. E. (1989) <var>Space-time Modelling with
-Long-memory Dependence: Assessing Ireland&rsquo;s Wind Power Resource,
-with Discussion</var>. Applied Statistics 38, 1-50
-で議論されてます。)
-以下ではデータをロードします:
+<p>一階 ODEに対して <code>contrib_ode</code>は <code>ode2</code>をコールします。
+その後、以下の方法を試します:
+因数分解、Clairault, Lagrange, Riccati, Abel, Lie対称性を使った方法。
+もし Abel方法が失敗したら、
+Lie方法は Abel方程式には試みられませんが、
+もし Riccati方法が未解決二階 ODEを返したら、 Lie方法が試みられます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i2) length (s2);
-(%o2)                          100
-</pre><pre class="example">(%i3) s2 [%]; /* last record */
-(%o3)            [3.58, 6.0, 4.58, 7.62, 11.25]
-</pre></td></tr></table>
-
-<p>いくつかの標本は数値でないデータを含みます。
-例えば、ファイル <code>biomed.data</code> (StatLib Data
-Repositoryからダウンロードされた別のもっと大きなものの一部)は、異なる年齢の２つのグループ
-<code>A</code>と <code>B</code>の患者から測定された４つの血圧を含みます。
+<p>二階 ODEに対して <code>contrib_ode</code>は <code>ode2</code>をコールし、その後
+<code>odelin</code>をコールします。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) s3 : read_matrix (file_search (&quot;biomed.data&quot;))$
-</pre><pre class="example">(%i2) length (s3);
-(%o2)                          100
-</pre><pre class="example">(%i3) s3 [1]; /* first record */
-(%o3)            [A, 30, 167.0, 89.0, 25.6, 364]
-</pre></td></tr></table>
-
-<p>最初の個人はグループ <code>A</code>に属し、30歳で、血圧は167.0, 89.0, 25.6, 364でした。
+<p>もしコマンド
+<code>put('contrib_ode,true,'verbose)</code>を実行したら
+長いデバッグトレースとメッセージが表示されます。
 </p>
-<p>カテゴリデータを扱う時には気をつけなければいけません。
-次の例では、シンボル <code>a</code>が以前のある時点で値に割り当てられ、その後、カテゴリ値
-<code>a</code>を持つ標本が取られます。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) a : 1$
-</pre><pre class="example">(%i2) matrix ([a, 3], [b, 5]);
-                            [ 1  3 ]
-(%o2)                       [      ]
-                            [ b  5 ]
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Descriptive-statistics">Descriptive statistics</a>
- &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Differential-equations">Differential equations</a>
+ &middot;<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
 </div></p>
-<p><a name="Item_003a-Functions-and-Variables-for-data-manipulation"></a>
+
+<p><a name="Item_003a-Functions-and-Variables-for-contrib_005fode"></a>
 </p><hr size="6">
-<a name="Functions-and-Variables-for-data-manipulation"></a>
+<a name="Functions-and-Variables-for-contrib_005fode"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-descriptive" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-descriptive-statistics" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-contrib_005fode" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Possible-improvements-to-contrib_005fode" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#descriptive" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#descriptive" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#diag" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#contrib_005fode" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#contrib_005fode" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#descriptive" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-data-manipulation-1"></a>
-<h2 class="section">46.2 Functions and Variables for data manipulation</h2>
+<a name="Functions-and-Variables-for-contrib_005fode-1"></a>
+<h2 class="section">46.2 Functions and Variables for contrib_ode</h2>
 
 
-
-
-<p><a name="Item_003a-build_005fsample"></a>
-</p><dl>
-<dt><a name="index-build_005fsample"></a><u>関数:</u> <b>build_sample</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-build_005fsample-1"></a><u>関数:</u> <b>build_sample</b><i> (<var>matrix</var>)</i></dt>
-<dd><p>絶対頻度のテーブルから標本を構築します。
-入力テーブルは行列か、サイズの等しいリストのリストです。
-列の数やリストの長さは1より大きなければいけません。
-それぞれの行もしくはそれぞれのリストの最後の要素は絶対頻度として解釈されます。
-出力は常に行列形式での標本です。
-</p>
-<p>例:
-</p>
-<p>一変量頻度テーブル。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) sam1: build_sample([[6,1], [j,2], [2,1]]);
-                       [ 6 ]
-                       [   ]
-                       [ j ]
-(%o2)                  [   ]
-                       [ j ]
-                       [   ]
-                       [ 2 ]
-(%i3) mean(sam1);
-                      2 j + 8
-(%o3)                [-------]
-                         4
-(%i4) barsplot(sam1) $
-</pre></td></tr></table>
-
-<p>多変量頻度テーブル。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) sam2: build_sample([[6,3,1], [5,6,2], [u,2,1],[6,8,2]]) ;
-                           [ 6  3 ]
-                           [      ]
-                           [ 5  6 ]
-                           [      ]
-                           [ 5  6 ]
-(%o2)                      [      ]
-                           [ u  2 ]
-                           [      ]
-                           [ 6  8 ]
-                           [      ]
-                           [ 6  8 ]
-(%i3) cov(sam2);
-       [   2                 2                            ]
-       [  u  + 158   (u + 28)     2 u + 174   11 (u + 28) ]
-       [  -------- - ---------    --------- - ----------- ]
-(%o3)  [     6          36            6           12      ]
-       [                                                  ]
-       [ 2 u + 174   11 (u + 28)            21            ]
-       [ --------- - -----------            --            ]
-       [     6           12                 4             ]
-(%i4) barsplot(sam2, grouping=stacked) $
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-continuous_005ffreq"></a>
-</p><dl>
-<dt><a name="index-continuous_005ffreq"></a><u>関数:</u> <b>continuous_freq</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-continuous_005ffreq-1"></a><u>関数:</u> <b>continuous_freq</b><i> (<var>list</var>, <var>m</var>)</i></dt>
+<dl>
+<dt><a name="index-contrib_005fode"></a><u>関数:</u> <b>contrib_ode</b><i> (<var>eqn</var>, <var>y</var>, <var>x</var>)</i></dt>
 <dd>
-<p><code>continuous_freq</code>の引数は数のリストでなければいけません。
-範囲を区間に分割し、それらの中に値がいくつあるか数えます。
-二番目の引数はオプションで、
-望みのクラス数 (デフォルトが 10)か、クラス境界と欲しいクラスを含むリストか
-境界だけ含むリストのいずれかです。
-(訳注: クラスは区間を意味します。)
-引数 <var>list</var>は (2個か 3個の)実数のリストでなければいけません。
-(訳注: (2 or 3) real numbersという文章ですが、意味が読み取れませんでした。)
-もしサンプル値がすべて等しいなら、この関数は振幅 2のクラスを1つだけ返します。
-(訳注: 振幅は区間幅を意味します。)
+<p>独立変数 <var>x</var>と従属変数 <var>y</var>に関する ODE <var>eqn</var>の解のリストを返します。
 </p>
-<p>例:
-</p>
-<p>オプション引数は望みのクラス数を示します。
-出力の最初のリストは区間境界を含み、二番目は対応する個数を含みます:
-区間 <code>[0, 1.8]</code>すなわち 0か 1である桁が 16あり、
-<code>(1.8, 3.6]</code>すなわち 2か 3である桁が 24あり、など。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) continuous_freq (s1, 5);
-(%o3) [[0, 1.8, 3.6, 5.4, 7.2, 9.0], [16, 24, 18, 17, 25]]
-</pre></td></tr></table>
 
-<p>オプション引数は、境界 -2と 12を持つクラスを 7個欲しいことを示します:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) continuous_freq (s1, [-2,12,7]);
-(%o3) [[- 2, 0, 2, 4, 6, 8, 10, 12], [8, 20, 22, 17, 20, 13, 0]]
-</pre></td></tr></table>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div></p>
+</dd></dl>
 
-<p>オプション引数は、境界 -2と 12を持つクラスをデフォルト個欲しいことを示します:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) continuous_freq (s1, [-2,12]);
-                3  4  11  18     32  39  46  53
-(%o3)  [[- 2, - -, -, --, --, 5, --, --, --, --, 12], 
-                5  5  5   5      5   5   5   5
-               [0, 8, 20, 12, 18, 9, 8, 25, 0, 0]]
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-discrete_005ffreq"></a>
+<p><a name="Item_003a-odelin"></a>
 </p><dl>
-<dt><a name="index-discrete_005ffreq"></a><u>関数:</u> <b>discrete_freq</b><i> (<var>list</var>)</i></dt>
-<dd><p>数値的、記述的両方の離散標本の中の絶対頻度を数えます。
-唯一の引数はリストです。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) discrete_freq (s1);
-(%o3) [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
-                             [8, 8, 12, 12, 10, 8, 9, 8, 12, 13]]
-</pre></td></tr></table>
-
-<p>最初のリストは標本値を与え、二番目はそれらの絶対頻度を与えます。
-コマンド <code>? col</code>と <code>? transpose</code>は最後の入力を理解するのを助けるはずです。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-
-<p><a name="Item_003a-standardize"></a>
-</p><dl>
-<dt><a name="index-standardize"></a><u>関数:</u> <b>standardize</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-standardize-1"></a><u>関数:</u> <b>standardize</b><i> (<var>matrix</var>)</i></dt>
+<dt><a name="index-odelin"></a><u>関数:</u> <b>odelin</b><i> (<var>eqn</var>, <var>y</var>, <var>x</var>)</i></dt>
 <dd>
-<p>リストの要素それぞれから標本平均を引き、結果を標準偏差で割ります。
-入力が行列の時、 <code>standardize</code>は行それぞれから多変量平均を引き、対応する標準偏差でそれぞれの成分を割ります。
+<p><code>odelin</code>は独立変数 <var>x</var>と従属変数 <var>y</var>に関する一階および二階線形斉次
+ODEを解きます。
+ODEの基本的な解一式を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
+<p>二階 ODEに対して <code>odelin</code>は、与えられた特殊関数を使って解を探索する
+Bronsteinと Lafailleによる方法を使います。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load('contrib_ode);
 
+(%i2) odelin(x*(x+1)*'diff(y,x,2)+(x+5)*'diff(y,x,1)+(-4)*y,y,x);
+...trying factor method
+...solving 7 equations in 4 variables
+...trying the Bessel solver
+...solving 1 equations in 2 variables
+...trying the F01 solver
+...solving 1 equations in 3 variables
+...trying the spherodial wave solver
+...solving 1 equations in 4 variables
+...trying the square root Bessel solver
+...solving 1 equations in 2 variables
+...trying the 2F1 solver
+...solving 9 equations in 5 variables
+       gauss_a(- 6, - 2, - 3, - x)  gauss_b(- 6, - 2, - 3, - x)
+(%o2) {---------------------------, ---------------------------}
+                    4                            4
+                   x                            x
 
+</pre></td></tr></table>
 
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div></p>
+</dd></dl>
 
-<p><a name="Item_003a-subsample"></a>
+<p><a name="Item_003a-ode_005fcheck"></a>
 </p><dl>
-<dt><a name="index-subsample"></a><u>関数:</u> <b>subsample</b><i> (<var>data_matrix</var>, <var>predicate_function</var>)</i></dt>
-<dt><a name="index-subsample-1"></a><u>関数:</u> <b>subsample</b><i> (<var>data_matrix</var>, <var>predicate_function</var>, <var>col_num1</var>, <var>col_num2</var>, ...)</i></dt>
-<dd><p>これは Maximaの <code>submatrix</code>関数の変形の一種です。
-最初の引数はデータ行列であり、二番目は述語関数であり、
-オプションの付加引数は返す列の番号です。
-その振る舞いは例を使ってよりよく理解されます。
-</p>
-<p>以下は最初の測候所での風速が 18より大きかった多変量レコードです。
-ラムダ式の中で <var>i</var>番目の成分は <code>v[i]</code>として参照されることを参考にしてください。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i3) subsample (s2, lambda([v], v[1] &gt; 18));
-              [ 19.38  15.37  15.12  23.09  25.25 ]
-              [                                   ]
-              [ 18.29  18.66  19.08  26.08  27.63 ]
-(%o3)         [                                   ]
-              [ 20.25  21.46  19.95  27.71  23.38 ]
-              [                                   ]
-              [ 18.79  18.96  14.46  26.38  21.84 ]
-</pre></td></tr></table>
-
-<p>以下の例では、測候所番号 1で 16以上で、かつ、測候所番号 4で
-25ノットより小さな風速のレコードの一番目、二番目、五番目の成分だけをリクエストします。
-標本は、測候所 1, 2, 5からのデータだけを含みます。
-この場合、述語関数は通常の Maxima関数として定義されます。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) g(x):= x[1] &gt;= 16 and x[4] &lt; 25$
-</pre><pre class="example">(%i4) subsample (s2, g, 1, 2, 5);
-                     [ 19.38  15.37  25.25 ]
-                     [                     ]
-                     [ 17.33  14.67  19.58 ]
-(%o4)                [                     ]
-                     [ 16.92  13.21  21.21 ]
-                     [                     ]
-                     [ 17.25  18.46  23.87 ]
-</pre></td></tr></table>
-
-<p>以下は <code>biomed.data</code>のカテゴリ変数の例です。
-38歳より年上のグループ <code>B</code>の患者に対応するレコードが欲しいです。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s3 : read_matrix (file_search (&quot;biomed.data&quot;))$
-(%i3) h(u):= u[1] = B and u[2] &gt; 38 $
-</pre><pre class="example">(%i4) subsample (s3, h);
-                [ B  39  28.0  102.3  17.1  146 ]
-                [                               ]
-                [ B  39  21.0  92.4   10.3  197 ]
-                [                               ]
-                [ B  39  23.0  111.5  10.0  133 ]
-                [                               ]
-                [ B  39  26.0  92.6   12.3  196 ]
-(%o4)           [                               ]
-                [ B  39  25.0  98.7   10.0  174 ]
-                [                               ]
-                [ B  39  21.0  93.2   5.9   181 ]
-                [                               ]
-                [ B  39  18.0  95.0   11.3  66  ]
-                [                               ]
-                [ B  39  39.0  88.5   7.6   168 ]
-</pre></td></tr></table>
-
-<p>統計解析には血圧だけを使うかもしれません。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s3 : read_matrix (file_search (&quot;biomed.data&quot;))$
-</pre><pre class="example">(%i3) subsample (s3, lambda([v], v[1] = B and v[2] &gt; 38),
-                 3, 4, 5, 6);
-                   [ 28.0  102.3  17.1  146 ]
-                   [                        ]
-                   [ 21.0  92.4   10.3  197 ]
-                   [                        ]
-                   [ 23.0  111.5  10.0  133 ]
-                   [                        ]
-                   [ 26.0  92.6   12.3  196 ]
-(%o3)              [                        ]
-                   [ 25.0  98.7   10.0  174 ]
-                   [                        ]
-                   [ 21.0  93.2   5.9   181 ]
-                   [                        ]
-                   [ 18.0  95.0   11.3  66  ]
-                   [                        ]
-                   [ 39.0  88.5   7.6   168 ]
-</pre></td></tr></table>
-
-<p>以下は<code>s3</code>の多変量平均です。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s3 : read_matrix (file_search (&quot;biomed.data&quot;))$
-</pre><pre class="example">(%i3) mean (s3);
-       65 B + 35 A  317          6 NA + 8144.999999999999
-(%o3) [-----------, ---, 87.178, ------------------------, 
-           100      10                     100
-                                                    3 NA + 19587
-                                            18.123, ------------]
-                                                        100
-</pre></td></tr></table>
-
-<p>ここで、一番目の成分は <code>A</code>と <code>B</code>はカテゴリなので意味がなく、
-二番目の成分は個々人の平均の歳の有理表現であり、
-四番目と最後の値はある奇妙な振る舞いを示しています。
-これは、シンボル <code>NA</code>が
-<var>non available</var>データを示すようにここで使われているからで、
-二つの平均は無意味です。
-情報のある種の喪失を意味しますが、可能な解は
-<code>NA</code>シンボルを持つ行を行列から取り除くことです。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s3 : read_matrix (file_search (&quot;biomed.data&quot;))$
-(%i3) g(v):= v[4] # NA and v[6] # NA $
-</pre><pre class="example">(%i4) mean (subsample (s3, g, 3, 4, 5, 6));
-(%o4) [79.4923076923077, 86.2032967032967, 16.93186813186813, 
-                                                            2514
-                                                            ----]
-                                                             13
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-
-
-<p><a name="Item_003a-transform_005fsample"></a>
-</p><dl>
-<dt><a name="index-transform_005fsample"></a><u>関数:</u> <b>transform_sample</b><i> (<var>matrix</var>, <var>varlist</var>, <var>exprlist</var>)</i></dt>
+<dt><a name="index-ode_005fcheck"></a><u>関数:</u> <b>ode_check</b><i> (<var>eqn</var>, <var>soln</var>)</i></dt>
 <dd>
-<p>標本 <var>matrix</var>を <var>exprlist</var>内の式で変換します。
-ここで、それぞれの列は <var>varlist</var>に従って名付けられます。
+<p>可能な解 <var>soln</var>を代入した後、 ODE <var>eqn</var>の値を返します。
+もし <var>soln</var>が <var>eqn</var>の解なら値はゼロと同値です。
 </p>
-<p>例:
-</p>
-<p>2番目の引数が3つの列に名前を割り当てます。
-これらの名前を使って、式のリストが標本の変換を定義します。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) data: matrix([3,2,7],[3,7,2],[8,2,4],[5,2,4]) $
-</pre><pre class="example">(%i3) transform_sample(data, [a,b,c], [c, a*b, log(a)]);
-                               [ 7  6   log(3) ]
-                               [               ]
-                               [ 2  21  log(3) ]
-(%o3)                          [               ]
-                               [ 4  16  log(8) ]
-                               [               ]
-                               [ 4  10  log(5) ]
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load('contrib_ode)$
+
+(%i2) eqn:'diff(y,x,2)+(a*x+b)*y;
+
+                         2
+                        d y
+(%o2)                   --- + (a x + b) y
+                          2
+                        dx
+(%i3) ans:[y = bessel_y(1/3,2*(a*x+b)^(3/2)/(3*a))*%k2*sqrt(a*x+b)
+         +bessel_j(1/3,2*(a*x+b)^(3/2)/(3*a))*%k1*sqrt(a*x+b)];
+
+                                  3/2
+                    1  2 (a x + b)
+(%o3) [y = bessel_y(-, --------------) %k2 sqrt(a x + b)
+                    3       3 a
+                                          3/2
+                            1  2 (a x + b)
+                 + bessel_j(-, --------------) %k1 sqrt(a x + b)]
+                            3       3 a
+(%i4) ode_check(eqn,ans[1]);
+
+(%o4)                           0
 </pre></td></tr></table>
 
-<p>定数の列を追加し、3番目の変量を削除します。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) data: matrix([3,2,7],[3,7,2],[8,2,4],[5,2,4]) $
-(%i3) transform_sample(data, [a,b,c], [makelist(1,k,length(data)),a,b]);
-</pre><pre class="example">                                  [ 1  3  2 ]
-                                  [         ]
-                                  [ 1  3  7 ]
-(%o3)                             [         ]
-                                  [ 1  8  2 ]
-                                  [         ]
-                                  [ 1  5  2 ]
-</pre></td></tr></table>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div></p>
+</dd></dl>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-
-
-
-
-<p><a name="Item_003a-Functions-and-Variables-for-descriptive-statistics"></a>
-</p><hr size="6">
-<a name="Functions-and-Variables-for-descriptive-statistics"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-data-manipulation" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-statistical-graphs" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#descriptive" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#descriptive" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#diag" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<a name="Functions-and-Variables-for-descriptive-statistics-1"></a>
-<h2 class="section">46.3 Functions and Variables for descriptive statistics</h2>
-
-
-
-<p><a name="Item_003a-mean"></a>
+<p><a name="Item_003a-method"></a>
 </p><dl>
-<dt><a name="index-mean"></a><u>関数:</u> <b>mean</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-mean-1"></a><u>関数:</u> <b>mean</b><i> (<var>matrix</var>)</i></dt>
-<dd><p>これは標本平均です。以下のように定義されます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">                       n
-                     ====
-             _   1   \
-             x = -    &gt;    x
-                 n   /      i
-                     ====
-                     i = 1
-</pre></td></tr></table>
-
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) mean (s1);
-                               471
-(%o3)                          ---
-                               100
-</pre><pre class="example">(%i4) %, numer;
-(%o4)                         4.71
-</pre><pre class="example">(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i6) mean (s2);
-(%o6)     [9.9485, 10.1607, 10.8685, 15.7166, 14.8441]
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-var"></a>
-</p><dl>
-<dt><a name="index-var"></a><u>関数:</u> <b>var</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-var-1"></a><u>関数:</u> <b>var</b><i> (<var>matrix</var>)</i></dt>
-<dd><p>これは標本分散です。以下のように定義されます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">                     n
-                   ====
-           2   1   \          _ 2
-          s  = -    &gt;    (x - x)
-               n   /       i
-                   ====
-                   i = 1
-</pre></td></tr></table>
-
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) var (s1), numer;
-(%o3)                   8.425899999999999
-</pre></td></tr></table>
-
-<p>関数 <code>var1</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-var1"></a>
-</p><dl>
-<dt><a name="index-var1"></a><u>関数:</u> <b>var1</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-var1-1"></a><u>関数:</u> <b>var1</b><i> (<var>matrix</var>)</i></dt>
-<dd><p>これは標本分散です。以下のように定義されます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">                     n
-                   ====
-               1   \          _ 2
-              ---   &gt;    (x - x)
-              n-1  /       i
-                   ====
-                   i = 1
-</pre></td></tr></table>
-
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) var1 (s1), numer;
-(%o3)                    8.5110101010101
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) var1 (s2);
-(%o5) [17.39586540404041, 15.13912778787879, 15.63204924242424, 
-                            32.50152569696971, 24.66977392929294]
-</pre></td></tr></table>
-
-<p>関数 <code>var</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-std"></a>
-</p><dl>
-<dt><a name="index-std"></a><u>関数:</u> <b>std</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-std-1"></a><u>関数:</u> <b>std</b><i> (<var>matrix</var>)</i></dt>
+<dt><a name="index-method"></a><u>システム変数:</u> <b>method</b></dt>
 <dd>
-<p>これは分母 <em>n</em>の分散である関数 <code>var</code>の平方根です。
+<p>変数 <code>method</code>は成功した解法に設定されます。
 </p>
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) std (s1), numer;
-(%o3)                   2.902740084816414
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) std (s2);
-(%o5) [4.149928523480858, 3.871399812729241, 3.933920277534866, 
-                            5.672434260526957, 4.941970881136392]
-</pre></td></tr></table>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div></p>
+</dd></dl>
 
-<p>関数 <code>var</code>と <code>std1</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-std1"></a>
+<p><a name="Item_003a-_0025c"></a>
 </p><dl>
-<dt><a name="index-std1"></a><u>関数:</u> <b>std1</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-std1-1"></a><u>関数:</u> <b>std1</b><i> (<var>matrix</var>)</i></dt>
+<dt><a name="index-_0025c"></a><u>変数:</u> <b>%c</b></dt>
 <dd>
-<p>これは分母 <em>n-1</em>の分散である関数 <code>var1</code>の平方根です。
+<p><code>%c</code>は一階 ODEの積分定数です。
 </p>
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) std1 (s1), numer;
-(%o3)                   2.917363553109228
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) std1 (s2);
-(%o5) [4.170835096721089, 3.89090320978032, 3.953738641137555, 
-                            5.701010936401517, 4.966867617451963]
-</pre></td></tr></table>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div></p>
+</dd></dl>
 
-<p>See also functions <code>var1</code> and <code>std</code>.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-noncentral_005fmoment"></a>
+<p><a name="Item_003a-_0025k1"></a>
 </p><dl>
-<dt><a name="index-noncentral_005fmoment"></a><u>関数:</u> <b>noncentral_moment</b><i> (<var>list</var>, <var>k</var>)</i></dt>
-<dt><a name="index-noncentral_005fmoment-1"></a><u>関数:</u> <b>noncentral_moment</b><i> (<var>matrix</var>, <var>k</var>)</i></dt>
+<dt><a name="index-_0025k1"></a><u>変数:</u> <b>%k1</b></dt>
 <dd>
-<p>次数 <em>k</em>の非中心モーメントです。以下のように定義されます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">                       n
-                     ====
-                 1   \      k
-                 -    &gt;    x
-                 n   /      i
-                     ====
-                     i = 1
-</pre></td></tr></table>
-
-<p>例:
+<p><code>%k1</code>は二階 ODEの最初の積分定数です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) noncentral_moment (s1, 1), numer; /* the mean */
-(%o3)                         4.71
-</pre><pre class="example">(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i6) noncentral_moment (s2, 5);
-(%o6) [319793.8724761505, 320532.1923892463,
-      391249.5621381556, 2502278.205988911, 1691881.797742255]
-</pre></td></tr></table>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div></p>
+</dd></dl>
 
-<p>関数 <code>central_moment</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-central_005fmoment"></a>
+<p><a name="Item_003a-_0025k2"></a>
 </p><dl>
-<dt><a name="index-central_005fmoment"></a><u>関数:</u> <b>central_moment</b><i> (<var>list</var>, <var>k</var>)</i></dt>
-<dt><a name="index-central_005fmoment-1"></a><u>関数:</u> <b>central_moment</b><i> (<var>matrix</var>, <var>k</var>)</i></dt>
+<dt><a name="index-_0025k2"></a><u>変数:</u> <b>%k2</b></dt>
 <dd>
-<p>次数 <em>k</em>の中心モーメントです。以下のように定義されます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">                    n
-                  ====
-              1   \          _ k
-              -    &gt;    (x - x)
-              n   /       i
-                  ====
-                  i = 1
-</pre></td></tr></table>
-
-<p>例:
+<p><code>%k2</code>は二階 ODEの二番目の積分定数です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) central_moment (s1, 2), numer; /* the variance */
-(%o3)                   8.425899999999999
-</pre><pre class="example">(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i6) central_moment (s2, 3);
-(%o6) [11.29584771375004, 16.97988248298583, 5.626661952750102,
-                             37.5986572057918, 25.85981904394192]
-</pre></td></tr></table>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div></p>
+</dd></dl>
 
-<p>関数 <code>noncentral_moment</code>と <code>mean</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-cv"></a>
+<p><a name="Item_003a-gauss_005fa"></a>
 </p><dl>
-<dt><a name="index-cv"></a><u>関数:</u> <b>cv</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-cv-1"></a><u>関数:</u> <b>cv</b><i> (<var>matrix</var>)</i></dt>
+<dt><a name="index-gauss_005fa"></a><u>関数:</u> <b>gauss_a</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i></dt>
 <dd>
-<p>変動係数は標本標準偏差 (<code>std</code>)を平均 <code>mean</code>で割った商です。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) cv (s1), numer;
-(%o3)                   .6193977819764815
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) cv (s2);
-(%o5) [.4192426091090204, .3829365309260502, 0.363779605385983, 
-                            .3627381836021478, .3346021393989506]
-</pre></td></tr></table>
-
-<p>関数 <code>std</code>と <code>mean</code>も参照してください。
+<p><code>gauss_a(a,b,c,x)</code>と <code>gauss_b(a,b,c,x)</code>は 2F1幾何関数です。
+それらは超幾何微分方程式
+<code>x(1-x) diff(y,x,2) + [c-(a+b+1)x] diff(y,x) - aby = 0</code>
+の任意の２つの独立解を表します (A&amp;S 15.5.1)。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
+<p>これらの関数は
+<code>odelin</code>と <code>contrib_ode</code>が返す ODEの解の中でだけ使われます。
+これらの関数の定義と使用は Maimaの将来のリリースで変わるかもしれません。
+</p>
+<p><code>gauss_b</code>, <code>dgauss_a</code>, <code>gauss_b</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div></p>
+</dd></dl>
 
-
-
-<p><a name="Item_003a-smin"></a>
+<p><a name="Item_003a-gauss_005fb"></a>
 </p><dl>
-<dt><a name="index-smin"></a><u>関数:</u> <b>smin</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-smin-1"></a><u>関数:</u> <b>smin</b><i> (<var>matrix</var>)</i></dt>
+<dt><a name="index-gauss_005fb"></a><u>関数:</u> <b>gauss_b</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i></dt>
+<dd><p><code>gauss_a</code>を参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-dgauss_005fa"></a>
+</p><dl>
+<dt><a name="index-dgauss_005fa"></a><u>関数:</u> <b>dgauss_a</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i></dt>
+<dd><p><code>gauss_a(<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</code>の <var>x</var>に関する導関数。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div></p>
+</dd></dl>
+
+<p><a name="Item_003a-dgauss_005fb"></a>
+</p><dl>
+<dt><a name="index-dgauss_005fb"></a><u>関数:</u> <b>dgauss_b</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i></dt>
+<dd><p><code>gauss_b(<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</code>の <var>x</var>に関する導関数。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div></p>
+</dd></dl>
+
+
+<p><a name="Item_003a-kummer_005fm"></a>
+</p><dl>
+<dt><a name="index-kummer_005fm"></a><u>関数:</u> <b>kummer_m</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i></dt>
 <dd>
-<p>これは標本 <var>list</var>の最小値です。
-引数が行列の時、
-<code>smin</code>は統計変数に関連付けられた列の最小値を含むリストを返します。
+<p>Abramowitz and Stegun,
+<i>Handbook of Mathematical Functions</i>, Section 13.1.2の中で定義される
+Kummerの M関数
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) smin (s1);
-(%o3)                           0
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) smin (s2);
-(%o5)             [0.58, 0.5, 2.67, 5.25, 5.17]
-</pre></td></tr></table>
-
-<p>関数 <code>smax</code>も参照してください。
+<p>この関数は
+<code>odelin</code>と <code>contrib_ode</code>が返す ODEの解の中でだけ使われます。
+この関数の定義と使用は Maimaの将来のリリースで変わるかもしれません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
+<p><code>kummer_u</code>, <code>dkummer_m</code>, <code>dkummer_u</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div></p>
+</dd></dl>
 
-
-
-<p><a name="Item_003a-smax"></a>
+<p><a name="Item_003a-kummer_005fu"></a>
 </p><dl>
-<dt><a name="index-smax"></a><u>関数:</u> <b>smax</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-smax-1"></a><u>関数:</u> <b>smax</b><i> (<var>matrix</var>)</i></dt>
+<dt><a name="index-kummer_005fu"></a><u>関数:</u> <b>kummer_u</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i></dt>
 <dd>
-<p>これは標本 <var>list</var>の最大値です。
-引数が行列の時、
-<code>smax</code>は統計変数に関連付けられた列の最大値を含むリストを返します。
+<p>Abramowitz and Stegun,
+<i>Handbook of Mathematical Functions</i>, Section 13.1.3の中で定義される
+Kummerの U関数
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) smax (s1);
-(%o3)                           9
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) smax (s2);
-(%o5)          [20.25, 21.46, 20.04, 29.63, 27.63]
-</pre></td></tr></table>
-
-<p>関数 <code>smin</code>も参照してください。
+<p><code>kummer_m</code>を参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div></p>
+</dd></dl>
 
-
-
-<p><a name="Item_003a-range"></a>
+<p><a name="Item_003a-dkummer_005fm"></a>
 </p><dl>
-<dt><a name="index-range"></a><u>関数:</u> <b>range</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-range-1"></a><u>関数:</u> <b>range</b><i> (<var>matrix</var>)</i></dt>
-<dd>
-<p>範囲は極値の差です。
+<dt><a name="index-dkummer_005fm"></a><u>関数:</u> <b>dkummer_m</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i></dt>
+<dd><p><code>kummer_m(<var>a</var>, <var>b</var>, <var>x</var>)</code>の <var>x</var>に関する導関数。
 </p>
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) range (s1);
-(%o3)                           9
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) range (s2);
-(%o5)          [19.67, 20.96, 17.37, 24.38, 22.46]
-</pre></td></tr></table>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div></p>
+</dd></dl>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-quantile"></a>
+<p><a name="Item_003a-dkummer_005fu"></a>
 </p><dl>
-<dt><a name="index-quantile"></a><u>関数:</u> <b>quantile</b><i> (<var>list</var>, <var>p</var>)</i></dt>
-<dt><a name="index-quantile-1"></a><u>関数:</u> <b>quantile</b><i> (<var>matrix</var>, <var>p</var>)</i></dt>
-<dd>
-<p>これは標本 <var>list</var>の <var>p</var>分位数です。
-<var>p</var>は <em>[0, 1]</em>の範囲の数です。
-標本分位数にはいくつかの定義がありますが
-(Hyndman, R. J., Fan, Y. (1996) <var>Sample quantiles in statistical packages</var>.
-American Statistician, 50, 361-365)、
-パッケージ <code>descriptive</code>では線形内挿に基づいたものが実装されています。
+<dt><a name="index-dkummer_005fu"></a><u>関数:</u> <b>dkummer_u</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i></dt>
+<dd><p><code>kummer_u(<var>a</var>, <var>b</var>, <var>x</var>)</code>の <var>x</var>に関する導関数。
 </p>
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) /* 1st and 3rd quartiles */
-         [quantile (s1, 1/4), quantile (s1, 3/4)], numer;
-(%o3)                      [2.0, 7.25]
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) quantile (s2, 1/4);
-(%o5)    [7.2575, 7.477500000000001, 7.82, 11.28, 11.48]
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-median"></a>
-</p><dl>
-<dt><a name="index-median"></a><u>関数:</u> <b>median</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-median-1"></a><u>関数:</u> <b>median</b><i> (<var>matrix</var>)</i></dt>
-<dd><p>一旦標本が順に並べられると、
-もし標本サイズが奇数ならメジアンは中央値であり、
-そうでないなら2つの中央値の平均です。
-</p>
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) median (s1);
-                                9
-(%o3)                           -
-                                2
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) median (s2);
-(%o5)         [10.06, 9.855, 10.73, 15.48, 14.105]
-</pre></td></tr></table>
-
-<p>メジアンは 1/2分位数です。
-</p>
-<p>関数 <code>quantile</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-qrange"></a>
-</p><dl>
-<dt><a name="index-qrange"></a><u>関数:</u> <b>qrange</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-qrange-1"></a><u>関数:</u> <b>qrange</b><i> (<var>matrix</var>)</i></dt>
-<dd><p>四分位範囲は三番目と一番目の分位数の差
-<code>quantile(<var>list</var>,3/4) - quantile(<var>list</var>,1/4)</code>
-です。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) qrange (s1);
-                               21
-(%o3)                          --
-                               4
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) qrange (s2);
-(%o5) [5.385, 5.572499999999998, 6.022500000000001, 
-                            8.729999999999999, 6.649999999999999]
-</pre></td></tr></table>
-
-<p>関数 <code>quantile</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-mean_005fdeviation"></a>
-</p><dl>
-<dt><a name="index-mean_005fdeviation"></a><u>関数:</u> <b>mean_deviation</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-mean_005fdeviation-1"></a><u>関数:</u> <b>mean_deviation</b><i> (<var>matrix</var>)</i></dt>
-<dd><p>平均偏差です。以下のように定義されます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">                     n
-                   ====
-               1   \          _
-               -    &gt;    |x - x|
-               n   /       i
-                   ====
-                   i = 1
-</pre></td></tr></table>
-
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) mean_deviation (s1);
-                               51
-(%o3)                          --
-                               20
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) mean_deviation (s2);
-(%o5) [3.287959999999999, 3.075342, 3.23907, 4.715664000000001, 
-                                               4.028546000000002]
-</pre></td></tr></table>
-
-<p>関数 <code>mean</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-median_005fdeviation"></a>
-</p><dl>
-<dt><a name="index-median_005fdeviation"></a><u>関数:</u> <b>median_deviation</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-median_005fdeviation-1"></a><u>関数:</u> <b>median_deviation</b><i> (<var>matrix</var>)</i></dt>
-<dd>
-<p>メジアン偏差です。以下のように定義されます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">                 n
-               ====
-           1   \
-           -    &gt;    |x - med|
-           n   /       i
-               ====
-               i = 1
-</pre></td></tr></table>
-<p>ここで <code>med</code>は <var>list</var>のメジアンです。
-</p>
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) median_deviation (s1);
-                                5
-(%o3)                           -
-                                2
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) median_deviation (s2);
-(%o5)           [2.75, 2.755, 3.08, 4.315, 3.31]
-</pre></td></tr></table>
-
-<p>関数 <code>mean</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-harmonic_005fmean"></a>
-</p><dl>
-<dt><a name="index-harmonic_005fmean"></a><u>関数:</u> <b>harmonic_mean</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-harmonic_005fmean-1"></a><u>関数:</u> <b>harmonic_mean</b><i> (<var>matrix</var>)</i></dt>
-<dd>
-<p>調和平均です。以下のように定義されます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">                  n
-               --------
-                n
-               ====
-               \     1
-                &gt;    --
-               /     x
-               ====   i
-               i = 1
-</pre></td></tr></table>
-
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) y : [5, 7, 2, 5, 9, 5, 6, 4, 9, 2, 4, 2, 5]$
-</pre><pre class="example">(%i3) harmonic_mean (y), numer;
-(%o3)                   3.901858027632205
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) harmonic_mean (s2);
-(%o5) [6.948015590052786, 7.391967752360356, 9.055658197151745, 
-                            13.44199028193692, 13.01439145898509]
-</pre></td></tr></table>
-
-<p>関数 <code>mean</code>と <code>geometric_mean</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
 </div></p>
 </dd></dl>
 
 
 
-<p><a name="Item_003a-geometric_005fmean"></a>
-</p><dl>
-<dt><a name="index-geometric_005fmean"></a><u>関数:</u> <b>geometric_mean</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-geometric_005fmean-1"></a><u>関数:</u> <b>geometric_mean</b><i> (<var>matrix</var>)</i></dt>
-<dd>
-<p>幾何平均です。以下のように定義されます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">                 /  n      \ 1/n
-                 | /===\   |
-                 |  ! !    |
-                 |  ! !  x |
-                 |  ! !   i|
-                 | i = 1   |
-                 \         /
-</pre></td></tr></table>
-
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) y : [5, 7, 2, 5, 9, 5, 6, 4, 9, 2, 4, 2, 5]$
-</pre><pre class="example">(%i3) geometric_mean (y), numer;
-(%o3)                   4.454845412337012
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) geometric_mean (s2);
-(%o5) [8.82476274347979, 9.22652604739361, 10.0442675714889, 
-                            14.61274126349021, 13.96184163444275]
-</pre></td></tr></table>
-
-<p>関数<code>mean</code>と<code>harmonic_mean</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-kurtosis"></a>
-</p><dl>
-<dt><a name="index-kurtosis"></a><u>関数:</u> <b>kurtosis</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-kurtosis-1"></a><u>関数:</u> <b>kurtosis</b><i> (<var>matrix</var>)</i></dt>
-<dd>
-<p>尖度係数です。以下のように定義されます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">                    n
-                  ====
-            1     \          _ 4
-           ----    &gt;    (x - x)  - 3
-              4   /       i
-           n s    ====
-                  i = 1
-</pre></td></tr></table>
-
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) kurtosis (s1), numer;
-(%o3)                  - 1.273247946514421
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) kurtosis (s2);
-(%o5) [- .2715445622195385, 0.119998784429451, 
-     - .4275233490482861, - .6405361979019522, - .4952382132352935]
-</pre></td></tr></table>
-
-<p>関数 <code>mean</code>, <code>var</code>, <code>skewness</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-skewness"></a>
-</p><dl>
-<dt><a name="index-skewness"></a><u>関数:</u> <b>skewness</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-skewness-1"></a><u>関数:</u> <b>skewness</b><i> (<var>matrix</var>)</i></dt>
-<dd>
-<p>歪度係数です。以下のように定義されます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">                    n
-                  ====
-            1     \          _ 3
-           ----    &gt;    (x - x)
-              3   /       i
-           n s    ====
-                  i = 1
-</pre></td></tr></table>
-
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) skewness (s1), numer;
-(%o3)                  .009196180476450424
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) skewness (s2);
-(%o5) [.1580509020000978, .2926379232061854, .09242174416107717, 
-                            .2059984348148687, .2142520248890831]
-</pre></td></tr></table>
-
-<p>関数<code>mean</code>, <code>var</code>, <code>kurtosis</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-pearson_005fskewness"></a>
-</p><dl>
-<dt><a name="index-pearson_005fskewness"></a><u>関数:</u> <b>pearson_skewness</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-pearson_005fskewness-1"></a><u>関数:</u> <b>pearson_skewness</b><i> (<var>matrix</var>)</i></dt>
-<dd>
-<p>Pearsonの歪度係数です。以下のように定義されます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">                _
-             3 (x - med)
-             -----------
-                  s
-</pre></td></tr></table>
-<p>ここで <var>med</var>は <var>list</var>のメジアンです。
-</p>
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) pearson_skewness (s1), numer;
-(%o3)                   .2159484029093895
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) pearson_skewness (s2);
-(%o5) [- .08019976629211892, .2357036272952649, 
-         .1050904062491204, .1245042340592368, .4464181795804519]
-</pre></td></tr></table>
-
-<p>関数 <code>mean</code>, <code>var</code>, <code>median</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-quartile_005fskewness"></a>
-</p><dl>
-<dt><a name="index-quartile_005fskewness"></a><u>関数:</u> <b>quartile_skewness</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-quartile_005fskewness-1"></a><u>関数:</u> <b>quartile_skewness</b><i> (<var>matrix</var>)</i></dt>
-<dd>
-<p>分位歪度係数です。以下のように定義されます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">               c    - 2 c    + c
-                3/4      1/2    1/4
-               --------------------
-                   c    - c
-                    3/4    1/4
-</pre></td></tr></table>
-<p>ここで <em>c_p</em>は標本 <var>list</var>の <var>p</var>分位数です。
-</p>
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-</pre><pre class="example">(%i3) quartile_skewness (s1), numer;
-(%o3)                  .04761904761904762
-</pre><pre class="example">(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i5) quartile_skewness (s2);
-(%o5) [- 0.0408542246982353, .1467025572005382, 
-       0.0336239103362392, .03780068728522298, .2105263157894735]
-</pre></td></tr></table>
-
-<p>関数 <code>quantile</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-cov"></a>
-</p><dl>
-<dt><a name="index-cov"></a><u>関数:</u> <b>cov</b><i> (<var>matrix</var>)</i></dt>
-<dd>
-<p>多変量標本の共分散行列です。以下のように定義されます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">              n
-             ====
-          1  \           _        _
-      S = -   &gt;    (X  - X) (X  - X)'
-          n  /       j        j
-             ====
-             j = 1
-</pre></td></tr></table>
-<p>ここで <em>X_j</em>は標本行列の <em>j</em>番目の行です。
-</p>
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) fpprintprec : 7$  /* change precision for pretty output */
-</pre><pre class="example">(%i4) cov (s2);
-      [ 17.22191  13.61811  14.37217  19.39624  15.42162 ]
-      [                                                  ]
-      [ 13.61811  14.98774  13.30448  15.15834  14.9711  ]
-      [                                                  ]
-(%o4) [ 14.37217  13.30448  15.47573  17.32544  16.18171 ]
-      [                                                  ]
-      [ 19.39624  15.15834  17.32544  32.17651  20.44685 ]
-      [                                                  ]
-      [ 15.42162  14.9711   16.18171  20.44685  24.42308 ]
-</pre></td></tr></table>
-
-<p>関数 <code>cov1</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-cov1"></a>
-</p><dl>
-<dt><a name="index-cov1"></a><u>関数:</u> <b>cov1</b><i> (<var>matrix</var>)</i></dt>
-<dd>
-<p>多変量標本の共分散行列です。以下のように定義されます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">              n
-             ====
-         1   \           _        _
-   S  = ---   &gt;    (X  - X) (X  - X)'
-    1   n-1  /       j        j
-             ====
-             j = 1
-</pre></td></tr></table>
-<p>ここで <em>X_j</em>は標本行列の <em>j</em>番目の行です。
-</p>
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) fpprintprec : 7$ /* change precision for pretty output */
-</pre><pre class="example">(%i4) cov1 (s2);
-      [ 17.39587  13.75567  14.51734  19.59216  15.5774  ]
-      [                                                  ]
-      [ 13.75567  15.13913  13.43887  15.31145  15.12232 ]
-      [                                                  ]
-(%o4) [ 14.51734  13.43887  15.63205  17.50044  16.34516 ]
-      [                                                  ]
-      [ 19.59216  15.31145  17.50044  32.50153  20.65338 ]
-      [                                                  ]
-      [ 15.5774   15.12232  16.34516  20.65338  24.66977 ]
-</pre></td></tr></table>
-
-<p>関数 <code>cov</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-global_005fvariances"></a>
-</p><dl>
-<dt><a name="index-global_005fvariances"></a><u>関数:</u> <b>global_variances</b><i> (<var>matrix</var>)</i></dt>
-<dt><a name="index-global_005fvariances-1"></a><u>関数:</u> <b>global_variances</b><i> (<var>matrix</var>, <var>options</var> ...)</i></dt>
-<dd>
-<p>関数 <code>global_variances</code>は大域分散尺度のリストを返します:
-</p>
-<ul>
-<li>
-<var>total variance</var>: <code>trace(S_1)</code>,
-</li><li>
-<var>mean variance</var>: <code>trace(S_1)/p</code>,
-</li><li>
-<var>generalized variance</var>: <code>determinant(S_1)</code>,
-</li><li>
-<var>generalized standard deviation</var>: <code>sqrt(determinant(S_1))</code>,
-</li><li>
-<var>efective variance</var> <code>determinant(S_1)^(1/p)</code>, (以下の文献で定義されています: Pe&ntilde;a, D. (2002) <var>An&aacute;lisis de datos multivariantes</var>; McGraw-Hill, Madrid.)
-</li><li>
-<var>efective standard deviation</var>: <code>determinant(S_1)^(1/(2*p))</code>.
-</li></ul>
-<p>ここで <var>p</var>は多変量確率変数の次元であり、
-<em>S_1</em>は <code>cov1</code>が返す共分散行列です。
-</p>
-<p>オプション:
-</p>
-<ul>
-<li>
-<code>'data</code>(デフォルト <code>'true</code>)は入力行列が標本データを含むかどうかを示します。
-含む場合には共分散行列 <code>cov1</code>を計算しなくてはいけません。
-含まない場合にはデータの代わりに(対称)共分散行列が与えられなければいけません。
-</li></ul>
-
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i3) global_variances (s2);
-(%o3) [105.338342060606, 21.06766841212119, 12874.34690469686, 
-         113.4651792608501, 6.636590811800795, 2.576158149609762]
-</pre></td></tr></table>
-
-<p>共分散行列から <code>global_variances</code>を計算します。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) s : cov1 (s2)$
-</pre><pre class="example">(%i4) global_variances (s, data=false);
-(%o4) [105.338342060606, 21.06766841212119, 12874.34690469686, 
-         113.4651792608501, 6.636590811800795, 2.576158149609762]
-</pre></td></tr></table>
-
-<p><code>cov</code>と <code>cov1</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-cor"></a>
-</p><dl>
-<dt><a name="index-cor"></a><u>関数:</u> <b>cor</b><i> (<var>matrix</var>)</i></dt>
-<dt><a name="index-cor-1"></a><u>関数:</u> <b>cor</b><i> (<var>matrix</var>, <var>logical_value</var>)</i></dt>
-<dd>
-<p>多変量標本の相関行列です。
-</p>
-<p>オプション:
-</p>
-<ul>
-<li>
-<code>'data</code>(デフォルト <code>'true</code>)は入力行列が標本データを含むかどうかを示します。
-含む場合には共分散行列 <code>cov1</code>を計算しなくてはいけません。
-含まない場合にはデータの代わりに(対称)共分散行列が与えられなければいけません。
-</li></ul>
-
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) fpprintprec : 7 $
-(%i3) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i4) cor (s2);
-      [   1.0     .8476339  .8803515  .8239624  .7519506 ]
-      [                                                  ]
-      [ .8476339    1.0     .8735834  .6902622  0.782502 ]
-      [                                                  ]
-(%o4) [ .8803515  .8735834    1.0     .7764065  .8323358 ]
-      [                                                  ]
-      [ .8239624  .6902622  .7764065    1.0     .7293848 ]
-      [                                                  ]
-      [ .7519506  0.782502  .8323358  .7293848    1.0    ]
-</pre></td></tr></table>
-
-<p>共分散行列から相関行列を計算します。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) fpprintprec : 7 $
-(%i3) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i4) s : cov1 (s2)$
-</pre><pre class="example">(%i5) cor (s, data=false); /* this is faster */
-      [   1.0     .8476339  .8803515  .8239624  .7519506 ]
-      [                                                  ]
-      [ .8476339    1.0     .8735834  .6902622  0.782502 ]
-      [                                                  ]
-(%o5) [ .8803515  .8735834    1.0     .7764065  .8323358 ]
-      [                                                  ]
-      [ .8239624  .6902622  .7764065    1.0     .7293848 ]
-      [                                                  ]
-      [ .7519506  0.782502  .8323358  .7293848    1.0    ]
-</pre></td></tr></table>
-
-<p><code>cov</code>と<code>cov1</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-list_005fcorrelations"></a>
-</p><dl>
-<dt><a name="index-list_005fcorrelations"></a><u>関数:</u> <b>list_correlations</b><i> (<var>matrix</var>)</i></dt>
-<dt><a name="index-list_005fcorrelations-1"></a><u>関数:</u> <b>list_correlations</b><i> (<var>matrix</var>, <var>options</var> ...)</i></dt>
-<dd>
-<p>関数 <code>list_correlations</code>は相関尺度のリストを返します:
-</p>
-<ul>
-<li>
-<var>precision matrix</var>: 共分散行列 <em>S_1</em>の逆行列,
-<table><tr><td>&nbsp;</td><td><pre class="example">       -1     ij
-      S   = (s  )             
-       1         i,j = 1,2,...,p
-</pre></td></tr></table>
-
-</li><li>
-<var>multiple correlation vector</var>:  <em>(R_1^2, R_2^2, ..., R_p^2)</em>,
-<table><tr><td>&nbsp;</td><td><pre class="example">       2          1
-      R  = 1 - -------
-       i        ii
-               s   s
-                    ii
-</pre></td></tr></table>
-<p>変数の残りが独立変数として使われる時、これらは
-<em>X_i</em>上の線形多変量回帰モデルの適合度の指標です。
-</p>
-</li><li>
-<var>partial correlation matrix</var>: <em>(i, j)</em>成分が以下の行列
-<table><tr><td>&nbsp;</td><td><pre class="example">                         ij
-                        s
-      r        = - ------------
-       ij.rest     / ii  jj\ 1/2
-                   |s   s  |
-                   \       /
-</pre></td></tr></table>
-
-</li></ul>
-
-<p>オプション:
-</p>
-<ul>
-<li>
-<code>'data</code>(デフォルト <code>'true</code>)は入力行列が標本データを含むかどうかを示します。
-含む場合には共分散行列 <code>cov1</code>を計算しなくてはいけません。
-含まない場合にはデータの代わりに(対称)共分散行列が与えられなければいけません。
-</li></ul>
-
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) z : list_correlations (s2)$
-(%i4) fpprintprec : 5$ /* for pretty output */
-</pre><pre class="example">(%i5) z[1];  /* precision matrix */
-      [  .38486   - .13856   - .15626   - .10239    .031179  ]
-      [                                                      ]
-      [ - .13856   .34107    - .15233    .038447   - .052842 ]
-      [                                                      ]
-(%o5) [ - .15626  - .15233    .47296    - .024816  - .10054  ]
-      [                                                      ]
-      [ - .10239   .038447   - .024816   .10937    - .034033 ]
-      [                                                      ]
-      [ .031179   - .052842  - .10054   - .034033   .14834   ]
-</pre><pre class="example">(%i6) z[2];  /* multiple correlation vector */
-(%o6)      [.85063, .80634, .86474, .71867, .72675]
-</pre><pre class="example">(%i7) z[3];  /* partial correlation matrix */
-      [  - 1.0     .38244   .36627   .49908   - .13049 ]
-      [                                                ]
-      [  .38244    - 1.0    .37927  - .19907   .23492  ]
-      [                                                ]
-(%o7) [  .36627    .37927   - 1.0    .10911    .37956  ]
-      [                                                ]
-      [  .49908   - .19907  .10911   - 1.0     .26719  ]
-      [                                                ]
-      [ - .13049   .23492   .37956   .26719    - 1.0   ]
-</pre></td></tr></table>
-
-<p><code>cov</code>と <code>cov1</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-
-<p><a name="Item_003a-principal_005fcomponents"></a>
-</p><dl>
-<dt><a name="index-principal_005fcomponents"></a><u>関数:</u> <b>principal_components</b><i> (<var>matrix</var>)</i></dt>
-<dt><a name="index-principal_005fcomponents-1"></a><u>関数:</u> <b>principal_components</b><i> (<var>matrix</var>, <var>options</var> ...)</i></dt>
-<dd><p>多変量標本の主成分を計算します。
-多変量統計分析で次元を減らすために標本の主成分が使われます。
-</p>
-<p>オプション:
-</p>
-<ul>
-<li>
-<code>'data</code>(デフォルト <code>'true</code>)は入力行列が標本データを含むかどうかを示します。
-含む場合には共分散行列 <code>cov1</code>を計算しなくてはいけません。
-含まない場合にはデータの代わりに(対称)共分散行列が与えられなければいけません。
-</li></ul>
-
-<p>関数 <code>principal_components</code>の出力は以下の結果を含むリストです:
-</p>
-<ul>
-<li>
-主成分の分散、
-</li><li>
-全分散の中でそれぞれの主成分が占めるパーセンテージ、
-</li><li>
-回転行列。
-</li></ul>
-
-<p>例:
-</p>
-<p>この標本では、最初の成分は全分散の83.13パーセントを占める。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) fpprintprec:4 $
-(%i4) res: principal_components(s2);
-0 errors, 0 warnings
-(%o4) [[87.57, 8.753, 5.515, 1.889, 1.613], 
-[83.13, 8.31, 5.235, 1.793, 1.531], 
-</pre><pre class="example">[ .4149  .03379   - .4757  - 0.581   - .5126 ]
-[                                            ]
-[ 0.369  - .3657  - .4298   .7237    - .1469 ]
-[                                            ]
-[ .3959  - .2178  - .2181  - .2749    .8201  ]]
-[                                            ]
-[ .5548   .7744    .1857    .2319    .06498  ]
-[                                            ]
-[ .4765  - .4669   0.712   - .09605  - .1969 ]
-</pre><pre class="example">(%i5) /* accumulated percentages  */
-    block([ap: copy(res[2])],
-      for k:2 thru length(ap) do ap[k]: ap[k]+ap[k-1],
-      ap);
-(%o5)                 [83.13, 91.44, 96.68, 98.47, 100.0]
-(%i6) /* sample dimension */
-      p: length(first(res));
-(%o6)                                  5
-(%i7) /* plot percentages to select number of
-         principal components for further work */
-     draw2d(
-        fill_density = 0.2,
-        apply(bars, makelist([k, res[2][k], 1/2], k, p)),
-        points_joined = true,
-        point_type    = filled_circle,
-        point_size    = 3,
-        points(makelist([k, res[2][k]], k, p)),
-        xlabel = &quot;Variances&quot;,
-        ylabel = &quot;Percentages&quot;,
-        xtics  = setify(makelist([concat(&quot;PC&quot;,k),k], k, p))) $
-</pre></td></tr></table>
-
-<p>共分散行列がわかっている場合、関数に渡すことができるが、
-オプション <code>data=false</code>を使わなくてはいけない。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) S: matrix([1,-2,0],[-2,5,0],[0,0,2]);
-                                [  1   - 2  0 ]
-                                [             ]
-(%o2)                           [ - 2   5   0 ]
-                                [             ]
-                                [  0    0   2 ]
-(%i3) fpprintprec:4 $
-(%i4) /* the argumment is a covariance matrix */
-      res: principal_components(S, data=false);
-0 errors, 0 warnings
-                                                  [ - .3827  0.0  .9239 ]
-                                                  [                     ]
-(%o4) [[5.828, 2.0, .1716], [72.86, 25.0, 2.145], [  .9239   0.0  .3827 ]]
-                                                  [                     ]
-                                                  [   0.0    1.0   0.0  ]
-(%i5) /* transformation to get the principal components
-         from original records */
-      matrix([a1,b2,c3],[a2,b2,c2]).last(res);
-             [ .9239 b2 - .3827 a1  1.0 c3  .3827 b2 + .9239 a1 ]
-(%o5)        [                                                  ]
-             [ .9239 b2 - .3827 a2  1.0 c2  .3827 b2 + .9239 a2 ]
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
-</div></p></dd></dl>
-
-
-
-<p><a name="Item_003a-Functions-and-Variables-for-statistical-graphs"></a>
+<p><a name="Item_003a-Possible-improvements-to-contrib_005fode"></a>
 </p><hr size="6">
-<a name="Functions-and-Variables-for-statistical-graphs"></a>
+<a name="Possible-improvements-to-contrib_005fode"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-descriptive-statistics" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#diag" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-contrib_005fode" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Test-cases-for-contrib_005fode" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#descriptive" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#descriptive" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#diag" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#contrib_005fode" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#contrib_005fode" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#descriptive" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-statistical-graphs-1"></a>
-<h2 class="section">46.4 Functions and Variables for statistical graphs</h2>
+<a name="Possible-improvements-to-contrib_005fode-1"></a>
+<h2 class="section">46.3 Possible improvements to contrib_ode</h2>
 
 
-
-<p><a name="Item_003a-barsplot"></a>
-</p><dl>
-<dt><a name="index-barsplot"></a><u>関数:</u> <b>barsplot</b><i> (<var>data1</var>, <var>data2</var>, &hellip;, <var>option_1</var>, <var>option_2</var>, &hellip;)</i></dt>
-<dt><a name="index-barsplot_005fdescription"></a><u>関数:</u> <b>barsplot_description</b><i> (&hellip;)</i></dt>
-<dd>
-<p>1変量、多変量どちらの標本でも離散統計変数の棒グラフをプロットします
-</p>
-<p><var>data</var>は1標本を意味する結果のリストかもしれませんし、それぞれサイズ
-<var>m</var>の <var>n</var>個の標本を意味する <var>m</var>行 <var>n</var>列の行列かもしれません。
-</p>
-<p>利用可能なオプションは以下のものです:
+<p>これらのルーチンは開発進行中です。まだ以下をする必要があります:
 </p>
 <ul>
 <li>
-<code>draw</code>パッケージで定義されたもの。
-</li><li>
-<var>box_width</var> (デフォルト, <code>3/4</code>): 長方形の相対幅。
-値は範囲 <code>[0,1]</code>内でなければいけません。
+FACTOR方法 <code>ode1_factor</code>を多重根で機能するように拡張すること。
 
 </li><li>
-<var>grouping</var> (デフォルト, <code>clustered</code>):
-複数の標本をいかに表示するか示します。
-有効な値: <code>clustered</code>と <code>stacked</code>。
+FACTOR方法 <code>ode1_factor</code>をより高次因子を解こうとするように拡張すること。
+現在、線形因子を解こうとするだけです。
 
 </li><li>
-<var>groups_gap</var> (デフォルト, <code>1</code>): 棒の2つの隣り合うグループの隙間を表す正の整数。
+LAGRANGEルーチン <code>ode1_lagrange</code>を複素根より実根を優先するように直すこと。
 
 </li><li>
-<var>bars_colors</var> (デフォルト, <code>[]</code>): 複数の標本のための色のリスト。
-指定された色よりもたくさん標本がある時は、
-追加で必要な色はランダムに選ばれます。
-更に詳しくは <code>color</code>を参照してください。
+Riccati方程式のための他の方法を追加すること。
 
 </li><li>
-<var>frequency</var> (デフォルト, <code>absolute</code>): 縦座標のスケールを示します。
-可能な値: <code>absolute</code>, <code>relative</code>, <code>percent</code>。
+第二種Abel方程式の検出を改善すること。
+今のパターンマッチングは弱いです。
 
 </li><li>
-<var>ordering</var> (デフォルト, <code>orderlessp</code>): 可能な値は <code>orderlessp</code>か
-<code>ordergreatp</code>です。
-統計的結果がどちら向きに <var>x</var>軸に並んでいるかを示します。
+Lie対称群ルーチン <code>ode1_lie</code>に関する仕事。
+2,3の相当な問題があります:
+いくつかの部分が未実装です;
+いくつかのテストケースが無限ループのようです;
+他のテストケースではクラッシュします;
+さらに他では非常に複雑な「解」を返します。
+本当にリリースの準備ができていたか疑っています。
 
 </li><li>
-<var>sample_keys</var> (デフォルト, <code>[]</code>): 凡例に使われる文字列のリスト。
-リストの長さが 0か標本の長さ以外ならエラーメッセージを返します。
-
-</li><li>
-<var>start_at</var> (デフォルト, <code>0</code>): x軸上のどこからプロットされるか示します。
-
-</li><li>
-<code>barsplot</code>が内部で割り当てる
-<code>xtics</code>を除くすべてのグローバル <code>draw</code>オプション
-もしこのオプションに自分の値を設定し、複雑なシーンを構築したいなら、
-<code>barsplot_description</code>を使用してください。
-以下の例を参照してください。
-
-</li><li>
-以下のローカル <code>draw</code>オプション: <code>key</code>, <code>color</code>, 
-<code>fill_color</code>, <code>fill_density</code>, <code>line_width</code>。
-<code>bars</code>も参照してください。
+もっとテストケースを追加すること。
 
 </li></ul>
 
-<p>関数 <code>barsplot_description</code>は
-他のグラフィックオブジェクトと一緒に複雑なシーンを生成するために
-グラフィックオブジェクトを生成します。
-wxMaximaと iMaximaインターフェイスで埋め込みヒストグラムを生成するための
-関数 <code>wxbarsplot</code>もあります。
-</p>
-<p>例:
-</p>
-<p>行列形式での1変量標本。絶対頻度。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) m : read_matrix (file_search (&quot;biomed.data&quot;))$
-</pre><pre class="example">(%i3) barsplot(
-        col(m,2),
-        title        = &quot;Ages&quot;,
-        xlabel       = &quot;years&quot;,
-        box_width    = 1/2,
-        fill_density = 3/4)$
-</pre></td></tr></table>
+<p><a name="Item_003a-Test-cases-for-contrib_005fode"></a>
+</p><hr size="6">
+<a name="Test-cases-for-contrib_005fode"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Possible-improvements-to-contrib_005fode" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#References-for-contrib_005fode" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#contrib_005fode" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#contrib_005fode" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#descriptive" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="Test-cases-for-contrib_005fode-1"></a>
+<h2 class="section">46.4 Test cases for contrib_ode</h2>
 
-<p>異なるサイズの2つの標本。
-相対頻度とユーザー宣言の色を使って。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) l1:makelist(random(10),k,1,50)$
-(%i3) l2:makelist(random(10),k,1,100)$
-</pre><pre class="example">(%i4) barsplot(
-        l1,l2,
-        box_width    = 1,
-        fill_density = 1,
-        bars_colors  = [black, grey],
-        frequencies = relative,
-        sample_keys = [&quot;A&quot;, &quot;B&quot;])$
-</pre></td></tr></table>
 
-<p>サイズが等しい4つの非数標本。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-</pre><pre class="example">(%i2) barsplot(
-        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
-        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
-        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
-        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
-        title  = &quot;Asking for something to four groups&quot;,
-        ylabel = &quot;# of individuals&quot;,
-        groups_gap   = 3,
-        fill_density = 0.5,
-        ordering     = ordergreatp)$
-</pre></td></tr></table>
-
-<p>スタックバー。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-</pre><pre class="example">(%i2) barsplot(
-        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
-        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
-        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
-        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
-        title  = &quot;Asking for something to four groups&quot;,
-        ylabel = &quot;# of individuals&quot;,
-        grouping     = stacked,
-        fill_density = 0.5,
-        ordering     = ordergreatp)$
-</pre></td></tr></table>
-
-<p>複数プロット文脈での <code>barsplot</code>。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) l1:makelist(random(10),k,1,50)$
-(%i3) l2:makelist(random(10),k,1,100)$
-(%i4) bp1 : 
-        barsplot_description(
-         l1,
-         box_width = 1,
-         fill_density = 0.5,
-         bars_colors = [blue],
-         frequency = relative)$
-(%i5) bp2 : 
-        barsplot_description(
-         l2,
-         box_width = 1,
-         fill_density = 0.5,
-         bars_colors = [red],
-         frequency = relative)$
-(%i6) draw(gr2d(bp1), gr2d(bp2))$
-</pre></td></tr></table>
-
-<p>棒グラフ関連オプションについてはパッケージ <code>draw</code>の <code>bars</code>を参照してください。
-関数 <code>histogram</code>と <code>piechart</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
- &middot;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
-
-<p><a name="Item_003a-boxplot"></a>
-</p><dl>
-<dt><a name="index-boxplot"></a><u>関数:</u> <b>boxplot</b><i> (<var>data</var>)</i></dt>
-<dt><a name="index-boxplot-1"></a><u>関数:</u> <b>boxplot</b><i> (<var>data</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i></dt>
-<dt><a name="index-boxplot_005fdescription"></a><u>関数:</u> <b>boxplot_description</b><i> ( &hellip;)</i></dt>
-<dd>
-<p>この関数は箱ひげ図をプロットします。
-引数 <var>data</var>はリストだったり行列だったりします。
-箱ひげ図は主に異なる標本の比較に使われるので、リストはあまり興味深くありません。
-行列の場合には多変量統計変数の複数成分を比較することが可能です。
-しかし、できる限り異なる標本サイズの標本のリストも許すようにしています。
-実際、これはパッケージ
-<code>descriptive</code>の中でこの種のデータ構造を許容する唯一の関数です
-</p>
-<p>利用可能なオプションは以下のものです:
+<p>ルーチンは
+文献 Murphy, Kamke, Zwillinger他からのおおよそ千のテストケース上でテストされています。
+これらはテストサブディレクトリに含まれています。
 </p>
 <ul>
 <li>
-<var>box_width</var> (デフォルト, <code>3/4</code>): 箱の相対幅。
-この値は範囲 <code>[0,1]</code>内でなければいけません。
+The Clairaultルーチン <code>ode1_clairault</code>は特異解を含み、
+Murphyと Kamkeの中の Clairault方程式の知られている解すべてを見つけます。
 
 </li><li>
-<var>box_orientation</var> (デフォルト, <code>vertical</code>): 可能な値: <code>vertical</code>と
-<code>horizontal</code>。
+他のルーチンは、多重解が存在する時にしばしば単一界を返します。
 
 </li><li>
-<code>boxplot</code>が内部で割り当てる
-<code>points_joined</code>, <code>point_size</code>, <code>point_type</code>,
-<code>xtics</code>, <code>ytics</code>, <code>xrange</code>, <code>yrange</code>を除くすべての
-<code>draw</code>オプション。
-もしこのオプションに自分の値を設定し、複雑なシーンを構築したいなら、
-<code>boxplot_description</code>を使用してください。
+<code>ode1_lie</code>の「解」のいくつかは過度に複雑でチェックが不可能です。
 
 </li><li>
-以下のローカル <code>draw</code>オプション: <code>key</code>, <code>color</code>, <code>line_width</code>。
+いくつかのクラッシュがあります。
 
 </li></ul>
 
-<p>関数 <code>boxplot_description</code>は
-他のグラフィックオブジェクトと一緒に複雑なシーンを生成するために
-グラフィックオブジェクトを生成します。
-wxMaximaと iMaximaインターフェイスで埋め込みヒストグラムを生成するための
-関数 <code>wxbarsplot</code>もあります。
-</p>
-<p>例:
-</p>
-<p>多変量標本の箱ひげ図。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix(file_search(&quot;wind.data&quot;))$
-</pre><pre class="example">(%i3) boxplot(s2,
-        box_width  = 0.2,
-        title      = &quot;Windspeed in knots&quot;,
-        xlabel     = &quot;Stations&quot;,
-        color      = red,
-        line_width = 2)$
-</pre></td></tr></table>
-
-<p>異なるサイズの 3つの標本の箱ひげ図。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-</pre><pre class="example">(%i2) A :
-       [[6, 4, 6, 2, 4, 8, 6, 4, 6, 4, 3, 2],
-        [8, 10, 7, 9, 12, 8, 10],
-        [16, 13, 17, 12, 11, 18, 13, 18, 14, 12]]$
-</pre><pre class="example">(%i3) boxplot (A, box_orientation = horizontal)$
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
- &middot;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<p><a name="Item_003a-References-for-contrib_005fode"></a>
+</p><hr size="6">
+<a name="References-for-contrib_005fode"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Test-cases-for-contrib_005fode" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#descriptive" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#contrib_005fode" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#contrib_005fode" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#descriptive" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="References-for-contrib_005fode-1"></a>
+<h2 class="section">46.5 References for contrib_ode</h2>
 
 
-
-<p><a name="Item_003a-histogram"></a>
-</p><dl>
-<dt><a name="index-histogram"></a><u>関数:</u> <b>histogram</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-histogram-1"></a><u>関数:</u> <b>histogram</b><i> (<var>list</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i></dt>
-<dt><a name="index-histogram-2"></a><u>関数:</u> <b>histogram</b><i> (<var>one_column_matrix</var>)</i></dt>
-<dt><a name="index-histogram-3"></a><u>関数:</u> <b>histogram</b><i> (<var>one_column_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i></dt>
-<dt><a name="index-histogram-4"></a><u>関数:</u> <b>histogram</b><i> (<var>one_row_matrix</var>)</i></dt>
-<dt><a name="index-histogram-5"></a><u>関数:</u> <b>histogram</b><i> (<var>one_row_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i></dt>
-<dt><a name="index-histogram_005fdescription"></a><u>関数:</u> <b>histogram_description</b><i> (&hellip;)</i></dt>
-<dd>
-<p>この関数は一連の標本からヒストグラムをプロットします。
-標本データは数のリストか一次元行列に保存しなければいけません。
-</p>
-<p>利用可能なオプションは以下のものです:
-</p>
-<ul>
+<ol>
 <li>
-<var>nclasses</var> (デフォルト, <code>10</code>): ヒストグラムのクラス数、もしくは
-クラスの境界と数か境界だけを含むリスト。
+E. Kamke, Differentialgleichungen Losungsmethoden und Losungen, Vol 1,
+    Geest &amp; Portig, Leipzig, 1961
 
 </li><li>
-<var>frequency</var> (デフォルト, <code>absolute</code>): 縦座標のスケールを示します。
-可能な値: <code>absolute</code>, <code>relative</code>, <code>percent</code>, <code>density</code>。
-<code>density</code>を使うと、ヒストグラムの面積がトータルで1になります。
+G. M. Murphy, Ordinary Differential Equations and Their Solutions,
+    Van Nostrand, New York, 1960
 
 </li><li>
-<var>htics</var> (デフォルト, <code>auto</code>): ヒストグラムチックのフォーマット。
-可能な値: <code>auto</code>, <code>endpoints</code>, <code>intervals</code>, またはラベルのリスト。
+D. Zwillinger, Handbook of Differential Equations, 3rd edition,
+    Academic Press, 1998
 
 </li><li>
-<code>histogram</code>が内部で割り当てる <code>xrange</code>, <code>yrange</code>,
-<code>xtics</code>を除くすべてのグローバル <code>draw</code>オプション。
-もしこれらのオプションに自分の値を設定したいなら、
-<code>histogram_description</code>を利用してください。
-以下の例を参照してください。
+F. Schwarz, Symmetry Analysis of Abel&rsquo;s Equation, Studies in
+    Applied Mathematics, 100:269-294 (1998)
 
 </li><li>
-以下のローカル <code>draw</code>オプション: <code>key</code>, <code>color</code>,
-<code>fill_color</code>, <code>fill_density</code>と <code>line_width</code>。
-<code>bars</code>も参照してください。
-
-</li></ul>
-
-<p>関数 <code>histogram_description</code>は他のグラフィックオブジェクトと一緒に
-複雑なシーンを生成するのに適したグラフィックオブジェクトを生成します。
-wxMaximaと iMaximaインターフェイスで埋め込みヒストグラムを生成する
-関数 <code>wxhistogram</code>もあります。
-</p>
-<p>例:
-</p>
-<p>8クラスを持つ簡単なヒストグラム。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) histogram (
-           s1,
-           nclasses     = 8,
-           title        = &quot;pi digits&quot;,
-           xlabel       = &quot;digits&quot;,
-           ylabel       = &quot;Absolute frequency&quot;,
-           fill_color   = grey,
-           fill_density = 0.6)$
-</pre></td></tr></table>
-
-
-<p>ヒストグラムの境界を-2と12に、クラス数を3に設定します。
-また予め定義されたチックを導入します:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) histogram (
-           s1,
-           nclasses     = [-2,12,3],
-           htics        = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;],
-           terminal     = png,
-           fill_color   = &quot;#23afa0&quot;,
-           fill_density = 0.6)$
-</pre></td></tr></table>
-
-<p><code>xrange</code>を設定しシーンの中に明示的な曲線を足すのに
-<code>histogram_description</code>を利用します:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) ( load(&quot;distrib&quot;),
-        m: 14, s: 2,
-        s2: random_normal(m, s, 1000) ) $
-(%i3) draw2d(
-        grid   = true,
-        xrange = [5, 25],
-        histogram_description(
-          s2,
-          nclasses     = 9,
-          frequency    = density,
-          fill_density = 0.5),
-        explicit(pdf_normal(x,m,s), x, m - 3*s, m + 3* s))$
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
- &middot;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
-
-
-
-
-<p><a name="Item_003a-piechart"></a>
-</p><dl>
-<dt><a name="index-piechart"></a><u>関数:</u> <b>piechart</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-piechart-1"></a><u>関数:</u> <b>piechart</b><i> (<var>list</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i></dt>
-<dt><a name="index-piechart-2"></a><u>関数:</u> <b>piechart</b><i> (<var>one_column_matrix</var>)</i></dt>
-<dt><a name="index-piechart-3"></a><u>関数:</u> <b>piechart</b><i> (<var>one_column_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i></dt>
-<dt><a name="index-piechart-4"></a><u>関数:</u> <b>piechart</b><i> (<var>one_row_matrix</var>)</i></dt>
-<dt><a name="index-piechart-5"></a><u>関数:</u> <b>piechart</b><i> (<var>one_row_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i></dt>
-<dt><a name="index-piechart_005fdescription"></a><u>関数:</u> <b>piechart_description</b><i> (&hellip;)</i></dt>
-<dd>
-<p><code>barsplot</code>に似ていますが、長方形の代わりに扇をプロットします。
-</p>
-<p>利用可能なオプションは以下のものです:
-</p>
-<ul>
-<li>
-<var>sector_colors</var> (デフォルト, <code>[]</code>): セクタの色のリスト。
-指定した色よりも多くセクタがあるときは、必要な色の超過分がランダムに選ばれます。
-それらについて更に知るには <code>color</code>を参照してください。
+F. Schwarz, Algorithmic Solution of Abel&rsquo;s Equation,
+    Computing 61, 39-49 (1998)
 
 </li><li>
-<var>pie_center</var> (デフォルト, <code>[0,0]</code>): 円グラフの中心。
+E. S. Cheb-Terrab, A. D. Roche, Symmetries and First Order
+    ODE Patterns, Computer Physics Communications 113 (1998), p 239.
+    (<a href="http://lie.uwaterloo.ca/papers/ode_vii.pdf">http://lie.uwaterloo.ca/papers/ode_vii.pdf</a>)
 
 </li><li>
-<var>pie_radius</var>　(デフォルト, <code>1</code>): 円グラフの半径。
+E. S. Cheb-Terrab, T. Kolokolnikov,  First Order ODEs,
+    Symmetries and Linear Transformations, European Journal of
+    Applied Mathematics, Vol. 14, No. 2, pp. 231-246 (2003).
+    (<a href="http://arxiv.org/abs/math-ph/0007023">http://arxiv.org/abs/math-ph/0007023</a>,<br>
+    <a href="http://lie.uwaterloo.ca/papers/ode_iv.pdf">http://lie.uwaterloo.ca/papers/ode_iv.pdf</a>)
 
 </li><li>
-<code>piechart</code>が内部で割り当てる <code>key</code>を除いたすべてのグローバル <code>draw</code>オプション。
-もしこのオプションに自分の値を設定し、複雑なシーンを構築したいなら、
-<code>piechart_description</code>を利用してください。
+G. W. Bluman, S. C. Anco, Symmetry and Integration Methods for
+    Differential Equations, Springer, (2002)
 
-</li><li>
-以下のローカル <code>draw</code>オプション: <code>key</code>, <code>color</code>,
-<code>fill_display</code>, <code>line_width</code>。
-<code>ellipse</code>も参照してください。
-
-</li></ul>
-
-<p>関数 <code>piechart_description</code>は他のグラフィックオブジェクトと一緒に
-複雑なシーンを生成するのに適したグラフィックオブジェクトを生成します。
-wxMaximaと iMaximaインターフェイスで埋め込みヒストグラムを生成する
-関数 <code>wxhistogram</code>もあります。
-</p>
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
-(%i3) piechart(
-        s1,
-        xrange = [-1.1, 1.3],
-        yrange = [-1.1, 1.1],
-        title  = &quot;Digit frequencies in pi&quot;)$
-</pre></td></tr></table>
-
-<p>関数 <code>barsplot</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
- &middot;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+</li><li> 
+M. Bronstein, S. Lafaille,
+Solutions of linear ordinary differential equations in terms
+of special functions,
+Proceedings of ISSAC 2002, Lille, ACM Press, 23-28. 
+(<a href="http://www-sop.inria.fr/cafe/Manuel.Bronstein/publications/issac2002.pdf">http://www-sop.inria.fr/cafe/Manuel.Bronstein/publications/issac2002.pdf</a>)
 
 
+</li></ol>
 
-<p><a name="Item_003a-scatterplot"></a>
-</p><dl>
-<dt><a name="index-scatterplot"></a><u>関数:</u> <b>scatterplot</b><i> (<var>list</var>)</i></dt>
-<dt><a name="index-scatterplot-1"></a><u>関数:</u> <b>scatterplot</b><i> (<var>list</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i></dt>
-<dt><a name="index-scatterplot-2"></a><u>関数:</u> <b>scatterplot</b><i> (<var>matrix</var>)</i></dt>
-<dt><a name="index-scatterplot-3"></a><u>関数:</u> <b>scatterplot</b><i> (<var>matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</i></dt>
-<dt><a name="index-scatterplot_005fdescription"></a><u>関数:</u> <b>scatterplot_description</b><i> (&hellip;)</i></dt>
-<dd>
-<p>1変量 (<var>list</var>)や多変量 (<var>matrix</var>)の標本の散布図をプロットします。
-</p>
-<p>利用可能なオプションは <code>histogram</code>が許すものと同じです。
-</p>
-<p>関数 <code>scatterplot_description</code>は他のグラフィックオブジェクトと一緒に
-複雑なシーンを生成するのに適したグラフィックオブジェクトを生成します。
-wxMaximaと iMaximaインターフェイスで埋め込みヒストグラムを生成する
-関数 <code>wxscatterplot</code>もあります。
-</p>
-<p>例:
-</p>
-<p>シミュレーティッドGauss標本の1変量散布図。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) load (distrib)$
-</pre><pre class="example">(%i3) scatterplot(
-        random_normal(0,1,200),
-        xaxis      = true,
-        point_size = 2,
-        dimensions = [600,150])$
-</pre></td></tr></table>
-
-<p>二次元散布図。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i3) scatterplot(
-       submatrix(s2, 1,2,3),
-       title      = &quot;Data from stations #4 and #5&quot;,
-       point_type = diamant,
-       point_size = 2,
-       color      = blue)$
-</pre></td></tr></table>
-
-<p>3次元散布図。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-(%i3) scatterplot(submatrix (s2, 1,2), nclasses=4)$
-</pre></td></tr></table>
-
-<p>5つのクラスのヒストグラムと5次元散布図。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
-</pre><pre class="example">(%i3) scatterplot(
-        s2,
-        nclasses     = 5,
-        frequency    = relative,
-        fill_color   = blue,
-        fill_density = 0.3,
-        xtics        = 5)$
-</pre></td></tr></table>
-
-<p>2次元か 3次元で孤立点か線で結んだ点をプロットすることについては、
-<code>points</code>を参照してください。
-<code>histogram</code>も参照してください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
- &middot;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
-
-<p><a name="Item_003a-starplot"></a>
-</p><dl>
-<dt><a name="index-starplot"></a><u>関数:</u> <b>starplot</b><i> (<var>data1</var>, <var>data2</var>, &hellip;, <var>option_1</var>, <var>option_2</var>, &hellip;)</i></dt>
-<dt><a name="index-starplot_005fdescription"></a><u>関数:</u> <b>starplot_description</b><i> (&hellip;)</i></dt>
-<dd>
-<p>1変量、多変量どちらの標本でも離散統計変数のスターダイアグラムをプロットします
-</p>
-<p><var>data</var>は 1標本を意味する結果のリストかもしれませんし、
-それぞれサイズ <var>m</var>の <var>n</var>個の標本を意味する
-<var>m</var>行 <var>n</var>列の行列かもしれません。
-</p>
-<p>利用可能なオプションは以下のものです:
-</p>
-<ul>
-<li>
-<var>stars_colors</var> (デフォルト, <code>[]</code>): 多変量標本の色のリスト。
-指定した色よりも多くセクタがあるときは、必要な色の超過分がランダムに選ばれます。
-それらについて更に知るには <code>color</code>を参照してください。
-
-</li><li>
-<var>frequency</var> (デフォルト, <code>absolute</code>): 半径のスケールを示します。
-可能な値: <code>absolute</code>, <code>relative</code>, <code>percent</code>。
-
-</li><li>
-<var>ordering</var> (デフォルト, <code>orderlessp</code>): 可能な値は <code>orderlessp</code>か
-<code>ordergreatp</code>です。
-統計的結果がどちら向きに <var>x</var>軸に並んでいるかを示します。
-
-</li><li>
-<var>sample_keys</var> (デフォルト, <code>[]</code>): 凡例に使われる文字列のリスト。
-リストの長さが0か標本の長さ以外なら、
-エラーメッセージを返します。
-
-</li><li>
-<var>star_center</var> (デフォルト, <code>[0,0]</code>): ダイアグラムの中心。
-
-</li><li>
-<var>star_radius</var> (デフォルト, <code>1</code>): ダイアグラムの半径。
-
-</li><li>
-<code>starplot</code>が内部で割り当てる <code>points_joined</code>, <code>point_type</code>,
-<code>key</code>を除いたすべてのグローバル <code>draw</code>オプション。
-もしこのオプションに自分の値を設定し、複雑なシーンを構築したいなら、
-<code>starplot_description</code>を利用してください。
-
-</li><li>
-以下のローカル <code>draw</code>オプション: <code>line_width</code>。
-
-</li></ul>
-
-<p>関数 <code>starplot_description</code>は他のグラフィックオブジェクトと一緒に
-複雑なシーンを生成するのに適したグラフィックオブジェクトを生成します。
-wxMaximaと iMaximaインターフェイスで埋め込みヒストグラムを生成する
-関数 <code>wxstarplot</code>もあります。
-</p>
-<p>例:
-</p>
-<p>絶対頻度に基づいたプロット。
-ユーザーが定義した位置と半径。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) l1: makelist(random(10),k,1,50)$
-(%i3) l2: makelist(random(10),k,1,200)$
-</pre><pre class="example">(%i4) starplot(
-        l1, l2,
-        stars_colors = [blue,red],
-        sample_keys = [&quot;1st sample&quot;, &quot;2nd sample&quot;],
-        star_center = [1,2],
-        star_radius = 4,
-        proportional_axes = xy,
-        line_width = 2 ) $ 
-</pre></td></tr></table>
-
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
- &middot;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
-
-
-<p><a name="Item_003a-stemplot"></a>
-</p><dl>
-<dt><a name="index-stemplot"></a><u>関数:</u> <b>stemplot</b><i> (<var>data</var>)</i></dt>
-<dt><a name="index-stemplot-1"></a><u>関数:</u> <b>stemplot</b><i> (<var>data</var>, <var>option</var>)</i></dt>
-<dd>
-<p>幹葉図をプロットします。
-</p>
-<p>固有の利用可能なオプションは:
-</p>
-<ul>
-<li>
-<var>leaf_unit</var> (デフォルト, <code>1</code>): 葉の単位を示します;
-10のべきでなければいけません。
-
-</li></ul>
-
-<p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (descriptive)$
-(%i2) load(distrib)$
-</pre><pre class="example">(%i3) stemplot(
-        random_normal(15, 6, 100),
-        leaf_unit = 0.1);
--5|4
- 0|37
- 1|7
- 3|6
- 4|4
- 5|4
- 6|57
- 7|0149
- 8|3
- 9|1334588
-10|07888
-11|01144467789
-12|12566889
-13|24778
-14|047
-15|223458
-16|4
-17|11557
-18|000247
-19|4467799
-20|00
-21|1
-22|2335
-23|01457
-24|12356
-25|455
-27|79
-key: 6|3 =  6.3
-(%o3)                  done
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-descriptive">Package descriptive</a>
- &middot;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
-
-
-<p><a name="Item_003a-diag"></a>
+<p><a name="Item_003a-descriptive"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#descriptive" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#diag" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#contrib_005fode" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#descriptive" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -2412,12 +804,12 @@ key: 6|3 =  6.3
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年4月月20日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

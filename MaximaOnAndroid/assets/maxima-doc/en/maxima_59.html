@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 3 2014 by texi2html 1.76 -->
+<!-- Created on September, 23 2014 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Maxima 5.33.0 Manual: 59. impdiff</title>
+<title>Maxima 5.34.1 Manual: 59. grobner</title>
 
-<meta name="description" content="Maxima 5.33.0 Manual: 59. impdiff">
-<meta name="keywords" content="Maxima 5.33.0 Manual: 59. impdiff">
+<meta name="description" content="Maxima 5.34.1 Manual: 59. grobner">
+<meta name="keywords" content="Maxima 5.34.1 Manual: 59. grobner">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -136,18 +136,18 @@ div.categorybox
 -->
 </style>
 
-<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico"/>
 </head>
 
 <body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="impdiff"></a>
-<a name="SEC295"></a>
+<a name="grobner"></a>
+<a name="SEC288"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_58.html#SEC294" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_58.html#SEC287" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC289" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_58.html#SEC286" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_58.html#SEC280" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
 <td valign="middle" align="left">[<a href="maxima_60.html#SEC297" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -156,26 +156,28 @@ div.categorybox
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter"> 59. impdiff </h1>
+<h1 class="chapter"> 59. grobner </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC296">59.1 Functions and Variables for impdiff</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC289">59.1 Introduction to grobner</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC292">59.2 Functions and Variables for grobner</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Functions-and-Variables-for-impdiff"></a>
+<p><a name="Item_003a-Introduction-to-grobner"></a>
 </p><hr size="6">
-<a name="Functions-and-Variables-for-impdiff"></a>
-<a name="SEC296"></a>
+<a name="Introduction-to-grobner"></a>
+<a name="SEC289"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC295" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_60.html#SEC297" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC288" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC290" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC295" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC295" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC288" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC288" title="Up section"> Up </a>]</td>
 <td valign="middle" align="left">[<a href="maxima_60.html#SEC297" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -183,37 +185,1015 @@ div.categorybox
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 59.1 Functions and Variables for impdiff </h2>
+<h2 class="section"> 59.1 Introduction to grobner </h2>
 
-<p><a name="Item_003a-implicit_005fderivative"></a>
-</p><dl>
-<dt><u>Function:</u> <b>implicit_derivative</b><i> (<var>f</var>,<var>indvarlist</var>,<var>orderlist</var>,<var>depvar</var>)</i>
-<a name="IDX2482"></a>
-</dt>
-<dd><p>This subroutine computes implicit derivatives of multivariable functions.
-<var>f</var> is an array function, the indexes are the derivative degree in the <var>indvarlist</var> order;
-<var>indvarlist</var> is the independent variable list; <var>orderlist</var> is the order desired; and 
-<var>depvar</var> is the dependent variable.
+<p><code>grobner</code> is a package for working with Groebner bases in Maxima.
 </p>
-<p>To use this function write first <code>load(&quot;impdiff&quot;)</code>.
+
+<p>To use the following functions you must load the <tt>`grobner.lisp'</tt> package.
+</p>
+<pre class="example">load(grobner);
+</pre>
+
+<p>A demo can be started by 
+</p><pre class="example">demo(&quot;grobner.demo&quot;);
+</pre>
+
+<p>or
+</p><pre class="example">batch(&quot;grobner.demo&quot;)
+</pre>
+
+<p>Some of the calculation in the demo will take a lot of time 
+therefore the output <tt>`grobner-demo.output'</tt> of the demo can 
+be found in the same directory as the demo file.
+</p>
+<hr size="6">
+<a name="SEC290"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC289" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC291" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC288" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC289" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC297" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 59.1.1 Notes on the grobner package </h3>
+<p>The package was written by 
+</p>
+
+<p>Marek Rychlik 
+</p>
+
+<p><a href="http://alamos.math.arizona.edu">http://alamos.math.arizona.edu</a>
+</p>
+
+<p>and is released 2002-05-24 under the terms of the General Public License(GPL) (see file <tt>`grobner.lisp'</tt>).
+This documentation was extracted from the files
+</p><p align="left"><tt>`README'</tt>, <tt>`grobner.lisp'</tt>, <tt>`grobner.demo'</tt>, <tt>`grobner-demo.output'</tt>
+</p>
+
+<p>by G&uuml;nter Nowak. Suggestions for improvement of the documentation can 
+be discussed at the <em>maxima</em>-mailing-list <a href="mailto:maxima@math.utexas.edu">maxima@math.utexas.edu</a>.
+The code is a little bit out of date now. Modern implementation use the fast <em>F4</em> algorithm described in 
+</p><table><tr><td>&nbsp;</td><td><pre class="smallformat">A new efficient algorithm for computing Gr&ouml;bner bases (F4) 
+Jean-Charles Faug&egrave;re
+LIP6/CNRS Universit&eacute; Paris VI 
+January 20, 1999
+</pre></td></tr></table>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Groebner-bases">Groebner bases</a> &middot;
+<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a> &middot;
+<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+<hr size="6">
+<a name="SEC291"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC290" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC292" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC288" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC289" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC297" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 59.1.2 Implementations of admissible monomial orders in grobner </h3>
+
+<ul>
+<li> <code>lex</code>
+
+<p>pure lexicographic,
+default order for monomial comparisons
+</p></li><li> <code>grlex</code>
+
+<p>total degree order, ties broken by lexicographic
+</p>
+</li><li> <code>grevlex</code>
+
+<p>total degree, ties broken by reverse lexicographic
+</p>
+</li><li> <code>invlex</code>
+
+<p>inverse lexicographic order
+</p>
+</li></ul>
+
+<p><a name="Item_003a-Functions-and-Variables-for-grobner"></a>
+</p><hr size="6">
+<a name="Functions-and-Variables-for-grobner"></a>
+<a name="SEC292"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC291" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC293" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC288" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC288" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC297" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 59.2 Functions and Variables for grobner </h2>
+
+<hr size="6">
+<a name="SEC293"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC292" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC294" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC288" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC292" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC297" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 59.2.1 Global switches for grobner </h3>
+
+<p><a name="Item_003a-poly_005fmonomial_005forder"></a>
+</p><dl>
+<dt><u>Option variable:</u> <b>poly_monomial_order</b>
+<a name="IDX2455"></a>
+</dt>
+<dd><p>Default value: <code>lex</code>
+</p>
+<p>This global switch controls which monomial order is used in polynomial and Groebner Bases calculations. If not set, <code>lex</code> will be used.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Differential-calculus">Differential calculus</a> &middot;
-<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a> &middot;
-<a href="maxima_99.html#Category_003a-Package-impdiff">Package impdiff</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
 </div>
 </p>
 </dd></dl>
 
 
-<p><a name="Item_003a-interpol"></a>
+<p><a name="Item_003a-poly_005fcoefficient_005fring"></a>
+</p><dl>
+<dt><u>Option variable:</u> <b>poly_coefficient_ring</b>
+<a name="IDX2456"></a>
+</dt>
+<dd><p>Default value: <code>expression_ring</code>
+</p>
+<p>This switch indicates the coefficient ring of the polynomials that
+will be used in grobner calculations. If not set, <em>maxima's</em> general
+expression ring will be used. This variable may be set to
+<code>ring_of_integers</code> if desired.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fprimary_005felimination_005forder"></a>
+</p><dl>
+<dt><u>Option variable:</u> <b>poly_primary_elimination_order</b>
+<a name="IDX2457"></a>
+</dt>
+<dd><p>Default value: <code>false</code>
+</p>
+<p>Name of the default order for eliminated variables in
+elimination-based functions. If not set, <code>lex</code> will be used.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fsecondary_005felimination_005forder"></a>
+</p><dl>
+<dt><u>Option variable:</u> <b>poly_secondary_elimination_order</b>
+<a name="IDX2458"></a>
+</dt>
+<dd><p>Default value: <code>false</code>
+</p>
+<p>Name of the default order for kept variables in elimination-based functions. If not set, <code>lex</code> will be used.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005felimination_005forder"></a>
+</p><dl>
+<dt><u>Option variable:</u> <b>poly_elimination_order</b>
+<a name="IDX2459"></a>
+</dt>
+<dd><p>Default value: <code>false</code>
+</p>
+<p>Name of the default elimination order used in elimination
+calculations. If set, it overrides the settings in variables
+<code>poly_primary_elimination_order</code> and <code>poly_secondary_elimination_order</code>.
+The user must ensure that this is a true elimination order valid
+for the number of eliminated variables. 
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005freturn_005fterm_005flist"></a>
+</p><dl>
+<dt><u>Option variable:</u> <b>poly_return_term_list</b>
+<a name="IDX2460"></a>
+</dt>
+<dd><p>Default value: <code>false</code>
+</p>
+<p>If set to <code>true</code>, all functions in this package will return each
+polynomial as a list of terms in the current monomial order rather
+than a <em>maxima</em> general expression.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fgrobner_005fdebug"></a>
+</p><dl>
+<dt><u>Option variable:</u> <b>poly_grobner_debug</b>
+<a name="IDX2461"></a>
+</dt>
+<dd><p>Default value: <code>false</code>
+</p>
+<p>If set to <code>true</code>, produce debugging and tracing output.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fgrobner_005falgorithm"></a>
+</p><dl>
+<dt><u>Option variable:</u> <b>poly_grobner_algorithm</b>
+<a name="IDX2462"></a>
+</dt>
+<dd><p>Default value: <code>buchberger</code>
+</p>
+<p>Possible values: 
+</p><ul class="toc">
+<li> <code>buchberger</code>
+</li><li> <code>parallel_buchberger</code>
+</li><li> <code>gebauer_moeller</code>
+</li></ul>
+
+<p>The name of the algorithm used to find the Groebner Bases.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005ftop_005freduction_005fonly"></a>
+</p><dl>
+<dt><u>Option variable:</u> <b>poly_top_reduction_only</b>
+<a name="IDX2463"></a>
+</dt>
+<dd><p>Default value: <code>false</code>
+</p>
+<p>If not <code>false</code>, use top reduction only whenever possible. Top
+reduction means that division algorithm stops after the first
+reduction.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<hr size="6">
+<a name="SEC294"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC293" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC295" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC288" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC292" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC297" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 59.2.2 Simple operators in grobner </h3>
+<p><code>poly_add</code>, <code>poly_subtract</code>, <code>poly_multiply</code> and <code>poly_expt</code>
+are the arithmetical operations on polynomials.
+These are performed using the internal representation, but the results are converted back to the
+<em>maxima</em> general form.
+</p>
+<p><a name="Item_003a-poly_005fadd"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_add</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i>
+<a name="IDX2464"></a>
+</dt>
+<dd><p>Adds two polynomials <var>poly1</var> and <var>poly2</var>.
+</p><pre class="example">
+(%i1) poly_add(z+x^2*y,x-z,[x,y,z]);
+                                    2
+(%o1)                              x  y + x
+</pre>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fsubtract"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_subtract</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i>
+<a name="IDX2465"></a>
+</dt>
+<dd><p>Subtracts a polynomial <var>poly2</var> from <var>poly1</var>.
+</p><pre class="example">
+(%i1) poly_subtract(z+x^2*y,x-z,[x,y,z]);
+                                      2
+(%o1)                          2 z + x  y - x
+</pre>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fmultiply"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_multiply</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i>
+<a name="IDX2466"></a>
+</dt>
+<dd><p>Returns the product of polynomials <var>poly1</var> and <var>poly2</var>.
+</p><pre class="example">
+(%i2) poly_multiply(z+x^2*y,x-z,[x,y,z])-(z+x^2*y)*(x-z),expand;
+(%o1)                                  0
+</pre>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fs_005fpolynomial"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_s_polynomial</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i>
+<a name="IDX2467"></a>
+</dt>
+<dd><p>Returns the <em>syzygy polynomial</em> (<em>S-polynomial</em>) of two polynomials <var>poly1</var> and <var>poly2</var>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fprimitive_005fpart"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_primitive_part</b><i> (<var>poly1</var>, <var>varlist</var>)</i>
+<a name="IDX2468"></a>
+</dt>
+<dd><p>Returns the polynomial <var>poly</var> divided by the GCD of its coefficients. 
+</p>
+<pre class="example">(%i1) poly_primitive_part(35*y+21*x,[x,y]);
+(%o1)                              5 y + 3 x
+</pre>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fnormalize"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_normalize</b><i> (<var>poly</var>, <var>varlist</var>)</i>
+<a name="IDX2469"></a>
+</dt>
+<dd><p>Returns the polynomial <var>poly</var> divided by the leading coefficient.
+It assumes that the division is possible, which may not always be the
+case in rings which are not fields.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<hr size="6">
+<a name="SEC295"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC294" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC296" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC288" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC292" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC297" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 59.2.3 Other functions in grobner </h3>
+
+<p><a name="Item_003a-poly_005fexpand"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_expand</b><i> (<var>poly</var>, <var>varlist</var>)</i>
+<a name="IDX2470"></a>
+</dt>
+<dd><p>This function parses polynomials to internal form and back. It
+is equivalent to <code>expand(<var>poly</var>)</code> if <var>poly</var> parses correctly to
+a polynomial. If the representation is not compatible with a
+polynomial in variables <var>varlist</var>, the result is an error.
+It can be used to test whether an expression correctly parses to the
+internal representation. The following examples illustrate that
+indexed and transcendental function variables are allowed.
+</p><pre class="example">
+(%i1) poly_expand((x-y)*(y+x),[x,y]);
+                                     2    2
+(%o1)                               x  - y
+(%i2) poly_expand((y+x)^2,[x,y]);
+                                2            2
+(%o2)                          y  + 2 x y + x
+(%i3) poly_expand((y+x)^5,[x,y]);
+                  5      4         2  3       3  2      4      5
+(%o3)            y  + 5 x y  + 10 x  y  + 10 x  y  + 5 x  y + x
+(%i4) poly_expand(-1-x*exp(y)+x^2/sqrt(y),[x]);
+                                          2
+                                  y      x
+(%o4)                       - x %e  + ------- - 1
+                                       sqrt(y)
+
+(%i5) poly_expand(-1-sin(x)^2+sin(x),[sin(x)]);
+                                2
+(%o5)                      - sin (x) + sin(x) - 1
+
+</pre>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fexpt"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_expt</b><i> (<var>poly</var>, <var>number</var>, <var>varlist</var>)</i>
+<a name="IDX2471"></a>
+</dt>
+<dd><p>exponentitates <var>poly</var> by a positive integer <var>number</var>. If <var>number</var> is not a positive integer number an error will be raised.
+</p><pre class="example">
+(%i1) poly_expt(x-y,3,[x,y])-(x-y)^3,expand;
+(%o1)                                  0
+</pre>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fcontent"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_content</b><i> (<var>poly</var>. <var>varlist</var>)</i>
+<a name="IDX2472"></a>
+</dt>
+<dd><p><code>poly_content</code> extracts the GCD of its coefficients
+</p><pre class="example">
+(%i1) poly_content(35*y+21*x,[x,y]);
+(%o1)                                  7
+</pre>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fpseudo_005fdivide"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_pseudo_divide</b><i> (<var>poly</var>, <var>polylist</var>, <var>varlist</var>)</i>
+<a name="IDX2473"></a>
+</dt>
+<dd><p>Pseudo-divide a polynomial <var>poly</var> by the list of <em>n</em> polynomials <var>polylist</var>. Return
+multiple values. The first value is a list of quotients <em>a</em>. The
+second value is the remainder <em>r</em>. The third argument is a scalar
+coefficient <em>c</em>, such that <em>c*poly</em> can be divided by <var>polylist</var> within the ring
+of coefficients, which is not necessarily a field. Finally, the
+fourth value is an integer count of the number of reductions
+performed. The resulting objects satisfy the equation:
+</p>
+<p><em>c*poly=sum(a[i]*polylist[i],i=1...n)+r</em>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fexact_005fdivide"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_exact_divide</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i>
+<a name="IDX2474"></a>
+</dt>
+<dd><p>Divide a polynomial <var>poly1</var> by another polynomial <var>poly2</var>. Assumes that exact
+division with no remainder is possible. Returns the quotient.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fnormal_005fform"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_normal_form</b><i> (<var>poly</var>, <var>polylist</var>, <var>varlist</var>)</i>
+<a name="IDX2475"></a>
+</dt>
+<dd><p><code>poly_normal_form</code> finds the normal form of a polynomial <var>poly</var> with respect
+to a set of polynomials <var>polylist</var>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fbuchberger_005fcriterion"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_buchberger_criterion</b><i> (<var>polylist</var>, <var>varlist</var>)</i>
+<a name="IDX2476"></a>
+</dt>
+<dd><p>Returns <code>true</code> if <var>polylist</var> is a Groebner basis with respect to the current term
+order, by using the Buchberger
+criterion: for every two polynomials <em>h1</em> and <em>h2</em> in <var>polylist</var> the
+S-polynomial <em>S(h1,h2)</em> reduces to 0 <em>modulo</em> <var>polylist</var>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fbuchberger"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_buchberger</b><i> (<var>polylist_fl</var> <var>varlist</var>)</i>
+<a name="IDX2477"></a>
+</dt>
+<dd><p><code>poly_buchberger</code> performs the Buchberger algorithm on a list of
+polynomials and returns the resulting Groebner basis.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+
+<hr size="6">
+<a name="SEC296"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC295" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC297" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC288" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC292" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC297" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 59.2.4 Standard postprocessing of Groebner Bases </h3>
+
+
+<p>The <em>k-th elimination Ideal</em> <em>I_k</em> of an Ideal <em>I</em> over <em>K[ x[1],...,x[n] ]</em> is the ideal <em>intersect(I, K[ x[k+1],...,x[n] ])</em>.<br>
+
+The <em>colon ideal</em> <em>I:J</em> is the ideal <em>{h|for all w in J: w*h in I}</em>.<br>
+
+The ideal <em>I:p^inf</em> is the ideal <em>{h| there is a n in N: p^n*h in I}</em>.<br>
+
+The ideal <em>I:J^inf</em> is the ideal <em>{h| there is a n in N and a p in J: p^n*h in I}</em>.<br>
+
+The <em>radical ideal</em> <em>sqrt(I)</em> is the ideal 
+<em>{h| there is a n in N : h^n in I }</em>.
+</p>
+
+<p><a name="Item_003a-poly_005freduction"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_reduction</b><i> (<var>polylist</var>, <var>varlist</var>)</i>
+<a name="IDX2478"></a>
+</dt>
+<dd><p><code>poly_reduction</code> reduces a list of polynomials <var>polylist</var>, so that
+each polynomial is fully reduced with respect to the other polynomials.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fminimization"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_minimization</b><i> (<var>polylist</var>, <var>varlist</var>)</i>
+<a name="IDX2479"></a>
+</dt>
+<dd><p>Returns a sublist of the polynomial list <var>polylist</var> spanning the same
+monomial ideal as <var>polylist</var> but minimal, i.e. no leading monomial
+of a polynomial in the sublist divides the leading monomial
+of another polynomial.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+
+<p><a name="Item_003a-poly_005fnormalize_005flist"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_normalize_list</b><i> (<var>polylist</var>, <var>varlist</var>)</i>
+<a name="IDX2480"></a>
+</dt>
+<dd><p><code>poly_normalize_list</code> applies <code>poly_normalize</code> to each polynomial in the list.
+That means it divides every polynomial in a list <var>polylist</var> by its leading coefficient.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fgrobner"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_grobner</b><i> (<var>polylist</var>, <var>varlist</var>)</i>
+<a name="IDX2481"></a>
+</dt>
+<dd><p>Returns a Groebner basis of the ideal span by the polynomials <var>polylist</var>. Affected by the global flags.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005freduced_005fgrobner"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_reduced_grobner</b><i> (<var>polylist</var>, <var>varlist</var>)</i>
+<a name="IDX2482"></a>
+</dt>
+<dd><p>Returns a reduced Groebner basis of the ideal span by the polynomials <var>polylist</var>. Affected by the global flags.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+
+<p><a name="Item_003a-poly_005fdepends_005fp"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_depends_p</b><i> (<var>poly</var>, <var>var</var>, <var>varlist</var>)</i>
+<a name="IDX2483"></a>
+</dt>
+<dd><p><code>poly_depends</code> tests whether a polynomial depends on a variable <var>var</var>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a> &middot;
+<a href="maxima_100.html#Category_003a-Predicate-functions">Predicate functions</a>
+</div>
+</p>
+</dd></dl>
+
+
+<p><a name="Item_003a-poly_005felimination_005fideal"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_elimination_ideal</b><i> (<var>polylist</var>, <var>number</var>, <var>varlist</var>)</i>
+<a name="IDX2484"></a>
+</dt>
+<dd><p><code>poly_elimination_ideal</code> returns the grobner basis of the <em>number</em>-th elimination ideal of an
+ideal specified as a list of generating polynomials (not necessarily Groebner basis).
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fcolon_005fideal"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_colon_ideal</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i>
+<a name="IDX2485"></a>
+</dt>
+<dd><p>Returns the reduced Groebner basis of the colon ideal 
+</p>
+<p><em>I(polylist1):I(polylist2)</em>
+</p>
+
+<p>where <em>polylist1</em> and <em>polylist2</em> are two lists of polynomials.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fideal_005fintersection"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_ideal_intersection</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i>
+<a name="IDX2486"></a>
+</dt>
+<dd><p><code>poly_ideal_intersection</code> returns the intersection of two ideals.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+
+<p><a name="Item_003a-poly_005flcm"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_lcm</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i>
+<a name="IDX2487"></a>
+</dt>
+<dd><p>Returns the lowest common multiple of <var>poly1</var> and <var>poly2</var>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="poly_005fgcd"></a>
+<a name="Item_003a-poly_005fgcd"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_gcd</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i>
+<a name="IDX2488"></a>
+</dt>
+<dd><p>Returns the greatest common divisor of <var>poly1</var> and <var>poly2</var>.
+</p>
+<p>See also <code><a href="maxima_14.html#ezgcd">ezgcd</a></code>, <code><a href="maxima_14.html#gcd">gcd</a></code>, <code><a href="maxima_14.html#gcdex">gcdex</a></code>, and
+<code><a href="maxima_75.html#gcdivide">gcdivide</a></code>.
+</p>
+<p>Example:
+</p>
+<pre class="example">(%i1) p1:6*x^3+19*x^2+19*x+6; 
+                        3       2
+(%o1)                6 x  + 19 x  + 19 x + 6
+(%i2) p2:6*x^5+13*x^4+12*x^3+13*x^2+6*x;
+                  5       4       3       2
+(%o2)          6 x  + 13 x  + 12 x  + 13 x  + 6 x
+(%i3) poly_gcd(p1, p2, [x]);
+                            2
+(%o3)                    6 x  + 13 x + 6
+</pre>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p></dd></dl>
+
+<p><a name="Item_003a-poly_005fgrobner_005fequal"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_grobner_equal</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i>
+<a name="IDX2489"></a>
+</dt>
+<dd><p><code>poly_grobner_equal</code> tests whether two Groebner Bases generate the same ideal.
+Returns <code>true</code> if two lists of polynomials <var>polylist1</var> and <var>polylist2</var>, assumed to be Groebner Bases,
+generate the same ideal, and <code>false</code> otherwise.
+This is equivalent to checking that every polynomial of the first basis reduces to 0
+modulo the second basis and vice versa. Note that in the example below the
+first list is not a Groebner basis, and thus the result is <code>false</code>.
+</p>
+<pre class="example">(%i1) poly_grobner_equal([y+x,x-y],[x,y],[x,y]);
+(%o1)                         false
+</pre>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fgrobner_005fsubsetp"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_grobner_subsetp</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i>
+<a name="IDX2490"></a>
+</dt>
+<dd><p><code>poly_grobner_subsetp</code> tests whether an ideal generated by <var>polylist1</var>
+is contained in the ideal generated by <var>polylist2</var>. For this test to always succeed,
+<var>polylist2</var> must be a Groebner basis.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a> &middot;
+<a href="maxima_100.html#Category_003a-Predicate-functions">Predicate functions</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fgrobner_005fmember"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_grobner_member</b><i> (<var>poly</var>, <var>polylist</var>, <var>varlist</var>)</i>
+<a name="IDX2491"></a>
+</dt>
+<dd><p>Returns <code>true</code> if a polynomial <var>poly</var> belongs to the ideal generated by the
+polynomial list <var>polylist</var>, which is assumed to be a Groebner basis. Returns <code>false</code> otherwise.
+</p>
+<p><code>poly_grobner_member</code> tests whether a polynomial belongs to an ideal generated by a list of polynomials,
+which is assumed to be a Groebner basis. Equivalent to <code>normal_form</code> being 0. 
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fideal_005fsaturation1"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_ideal_saturation1</b><i> (<var>polylist</var>, <var>poly</var>, <var>varlist</var>)</i>
+<a name="IDX2492"></a>
+</dt>
+<dd><p>Returns the reduced Groebner basis of the saturation of the ideal
+</p>
+<p>I(polylist):poly^inf
+</p>
+
+<p>Geometrically, over an algebraically closed field, this is the set
+of polynomials in the ideal generated by <var>polylist</var> which do not identically
+vanish on the variety of <var>poly</var>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fideal_005fsaturation"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_ideal_saturation</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i>
+<a name="IDX2493"></a>
+</dt>
+<dd><p>Returns the reduced Groebner basis of the saturation of the ideal
+</p>
+<p>I(polylist1):I(polylist2)^inf
+</p>
+
+<p>Geometrically, over an algebraically closed field, this is the set of polynomials in
+the ideal generated by <var>polylist1</var> which do not identically vanish on the
+variety of <var>polylist2</var>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fideal_005fpolysaturation1"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_ideal_polysaturation1</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i>
+<a name="IDX2494"></a>
+</dt>
+<dd><p><var>polylist2</var> ist a list of n polynomials <code>[poly1,...,polyn]</code>.
+Returns the reduced Groebner basis of the ideal
+</p>
+<p>I(polylist):poly1^inf:...:polyn^inf
+</p>
+
+<p>obtained by a
+sequence of successive saturations in the polynomials
+of the polynomial list <var>polylist2</var> of the ideal generated by the
+polynomial list <var>polylist1</var>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fideal_005fpolysaturation"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_ideal_polysaturation</b><i> (<var>polylist</var>, <var>polylistlist</var>, <var>varlist</var>)</i>
+<a name="IDX2495"></a>
+</dt>
+<dd><p><var>polylistlist</var> is a list of n list of polynomials <code>[polylist1,...,polylistn]</code>.
+Returns the reduced Groebner basis of the saturation of the ideal
+</p>
+<p>I(polylist):I(polylist_1)^inf:...:I(polylist_n)^inf
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fsaturation_005fextension"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_saturation_extension</b><i> (<var>poly</var>, <var>polylist</var>, <var>varlist1</var>, <var>varlist2</var>)</i>
+<a name="IDX2496"></a>
+</dt>
+<dd><p><code>poly_saturation_extension</code> implements the famous Rabinowitz trick.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+<p><a name="Item_003a-poly_005fpolysaturation_005fextension"></a>
+</p><dl>
+<dt><u>Function:</u> <b>poly_polysaturation_extension</b><i> (<var>poly</var>, <var>polylist</var>, <var>varlist1</var>, <var>varlist2</var>)</i>
+<a name="IDX2497"></a>
+</dt>
+<dd><div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-grobner">Package grobner</a>
+</div>
+</p>
+</dd></dl>
+
+
+<p><a name="Item_003a-impdiff"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC295" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC288" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima_60.html#SEC297" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -222,12 +1202,12 @@ div.categorybox
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC384" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>本田 康晃</em> on <em>April, 3 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>本田 康晃</em> on <em>September, 23 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

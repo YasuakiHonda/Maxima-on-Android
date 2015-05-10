@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年4月月20日 by texi2html 1.82
+<!-- Created on 2014年9月月15日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.33.0 Manual: 69. numericalio</title>
+<title>Maxima 5.34.1 Manual: 69. mnewton</title>
 
-<meta name="description" content="Maxima 5.33.0 Manual: 69. numericalio">
-<meta name="keywords" content="Maxima 5.33.0 Manual: 69. numericalio">
+<meta name="description" content="Maxima 5.34.1 Manual: 69. mnewton">
+<meta name="keywords" content="Maxima 5.34.1 Manual: 69. mnewton">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -137,7 +137,7 @@ div.categorybox
 -->
 </style>
 
-<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico"/>
 
 <script type="text/javascript"><!--
 
@@ -156,549 +156,158 @@ div.categorybox
 
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="numericalio"></a>
+<a name="mnewton"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_68.html#Functions-and-Variables-for-mnewton" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-numericalio" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_68.html#Functions-and-Variables-for-makeOrders" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Introduction-to-mnewton" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_68.html#mnewton" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_68.html#makeOrders" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_70.html#opsubst" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_70.html#numericalio" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="numericalio-1"></a>
-<h1 class="chapter">69. numericalio</h1>
+<a name="mnewton-1"></a>
+<h1 class="chapter">69. mnewton</h1>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-numericalio">69.1 Introduction to numericalio</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Introduction-to-mnewton">69.1 Introduction to mnewton</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-plain_002dtext-input-and-output">69.2 Functions and Variables for plain-text input and output</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-binary-input-and-output">69.3 Functions and Variables for binary input and output</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-mnewton">69.2 Functions and Variables for mnewton</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Introduction-to-numericalio"></a>
+<p><a name="Item_003a-Introduction-to-mnewton"></a>
 </p><hr size="6">
-<a name="Introduction-to-numericalio"></a>
+<a name="Introduction-to-mnewton"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#numericalio" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Plain_002dtext-input-and-output" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#mnewton" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-mnewton" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#numericalio" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#numericalio" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_70.html#opsubst" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#mnewton" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#mnewton" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_70.html#numericalio" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-numericalio-1"></a>
-<h2 class="section">69.1 Introduction to numericalio</h2>
+<a name="Introduction-to-mnewton-1"></a>
+<h2 class="section">69.1 Introduction to mnewton</h2>
 
-<p><code>numericalio</code>はファイルやストリームを読み書きする関数のコレクションです。
-プレインテキスト入出力のための関数は、数(整数、浮動小数点、多倍長浮動小数点)やシンボル、
-文字列を読み書きできます。
-バイナリ入出力のための関数は、浮動小数点数だけを読み書きできます。
+<p><code>mnewton</code>は１変数または多変数の非線形方程式を解くための Newton法の実装です。
 </p>
-<p>もし既に入力データを記憶すべきリスト、行列、配列オブジェクトがあるなら、
-<code>numericalio</code>入力関数群はデータをそのオブジェクトに書き込むことができます。
-そうでないなら、
-<code>numericalio</code>はデータを記憶するオブジェクトの構造をある程度推測し、
-そのオブジェクトを返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-File-input">File input</a>
- &middot;<a href="maxima_99.html#Category_003a-File-output">File output</a>
- &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-numericalio">Package numericalio</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a>
+ &middot;<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_100.html#Category_003a-Package-mnewton">Package mnewton</a>
 </div></p>
-<hr size="6">
-<a name="Plain_002dtext-input-and-output"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-numericalio" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Separator-flag-values-for-input" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#numericalio" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-numericalio" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_70.html#opsubst" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection">69.1.1 Plain-text input and output</h3>
-
-<p>プレインテキスト入出力では、
-読み書きする項目それぞれがアトムであることが仮定されます:
-整数、浮動小数点数、多倍長浮動小数点、文字列、シンボルであり、
-有理数や複素数や他のどんなアトムでない式でもありません。
-<code>numericalio</code>関数群は、アトムでない式に直面した時、
-何か適当なことを試みるかもしれませんが、
-結果はここで規定されず、変更の対象となります。
-</p>
-<p>入力ファイルと出力ファイルどちらのアトムも、
-Maximaバッチファイルや対話コンソールでのものと同じフォーマットを持ちます。
-特に、文字列はダブルクォートで括られ、
-バックスラッシュ <code>\</code>は次の文字の任意の特殊解釈を抑制し、クエスチョンマーク
-<code>?</code>は (Maximaシンボルではなく、)
-Lispシンボルを意味するシンボルの始まりとして認識されます。
-(分割された行をつなぎ合わせる)いかなる継続文字も認識されません。
-</p>
-<hr size="6">
-<a name="Separator-flag-values-for-input"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Plain_002dtext-input-and-output" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Separator-flag-values-for-output" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#numericalio" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-numericalio" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_70.html#opsubst" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection">69.1.2 Separator flag values for input</h3>
-
-<p>プレインテキスト入出力のための関数は、オプションの引数
-<var>separator_flag</var>を取ります。
-それはどの文字がデータを分離するかを示します。
-</p>
-<p>プレインテキスト入力では、
-<var>separator_flag</var>の以下の値が認識されます:
-コンマで区切られた値のための <code>comma</code>、
-垂直バー文字 <code>|</code>で区切られた値のための <code>pipe</code>、
-セミコロン <code>;</code>で区切られた値のための <code>semicolon</code>、
-空白かタブ文字で区切られた値のための <code>space</code>。
-もしファイル名が <code>.csv</code>で終わり、
-<var>separator_flag</var>が指定されていないなら、
-<code>comma</code>を仮定します。
-もしファイル名が <code>.csv</code>以外の何かで終わり、
-<code>separator_flag</code>が指定されていないなら、
-<code>space</code>を仮定します。
-</p>
-<p>プレインテキスト入力では、
-複数続く空白とタブ文字は1つの区切り文字として数えられます．
-しかしながら、複数のコンマ、パイプまたはセミコロンは意味を持ちます。
-連続するコンマ、パイプ、セミコロン文字は
-(空白やタブが間に入ろうが入るまいが)
-区切り文字の間に <code>false</code>を持つと見なされます。
-例えば、 <code>1234,,Foo</code>は <code>1234,false,Foo</code>と同じと扱われます。
-</p>
-<hr size="6">
-<a name="Separator-flag-values-for-output"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Separator-flag-values-for-input" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Binary-floating_002dpoint-input-and-output" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#numericalio" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-numericalio" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_70.html#opsubst" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection">69.1.3 Separator flag values for output</h3>
-
-<p>プレインテキスト出力では、<code>comma</code>, <code>pipe</code>, <code>semicolon</code>, そして
-<code>space</code>はもちろん、タブ文字で区切られた値のための <code>tab</code>も、
-<var>separator_flag</var>の値として認識されます。
-</p>
-<p>プレインテキスト出力では、
-<code>false</code>アトムは以下のように書かれます:
-リスト <code>[1234, false, Foo]</code>は <code>1234,false,Foo</code>と書かれ、
-出力を <code>1234,,Foo</code>につぶすことはありません。
-</p>
-<hr size="6">
-<a name="Binary-floating_002dpoint-input-and-output"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Separator-flag-values-for-output" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-plain_002dtext-input-and-output" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#numericalio" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-numericalio" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_70.html#opsubst" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection">69.1.4 Binary floating-point input and output</h3>
-
-<p><code>numericalio</code>関数群は8バイトIEEE754浮動小数点数を読み書きすることができます。
-これらの数は、
-<code>assume_external_byte_order</code>で設定されたグローバルフラグに従って、
-最下位バイトから順でも最上位バイトから順でも記憶することができます。
-</p>
-<p>もし指定されないなら、
-<code>numericalio</code>は外部バイト順は最上位バイトからと仮定します。
-</p>
-<p>他の種類の数は8バイト浮動小数点に強制変換されます;
-<code>numericalio</code>はアトムでないバイナリデータを読み書きできません。
-</p>
-<p>いくつかのLisp実装は
-IEEE 754の特殊値(正負の無限大、非数値、指数表現でない数)を認識しません。
-<code>numericalio</code>でそんな値を読み込むことの効果は未定義です。
-</p>
-<p><code>numericalio</code>は
-バイトストリームを読んだり書いたりするためのストリームを開く関数を含みます。
-</p>
-
-<p><a name="Item_003a-Functions-and-Variables-for-plain_002dtext-input-and-output"></a>
+<p><a name="Item_003a-Functions-and-Variables-for-mnewton"></a>
 </p><hr size="6">
-<a name="Functions-and-Variables-for-plain_002dtext-input-and-output"></a>
+<a name="Functions-and-Variables-for-mnewton"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Binary-floating_002dpoint-input-and-output" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-binary-input-and-output" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#Introduction-to-mnewton" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_70.html#numericalio" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#numericalio" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#numericalio" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_70.html#opsubst" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#mnewton" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#mnewton" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_70.html#numericalio" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-plain_002dtext-input-and-output-1"></a>
-<h2 class="section">69.2 Functions and Variables for plain-text input and output</h2>
+<a name="Functions-and-Variables-for-mnewton-1"></a>
+<h2 class="section">69.2 Functions and Variables for mnewton</h2>
 
-<p><a name="Item_003a-read_005fmatrix"></a>
+<p><a name="newtonepsilon"></a>
+<a name="Item_003a-newtonepsilon"></a>
 </p><dl>
-<dt><a name="index-read_005fmatrix"></a><u>関数:</u> <b>read_matrix</b><i> (<var>S</var>)</i></dt>
-<dt><a name="index-read_005fmatrix-1"></a><u>関数:</u> <b>read_matrix</b><i> (<var>S</var>, <var>M</var>)</i></dt>
-<dt><a name="index-read_005fmatrix-2"></a><u>関数:</u> <b>read_matrix</b><i> (<var>S</var>, <var>separator_flag</var>)</i></dt>
-<dt><a name="index-read_005fmatrix-3"></a><u>関数:</u> <b>read_matrix</b><i> (<var>S</var>, <var>M</var>, <var>separator_flag</var>)</i></dt>
-<dd>
-<p><code>read_matrix(<var>S</var>)</code>は、
-ソース<var>S</var>を読み込み、行列として内容全体を返します。
-行列のサイズは入力データから推論されます;
-ファイルの行それぞれは行列の 1行になります。
-もし複数の行が異なる長さを持つなら <code>read_matrix</code>はエラーを出力します。
+<dt><a name="index-newtonepsilon"></a><u>オプション変数:</u> <b>newtonepsilon</b></dt>
+<dd><p>デフォルト値: <code>10.0^(-fpprec/2)</code>
 </p>
-<p><code>read_matrix(<var>S</var>, <var>M</var>)</code>は、
-<var>M</var>が一杯になるか、ソースが尽きるまで、ソース <var>S</var>を行列 <var>M</var>に読み込みます。
-入力データは行優先順に行列に読み込まれます;
-入力は <var>M</var>と同じ行数と列数を持つ必要はありません。
+<p><code>mnewton</code>関数が解に向かって収束した時を決定する精度。
+もし <code>newtonepsilon</code>が多倍長浮動小数点なら、
+<code>mnewton</code>計算を多倍長浮動小数点でします。
+<code>mnewton</code>も参照してください。
 </p>
-<p>ソース <var>S</var>はファイル名かストリームかもしれません。
-</p>
-<p><var>separator_flag</var>の認識される値は
-<code>comma</code>, <code>pipe</code>, <code>semicolon</code>, <code>space</code>です。
-もし <var>separator_flag</var>を指定しないならファイルは空白で区切られていると仮定します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-numericalio">Package numericalio</a>
- &middot;<a href="maxima_99.html#Category_003a-File-input">File input</a>
-</div></p>
-</dd></dl>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-mnewton">Package mnewton</a>
+</div></p></dd></dl>
 
-<p><a name="Item_003a-read_005farray"></a>
+<p><a name="newtonmaxiter"></a>
+<a name="Item_003a-newtonmaxiter"></a>
 </p><dl>
-<dt><a name="index-read_005farray"></a><u>関数:</u> <b>read_array</b><i> (<var>S</var>, <var>A</var>)</i></dt>
-<dt><a name="index-read_005farray-1"></a><u>関数:</u> <b>read_array</b><i> (<var>S</var>, <var>A</var>, <var>separator_flag</var>)</i></dt>
-<dd>
-<p><var>A</var>が一杯になるか、ソースが尽きるまで、ソース <var>S</var>を配列 <var>A</var>に読み込みます。
-入力データは列優先順に配列に読み込まれます;
-入力は <var>A</var>の次元に一致する必要はありません。
+<dt><a name="index-newtonmaxiter"></a><u>オプション変数:</u> <b>newtonmaxiter</b></dt>
+<dd><p>デフォルト値: <code>50</code>
 </p>
-<p>ソース <var>S</var>はファイル名かストリームかもしれません。
+<p>もし収束しないか収束が遅すぎるなら
+<code>mnewton</code>関数を止める繰り返しの最大数。
 </p>
-<p><var>separator_flag</var>の認識される値は
-<code>comma</code>, <code>pipe</code>, <code>semicolon</code>, <code>space</code>です。
-もし <var>separator_flag</var>を指定しないならファイルは空白で区切られていると仮定します。
+<p><code>mnewton</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-numericalio">Package numericalio</a>
- &middot;<a href="maxima_99.html#Category_003a-File-input">File input</a>
-</div></p>
-</dd></dl>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-mnewton">Package mnewton</a>
+</div></p></dd></dl>
 
-<p><a name="Item_003a-read_005fhashed_005farray"></a>
-</p><dl>
-<dt><a name="index-read_005fhashed_005farray"></a><u>関数:</u> <b>read_hashed_array</b><i> (<var>S</var>, <var>A</var>)</i></dt>
-<dt><a name="index-read_005fhashed_005farray-1"></a><u>関数:</u> <b>read_hashed_array</b><i> (<var>S</var>, <var>A</var>, <var>separator_flag</var>)</i></dt>
+<p><a name="function_005fmnewton"></a>
+</p>
+<dl>
+<dt><a name="index-mnewton"></a><u>関数:</u> <b>mnewton</b><i> (<var>FuncList</var>,<var>VarList</var>,<var>GuessList</var>)</i></dt>
 <dd>
-<p>ソース <var>S</var>が読み込まれ、ハッシュ配列として内容全体が返されます。
-ソース <var>S</var>はファイル名かストリームかもしれません。
+<p>Newton法を使った複数非線形関数の解。
+<var>FuncList</var>は解くべき関数のリスト、
+<var>VarList</var>は変数名のリスト、
+<var>GuessList</var>は初期近似のリストです。
 </p>
-<p><code>read_hashed_array</code>は、
-それぞれの行の最初の項目をハッシュキーとして扱い、
-行の残りを(リストとして)キーと結合します。
-例えば、行 <code>567 12 17 32 55</code>は
-<code>A[567]: [12, 17, 32, 55]$</code>と同値です。
-行数は要素数と同じである必要はありません。
+<p><code>solve()</code>が返すのと同じフォーマットで解を返されます。
+もし解が見つからないなら、<code>[]</code>を返します。
 </p>
-<p><var>separator_flag</var>の認識される値は
-<code>comma</code>, <code>pipe</code>, <code>semicolon</code>, <code>space</code>です。
-もし <var>separator_flag</var>が指定しないならファイルは空白で区切られていると仮定します。
+<p>グローバル変数 <code>newtonepsilon</code>と
+<code>newtonmaxiter</code>がこの関数を制御します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-numericalio">Package numericalio</a>
- &middot;<a href="maxima_99.html#Category_003a-File-input">File input</a>
-</div></p>
-</dd></dl>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;mnewton&quot;)$
 
-<p><a name="Item_003a-read_005fnested_005flist"></a>
-</p><dl>
-<dt><a name="index-read_005fnested_005flist"></a><u>関数:</u> <b>read_nested_list</b><i> (<var>S</var>)</i></dt>
-<dt><a name="index-read_005fnested_005flist-1"></a><u>関数:</u> <b>read_nested_list</b><i> (<var>S</var>, <var>separator_flag</var>)</i></dt>
-<dd>
-<p>ソース <var>S</var>を読み込み、入れ子のリストとして内容全体を返します。
-ソース <var>S</var>はファイル名かストリームかもしれません。
-</p>
-<p><code>read_nested_list</code>は入力のそれぞれの行について部分リストを持つリストを返します。
-行数は要素数と同じである必要はありません。
-空の行は無視され<i>ません</i>: 空の行は空の部分リストをもたらします。
-</p>
-<p><var>separator_flag</var>の認識される値は
-<code>comma</code>, <code>pipe</code>, <code>semicolon</code>, <code>space</code>です。
-もし <var>separator_flag</var>を指定しないなら、ファイルは空白で区切られていると仮定します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-numericalio">Package numericalio</a>
- &middot;<a href="maxima_99.html#Category_003a-File-input">File input</a>
-</div></p>
-</dd></dl>
+(%i2) mnewton([x1+3*log(x1)-x2^2, 2*x1^2-x1*x2-5*x1+1],
+              [x1, x2], [5, 5]);
+(%o2) [[x1 = 3.756834008012769, x2 = 2.779849592817897]]
+(%i3) mnewton([2*a^a-5],[a],[1]);
+(%o3)             [[a = 1.70927556786144]]
+(%i4) mnewton([2*3^u-v/u-5, u+2^v-4], [u, v], [2, 2]);
+(%o4) [[u = 1.066618389595407, v = 1.552564766841786]]
+</pre></td></tr></table>
 
-<p><a name="Item_003a-read_005flist"></a>
-</p><dl>
-<dt><a name="index-read_005flist"></a><u>関数:</u> <b>read_list</b><i> (<var>S</var>)</i></dt>
-<dt><a name="index-read_005flist-1"></a><u>関数:</u> <b>read_list</b><i> (<var>S</var>, <var>L</var>)</i></dt>
-<dt><a name="index-read_005flist-2"></a><u>関数:</u> <b>read_list</b><i> (<var>S</var>, <var>separator_flag</var>)</i></dt>
-<dt><a name="index-read_005flist-3"></a><u>関数:</u> <b>read_list</b><i> (<var>S</var>, <var>L</var>, <var>separator_flag</var>)</i></dt>
-<dd>
-<p><code>read_list(<var>S</var>)</code>は、ソース
-<var>S</var>を読み込み、フラットなリストとして内容全体を返します。
+<p>変数 <code>newtonepsilon</code>は近似の精度を制御します。
+それはまた、計算を浮動小数点で実行するか、多倍長浮動小数点で実行するかを制御します。
 </p>
-<p><code>read_list(<var>S</var>, <var>L</var>)</code>は、
-<var>L</var>が一杯になるかソースが尽きるまで、ソース <var>S</var>をリスト <var>L</var>に読み込みます。
-</p>
-<p>ソース <var>S</var>はファイル名かストリームかもしれません。
-</p>
-<p><var>separator_flag</var>の認識される値は
-<code>comma</code>, <code>pipe</code>, <code>semicolon</code>, <code>space</code>です。
-もし <var>separator_flag</var>を指定しないなら、ファイルは空白で区切られていると仮定します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-numericalio">Package numericalio</a>
- &middot;<a href="maxima_99.html#Category_003a-File-input">File input</a>
-</div></p>
-</dd></dl>
+<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) (load(&quot;mnewton&quot;), fpprec : 25, newtonepsilon : bfloat(10^(-fpprec+5)))$
 
-<p><a name="Item_003a-write_005fdata"></a>
-</p><dl>
-<dt><a name="index-write_005fdata"></a><u>関数:</u> <b>write_data</b><i> (<var>X</var>, <var>D</var>)</i></dt>
-<dt><a name="index-write_005fdata-1"></a><u>関数:</u> <b>write_data</b><i> (<var>X</var>, <var>D</var>, <var>separator_flag</var>)</i></dt>
-<dd>
-<p>オブジェクト <var>X</var>をデスティネーション <var>D</var>に書き出します。
-</p>
-<p><code>write_data</code>は行列を行につき一行で行優先順に書き出します。
-</p>
-<p><code>write_data</code>は <code>array</code>や
-<code>make_array</code>で生成された配列を行優先順でスラブ毎に改行して書き出します。
-高次元スラブは更に改行で分割されます。
-</p>
-<p><code>write_data</code>はハッシュ配列をキーそれぞれに結合したリストが続くように
-1行に書き出します。
-</p>
-<p><code>write_data</code>は入れ子のリストをそれぞれの部分リストを 1行に書き出します。
-</p>
-<p><code>write_data</code>はフラットなリストすべてを 1行に書き出します。
-</p>
-<p>デスティネーション <var>D</var>はファイル名かストリームかもしれません。
-デスティネーションがファイル名の時、グローバル変数
-<code>file_output_append</code>は出力ファイルに追加されるか上書きされるか決定します。
-デスティネーションがストリームの時、
-<code>write_data</code>はデータすべてが書かれた後、特殊なアクションを取ります;
-特にストリームは開いたままとなります。
-</p>
-<p><var>separator_flag</var>の認識される値は
-<code>comma</code>, <code>pipe</code>, <code>semicolon</code>, <code>space</code>です。
-もし <var>separator_flag</var>を指定しないなら、ファイルは空白で区切られていると仮定します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-numericalio">Package numericalio</a>
- &middot;<a href="maxima_99.html#Category_003a-File-output">File output</a>
-</div></p>
-</dd></dl>
+(%i2) mnewton([2*3^u-v/u-5, u+2^v-4], [u, v], [2, 2]);
+(%o2) [[u = 1.066618389595406772591173b0, v = 1.552564766841786450100418b0]]
+</pre></td></tr></table>
 
-<p><a name="Item_003a-Functions-and-Variables-for-binary-input-and-output"></a>
+<p>この関数を使うためには最初に <code>load(&quot;mnewton&quot;)</code>と書いてください。
+<code>newtonepsilon</code>と <code>newtonmaxiter</code>も参照してください。
+</p>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-mnewton">Package mnewton</a>
+</div></p></dd></dl>
+
+
+<p><a name="Item_003a-numericalio"></a>
 </p><hr size="6">
-<a name="Functions-and-Variables-for-binary-input-and-output"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-plain_002dtext-input-and-output" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_70.html#opsubst" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#numericalio" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#numericalio" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_70.html#opsubst" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<a name="Functions-and-Variables-for-binary-input-and-output-1"></a>
-<h2 class="section">69.3 Functions and Variables for binary input and output</h2>
-
-<p><a name="Item_003a-assume_005fexternal_005fbyte_005forder"></a>
-</p><dl>
-<dt><a name="index-assume_005fexternal_005fbyte_005forder"></a><u>関数:</u> <b>assume_external_byte_order</b><i> (<var>byte_order_flag</var>)</i></dt>
-<dd><p><code>numericalio</code>にバイナリデータを読み書きするためのバイトオーダーを知らせます。
-<var>byte_order_flag</var>の2つの値が認識されます:
-リトルエンディアンバイトオーダーとも呼ばれる最下位バイト優先を示す <code>lsb</code>
-と
-ビッグエンディアンバイトオーダーとも呼ばれる最上位バイト優先を示す <code>msb</code>
-</p>
-<p>もし指定しないなら、
-<code>numericalio</code>は外部のバイトオーダーは最上位バイト優先を仮定します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-numericalio">Package numericalio</a>
-</div></p></dd></dl>
-
-<p><a name="Item_003a-openr_005fbinary"></a>
-</p><dl>
-<dt><a name="index-openr_005fbinary"></a><u>関数:</u> <b>openr_binary</b><i> (<var>file_name</var>)</i></dt>
-<dd><p><var>file_name</var>という名前のファイルを読むための
-8ビット符号なしバイトの入力ストリームを返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-numericalio">Package numericalio</a>
- &middot;<a href="maxima_99.html#Category_003a-File-input">File input</a>
-</div></p></dd></dl>
-
-<p><a name="Item_003a-openw_005fbinary"></a>
-</p><dl>
-<dt><a name="index-openw_005fbinary"></a><u>関数:</u> <b>openw_binary</b><i> (<var>file_name</var>)</i></dt>
-<dd><p><var>file_name</var>という名前のファイルに書き込むための
-8ビット符号なしバイトの出力ストリームを返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-numericalio">Package numericalio</a>
- &middot;<a href="maxima_99.html#Category_003a-File-output">File output</a>
-</div></p></dd></dl>
-
-<p><a name="Item_003a-opena_005fbinary"></a>
-</p><dl>
-<dt><a name="index-opena_005fbinary"></a><u>関数:</u> <b>opena_binary</b><i> (<var>file_name</var>)</i></dt>
-<dd><p><var>file_name</var>という名前のファイルに追加するための
-8ビット符号なしバイトの出力ストリームを返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-numericalio">Package numericalio</a>
- &middot;<a href="maxima_99.html#Category_003a-File-output">File output</a>
-</div></p></dd></dl>
-
-<p><a name="Item_003a-read_005fbinary_005fmatrix"></a>
-</p><dl>
-<dt><a name="index-read_005fbinary_005fmatrix"></a><u>関数:</u> <b>read_binary_matrix</b><i> (<var>S</var>, <var>M</var>)</i></dt>
-<dd><p><var>M</var>が一杯になるかソースが尽きるまで、ソース <var>S</var>から行列
-<var>M</var>にバイナリの 8バイト浮動小数点数を読み込みます。
-<var>M</var>の要素は行優先順で読み込まれます。
-</p>
-<p>ソース <var>S</var>はファイル名かストリームかもしれません。
-</p>
-<p>ソースの要素のバイトオーダーは
-<code>assume_external_byte_order</code>で指定します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-numericalio">Package numericalio</a>
- &middot;<a href="maxima_99.html#Category_003a-File-input">File input</a>
-</div></p></dd></dl>
-
-<p><a name="Item_003a-read_005fbinary_005farray"></a>
-</p><dl>
-<dt><a name="index-read_005fbinary_005farray"></a><u>関数:</u> <b>read_binary_array</b><i> (<var>S</var>, <var>A</var>)</i></dt>
-<dd><p><var>A</var>が一杯になるかソースが尽きるまで、ソース <var>S</var>から配列
-<var>A</var>にバイナリの 8バイト浮動小数点数を読み込みます。
-<var>M</var>の要素は行優先順で読み込まれます。
-</p>
-<p>ソース <var>S</var>はファイル名かストリームかもしれません。
-</p>
-<p>ソースの要素のバイトオーダーは
-<code>assume_external_byte_order</code>で指定されます。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-numericalio">Package numericalio</a>
- &middot;<a href="maxima_99.html#Category_003a-File-input">File input</a>
-</div></p></dd></dl>
-
-<p><a name="Item_003a-read_005fbinary_005flist"></a>
-</p><dl>
-<dt><a name="index-read_005fbinary_005flist"></a><u>関数:</u> <b>read_binary_list</b><i> (<var>S</var>)</i></dt>
-<dt><a name="index-read_005fbinary_005flist-1"></a><u>関数:</u> <b>read_binary_list</b><i> (<var>S</var>, <var>L</var>)</i></dt>
-<dd><p><code>read_binary_list(<var>S</var>)</code>は、バイナリ
-8バイト浮動小数点数の数列としてソース
-<var>S</var>の内容全体を読み込み、それをリストとして返します。
-ソース <var>S</var>はファイル名かストリームかもしれません。
-</p>
-<p><code>read_binary_list(<var>S</var>, <var>L</var>)</code>は、リスト
-<var>L</var>が一杯になるかソースが尽きるまで、ソース
-<var>S</var>からバイナリ8バイト浮動小数点数を読み込みます。
-</p>
-<p>ソースの要素のバイトオーダーは
-<code>assume_external_byte_order</code>で指定します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-numericalio">Package numericalio</a>
- &middot;<a href="maxima_99.html#Category_003a-File-input">File input</a>
-</div></p></dd></dl>
-
-<p><a name="Item_003a-write_005fbinary_005fdata"></a>
-</p><dl>
-<dt><a name="index-write_005fbinary_005fdata"></a><u>関数:</u> <b>write_binary_data</b><i> (<var>X</var>, <var>D</var>)</i></dt>
-<dd>
-<p>バイナリ 8バイトIEEE 754浮動小数点数で構成されるオブジェクト
-<var>X</var>をディスティネーション <var>D</var>に書き込みます。
-他の種類の数は 8バイト浮動小数点に強制変換されます。
-<code>write_binary_data</code>は非数データを書くことはできません。
-</p>
-<p>オブジェクト <var>X</var>はリストか、入れ子のリスト、行列、もしくは、
-<code>array</code>か <code>make_array</code>で生成された配列であり得ます;
-<var>X</var>は未宣言配列や他のいかなる種類のオブジェクトもありえません。
-<code>write_binary_data</code>は入れ子のリスト、行列、配列を行優先順に書き込みます。
-</p>
-<p>デスティネーション <var>D</var>はファイル名かストリームかもしれません。
-デスティネーションがファイル名の時、グローバル変数
-<code>file_output_append</code>が出力ファイルに追加されるか上書きされるか決めます。
-デスティネーションがストリームの時、データすべてが書かれた後
-<code>write_binary_data</code>は特別な動作は何もしません;
-特に、ストリームは開かれたままです。
-</p>
-<p>デスティネーションの要素のバイトオーダーは
-<code>assume_external_byte_order</code>で指定します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-numericalio">Package numericalio</a>
- &middot;<a href="maxima_99.html#Category_003a-File-output">File output</a>
-</div></p></dd></dl>
-
-
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#numericalio" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_70.html#opsubst" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#mnewton" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_70.html#numericalio" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -706,12 +315,12 @@ IEEE 754の特殊値(正負の無限大、非数値、指数表現でない数)�
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年4月月20日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年4月月20日 by texi2html 1.82
+<!-- Created on 2014年9月月15日 by texi2html 1.82
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -10,10 +10,10 @@ Maintained by: Many creative people.
 Send bugs and suggestions to <texi2html-bug@nongnu.org>
 -->
 <head>
-<title>Maxima 5.33.0 Manual: 71. orthopoly</title>
+<title>Maxima 5.34.1 Manual: 71. opsubst</title>
 
-<meta name="description" content="Maxima 5.33.0 Manual: 71. orthopoly">
-<meta name="keywords" content="Maxima 5.33.0 Manual: 71. orthopoly">
+<meta name="description" content="Maxima 5.34.1 Manual: 71. opsubst">
+<meta name="keywords" content="Maxima 5.34.1 Manual: 71. opsubst">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.82">
@@ -137,7 +137,7 @@ div.categorybox
 -->
 </style>
 
-<link rel="icon" href="http://maxima.sourceforge.net/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico"/>
 
 <script type="text/javascript"><!--
 
@@ -156,1045 +156,131 @@ div.categorybox
 
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="orthopoly"></a>
+<a name="opsubst"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_70.html#Functions-and-Variables-for-opsubst" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-orthogonal-polynomials" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_70.html#Functions-and-Variables-for-binary-input-and-output" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-opsubst" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_70.html#opsubst" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_70.html#numericalio" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#romberg" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#orthopoly" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="orthopoly-1"></a>
-<h1 class="chapter">71. orthopoly</h1>
+<a name="opsubst-1"></a>
+<h1 class="chapter">71. opsubst</h1>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-orthogonal-polynomials">71.1 Introduction to orthogonal polynomials</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-orthogonal-polynomials">71.2 Functions and Variables for orthogonal polynomials</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-opsubst">71.1 Functions and Variables for opsubst</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<p><a name="Item_003a-Introduction-to-orthogonal-polynomials"></a>
+<p><a name="Item_003a-Functions-and-Variables-for-opsubst"></a>
 </p><hr size="6">
-<a name="Introduction-to-orthogonal-polynomials"></a>
+<a name="Functions-and-Variables-for-opsubst"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#orthopoly" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Getting-Started-with-orthopoly" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#opsubst" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#orthopoly" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#orthopoly" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#orthopoly" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#romberg" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#opsubst" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#opsubst" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#orthopoly" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-orthogonal-polynomials-1"></a>
-<h2 class="section">71.1 Introduction to orthogonal polynomials</h2>
-
-<p><code>orthopoly</code>は、
-Chebyshev, Laguerre, Hermite, Jacobi, Legendre,
-超球 (Gegenbauer)多項式を含むいくつかの種類の直交多項式の
-シンボリックな評価と数値評価のためのパッケージです。
-さらに、 <code>orthopoly</code>は球 Bessel, 球 Hankel, 球調和関数のサポートを含みます。
-</p>
-<p>ほとんどの部分に関して、 <code>orthopoly</code>は
-Abramowitz and Stegunの<i>Handbook of Mathematical Functions</i>, Chapter 22 (10th printing, December 1972)の慣例に従います;
-加えて、
-Gradshteyn and Ryzhikの<i>Table of Integrals, Series, and Products</i> (1980 corrected and enlarged edition)と
-Eugen Merzbacherの<i>Quantum Mechanics</i> (2nd edition, 1970)を使います。
-</p>
-
-
-<p>University of Nebraska at Kearney (UNK)のBarton Willisが
-<code>orthopoly</code>パッケージとドキュメンテーションを書きました。
-パッケージは GNU General Public License (GPL)の下で公開されています。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Orthogonal-polynomials">Orthogonal polynomials</a>
- &middot;<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
-</div></p>
-<hr size="6">
-<a name="Getting-Started-with-orthopoly"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-orthogonal-polynomials" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Limitations" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#orthopoly" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-orthogonal-polynomials" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#romberg" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection">71.1.1 Getting Started with orthopoly</h3>
-
-<p><code>load (orthopoly)</code>は <code>orthopoly</code>パッケージをロードします。
-</p>
-<p>3次の Legendre多項式を見つけるには、
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) legendre_p (3, x);
-                      3             2
-             5 (1 - x)    15 (1 - x)
-(%o1)      - ---------- + ----------- - 6 (1 - x) + 1
-                 2             2
-</pre></td></tr></table>
-
-<p>これを <var>x</var>の冪の和として表すには、
-<var>ratsimp</var>か <var>rat</var>を結果に適用してください。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) [ratsimp (%), rat (%)];
-                        3           3
-                     5 x  - 3 x  5 x  - 3 x
-(%o2)/R/            [----------, ----------]
-                         2           2
-</pre></td></tr></table>
-
-<p>あるいはまた、
-<code>legendre_p</code>の第二引数 (「主」変数)を正準有理形 (CRE)にしてください。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) legendre_p (3, rat (x));
-                              3
-                           5 x  - 3 x
-(%o1)/R/                   ----------
-                               2
-</pre></td></tr></table>
-
-<p>浮動小数点評価に関して、
-<code>orthopoly</code>はランニング誤差解析を使って誤差の上限を推定します。
-例えば、
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) jacobi_p (150, 2, 3, 0.2);
-(%o1) interval(- 0.062017037936715, 1.533267919277521E-11)
-</pre></td></tr></table>
-
-<p>区間は <code>interval (<var>c</var>, <var>r</var>)</code>形を取ります。
-ここで <var>c</var>は中央値、 <var>r</var>は区間の半径です。
-Maximaは区間上の算術をサポートしていないので、グラフィックスなどいくつかの状況では
-誤差を抑制し、区間の中央値だけ出力したいでしょう。
-これをするには、オプション変数 <code>orthopoly_returns_intervals</code>を
-<code>false</code>に設定してください。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) orthopoly_returns_intervals : false;
-(%o1)                         false
-(%i2) jacobi_p (150, 2, 3, 0.2);
-(%o2)                  - 0.062017037936715
-</pre></td></tr></table>
-
-<p>更に知るにはセクション see <a href="#Floating-point-Evaluation">Floating point Evaluation</a>を参照してください。
-</p>
-<p><code>orthopoly</code>のほとんどの関数は <code>gradef</code>プロパティを持ちます;
-例えば、
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) diff (hermite (n, x), x);
-(%o1)                     2 n H     (x)
-                               n - 1
-(%i2) diff (gen_laguerre (n, a, x), x);
-              (a)               (a)
-           n L   (x) - (n + a) L     (x) unit_step(n)
-              n                 n - 1
-(%o2)      ------------------------------------------
-                               x
-</pre></td></tr></table>
-
-
-<p>二番目の例の単位階段関数は、
-<var>n</var>が 0で評価することによって、そうでなければ生じる誤差を抑制します。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) ev (%, n = 0);
-(%o3)                           0
-</pre></td></tr></table>
-
-<p><code>gradef</code>プロパティは「主」変数にのみ適用されます;
-他の引数に関する導関数は、普通、エラーメッセージに帰着します;
-例えば、
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) diff (hermite (n, x), x);
-(%o1)                     2 n H     (x)
-                               n - 1
-(%i2) diff (hermite (n, x), n);
-
-Maxima doesn't know the derivative of hermite with respect the first
-argument
- -- an error.  Quitting.  To debug this try debugmode(true);
-</pre></td></tr></table>
-
-<p>一般に <code>orthopoly</code>の関数はリストや行列上に写像します。
-写像を完全に評価するには、
-オプション変数 <code>doallmxops</code>と <code>listarith</code>はともに
-<code>true</code>(デフォルト値)でなければいけません。
-行列上への写像を見るには以下を考えてください。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) hermite (2, x);
-                                     2
-(%o1)                    - 2 (1 - 2 x )
-(%i2) m : matrix ([0, x], [y, 0]);
-                            [ 0  x ]
-(%o2)                       [      ]
-                            [ y  0 ]
-(%i3) hermite (2, m);
-               [                             2  ]
-               [      - 2        - 2 (1 - 2 x ) ]
-(%o3)          [                                ]
-               [             2                  ]
-               [ - 2 (1 - 2 y )       - 2       ]
-</pre></td></tr></table>
-
-<p>二番目の例では、値の <code>i, j</code>要素は <code>hermite (2, m[i,j])</code>です;
-次の例で見るように、これは計算 <code>-2 + 4 m . m</code>と同じではありません。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) -2 * matrix ([1, 0], [0, 1]) + 4 * m . m;
-                    [ 4 x y - 2      0     ]
-(%o4)               [                      ]
-                    [     0      4 x y - 2 ]
-</pre></td></tr></table>
-
-<p>定義域外の点で関数を評価すると、一般に、
-<code>orthopoly</code>は未評価関数を返します。
-例えば、
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) legendre_p (2/3, x);
-(%o1)                        P   (x)
-                              2/3
-</pre></td></tr></table>
-
-<p><code>orthopoly</code>は TeXへの翻訳をサポートします;
-端末上での 2次元出力も行います。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) spherical_harmonic (l, m, theta, phi);
-                          m
-(%o1)                    Y (theta, phi)
-                          l
-(%i2) tex (%);
-$$Y_{l}^{m}\left(\vartheta,\varphi\right)$$
-(%o2)                         false
-(%i3) jacobi_p (n, a, a - b, x/2);
-                          (a, a - b) x
-(%o3)                    P          (-)
-                          n          2
-(%i4) tex (%);
-$$P_{n}^{\left(a,a-b\right)}\left({{x}\over{2}}\right)$$
-(%o4)                         false
-</pre></td></tr></table>
-
-<hr size="6">
-<a name="Limitations"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Getting-Started-with-orthopoly" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Floating-point-Evaluation-1" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#orthopoly" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-orthogonal-polynomials" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#romberg" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection">71.1.2 Limitations</h3>
-
-<p>式がいくつかの直交多項式を記号順で含む時、
-式が実際に 0になる可能性がありますが、
-まだ Maximaはそれを零に整理することができません。
-もしそんな量で割るなら、困ったことになるでしょう。
-例えば、以下の式は 1より大きな整数 <var>n</var>で零になりますが、
-まだ Maximaはそれを零に整理することができません。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) (2*n - 1) * legendre_p (n - 1, x) * x - n * legendre_p (n, x)
-      + (1 - n) * legendre_p (n - 2, x);
-(%o1)  (2 n - 1) P     (x) x - n P (x) + (1 - n) P     (x)
-                  n - 1           n               n - 2
-</pre></td></tr></table>
-
-<p>特定の <var>n</var>では式を零に換算できます。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) ev (% ,n = 10, ratsimp);
-(%o2)                           0
-</pre></td></tr></table>
-
-<p>一般に、直交多項式の多項式形は浮動小数点評価に関しては不適当です。
-以下は例です。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) p : jacobi_p (100, 2, 3, x)$
-
-(%i2) subst (0.2, x, p);
-(%o2)                3.4442767023833592E+35
-(%i3) jacobi_p (100, 2, 3, 0.2);
-(%o3)  interval(0.18413609135169, 6.8990300925815987E-12)
-(%i4) float(jacobi_p (100, 2, 3, 2/10));
-(%o4)                   0.18413609135169
-</pre></td></tr></table>
-
-<p>真値は約0.184です;
-この計算は極端な減算消去誤差に苦しみます。
-多項式を展開し評価すると、よりよい結果を与えます。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i5) p : expand(p)$
-(%i6) subst (0.2, x, p);
-(%o6) 0.18413609766122982
-</pre></td></tr></table>
-
-<p>これは一般的な規則ではありません;
-多項式を展開することはいつも、より数値評価に適した式を生じるわけではありません。
-数値評価する最もよい方法は断然、関数引数を少なくとも1つ浮動小数点数にすることです。
-それをすることで、特別な浮動小数点アルゴリズムが評価に使われます。
-</p>
-<p>Maximaの <code>float</code>関数は幾分でたらめです;
-もし
-<code>float</code>を記号次数や順序パラメータを持つ直交多項式を含む式に適用するなら、
-これらのパラメータは浮動小数点に変換されるかもしれません;
-その後、式は完全には評価されません。
-以下を考えてください。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) assoc_legendre_p (n, 1, x);
-                               1
-(%o1)                         P (x)
-                               n
-(%i2) float (%);
-                              1.0
-(%o2)                        P   (x)
-                              n
-(%i3) ev (%, n=2, x=0.9);
-                             1.0
-(%o3)                       P   (0.9)
-                             2
-</pre></td></tr></table>
-
-<p>(%o3)の式は浮動小数点に評価されません;
-<code>orthopoly</code>は整数を要求するところで浮動小数点値を認識しません。
-同様に、
-<code>pochhammer_max_index</code>を越える位数の
-<code>pochhammer</code>関数の数値評価はトラブルの元かもしれません;
-以下を考えてください。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) x :  pochhammer (1, 10), pochhammer_max_index : 5;
-(%o1)                         (1)
-                                 10
-</pre></td></tr></table>
-
-<p><code>float</code>を適用することは <var>x</var>を浮動小数点に評価しません。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) float (x);
-(%o2)                       (1.0)
-                                 10.0
-</pre></td></tr></table>
-
-<p><var>x</var>を浮動小数点に評価するには、
-<code>pochhammer_max_index</code>を 11以上にバインドして、
-<code>float</code>を <var>x</var>に適用する必要があります。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) float (x), pochhammer_max_index : 11;
-(%o3)                       3628800.0
-</pre></td></tr></table>
-
-<p><code>pochhammer_max_index</code>のデフォルト値は 100です;
-<code>orthopoly</code>をロードした後、値を変えてください。
-</p>
-<p>最後に、参考書は直交多項式の定義を変えることを承知してください;
-一般的に Abramowitz and Stegunの慣例を使っています。
-</p>
-<p>orhtopolyのバグを疑う前にいくつかの特殊なケースをチェックして、あなたの定義が
-<code>orthopoly</code>が使っているものと一致しているかを明らかにしてください。
-</p>
-<p>定義はしばしば規格化について異なります;
-時々、著者は
-<em>(-1, 1)</em>以外の区間上で直交な族を作る関数の「シフト」版を使います。
-例えば、
-<em>(0, 1)</em>上で直交するLegendre多項式を定義するのに、
-以下を定義します。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) shifted_legendre_p (n, x) := legendre_p (n, 2*x - 1)$
-
-(%i2) shifted_legendre_p (2, rat (x));
-                            2
-(%o2)/R/                 6 x  - 6 x + 1
-(%i3) legendre_p (2, rat (x));
-                               2
-                            3 x  - 1
-(%o3)/R/                    --------
-                               2
-</pre></td></tr></table>
-
-<p><a name="Floating-point-Evaluation"></a>
-</p><hr size="6">
-<a name="Floating-point-Evaluation-1"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Limitations" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Graphics-and-orthopoly" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#orthopoly" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-orthogonal-polynomials" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#romberg" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection">71.1.3 Floating point Evaluation</h3>
-
-<p><code>orthopoly</code>の関数のほとんどは浮動小数点評価中の誤差を見積もるのに、
-ランニング誤差解析を使います;
-例外は球 Bessel関数と第二種 Legendreの陪多項式です。
-数値評価のため、球 Bessel関数は SLATEC関数をコールします。
-第二種 Legendreの陪多項式の数値評価のために特別な方法は使われません。
-</p>
-<p>ランニング誤差解析は
-(丸め単位としても知られている)計算機イプシロンの二次か高次の誤差を無視します。
-2,3の他の誤差も無視します。
-(ありそうにありませんが、)実際の誤差は推定を越える可能性があります。
-</p>
-<p>区間は形式 <code>interval (<var>c</var>, <var>r</var>)</code>を持ちます。
-ここで、<var>c</var>は区間の中心で、 <var>r</var>は半径です。
-区間の中心は複素数であり得ますし、
-半径はいつも正の実数です。
-</p>
-<p>以下は例です。
-</p>
-
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) fpprec : 50$
-
-(%i2) y0 : jacobi_p (100, 2, 3, 0.2);
-(%o2) interval(0.1841360913516871, 6.8990300925815987E-12)
-(%i3) y1 : bfloat (jacobi_p (100, 2, 3, 1/5));
-(%o3) 1.8413609135168563091370224958913493690868904463668b-1
-</pre></td></tr></table>
-
-<p>実際の誤差が誤差推定よりも小さいことをテストしましょう。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) is (abs (part (y0, 1) - y1) &lt; part (y0, 2));
-(%o4)                         true
-</pre></td></tr></table>
-
-<p>なるほど、この例では、
-誤差推定は真の誤差の上限です。
-</p>
-<p>Maximaは区間の算術をサポートしていません。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) legendre_p (7, 0.1) + legendre_p (8, 0.1);
-(%o1) interval(0.18032072148437508, 3.1477135311021797E-15)
-        + interval(- 0.19949294375000004, 3.3769353084291579E-15)
-</pre></td></tr></table>
-
-<p>ユーザーは区間算数を行う計算をする演算子を定義できます。
-区間の足し算を定義するには、以下のように定義できます。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) infix (&quot;@+&quot;)$
-
-(%i2) &quot;@+&quot;(x,y) := interval (part (x, 1) + part (y, 1), part (x, 2)
-      + part (y, 2))$
-
-(%i3) legendre_p (7, 0.1) @+ legendre_p (8, 0.1);
-(%o3) interval(- 0.019172222265624955, 6.5246488395313372E-15)
-</pre></td></tr></table>
-
-<p>引数が複素数の時、特殊な浮動小数点ルーチンがコールされます。
-例えば、
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) legendre_p (10, 2 + 3.0*%i);
-(%o1) interval(- 3.876378825E+7 %i - 6.0787748E+7, 
-                                           1.2089173052721777E-6)
-</pre></td></tr></table>
-
-<p>これを真値と比較しましょう。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) float (expand (legendre_p (10, 2 + 3*%i)));
-(%o1)          - 3.876378825E+7 %i - 6.0787748E+7
-</pre></td></tr></table>
-
-<p>更に、引数が多倍長浮動小数点の時、特殊な浮動小数点ルーチンがコールされます;
-しかしながら、多倍長浮動小数点は倍精度浮動小数点に変換され、最終結果は倍精度です。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) ultraspherical (150, 0.5b0, 0.9b0);
-(%o1) interval(- 0.043009481257265, 3.3750051301228864E-14)
-</pre></td></tr></table>
-
-<hr size="6">
-<a name="Graphics-and-orthopoly"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Floating-point-Evaluation-1" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Miscellaneous-Functions" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#orthopoly" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-orthogonal-polynomials" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#romberg" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection">71.1.4 Graphics and <code>orthopoly</code></h3>
-
-<p>直交多項式を含む式をプロットするには 2つのことをしなければいけません:
-</p><ol>
-<li> 
-オプション変数 <code>orthopoly_returns_intervals</code>を <code>false</code>に設定する。
-</li><li>
-<code>orthopoly</code>関数のすべてのコールをクォートする。
-</li></ol>
-<p>もし関数コールがクォートされていないなら、
-Maximaはプロットする前にそれらを多項式に評価します;
-結果として、特殊な浮動小数点コードはコールされません。
-以下は、 Legendre多項式を含む式をどうやってプロットするかの例です。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d ('(legendre_p (5, x)), [x, 0, 1]),
-                        orthopoly_returns_intervals : false;
-(%o1)
-</pre></td></tr></table>
-
-<img src="figures/orthopoly1.gif" alt="figures/orthopoly1">
-
-<p>式 <code>legendre_p (5, x)</code><i>全体</i>をクォートします;
-これは <code>'legendre_p (5, <var>x</var>)</code>を使って関数名をクォートするだけとは違います。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
-</div></p>
-
-<hr size="6">
-<a name="Miscellaneous-Functions"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Graphics-and-orthopoly" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Algorithms" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#orthopoly" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-orthogonal-polynomials" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#romberg" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection">71.1.5 Miscellaneous Functions</h3>
-
-<p><code>orthopoly</code>パッケージは
-Pochhammerシンボルと単位階段函数を定義します。
-<code>orthopoly</code>は <code>gradef</code>文の中で
-Kroneckerのデルタ函数と単位階段函数を使います。
-</p>
-<p>Pochhammerシンボルをガンマ函数の商に変換するには、
-<code>makegamma</code>を使ってください。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) makegamma (pochhammer (x, n));
-                          gamma(x + n)
-(%o1)                     ------------
-                            gamma(x)
-(%i2) makegamma (pochhammer (1/2, 1/2));
-                                1
-(%o2)                       ---------
-                            sqrt(%pi)
-</pre></td></tr></table>
-
-<p>Pochhammerシンボルの導函数は
-<code>psi</code>函数を使って与えられます。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) diff (pochhammer (x, n), x);
-(%o1)             (x)  (psi (x + n) - psi (x))
-                     n     0             0
-(%i2) diff (pochhammer (x, n), n);
-(%o2)                   (x)  psi (x + n)
-                           n    0
-</pre></td></tr></table>
-
-<p>(%o1)の式に注意する必要があります;
-<code>psi</code>函数の差分は
-<code><var>x</var> = -1, -2, .., -<var>n</var></code>の時多項式です。
-これらの多項式は <var>n</var>が正の整数の時、導函数を
-<code><var>n</var> - 1</code>次多項式にするように、
-<code>pochhammer (<var>x</var>, <var>n</var>)</code>の因子を相殺します。
-</p>
-<p>Pochhammerシンボルはガンマ函数の商としての表現を通して負の位数で定義されます。
-以下を考えてください。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) q : makegamma (pochhammer (x, n));
-                          gamma(x + n)
-(%o1)                     ------------
-                            gamma(x)
-(%i2) sublis ([x=11/3, n= -6], q);
-                               729
-(%o2)                        - ----
-                               2240
-</pre></td></tr></table>
-
-<p>代わりに、この結果を直接得ることができます。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) pochhammer (11/3, -6);
-                               729
-(%o1)                        - ----
-                               2240
-</pre></td></tr></table>
-
-<p>単位階段函数は左連続です;
-従って、
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) [unit_step (-1/10), unit_step (0), unit_step (1/10)];
-(%o1)                       [0, 0, 1]
-</pre></td></tr></table>
-
-<p>もし零で左連続でも右連続でもない単位階段函数が必要なら、
-<code>signum</code>を使って自分のものを定義してください;
-例えば、
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) xunit_step (x) := (1 + signum (x))/2$
-
-(%i2) [xunit_step (-1/10), xunit_step (0), xunit_step (1/10)];
-                                1
-(%o2)                       [0, -, 1]
-                                2
-</pre></td></tr></table>
-
-<p><code>unit_step</code>自身を再定義しないでください;
-<code>orthopoly</code>の中のあるコードは単位階段函数が左連続であることを要求します。
-</p>
-
-<hr size="6">
-<a name="Algorithms"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Miscellaneous-Functions" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-orthogonal-polynomials" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#orthopoly" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-orthogonal-polynomials" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#romberg" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection">71.1.6 Algorithms</h3>
-
-<p>一般的に、 <code>orthopoly</code>は直交多項式の超幾何表現を使うことで記号評価をします。
-超幾何函数は(ドキュメント化されていない)関数 <code>hypergeo11</code>と
-<code>hypergeo21</code>を使って評価されます。
-例外は半整数 Bessel函数と第二種 Legendreの陪函数です。
-半整数 Bessel函数は明示的な表現を使って評価されます。
-第二種 Legendreの陪函数は再帰を使って評価されます。
-</p>
-<p>浮動小数点評価のために、函数のほとんどを超幾何形式に再び変換します;
-順方向再帰を使って超幾何函数を評価します。
-ここでも、例外は半整数 Bessel函数と第二種 Legendreの陪函数です。
-半整数 Bessel函数は SLATECコードを使って数値的に評価されます。
-</p>
-
-<p><a name="Item_003a-Functions-and-Variables-for-orthogonal-polynomials"></a>
-</p><hr size="6">
-<a name="Functions-and-Variables-for-orthogonal-polynomials"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Algorithms" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#romberg" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#orthopoly" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#orthopoly" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#romberg" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<a name="Functions-and-Variables-for-orthogonal-polynomials-1"></a>
-<h2 class="section">71.2 Functions and Variables for orthogonal polynomials</h2>
-
-<p><a name="Item_003a-assoc_005flegendre_005fp"></a>
-</p><dl>
-<dt><a name="index-assoc_005flegendre_005fp"></a><u>関数:</u> <b>assoc_legendre_p</b><i> (<var>n</var>, <var>m</var>, <var>x</var>)</i></dt>
-<dd><p>次数 <var>n</var>と位数 <var>m</var>の第一種Legendre陪函数。
-</p>
-<p>参考文献: Abramowitz and Stegun, equations 22.5.37, page 779, 8.6.6
-(second equation), page 334, and 8.2.5, page 333.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-assoc_005flegendre_005fq"></a>
-</p><dl>
-<dt><a name="index-assoc_005flegendre_005fq"></a><u>関数:</u> <b>assoc_legendre_q</b><i> (<var>n</var>, <var>m</var>, <var>x</var>)</i></dt>
-<dd><p>次数 <var>n</var>と位数 <var>m</var>の第二種Legendre陪函数。
-</p>
-<p>参考文献: Abramowitz and Stegun, equation 8.5.3 and 8.1.8.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-chebyshev_005ft"></a>
-</p><dl>
-<dt><a name="index-chebyshev_005ft"></a><u>関数:</u> <b>chebyshev_t</b><i> (<var>n</var>, <var>x</var>)</i></dt>
-<dd><p><var>n</var>次の第一種 Chebyshev多項式。
-</p>
-<p>参考文献: Abramowitz and Stegun, equation 22.5.47, page 779.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-chebyshev_005fu"></a>
-</p><dl>
-<dt><a name="index-chebyshev_005fu"></a><u>関数:</u> <b>chebyshev_u</b><i> (<var>n</var>, <var>x</var>)</i></dt>
-<dd><p><var>n</var>次の第二種 Chebyshev多項式。
-</p>
-<p>参考文献: Abramowitz and Stegun, equation 22.5.48, page 779.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-gen_005flaguerre"></a>
-</p><dl>
-<dt><a name="index-gen_005flaguerre"></a><u>関数:</u> <b>gen_laguerre</b><i> (<var>n</var>, <var>a</var>, <var>x</var>)</i></dt>
-<dd><p>次数 <var>n</var>の一般化 Laguerre多項式。
-</p>
-<p>参考文献: Abramowitz and Stegun, equation 22.5.54, page 780.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-hermite"></a>
-</p><dl>
-<dt><a name="index-hermite"></a><u>関数:</u> <b>hermite</b><i> (<var>n</var>, <var>x</var>)</i></dt>
-<dd><p><var>n</var>次の Hermite多項式。
-</p>
-<p>参考文献: Abramowitz and Stegun, equation 22.5.55, page 780.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-intervalp"></a>
-</p><dl>
-<dt><a name="index-intervalp"></a><u>関数:</u> <b>intervalp</b><i> (<var>e</var>)</i></dt>
-<dd><p>もし入力が区間なら <code>true</code>を、そうでないなら <code>false</code>を返します。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
- &middot;<a href="maxima_99.html#Category_003a-Predicate-functions">Predicate functions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-jacobi_005fp"></a>
-</p><dl>
-<dt><a name="index-jacobi_005fp"></a><u>関数:</u> <b>jacobi_p</b><i> (<var>n</var>, <var>a</var>, <var>b</var>, <var>x</var>)</i></dt>
-<dd><p>Jacobiの多項式。
-</p>
-<p>Jacobiの多項式は実際には
-<var>a</var>と <var>b</var>すべてに対して定義されます;
-しかし、Jacobi多項式の重み
-<code>(1 - <var>x</var>)^<var>a</var> (1 + <var>x</var>)^<var>b</var></code>は
-<code><var>a</var> &lt;= -1</code>か <code><var>b</var> &lt;= -1</code>で可積分でありません。
-</p>
-<p>参考文献: Abramowitz and Stegun, equation 22.5.42, page 779.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-laguerre"></a>
-</p><dl>
-<dt><a name="index-laguerre"></a><u>関数:</u> <b>laguerre</b><i> (<var>n</var>, <var>x</var>)</i></dt>
-<dd><p><var>n</var>次の Laguerre多項式。
-</p>
-<p>参考文献: Abramowitz and Stegun, equations 22.5.16 and 22.5.54, page 780.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-legendre_005fp"></a>
-</p><dl>
-<dt><a name="index-legendre_005fp"></a><u>関数:</u> <b>legendre_p</b><i> (<var>n</var>, <var>x</var>)</i></dt>
-<dd><p><var>n</var>次の第一種 Legendre多項式。
-</p>
-<p>参考文献: Abramowitz and Stegun, equations 22.5.50 and 22.5.51, page 779.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-legendre_005fq"></a>
-</p><dl>
-<dt><a name="index-legendre_005fq"></a><u>関数:</u> <b>legendre_q</b><i> (<var>n</var>, <var>x</var>)</i></dt>
-<dd><p><var>n</var>次の第二種 Legendre函数。
-</p>
-<p>参考文献: Abramowitz and Stegun, equations 8.5.3 and 8.1.8.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-orthopoly_005frecur"></a>
-</p><dl>
-<dt><a name="index-orthopoly_005frecur"></a><u>関数:</u> <b>orthopoly_recur</b><i> (<var>f</var>, <var>args</var>)</i></dt>
-<dd><p>引数 <var>args</var>を持つ直交函数族 <var>f</var>の漸化式を返します。
-再帰は多項式次数に関してです。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) orthopoly_recur (legendre_p, [n, x]);
-                    (2 n + 1) P (x) x - n P     (x)
-                               n           n - 1
-(%o1)   P     (x) = -------------------------------
-         n + 1                   n + 1
-</pre></td></tr></table>
-
-<p><code>orthopoly_recur</code>の二番目の引数は
-関数 <var>f</var>の正しい数の引数のリストでなければいけません;
-もしそうでないなら Maximaはエラーをシグナルします。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) orthopoly_recur (jacobi_p, [n, x]);
-
-Function jacobi_p needs 4 arguments, instead it received 2
- -- an error.  Quitting.  To debug this try debugmode(true);
-</pre></td></tr></table>
-
-<p>更に、 <var>f</var>が直交多項式族の1つの名前でないなら、エラーがシグナルされます。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) orthopoly_recur (foo, [n, x]);
-
-A recursion relation for foo isn't known to Maxima
- -- an error.  Quitting.  To debug this try debugmode(true);
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-orthopoly_005freturns_005fintervals"></a>
-</p><dl>
-<dt><a name="index-orthopoly_005freturns_005fintervals"></a><u>変数:</u> <b>orthopoly_returns_intervals</b></dt>
-<dd><p>デフォルト値: <code>true</code>
-</p>
-<p><code>orthopoly_returns_intervals</code>が <code>true</code>の時、浮動小数点の結果が形式
-<code>interval (<var>c</var>, <var>r</var>)</code>で返されます。
-ここで、 <var>c</var>は区間の中心で、 <var>r</var>は半径です。
-中心は複素数であり得ます;
-その場合、区間は複素平面上の円です。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-orthopoly_005fweight"></a>
-</p><dl>
-<dt><a name="index-orthopoly_005fweight"></a><u>関数:</u> <b>orthopoly_weight</b><i> (<var>f</var>, <var>args</var>)</i></dt>
-<dd>
-<p>3つの要素のリストを返します;
-一番目の要素はリスト <var>args</var>が与える引数を持つ直交多項式族 <var>f</var>の重みの公式です;
-二番目と三番目の要素は直交性の区間の下限と上限を与えます。
-例えば、
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) w : orthopoly_weight (hermite, [n, x]);
-                            2
-                         - x
-(%o1)                 [%e    , - inf, inf]
-(%i2) integrate(w[1]*hermite(3, x)*hermite(2, x), x, w[2], w[3]);
-(%o2)                           0
-</pre></td></tr></table>
-
-<p><var>f</var>の主変数はシンボルでなければいけません;
-そうでないなら Maximaはエラーをシグナルします。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-pochhammer"></a>
-</p><dl>
-<dt><a name="index-pochhammer"></a><u>関数:</u> <b>pochhammer</b><i> (<var>n</var>, <var>x</var>)</i></dt>
-<dd><p>Pochhammerシンボル。
-<code><var>n</var> &lt;= pochhammer_max_index</code>の非負整数 <var>n</var>に対して、式
-<code>pochhammer (<var>x</var>, <var>n</var>)</code>は
-<code><var>n</var> &gt; 0</code>の時、積
-<code><var>x</var> (<var>x</var> + 1) (<var>x</var> + 2) ... (<var>x</var> + n - 1)</code>を評価します。
-<code><var>n</var> = 0</code>の時は 1です。
-負の <var>n</var>に対しては、
-<code>pochhammer (<var>x</var>, <var>n</var>)</code>は
-<code>(-1)^<var>n</var> / pochhammer (1 - <var>x</var>, -<var>n</var>)</code>として定義されます。
-従って、
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) pochhammer (x, 3);
-(%o1)                   x (x + 1) (x + 2)
-(%i2) pochhammer (x, -3);
-                                 1
-(%o2)               - -----------------------
-                      (1 - x) (2 - x) (3 - x)
-</pre></td></tr></table>
-
-<p>Pochhammerシンボルをガンマ函数の商に変換するには、
-(Abramowitz and Stegun, equation 6.1.22を参照してください)
-<code>makegamma</code>を使ってください;
-例えば、
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) makegamma (pochhammer (x, n));
-                          gamma(x + n)
-(%o1)                     ------------
-                            gamma(x)
-</pre></td></tr></table>
-
-<p><var>n</var>が <code>pochhammer_max_index</code>を越えるか、
-<var>n</var>が記号の時、
-<code>pochhammer</code>は名詞形を返します。
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) pochhammer (x, n);
-(%o1)                         (x)
-                                 n
-</pre></td></tr></table>
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
- &middot;<a href="maxima_99.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-pochhammer_005fmax_005findex"></a>
-</p><dl>
-<dt><a name="index-pochhammer_005fmax_005findex"></a><u>変数:</u> <b>pochhammer_max_index</b></dt>
-<dd><p>デフォルト値: 100
-</p>
-<p><code>pochhammer (<var>n</var>, <var>x</var>)</code>は
-<code><var>n</var> &lt;= pochhammer_max_index</code>の時だけ
-積を展開します。
+<a name="Functions-and-Variables-for-opsubst-1"></a>
+<h2 class="section">71.1 Functions and Variables for opsubst</h2>
+
+
+<dl>
+<dt><a name="index-opsubst-1"></a><u>関数:</u> <b>opsubst</b><i> (<var>f</var>,<var>g</var>,<var>e</var>)</i></dt>
+<dt><a name="index-opsubst-2"></a><u>関数:</u> <b>opsubst</b><i> (<var>g</var>=<var>f</var>,<var>e</var>)</i></dt>
+<dt><a name="index-opsubst-3"></a><u>関数:</u> <b>opsubst</b><i> ([<var>g1</var>=<var>f1</var>,<var>g2</var>=<var>f2</var>,..., <var>gn</var>=<var>fn</var>],<var>e</var>)</i></dt>
+<dd><p>関数 <code>opsubst</code>は、
+<code>opsubst</code>は式の中の演算子への代入だけをすることを除いて、
+関数 <code>subst</code>に似ています。
+一般に、 <var>f</var>が式 <var>e</var>の中の演算子の時、
+式 <var>e</var>の中で <var>g</var>を <var>f</var>に代入します。
+</p>
+<p>演算子を決定するために、 <code>opsubst</code>は <code>inflag</code>を trueに設定します。
+これは、
+<code>opsubst</code>が式の中の表示演算子ではなく内部演算子への代入をすることを意味します。
 </p>
 <p>例:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) pochhammer (x, 3), pochhammer_max_index : 3;
-(%o1)                   x (x + 1) (x + 2)
-(%i2) pochhammer (x, 4), pochhammer_max_index : 3;
-(%o2)                         (x)
-                                 4
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (opsubst)$
+
+(%i2) opsubst(f,g,g(g(x)));
+(%o2)                     f(f(x))
+(%i3) opsubst(f,g,g(g));
+(%o3)                       f(g)
+(%i4) opsubst(f,g[x],g[x](z));
+(%o4)                       f(z)
+(%i5) opsubst(g[x],f, f(z));
+(%o5)                      g (z)
+                            x
+(%i6) opsubst(tan, sin, sin(sin));
+(%o6)                     tan(sin)
+(%i7) opsubst([f=g,g=h],f(x));
+(%o7)                       h(x)
 </pre></td></tr></table>
 
-<p>参考文献: Abramowitz and Stegun, equation 6.1.16, page 256.
+<p>内部的に Maximaは単項否定や割り算、引き算演算子を使いません;
+例えば:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i8) opsubst(&quot;+&quot;,&quot;-&quot;,a-b);
+(%o8)                     a - b
+(%i9) opsubst(&quot;f&quot;,&quot;-&quot;,-a);
+(%o9)                      - a
+(%i10) opsubst(&quot;^^&quot;,&quot;/&quot;,a/b);
+                             a
+(%o10)                       -
+                             b
+</pre></td></tr></table>
+
+<p>-a*bの内部表現は *(-1,a,b)です;
+例えば、
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i11) opsubst(&quot;[&quot;,&quot;*&quot;, -a*b);
+(%o11)                  [- 1, a, b]
+</pre></td></tr></table>
+
+<p>どちらかの演算子が Maximaシンボルでない時、他のある関数は一般にエラーを知らせます:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i12) opsubst(a+b,f, f(x));
+
+Improper name or value in functional position:
+b + a
+ -- an error.  Quitting.  To debug this try debugmode(true);
+</pre></td></tr></table>
+
+<p>しかしながら、添字付き演算子は許されます:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i13) opsubst(g[5],f, f(x));
+(%o13)                     g (x)
+                            5
+</pre></td></tr></table>
+
+<p>この関数を使うためには最初に <code>load(&quot;opsubst&quot;)</code>と書いてください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
- &middot;<a href="maxima_99.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
+<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
+ &middot;<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a>
+ &middot;<a href="maxima_100.html#Category_003a-Package-opsubst">Package opsubst</a>
 </div></p>
 </dd></dl>
 
-<p><a name="Item_003a-spherical_005fbessel_005fj"></a>
-</p><dl>
-<dt><a name="index-spherical_005fbessel_005fj"></a><u>関数:</u> <b>spherical_bessel_j</b><i> (<var>n</var>, <var>x</var>)</i></dt>
-<dd><p>第一種球 Bessel函数。
-</p>
-<p>参考文献: Abramowitz and Stegun, equations 10.1.8, page 437 and 10.1.15, page 439.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
- &middot;<a href="maxima_99.html#Category_003a-Bessel-functions">Bessel functions</a>
-</div></p>
-</dd></dl>
 
-<p><a name="Item_003a-spherical_005fbessel_005fy"></a>
-</p><dl>
-<dt><a name="index-spherical_005fbessel_005fy"></a><u>関数:</u> <b>spherical_bessel_y</b><i> (<var>n</var>, <var>x</var>)</i></dt>
-<dd><p>第二種球 Bessel函数。
-</p>
-<p>参考文献: Abramowitz and Stegun, equations 10.1.9, page 437 and 10.1.15, page 439.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
- &middot;<a href="maxima_99.html#Category_003a-Bessel-functions">Bessel functions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-spherical_005fhankel1"></a>
-</p><dl>
-<dt><a name="index-spherical_005fhankel1"></a><u>関数:</u> <b>spherical_hankel1</b><i> (<var>n</var>, <var>x</var>)</i></dt>
-<dd><p>第一種球 Hankel函数。
-</p>
-<p>参考文献: Abramowitz and Stegun, equation 10.1.36, page 439.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
- &middot;<a href="maxima_99.html#Category_003a-Bessel-functions">Bessel functions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-spherical_005fhankel2"></a>
-</p><dl>
-<dt><a name="index-spherical_005fhankel2"></a><u>関数:</u> <b>spherical_hankel2</b><i> (<var>n</var>, <var>x</var>)</i></dt>
-<dd><p>第二種球 Hankel函数。
-</p>
-<p>参考文献: Abramowitz and Stegun, equation 10.1.17, page 439.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
- &middot;<a href="maxima_99.html#Category_003a-Bessel-functions">Bessel functions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-spherical_005fharmonic"></a>
-</p><dl>
-<dt><a name="index-spherical_005fharmonic"></a><u>関数:</u> <b>spherical_harmonic</b><i> (<var>n</var>, <var>m</var>, <var>x</var>, <var>y</var>)</i></dt>
-<dd><p>球調和函数。
-</p>
-<p>参考文献: Merzbacher 9.64.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-unit_005fstep"></a>
-</p><dl>
-<dt><a name="index-unit_005fstep"></a><u>関数:</u> <b>unit_step</b><i> (<var>x</var>)</i></dt>
-<dd><p>左連続の単位階段函数;なので
-<code>unit_step (<var>x</var>)</code>は<code><var>x</var> &lt;= 0</code>で0であり、
-<code><var>x</var> &gt; 0</code>で1です。
-</p>
-<p>もし0で値1/2を取る単位階段函数が欲しいなら、
-<code>(1 + signum (<var>x</var>))/2</code>を使ってください。
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
- &middot;<a href="maxima_99.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-ultraspherical"></a>
-</p><dl>
-<dt><a name="index-ultraspherical"></a><u>関数:</u> <b>ultraspherical</b><i> (<var>n</var>, <var>a</var>, <var>x</var>)</i></dt>
-<dd><p>(Gegenbauer多項式としても知られている)超球多項式。
-</p>
-<p>参考文献: Abramowitz and Stegun, equation 22.5.46, page 779.
-</p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-orthopoly">Package orthopoly</a>
-</div></p>
-</dd></dl>
-
-<p><a name="Item_003a-romberg"></a>
+<p><a name="Item_003a-orthopoly"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#orthopoly" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#romberg" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#opsubst" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#orthopoly" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -1202,12 +288,12 @@ A recursion relation for foo isn't known to Maxima
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_82.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年4月月20日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
  </font>
  <br>
 
