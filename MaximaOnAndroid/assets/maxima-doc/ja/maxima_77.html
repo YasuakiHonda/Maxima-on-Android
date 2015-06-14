@@ -1,27 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年9月月15日 by texi2html 1.82
-texi2html was written by: 
-            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+<!-- Created on 5月, 20 2015 by texi2html 1.76 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
             Olaf Bachmann <obachman@mathematik.uni-kl.de>
             and many others.
-Maintained by: Many creative people.
-Send bugs and suggestions to <texi2html-bug@nongnu.org>
+Maintained by: Many creative people <dev@texi2html.cvshome.org>
+Send bugs and suggestions to <users@texi2html.cvshome.org>
+
 -->
 <head>
-<title>Maxima 5.34.1 Manual: 77. stats</title>
+<title>Maxima 5.36.1 Manual: 77. stats</title>
 
-<meta name="description" content="Maxima 5.34.1 Manual: 77. stats">
-<meta name="keywords" content="Maxima 5.34.1 Manual: 77. stats">
+<meta name="description" content="Maxima 5.36.1 Manual: 77. stats">
+<meta name="keywords" content="Maxima 5.36.1 Manual: 77. stats">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.82">
+<meta name="Generator" content="texi2html 1.76">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
 pre.display {font-family: serif}
 pre.format {font-family: serif}
 pre.menu-comment {font-family: serif}
@@ -30,109 +30,30 @@ pre.smalldisplay {font-family: serif; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.roman {font-family:serif; font-weight:normal;}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
@@ -157,56 +78,57 @@ div.categorybox
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="stats"></a>
+<a name="SEC367"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_76.html#Functions-and-Variables-for-solve_005frec" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-stats" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_76.html#SEC366" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC368" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_76.html#solve_005frec" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_78.html#stirling" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_76.html#SEC364" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_78.html#SEC372" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="stats-1"></a>
-<h1 class="chapter">77. stats</h1>
+<h1 class="chapter"> 77. stats </h1>
+
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-stats">77.1 Introduction to stats</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC368">77.1 Introduction to stats</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-inference_005fresult">77.2 Functions and Variables for inference_result</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC369">77.2 Functions and Variables for inference_result</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-stats">77.3 Functions and Variables for stats</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC370">77.3 Functions and Variables for stats</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-special-distributions">77.4 Functions and Variables for special distributions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC371">77.4 Functions and Variables for special distributions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <p><a name="Item_003a-Introduction-to-stats"></a>
 </p><hr size="6">
 <a name="Introduction-to-stats"></a>
+<a name="SEC368"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#stats" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-inference_005fresult" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC367" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC369" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#stats" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#stats" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_78.html#stirling" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC367" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC367" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_78.html#SEC372" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-stats-1"></a>
-<h2 class="section">77.1 Introduction to stats</h2>
+<h2 class="section"> 77.1 Introduction to stats </h2>
 
 
 <p>パッケージ <code>stats</code>は古典的な統計推定や仮説検定手続き一式を含みます。
@@ -229,39 +151,43 @@ div.categorybox
 <code>inference_result</code>をロードします。
 </p>
 <p>コメント、バグ、提案は、作者
-<var>&rsquo;mario AT edu DOT xunta DOT es&rsquo;</var>にコンタクトしてください。
+<var>'mario AT edu DOT xunta DOT es'</var>にコンタクトしてください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Statistical-inference">Statistical inference</a>
- &middot;<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Statistical-inference">Statistical inference</a> &middot;
+<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a> &middot;
+<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 <p><a name="Item_003a-Functions-and-Variables-for-inference_005fresult"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-inference_005fresult"></a>
+<a name="SEC369"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-stats" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-stats" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC368" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC370" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#stats" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#stats" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_78.html#stirling" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC367" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC367" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_78.html#SEC372" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-inference_005fresult-1"></a>
-<h2 class="section">77.2 Functions and Variables for inference_result</h2>
+<h2 class="section"> 77.2 Functions and Variables for inference_result </h2>
 
 <p><a name="Item_003a-inference_005fresult"></a>
 </p><dl>
-<dt><a name="index-inference_005fresult"></a><u>関数:</u> <b>inference_result</b><i> (<var>title</var>, <var>values</var>, <var>numbers</var>)</i></dt>
-<dd>
-<p>statsの関数が返す型の <code>inference_result</code>オブジェクトを構成します。
+<dt><u>関数:</u> <b>inference_result</b><i> (<var>title</var>, <var>values</var>, <var>numbers</var>)</i>
+<a name="IDX2371"></a>
+</dt>
+<dd><p>statsの関数が返す型の <code>inference_result</code>オブジェクトを構成します。
 引数 <var>title</var>は手続き名の文字列です;
 <var>values</var>は形式 <code>symbol = value</code>の要素を持つリストであり、
 <var>numbers</var>は、どの値がデフォルトで表示されるか示す
@@ -277,7 +203,7 @@ div.categorybox
 <code>'diagonal</code>はこのオブジェクトに格納されますが、表示されません;
 その値にアクセスするには関数 <code>take_inference</code>を利用してください。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(inference_result)$
+<pre class="example">(%i1) load(inference_result)$
 (%i2) b: 3$ h: 2$
 (%i3) inference_result(&quot;Rectangle&quot;,
                         ['base=b,
@@ -297,12 +223,14 @@ div.categorybox
                         |    area = 6
 (%i4) take_inference('diagonal,%);
 (%o4)                        sqrt(13)
-</pre></td></tr></table>
-
+</pre>
 <p><code>take_inference</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
 
 
@@ -312,13 +240,17 @@ div.categorybox
 
 <p><a name="Item_003a-inferencep"></a>
 </p><dl>
-<dt><a name="index-inferencep"></a><u>関数:</u> <b>inferencep</b><i> (<var>obj</var>)</i></dt>
-<dd>
-<p><var>obj</var>が <code>inference_result</code>オブジェクトか否かに依存して、
+<dt><u>関数:</u> <b>inferencep</b><i> (<var>obj</var>)</i>
+<a name="IDX2372"></a>
+</dt>
+<dd><p><var>obj</var>が <code>inference_result</code>オブジェクトか否かに依存して、
 <code>true</code>か <code>false</code>を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
 
 
@@ -328,9 +260,10 @@ div.categorybox
 
 <p><a name="Item_003a-items_005finference"></a>
 </p><dl>
-<dt><a name="index-items_005finference"></a><u>関数:</u> <b>items_inference</b><i> (<var>obj</var>)</i></dt>
-<dd>
-<p><var>obj</var>に格納された項目名のリストを返します。
+<dt><u>関数:</u> <b>items_inference</b><i> (<var>obj</var>)</i>
+<a name="IDX2373"></a>
+</dt>
+<dd><p><var>obj</var>に格納された項目名のリストを返します。
 <var>obj</var>は <code>inference_result</code>オブジェクトでなければいけません。
 </p>
 <p>例:
@@ -339,17 +272,19 @@ div.categorybox
 <code>'pi</code>と <code>'e</code>と名付けられた2つの値を格納しますが、二番目だけが表示されます。
 <code>items_inference</code>関数は、表示されるされないに関係なく、項目すべての名前を返します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(inference_result)$
+<pre class="example">(%i1) load(inference_result)$
 (%i2) inference_result(&quot;Hi&quot;, ['pi=%pi,'e=%e],[2]);
                             |   Hi
 (%o2)                       |
                             | e = %e
 (%i3) items_inference(%);
 (%o3)                        [pi, e]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
 
 
@@ -360,11 +295,10 @@ div.categorybox
 
 <p><a name="Item_003a-take_005finference"></a>
 </p><dl>
-<dt><a name="index-take_005finference"></a><u>関数:</u> <b>take_inference</b><i> (<var>n</var>, <var>obj</var>)</i></dt>
-<dt><a name="index-take_005finference-1"></a><u>関数:</u> <b>take_inference</b><i> (<var>name</var>, <var>obj</var>)</i></dt>
-<dt><a name="index-take_005finference-2"></a><u>関数:</u> <b>take_inference</b><i> (<var>list</var>, <var>obj</var>)</i></dt>
-<dd>
-<p>もし <var>n</var>が正の整数なら、
+<dt><u>関数:</u> <b>take_inference</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>take_inference</tt> (<var>n</var>, <var>obj</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>take_inference</tt> (<var>name</var>, <var>obj</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>take_inference</tt> (<var>list</var>, <var>obj</var>)</i>
+<a name="IDX2374"></a>
+</dt>
+<dd><p>もし <var>n</var>が正の整数なら、
 <var>obj</var>に格納された <var>n</var>番目の値を返します。
 もし <var>name</var>が項目名なら、そう名付けられた項目を返します。
 もし一番目の引数が数やシンボルのリストなら、
@@ -376,7 +310,7 @@ div.categorybox
 それに格納されたある情報を抽出するために関数
 <code>take_inference</code>がコールされます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(inference_result)$
+<pre class="example">(%i1) load(inference_result)$
 (%i2) b: 3$ h: 2$
 (%i3) sol: inference_result(&quot;Rectangle&quot;,
                             ['base=b,
@@ -402,12 +336,14 @@ div.categorybox
 (%o6)                     [3, sqrt(13)]
 (%i7) take_inference(items_inference(sol),sol);
 (%o7)                [3, 2, sqrt(13), 6, 10]
-</pre></td></tr></table>
-
+</pre>
 <p><code>inference_result</code>と <code>take_inference</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
 
 
@@ -421,29 +357,31 @@ div.categorybox
 <p><a name="Item_003a-Functions-and-Variables-for-stats"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-stats"></a>
+<a name="SEC370"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-inference_005fresult" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-special-distributions" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC369" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC371" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#stats" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#stats" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_78.html#stirling" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC367" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC367" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_78.html#SEC372" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-stats-1"></a>
-<h2 class="section">77.3 Functions and Variables for stats</h2>
+<h2 class="section"> 77.3 Functions and Variables for stats </h2>
 
 
 <p><a name="Item_003a-stats_005fnumer"></a>
 </p><dl>
-<dt><a name="index-stats_005fnumer"></a><u>オプション変数:</u> <b>stats_numer</b></dt>
+<dt><u>オプション変数:</u> <b>stats_numer</b>
+<a name="IDX2375"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p>もし <code>stats_numer</code>が <code>true</code>なら、
@@ -451,19 +389,22 @@ div.categorybox
 もし <code>false</code>なら、
 結果は記号と有理フォーマットで与えられます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
- &middot;<a href="maxima_100.html#Category_003a-Numerical-evaluation">Numerical evaluation</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a> &middot;
+<a href="maxima_100.html#Category_003a-Numerical-evaluation">Numerical evaluation</a>
+</div>
+</p>
 </dd></dl>
 
 
 
 <p><a name="Item_003a-test_005fmean"></a>
 </p><dl>
-<dt><a name="index-test_005fmean"></a><u>関数:</u> <b>test_mean</b><i> (<var>x</var>)</i></dt>
-<dt><a name="index-test_005fmean-1"></a><u>関数:</u> <b>test_mean</b><i> (<var>x</var>, <var>options</var> ...)</i></dt>
-<dd>
-<p>これは平均t検定です。
+<dt><u>関数:</u> <b>test_mean</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_mean</tt> (<var>x</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_mean</tt> (<var>x</var>, <var>options</var> ...)</i>
+<a name="IDX2376"></a>
+</dt>
+<dd><p>これは平均t検定です。
 引数 <var>x</var>は1次元標本を含むリストか列行列です。
 もしオプション <code>'asymptotic</code>が <code>true</code>なら、
 <i>中心極限定理</i>に基づいた漸近検定も実行します。
@@ -531,7 +472,7 @@ div.categorybox
 結果に従うと、<em>p</em>値が大きすぎ、
 <em>H_0</em>を却下する証拠がありません。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
+<pre class="example">(%i1) load(&quot;stats&quot;)$
 (%i2) data: [78,64,35,45,45,75,43,74,42,42]$
 (%i3) test_mean(data,'conflevel=0.9,'alternative='less,'mean=50);
           |                 MEAN TEST
@@ -551,8 +492,7 @@ div.categorybox
           |       distribution = [student_t, 9]
           |
           |        p_value = .7845100411786889
-</pre></td></tr></table>
-
+</pre>
 <p>今回、Maximaは <i>中心極限定理</i>に基づく漸近検定を実行します。
 両側対立 <em>H_1: not equal(mean, 50)</em>に対して
 帰無仮説は <em>H_0: equal(mean, 50)</em>です;
@@ -563,7 +503,7 @@ div.categorybox
 <code>Method</code>成分が示すように、
 この手続きは多くの標本に適用すべきです。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
+<pre class="example">(%i1) load(&quot;stats&quot;)$
 (%i2) test_mean([36,118,52,87,35,256,56,178,57,57,89,34,25,98,35,
               98,41,45,198,54,79,63,35,45,44,75,42,75,45,45,
               45,51,123,54,151],
@@ -585,10 +525,12 @@ div.categorybox
           |             distribution = [normal, 0, 1]
           |
           |             p_value = .004471474652002261
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
 
 
@@ -599,10 +541,10 @@ div.categorybox
 
 <p><a name="Item_003a-test_005fmeans_005fdifference"></a>
 </p><dl>
-<dt><a name="index-test_005fmeans_005fdifference"></a><u>関数:</u> <b>test_means_difference</b><i> (<var>x1</var>, <var>x2</var>)</i></dt>
-<dt><a name="index-test_005fmeans_005fdifference-1"></a><u>関数:</u> <b>test_means_difference</b><i> (<var>x1</var>, <var>x2</var>, <var>options</var> ...)</i></dt>
-<dd>
-<p>これは2つの標本の平均の差 <var>t</var>検定です。
+<dt><u>関数:</u> <b>test_means_difference</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_means_difference</tt> (<var>x1</var>, <var>x2</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_means_difference</tt> (<var>x1</var>, <var>x2</var>, <var>options</var> ...)</i>
+<a name="IDX2377"></a>
+</dt>
+<dd><p>これは2つの標本の平均の差 <var>t</var>検定です。
 引数 <var>x1</var>と <var>x2</var>は2つの独立標本を含むリストか列行列です。
 異なる未知の分散の場合
 (以下のオプション <code>'dev1</code>, <code>'dev2</code>, <code>'varequal</code>を参照してください)、
@@ -684,7 +626,7 @@ div.categorybox
 分散は未知で異なると仮定されます。
 </p>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
+<pre class="example">(%i1) load(&quot;stats&quot;)$
 (%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
 (%i3) y: [1.2,6.9,38.7,20.4,17.2]$
 (%i4) test_means_difference(x,y,'alternative='greater);
@@ -705,13 +647,12 @@ div.categorybox
             |    distribution = [student_t, 8.62758740184604]
             |
             |            p_value = .05032746527991905
-</pre></td></tr></table>
-
+</pre>
 <p>前と同じ検定、
 しかし今回は分散が等しいと仮定されます。
 </p>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
+<pre class="example">(%i1) load(&quot;stats&quot;)$
 (%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
 (%i3) y: matrix([1.2],[6.9],[38.7],[20.4],[17.2])$
 (%i4) test_means_difference(x,y,'alternative='greater,
@@ -733,10 +674,12 @@ div.categorybox
             |           distribution = [student_t, 9]
             |
             |            p_value = .05560320992529344
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
 
 
@@ -747,10 +690,10 @@ div.categorybox
 
 <p><a name="Item_003a-test_005fvariance"></a>
 </p><dl>
-<dt><a name="index-test_005fvariance"></a><u>関数:</u> <b>test_variance</b><i> (<var>x</var>)</i></dt>
-<dt><a name="index-test_005fvariance-1"></a><u>関数:</u> <b>test_variance</b><i> (<var>x</var>, <var>options</var>, ...)</i></dt>
-<dd>
-<p>これは分散 <var>chi^2</var>検定です。
+<dt><u>関数:</u> <b>test_variance</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_variance</tt> (<var>x</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_variance</tt> (<var>x</var>, <var>options</var>, ...)</i>
+<a name="IDX2378"></a>
+</dt>
+<dd><p>これは分散 <var>chi^2</var>検定です。
 引数 <var>x</var>は
 正規母集団から取られた1次元標本を含む
 リストか列行列です。
@@ -813,7 +756,7 @@ div.categorybox
 </p>
 <p>平均が未知の母集団の分散が200以上か検定します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
+<pre class="example">(%i1) load(&quot;stats&quot;)$
 (%i2) x: [203,229,215,220,223,233,208,228,209]$
 (%i3) test_variance(x,'alternative='greater,'variance=200);
              |                  VARIANCE TEST
@@ -833,10 +776,12 @@ div.categorybox
              |             distribution = [chi2, 8]
              |
              |           p_value = .8163948512777689
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
 
 
@@ -847,10 +792,10 @@ div.categorybox
 
 <p><a name="Item_003a-test_005fvariance_005fratio"></a>
 </p><dl>
-<dt><a name="index-test_005fvariance_005fratio"></a><u>関数:</u> <b>test_variance_ratio</b><i> (<var>x1</var>, <var>x2</var>)</i></dt>
-<dt><a name="index-test_005fvariance_005fratio-1"></a><u>関数:</u> <b>test_variance_ratio</b><i> (<var>x1</var>, <var>x2</var>, <var>options</var> ...)</i></dt>
-<dd>
-<p>これは2つの正規母集団の分散比 <var>F</var>検定です。
+<dt><u>関数:</u> <b>test_variance_ratio</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_variance_ratio</tt> (<var>x1</var>, <var>x2</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_variance_ratio</tt> (<var>x1</var>, <var>x2</var>, <var>options</var> ...)</i>
+<a name="IDX2379"></a>
+</dt>
+<dd><p>これは2つの正規母集団の分散比 <var>F</var>検定です。
 引数 <var>x1</var>と <var>x2</var>は
 2つの独立標本を含むリストか列行列です。
 </p>
@@ -914,7 +859,7 @@ div.categorybox
 2つの正規母集団の分散の等しさが
 </p>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
+<pre class="example">(%i1) load(&quot;stats&quot;)$
 (%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
 (%i3) y: [1.2,6.9,38.7,20.4,17.2]$
 (%i4) test_variance_ratio(x,y,'alternative='greater);
@@ -935,10 +880,12 @@ div.categorybox
               |            distribution = [f, 5, 4]
               |
               |          p_value = .2179269692254457
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
 
 
@@ -946,10 +893,10 @@ div.categorybox
 
 <p><a name="Item_003a-test_005fproportion"></a>
 </p><dl>
-<dt><a name="index-test_005fproportion"></a><u>関数:</u> <b>test_proportion</b><i> (<var>x</var>, <var>n</var>)</i></dt>
-<dt><a name="index-test_005fproportion-1"></a><u>関数:</u> <b>test_proportion</b><i> (<var>x</var>, <var>n</var>, <var>options</var> ...)</i></dt>
-<dd>
-<p>出現率推定。
+<dt><u>関数:</u> <b>test_proportion</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_proportion</tt> (<var>x</var>, <var>n</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_proportion</tt> (<var>x</var>, <var>n</var>, <var>options</var> ...)</i>
+<a name="IDX2380"></a>
+</dt>
+<dd><p>出現率推定。
 引数 <var>x</var>は
 未知の確率でのBernoulli実験の<var>n</var>回試行での成功回数です。
 </p>
@@ -1020,7 +967,7 @@ Yates補正が適用されるかどうかを示します。
 片側対立 <em>H_1: p&lt;1/2</em>に対して、
 帰無仮説は <em>H_0: p=1/2</em>です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
+<pre class="example">(%i1) load(&quot;stats&quot;)$
 (%i2) test_proportion(45, 103, alternative = less);
          |            PROPORTION TEST              
          |                                         
@@ -1039,11 +986,10 @@ Yates補正が適用されるかどうかを示します。
          |  distribution = [binomial, 103, 0.5]    
          |                                         
          |      p_value = .1184509388901454 
-</pre></td></tr></table>
-
+</pre>
 <p>両側漸近検定。信頼度は99/100です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
+<pre class="example">(%i1) load(&quot;stats&quot;)$
 (%i2) fpprintprec:7$
 (%i3) test_proportion(45, 103, 
                   conflevel = 99/100, asymptotic=true);
@@ -1064,10 +1010,12 @@ Yates補正が適用されるかどうかを示します。
       |      distribution = [normal, 0.5, .048872]       
       |                                                  
       |                p_value = .19662
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
 
 
@@ -1076,10 +1024,10 @@ Yates補正が適用されるかどうかを示します。
 
 <p><a name="Item_003a-test_005fproportions_005fdifference"></a>
 </p><dl>
-<dt><a name="index-test_005fproportions_005fdifference"></a><u>関数:</u> <b>test_proportions_difference</b><i> (<var>x1</var>, <var>n1</var>, <var>x2</var>, <var>n2</var>)</i></dt>
-<dt><a name="index-test_005fproportions_005fdifference-1"></a><u>関数:</u> <b>test_proportions_difference</b><i> (<var>x1</var>, <var>n1</var>, <var>x2</var>, <var>n2</var>, <var>options</var> ...)</i></dt>
-<dd>
-<p>2つの出現率の差の推定。
+<dt><u>関数:</u> <b>test_proportions_difference</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_proportions_difference</tt> (<var>x1</var>, <var>n1</var>, <var>x2</var>, <var>n2</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_proportions_difference</tt> (<var>x1</var>, <var>n1</var>, <var>x2</var>, <var>n2</var>, <var>options</var> &hellip;)</i>
+<a name="IDX2381"></a>
+</dt>
+<dd><p>2つの出現率の差の推定。
 引数 <var>x1</var>は
 一番目の母集団でのBernoulli実験の
 <var>n1</var>回の試行での成功回数であり、
@@ -1151,7 +1099,7 @@ Yates補正が適用されるかどうかを示します。
 保守の前と後で製造された製品が欠陥である確率です。
 p値に従うと、対立を受け入れる十分な証拠はありません。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
+<pre class="example">(%i1) load(&quot;stats&quot;)$
 (%i2) fpprintprec:7$
 (%i3) test_proportions_difference(10, 250, 4, 150,
                                 alternative = greater);
@@ -1172,11 +1120,10 @@ p値に従うと、対立を受け入れる十分な証拠はありません。
       |    distribution = [normal, 0, .01898069]     
       |                                              
       |             p_value = .2411936 
-</pre></td></tr></table>
-
+</pre>
 <p>データが未知の時の漸近正規分布の正確確率標準偏差。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
+<pre class="example">(%i1) load(&quot;stats&quot;)$
 (%i2) stats_numer: false$
 (%i3) sol: test_proportions_difference(x1,n1,x2,n2)$
 (%i4) last(take_inference('distribution,sol));
@@ -1185,24 +1132,20 @@ p値に従うと、対立を受け入れる十分な証拠はありません。
                n2   n1                 n2 + n1
 (%o4)    sqrt(---------------------------------)
                            n2 + n1
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
-
-
-
-
-
-
 
 <p><a name="Item_003a-test_005fsign"></a>
 </p><dl>
-<dt><a name="index-test_005fsign"></a><u>関数:</u> <b>test_sign</b><i> (<var>x</var>)</i></dt>
-<dt><a name="index-test_005fsign-1"></a><u>関数:</u> <b>test_sign</b><i> (<var>x</var>, <var>options</var> ...)</i></dt>
-<dd>
-<p>これは連続母集団のメジアンに関するノンパラメトリック符号検定です。
+<dt><u>関数:</u> <b>test_sign</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_sign</tt> (<var>x</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_sign</tt> (<var>x</var>, <var>options</var> &hellip;)</i>
+<a name="IDX2382"></a>
+</dt>
+<dd><p>これは連続母集団のメジアンに関するノンパラメトリック符号検定です。
 引数 <var>x</var>は1次元標本を含むリストか列行列です。
 </p>
 <p>オプション:
@@ -1248,7 +1191,7 @@ p値に従うと、対立を受け入れる十分な証拠はありません。
 <p>対立 <em>H_1: median &gt; 6</em>に対して、
 標本が採られた母集団がメジアン6を持つかどうかチェックします。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
+<pre class="example">(%i1) load(&quot;stats&quot;)$
 (%i2) x: [2,0.1,7,1.8,4,2.3,5.6,7.4,5.1,6.1,6]$
 (%i3) test_sign(x,'median=6,'alternative='greater);
                |                  SIGN TEST
@@ -1264,26 +1207,20 @@ p値に従うと、対立を受け入れる十分な証拠はありません。
                |      distribution = [binomial, 10, 0.5]
                |
                |         p_value = .05468749999999989
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
-
-
-
-
-
-
-
-
 
 <p><a name="Item_003a-test_005fsigned_005frank"></a>
 </p><dl>
-<dt><a name="index-test_005fsigned_005frank"></a><u>関数:</u> <b>test_signed_rank</b><i> (<var>x</var>)</i></dt>
-<dt><a name="index-test_005fsigned_005frank-1"></a><u>関数:</u> <b>test_signed_rank</b><i> (<var>x</var>, <var>options</var> ...)</i></dt>
-<dd>
-<p>これは
+<dt><u>関数:</u> <b>test_signed_rank</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_signed_rank</tt> (<var>x</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_signed_rank</tt> (<var>x</var>, <var>options</var> &hellip;)</i>
+<a name="IDX2383"></a>
+</dt>
+<dd><p>これは
 連続母集団のメジアンに関する推定を行う
 Wilcoxonの符号順位検定です。
 引数 <var>x</var>は
@@ -1340,7 +1277,7 @@ Wilcoxonの符号順位検定です。
 引き分けがないので、これは正確確率検定です。
 </p>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
+<pre class="example">(%i1) load(&quot;stats&quot;)$
 (%i2) x: [17.1,15.9,13.7,13.4,15.5,17.6]$
 (%i3) test_signed_rank(x,median=15,alternative=greater);
                  |             SIGNED RANK TEST
@@ -1356,14 +1293,13 @@ Wilcoxonの符号順位検定です。
                  |     distribution = [signed_rank, 6]
                  |
                  |            p_value = 0.28125
-</pre></td></tr></table>
-
+</pre>
 <p>Checks the null hypothesis <em>H_0: equal(median, 2.5)</em> against the 
 alternative <em>H_1: not equal(median, 2.5)</em>. This is an approximated test,
 since there are ties.
 </p>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
+<pre class="example">(%i1) load(&quot;stats&quot;)$
 (%i2) y:[1.9,2.3,2.6,1.9,1.6,3.3,4.2,4,2.4,2.9,1.5,3,2.9,4.2,3.1]$
 (%i3) test_signed_rank(y,median=2.5);
              |                 SIGNED RANK TEST
@@ -1379,24 +1315,20 @@ since there are ties.
              | distribution = [normal, 60.5, 17.58195097251724]
              |
              |           p_value = .3628097734643669
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
-
-
-
-
-
-
 
 <p><a name="Item_003a-test_005frank_005fsum"></a>
 </p><dl>
-<dt><a name="index-test_005frank_005fsum"></a><u>関数:</u> <b>test_rank_sum</b><i> (<var>x1</var>, <var>x2</var>)</i></dt>
-<dt><a name="index-test_005frank_005fsum-1"></a><u>関数:</u> <b>test_rank_sum</b><i> (<var>x1</var>, <var>x2</var>, <var>option</var>)</i></dt>
-<dd>
-<p>これは
+<dt><u>関数:</u> <b>test_rank_sum</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_rank_sum</tt> (<var>x1</var>, <var>x2</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_rank_sum</tt> (<var>x1</var>, <var>x2</var>, <var>option</var>)</i>
+<a name="IDX2384"></a>
+</dt>
+<dd><p>これは
 2つの連続母集団のメジアンを比較するWilcoxon-Mann-Whitney検定です。
 最初の2つの引数 <var>x1</var>と <var>x2</var>は
 2つの独立標本のデータを持つリストか列行列です。
@@ -1443,7 +1375,7 @@ since there are ties.
 標本サイズは小さく、正確確率検定がされます。
 </p>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
+<pre class="example">(%i1) load(&quot;stats&quot;)$
 (%i2) x:[12,15,17,38,42,10,23,35,28]$
 (%i3) y:[21,18,25,14,52,65,40,43]$
 (%i4) test_rank_sum(x,y);
@@ -1458,15 +1390,14 @@ since there are ties.
               |        distribution = [rank_sum, 9, 8]
               |
               |          p_value = .1995886466474702
-</pre></td></tr></table>
-
+</pre>
 <p>次は、
 より大きな標本で引き分けを含み、
 手続きは正規近似をします。
 対立仮説は <em>H_1: median1 &lt; median2</em>です。
 </p>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
+<pre class="example">(%i1) load(&quot;stats&quot;)$
 (%i2) x: [39,42,35,13,10,23,15,20,17,27]$
 (%i3) y: [20,52,66,19,41,32,44,25,14,39,43,35,19,56,27,15]$
 (%i4) test_rank_sum(x,y,'alternative='less);
@@ -1481,10 +1412,12 @@ since there are ties.
              | distribution = [normal, 79.5, 18.95419580097078]
              |
              |           p_value = .05096985666598441
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
 
 
@@ -1495,9 +1428,10 @@ since there are ties.
 
 <p><a name="Item_003a-test_005fnormality"></a>
 </p><dl>
-<dt><a name="index-test_005fnormality"></a><u>関数:</u> <b>test_normality</b><i> (<var>x</var>)</i></dt>
-<dd>
-<p>正規性のShapiro-Wilk検定。
+<dt><u>関数:</u> <b>test_normality</b><i> (<var>x</var>)</i>
+<a name="IDX2385"></a>
+</dt>
+<dd><p>正規性のShapiro-Wilk検定。
 引数 <var>x</var>は
 数のリストであり、
 標本サイズは2より大きく、5000以下でなければいけません。
@@ -1525,7 +1459,7 @@ since there are ties.
 <p>サイズ9の標本に基づいて母集団の正規性をチェックします。
 </p>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;stats&quot;)$
+<pre class="example">(%i1) load(&quot;stats&quot;)$
 (%i2) x:[12,15,17,38,42,10,23,35,28]$
 (%i3) test_normality(x);
                        |      SHAPIRO - WILK TEST
@@ -1533,26 +1467,20 @@ since there are ties.
 (%o3)                  | statistic = .9251055695162436
                        |
                        |  p_value = .4361763918860381
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
-
-
-
-
-
-
-
-
 
 <p><a name="Item_003a-linear_005fregression"></a>
 </p><dl>
-<dt><a name="index-linear_005fregression"></a><u>関数:</u> <b>linear_regression</b><i> (<var>x</var>)</i></dt>
-<dt><a name="index-linear_005fregression-1"></a><u>関数:</u> <b>linear_regression</b><i> (<var>x</var> <var>option</var>)</i></dt>
-<dd>
-<p>重回帰 <em>y_i = b0 + b1*x_1i + b2*x_2i + ... + bk*x_ki + u_i</em>。
+<dt><u>関数:</u> <b>linear_regression</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>linear_regression</tt> (<var>x</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>linear_regression</tt> (<var>x</var> <var>option</var>)</i>
+<a name="IDX2386"></a>
+</dt>
+<dd><p>重回帰 <em>y_i = b0 + b1*x_1i + b2*x_2i + ... + bk*x_ki + u_i</em>。
 ここで <em>u_i</em>は <em>N(0,sigma)</em>個の独立確率変数です。
 引数 <var>x</var>は複数の列を持つ行列でなければいけません。
 最後の列は応答 (<em>y_i</em>)とみなされます。
@@ -1621,7 +1549,7 @@ since there are ties.
 <p>線形モデルの三変量標本へのフィッティング。
 最後の列は応答 (<em>y_i</em>)と見なされます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) load(&quot;stats&quot;)$
+<pre class="example">(%i2) load(&quot;stats&quot;)$
 (%i3) X:matrix(
     [58,111,64],[84,131,78],[78,158,83],
     [81,147,88],[82,121,89],[102,165,99],
@@ -1662,11 +1590,13 @@ v_distribution, residuals, adc, aic, bic]
     points_joined = true,
     grid = true,
     points(take_inference('residuals, res)) )$
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
- &middot;<a href="maxima_100.html#Category_003a-Statistical-estimation">Statistical estimation</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a> &middot;
+<a href="maxima_100.html#Category_003a-Statistical-estimation">Statistical estimation</a>
+</div>
+</p>
 </dd></dl>
 
 
@@ -1677,97 +1607,117 @@ v_distribution, residuals, adc, aic, bic]
 <p><a name="Item_003a-Functions-and-Variables-for-special-distributions"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-special-distributions"></a>
+<a name="SEC371"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-stats" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_78.html#stirling" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC370" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_78.html#SEC372" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#stats" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#stats" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_78.html#stirling" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC367" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC367" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_78.html#SEC372" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-special-distributions-1"></a>
-<h2 class="section">77.4 Functions and Variables for special distributions</h2>
+<h2 class="section"> 77.4 Functions and Variables for special distributions </h2>
 
 
 <p><a name="Item_003a-pdf_005fsigned_005frank"></a>
 </p><dl>
-<dt><a name="index-pdf_005fsigned_005frank"></a><u>関数:</u> <b>pdf_signed_rank</b><i> (<var>x</var>, <var>n</var>)</i></dt>
+<dt><u>関数:</u> <b>pdf_signed_rank</b><i> (<var>x</var>, <var>n</var>)</i>
+<a name="IDX2387"></a>
+</dt>
 <dd><p>符号順位統計の正確確率分布の確率密度関数。
 引数 <var>x</var>は実数であり、
 <var>n</var>は正の整数です。
 </p>
 <p><code>test_signed_rank</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-cdf_005fsigned_005frank"></a>
 </p><dl>
-<dt><a name="index-cdf_005fsigned_005frank"></a><u>関数:</u> <b>cdf_signed_rank</b><i> (<var>x</var>, <var>n</var>)</i></dt>
+<dt><u>関数:</u> <b>cdf_signed_rank</b><i> (<var>x</var>, <var>n</var>)</i>
+<a name="IDX2388"></a>
+</dt>
 <dd><p>符号順位統計の正確確率分布の累積密度関数。
 引数 <var>x</var>は実数であり、
 <var>n</var>は正の整数です。
 </p>
 <p><code>test_signed_rank</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-pdf_005frank_005fsum"></a>
 </p><dl>
-<dt><a name="index-pdf_005frank_005fsum"></a><u>関数:</u> <b>pdf_rank_sum</b><i> (<var>x</var>, <var>n</var>, <var>m</var>)</i></dt>
+<dt><u>関数:</u> <b>pdf_rank_sum</b><i> (<var>x</var>, <var>n</var>, <var>m</var>)</i>
+<a name="IDX2389"></a>
+</dt>
 <dd><p>順位和統計の正確確率分布の確率密度関数。
 引数 <var>x</var>は実数であり、
 <var>n</var>と <var>m</var>はともに正の整数です。
 </p>
 <p><code>test_rank_sum</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-cdf_005frank_005fsum"></a>
 </p><dl>
-<dt><a name="index-cdf_005frank_005fsum"></a><u>関数:</u> <b>cdf_rank_sum</b><i> (<var>x</var>, <var>n</var>, <var>m</var>)</i></dt>
+<dt><u>関数:</u> <b>cdf_rank_sum</b><i> (<var>x</var>, <var>n</var>, <var>m</var>)</i>
+<a name="IDX2390"></a>
+</dt>
 <dd><p>順位和統計の正確確率分布の累積密度関数。
 引数 <var>x</var>は実数であり、
 <var>n</var>と <var>m</var>はともに正の整数です。
 </p>
 <p><code>test_rank_sum</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
 </dd></dl>
 
 
 <p><a name="Item_003a-stirling"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#stats" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_78.html#stirling" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC367" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_78.html#SEC372" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>5月, 20 2015</em>に<a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>を用いて生成されました。
  </font>
  <br>
 

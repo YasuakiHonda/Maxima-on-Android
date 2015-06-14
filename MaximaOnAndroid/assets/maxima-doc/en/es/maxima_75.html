@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on septiembre, 8 2014 by texi2html 1.76 -->
+<!-- Created on abril, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual de Maxima: 75. stirling</title>
+<title>Manual de Maxima 5.36.0: 75. stirling</title>
 
-<meta name="description" content="Manual de Maxima: 75. stirling">
-<meta name="keywords" content="Manual de Maxima: 75. stirling">
+<meta name="description" content="Manual de Maxima 5.36.0: 75. stirling">
+<meta name="keywords" content="Manual de Maxima 5.36.0: 75. stirling">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,172 +32,94 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="stirling"></a>
-<a name="SEC357"></a>
+<a name="SEC362"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_74.html#SEC356" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC358" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_74.html#SEC361" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC363" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC352" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_74.html#SEC357" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_76.html#SEC359" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_76.html#SEC364" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter"> 75. stirling </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC358">75.1 Funciones y variables para stirling</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC363">75.1 Funciones y variables para stirling</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <hr size="6">
 <a name="Funciones-y-variables-para-stirling"></a>
-<a name="SEC358"></a>
+<a name="SEC363"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC357" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_76.html#SEC359" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC362" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_76.html#SEC364" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC357" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC357" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_76.html#SEC359" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC362" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC362" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_76.html#SEC364" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 75.1 Funciones y variables para stirling </h2>
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>stirling</b><i> (<var>z</var>,<var>n</var>)</i>
-<a name="IDX2667"></a>
+<dt><u>Función:</u> <b>stirling</b><i> (<var>z</var>,<var>n</var>)</i>
+<a name="IDX2709"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>stirling</b><i> (<var>z</var>,<var>n</var>,<var>pred</var>)</i>
-<a name="IDX2668"></a>
+<dt><u>Función:</u> <b>stirling</b><i> (<var>z</var>,<var>n</var>,<var>pred</var>)</i>
+<a name="IDX2710"></a>
 </dt>
-<dd><p>Sustituye <code>gamma(x)</code> por la f&oacute;rmula de Stirling <em>O(1/x^(2n-1))</em>.
+<dd><p>Sustituye <code>gamma(x)</code> por la fórmula de Stirling <em>O(1/x^(2n-1))</em>.
 Si <var>n</var> no es un entero no negativo, emite un mensaje de error. Con el
-tercer argumento opcional <code>pred</code>, la f&oacute;rmula de Stirling s&oacute;lo se aplica 
+tercer argumento opcional <code>pred</code>, la fórmula de Stirling sólo se aplica 
 si <code>pred</code> vale <code>true</code>.
 </p>
 <p>Referencia: Abramowitz &amp; Stegun, &quot; Handbook of mathematical functions&quot;, 6.1.40.
@@ -223,8 +145,8 @@ si <code>pred</code> vale <code>true</code>.
 (%o4)   x       + -------------------------------
                                   2
 </pre>
-<p>La funci&oacute;n <code>stirling</code> conoce la diferencia existente entre
-la variable 'gamma' y la funci&oacute;n gamma:
+<p>La función <code>stirling</code> conoce la diferencia existente entre
+la variable 'gamma' y la función gamma:
 </p>
 <pre class="example">(%i5) stirling(gamma + gamma(x),0);
                                     x - 1/2   - x
@@ -235,25 +157,26 @@ la variable 'gamma' y la funci&oacute;n gamma:
                                               x - 1/2   - x
                          + sqrt(2) sqrt(%pi) x        %e
 </pre>
-<p>Para aplicar la f&oacute;rmula de Stirling s&oacute;lo a aquellos t&eacute;rminos que
-contengan la variable <code>k</code>, h&aacute;gase uso del tercer argumento
+<p>Para aplicar la fórmula de Stirling sólo a aquellos términos que
+contengan la variable <code>k</code>, hágase uso del tercer argumento
 opcional; por ejemplo,
 </p><pre class="example">(%i7) makegamma(pochhammer(a,k)/pochhammer(b,k));
 (%o7) (gamma(b)*gamma(k+a))/(gamma(a)*gamma(k+b))
 (%i8) stirling(%,1, lambda([s], not(freeof(k,s))));
 (%o8) (%e^(b-a)*gamma(b)*(k+a)^(k+a-1/2)*(k+b)^(-k-b+1/2))/gamma(a)
 </pre>
-<p>Los t&eacute;rminos <code>gamma(a)</code> y <code>gamma(b)</code> no contienen a <code>k</code>, por
-lo que la f&oacute;rmula de Stirling no ha sido aplicada a ellos.
+<p>Los términos <code>gamma(a)</code> y <code>gamma(b)</code> no contienen a <code>k</code>, por
+lo que la fórmula de Stirling no ha sido aplicada a ellos.
 </p>
-<p>Antes de hacer uso de esta funci&oacute;n ejec&uacute;tese  <code>load(&quot;stirling&quot;)</code>.
+<p>Antes de hacer uso de esta función ejecútese  <code>load(&quot;stirling&quot;)</code>.
 </p></dd></dl>
+
 
 
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC357" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_76.html#SEC359" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC362" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_76.html#SEC364" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -261,12 +184,12 @@ lo que la f&oacute;rmula de Stirling no ha sido aplicada a ellos.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>septiembre, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>abril, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

@@ -1,27 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年9月月15日 by texi2html 1.82
-texi2html was written by: 
-            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+<!-- Created on 5月, 20 2015 by texi2html 1.76 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
             Olaf Bachmann <obachman@mathematik.uni-kl.de>
             and many others.
-Maintained by: Many creative people.
-Send bugs and suggestions to <texi2html-bug@nongnu.org>
+Maintained by: Many creative people <dev@texi2html.cvshome.org>
+Send bugs and suggestions to <users@texi2html.cvshome.org>
+
 -->
 <head>
-<title>Maxima 5.34.1 Manual: 23. Matrices and Linear Algebra</title>
+<title>Maxima 5.36.1 Manual: 23. Matrices and Linear Algebra</title>
 
-<meta name="description" content="Maxima 5.34.1 Manual: 23. Matrices and Linear Algebra">
-<meta name="keywords" content="Maxima 5.34.1 Manual: 23. Matrices and Linear Algebra">
+<meta name="description" content="Maxima 5.36.1 Manual: 23. Matrices and Linear Algebra">
+<meta name="keywords" content="Maxima 5.36.1 Manual: 23. Matrices and Linear Algebra">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.82">
+<meta name="Generator" content="texi2html 1.76">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
 pre.display {font-family: serif}
 pre.format {font-family: serif}
 pre.menu-comment {font-family: serif}
@@ -30,109 +30,30 @@ pre.smalldisplay {font-family: serif; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.roman {font-family:serif; font-weight:normal;}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
@@ -157,83 +78,84 @@ div.categorybox
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="Matrices-and-Linear-Algebra"></a>
+<a name="SEC114"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_22.html#Functions-for-numerical-solution-of-differential-equations" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-Matrices-and-Linear-Algebra" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_22.html#SEC113" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC115" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_22.html#Numerical" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_24.html#Affine" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_22.html#SEC108" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_24.html#SEC120" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Matrices-and-Linear-Algebra-1"></a>
-<h1 class="chapter">23. Matrices and Linear Algebra</h1>
+<h1 class="chapter"> 23. Matrices and Linear Algebra </h1>
+
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-Matrices-and-Linear-Algebra">23.1 Introduction to Matrices and Linear Algebra</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+<tr><td align="left" valign="top"><a href="#SEC115">23.1 Introduction to Matrices and Linear Algebra</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Matrices-and-Linear-Algebra">23.2 Functions and Variables for Matrices and Linear Algebra</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+<tr><td align="left" valign="top"><a href="#SEC119">23.2 Functions and Variables for Matrices and Linear Algebra</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
 </td></tr>
 </table>
 
 <p><a name="Item_003a-Introduction-to-Matrices-and-Linear-Algebra"></a>
 </p><hr size="6">
 <a name="Introduction-to-Matrices-and-Linear-Algebra"></a>
+<a name="SEC115"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Matrices-and-Linear-Algebra" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Dot" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC114" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC116" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Matrices-and-Linear-Algebra" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Matrices-and-Linear-Algebra" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_24.html#Affine" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC114" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC114" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_24.html#SEC120" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-Matrices-and-Linear-Algebra-1"></a>
-<h2 class="section">23.1 Introduction to Matrices and Linear Algebra</h2>
+<h2 class="section"> 23.1 Introduction to Matrices and Linear Algebra </h2>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Dot">23.1.1 Dot</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                         
+<tr><td align="left" valign="top"><a href="#SEC116">23.1.1 Dot</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                         
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Vectors">23.1.2 Vectors</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                     
+<tr><td align="left" valign="top"><a href="#SEC117">23.1.2 Vectors</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                     
 </td></tr>
-<tr><td align="left" valign="top"><a href="#eigen">23.1.3 eigen</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC118">23.1.3 eigen</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <p><a name="Item_003a-Dot"></a>
 </p><hr size="6">
 <a name="Dot"></a>
+<a name="SEC116"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-Matrices-and-Linear-Algebra" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Vectors" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC115" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC117" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Matrices-and-Linear-Algebra" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-Matrices-and-Linear-Algebra" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_24.html#Affine" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC114" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC115" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_24.html#SEC120" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Dot-1"></a>
-<h3 class="subsection">23.1.1 Dot</h3>
+<h3 class="subsection"> 23.1.1 Dot </h3>
 
 <p>演算子 <code>.</code>は非可換乗算とスカラー積を表します。
 オペランドが1列行列か1行行列の <code>a</code>と <code>b</code>の時、
@@ -255,40 +177,31 @@ div.categorybox
 <code>5 . e3</code>は <code>5</code>掛ける <code>e3</code>です。
 </p>
 <p><code>.</code>を含む式の整理を支配するいくつかのフラグがあります。
-すなわち <code><a href="#dot0nscsimp">dot0nscsimp</a></code>
-, <code><a href="#dot0simp">dot0simp</a></code>
-, <code><a href="#dot1simp">dot1simp</a></code>
-, <code><a href="#dotassoc">dotassoc</a></code>
-, 
-<code><a href="#dotconstrules">dotconstrules</a></code>
-, <code><a href="#dotdistrib">dotdistrib</a></code>
-, <code><a href="#dotexptsimp">dotexptsimp</a></code>
-, <code><a href="#dotident">dotident</a></code>
-,
- <code><a href="#dotscrules">dotscrules</a></code>
-。
+すなわち <code><a href="#dot0nscsimp">dot0nscsimp</a></code>, <code><a href="#dot0simp">dot0simp</a></code>, <code><a href="#dot1simp">dot1simp</a></code>, <code><a href="#dotassoc">dotassoc</a></code>, 
+<code><a href="#dotconstrules">dotconstrules</a></code>, <code><a href="#dotdistrib">dotdistrib</a></code>, <code><a href="#dotexptsimp">dotexptsimp</a></code>, <code><a href="#dotident">dotident</a></code>,
+ <code><a href="#dotscrules">dotscrules</a></code>。
 </p>
 <p><a name="Item_003a-Vectors"></a>
 </p><hr size="6">
 <a name="Vectors"></a>
+<a name="SEC117"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Dot" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#eigen" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC116" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC118" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Matrices-and-Linear-Algebra" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-Matrices-and-Linear-Algebra" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_24.html#Affine" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC114" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC115" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_24.html#SEC120" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Vectors-1"></a>
-<h3 class="subsection">23.1.2 Vectors</h3>
+<h3 class="subsection"> 23.1.2 Vectors </h3>
 
 <p><code>vect</code>はベクトル解析のための関数のパッケージです。
 <code>load (&quot;vect&quot;)</code>でこのパッケージをロードし、
@@ -303,43 +216,41 @@ div.categorybox
 場のスカラーポテンシャルやベクトルポテンシャルを演繹するための関数もあります。
 </p>
 <p><code>vect</code>パッケージは以下の関数を含みます:
-<code><a href="#vectorsimp">vectorsimp</a></code>
-, <code><a href="#scalefactors">scalefactors</a></code>
-,
-<code><a href="maxima_18.html#express">express</a></code>
-, <code><a href="maxima_19.html#potential">potential</a></code>
-, <code><a href="#vectorpotential">vectorpotential</a></code>
-.
+<code><a href="#vectorsimp">vectorsimp</a></code>, <code><a href="#scalefactors">scalefactors</a></code>,
+<code><a href="maxima_18.html#express">express</a></code>, <code><a href="maxima_19.html#potential">potential</a></code>, <code><a href="#vectorpotential">vectorpotential</a></code>.
 </p>
 <p>デフォルトでは <code>vect</code>パッケージはドット演算子 <code>.</code>を可換演算子とは宣言しません。
 可換ドット演算子 <code>.</code>を得るにはコマンド
 <code>declare(&quot;.&quot;, commutative)</code>を実行しなければいけません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Vectors">Vectors</a>
- &middot;<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_100.html#Category_003a-Package-vect">Package vect</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Vectors">Vectors</a> &middot;
+<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a> &middot;
+<a href="maxima_100.html#Category_003a-Package-vect">Package vect</a>
+</div>
+</p>
 <p><a name="Item_003a-eigen"></a>
 </p><hr size="6">
 <a name="eigen"></a>
+<a name="SEC118"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Vectors" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Matrices-and-Linear-Algebra" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC117" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC119" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Matrices-and-Linear-Algebra" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-Matrices-and-Linear-Algebra" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_24.html#Affine" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC114" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC115" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_24.html#SEC120" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="eigen-1"></a>
-<h3 class="subsection">23.1.3 eigen</h3>
+<h3 class="subsection"> 23.1.3 eigen </h3>
 
 <p>パッケージ <code>eigen</code>は固有値や固有ベクトルのシンボリックな計算に充てられた
 いくつかの関数を含みます。
@@ -352,106 +263,116 @@ Maximaはパッケージを自動的にロードします。
 ユーザープロンプトなしに同じデモンストレーションを実行します。
 </p>
 <p><code>eigen</code>パッケージの関数は
-<code><a href="#innerproduct">innerproduct</a></code>
-, <code><a href="#unitvector">unitvector</a></code>
-, <code><a href="#columnvector">columnvector</a></code>
-,
-<code><a href="#gramschmidt">gramschmidt</a></code>
-, <code><a href="#eigenvalues">eigenvalues</a></code>
-, <code><a href="#eigenvectors">eigenvectors</a></code>
-, <code><a href="#uniteigenvectors">uniteigenvectors</a></code>
-, <code><a href="#similaritytransform">similaritytransform</a></code>
-です。
+<code><a href="#innerproduct">innerproduct</a></code>, <code><a href="#unitvector">unitvector</a></code>, <code><a href="#columnvector">columnvector</a></code>,
+<code><a href="#gramschmidt">gramschmidt</a></code>, <code><a href="#eigenvalues">eigenvalues</a></code>, <code><a href="#eigenvectors">eigenvectors</a></code>, <code><a href="#uniteigenvectors">uniteigenvectors</a></code>, <code><a href="#similaritytransform">similaritytransform</a></code>です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Vectors">Vectors</a>
- &middot;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
- &middot;<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_100.html#Category_003a-Package-eigen">Package eigen</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Vectors">Vectors</a> &middot;
+<a href="maxima_100.html#Category_003a-Matrices">Matrices</a> &middot;
+<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a> &middot;
+<a href="maxima_100.html#Category_003a-Package-eigen">Package eigen</a>
+</div>
+</p>
 
 <p><a name="Item_003a-Functions-and-Variables-for-Matrices-and-Linear-Algebra"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-Matrices-and-Linear-Algebra"></a>
+<a name="SEC119"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#eigen" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_24.html#Affine" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC118" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_24.html#SEC120" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Matrices-and-Linear-Algebra" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Matrices-and-Linear-Algebra" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_24.html#Affine" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC114" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC114" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_24.html#SEC120" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-Matrices-and-Linear-Algebra-1"></a>
-<h2 class="section">23.2 Functions and Variables for Matrices and Linear Algebra</h2>
+<h2 class="section"> 23.2 Functions and Variables for Matrices and Linear Algebra </h2>
 
 <p><a name="addcol"></a>
 <a name="Item_003a-addcol"></a>
 </p><dl>
-<dt><a name="index-addcol"></a><u>関数:</u> <b>addcol</b><i> (<var>M</var>, <var>list_1</var>, ..., <var>list_n</var>)</i></dt>
-<dd>
-<p>１つか複数のリスト(または行列)で与えられる列を行列 <var>M</var>に追加します。
+<dt><u>関数:</u> <b>addcol</b><i> (<var>M</var>, <var>list_1</var>, ..., <var>list_n</var>)</i>
+<a name="IDX826"></a>
+</dt>
+<dd><p>１つか複数のリスト(または行列)で与えられる列を行列 <var>M</var>に追加します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="addrow"></a>
 <a name="Item_003a-addrow"></a>
 </p><dl>
-<dt><a name="index-addrow"></a><u>関数:</u> <b>addrow</b><i> (<var>M</var>, <var>list_1</var>, ..., <var>list_n</var>)</i></dt>
-<dd>
-<p>１つか複数のリスト(または行列)で与えられる行を行列 <var>M</var>に追加します。
+<dt><u>関数:</u> <b>addrow</b><i> (<var>M</var>, <var>list_1</var>, ..., <var>list_n</var>)</i>
+<a name="IDX827"></a>
+</dt>
+<dd><p>１つか複数のリスト(または行列)で与えられる行を行列 <var>M</var>に追加します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="adjoint"></a>
 <a name="Item_003a-adjoint"></a>
 </p><dl>
-<dt><a name="index-adjoint"></a><u>関数:</u> <b>adjoint</b><i> (<var>M</var>)</i></dt>
-<dd>
-<p>行列 <var>M</var>の余因子行列を返します。
+<dt><u>関数:</u> <b>adjoint</b><i> (<var>M</var>)</i>
+<a name="IDX828"></a>
+</dt>
+<dd><p>行列 <var>M</var>の余因子行列を返します。
 余因子行列は <var>M</var>の余因子の行列の転置です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="augcoefmatrix"></a>
 <a name="Item_003a-augcoefmatrix"></a>
 </p><dl>
-<dt><a name="index-augcoefmatrix"></a><u>関数:</u> <b>augcoefmatrix</b><i> ([<var>eqn_1</var>, &hellip;, <var>eqn_m</var>], [<var>x_1</var>, &hellip;, <var>x_n</var>])</i></dt>
-<dd>
-<p>線形方程式系 <var>eqn_1</var>, &hellip;, <var>eqn_m</var>の変数
+<dt><u>関数:</u> <b>augcoefmatrix</b><i> ([<var>eqn_1</var>, &hellip;, <var>eqn_m</var>], [<var>x_1</var>, &hellip;, <var>x_n</var>])</i>
+<a name="IDX829"></a>
+</dt>
+<dd><p>線形方程式系 <var>eqn_1</var>, &hellip;, <var>eqn_m</var>の変数
 <var>x_1</var>, &hellip;, <var>x_n</var>に関する拡大係数行列を返します。
 これは、
 それぞれの方程式の定数項
 (<var>x_1</var>, &hellip;, <var>x_n</var>に依存しないそれらの項)
 に関して隣接した列を持つ係数行列です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) m: [2*x - (a - 1)*y = 5*b, c + b*y + a*x = 0]$
+<pre class="example">(%i1) m: [2*x - (a - 1)*y = 5*b, c + b*y + a*x = 0]$
 (%i2) augcoefmatrix (m, [x, y]);
                        [ 2  1 - a  - 5 b ]
 (%o2)                  [                 ]
                        [ a    b      c   ]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Linear-equations">Linear equations</a>
- &middot;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Linear-equations">Linear equations</a> &middot;
+<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="cauchy_005fmatrix"></a>
 <a name="Item_003a-cauchy_005fmatrix"></a>
 </p><dl>
-<dt><a name="index-cauchy_005fmatrix"></a><u>関数:</u> <b>cauchy_matrix</b><i> ([<var>x_1</var>,<var>x_2</var>, &hellip;, <var>x_m</var>], [<var>y_1</var>,<var>y_2</var>, &hellip;, <var>y_n</var>])</i></dt>
-<dt><a name="index-cauchy_005fmatrix-1"></a><u>関数:</u> <b>cauchy_matrix</b><i> ([<var>x_1</var>,<var>x_2</var>, &hellip;, <var>x_n</var>])</i></dt>
-<dd>
-<p>要素 <var>a[i,j]</var> = 1/(<var>x_i</var>+<var>y_i</var>)を持つ、
+<dt><u>関数:</u> <b>cauchy_matrix</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>cauchy_matrix</tt> ([<var>x_1</var>, <var>x_2</var>, &hellip;, <var>x_m</var>], [<var>y_1</var>, <var>y_2</var>, &hellip;, <var>y_n</var>]) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>cauchy_matrix</tt> ([<var>x_1</var>, <var>x_2</var>, &hellip;, <var>x_n</var>])</i>
+<a name="IDX830"></a>
+</dt>
+<dd><p>要素 <var>a[i,j]</var> = 1/(<var>x_i</var>+<var>y_i</var>)を持つ、
 <code>n</code>掛ける <var>m</var>の Cauchy行列を返します。
 <code>cauchy_matrix</code>の第二引数はオプションです。
 この場合、 Cauchy行列の要素は <var>a[i,j]</var> = 1/(<var>x_i</var>+<var>x_j</var>)です。
@@ -461,15 +382,15 @@ Maximaはパッケージを自動的にロードします。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) cauchy_matrix([x1,x2],[y1,y2]);
-</pre><pre class="example">                      [    1        1    ]
+<pre class="example">(%i1) cauchy_matrix([x1,x2],[y1,y2]);
+                      [    1        1    ]
                       [ -------  ------- ]
                       [ y1 + x1  y2 + x1 ]
 (%o1)                 [                  ]
                       [    1        1    ]
                       [ -------  ------- ]
                       [ y1 + x2  y2 + x2 ]
-</pre><pre class="example">
+
 (%i2) cauchy_matrix([x1,x2]);
                       [   1         1    ]
                       [  ----    ------- ]
@@ -478,21 +399,24 @@ Maximaはパッケージを自動的にロードします。
                       [    1       1     ]
                       [ -------   ----   ]
                       [ x2 + x1   2 x2   ]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="charpoly"></a>
 <a name="Item_003a-charpoly"></a>
 </p><dl>
-<dt><a name="index-charpoly"></a><u>関数:</u> <b>charpoly</b><i> (<var>M</var>, <var>x</var>)</i></dt>
-<dd>
-<p>行列 <var>M</var>の変数 <var>x</var>に関する特性多項式を返します。
+<dt><u>関数:</u> <b>charpoly</b><i> (<var>M</var>, <var>x</var>)</i>
+<a name="IDX831"></a>
+</dt>
+<dd><p>行列 <var>M</var>の変数 <var>x</var>に関する特性多項式を返します。
 すなわち
 <code>determinant (<var>M</var> - diagmatrix (length (<var>M</var>), <var>x</var>))</code>です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) a: matrix ([3, 1], [2, 4]);
+<pre class="example">(%i1) a: matrix ([3, 1], [2, 4]);
                             [ 3  1 ]
 (%o1)                       [      ]
                             [ 2  4 ]
@@ -515,55 +439,67 @@ Maximaはパッケージを自動的にロードします。
                             2     2
 (%o7)                     x2  + x1  = 1
 (%i8) solve ([%th(2), %], [x1, x2]);
-</pre><pre class="example">                  1               2
+                  1               2
 (%o8) [[x1 = - -------, x2 = - -------], 
                sqrt(5)         sqrt(5)
 
                                              1             2
                                     [x1 = -------, x2 = -------]]
                                           sqrt(5)       sqrt(5)
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="coefmatrix"></a>
 <a name="Item_003a-coefmatrix"></a>
 </p><dl>
-<dt><a name="index-coefmatrix"></a><u>関数:</u> <b>coefmatrix</b><i> ([<var>eqn_1</var>, &hellip;, <var>eqn_m</var>], [<var>x_1</var>, &hellip;, <var>x_n</var>])</i></dt>
-<dd>
-<p>線形方程式系 <var>eqn_1</var>, &hellip;, <var>eqn_m</var>の変数
+<dt><u>関数:</u> <b>coefmatrix</b><i> ([<var>eqn_1</var>, &hellip;, <var>eqn_m</var>], [<var>x_1</var>, &hellip;, <var>x_n</var>])</i>
+<a name="IDX832"></a>
+</dt>
+<dd><p>線形方程式系 <var>eqn_1</var>, &hellip;, <var>eqn_m</var>の変数
 <var>x_1</var>, &hellip;, <var>x_n</var>に関する係数行列を返します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) coefmatrix([2*x-(a-1)*y+5*b = 0, b*y+a*x = 3], [x,y]);
+<pre class="example">(%i1) coefmatrix([2*x-(a-1)*y+5*b = 0, b*y+a*x = 3], [x,y]);
                                  [ 2  1 - a ]
 (%o1)                            [          ]
                                  [ a    b   ]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Linear-equations">Linear equations</a>
- &middot;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Linear-equations">Linear equations</a> &middot;
+<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="col"></a>
 <a name="Item_003a-col"></a>
 </p><dl>
-<dt><a name="index-col"></a><u>関数:</u> <b>col</b><i> (<var>M</var>, <var>i</var>)</i></dt>
-<dd>
-<p>行列 <var>M</var>の <var>i</var>番目の列を返します。
+<dt><u>関数:</u> <b>col</b><i> (<var>M</var>, <var>i</var>)</i>
+<a name="IDX833"></a>
+</dt>
+<dd><p>行列 <var>M</var>の <var>i</var>番目の列を返します。
 戻り値は行列です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="columnvector"></a>
 <a name="covect"></a>
 <a name="Item_003a-columnvector"></a>
 </p><dl>
-<dt><a name="index-columnvector"></a><u>関数:</u> <b>columnvector</b><i> (<var>L</var>)</i></dt>
-<dt><a name="index-covect"></a><u>関数:</u> <b>covect</b><i> (<var>L</var>)</i></dt>
-<dd>
-<p>リスト <var>L</var>の要素を含む１列 <code>length (<var>L</var>)</code>行の行列を返します。
+<dt><u>関数:</u> <b>columnvector</b><i> (<var>L</var>)</i>
+<a name="IDX834"></a>
+</dt>
+<dt><u>関数:</u> <b>covect</b><i> (<var>L</var>)</i>
+<a name="IDX835"></a>
+</dt>
+<dd><p>リスト <var>L</var>の要素を含む１列 <code>length (<var>L</var>)</code>行の行列を返します。
 </p>
 <p><code>covect</code>は <code>columnvector</code>と同義です。
 </p>
@@ -573,7 +509,7 @@ Maximaはパッケージを自動的にロードします。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (&quot;eigen&quot;)$
+<pre class="example">(%i1) load (&quot;eigen&quot;)$
 Warning - you are redefining the Macsyma function eigenvalues
 Warning - you are redefining the Macsyma function eigenvectors
 (%i2) columnvector ([aa, bb, cc, dd]);
@@ -584,15 +520,19 @@ Warning - you are redefining the Macsyma function eigenvectors
                              [ cc ]
                              [    ]
                              [ dd ]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="copymatrix"></a>
 <a name="Item_003a-copymatrix"></a>
 </p><dl>
-<dt><a name="index-copymatrix"></a><u>関数:</u> <b>copymatrix</b><i> (<var>M</var>)</i></dt>
+<dt><u>関数:</u> <b>copymatrix</b><i> (<var>M</var>)</i>
+<a name="IDX836"></a>
+</dt>
 <dd><p>行列 <var>M</var>のコピーを返します。
 これは <var>M</var>を要素毎にコピーすること以外では、コピーを作る唯一の方法です。
 </p>
@@ -603,46 +543,50 @@ Warning - you are redefining the Macsyma function eigenvectors
 <code>copymatrix</code>を使ってコピーを生成し、割り当てを使うことは
 別個の変更されたコピーを生成します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="determinant"></a>
 <a name="Item_003a-determinant"></a>
 </p><dl>
-<dt><a name="index-determinant"></a><u>関数:</u> <b>determinant</b><i> (<var>M</var>)</i></dt>
-<dd>
-<p><var>M</var>の行列式をガウスの消去法と似た方法で計算します。
+<dt><u>関数:</u> <b>determinant</b><i> (<var>M</var>)</i>
+<a name="IDX837"></a>
+</dt>
+<dd><p><var>M</var>の行列式をガウスの消去法と似た方法で計算します。
 </p>
-<p>結果の形式はスイッチ <code><a href="#ratmx">ratmx</a></code>
-の設定に依ります。
+<p>結果の形式はスイッチ <code><a href="#ratmx">ratmx</a></code>の設定に依ります。
 </p>
-<p>スイッチ <code>ratmx</code>と <code><a href="#sparse">sparse</a></code>
-がともに <code>true</code>の時コールされる、
+<p>スイッチ <code>ratmx</code>と <code><a href="#sparse">sparse</a></code>がともに <code>true</code>の時コールされる、
 粗な行列式を計算するための特殊なルーチンがあります。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="detout"></a>
 <a name="Item_003a-detout"></a>
 </p><dl>
-<dt><a name="index-detout"></a><u>オプション変数:</u> <b>detout</b></dt>
+<dt><u>オプション変数:</u> <b>detout</b>
+<a name="IDX838"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>detout</code>が <code>true</code>の時、
 逆行列が計算される行列の行列式が逆行列から因子として外に出されます。
 </p>
 <p>このスイッチが効果を持つには
-<code><a href="#doallmxops">doallmxops</a></code>
-と <code><a href="#doscmxops">doscmxops</a></code>
-は <code>false</code>でなければいけません。
+<code><a href="#doallmxops">doallmxops</a></code>と <code><a href="#doscmxops">doscmxops</a></code>は <code>false</code>でなければいけません。
 (それらの記述を参照してください。)
-代わりにこの２つを正しく設定する <code><a href="maxima_8.html#ev">ev</a></code>
-にこのスイッチを与えるという方法もあります。
+代わりにこの２つを正しく設定する <code><a href="maxima_8.html#ev">ev</a></code>にこのスイッチを与えるという方法もあります。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) m: matrix ([a, b], [c, d]);
+<pre class="example">(%i1) m: matrix ([a, b], [c, d]);
                             [ a  b ]
 (%o1)                       [      ]
                             [ c  d ]
@@ -655,18 +599,21 @@ Warning - you are redefining the Macsyma function eigenvectors
                           [ - c   a  ]
 (%o5)                     ------------
                            a d - b c
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
- &middot;<a href="maxima_100.html#Category_003a-Evaluation-flags">Evaluation flags</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a> &middot;
+<a href="maxima_100.html#Category_003a-Evaluation-flags">Evaluation flags</a>
+</div>
+</p></dd></dl>
 
 <p><a name="diagmatrix"></a>
 <a name="Item_003a-diagmatrix"></a>
 </p><dl>
-<dt><a name="index-diagmatrix"></a><u>関数:</u> <b>diagmatrix</b><i> (<var>n</var>, <var>x</var>)</i></dt>
-<dd>
-<p>対角要素すべてが <var>x</var>に等しくて、
+<dt><u>関数:</u> <b>diagmatrix</b><i> (<var>n</var>, <var>x</var>)</i>
+<a name="IDX839"></a>
+</dt>
+<dd><p>対角要素すべてが <var>x</var>に等しくて、
 サイズが <var>n</var>掛ける <var>n</var>の対角線行列を返します。
 <code>diagmatrix (<var>n</var>, 1)</code>は
 (<code>ident (<var>n</var>)</code>と同じように)単位行列を返します。
@@ -678,13 +625,18 @@ Warning - you are redefining the Macsyma function eigenvectors
 もし <var>x</var>が行列ならそれはコピーされません;
 対角要素すべては同じインスタンス <var>x</var>を参照します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="doallmxops"></a>
 <a name="Item_003a-doallmxops"></a>
 </p><dl>
-<dt><a name="index-doallmxops"></a><u>オプション変数:</u> <b>doallmxops</b></dt>
+<dt><u>オプション変数:</u> <b>doallmxops</b>
+<a name="IDX840"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>doallmxops</code>が <code>true</code>の時
@@ -692,13 +644,18 @@ Warning - you are redefining the Macsyma function eigenvectors
 <code>false</code>の時、個々の
 <code>dot</code>スイッチの設定がどの演算を実行するか決めます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="domxexpt"></a>
 <a name="Item_003a-domxexpt"></a>
 </p><dl>
-<dt><a name="index-domxexpt"></a><u>オプション変数:</u> <b>domxexpt</b></dt>
+<dt><u>オプション変数:</u> <b>domxexpt</b>
+<a name="IDX841"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>domxexpt</code>が <code>true</code>の時、
@@ -713,7 +670,7 @@ Warning - you are redefining the Macsyma function eigenvectors
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) m: matrix ([1, %i], [a+b, %pi]);
+<pre class="example">(%i1) m: matrix ([1, %i], [a+b, %pi]);
                          [   1    %i  ]
 (%o1)                    [            ]
                          [ b + a  %pi ]
@@ -730,39 +687,53 @@ Warning - you are redefining the Macsyma function eigenvectors
 (%o5)             [                          ]
                   [        b + a         %pi ]
                   [ (1 - c)       (1 - c)    ]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="domxmxops"></a>
 <a name="Item_003a-domxmxops"></a>
 </p><dl>
-<dt><a name="index-domxmxops"></a><u>オプション変数:</u> <b>domxmxops</b></dt>
+<dt><u>オプション変数:</u> <b>domxmxops</b>
+<a name="IDX842"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>domxmxops</code>が <code>true</code>の時、行列-行列演算、行列-リスト演算すべてが実行されます
 (しかし、スカラー-行列演算は実行されません);
 もしこのスイッチが <code>false</code>なら演算は実行されません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="domxnctimes"></a>
 <a name="Item_003a-domxnctimes"></a>
 </p><dl>
-<dt><a name="index-domxnctimes"></a><u>オプション変数:</u> <b>domxnctimes</b></dt>
+<dt><u>オプション変数:</u> <b>domxnctimes</b>
+<a name="IDX843"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>domxnctimes</code>が <code>true</code>の時、行列の非可換積が実行されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="dontfactor"></a>
 <a name="Item_003a-dontfactor"></a>
 </p><dl>
-<dt><a name="index-dontfactor"></a><u>オプション変数:</u> <b>dontfactor</b></dt>
+<dt><u>オプション変数:</u> <b>dontfactor</b>
+<a name="IDX844"></a>
+</dt>
 <dd><p>デフォルト値: <code>[]</code>
 </p>
 <p>ある変数に関する因数分解が起こらないよう、
@@ -772,139 +743,190 @@ Warning - you are redefining the Macsyma function eigenvectors
 <code>dontfactor</code>リスト上のそれらよりも重要でない変数に関しても
 因数分解は行われなくなります。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="doscmxops"></a>
 <a name="Item_003a-doscmxops"></a>
 </p><dl>
-<dt><a name="index-doscmxops"></a><u>オプション変数:</u> <b>doscmxops</b></dt>
+<dt><u>オプション変数:</u> <b>doscmxops</b>
+<a name="IDX845"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>doscmxops</code>が <code>true</code>の時、スカラー-行列演算が実行されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="doscmxplus"></a>
 <a name="Item_003a-doscmxplus"></a>
 </p><dl>
-<dt><a name="index-doscmxplus"></a><u>オプション変数:</u> <b>doscmxplus</b></dt>
+<dt><u>オプション変数:</u> <b>doscmxplus</b>
+<a name="IDX846"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>doscmxplus</code>が <code>true</code>の時、スカラー-行列演算は行列の結果をもたらします。
-このスイッチは <code><a href="#doallmxops">doallmxops</a></code>
-の下に包括されません。
+このスイッチは <code><a href="#doallmxops">doallmxops</a></code>の下に包括されません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="dot0nscsimp"></a>
 <a name="Item_003a-dot0nscsimp"></a>
 </p><dl>
-<dt><a name="index-dot0nscsimp"></a><u>オプション変数:</u> <b>dot0nscsimp</b></dt>
+<dt><u>オプション変数:</u> <b>dot0nscsimp</b>
+<a name="IDX847"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>dot0nscsimp</code>が <code>true</code>の時、
 ゼロと非スカラー項の非可換積は可換積に整理されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="dot0simp"></a>
 <a name="Item_003a-dot0simp"></a>
 </p><dl>
-<dt><a name="index-dot0simp"></a><u>オプション変数:</u> <b>dot0simp</b></dt>
+<dt><u>オプション変数:</u> <b>dot0simp</b>
+<a name="IDX848"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>dot0simp</code>が <code>true</code>の時、
 ゼロとスカラー項の非可換積は可換積に整理されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="dot1simp"></a>
 <a name="Item_003a-dot1simp"></a>
 </p><dl>
-<dt><a name="index-dot1simp"></a><u>オプション変数:</u> <b>dot1simp</b></dt>
+<dt><u>オプション変数:</u> <b>dot1simp</b>
+<a name="IDX849"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>dot1simp</code>が <code>true</code>の時、
 １ともう１つの項の非可換積は可換積に整理されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="dotassoc"></a>
 <a name="Item_003a-dotassoc"></a>
 </p><dl>
-<dt><a name="index-dotassoc"></a><u>オプション変数:</u> <b>dotassoc</b></dt>
+<dt><u>オプション変数:</u> <b>dotassoc</b>
+<a name="IDX850"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>dotassoc</code>が <code>true</code>の時、式 <code>(A.B).C</code>は
 <code>A.(B.C)</code>に整理されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="dotconstrules"></a>
 <a name="Item_003a-dotconstrules"></a>
 </p><dl>
-<dt><a name="index-dotconstrules"></a><u>オプション変数:</u> <b>dotconstrules</b></dt>
+<dt><u>オプション変数:</u> <b>dotconstrules</b>
+<a name="IDX851"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>dotconstrules</code>が <code>true</code>の時、
 定数ともう１つの項の非可換積は可換積に整理されます。
 このフラグをオンにすることは事実上、
-<code><a href="#dot1simp">dot1simp</a></code>
-はもちろん <code><a href="#dot0simp">dot0simp</a></code>
-, <code><a href="#dot0nscsimp">dot0nscsimp</a></code>
-もオンにします。
+<code><a href="#dot1simp">dot1simp</a></code>はもちろん <code><a href="#dot0simp">dot0simp</a></code>, <code><a href="#dot0nscsimp">dot0nscsimp</a></code>もオンにします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="dotdistrib"></a>
 <a name="Item_003a-dotdistrib"></a>
 </p><dl>
-<dt><a name="index-dotdistrib"></a><u>オプション変数:</u> <b>dotdistrib</b></dt>
+<dt><u>オプション変数:</u> <b>dotdistrib</b>
+<a name="IDX852"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>dotdistrib</code>が <code>true</code>の時、
 式 <code>A.(B + C)</code>は <code>A.B + A.C</code>に整理されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="dotexptsimp"></a>
 <a name="Item_003a-dotexptsimp"></a>
 </p><dl>
-<dt><a name="index-dotexptsimp"></a><u>オプション変数:</u> <b>dotexptsimp</b></dt>
+<dt><u>オプション変数:</u> <b>dotexptsimp</b>
+<a name="IDX853"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>dotexptsimp</code>が <code>true</code>の時、
 式 <code>A.A</code>は <code>A^^2</code>に整理されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="dotident"></a>
 <a name="Item_003a-dotident"></a>
 </p><dl>
-<dt><a name="index-dotident"></a><u>オプション変数:</u> <b>dotident</b></dt>
+<dt><u>オプション変数:</u> <b>dotident</b>
+<a name="IDX854"></a>
+</dt>
 <dd><p>デフォルト値: 1
 </p>
 <p><code>dotident</code>は <code>X^^0</code>が返す値です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="dotscrules"></a>
 <a name="Item_003a-dotscrules"></a>
 </p><dl>
-<dt><a name="index-dotscrules"></a><u>オプション変数:</u> <b>dotscrules</b></dt>
+<dt><u>オプション変数:</u> <b>dotscrules</b>
+<a name="IDX855"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>dotscrules</code>が <code>true</code>の時、
@@ -912,28 +934,29 @@ Warning - you are redefining the Macsyma function eigenvectors
 <code>A.(SC*B)</code>は <code>SC*(A.B)</code>に整理されます。
 </p>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="echelon"></a>
 <a name="Item_003a-echelon"></a>
 </p><dl>
-<dt><a name="index-echelon"></a><u>関数:</u> <b>echelon</b><i> (<var>M</var>)</i></dt>
-<dd>
-<p>ガウスの消去法で生成される行列 <var>M</var>の階段形を返します。
+<dt><u>関数:</u> <b>echelon</b><i> (<var>M</var>)</i>
+<a name="IDX856"></a>
+</dt>
+<dd><p>ガウスの消去法で生成される行列 <var>M</var>の階段形を返します。
 階段形は <var>M</var>から初等的な行演算によって計算されます。
 それぞれの行の最初の非ゼロ要素が１で、
 その要素の下の列要素がすべてゼロであるような行列です。
 </p>
-<p><code><a href="#triangularize">triangularize</a></code>
-もガウスの消去法を実行しますが、
+<p><code><a href="#triangularize">triangularize</a></code>もガウスの消去法を実行しますが、
 それぞれの行の先頭の非ゼロ要素を規格化しません。
 </p>
-<p><code><a href="maxima_65.html#lu_005ffactor">lu_factor</a></code>
-と <code><a href="maxima_65.html#cholesky">cholesky</a></code>
-は三角行列をもたらす他の関数です。
+<p><code><a href="maxima_65.html#lu_005ffactor">lu_factor</a></code>と <code><a href="maxima_65.html#cholesky">cholesky</a></code>は三角行列をもたらす他の関数です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) M: matrix ([3, 7, aa, bb], [-1, 8, 5, 2], [9, 2, 11, 4]);
+<pre class="example">(%i1) M: matrix ([3, 7, aa, bb], [-1, 8, 5, 2], [9, 2, 11, 4]);
                        [  3   7  aa  bb ]
                        [                ]
 (%o1)                  [ - 1  8  5   2  ]
@@ -949,36 +972,36 @@ Warning - you are redefining the Macsyma function eigenvectors
                   [              37 bb - 119 ]
                   [ 0   0    1   ----------- ]
                   [              37 aa - 313 ]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Linear-equations">Linear equations</a>
- &middot;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Linear-equations">Linear equations</a> &middot;
+<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="eigenvalues"></a>
 <a name="eivals"></a>
 <a name="Item_003a-eigenvalues"></a>
 </p><dl>
-<dt><a name="index-eigenvalues"></a><u>関数:</u> <b>eigenvalues</b><i> (<var>M</var>)</i></dt>
-<dt><a name="index-eivals"></a><u>関数:</u> <b>eivals</b><i> (<var>M</var>)</i></dt>
-<dd>
-<p>行列 <var>M</var>の固有値を含む２つのリストのリストを返します。
+<dt><u>関数:</u> <b>eigenvalues</b><i> (<var>M</var>)</i>
+<a name="IDX857"></a>
+</dt>
+<dt><u>関数:</u> <b>eivals</b><i> (<var>M</var>)</i>
+<a name="IDX858"></a>
+</dt>
+<dd><p>行列 <var>M</var>の固有値を含む２つのリストのリストを返します。
 戻り値の最初の部分リストは行列の固有値のリストで、
 二番目の部分リストは固有値の重複度のリストです。二つのリスト乃要素は順に対応しています。
 </p>
 <p><code>eivals</code>は <code>eigenvalues</code>と同義です。
 </p>
 <p><code>eigenvalues</code>は行列の特性多項式の根を見つけるために、関数
-<code><a href="maxima_20.html#solve">solve</a></code>
-をコールします。
+<code><a href="maxima_20.html#solve">solve</a></code>をコールします。
 時々、<code>solve</code>は多項式の根を見つけられないかもしれません;
 その場合、このパッケージの
-(<code><a href="#innerproduct">innerproduct</a></code>
-, <code><a href="#unitvector">unitvector</a></code>
-, <code><a href="#columnvector">columnvector</a></code>
-,
-<code><a href="#gramschmidt">gramschmidt</a></code>
-を除いた)いくつかの他の関数はうまく動かないでしょう。
+(<code><a href="#innerproduct">innerproduct</a></code>, <code><a href="#unitvector">unitvector</a></code>, <code><a href="#columnvector">columnvector</a></code>,
+<code><a href="#gramschmidt">gramschmidt</a></code>を除いた)いくつかの他の関数はうまく動かないでしょう。
 </p>
 <p>いくつかの場合、 <code>solve</code>が見つける固有値は複雑な式かもしれません。
 (<code>solve</code>が実数とわかっている固有値について
@@ -986,24 +1009,29 @@ Warning - you are redefining the Macsyma function eigenvectors
 他のいくつかの関数を使って固有値を整理することが可能なことがあります。
 </p>
 <p>パッケージ<code>eigen.mac</code>は、
-<code>eigenvalues</code>や <code><a href="#eigenvectors">eigenvectors</a></code>
-が参照された時、
+<code>eigenvalues</code>や <code><a href="#eigenvectors">eigenvectors</a></code>が参照された時、
 自動的にロードされます。
 もし <code>eigen.mac</code>がまだロードされていないなら、
 <code>load (&quot;eigen&quot;)</code>はそれをロードします。
 ロードした後はパッケージの中の関数と変数すべてが利用可能です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-eigen">Package eigen</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-eigen">Package eigen</a>
+</div>
+</p></dd></dl>
 
 <p><a name="eigenvectors"></a>
 <a name="eivects"></a>
 <a name="Item_003a-eigenvectors"></a>
 </p><dl>
-<dt><a name="index-eigenvectors"></a><u>関数:</u> <b>eigenvectors</b><i> (<var>M</var>)</i></dt>
-<dt><a name="index-eivects"></a><u>関数:</u> <b>eivects</b><i> (<var>M</var>)</i></dt>
-<dd>
-<p>行列 <var>M</var>の固有ベクトルを計算します。
+<dt><u>関数:</u> <b>eigenvectors</b><i> (<var>M</var>)</i>
+<a name="IDX859"></a>
+</dt>
+<dt><u>関数:</u> <b>eivects</b><i> (<var>M</var>)</i>
+<a name="IDX860"></a>
+</dt>
+<dd><p>行列 <var>M</var>の固有ベクトルを計算します。
 戻り値は２つの要素のリストです。
 一番目のものは <var>M</var>の固有値のリストと固有値の重複度のリストです。
 二番目のものは固有ベクトルのリストのリストです。
@@ -1013,8 +1041,7 @@ Warning - you are redefining the Macsyma function eigenvectors
 <p><code>eivects</code>は <code>eigenvectors</code>と同義です。
 </p>
 <p>パッケージ <code>eigen.mac</code>は、
-<code><a href="#eigenvalues">eigenvalues</a></code>
-や <code>eigenvectors</code>が参照された時、
+<code><a href="#eigenvalues">eigenvalues</a></code>や <code>eigenvectors</code>が参照された時、
 自動的にロードされます。
 もし <code>eigen.mac</code>がまだロードされていないなら、
 <code>load (&quot;eigen&quot;)</code>はそれをロードします。
@@ -1036,8 +1063,7 @@ Warning - you are redefining the Macsyma function eigenvectors
 <code>listeigvals</code>の下に記憶されていることを仮定するようにします。
 <code>listeigvals</code>は出力 <code>eigenvalues</code>に似たリストに設定しなければいけません。
 </p>
-<p>ここで、関数 <code><a href="maxima_20.html#algsys">algsys</a></code>
-が固有ベクトルについて解くために使われます。
+<p>ここで、関数 <code><a href="maxima_20.html#algsys">algsys</a></code>が固有ベクトルについて解くために使われます。
 もし固有値がごちゃごちゃしているなら、
 <code>algsys</code>は時々、解を見つけられないかもしれません。
 いくつかの場合、最初に
@@ -1048,14 +1074,13 @@ Warning - you are redefining the Macsyma function eigenvectors
 <code>true</code>に設定された <code>knowneigvals</code>フラグとともに
 再び <code>eigenvectors</code>をコールすることができます。
 </p>
-<p><code><a href="#eigenvalues">eigenvalues</a></code>
-も参照してください。
+<p><code><a href="#eigenvalues">eigenvalues</a></code>も参照してください。
 </p>
 <p>例:
 </p>
 <p>固有値１つにただ１つの固有ベクトルを持つ行列。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) M1 : matrix ([11, -1], [1, 7]);
+<pre class="example">(%i1) M1 : matrix ([11, -1], [1, 7]);
                            [ 11  - 1 ]
 (%o1)                      [         ]
                            [ 1    7  ]
@@ -1083,11 +1108,10 @@ Warning - you are redefining the Macsyma function eigenvectors
                        2
 
 (%o3)                         done
-</pre></td></tr></table>
-
+</pre>
 <p>１つの固有値(ここでは2)に２つの固有ベクトルを持つ行列。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) M1 : matrix ([0, 1, 0, 0], [0, 0, 0, 0], [0, 0, 2, 0], 
+<pre class="example">(%i1) M1 : matrix ([0, 1, 0, 0], [0, 0, 0, 0], [0, 0, 2, 0], 
                    [0, 0, 0, 2]);
                          [ 0  1  0  0 ]
                          [            ]
@@ -1120,28 +1144,35 @@ Warning - you are redefining the Macsyma function eigenvectors
                   2
 
 (%o3)                         done
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-eigen">Package eigen</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-eigen">Package eigen</a>
+</div>
+</p></dd></dl>
 
 <p><a name="ematrix"></a>
 <a name="Item_003a-ematrix"></a>
 </p><dl>
-<dt><a name="index-ematrix"></a><u>関数:</u> <b>ematrix</b><i> (<var>m</var>, <var>n</var>, <var>x</var>, <var>i</var>, <var>j</var>)</i></dt>
-<dd>
-<p>値が <var>x</var>の <code>[<var>i</var>, <var>j</var>]</code>要素を除いて、すべての要素がゼロの
+<dt><u>関数:</u> <b>ematrix</b><i> (<var>m</var>, <var>n</var>, <var>x</var>, <var>i</var>, <var>j</var>)</i>
+<a name="IDX861"></a>
+</dt>
+<dd><p>値が <var>x</var>の <code>[<var>i</var>, <var>j</var>]</code>要素を除いて、すべての要素がゼロの
 <var>m</var>行 <var>n</var>列行列を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="entermatrix"></a>
 <a name="Item_003a-entermatrix"></a>
 </p><dl>
-<dt><a name="index-entermatrix"></a><u>関数:</u> <b>entermatrix</b><i> (<var>m</var>, <var>n</var>)</i></dt>
-<dd>
-<p>対話的に要素を読み、 <var>m</var>行 <var>n</var>列行列を返します。
+<dt><u>関数:</u> <b>entermatrix</b><i> (<var>m</var>, <var>n</var>)</i>
+<a name="IDX862"></a>
+</dt>
+<dd><p>対話的に要素を読み、 <var>m</var>行 <var>n</var>列行列を返します。
 </p>
 <p>もし <var>n</var>が <var>m</var>と等しいなら、
 Maximaは、行列のタイプ(対角、対称、反対称、一般)の入力を促し、
@@ -1154,7 +1185,7 @@ Maximaはそれぞれの要素の入力を促します。
 <p>要素は任意の式を取り得て、その式は評価されます。
 <code>entermatrix</code>は引数を評価します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) n: 3$
+<pre class="example">(%i1) n: 3$
 (%i2) m: entermatrix (n, n)$
 
 Is the matrix  1. Diagonal  2. Symmetric  3. Antisymmetric 
@@ -1178,29 +1209,27 @@ Matrix entered.
                 [                              ]
                 [                            5 ]
                 [    0         0      (b + a)  ]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Console-interaction">Console interaction</a>
- &middot;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Console-interaction">Console interaction</a> &middot;
+<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="genmatrix"></a>
 <a name="Item_003a-genmatrix"></a>
 </p><dl>
-<dt><a name="index-genmatrix"></a><u>関数:</u> <b>genmatrix</b><i> (<var>a</var>, <var>i_2</var>, <var>j_2</var>, <var>i_1</var>, <var>j_1</var>)</i></dt>
-<dt><a name="index-genmatrix-1"></a><u>関数:</u> <b>genmatrix</b><i> (<var>a</var>, <var>i_2</var>, <var>j_2</var>, <var>i_1</var>)</i></dt>
-<dt><a name="index-genmatrix-2"></a><u>関数:</u> <b>genmatrix</b><i> (<var>a</var>, <var>i_2</var>, <var>j_2</var>)</i></dt>
-<dd>
-<p><var>a</var>から生成される行列を返します。
+<dt><u>関数:</u> <b>genmatrix</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>genmatrix</tt> (<var>a</var>, <var>i_2</var>, <var>j_2</var>, <var>i_1</var>, <var>j_1</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>genmatrix</tt> (<var>a</var>, <var>i_2</var>, <var>j_2</var>, <var>i_1</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>genmatrix</tt> (<var>a</var>, <var>i_2</var>, <var>j_2</var>)</i>
+<a name="IDX863"></a>
+</dt>
+<dd><p><var>a</var>から生成される行列を返します。
 返される行列は、要素 <code><var>a</var>[<var>i_1</var>,<var>j_1</var>]</code>を左上の要素として取り、
 <code><var>a</var>[<var>i_2</var>,<var>j_2</var>]</code>を右下の要素として取ります。
 ここで、<var>a</var>は、
-(<code><a href="maxima_5.html#make_005farray">make_array</a></code>
-ではなく <code>array</code>が生成する)宣言配列か、
+(<code><a href="maxima_5.html#make_005farray">make_array</a></code>ではなく <code>array</code>が生成する)宣言配列か、
 未宣言配列か、配列関数か、２つの引数を持つラムダ式のいずれかです。
-(配列関数は、他の関数のように <code><a href="maxima_7.html#g_t_003a_003d">:=</a></code>
-や <code><a href="maxima_36.html#define">define</a></code>
-で生成されますが、
+(配列関数は、他の関数のように <code><a href="maxima_7.html#g_t_003a_003d">:=</a></code>や <code><a href="maxima_36.html#define">define</a></code>で生成されますが、
 引数は括弧の代わりにカギ括弧でくくられます。)
 </p>
 <p>もし <var>j_1</var>が省略されたら、
@@ -1213,7 +1242,7 @@ Matrix entered.
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) h [i, j] := 1 / (i + j - 1);
+<pre class="example">(%i1) h [i, j] := 1 / (i + j - 1);
                                     1
 (%o1)                  h     := ---------
                         i, j    i + j - 1
@@ -1251,18 +1280,23 @@ Matrix entered.
 (%o8)                   [              ]
                         [ B      B     ]
                         [  2, 1   2, 2 ]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gramschmidt"></a>
 <a name="Item_003a-gramschmidt"></a>
 </p><dl>
-<dt><a name="index-gramschmidt"></a><u>関数:</u> <b>gramschmidt</b><i> (<var>x</var>)</i></dt>
-<dt><a name="index-gramschmidt-1"></a><u>関数:</u> <b>gramschmidt</b><i> (<var>x</var>, <var>F</var>)</i></dt>
-<dd>
-<p><var>x</var>に対してグラム-シュミット直交化アルゴリズムを実行します。
+<dt><u>関数:</u> <b>gramschmidt</b><i> (<var>x</var>)</i>
+<a name="IDX864"></a>
+</dt>
+<dt><u>関数:</u> <b>gramschmidt</b><i> (<var>x</var>, <var>F</var>)</i>
+<a name="IDX865"></a>
+</dt>
+<dd><p><var>x</var>に対してグラム-シュミット直交化アルゴリズムを実行します。
 <var>x</var>は行列かリストのリストのいずれかです。
 <code>gramschmidt</code>は <var>x</var>を変更しません。
 もし引数にあるなら <code>gramschmidt</code>は <var>F</var>を内積として使います。
@@ -1285,7 +1319,7 @@ Matrix entered.
 </p>
 <p>デフォルトの内積関数を使ったグラム-シュミットアルゴリズム。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (eigen)$
+<pre class="example">(%i1) load (eigen)$
 (%i2) x: matrix ([1, 2, 3], [9, 18, 30], [12, 48, 60]);
                          [ 1   2   3  ]
                          [            ]
@@ -1299,11 +1333,10 @@ Matrix entered.
                       2 7    7   2 7       5     5
 (%i4) map (innerproduct, [y[1], y[2], y[3]], [y[2], y[3], y[1]]);
 (%o4)                       [0, 0, 0]
-</pre></td></tr></table>
-
+</pre>
 <p>指定した内積関数を使ったグラム-シュミットアルゴリズム。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (eigen)$
+<pre class="example">(%i1) load (eigen)$
 (%i2) ip (f, g) := integrate (f * g, u, a, b);
 (%o2)          ip(f, g) := integrate(f g, u, a, b)
 (%i3) y : gramschmidt([1, sin(u), cos(u)], ip), a= -%pi/2, b=%pi/2;
@@ -1313,29 +1346,38 @@ Matrix entered.
 (%i4) map (ip, [y[1], y[2], y[3]], [y[2], y[3], y[1]]), 
                                                 a= -%pi/2, b=%pi/2;
 (%o4)                       [0, 0, 0]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-eigen">Package eigen</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-eigen">Package eigen</a>
+</div>
+</p></dd></dl>
 
 <p><a name="ident"></a>
 <a name="Item_003a-ident"></a>
 </p><dl>
-<dt><a name="index-ident"></a><u>関数:</u> <b>ident</b><i> (<var>n</var>)</i></dt>
-<dd>
-<p><var>n</var>行 <var>n</var>列の単位行列を返します。
+<dt><u>関数:</u> <b>ident</b><i> (<var>n</var>)</i>
+<a name="IDX866"></a>
+</dt>
+<dd><p><var>n</var>行 <var>n</var>列の単位行列を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="innerproduct"></a>
 <a name="inprod"></a>
 <a name="Item_003a-innerproduct"></a>
 </p><dl>
-<dt><a name="index-innerproduct"></a><u>関数:</u> <b>innerproduct</b><i> (<var>x</var>, <var>y</var>)</i></dt>
-<dt><a name="index-inprod"></a><u>関数:</u> <b>inprod</b><i> (<var>x</var>, <var>y</var>)</i></dt>
-<dd>
-<p><var>x</var>と <var>y</var>の(スカラー積やドット積とも呼ばれる)内積を返します。
+<dt><u>関数:</u> <b>innerproduct</b><i> (<var>x</var>, <var>y</var>)</i>
+<a name="IDX867"></a>
+</dt>
+<dt><u>関数:</u> <b>inprod</b><i> (<var>x</var>, <var>y</var>)</i>
+<a name="IDX868"></a>
+</dt>
+<dd><p><var>x</var>と <var>y</var>の(スカラー積やドット積とも呼ばれる)内積を返します。
 <var>x</var>と <var>y</var>は、等しい長さのリストか、ともに等しい長さの1列行列か1行行列です。
 戻り値は <code>conjugate (x) . y</code>です。
 ここで <code>.</code>は非可換乗算演算子です。
@@ -1344,110 +1386,114 @@ Matrix entered.
 </p>
 <p><code>inprod</code>は <code>innerproduct</code>と同義です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-eigen">Package eigen</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-eigen">Package eigen</a>
+</div>
+</p></dd></dl>
 
 <p><a name="invert_005fby_005fadjoint"></a>
 <a name="Item_003a-invert_005fby_005fadjoint"></a>
 </p><dl>
-<dt><a name="index-invert_005fby_005fadjoint"></a><u>関数:</u> <b>invert_by_adjoint</b><i> (<var>M</var>)</i></dt>
+<dt><u>関数:</u> <b>invert_by_adjoint</b><i> (<var>M</var>)</i>
+<a name="IDX869"></a>
+</dt>
 <dd><p>行列 <var>M</var>の逆を返します。
 逆は随伴法で計算されます。
 </p>
-<p> <code><a href="#invert">invert</a></code>
-同様、<code>invert_by_adjoint</code>は <code><a href="#ratmx">ratmx</a></code>
-と <code><a href="#detout">detout</a></code>
- フラグを遵守します。
+<p> <code><a href="#invert">invert</a></code>同様、<code>invert_by_adjoint</code>は <code><a href="#ratmx">ratmx</a></code>と <code><a href="#detout">detout</a></code> フラグを遵守します。
 </p>
 </dd></dl>
 
 <p><a name="invert"></a>
 <a name="Item_003a-invert"></a>
 </p><dl>
-<dt><a name="index-invert"></a><u>関数:</u> <b>invert</b><i> (<var>M</var>)</i></dt>
-<dd>
-<p>行列 <var>M</var>の逆行列を返します。
+<dt><u>関数:</u> <b>invert</b><i> (<var>M</var>)</i>
+<a name="IDX870"></a>
+</dt>
+<dd><p>行列 <var>M</var>の逆行列を返します。
 逆行列はLU分解で計算されます。
 </p>
-<p><code><a href="#ratmx">ratmx</a></code>
-が <code>true</code>の時、
+<p><code><a href="#ratmx">ratmx</a></code>が <code>true</code>の時、
 <var>M</var>の要素は標準有理式(CRE)に変換され、
 戻り値の要素もまたCREになります。
 </p>
-<p><code><a href="#ratmx">ratmx</a></code>
-が <code>false</code>の時、
+<p><code><a href="#ratmx">ratmx</a></code>が <code>false</code>の時、
 <var>M</var>の要素は通常の表現に変換されません。
 特に、floatとbigfloatは有理数に変換されません。
 </p>
-<p><code><a href="#detout">detout</a></code>
-が <code>true</code>の時、
+<p><code><a href="#detout">detout</a></code>が <code>true</code>の時、
 行列式が逆行列から括りだされます。
-行列式が逆行列に吸収されるのを抑制するよう、グローバルフラグ <code><a href="#doallmxops">doallmxops</a></code>
-と <code><a href="#doscmxops">doscmxops</a></code>
-は <code>false</code>でなければいけません。
-<code><a href="maxima_9.html#xthru">xthru</a></code>
-を使って行列式を逆行列に掛けることができます。
+行列式が逆行列に吸収されるのを抑制するよう、グローバルフラグ <code><a href="#doallmxops">doallmxops</a></code>と <code><a href="#doscmxops">doscmxops</a></code>は <code>false</code>でなければいけません。
+<code><a href="maxima_9.html#xthru">xthru</a></code>を使って行列式を逆行列に掛けることができます。
 </p>
-<p><code><a href="#invert">invert</a></code>
-は、デフォルトの算術整理を除いて、どんな式整理も逆行列の要素に適用しません。
-<code><a href="maxima_14.html#ratsimp">ratsimp</a></code>
-と <code><a href="maxima_9.html#expand">expand</a></code>
-は加算整理を適用できます。
+<p><code><a href="#invert">invert</a></code>は、デフォルトの算術整理を除いて、どんな式整理も逆行列の要素に適用しません。
+<code><a href="maxima_14.html#ratsimp">ratsimp</a></code>と <code><a href="maxima_9.html#expand">expand</a></code>は加算整理を適用できます。
 特に、 <var>M</var>が多項式要素を持つ時、
 <code>expand(invert(<var>M</var>))</code>が適しているかもしれません。
 </p>
 <p><code>invert(<var>M</var>)</code>は <code><var>M</var>^^-1</code>と同値です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="list_005fmatrix_005fentries"></a>
 <a name="Item_003a-list_005fmatrix_005fentries"></a>
 </p><dl>
-<dt><a name="index-list_005fmatrix_005fentries"></a><u>関数:</u> <b>list_matrix_entries</b><i> (<var>M</var>)</i></dt>
-<dd>
-<p>行列 <var>M</var>の要素を含むリストを返します。
+<dt><u>関数:</u> <b>list_matrix_entries</b><i> (<var>M</var>)</i>
+<a name="IDX871"></a>
+</dt>
+<dd><p>行列 <var>M</var>の要素を含むリストを返します。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) list_matrix_entries(matrix([a,b],[c,d]));
+<pre class="example">(%i1) list_matrix_entries(matrix([a,b],[c,d]));
 (%o1)                     [a, b, c, d]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="lmxchar"></a>
 <a name="Item_003a-lmxchar"></a>
 </p><dl>
-<dt><a name="index-lmxchar"></a><u>オプション変数:</u> <b>lmxchar</b></dt>
+<dt><u>オプション変数:</u> <b>lmxchar</b>
+<a name="IDX872"></a>
+</dt>
 <dd><p>デフォルト値: <code>[</code>
 </p>
 <p><code>lmxchar</code>は行列の左区切り記号として表示される文字です。
-<code><a href="#rmxchar">rmxchar</a></code>
-も参照してください。
+<code><a href="#rmxchar">rmxchar</a></code>も参照してください。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) lmxchar: &quot;|&quot;$
+<pre class="example">(%i1) lmxchar: &quot;|&quot;$
 (%i2) matrix ([a, b, c], [d, e, f], [g, h, i]);
                            | a  b  c ]
                            |         ]
 (%o2)                      | d  e  f ]
                            |         ]
                            | g  h  i ]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
- &middot;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Display-flags-and-variables">Display flags and variables</a> &middot;
+<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="matrix"></a>
 <a name="Item_003a-matrix"></a>
 </p><dl>
-<dt><a name="index-matrix"></a><u>関数:</u> <b>matrix</b><i> (<var>row_1</var>, ..., <var>row_n</var>)</i></dt>
-<dd>
-<p>行 <var>row_1</var>, ..., <var>row_n</var>を持つ長方形行列を返します。
+<dt><u>関数:</u> <b>matrix</b><i> (<var>row_1</var>, ..., <var>row_n</var>)</i>
+<a name="IDX873"></a>
+</dt>
+<dd><p>行 <var>row_1</var>, ..., <var>row_n</var>を持つ長方形行列を返します。
 行それぞれは、式のリストです。
 すべての行は同じ長さでなければいけません。
 </p>
@@ -1468,38 +1514,18 @@ Matrix entered.
 </p>
 <p>ドット演算や行列-リスト演算を含む式の整理を制御するためのスイッチがあります。
 それらは、
-<code><a href="#doallmxops">doallmxops</a></code>
-, <code><a href="#domxexpt">domxexpt</a></code>
-<code><a href="#domxmxops">domxmxops</a></code>
-, <code><a href="#doscmxops">doscmxops</a></code>
-, <code><a href="#doscmxplus">doscmxplus</a></code>
-です。
+<code><a href="#doallmxops">doallmxops</a></code>, <code><a href="#domxexpt">domxexpt</a></code>
+<code><a href="#domxmxops">domxmxops</a></code>, <code><a href="#doscmxops">doscmxops</a></code>, <code><a href="#doscmxplus">doscmxplus</a></code>です。
 </p>
 <p>行列に関係する付加的なオプションがあります。
 それらは以下の通りです:
-<code><a href="#lmxchar">lmxchar</a></code>
-, <code><a href="#rmxchar">rmxchar</a></code>
-, <code><a href="#ratmx">ratmx</a></code>
-, <code><a href="maxima_5.html#listarith">listarith</a></code>
-, <code><a href="#detout">detout</a></code>
-,
+<code><a href="#lmxchar">lmxchar</a></code>, <code><a href="#rmxchar">rmxchar</a></code>, <code><a href="#ratmx">ratmx</a></code>, <code><a href="maxima_5.html#listarith">listarith</a></code>, <code><a href="#detout">detout</a></code>,
 <code>scalarmatrix</code>, <code><a href="#sparse">sparse</a></code>
 </p>
 <p>行列を引数として取ったり、行列を戻り値としてもたらしたりするたくさんの関数があります。
-<code><a href="#eigenvalues">eigenvalues</a></code>
-, <code><a href="#eigenvectors">eigenvectors</a></code>
-, <code><a href="#determinant">determinant</a></code>
-, <code><a href="#charpoly">charpoly</a></code>
-,
-<code><a href="#genmatrix">genmatrix</a></code>
-, <code><a href="#addcol">addcol</a></code>
-, <code><a href="#addrow">addrow</a></code>
-, <code><a href="#copymatrix">copymatrix</a></code>
-,
-<code><a href="#transpose">transpose</a></code>
-, <code><a href="#echelon">echelon</a></code>
-, <code><a href="#rank">rank</a></code>
-を参照してください。
+<code><a href="#eigenvalues">eigenvalues</a></code>, <code><a href="#eigenvectors">eigenvectors</a></code>, <code><a href="#determinant">determinant</a></code>, <code><a href="#charpoly">charpoly</a></code>,
+<code><a href="#genmatrix">genmatrix</a></code>, <code><a href="#addcol">addcol</a></code>, <code><a href="#addrow">addrow</a></code>, <code><a href="#copymatrix">copymatrix</a></code>,
+<code><a href="#transpose">transpose</a></code>, <code><a href="#echelon">echelon</a></code>, <code><a href="#rank">rank</a></code>を参照してください。
 </p>
 <p>例:
 </p>
@@ -1507,7 +1533,7 @@ Matrix entered.
 <li>
 リストからの行列の組み立て。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) x: matrix ([17, 3], [-8, 11]);
+<pre class="example">(%i1) x: matrix ([17, 3], [-8, 11]);
                            [ 17   3  ]
 (%o1)                      [         ]
                            [ - 8  11 ]
@@ -1515,39 +1541,35 @@ Matrix entered.
                            [ %pi  %e ]
 (%o2)                      [         ]
                            [  a   b  ]
-</pre></td></tr></table>
-<ul>
+</pre><ul>
 <li>
 足し算、要素毎に。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) x + y;
+<pre class="example">(%i3) x + y;
                       [ %pi + 17  %e + 3 ]
 (%o3)                 [                  ]
                       [  a - 8    b + 11 ]
-</pre></td></tr></table>
-<ul>
+</pre><ul>
 <li>
 引き算、要素毎に。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) x - y;
+<pre class="example">(%i4) x - y;
                       [ 17 - %pi  3 - %e ]
 (%o4)                 [                  ]
                       [ - a - 8   11 - b ]
-</pre></td></tr></table>
-<ul>
+</pre><ul>
 <li>
 掛け算。要素毎に。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) x * y;
+<pre class="example">(%i5) x * y;
                         [ 17 %pi  3 %e ]
 (%o5)                   [              ]
                         [ - 8 a   11 b ]
-</pre></td></tr></table>
-<ul>
+</pre><ul>
 <li>
 割り算。要素毎に。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) x / y;
+<pre class="example">(%i6) x / y;
                         [ 17       - 1 ]
                         [ ---  3 %e    ]
                         [ %pi          ]
@@ -1555,44 +1577,40 @@ Matrix entered.
                         [   8    11    ]
                         [ - -    --    ]
                         [   a    b     ]
-</pre></td></tr></table>
-<ul>
+</pre><ul>
 <li>
 行列のスカラーべき、要素毎に。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i7) x ^ 3;
+<pre class="example">(%i7) x ^ 3;
                          [ 4913    27  ]
 (%o7)                    [             ]
                          [ - 512  1331 ]
-</pre></td></tr></table>
-<ul>
+</pre><ul>
 <li>
 スカラー基数の行列べき、要素毎に。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i8) exp(y); 
+<pre class="example">(%i8) exp(y); 
                          [   %pi    %e ]
                          [ %e     %e   ]
 (%o8)                    [             ]
                          [    a     b  ]
                          [  %e    %e   ]
-</pre></td></tr></table>
-<ul>
+</pre><ul>
 <li>
 行列基数の行列べき。これは要素毎には実行されません。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i9) x ^ y;
+<pre class="example">(%i9) x ^ y;
                                 [ %pi  %e ]
                                 [         ]
                                 [  a   b  ]
                      [ 17   3  ]
 (%o9)                [         ]
                      [ - 8  11 ]
-</pre></td></tr></table>
-<ul>
+</pre><ul>
 <li>
 非可換行列乗算。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i10) x . y;
+<pre class="example">(%i10) x . y;
                   [ 3 a + 17 %pi  3 b + 17 %e ]
 (%o10)            [                           ]
                   [ 11 a - 8 %pi  11 b - 8 %e ]
@@ -1600,29 +1618,27 @@ Matrix entered.
                 [ 17 %pi - 8 %e  3 %pi + 11 %e ]
 (%o11)          [                              ]
                 [  17 a - 8 b     11 b + 3 a   ]
-</pre></td></tr></table>
-<ul>
+</pre><ul>
 <li>
 非可換行列べき乗
 スカラー基数 <var>b</var>の行列べき <var>M</var>は、要素毎に実行され、
 <code>b^^m</code>は <code>b^m</code>と同じです。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i12) x ^^ 3;
+<pre class="example">(%i12) x ^^ 3;
                         [  3833   1719 ]
 (%o12)                  [              ]
                         [ - 4584  395  ]
 (%i13) %e ^^ y;
-</pre><pre class="example">                         [   %pi    %e ]
+                         [   %pi    %e ]
                          [ %e     %e   ]
 (%o13)                   [             ]
                          [    a     b  ]
                          [  %e    %e   ]
-</pre></td></tr></table>
-<ul>
+</pre><ul>
 <li>
 行列の-1指数の非可換べき乗は存在するなら、逆行列のことです。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i14) x ^^ -1;
+<pre class="example">(%i14) x ^^ -1;
                          [ 11      3  ]
                          [ ---  - --- ]
                          [ 211    211 ]
@@ -1634,42 +1650,50 @@ Matrix entered.
                             [ 1  0 ]
 (%o15)                      [      ]
                             [ 0  1 ]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="matrixmap"></a>
 <a name="Item_003a-matrixmap"></a>
 </p><dl>
-<dt><a name="index-matrixmap"></a><u>関数:</u> <b>matrixmap</b><i> (<var>f</var>, <var>M</var>)</i></dt>
-<dd>
-<p><code><var>f</var>(<var>M</var>[i,j])</code>に等しい要素 <code>i,j</code>を持つ行列を返します。
+<dt><u>関数:</u> <b>matrixmap</b><i> (<var>f</var>, <var>M</var>)</i>
+<a name="IDX874"></a>
+</dt>
+<dd><p><code><var>f</var>(<var>M</var>[i,j])</code>に等しい要素 <code>i,j</code>を持つ行列を返します。
 </p>
-<p><code><a href="maxima_37.html#map">map</a></code>
-, <code><a href="maxima_36.html#fullmap">fullmap</a></code>
-, <code><a href="maxima_36.html#fullmapl">fullmapl</a></code>
-, <code><a href="maxima_36.html#apply">apply</a></code>
-も参照してください。
+<p><code><a href="maxima_37.html#map">map</a></code>, <code><a href="maxima_36.html#fullmap">fullmap</a></code>, <code><a href="maxima_36.html#fullmapl">fullmapl</a></code>, <code><a href="maxima_36.html#apply">apply</a></code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="matrixp"></a>
 <a name="Item_003a-matrixp"></a>
 </p><dl>
-<dt><a name="index-matrixp"></a><u>関数:</u> <b>matrixp</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p>もし <var>expr</var>が行列なら <code>true</code>を返し，そうでないなら <code>false</code>を返します。
+<dt><u>関数:</u> <b>matrixp</b><i> (<var>expr</var>)</i>
+<a name="IDX875"></a>
+</dt>
+<dd><p>もし <var>expr</var>が行列なら <code>true</code>を返し，そうでないなら <code>false</code>を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Predicate-functions">Predicate functions</a> &middot;
+<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="matrix_005felement_005fadd"></a>
 <a name="Item_003a-matrix_005felement_005fadd"></a>
 </p><dl>
-<dt><a name="index-matrix_005felement_005fadd"></a><u>オプション変数:</u> <b>matrix_element_add</b></dt>
+<dt><u>オプション変数:</u> <b>matrix_element_add</b>
+<a name="IDX876"></a>
+</dt>
 <dd><p>デフォルト値: <code>+</code>
 </p>
 <p><code>matrix_element_add</code>は行列乗算の中で足し算の代わりに呼び出される演算です。
@@ -1678,38 +1702,40 @@ n項演算子(すなわち、任意の数の引数を扱う関数)に割り当�
 割り当てられた値はクォートマークでくくられた演算子の名前か、
 関数名かラムダ式を取り得ます。
 </p>
-<p><code><a href="#matrix_005felement_005fmult">matrix_element_mult</a></code>
-と <code><a href="#matrix_005felement_005ftranspose">matrix_element_transpose</a></code>
-も参照してください。
+<p><code><a href="#matrix_005felement_005fmult">matrix_element_mult</a></code>と <code><a href="#matrix_005felement_005ftranspose">matrix_element_transpose</a></code>も参照してください。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) matrix_element_add: &quot;*&quot;$
+<pre class="example">(%i1) matrix_element_add: &quot;*&quot;$
 (%i2) matrix_element_mult: &quot;^&quot;$
 (%i3) aa: matrix ([a, b, c], [d, e, f]);
                            [ a  b  c ]
 (%o3)                      [         ]
                            [ d  e  f ]
 (%i4) bb: matrix ([u, v, w], [x, y, z]);
-</pre><pre class="example">                           [ u  v  w ]
+                           [ u  v  w ]
 (%o4)                      [         ]
                            [ x  y  z ]
-</pre><pre class="example">(%i5) aa . transpose (bb);
+(%i5) aa . transpose (bb);
                      [  u  v  w   x  y  z ]
                      [ a  b  c   a  b  c  ]
 (%o5)                [                    ]
                      [  u  v  w   x  y  z ]
                      [ d  e  f   d  e  f  ]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="matrix_005felement_005fmult"></a>
 <a name="Item_003a-matrix_005felement_005fmult"></a>
 </p><dl>
-<dt><a name="index-matrix_005felement_005fmult"></a><u>オプション変数:</u> <b>matrix_element_mult</b></dt>
+<dt><u>オプション変数:</u> <b>matrix_element_mult</b>
+<a name="IDX877"></a>
+</dt>
 <dd><p>デフォルト値: <code>*</code>
 </p>
 <p><code>matrix_element_mult</code>は行列乗算の中で掛け算の代わりに呼び出される演算です。
@@ -1719,13 +1745,11 @@ n項演算子(すなわち、任意の数の引数を扱う関数)に割り当�
 </p>
 <p>ドット演算子 <code>.</code>はいくつかの文脈で役に立つ選択です。
 </p>
-<p><code><a href="#matrix_005felement_005fadd">matrix_element_add</a></code>
-と <code><a href="#matrix_005felement_005ftranspose">matrix_element_transpose</a></code>
-も参照してください。
+<p><code><a href="#matrix_005felement_005fadd">matrix_element_add</a></code>と <code><a href="#matrix_005felement_005ftranspose">matrix_element_transpose</a></code>も参照してください。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) matrix_element_add: lambda ([[x]], sqrt (apply (&quot;+&quot;, x)))$
+<pre class="example">(%i1) matrix_element_add: lambda ([[x]], sqrt (apply (&quot;+&quot;, x)))$
 (%i2) matrix_element_mult: lambda ([x, y], (x - y)^2)$
 (%i3) [a, b, c] . [x, y, z];
                           2          2          2
@@ -1750,26 +1774,28 @@ n項演算子(すなわち、任意の数の引数を扱う関数)に割り当�
                  Col 2 = [                                      ]
                          [             2          2          2  ]
                          [ sqrt((f - z)  + (e - y)  + (d - x) ) ]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="matrix_005felement_005ftranspose"></a>
 <a name="Item_003a-matrix_005felement_005ftranspose"></a>
 </p><dl>
-<dt><a name="index-matrix_005felement_005ftranspose"></a><u>オプション変数:</u> <b>matrix_element_transpose</b></dt>
+<dt><u>オプション変数:</u> <b>matrix_element_transpose</b>
+<a name="IDX878"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>matrix_element_transpose</code>は、
 転置される時、行列のそれぞれの要素に適用される演算です。
-<code><a href="#matrix_005felement_005fmult">matrix_element_mult</a></code>
-は任意の単項演算子に割り当てられます。
+<code><a href="#matrix_005felement_005fmult">matrix_element_mult</a></code>は任意の単項演算子に割り当てられます。
 割り当てられた値はクォートマークでくくられた演算子の名前か、
 関数名か、ラムダ式を取り得ます。
 </p>
-<p><code>matrix_element_transpose</code>が <code><a href="#transpose">transpose</a></code>
-に等しい時、
+<p><code>matrix_element_transpose</code>が <code><a href="#transpose">transpose</a></code>に等しい時、
 <code>transpose</code>関数が要素すべてに適用されます。
 <code>matrix_element_transpose</code>が <code>nonscalars</code>に等しい時、
 <code>transpose</code>関数は非スカラー要素すべてに適用されます。
@@ -1780,13 +1806,11 @@ n項演算子(すなわち、任意の数の引数を扱う関数)に割り当�
 </p>
 <p>デフォルト値, <code>false</code>はいかなる演算も適用しないことを意味します。
 </p>
-<p><code><a href="#matrix_005felement_005fadd">matrix_element_add</a></code>
-と <code><a href="#matrix_005felement_005fmult">matrix_element_mult</a></code>
-も参照してください。
+<p><code><a href="#matrix_005felement_005fadd">matrix_element_add</a></code>と <code><a href="#matrix_005felement_005fmult">matrix_element_mult</a></code>も参照してください。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) declare (a, nonscalar)$
+<pre class="example">(%i1) declare (a, nonscalar)$
 (%i2) transpose ([a, b]);
                         [ transpose(a) ]
 (%o2)                   [              ]
@@ -1811,48 +1835,57 @@ n項演算子(すなわち、任意の数の引数を扱う関数)に割り当�
                       [ 1 - 5 %i  - 7 %i ]
 (%o9)                 [                  ]
                       [ 2 %i + 3    11   ]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="mattrace"></a>
 <a name="Item_003a-mattrace"></a>
 </p><dl>
-<dt><a name="index-mattrace"></a><u>関数:</u> <b>mattrace</b><i> (<var>M</var>)</i></dt>
-<dd>
-<p>正方行列 <var>M</var>の跡(すなわち、主対角上の要素の和)を返します。
+<dt><u>関数:</u> <b>mattrace</b><i> (<var>M</var>)</i>
+<a name="IDX879"></a>
+</dt>
+<dd><p>正方行列 <var>M</var>の跡(すなわち、主対角上の要素の和)を返します。
 </p>
-<p><code>mattrace</code>は <code><a href="#ncharpoly">ncharpoly</a></code>
-―Maximaの<code><a href="#charpoly">charpoly</a></code>
-の代わり―
+<p><code>mattrace</code>は <code><a href="#ncharpoly">ncharpoly</a></code>―Maximaの<code><a href="#charpoly">charpoly</a></code>の代わり―
 によってコールされます。
 </p>
 <p><code>load (&quot;nchrpl&quot;)</code>はこの関数をロードします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
- &middot;<a href="maxima_100.html#Category_003a-Package-nchrpl">Package nchrpl</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a> &middot;
+<a href="maxima_100.html#Category_003a-Package-nchrpl">Package nchrpl</a>
+</div>
+</p></dd></dl>
 
 <p><a name="minor"></a>
 <a name="Item_003a-minor"></a>
 </p><dl>
-<dt><a name="index-minor"></a><u>関数:</u> <b>minor</b><i> (<var>M</var>, <var>i</var>, <var>j</var>)</i></dt>
-<dd>
-<p>行列 <var>M</var>の <var>i</var>, <var>j</var>小行列を返します。
+<dt><u>関数:</u> <b>minor</b><i> (<var>M</var>, <var>i</var>, <var>j</var>)</i>
+<a name="IDX880"></a>
+</dt>
+<dd><p>行列 <var>M</var>の <var>i</var>, <var>j</var>小行列を返します。
 すなわち、行 <var>i</var>と列 <var>j</var>を除いた <var>M</var>です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="ncharpoly"></a>
 <a name="Item_003a-ncharpoly"></a>
 </p><dl>
-<dt><a name="index-ncharpoly"></a><u>関数:</u> <b>ncharpoly</b><i> (<var>M</var>, <var>x</var>)</i></dt>
+<dt><u>関数:</u> <b>ncharpoly</b><i> (<var>M</var>, <var>x</var>)</i>
+<a name="IDX881"></a>
+</dt>
 <dd><p>行列<var>M</var>の <var>x</var>に関する特性多項式を返します。
-これはMaximaの <code><a href="#charpoly">charpoly</a></code>
-の代わりです。
+これはMaximaの <code><a href="#charpoly">charpoly</a></code>の代わりです。
 </p>
 <p><code>ncharpoly</code>は与えられた行列のべきの跡を計算することで機能します。
 それは特性多項式の根のべきの和に等しいことが知られています。
@@ -1866,54 +1899,71 @@ n項演算子(すなわち、任意の数の引数を扱う関数)に割り当�
 </p>
 <p><code>load (&quot;nchrpl&quot;)</code>はこのファイルをロードします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
- &middot;<a href="maxima_100.html#Category_003a-Package-nchrpl">Package nchrpl</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a> &middot;
+<a href="maxima_100.html#Category_003a-Package-nchrpl">Package nchrpl</a>
+</div>
+</p></dd></dl>
 
 <p><a name="newdet"></a>
 <a name="Item_003a-newdet"></a>
 </p><dl>
-<dt><a name="index-newdet"></a><u>関数:</u> <b>newdet</b><i> (<var>M</var>)</i></dt>
-<dd>
-<p>行列 <var>M</var>の行列式を
+<dt><u>関数:</u> <b>newdet</b><i> (<var>M</var>)</i>
+<a name="IDX882"></a>
+</dt>
+<dd><p>行列 <var>M</var>の行列式を
 ジョンソン-ジェントルマンのtree minorアルゴリズムを使って計算します。
 <code>newdet</code>はCRE形式で結果を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="permanent"></a>
 <a name="Item_003a-permanent"></a>
 </p><dl>
-<dt><a name="index-permanent"></a><u>関数:</u> <b>permanent</b><i> (<var>M</var>, <var>n</var>)</i></dt>
-<dd>
-<p>行列 <var>M</var>のパーマネントを計算します。
+<dt><u>関数:</u> <b>permanent</b><i> (<var>M</var>, <var>n</var>)</i>
+<a name="IDX883"></a>
+</dt>
+<dd><p>行列 <var>M</var>のパーマネントを計算します。
 パーマネントは行列式のようですが、符号が変わりません。
 <code>permanent</code>はCRE形式で結果を返します。
 </p>
 <p><code>newdet</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="rank"></a>
 <a name="Item_003a-rank"></a>
 </p><dl>
-<dt><a name="index-rank"></a><u>関数:</u> <b>rank</b><i> (<var>M</var>)</i></dt>
-<dd>
-<p>行列 <var>M</var>のランクを計算します。
+<dt><u>関数:</u> <b>rank</b><i> (<var>M</var>)</i>
+<a name="IDX884"></a>
+</dt>
+<dd><p>行列 <var>M</var>のランクを計算します。
 すなわち、<var>M</var>の最も大きな非特異な小行列式の次数です。
 </p>
 <p>もし <var>rank</var>がゼロと同値の行列要素が確かにそうであることを決定することができないなら、
 間違った答えを返す可能性があります。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="ratmx"></a>
 <a name="Item_003a-ratmx"></a>
 </p><dl>
-<dt><a name="index-ratmx"></a><u>オプション変数:</u> <b>ratmx</b></dt>
+<dt><u>オプション変数:</u> <b>ratmx</b>
+<a name="IDX885"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>ratmx</code>が <code>false</code>の時、
@@ -1926,38 +1976,52 @@ n項演算子(すなわち、任意の数の引数を扱う関数)に割り当�
 これによって(<code>ratfac</code>の設定に依って)
 要素が展開されるかもしれないことに注意してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
- &middot;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a> &middot;
+<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="row"></a>
 <a name="Item_003a-row"></a>
 </p><dl>
-<dt><a name="index-row"></a><u>関数:</u> <b>row</b><i> (<var>M</var>, <var>i</var>)</i></dt>
-<dd>
-<p>行列 <var>M</var>の<var>i</var>番目の行を返します。
+<dt><u>関数:</u> <b>row</b><i> (<var>M</var>, <var>i</var>)</i>
+<a name="IDX886"></a>
+</dt>
+<dd><p>行列 <var>M</var>の<var>i</var>番目の行を返します。
 戻り値は行列です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="rmxchar"></a>
 <a name="Item_003a-rmxchar"></a>
 </p><dl>
-<dt><a name="index-rmxchar"></a><u>オプション変数:</u> <b>rmxchar</b></dt>
+<dt><u>オプション変数:</u> <b>rmxchar</b>
+<a name="IDX887"></a>
+</dt>
 <dd><p>デフォルト値: <code>]</code>
 </p>
 <p><code>rmxchar</code>は行列の右辺に描かれる文字です。
 </p>
 <p><code>lmxchar</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="scalarmatrixp"></a>
 <a name="Item_003a-scalarmatrixp"></a>
 </p><dl>
-<dt><a name="index-scalarmatrixp"></a><u>オプション変数:</u> <b>scalarmatrixp</b></dt>
+<dt><u>オプション変数:</u> <b>scalarmatrixp</b>
+<a name="IDX888"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>scalarmatrixp</code>が <code>true</code>の時、
@@ -1970,17 +2034,21 @@ n項演算子(すなわち、任意の数の引数を扱う関数)に割り当�
 <p><code>scalarmatrixp</code>が<code>false</code>の時、
 1 x 1行列はスカラーに整理されません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
- &middot;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a> &middot;
+<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="scalefactors"></a>
 <a name="Item_003a-scalefactors"></a>
 </p><dl>
-<dt><a name="index-scalefactors"></a><u>関数:</u> <b>scalefactors</b><i> (<var>coordinatetransform</var>)</i></dt>
-<dd>
-<p>ここで
+<dt><u>関数:</u> <b>scalefactors</b><i> (<var>coordinatetransform</var>)</i>
+<a name="IDX889"></a>
+</dt>
+<dd><p>ここで
 coordinatetransformは形式
 [[expression1, expression2, ...], indeterminate1, indeterminat2, ...]
 に評価されます。また、
@@ -1999,31 +2067,41 @@ SF[1], SF[2], &hellip;, SF[DIMENSION]を座標スケールファクタに設定�
 式を現在の座標形の物理成分に展開するために形式を利用する関数があります。
 (訳注:「形式」の部分、原文自体が欠けています)
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-vect">Package vect</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-vect">Package vect</a>
+</div>
+</p></dd></dl>
 
 <p><a name="setelmx"></a>
 <a name="Item_003a-setelmx"></a>
 </p><dl>
-<dt><a name="index-setelmx"></a><u>関数:</u> <b>setelmx</b><i> (<var>x</var>, <var>i</var>, <var>j</var>, <var>M</var>)</i></dt>
-<dd>
-<p><var>x</var>を行列 <var>M</var>の(<var>i</var>, <var>j</var>)番目の要素に割り当て、
+<dt><u>関数:</u> <b>setelmx</b><i> (<var>x</var>, <var>i</var>, <var>j</var>, <var>M</var>)</i>
+<a name="IDX890"></a>
+</dt>
+<dd><p><var>x</var>を行列 <var>M</var>の(<var>i</var>, <var>j</var>)番目の要素に割り当て、
 変わった行列を返します。
 </p>
 <p><code><var>M</var> [<var>i</var>, <var>j</var>]: <var>x</var></code>は同じ効果を持ちますが、
 <var>M</var>の代わりに <var>x</var>を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="similaritytransform"></a>
 <a name="simtran"></a>
 <a name="Item_003a-similaritytransform"></a>
 </p><dl>
-<dt><a name="index-similaritytransform"></a><u>関数:</u> <b>similaritytransform</b><i> (<var>M</var>)</i></dt>
-<dt><a name="index-simtran"></a><u>関数:</u> <b>simtran</b><i> (<var>M</var>)</i></dt>
-<dd>
-<p><code>similaritytransform</code>は行列 <code>M</code>の相似変換を計算します。
+<dt><u>関数:</u> <b>similaritytransform</b><i> (<var>M</var>)</i>
+<a name="IDX891"></a>
+</dt>
+<dt><u>関数:</u> <b>simtran</b><i> (<var>M</var>)</i>
+<a name="IDX892"></a>
+</dt>
+<dd><p><code>similaritytransform</code>は行列 <code>M</code>の相似変換を計算します。
 <code>uniteigenvectors</code>コマンドの出力であるリストを返します。
 更に、もしフラグ <code>nondiagonalizable</code>が <code>false</code>なら、
 ２つのグローバル行列 <code>leftmatrix</code>と <code>rightmatrix</code>を計算します。
@@ -2046,39 +2124,51 @@ SF[1], SF[2], &hellip;, SF[DIMENSION]を座標スケールファクタに設定�
 </p>
 <p><code>simtran</code>は <code>similaritytransform</code>と同義です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-eigen">Package eigen</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-eigen">Package eigen</a>
+</div>
+</p></dd></dl>
 
 <p><a name="sparse"></a>
 <a name="Item_003a-sparse"></a>
 </p><dl>
-<dt><a name="index-sparse"></a><u>オプション変数:</u> <b>sparse</b></dt>
+<dt><u>オプション変数:</u> <b>sparse</b>
+<a name="IDX893"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>sparse</code>が <code>true</code>かつ <code>ratmx</code>が <code>true</code>なら、
 <code>determinant</code>は粗な行列式を計算するために特別なルーチンを使います。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="submatrix"></a>
 <a name="Item_003a-submatrix"></a>
 </p><dl>
-<dt><a name="index-submatrix"></a><u>関数:</u> <b>submatrix</b><i> (<var>i_1</var>, &hellip;, <var>i_m</var>, <var>M</var>, <var>j_1</var>, &hellip;, <var>j_n</var>)</i></dt>
-<dt><a name="index-submatrix-1"></a><u>関数:</u> <b>submatrix</b><i> (<var>i_1</var>, &hellip;, <var>i_m</var>, <var>M</var>)</i></dt>
-<dt><a name="index-submatrix-2"></a><u>関数:</u> <b>submatrix</b><i> (<var>M</var>, <var>j_1</var>, &hellip;, <var>j_n</var>)</i></dt>
-<dd>
-<p>行列 <var>M</var>から
+<dt><u>関数:</u> <b>submatrix</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>submatrix</tt> (<var>i_1</var>, &hellip;, <var>i_m</var>, <var>M</var>, <var>j_1</var>, &hellip;, <var>j_n</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>submatrix</tt> (<var>i_1</var>, &hellip;, <var>i_m</var>, <var>M</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>submatrix</tt> (<var>M</var>, <var>j_1</var>, &hellip;, <var>j_n</var>)</i>
+<a name="IDX894"></a>
+</dt>
+<dd><p>行列 <var>M</var>から
 行 <var>i_1</var>, &hellip;, <var>i_m</var>を取り除き、
 列 <var>j_1</var>, &hellip;, <var>j_n</var>を取り除いた新しい行列を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="transpose"></a>
 <a name="Item_003a-transpose"></a>
 </p><dl>
-<dt><a name="index-transpose"></a><u>関数:</u> <b>transpose</b><i> (<var>M</var>)</i></dt>
+<dt><u>関数:</u> <b>transpose</b><i> (<var>M</var>)</i>
+<a name="IDX895"></a>
+</dt>
 <dd><p><var>M</var>の転置を返します。
 </p>
 <p>もし　<var>M</var>が行列なら、
@@ -2090,21 +2180,25 @@ SF[1], SF[2], &hellip;, SF[DIMENSION]を座標スケールファクタに設定�
 <p>そうでないなら <var>M</var>はシンボルで、
 戻り値は名詞式 <code>'transpose (<var>M</var>)</code>です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="triangularize"></a>
 <a name="Item_003a-triangularize"></a>
 </p><dl>
-<dt><a name="index-triangularize"></a><u>関数:</u> <b>triangularize</b><i> (<var>M</var>)</i></dt>
-<dd>
-<p>ガウスの消去法で生成されるような、行列 <code>M</code>の右上三角化行列を返します。
+<dt><u>関数:</u> <b>triangularize</b><i> (<var>M</var>)</i>
+<a name="IDX896"></a>
+</dt>
+<dd><p>ガウスの消去法で生成されるような、行列 <code>M</code>の右上三角化行列を返します。
 それぞれの行の先頭の非ゼロ係数が1に規格化されないことを除いて、
 戻り値は <code>echelon</code>と同じです。
 </p>
 <p>三角化行列をもらたす他の関数に <code>lu_factor</code>と <code>cholesky</code>があります。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) M: matrix ([3, 7, aa, bb], [-1, 8, 5, 2], [9, 2, 11, 4]);
+<pre class="example">(%i1) M: matrix ([3, 7, aa, bb], [-1, 8, 5, 2], [9, 2, 11, 4]);
                        [  3   7  aa  bb ]
                        [                ]
 (%o1)                  [ - 1  8  5   2  ]
@@ -2116,20 +2210,25 @@ SF[1], SF[2], &hellip;, SF[DIMENSION]を座標スケールファクタに設定�
 (%o2)        [  0   - 74     - 56         - 22     ]
              [                                     ]
              [  0    0    626 - 74 aa  238 - 74 bb ]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Linear-equations">Linear equations</a>
- &middot;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Linear-equations">Linear equations</a> &middot;
+<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 <p><a name="uniteigenvectors"></a>
 <a name="ueivects"></a>
 <a name="Item_003a-uniteigenvectors"></a>
 </p><dl>
-<dt><a name="index-uniteigenvectors"></a><u>関数:</u> <b>uniteigenvectors</b><i> (<var>M</var>)</i></dt>
-<dt><a name="index-ueivects"></a><u>関数:</u> <b>ueivects</b><i> (<var>M</var>)</i></dt>
-<dd>
-<p>行列 <var>M</var>の単位固有ベクトルを計算します。
+<dt><u>関数:</u> <b>uniteigenvectors</b><i> (<var>M</var>)</i>
+<a name="IDX897"></a>
+</dt>
+<dt><u>関数:</u> <b>ueivects</b><i> (<var>M</var>)</i>
+<a name="IDX898"></a>
+</dt>
+<dd><p>行列 <var>M</var>の単位固有ベクトルを計算します。
 戻り値はリストのリストです。
 最初のサブリストは <code>eigenvalues</code>コマンドの出力であり、
 他のサブリストは固有値それぞれに対応する行列の単位固有ベクトルです。
@@ -2155,44 +2254,59 @@ SF[1], SF[2], &hellip;, SF[DIMENSION]を座標スケールファクタに設定�
 </p>
 <p><code>ueivects</code>は <code>uniteigenvectors</code>と同義です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-eigen">Package eigen</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-eigen">Package eigen</a>
+</div>
+</p></dd></dl>
 
 <p><a name="unitvector"></a>
 <a name="uvect"></a>
 <a name="Item_003a-unitvector"></a>
 </p><dl>
-<dt><a name="index-unitvector"></a><u>関数:</u> <b>unitvector</b><i> (<var>x</var>)</i></dt>
-<dt><a name="index-uvect"></a><u>関数:</u> <b>uvect</b><i> (<var>x</var>)</i></dt>
-<dd>
-<p><em><var>x</var>/norm(<var>x</var>)</em>を返します;
+<dt><u>関数:</u> <b>unitvector</b><i> (<var>x</var>)</i>
+<a name="IDX899"></a>
+</dt>
+<dt><u>関数:</u> <b>uvect</b><i> (<var>x</var>)</i>
+<a name="IDX900"></a>
+</dt>
+<dd><p><em><var>x</var>/norm(<var>x</var>)</em>を返します;
 これは <var>x</var>と同じ向きの単位ベクトルです。
 </p>
 <p><code>load (&quot;eigen&quot;)</code>はこの関数をロードします。
 </p>
 <p><code>uvect</code>は <code>unitvector</code>と同義です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-eigen">Package eigen</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-eigen">Package eigen</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="vectorpotential"></a>
 <a name="Item_003a-vectorpotential"></a>
 </p><dl>
-<dt><a name="index-vectorpotential"></a><u>関数:</u> <b>vectorpotential</b><i> (<var>givencurl</var>)</i></dt>
-<dd>
-<p>現在の座標系で与えられた回転ベクトルのベクトルポテンシャルを返します。
+<dt><u>関数:</u> <b>vectorpotential</b><i> (<var>givencurl</var>)</i>
+<a name="IDX901"></a>
+</dt>
+<dd><p>現在の座標系で与えられた回転ベクトルのベクトルポテンシャルを返します。
 <code>potentialzeroloc</code>が <code>potential</code>に対して似たような役割を持ちますが、
 等式の左辺側の次数は座標変数の巡回置換でなければいけません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-vect">Package vect</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-vect">Package vect</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="vectorsimp"></a>
 <a name="Item_003a-vectorsimp"></a>
 </p><dl>
-<dt><a name="index-vectorsimp"></a><u>関数:</u> <b>vectorsimp</b><i> (<var>expr</var>)</i></dt>
+<dt><u>関数:</u> <b>vectorsimp</b><i> (<var>expr</var>)</i>
+<a name="IDX902"></a>
+</dt>
 <dd><p>以下のグローバルフラグに従って整理と展開を適用します:
 </p>
 <p align="left"><code>expandall</code>, <code>expanddot</code>, <code>expanddotplus</code>, <code>expandcross</code>, <code>expandcrossplus</code>,
@@ -2233,14 +2347,19 @@ SF[1], SF[2], &hellip;, SF[DIMENSION]を座標スケールファクタに設定�
 </p>
 
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-vect">Package vect</a>
- &middot;<a href="maxima_100.html#Category_003a-Simplification-functions">Simplification functions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-vect">Package vect</a> &middot;
+<a href="maxima_100.html#Category_003a-Simplification-functions">Simplification functions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="vect_005fcross"></a>
 <a name="Item_003a-vect_005fcross"></a>
 </p><dl>
-<dt><a name="index-vect_005fcross"></a><u>オプション変数:</u> <b>vect_cross</b></dt>
+<dt><u>オプション変数:</u> <b>vect_cross</b>
+<a name="IDX903"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>vect_cross</code>が <code>true</code>の時、
@@ -2248,39 +2367,46 @@ SF[1], SF[2], &hellip;, SF[DIMENSION]を座標スケールファクタに設定�
  (とにかく、VECT_CROSSが <code>true</code>に設定されているところ)
 でDIFF(X~Y,T)が機能するようにします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-vect">Package vect</a>
- &middot;<a href="maxima_100.html#Category_003a-Differential-calculus">Differential calculus</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-vect">Package vect</a> &middot;
+<a href="maxima_100.html#Category_003a-Differential-calculus">Differential calculus</a>
+</div>
+</p></dd></dl>
 
 <p><a name="zeromatrix"></a>
 <a name="Item_003a-zeromatrix"></a>
 </p><dl>
-<dt><a name="index-zeromatrix"></a><u>関数:</u> <b>zeromatrix</b><i> (<var>m</var>, <var>n</var>)</i></dt>
-<dd>
-<p>要素すべてがゼロの <var>m</var>行 <var>n</var>列行列を返します。
+<dt><u>関数:</u> <b>zeromatrix</b><i> (<var>m</var>, <var>n</var>)</i>
+<a name="IDX904"></a>
+</dt>
+<dd><p>要素すべてがゼロの <var>m</var>行 <var>n</var>列行列を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Matrices">Matrices</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-Affine"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Matrices-and-Linear-Algebra" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_24.html#Affine" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC114" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_24.html#SEC120" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>5月, 20 2015</em>に<a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>を用いて生成されました。
  </font>
  <br>
 

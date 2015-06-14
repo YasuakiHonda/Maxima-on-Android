@@ -1,27 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年9月月15日 by texi2html 1.82
-texi2html was written by: 
-            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+<!-- Created on 5月, 20 2015 by texi2html 1.76 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
             Olaf Bachmann <obachman@mathematik.uni-kl.de>
             and many others.
-Maintained by: Many creative people.
-Send bugs and suggestions to <texi2html-bug@nongnu.org>
+Maintained by: Many creative people <dev@texi2html.cvshome.org>
+Send bugs and suggestions to <users@texi2html.cvshome.org>
+
 -->
 <head>
-<title>Maxima 5.34.1 Manual: 28. Sums, Products, and Series</title>
+<title>Maxima 5.36.1 Manual: 28. Sums, Products, and Series</title>
 
-<meta name="description" content="Maxima 5.34.1 Manual: 28. Sums, Products, and Series">
-<meta name="keywords" content="Maxima 5.34.1 Manual: 28. Sums, Products, and Series">
+<meta name="description" content="Maxima 5.36.1 Manual: 28. Sums, Products, and Series">
+<meta name="keywords" content="Maxima 5.36.1 Manual: 28. Sums, Products, and Series">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.82">
+<meta name="Generator" content="texi2html 1.76">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
 pre.display {font-family: serif}
 pre.format {font-family: serif}
 pre.menu-comment {font-family: serif}
@@ -30,109 +30,30 @@ pre.smalldisplay {font-family: serif; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.roman {font-family:serif; font-weight:normal;}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
@@ -157,65 +78,68 @@ div.categorybox
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="Sums-Products-and-Series"></a>
+<a name="SEC155"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_27.html#Functions-and-Variables-for-atensor" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Sums-and-Products" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_27.html#SEC154" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC156" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_27.html#atensor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_29.html#Number-Theory" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_27.html#SEC152" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_29.html#SEC162" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Sums_002c-Products_002c-and-Series"></a>
-<h1 class="chapter">28. Sums, Products, and Series</h1>
+<h1 class="chapter"> 28. Sums, Products, and Series </h1>
+
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Sums-and-Products">28.1 Functions and Variables for Sums and Products</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC156">28.1 Functions and Variables for Sums and Products</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Introduction-to-Series">28.2 Introduction to Series</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC157">28.2 Introduction to Series</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Series">28.3 Functions and Variables for Series</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC158">28.3 Functions and Variables for Series</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Introduction-to-Fourier-series">28.4 Introduction to Fourier series</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC159">28.4 Introduction to Fourier series</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Fourier-series">28.5 Functions and Variables for Fourier series</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC160">28.5 Functions and Variables for Fourier series</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Poisson-series">28.6 Functions and Variables for Poisson series</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC161">28.6 Functions and Variables for Poisson series</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <p><a name="Item_003a-Functions-and-Variables-for-Sums-and-Products"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-Sums-and-Products"></a>
+<a name="SEC156"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Sums-Products-and-Series" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-Series" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC155" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC157" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Sums-Products-and-Series" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Sums-Products-and-Series" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_29.html#Number-Theory" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC155" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC155" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_29.html#SEC162" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-Sums-and-Products-1"></a>
-<h2 class="section">28.1 Functions and Variables for Sums and Products</h2>
+<h2 class="section"> 28.1 Functions and Variables for Sums and Products </h2>
 
 <p><a name="bashindices"></a>
 <a name="Item_003a-bashindices"></a>
 </p><dl>
-<dt><a name="index-bashindices"></a><u>関数:</u> <b>bashindices</b><i> (<var>expr</var>)</i></dt>
+<dt><u>関数:</u> <b>bashindices</b><i> (<var>expr</var>)</i>
+<a name="IDX1079"></a>
+</dt>
 <dd><p>それぞれの和や積に独自のインデックスを与えることで式 <var>expr</var>を変換します。
 これは、和や積と一緒に機能する時
 <code>changevar</code>によりよい精度を与えます。
@@ -224,42 +148,49 @@ div.categorybox
 ユーザーはこれを変更することができます。
 例えば、 <code>gensumnum:0$</code>はそれを再設定します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
+</div>
+</p></dd></dl>
 
 <p><a name="lsum"></a>
 <a name="Item_003a-lsum"></a>
 </p><dl>
-<dt><a name="index-lsum"></a><u>関数:</u> <b>lsum</b><i> (<var>expr</var>, <var>x</var>, <var>L</var>)</i></dt>
-<dd>
-<p><var>L</var>の中のそれぞれの要素 <var>x</var>に関する <var>expr</var>の和を表します。
+<dt><u>関数:</u> <b>lsum</b><i> (<var>expr</var>, <var>x</var>, <var>L</var>)</i>
+<a name="IDX1080"></a>
+</dt>
+<dd><p><var>L</var>の中のそれぞれの要素 <var>x</var>に関する <var>expr</var>の和を表します。
 もし引数 <var>L</var>がリストに評価されないなら、名詞形 <code>'lsum</code>を返します。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) lsum (x^i, i, [1, 2, 7]);
+<pre class="example">(%i1) lsum (x^i, i, [1, 2, 7]);
                             7    2
 (%o1)                      x  + x  + x
 (%i2) lsum (i^2, i, rootsof (x^3 - 1));
-</pre><pre class="example">                     ====
+                     ====
                      \      2
 (%o2)                 &gt;    i
                      /
                      ====
                                    3
                      i in rootsof(x  - 1)
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="intosum"></a>
 <a name="Item_003a-intosum"></a>
 </p><dl>
-<dt><a name="index-intosum"></a><u>関数:</u> <b>intosum</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p>和の外側の掛け算因子を内側に移動します。
+<dt><u>関数:</u> <b>intosum</b><i> (<var>expr</var>)</i>
+<a name="IDX1081"></a>
+</dt>
+<dd><p>和の外側の掛け算因子を内側に移動します。
 もし外側の式でインデックスが使われているなら、
 関数は <code>sumcontract</code>に関してするのと同じように、
 合理的なインデックスを見つけようとします。
@@ -270,15 +201,19 @@ div.categorybox
 <code>intosum</code>の前に
 <code>scanmap (multthru, <var>expr</var>)</code>が必要になるかもしれません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="product"></a>
 <a name="Item_003a-product"></a>
 </p><dl>
-<dt><a name="index-product"></a><u>関数:</u> <b>product</b><i> (<var>expr</var>, <var>i</var>, <var>i_0</var>, <var>i_1</var>)</i></dt>
-<dd>
-<p>インデックス <var>i</var>が <var>i_0</var>から <var>i_1</var>まで変わるように
+<dt><u>関数:</u> <b>product</b><i> (<var>expr</var>, <var>i</var>, <var>i_0</var>, <var>i_1</var>)</i>
+<a name="IDX1082"></a>
+</dt>
+<dd><p>インデックス <var>i</var>が <var>i_0</var>から <var>i_1</var>まで変わるように
 <var>expr</var>の値の積を返します。
 名詞形 <code>'product</code>は、大文字Πとして表示されます。
 </p>
@@ -300,7 +235,7 @@ div.categorybox
 <p>例:
 </p>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) product (x + i*(i+1)/2, i, 1, 4);
+<pre class="example">(%i1) product (x + i*(i+1)/2, i, 1, 4);
 (%o1)           (x + 1) (x + 3) (x + 6) (x + 10)
 (%i2) product (i^2, i, 1, 7);
 (%o2)                       25401600
@@ -335,16 +270,20 @@ div.categorybox
 (%i9) product (if k &lt;= 5 then a^k else b^k, k, 1, 10);
                               15  40
 (%o9)                        a   b
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="simpsum"></a>
 <a name="Item_003a-simpsum"></a>
 </p><dl>
-<dt><a name="index-simpsum"></a><u>オプション変数:</u> <b>simpsum</b></dt>
+<dt><u>オプション変数:</u> <b>simpsum</b>
+<a name="IDX1083"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>simpsum</code>が <code>true</code>の時、 <code>sum</code>の結果は整理されます。
@@ -352,16 +291,20 @@ div.categorybox
 もし <code>simpsum</code>が <code>false</code>であるか、クォートされた形
 <code>'sum</code>が使われたなら、値は数学で使われるΣ表示の表現である和の名詞形です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
- &middot;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a> &middot;
+<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="sum"></a>
 <a name="Item_003a-sum"></a>
 </p><dl>
-<dt><a name="index-sum"></a><u>関数:</u> <b>sum</b><i> (<var>expr</var>, <var>i</var>, <var>i_0</var>, <var>i_1</var>)</i></dt>
-<dd>
-<p>インデックス <var>i</var>が <var>i_0</var>から <var>i_1</var>まで変わるように
+<dt><u>関数:</u> <b>sum</b><i> (<var>expr</var>, <var>i</var>, <var>i_0</var>, <var>i_1</var>)</i>
+<a name="IDX1084"></a>
+</dt>
+<dd><p>インデックス <var>i</var>が <var>i_0</var>から <var>i_1</var>まで変わるように
 <var>expr</var>の値の和を返します。
 名詞形 <code>'sum</code>は大文字Σとして表示されます。
 </p>
@@ -396,7 +339,7 @@ div.categorybox
 <p>例:
 </p>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) sum (i^2, i, 1, 7);
+<pre class="example">(%i1) sum (i^2, i, 1, 7);
 (%o1)                          140
 (%i2) sum (a[i], i, 1, 7);
 (%o2)           a  + a  + a  + a  + a  + a  + a
@@ -458,16 +401,20 @@ div.categorybox
 (%i12) sum (if k &lt;= 5 then a^k else b^k, k, 1, 10);
           10    9    8    7    6    5    4    3    2
 (%o12)   b   + b  + b  + b  + b  + a  + a  + a  + a  + a
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="sumcontract"></a>
 <a name="Item_003a-sumcontract"></a>
 </p><dl>
-<dt><a name="index-sumcontract"></a><u>関数:</u> <b>sumcontract</b><i> (<var>expr</var>)</i></dt>
+<dt><u>関数:</u> <b>sumcontract</b><i> (<var>expr</var>)</i>
+<a name="IDX1085"></a>
+</dt>
 <dd><p>定数だけ異なる上限と下限を持つ足し算の和すべてを結合します。
 結果は、そんな和のそれぞれの集合の和に
 この和を形成するために抽出されなければならなかった適切な余項
@@ -479,13 +426,18 @@ div.categorybox
 <p><code>sumcontract</code>の前に
 <code>intosum (<var>expr</var>)</code>を実行する必要があるかもしれません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
+</div>
+</p></dd></dl>
 
 <p><a name="sumexpand"></a>
 <a name="Item_003a-sumexpand"></a>
 </p><dl>
-<dt><a name="index-sumexpand"></a><u>オプション変数:</u> <b>sumexpand</b></dt>
+<dt><u>オプション変数:</u> <b>sumexpand</b>
+<a name="IDX1086"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>sumexpand</code>が <code>true</code>の時、和の積と指数和は、入れ子の和に整理されます。
@@ -494,16 +446,16 @@ div.categorybox
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) sumexpand: true$
+<pre class="example">(%i1) sumexpand: true$
 (%i2) sum (f (i), i, 0, m) * sum (g (j), j, 0, n);
-</pre><pre class="example">                     m      n
+                     m      n
                     ====   ====
                     \      \
 (%o2)                &gt;      &gt;     f(i1) g(i2)
                     /      /
                     ====   ====
                     i1 = 0 i2 = 0
-</pre><pre class="example">(%i3) sum (f (i), i, 0, m)^2;
+(%i3) sum (f (i), i, 0, m)^2;
                      m      m
                     ====   ====
                     \      \
@@ -511,33 +463,35 @@ div.categorybox
                     /      /
                     ====   ====
                     i3 = 0 i4 = 0
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
- &middot;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a> &middot;
+<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-Introduction-to-Series"></a>
 </p><hr size="6">
 <a name="Introduction-to-Series"></a>
+<a name="SEC157"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Sums-and-Products" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Series" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC156" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC158" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Sums-Products-and-Series" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Sums-Products-and-Series" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_29.html#Number-Theory" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC155" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC155" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_29.html#SEC162" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-Series-1"></a>
-<h2 class="section">28.2 Introduction to Series</h2>
+<h2 class="section"> 28.2 Introduction to Series </h2>
 
 <p>Maximaには微分可能な関数の級数を見つけるための関数
 <code>taylor</code>と <code>powerseries</code>が入っています。
@@ -549,29 +503,31 @@ div.categorybox
 <p><a name="Item_003a-Functions-and-Variables-for-Series"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-Series"></a>
+<a name="SEC158"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-Series" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-Fourier-series" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC157" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC159" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Sums-Products-and-Series" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Sums-Products-and-Series" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_29.html#Number-Theory" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC155" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC155" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_29.html#SEC162" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-Series-1"></a>
-<h2 class="section">28.3 Functions and Variables for Series</h2>
+<h2 class="section"> 28.3 Functions and Variables for Series </h2>
 
 <p><a name="cauchysum"></a>
 <a name="Item_003a-cauchysum"></a>
 </p><dl>
-<dt><a name="index-cauchysum"></a><u>オプション変数:</u> <b>cauchysum</b></dt>
+<dt><u>オプション変数:</u> <b>cauchysum</b>
+<a name="IDX1087"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p>上限として <code>inf</code>を持つ和同士を掛ける時、
@@ -581,7 +537,7 @@ Cauchy積では内側の和のインデックスは独立に変化するので�
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) sumexpand: false$
+<pre class="example">(%i1) sumexpand: false$
 (%i2) cauchysum: false$
 (%i3) s: sum (f(i), i, 0, inf) * sum (g(j), j, 0, inf);
                       inf         inf
@@ -601,17 +557,20 @@ Cauchy積では内側の和のインデックスは独立に変化するので�
                  /      /
                  ====   ====
                  i1 = 0 i2 = 0
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
+</div>
+</p></dd></dl>
 
 <p><a name="deftaylor"></a>
 <a name="Item_003a-deftaylor"></a>
 </p><dl>
-<dt><a name="index-deftaylor"></a><u>関数:</u> <b>deftaylor</b><i> (<var>f_1</var>(<var>x_1</var>), <var>expr_1</var>, &hellip;, <var>f_n</var>(<var>x_n</var>), <var>expr_n</var>)</i></dt>
-<dd>
-<p><code>deftaylor</code>は、ある変数 <var>x_i</var>の関数 <var>f_i</var>それぞれに関して、
+<dt><u>関数:</u> <b>deftaylor</b><i> (<var>f_1</var>(<var>x_1</var>), <var>expr_1</var>, &hellip;, <var>f_n</var>(<var>x_n</var>), <var>expr_n</var>)</i>
+<a name="IDX1088"></a>
+</dt>
+<dd><p><code>deftaylor</code>は、ある変数 <var>x_i</var>の関数 <var>f_i</var>それぞれに関して、
 <var>expr_i</var>をゼロの回りの Taylor級数と定義します。
 <var>expr_i</var>は典型的には <var>x_i</var>の多項式か和です;
 <code>deftaylor</code>はもっと一般的な式も問題なく受け付けます。
@@ -624,7 +583,7 @@ Cauchy積では内側の和のインデックスは独立に変化するので�
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) deftaylor (f(x), x^2 + sum(x^i/(2^i*i!^2), i, 4, inf));
+<pre class="example">(%i1) deftaylor (f(x), x^2 + sum(x^i/(2^i*i!^2), i, 4, inf));
 (%o1)                          [f]
 (%i2) powerseries (f(x), x, 0);
                       inf
@@ -639,29 +598,37 @@ Cauchy積では内側の和のインデックスは独立に変化するので�
                      x    3073 x    12817 x
 (%o3)/T/     1 + x + -- + ------- + -------- + . . .
                      2     18432     307200
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
+</div>
+</p></dd></dl>
 
 <p><a name="maxtayorder"></a>
 <a name="Item_003a-maxtayorder"></a>
 </p><dl>
-<dt><a name="index-maxtayorder"></a><u>オプション変数:</u> <b>maxtayorder</b></dt>
+<dt><u>オプション変数:</u> <b>maxtayorder</b>
+<a name="IDX1089"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>maxtayorder</code>が <code>true</code>の時、(切り詰められた) Taylor級数の代数操作の間、
 <code>taylor</code>は厳密とわかっているできるだけ多くの項を保とうとします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
+</div>
+</p></dd></dl>
 
 <p><a name="niceindices"></a>
 <a name="Item_003a-niceindices"></a>
 </p><dl>
-<dt><a name="index-niceindices"></a><u>関数:</u> <b>niceindices</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p><var>expr</var>の中の和や積のインデックスを改名します。
+<dt><u>関数:</u> <b>niceindices</b><i> (<var>expr</var>)</i>
+<a name="IDX1090"></a>
+</dt>
+<dd><p><var>expr</var>の中の和や積のインデックスを改名します。
 <code>niceindices</code>は、その名前が被加数や非積数の中に現れないなら、
 インデックスそれぞれを <code>niceindicespref[1]</code>の値に改名しようとします。
 現れた場合、
@@ -677,7 +644,7 @@ Cauchy積では内側の和のインデックスは独立に変化するので�
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) niceindicespref;
+<pre class="example">(%i1) niceindicespref;
 (%o1)                  [i, j, k, l, m, n]
 (%i2) product (sum (f (foo + i*j*bar), foo, 1, inf), bar, 1, inf);
                  inf    inf
@@ -688,22 +655,26 @@ Cauchy積では内側の和のインデックスは独立に変化するので�
                 bar = 1 ====
                         foo = 1
 (%i3) niceindices (%);
-</pre><pre class="example">                     inf  inf
+                     inf  inf
                     /===\ ====
                      ! !  \
 (%o3)                ! !   &gt;    f(i j l + k)
                      ! !  /
                     l = 1 ====
                           k = 1
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
+</div>
+</p></dd></dl>
 
 <p><a name="niceindicespref"></a>
 <a name="Item_003a-niceindicespref"></a>
 </p><dl>
-<dt><a name="index-niceindicespref"></a><u>オプション変数:</u> <b>niceindicespref</b></dt>
+<dt><u>オプション変数:</u> <b>niceindicespref</b>
+<a name="IDX1091"></a>
+</dt>
 <dd><p>デフォルト値: <code>[i, j, k, l, m, n]</code>
 </p>
 <p><code>niceindicespref</code>は、
@@ -715,7 +686,7 @@ Cauchy積では内側の和のインデックスは独立に変化するので�
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) niceindicespref: [p, q, r, s, t, u]$
+<pre class="example">(%i1) niceindicespref: [p, q, r, s, t, u]$
 (%i2) product (sum (f (foo + i*j*bar), foo, 1, inf), bar, 1, inf);
                  inf    inf
                 /===\   ====
@@ -732,17 +703,20 @@ Cauchy積では内側の和のインデックスは独立に変化するので�
                      ! !  /
                     q = 1 ====
                           p = 1
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
+</div>
+</p></dd></dl>
 
 <p><a name="nusum"></a>
 <a name="Item_003a-nusum"></a>
 </p><dl>
-<dt><a name="index-nusum"></a><u>関数:</u> <b>nusum</b><i> (<var>expr</var>, <var>x</var>, <var>i_0</var>, <var>i_1</var>)</i></dt>
-<dd>
-<p>R.W. Gosperによる決定手続きを使って、
+<dt><u>関数:</u> <b>nusum</b><i> (<var>expr</var>, <var>x</var>, <var>i_0</var>, <var>i_1</var>)</i>
+<a name="IDX1092"></a>
+</dt>
+<dd><p>R.W. Gosperによる決定手続きを使って、
 <var>x</var>に関する <var>expr</var>の不定超幾何総和を実行します。
 <var>expr</var>と結果は整数べき、階乗、二項式、有理関数の積として表現可能でなければいけません。
 </p>
@@ -757,7 +731,7 @@ Cauchy積では内側の和のインデックスは独立に変化するので�
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) nusum (n*n!, n, 0, n);
+<pre class="example">(%i1) nusum (n*n!, n, 0, n);
 
 Dependent equations eliminated:  (1)
 (%o1)                     (n + 1)! - 1
@@ -787,18 +761,21 @@ Dependent equations eliminated:  (2 3)
 (%o5)                      ! !  i  - 1
                            ! !
                           i = 1
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="pade"></a>
 <a name="Item_003a-pade"></a>
 </p><dl>
-<dt><a name="index-pade"></a><u>関数:</u> <b>pade</b><i> (<var>taylor_series</var>, <var>numer_deg_bound</var>, <var>denom_deg_bound</var>)</i></dt>
-<dd>
-<p>以下の有理関数すべてのリストを返します。
+<dt><u>関数:</u> <b>pade</b><i> (<var>taylor_series</var>, <var>numer_deg_bound</var>, <var>denom_deg_bound</var>)</i>
+<a name="IDX1093"></a>
+</dt>
+<dd><p>以下の有理関数すべてのリストを返します。
 与えられたTaylor級数展開で、分子と分母の次数の和がべき級数の切り詰めレベル以下のもの
 すなわち「最良」近似を有理関数は持ち、加えて指定された次数範囲を満たすものです。
 </p>
@@ -814,7 +791,7 @@ Dependent equations eliminated:  (2 3)
 べき級数の長さは
 <code>&quot;truncation level&quot; + 1 - min(0, &quot;order of series&quot;)</code>として定義されます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) taylor (1 + x + x^2 + x^3, x, 0, 3);
+<pre class="example">(%i1) taylor (1 + x + x^2 + x^3, x, 0, 3);
                               2    3
 (%o1)/T/             1 + x + x  + x  + . . .
 (%i2) pade (%, 1, 1);
@@ -837,15 +814,14 @@ Dependent equations eliminated:  (2 3)
                             4194304   8388608   134217728
 (%i4) pade (t, 4, 4);
 (%o4)                          []
-</pre></td></tr></table>
-
+</pre>
 <p>このべき級数展開を持つ次数4の分子/分母の有理関数はありません。
 一般的に、
 解くのに十分な数の未知の係数を持つために、
 その和が少なくともべき級数の次数になるまで
 分子の次数と分母の次数を増やさなければいけません。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) pade (t, 5, 5);
+<pre class="example">(%i5) pade (t, 5, 5);
                      5                4                 3
 (%o5) [- (520256329 x  - 96719020632 x  - 489651410240 x
 
@@ -857,34 +833,36 @@ Dependent equations eliminated:  (2 3)
 
                   2
  + 2856700692480 x  + 3370143559680 x + 2386516803584)]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
+</div>
+</p></dd></dl>
 
 <p><a name="powerseries"></a>
 <a name="Item_003a-powerseries"></a>
 </p><dl>
-<dt><a name="index-powerseries"></a><u>関数:</u> <b>powerseries</b><i> (<var>expr</var>, <var>x</var>, <var>a</var>)</i></dt>
-<dd>
-<p>変数 <var>x</var>に関する点 <var>a</var> (無限大のためには <code>inf</code>かもしれません)の回りの
+<dt><u>関数:</u> <b>powerseries</b><i> (<var>expr</var>, <var>x</var>, <var>a</var>)</i>
+<a name="IDX1094"></a>
+</dt>
+<dd><p>変数 <var>x</var>に関する点 <var>a</var> (無限大のためには <code>inf</code>かもしれません)の回りの
 <var>expr</var>のべき級数展開の一般形式を返します:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">           inf
+</p><pre class="example">           inf
            ====
            \               n
             &gt;    b  (x - a)
            /      n
            ====
            n = 0
-</pre></td></tr></table>
-
+</pre>
 <p>もし <code>powerseries</code>が <var>expr</var>を展開することができないなら、
 <code>taylor</code>が級数の最初のいくつかの項を与えることができます。
 </p>
 <p><code>verbose</code>が <code>true</code>の時、
 <code>powerseries</code>は進捗メッセージを印字します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) verbose: true$
+<pre class="example">(%i1) verbose: true$
 (%i2) powerseries (log(sin(x)/x), x, 0);
 can't expand 
                                  log(sin(x))
@@ -910,15 +888,19 @@ in the first simplification we have returned:
                     i1 = 1
 (%o2)                -------------------------------------
                                       2
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
+</div>
+</p></dd></dl>
 
 <p><a name="psexpand"></a>
 <a name="Item_003a-psexpand"></a>
 </p><dl>
-<dt><a name="index-psexpand"></a><u>オプション変数:</u> <b>psexpand</b></dt>
+<dt><u>オプション変数:</u> <b>psexpand</b>
+<a name="IDX1095"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>psexpand</code>が <code>true</code>の時、
@@ -931,15 +913,22 @@ in the first simplification we have returned:
 <p><code>psexpand</code>が <code>multi</code>の時、
 変数に関する同じ総次数の項は一緒にまとめられます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="revert"></a>
 <a name="Item_003a-revert"></a>
 </p><dl>
-<dt><a name="index-revert"></a><u>関数:</u> <b>revert</b><i> (<var>expr</var>, <var>x</var>)</i></dt>
-<dt><a name="index-revert2"></a><u>関数:</u> <b>revert2</b><i> (<var>expr</var>, <var>x</var>, <var>n</var>)</i></dt>
+<dt><u>関数:</u> <b>revert</b><i> (<var>expr</var>, <var>x</var>)</i>
+<a name="IDX1096"></a>
+</dt>
+<dt><u>関数:</u> <b>revert2</b><i> (<var>expr</var>, <var>x</var>, <var>n</var>)</i>
+<a name="IDX1097"></a>
+</dt>
 <dd><p>これらの関数は、変数 <var>x</var>に関するゼロの回りの Taylor級数 <var>expr</var>の反転を返します。
 <code>revert</code>は <var>expr</var>の最高次数と等しい次数の多項式を返します。
 <code>revert2</code>は次数 <var>n</var>の多項式を返します。
@@ -949,7 +938,7 @@ in the first simplification we have returned:
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (&quot;revert&quot;)$
+<pre class="example">(%i1) load (&quot;revert&quot;)$
 (%i2) t: taylor (exp(x) - 1, x, 0, 6);
                    2    3    4    5     6
                   x    x    x    x     x
@@ -977,21 +966,20 @@ in the first simplification we have returned:
                          x    x    x
 (%o7)                  - -- + -- - -- + x
                          4    3    2
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
+</div>
+</p></dd></dl>
 
 <p><a name="taylor"></a>
 <a name="Item_003a-taylor"></a>
 </p><dl>
-<dt><a name="index-taylor"></a><u>関数:</u> <b>taylor</b><i> (<var>expr</var>, <var>x</var>, <var>a</var>, <var>n</var>)</i></dt>
-<dt><a name="index-taylor-1"></a><u>関数:</u> <b>taylor</b><i> (<var>expr</var>, [<var>x_1</var>, <var>x_2</var>, ...], <var>a</var>, <var>n</var>)</i></dt>
-<dt><a name="index-taylor-2"></a><u>関数:</u> <b>taylor</b><i> (<var>expr</var>, [<var>x</var>, <var>a</var>, <var>n</var>, 'asymp])</i></dt>
-<dt><a name="index-taylor-3"></a><u>関数:</u> <b>taylor</b><i> (<var>expr</var>, [<var>x_1</var>, <var>x_2</var>, ...], [<var>a_1</var>, <var>a_2</var>, ...], [<var>n_1</var>, <var>n_2</var>, ...])</i></dt>
-<dt><a name="index-taylor-4"></a><u>関数:</u> <b>taylor</b><i> (<var>expr</var>, [<var>x_1</var>, <var>a_1</var>, <var>n_1</var>], [<var>x_2</var>, <var>a_2</var>, <var>n_2</var>], ...)</i></dt>
-<dd>
-<p><code>taylor (<var>expr</var>, <var>x</var>, <var>a</var>, <var>n</var>)</code>は 式<var>expr</var>を変数
+<dt><u>関数:</u> <b>taylor</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>taylor</tt> (<var>expr</var>, <var>x</var>, <var>a</var>, <var>n</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>taylor</tt> (<var>expr</var>, [<var>x_1</var>, <var>x_2</var>, &hellip;], <var>a</var>, <var>n</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>taylor</tt> (<var>expr</var>, [<var>x</var>, <var>a</var>, <var>n</var>, 'asymp]) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>taylor</tt> (<var>expr</var>, [<var>x_1</var>, <var>x_2</var>, &hellip;], [<var>a_1</var>, <var>a_2</var>, &hellip;], [<var>n_1</var>, <var>n_2</var>, &hellip;]) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>taylor</tt> (<var>expr</var>, [<var>x_1</var>, <var>a_1</var>, <var>n_1</var>], [<var>x_2</var>, <var>a_2</var>, <var>n_2</var>], &hellip;)</i>
+<a name="IDX1098"></a>
+</dt>
+<dd><p><code>taylor (<var>expr</var>, <var>x</var>, <var>a</var>, <var>n</var>)</code>は 式<var>expr</var>を変数
 <var>x</var>の <var>a</var>の周りの TaylorもしくはLaurent級数を
 <code>(<var>x</var> - <var>a</var>)^<var>n</var></code>まで展開します。
 </p>
@@ -1034,7 +1022,7 @@ in the first simplification we have returned:
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) taylor (sqrt (sin(x) + a*x + 1), x, 0, 3);
+<pre class="example">(%i1) taylor (sqrt (sin(x) + a*x + 1), x, 0, 3);
                            2             2
              (a + 1) x   (a  + 2 a + 1) x
 (%o1)/T/ 1 + --------- - -----------------
@@ -1057,7 +1045,7 @@ in the first simplification we have returned:
 (%i4) %^2;
 (%o4)/T/                  1 + x + . . .
 (%i5) product ((1 + x^i)^2.5, i, 1, inf)/(1 + x^2);
-</pre><pre class="example">                         inf
+                         inf
                         /===\
                          ! !    i     2.5
                          ! !  (x  + 1)
@@ -1066,7 +1054,7 @@ in the first simplification we have returned:
 (%o5)                   -----------------
                               2
                              x  + 1
-</pre><pre class="example">(%i6) ev (taylor(%, x,  0, 3), keepfloat);
+(%i6) ev (taylor(%, x,  0, 3), keepfloat);
                                2           3
 (%o6)/T/    1 + 2.5 x + 3.375 x  + 6.5625 x  + . . .
 (%i7) taylor (1/log (x + 1), x, 0, 3);
@@ -1100,7 +1088,7 @@ in the first simplification we have returned:
                              - -------------------------- + . . .
                                           720
 (%i12) taylor ((x + 1)^n, x, 0, 4);
-</pre><pre class="example">                      2       2     3      2         3
+                      2       2     3      2         3
                     (n  - n) x    (n  - 3 n  + 2 n) x
 (%o12)/T/ 1 + n x + ----------- + --------------------
                          2                 6
@@ -1109,7 +1097,7 @@ in the first simplification we have returned:
                              (n  - 6 n  + 11 n  - 6 n) x
                            + ---------------------------- + . . .
                                           24
-</pre><pre class="example">(%i13) taylor (sin (y + x), x, 0, 3, y, 0, 3);
+(%i13) taylor (sin (y + x), x, 0, 3, y, 0, 3);
                3                 2
               y                 y
 (%o13)/T/ y - -- + . . . + (1 - -- + . . .) x
@@ -1139,30 +1127,38 @@ in the first simplification we have returned:
             1     x + y   7 x  + 21 y x  + 21 y  x + 7 y
 (%o16)/T/ ----- + ----- + ------------------------------- + . . .
           x + y     6                   360
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
+</div>
+</p></dd></dl>
 
 <p><a name="taylordepth"></a>
 <a name="Item_003a-taylordepth"></a>
 </p><dl>
-<dt><a name="index-taylordepth"></a><u>オプション変数:</u> <b>taylordepth</b></dt>
+<dt><u>オプション変数:</u> <b>taylordepth</b>
+<a name="IDX1099"></a>
+</dt>
 <dd><p>デフォルト値: 3
 </p>
 <p>もしまだ非ゼロ項がないなら、展開の次数が
 <code><var>n</var> 2^taylordepth</code>以下である限り、
 <code>taylor</code>は <code><var>g</var>(<var>x</var>)</code>の展開の次数を倍にします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
+</div>
+</p></dd></dl>
 
 <p><a name="taylorinfo"></a>
 <a name="Item_003a-taylorinfo"></a>
 </p><dl>
-<dt><a name="index-taylorinfo"></a><u>関数:</u> <b>taylorinfo</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p>Taylor級数 <var>expr</var>についての情報を返します。
+<dt><u>関数:</u> <b>taylorinfo</b><i> (<var>expr</var>)</i>
+<a name="IDX1100"></a>
+</dt>
+<dd><p>Taylor級数 <var>expr</var>についての情報を返します。
 戻り値はリストのリストです。
 リストそれぞれは、変数名、展開点、展開次数から構成されます。
 </p>
@@ -1171,7 +1167,7 @@ in the first simplification we have returned:
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) taylor ((1 - y^2)/(1 - x), x, 0, 3, [y, a, inf]);
+<pre class="example">(%i1) taylor ((1 - y^2)/(1 - x), x, 0, 3, [y, a, inf]);
                   2                       2
 (%o1)/T/ - (y - a)  - 2 a (y - a) + (1 - a )
 
@@ -1185,28 +1181,36 @@ in the first simplification we have returned:
  + (1 - a  - 2 a (y - a) - (y - a) ) x  + . . .
 (%i2) taylorinfo(%);
 (%o2)               [[y, a, inf], [x, 0, 3]]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
+</div>
+</p></dd></dl>
 
 <p><a name="taylorp"></a>
 <a name="Item_003a-taylorp"></a>
 </p><dl>
-<dt><a name="index-taylorp"></a><u>関数:</u> <b>taylorp</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p>もし <var>expr</var>が Taylor級数なら <code>true</code>を、
+<dt><u>関数:</u> <b>taylorp</b><i> (<var>expr</var>)</i>
+<a name="IDX1101"></a>
+</dt>
+<dd><p>もし <var>expr</var>が Taylor級数なら <code>true</code>を、
 そうでないなら <code>false</code>を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Predicate-functions">Predicate functions</a> &middot;
+<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="taylor_005flogexpand"></a>
 <a name="Item_003a-taylor_005flogexpand"></a>
 </p><dl>
-<dt><a name="index-taylor_005flogexpand"></a><u>オプション変数:</u> <b>taylor_logexpand</b></dt>
+<dt><u>オプション変数:</u> <b>taylor_logexpand</b>
+<a name="IDX1102"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>taylor_logexpand</code>は <code>taylor</code>級数の中の対数の展開を制御します。
@@ -1219,14 +1223,19 @@ in the first simplification we have returned:
 <p><code>taylor_logexpand</code>が <code>false</code>に設定されている時、
 なされる対数の唯一の展開は形式的なべき級数を得るのに必要なものです。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
- &middot;<a href="maxima_100.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a> &middot;
+<a href="maxima_100.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="taylor_005forder_005fcoefficients"></a>
 <a name="Item_003a-taylor_005forder_005fcoefficients"></a>
 </p><dl>
-<dt><a name="index-taylor_005forder_005fcoefficients"></a><u>オプション変数:</u> <b>taylor_order_coefficients</b></dt>
+<dt><u>オプション変数:</u> <b>taylor_order_coefficients</b>
+<a name="IDX1103"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>taylor_order_coefficients</code>は Taylor級数の中の係数の順序付けを制御します。
@@ -1234,24 +1243,33 @@ in the first simplification we have returned:
 <p><code>taylor_order_coefficients</code>が <code>true</code>の時、
 Taylor級数の係数は標準に順序付けられます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
+</div>
+</p></dd></dl>
 
 <p><a name="taylor_005fsimplifier"></a>
 <a name="Item_003a-taylor_005fsimplifier"></a>
 </p><dl>
-<dt><a name="index-taylor_005fsimplifier"></a><u>関数:</u> <b>taylor_simplifier</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p>べき級数 <var>expr</var>の係数を整理します。
+<dt><u>関数:</u> <b>taylor_simplifier</b><i> (<var>expr</var>)</i>
+<a name="IDX1104"></a>
+</dt>
+<dd><p>べき級数 <var>expr</var>の係数を整理します。
 <code>taylor</code>がこの関数をコールします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
+</div>
+</p></dd></dl>
 
 <p><a name="taylor_005ftruncate_005fpolynomials"></a>
 <a name="Item_003a-taylor_005ftruncate_005fpolynomials"></a>
 </p><dl>
-<dt><a name="index-taylor_005ftruncate_005fpolynomials"></a><u>オプション変数:</u> <b>taylor_truncate_polynomials</b></dt>
+<dt><u>オプション変数:</u> <b>taylor_truncate_polynomials</b>
+<a name="IDX1105"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>taylor_truncate_polynomials</code>が <code>true</code>の時、
@@ -1259,33 +1277,42 @@ Taylor級数の係数は標準に順序付けられます。
 </p>
 <p>そうでないなら、 <code>taylor</code>への多項式入力は不定の精度を持つと考えられます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
+</div>
+</p></dd></dl>
 
 <p><a name="taytorat"></a>
 <a name="Item_003a-taytorat"></a>
 </p><dl>
-<dt><a name="index-taytorat"></a><u>関数:</u> <b>taytorat</b><i> (<var>expr</var>)</i></dt>
+<dt><u>関数:</u> <b>taytorat</b><i> (<var>expr</var>)</i>
+<a name="IDX1106"></a>
+</dt>
 <dd><p><code>taylor</code>形式から標準有理式 (CRE)形式に
 <var>expr</var>を変換します。
 効果は <code>rat (ratdisrep (<var>expr</var>))</code>と同じですがより速いです。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
- &middot;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a> &middot;
+<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="trunc"></a>
 <a name="Item_003a-trunc"></a>
 </p><dl>
-<dt><a name="index-trunc"></a><u>関数:</u> <b>trunc</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p>一般式 <var>expr</var>の内部表現に注釈をする(annotate)ので、まるでその和が切り詰められた
+<dt><u>関数:</u> <b>trunc</b><i> (<var>expr</var>)</i>
+<a name="IDX1107"></a>
+</dt>
+<dd><p>一般式 <var>expr</var>の内部表現に注釈をする(annotate)ので、まるでその和が切り詰められた
 Taylor級数かのように表示されます。
 <var>expr</var>は別に変更されません。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) expr: x^2 + x + 1;
+<pre class="example">(%i1) expr: x^2 + x + 1;
                             2
 (%o1)                      x  + x + 1
 (%i2) trunc (expr);
@@ -1293,24 +1320,27 @@ Taylor級数かのように表示されます。
 (%o2)                  1 + x + x  + . . .
 (%i3) is (expr = trunc (expr));
 (%o3)                         true
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
+</div>
+</p></dd></dl>
 
 <p><a name="unsum"></a>
 <a name="Item_003a-unsum"></a>
 </p><dl>
-<dt><a name="index-unsum"></a><u>関数:</u> <b>unsum</b><i> (<var>f</var>, <var>n</var>)</i></dt>
-<dd>
-<p>最初の後方差 <code><var>f</var>(<var>n</var>) - <var>f</var>(<var>n</var> - 1)</code>を返します。
+<dt><u>関数:</u> <b>unsum</b><i> (<var>f</var>, <var>n</var>)</i>
+<a name="IDX1108"></a>
+</dt>
+<dd><p>最初の後方差 <code><var>f</var>(<var>n</var>) - <var>f</var>(<var>n</var> - 1)</code>を返します。
 従って <code>unsum</code>はある意味 <code>sum</code>の逆です。
 </p>
 <p><code>nusum</code>も参照してください。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) g(p) := p*4^n/binomial(2*n,n);
+<pre class="example">(%i1) g(p) := p*4^n/binomial(2*n,n);
                                      n
                                   p 4
 (%o1)               g(p) := ----------------
@@ -1330,96 +1360,110 @@ Taylor級数かのように表示されます。
                              n  4
 (%o4)                   ----------------
                         binomial(2 n, n)
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Sums-and-products">Sums and products</a>
+</div>
+</p></dd></dl>
 
 <p><a name="verbose"></a>
 <a name="Item_003a-verbose"></a>
 </p><dl>
-<dt><a name="index-verbose"></a><u>オプション変数:</u> <b>verbose</b></dt>
+<dt><u>オプション変数:</u> <b>verbose</b>
+<a name="IDX1109"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>verbose</code>が <code>true</code>の時、
 <code>powerseries</code>は進捗メッセージを印字します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Power-series">Power series</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-Introduction-to-Fourier-series"></a>
 </p><hr size="6">
 <a name="Introduction-to-Fourier-series"></a>
+<a name="SEC159"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Series" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Fourier-series" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC158" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC160" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Sums-Products-and-Series" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Sums-Products-and-Series" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_29.html#Number-Theory" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC155" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC155" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_29.html#SEC162" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-Fourier-series-1"></a>
-<h2 class="section">28.4 Introduction to Fourier series</h2>
+<h2 class="section"> 28.4 Introduction to Fourier series </h2>
 
 <p><code>fourie</code>パッケージは Fourier級数のシンボル計算のための関数を含みます。
 <code>fourie</code>パッケージの中には
 Fourier積分係数を計算する関数や式の操作のためのいくつかの関数があります。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Fourier-transform">Fourier transform</a>
- &middot;<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Fourier-transform">Fourier transform</a> &middot;
+<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a> &middot;
+<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p>
 <p><a name="Item_003a-Functions-and-Variables-for-Fourier-series"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-Fourier-series"></a>
+<a name="SEC160"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-Fourier-series" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Poisson-series" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC159" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC161" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Sums-Products-and-Series" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Sums-Products-and-Series" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_29.html#Number-Theory" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC155" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC155" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_29.html#SEC162" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-Fourier-series-1"></a>
-<h2 class="section">28.5 Functions and Variables for Fourier series</h2>
+<h2 class="section"> 28.5 Functions and Variables for Fourier series </h2>
 
 
 <p><a name="equalp"></a>
 <a name="Item_003a-equalp"></a>
 </p><dl>
-<dt><a name="index-equalp"></a><u>関数:</u> <b>equalp</b><i> (<var>x</var>, <var>y</var>)</i></dt>
-<dd>
-<p>もし <code>equal (<var>x</var>, <var>y</var>)</code>なら <code>true</code>を返し、
+<dt><u>関数:</u> <b>equalp</b><i> (<var>x</var>, <var>y</var>)</i>
+<a name="IDX1110"></a>
+</dt>
+<dd><p>もし <code>equal (<var>x</var>, <var>y</var>)</code>なら <code>true</code>を返し、
 そうでないなら <code>false</code>を返します。
  (この場合 <code>equal (x, y)</code>がするようなエラーメッセージを与えません。)
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
 
 <p><a name="remfun"></a>
 <a name="Item_003a-remfun"></a>
 </p><dl>
-<dt><a name="index-remfun"></a><u>関数:</u> <b>remfun</b><i> (<var>f</var>, <var>expr</var>)</i></dt>
-<dt><a name="index-remfun-1"></a><u>関数:</u> <b>remfun</b><i> (<var>f</var>, <var>expr</var>, <var>x</var>)</i></dt>
-<dd>
-<p><code>remfun (<var>f</var>, <var>expr</var>)</code>は
+<dt><u>関数:</u> <b>remfun</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>remfun</tt> (<var>f</var>, <var>expr</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>remfun</tt> (<var>f</var>, <var>expr</var>, <var>x</var>)</i>
+<a name="IDX1111"></a>
+</dt>
+<dd><p><code>remfun (<var>f</var>, <var>expr</var>)</code>は
 <var>expr</var>の中の <code><var>f</var> (<var>arg</var>)</code>すべてを <var>arg</var>で置き換えます。
 </p>
 <p><code>remfun (<var>f</var>, <var>expr</var>, <var>x</var>)</code>は
@@ -1427,33 +1471,38 @@ Fourier積分係数を計算する関数や式の操作のためのいくつか�
 <var>arg</var>が変数 <var>x</var>を含むときだけ
 <var>arg</var>で置き換えます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
 
 <p><a name="funp"></a>
 <a name="Item_003a-funp"></a>
 </p><dl>
-<dt><a name="index-funp"></a><u>関数:</u> <b>funp</b><i> (<var>f</var>, <var>expr</var>)</i></dt>
-<dt><a name="index-funp-1"></a><u>関数:</u> <b>funp</b><i> (<var>f</var>, <var>expr</var>, <var>x</var>)</i></dt>
-<dd>
-<p>もし <var>expr</var>が関数 <var>f</var>を含むなら
+<dt><u>関数:</u> <b>funp</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>funp</tt> (<var>f</var>, <var>expr</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>funp</tt> (<var>f</var>, <var>expr</var>, <var>x</var>)</i>
+<a name="IDX1112"></a>
+</dt>
+<dd><p>もし <var>expr</var>が関数 <var>f</var>を含むなら
 <code>funp (<var>f</var>, <var>expr</var>)</code>は <code>true</code>を返します。
 </p>
 <p>もし <var>expr</var>が関数 <var>f</var>を含み、変数
 <var>x</var>が <var>f</var>のインスタンスの１つの引数のどこかにあるなら、
 <code>funp (<var>f</var>, <var>expr</var>, <var>x</var>)</code>は <code>true</code>を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
 
 <p><a name="absint"></a>
 <a name="Item_003a-absint"></a>
 </p><dl>
-<dt><a name="index-absint"></a><u>関数:</u> <b>absint</b><i> (<var>f</var>, <var>x</var>, <var>halfplane</var>)</i></dt>
-<dt><a name="index-absint-1"></a><u>関数:</u> <b>absint</b><i> (<var>f</var>, <var>x</var>)</i></dt>
-<dt><a name="index-absint-2"></a><u>関数:</u> <b>absint</b><i> (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>)</i></dt>
-<dd>
-<p><code>absint (<var>f</var>, <var>x</var>, <var>halfplane</var>)</code>は、
+<dt><u>関数:</u> <b>absint</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>absint</tt> (<var>f</var>, <var>x</var>, <var>halfplane</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>absint</tt> (<var>f</var>, <var>x</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>absint</tt> (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>)</i>
+<a name="IDX1113"></a>
+</dt>
+<dd><p><code>absint (<var>f</var>, <var>x</var>, <var>halfplane</var>)</code>は、
 与えられた半平面 (<code>pos</code>, <code>neg</code>, または<code>both</code>)での
 <var>f</var>の <var>x</var>に関する不定積分を返します。
 <var>f</var>は形式
@@ -1467,293 +1516,385 @@ Fourier積分係数を計算する関数や式の操作のためのいくつか�
 <var>x</var>に関する <var>f</var>の <var>a</var>から<var>b</var>までの定積分を返します。
 <var>f</var>は絶対値を含むことができます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
- &middot;<a href="maxima_100.html#Category_003a-Integral-calculus">Integral calculus</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a> &middot;
+<a href="maxima_100.html#Category_003a-Integral-calculus">Integral calculus</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="fourier"></a>
 <a name="Item_003a-fourier"></a>
 </p><dl>
-<dt><a name="index-fourier"></a><u>関数:</u> <b>fourier</b><i> (<var>f</var>, <var>x</var>, <var>p</var>)</i></dt>
-<dd>
-<p>区間 <code>[-p, p]</code>上で定義された <code><var>f</var>(<var>x</var>)</code>の
+<dt><u>関数:</u> <b>fourier</b><i> (<var>f</var>, <var>x</var>, <var>p</var>)</i>
+<a name="IDX1114"></a>
+</dt>
+<dd><p>区間 <code>[-p, p]</code>上で定義された <code><var>f</var>(<var>x</var>)</code>の
 Fourier係数のリストを返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="foursimp"></a>
 <a name="Item_003a-foursimp"></a>
 </p><dl>
-<dt><a name="index-foursimp"></a><u>関数:</u> <b>foursimp</b><i> (<var>l</var>)</i></dt>
-<dd>
-<p>もし <code>sinnpiflag</code>が <code>true</code>なら <code>sin (n %pi)</code>を0に整理します。
+<dt><u>関数:</u> <b>foursimp</b><i> (<var>l</var>)</i>
+<a name="IDX1115"></a>
+</dt>
+<dd><p>もし <code>sinnpiflag</code>が <code>true</code>なら <code>sin (n %pi)</code>を0に整理します。
 もし <code>cosnpiflag</code>が <code>true</code>なら <code>cos (n %pi)</code>を
 <code>(-1)^n</code>に整理します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
- &middot;<a href="maxima_100.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
- &middot;<a href="maxima_100.html#Category_003a-Simplification-functions">Simplification functions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a> &middot;
+<a href="maxima_100.html#Category_003a-Trigonometric-functions">Trigonometric functions</a> &middot;
+<a href="maxima_100.html#Category_003a-Simplification-functions">Simplification functions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="sinnpiflag"></a>
 <a name="Item_003a-sinnpiflag"></a>
 </p><dl>
-<dt><a name="index-sinnpiflag"></a><u>オプション変数:</u> <b>sinnpiflag</b></dt>
+<dt><u>オプション変数:</u> <b>sinnpiflag</b>
+<a name="IDX1116"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>foursimp</code>を参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
 
 <p><a name="cosnpiflag"></a>
 <a name="Item_003a-cosnpiflag"></a>
 </p><dl>
-<dt><a name="index-cosnpiflag"></a><u>オプション変数:</u> <b>cosnpiflag</b></dt>
+<dt><u>オプション変数:</u> <b>cosnpiflag</b>
+<a name="IDX1117"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>foursimp</code>を参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="fourexpand"></a>
 <a name="Item_003a-fourexpand"></a>
 </p><dl>
-<dt><a name="index-fourexpand"></a><u>関数:</u> <b>fourexpand</b><i> (<var>l</var>, <var>x</var>, <var>p</var>, <var>limit</var>)</i></dt>
-<dd>
-<p>Fourier係数 <var>l</var>のリストから
+<dt><u>関数:</u> <b>fourexpand</b><i> (<var>l</var>, <var>x</var>, <var>p</var>, <var>limit</var>)</i>
+<a name="IDX1118"></a>
+</dt>
+<dd><p>Fourier係数 <var>l</var>のリストから
 <var>limit</var>項までのFourier級数を構成して返します。
 (<var>limit</var>は　<code>inf</code>も取り得ます。)
 <var>x</var>と <var>p</var>は <code>fourier</code>におけるものと同じ意味を持ちます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="fourcos"></a>
 <a name="Item_003a-fourcos"></a>
 </p><dl>
-<dt><a name="index-fourcos"></a><u>関数:</u> <b>fourcos</b><i> (<var>f</var>, <var>x</var>, <var>p</var>)</i></dt>
-<dd>
-<p><code>[0, <var>p</var>]</code>上で定義された
+<dt><u>関数:</u> <b>fourcos</b><i> (<var>f</var>, <var>x</var>, <var>p</var>)</i>
+<a name="IDX1119"></a>
+</dt>
+<dd><p><code>[0, <var>p</var>]</code>上で定義された
 <code><var>f</var>(<var>x</var>)</code>の Fourierコサイン係数を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="foursin"></a>
 <a name="Item_003a-foursin"></a>
 </p><dl>
-<dt><a name="index-foursin"></a><u>関数:</u> <b>foursin</b><i> (<var>f</var>, <var>x</var>, <var>p</var>)</i></dt>
-<dd>
-<p><code>[0, <var>p</var>]</code>上で定義された
+<dt><u>関数:</u> <b>foursin</b><i> (<var>f</var>, <var>x</var>, <var>p</var>)</i>
+<a name="IDX1120"></a>
+</dt>
+<dd><p><code>[0, <var>p</var>]</code>上で定義された
 <code><var>f</var>(<var>x</var>)</code>の Fourierサイン係数を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="totalfourier"></a>
 <a name="Item_003a-totalfourier"></a>
 </p><dl>
-<dt><a name="index-totalfourier"></a><u>関数:</u> <b>totalfourier</b><i> (<var>f</var>, <var>x</var>, <var>p</var>)</i></dt>
-<dd>
-<p><code>fourexpand (foursimp (fourier (<var>f</var>, <var>x</var>, <var>p</var>)),
+<dt><u>関数:</u> <b>totalfourier</b><i> (<var>f</var>, <var>x</var>, <var>p</var>)</i>
+<a name="IDX1121"></a>
+</dt>
+<dd><p><code>fourexpand (foursimp (fourier (<var>f</var>, <var>x</var>, <var>p</var>)),
 <var>x</var>, <var>p</var>, 'inf)</code>を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="fourint"></a>
 <a name="Item_003a-fourint"></a>
 </p><dl>
-<dt><a name="index-fourint"></a><u>関数:</u> <b>fourint</b><i> (<var>f</var>, <var>x</var>)</i></dt>
-<dd>
-<p><code>[minf, inf]</code>上で定義された
+<dt><u>関数:</u> <b>fourint</b><i> (<var>f</var>, <var>x</var>)</i>
+<a name="IDX1122"></a>
+</dt>
+<dd><p><code>[minf, inf]</code>上で定義された
 <code><var>f</var>(<var>x</var>)</code>の Fourier積分係数のリストを構成して返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="fourintcos"></a>
 <a name="Item_003a-fourintcos"></a>
 </p><dl>
-<dt><a name="index-fourintcos"></a><u>関数:</u> <b>fourintcos</b><i> (<var>f</var>, <var>x</var>)</i></dt>
-<dd>
-<p><code>[0, inf]</code>上の <code><var>f</var>(<var>x</var>)</code>の Fourierコサイン積分係数を返します。
+<dt><u>関数:</u> <b>fourintcos</b><i> (<var>f</var>, <var>x</var>)</i>
+<a name="IDX1123"></a>
+</dt>
+<dd><p><code>[0, inf]</code>上の <code><var>f</var>(<var>x</var>)</code>の Fourierコサイン積分係数を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="forintsin"></a>
 <a name="Item_003a-fourintsin"></a>
 </p><dl>
-<dt><a name="index-fourintsin"></a><u>関数:</u> <b>fourintsin</b><i> (<var>f</var>, <var>x</var>)</i></dt>
-<dd>
-<p><code>[0, inf]</code>上の <code><var>f</var>(<var>x</var>)</code>の Fourierサイン積分係数を返します。
+<dt><u>関数:</u> <b>fourintsin</b><i> (<var>f</var>, <var>x</var>)</i>
+<a name="IDX1124"></a>
+</dt>
+<dd><p><code>[0, inf]</code>上の <code><var>f</var>(<var>x</var>)</code>の Fourierサイン積分係数を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-Functions-and-Variables-for-Poisson-series"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-Poisson-series"></a>
+<a name="SEC161"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Fourier-series" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_29.html#Number-Theory" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC160" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_29.html#SEC162" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Sums-Products-and-Series" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Sums-Products-and-Series" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_29.html#Number-Theory" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC155" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC155" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_29.html#SEC162" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-Poisson-series-1"></a>
-<h2 class="section">28.6 Functions and Variables for Poisson series</h2>
+<h2 class="section"> 28.6 Functions and Variables for Poisson series </h2>
 
 
 <p><a name="intopois"></a>
 <a name="Item_003a-intopois"></a>
 </p><dl>
-<dt><a name="index-intopois"></a><u>関数:</u> <b>intopois</b><i> (<var>a</var>)</i></dt>
+<dt><u>関数:</u> <b>intopois</b><i> (<var>a</var>)</i>
+<a name="IDX1125"></a>
+</dt>
 <dd><p><var>a</var>を Poisson符号に変換します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="outopois"></a>
 <a name="Item_003a-outofpois"></a>
 </p><dl>
-<dt><a name="index-outofpois"></a><u>関数:</u> <b>outofpois</b><i> (<var>a</var>)</i></dt>
-<dd>
-<p><var>a</var>を Poisson符号から一般表現に変換します。
+<dt><u>関数:</u> <b>outofpois</b><i> (<var>a</var>)</i>
+<a name="IDX1126"></a>
+</dt>
+<dd><p><var>a</var>を Poisson符号から一般表現に変換します。
 もし <var>a</var>が Poisson形式でないなら、
 <code>outofpois</code>は変換を実行します。
 すなわち、その戻り値は <code>outofpois (intopois (<var>a</var>))</code>です。
 例えば、この関数は特定のタイプのサインやコサイン項のべきの和に関する標準
 (canonical)整理器です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="poisdiff"></a>
 <a name="Item_003a-poisdiff"></a>
 </p><dl>
-<dt><a name="index-poisdiff"></a><u>関数:</u> <b>poisdiff</b><i> (<var>a</var>, <var>b</var>)</i></dt>
-<dd>
-<p><var>a</var>を <var>b</var>に関して微分します。
+<dt><u>関数:</u> <b>poisdiff</b><i> (<var>a</var>, <var>b</var>)</i>
+<a name="IDX1127"></a>
+</dt>
+<dd><p><var>a</var>を <var>b</var>に関して微分します。
 <var>b</var>は三角関数の引数の中だけか係数の中だけにいなければいけません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="poisexpt"></a>
 <a name="Item_003a-poisexpt"></a>
 </p><dl>
-<dt><a name="index-poisexpt"></a><u>関数:</u> <b>poisexpt</b><i> (<var>a</var>, <var>b</var>)</i></dt>
-<dd>
-<p>関数的に <code>intopois (<var>a</var>^<var>b</var>)</code>と同一です。
+<dt><u>関数:</u> <b>poisexpt</b><i> (<var>a</var>, <var>b</var>)</i>
+<a name="IDX1128"></a>
+</dt>
+<dd><p>関数的に <code>intopois (<var>a</var>^<var>b</var>)</code>と同一です。
 <var>b</var>は正の整数でなければいけません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="poisint"></a>
 <a name="Item_003a-poisint"></a>
 </p><dl>
-<dt><a name="index-poisint"></a><u>関数:</u> <b>poisint</b><i> (<var>a</var>, <var>b</var>)</i></dt>
-<dd>
-<p>(<code>poisdiff</code>と)同様に制限された意味で積分します。
+<dt><u>関数:</u> <b>poisint</b><i> (<var>a</var>, <var>b</var>)</i>
+<a name="IDX1129"></a>
+</dt>
+<dd><p>(<code>poisdiff</code>と)同様に制限された意味で積分します。
 もし <var>b</var>が三角関数の引数の中にあるなら <var>b</var>の中の非周期的項を落とします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
+</div>
+</p></dd></dl>
 
 <p><a name="poislim"></a>
 <a name="Item_003a-poislim"></a>
 </p><dl>
-<dt><a name="index-poislim"></a><u>オプション変数:</u> <b>poislim</b></dt>
+<dt><u>オプション変数:</u> <b>poislim</b>
+<a name="IDX1130"></a>
+</dt>
 <dd><p>デフォルト値: 5
 </p>
 <p><code>poislim</code>は三角関数の引数の中の係数の領域を決定します。
 初期値 5は区間 [-2^(5-1)+1,2^(5-1)] すなわち[-15,16]に対応しますが、
 [-2^(n-1)+1, 2^(n-1)]に設定することができます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="poismap"></a>
 <a name="Item_003a-poismap"></a>
 </p><dl>
-<dt><a name="index-poismap"></a><u>関数:</u> <b>poismap</b><i> (<var>series</var>, <var>sinfn</var>, <var>cosfn</var>)</i></dt>
-<dd>
-<p>関数 <var>sinfn</var>を与えられた Poisson級数のサイン項に、
+<dt><u>関数:</u> <b>poismap</b><i> (<var>series</var>, <var>sinfn</var>, <var>cosfn</var>)</i>
+<a name="IDX1131"></a>
+</dt>
+<dd><p>関数 <var>sinfn</var>を与えられた Poisson級数のサイン項に、
 <var>cosfn</var>をコサイン項にマップします。
 <var>sinfn</var>と <var>cosfn</var>は ２引数関数です。
 引数それぞれは級数の中の項の係数と三角関数部です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="poisplus"></a>
 <a name="Item_003a-poisplus"></a>
 </p><dl>
-<dt><a name="index-poisplus"></a><u>関数:</u> <b>poisplus</b><i> (<var>a</var>, <var>b</var>)</i></dt>
-<dd>
-<p>関数的に <code>intopois (a + b)</code>と同一です。
+<dt><u>関数:</u> <b>poisplus</b><i> (<var>a</var>, <var>b</var>)</i>
+<a name="IDX1132"></a>
+</dt>
+<dd><p>関数的に <code>intopois (a + b)</code>と同一です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
+</div>
+</p></dd></dl>
 
 <p><a name="poissimp"></a>
 <a name="Item_003a-poissimp"></a>
 </p><dl>
-<dt><a name="index-poissimp"></a><u>関数:</u> <b>poissimp</b><i> (<var>a</var>)</i></dt>
-<dd>
-<p><var>a</var>を一般表現の <var>a</var>に関する Poisson級数に変換します。
+<dt><u>関数:</u> <b>poissimp</b><i> (<var>a</var>)</i>
+<a name="IDX1133"></a>
+</dt>
+<dd><p><var>a</var>を一般表現の <var>a</var>に関する Poisson級数に変換します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="poisson"></a>
 <a name="Item_003a-poisson"></a>
 </p><dl>
-<dt><a name="index-poisson"></a><u>特殊シンボル:</u> <b>poisson</b></dt>
-<dd>
-<p>シンボル <code>/P/</code>は Poisson級数式の行ラベルに続きます。
+<dt><u>特殊シンボル:</u> <b>poisson</b>
+<a name="IDX1134"></a>
+</dt>
+<dd><p>シンボル <code>/P/</code>は Poisson級数式の行ラベルに続きます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
+</div>
+</p></dd></dl>
 
 <p><a name="poissubst"></a>
 <a name="Item_003a-poissubst"></a>
 </p><dl>
-<dt><a name="index-poissubst"></a><u>関数:</u> <b>poissubst</b><i> (<var>a</var>, <var>b</var>, <var>c</var>)</i></dt>
-<dd>
-<p><var>a</var>を <var>c</var>の中の <var>b</var>に代入します。
+<dt><u>関数:</u> <b>poissubst</b><i> (<var>a</var>, <var>b</var>, <var>c</var>)</i>
+<a name="IDX1135"></a>
+</dt>
+<dd><p><var>a</var>を <var>c</var>の中の <var>b</var>に代入します。
 <var>c</var>は Poisson級数です。
 </p>
 <p>(1) <var>b</var>が変数 <var>u</var>, <var>v</var>, <var>w</var>, <var>x</var>, <var>y</var>,
@@ -1774,65 +1915,80 @@ Fourier係数のリストを返します。
 <code>poissubst (u, v, cos(v), %e, 3)</code>は
 <code>cos(u)*(1 - %e^2/2) - sin(u)*(%e - %e^3/6)</code>をもたらします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="poistimes"></a>
 <a name="Item_003a-poistimes"></a>
 </p><dl>
-<dt><a name="index-poistimes"></a><u>関数:</u> <b>poistimes</b><i> (<var>a</var>, <var>b</var>)</i></dt>
-<dd>
-<p><code>intopois (<var>a</var>*<var>b</var>)</code>と同じ機能です。
+<dt><u>関数:</u> <b>poistimes</b><i> (<var>a</var>, <var>b</var>)</i>
+<a name="IDX1136"></a>
+</dt>
+<dd><p><code>intopois (<var>a</var>*<var>b</var>)</code>と同じ機能です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="poistrim"></a>
 <a name="Item_003a-poistrim"></a>
 </p><dl>
-<dt><a name="index-poistrim"></a><u>関数:</u> <b>poistrim</b><i> ()</i></dt>
-<dd>
-<p>(もしユーザーがそれを定義したら)
+<dt><u>関数:</u> <b>poistrim</b><i> ()</i>
+<a name="IDX1137"></a>
+</dt>
+<dd><p>(もしユーザーがそれを定義したら)
 Poisson乗算の間、適用する予約関数です。
 項の中の <var>u</var>, <var>v</var>, ..., <var>z</var>の係数を引数とする６引数の述語論理関数です。
 (この項の係数に関して) <code>poistrim</code>が <code>true</code>となる項は乗算の間に消去されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
+</div>
+</p></dd></dl>
 
 <p><a name="printpois"></a>
 <a name="Item_003a-printpois"></a>
 </p><dl>
-<dt><a name="index-printpois"></a><u>関数:</u> <b>printpois</b><i> (<var>a</var>)</i></dt>
-<dd>
-<p>可読フォーマットで Poisson級数を印字します。
+<dt><u>関数:</u> <b>printpois</b><i> (<var>a</var>)</i>
+<a name="IDX1138"></a>
+</dt>
+<dd><p>可読フォーマットで Poisson級数を印字します。
 <code>outofpois</code>と共通で、もし必要なら <var>a</var>を最初に Poisson符号に変換します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a>
- &middot;<a href="maxima_100.html#Category_003a-Display-functions">Display functions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Poisson-series">Poisson series</a> &middot;
+<a href="maxima_100.html#Category_003a-Display-functions">Display functions</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-Number-Theory"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Sums-Products-and-Series" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_29.html#Number-Theory" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC155" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_29.html#SEC162" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>5月, 20 2015</em>に<a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>を用いて生成されました。
  </font>
  <br>
 

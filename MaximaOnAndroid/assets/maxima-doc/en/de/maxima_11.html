@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on September, 8 2014 by texi2html 1.76 -->
+<!-- Created on Dezember, 9 2014 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -32,111 +32,33 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
@@ -197,29 +119,20 @@ div.categorybox
 <a name="SEC74"></a>
 <h3 class="subheading"> Eigenschaften </h3>
 
-<p>Variablen und Funktionen k&ouml;nnen mit der Funktion <code><a href="#declare">declare</a></code>
- Eigenschaften
+<p>Variablen und Funktionen k&ouml;nnen mit der Funktion <code><a href="#declare">declare</a></code> Eigenschaften
 zugewiesen werden.  Diese Eigenschaften werden in eine Datenbank abgelegt oder
 in eine von Lisp bereitgestellte Eigenschaftsliste eingetragen.  Mit der
-Funktion <code><a href="#featurep">featurep</a></code>
- kann gepr&uuml;ft werden, ob ein Symbol eine bestimmte
-Eigenschaft hat und mit der Funktion <code><a href="#properties">properties</a></code>
- k&ouml;nnen alle
+Funktion <code><a href="#featurep">featurep</a></code> kann gepr&uuml;ft werden, ob ein Symbol eine bestimmte
+Eigenschaft hat und mit der Funktion <code><a href="#properties">properties</a></code> k&ouml;nnen alle
 Eigenschaften eines Symbols angezeigt werden.  Die Funktion <code><a href="#remove">remove</a></code>
-
 l&ouml;scht Eigenschaften aus der Datenbank oder von der Eigenschaftsliste.  Wird
-mit der Funktion <code><a href="maxima_4.html#kill">kill</a></code>
- ein Symbol entfernt, werden auch die zugewiesenen
+mit der Funktion <code><a href="maxima_4.html#kill">kill</a></code> ein Symbol entfernt, werden auch die zugewiesenen
 Eigenschaften gel&ouml;scht.
 </p>
-<p>Weiterhin k&ouml;nnen mit den Funktionen <code><a href="#put">put</a></code>
- und <code><a href="#qput">qput</a></code>
- beliebige
+<p>Weiterhin k&ouml;nnen mit den Funktionen <code><a href="#put">put</a></code> und <code><a href="#qput">qput</a></code> beliebige
 vom Nutzer vorgesehene Eigenschaften in die Eigenschaftsliste zu einem Symbol
-abgelegt werden.  Mit der Funktion <code><a href="#get">get</a></code>
- werden die Eigenschaften von
-der Eigenschaftsliste gelesen und mit der Funktion <code><a href="#rem">rem</a></code>
- gel&ouml;scht.
+abgelegt werden.  Mit der Funktion <code><a href="#get">get</a></code> werden die Eigenschaften von
+der Eigenschaftsliste gelesen und mit der Funktion <code><a href="#rem">rem</a></code> gel&ouml;scht.
 </p>
 <p>Variablen k&ouml;nnen die folgenden Eigenschaften erhalten, die in die Datenbank
 eingetragen werden.
@@ -255,12 +168,10 @@ die in die Lisp-Eigenschaftsliste des Symbols abgelegt werden, sind.
 <h3 class="subheading"> Kontexte </h3>
 
 <p>Maxima verwaltet Kontexte, um Eigenschaften von Variablen und Funktionen sowie
-Fakten abzulegen.  Fakten werden mit der Funktion <code><a href="#assume">assume</a></code>
- definiert und
+Fakten abzulegen.  Fakten werden mit der Funktion <code><a href="#assume">assume</a></code> definiert und
 in dem aktuellen Kontext abgelegt.  Mit <code>assume(a&gt;10)</code> erh&auml;lt Maxima zum
 Beispiel die Information, dass die Variable <code>a</code> gr&ouml;&szlig;er als <code>10</code>
-ist.  Mit der Funktion <code><a href="#forget">forget</a></code>
- werden Fakten aus der Datenbank entfernt.
+ist.  Mit der Funktion <code><a href="#forget">forget</a></code> werden Fakten aus der Datenbank entfernt.
 Fragt Maxima den Nutzer nach Eigenschaften von Variablen, werden die Antworten
 in einem Kontext abgelegt.
 </p>
@@ -274,10 +185,8 @@ ein Unterkontext zum Kontext <code>global</code>.  Die Fakten in einem
 werden, und zus&auml;tzlich zu den Fakten des Kontextes <code>initial</code> aktiv sind.
 </p>
 <p>Kontexte k&ouml;nnen eine beliege Anzahl an Fakten aufnehmen.  Sie k&ouml;nnen mit der
-Funktion <code><a href="#deactivate">deactivate</a></code>
- deaktiviert werden, ohne dass die Fakten verloren
-gehen und sp&auml;ter mit der Funktion <code><a href="#activate">activate</a></code>
- aktiviert werden, wodurch
+Funktion <code><a href="#deactivate">deactivate</a></code> deaktiviert werden, ohne dass die Fakten verloren
+gehen und sp&auml;ter mit der Funktion <code><a href="#activate">activate</a></code> aktiviert werden, wodurch
 die Fakten f&uuml;r Aussagefunktionen wieder zur Verf&uuml;gung stehen.
 </p>
 <hr size="6">
@@ -334,7 +243,6 @@ Maxima-Bezeichnern verwendet werden.  Siehe auch <a href="maxima_6.html#SEC42">B
 ohne das dem Symbol bisher ein Wert zugewiesen wurde, signalisiert Maxima einen 
 Fehler.  Siehe auch die Funktion <code><a href="#declare">declare</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) aa + bb;
@@ -356,14 +264,11 @@ aa unbound variable
 <a name="IDX425"></a>
 </dt>
 <dd><p>Das Kommando <code>declare(<var>a</var>, constant)</code> deklariert ein Symbol <var>a</var>
-als konstant.  Die Funktion <code><a href="#constantp">constantp</a></code>
- hat f&uuml;r dieses Symbol dann das
+als konstant.  Die Funktion <code><a href="#constantp">constantp</a></code> hat f&uuml;r dieses Symbol dann das
 Ergebnis <code>true</code>.  Die Deklaration als eine Konstante verhindert nicht, dass
-dem Symbol ein Wert zugewiesen werden kann.  Siehe <code><a href="#declare">declare</a></code>
- und
+dem Symbol ein Wert zugewiesen werden kann.  Siehe <code><a href="#declare">declare</a></code> und
 <code><a href="#constantp">constantp</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) declare(c, constant);
@@ -395,7 +300,6 @@ konstant sind.
 </p>
 <p>Siehe auch die Eigenschaft <code><a href="#constant">constant</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) constantp (7 * sin(2));
@@ -444,37 +348,30 @@ erhalten:
 der Form <code>f(x + y + z + ...)</code> zu <code>f(x) + f(y) + f(z) + ...</code>
 vereinfacht.  Siehe <code><a href="maxima_9.html#additive">additive</a></code>.
 </p>
-
 </dd>
 <dt> <code>alphabetic</code></dt>
 <dd><p><var>a_i</var> ist eine Zeichenkette, deren Zeichen als alphabetische Zeichen 
 deklariert werden.  Die Zeichen k&ouml;nnen dann in Maxima-Bezeichnern verwendet
-werden.  Siehe <code><a href="#alphabetic">alphabetic</a></code>
- f&uuml;r Beispiele.
+werden.  Siehe <code><a href="#alphabetic">alphabetic</a></code> f&uuml;r Beispiele.
 </p>
 </dd>
 <dt> <code>antisymmetric, commutative, symmetric</code></dt>
 <dd><p><var>a_i</var> wird als eine symmetrische, antisymmetrische oder kommutative Funktion
 interpretiert.  Die Eigenschaften <code>commutative</code> und <code>symmetric</code> sind
-&auml;quivalent.  Siehe <code><a href="maxima_9.html#antisymmetric">antisymmetric</a></code>,
- <code><a href="maxima_9.html#commutative">commutative</a></code>
- und
+&auml;quivalent.  Siehe <code><a href="maxima_9.html#antisymmetric">antisymmetric</a></code>, <code><a href="maxima_9.html#commutative">commutative</a></code> und
 <code><a href="maxima_9.html#symmetric">symmetric</a></code>.
 </p>
-
 </dd>
 <dt> <code>bindtest</code></dt>
 <dd><p>Hat ein Symbol die Eigenschaft <code>bindtest</code> und wird es ausgewertet, ohne 
 das dem Symbol bisher ein Wert zugewiesen wurde, signalisiert Maxima einen 
-Fehler.  Siehe <code><a href="#bindtest">bindtest</a></code>
- f&uuml;r Beispiele.
+Fehler.  Siehe <code><a href="#bindtest">bindtest</a></code> f&uuml;r Beispiele.
 </p>
 </dd>
 <dt> <code>constant</code></dt>
 <dd><p>Hat ein Symbol die Eigenschaft <code>constant</code>, wird es von Maxima als eine 
 Konstante interpretiert.  Siehe auch <code><a href="#constant">constant</a></code>.
 </p>
-
 </dd>
 <dt> <code>even, odd</code></dt>
 <dd><p>Erh&auml;lt eine Variable die Eigenschaft <code>even</code> oder <code>odd</code>, wird sie als
@@ -485,24 +382,20 @@ gerade oder ungerade interpretiert.
 <dd><p>Erh&auml;lt eine Funktion oder ein Operator die Eigenschaft <code>evenfun</code> oder 
 <code>oddfun</code> wird die Funktion oder der Operator von Maxima als gerade und 
 ungerade interpretiert.  Diese Eigenschaft wird bei der Vereinfachung von 
-Ausdr&uuml;cken von Maxima angewendet.  Siehe <code><a href="maxima_9.html#evenfun">evenfun</a></code>
- und <code><a href="maxima_9.html#oddfun">oddfun</a></code>.
+Ausdr&uuml;cken von Maxima angewendet.  Siehe <code><a href="maxima_9.html#evenfun">evenfun</a></code> und <code><a href="maxima_9.html#oddfun">oddfun</a></code>.
 </p>
-
 </dd>
 <dt> <code>evflag</code></dt>
 <dd><p>Deklariert die Variable <code>a_i</code> als einen Auswertungsschalter.  W&auml;hrend der
 Auswertung eines Ausdrucks mit der Funktion <code>ev</code>, erh&auml;lt der 
-Auswertungsschalter <code>a_i</code> den Wert <code>true</code>.  Siehe <code><a href="maxima_8.html#evflag">evflag</a></code>
- f&uuml;r 
+Auswertungsschalter <code>a_i</code> den Wert <code>true</code>.  Siehe <code><a href="maxima_8.html#evflag">evflag</a></code> f&uuml;r 
 Beispiele.
 </p>
 </dd>
 <dt> <code>evfun</code></dt>
 <dd><p>Deklariert eine Funktion <var>a_i</var> als eine Auswertungsfunktion.  Tritt die 
 Funktion <var>a_i</var> als Argument der Funktion <code>ev</code> auf, so wird die Funktion
-auf den Ausdruck angewendet.  Siehe <code><a href="maxima_8.html#evfun">evfun</a></code>
- f&uuml;r Beispiele.
+auf den Ausdruck angewendet.  Siehe <code><a href="maxima_8.html#evfun">evfun</a></code> f&uuml;r Beispiele.
 </p>
 </dd>
 <dt> <code>feature</code></dt>
@@ -510,42 +403,33 @@ auf den Ausdruck angewendet.  Siehe <code><a href="maxima_8.html#evfun">evfun</a
 Symbole k&ouml;nnen dann diese vom Nutzer definierte Eigenschaft erhalten.
 Siehe <code><a href="#feature">feature</a></code>.
 </p>
-
 </dd>
 <dt> <code>increasing, decreasing</code></dt>
 <dd><p>Erh&auml;lt eine Funktion die Eigenschaft <code>decreasing</code> oder <code>increasing</code>, 
 wird die Funktion als eine monoton steigende oder fallende Funktion
-interpretiert.  Siehe <code><a href="#decreasing">decreasing</a></code>
- und <code><a href="#increasing">increasing</a></code>.
+interpretiert.  Siehe <code><a href="#decreasing">decreasing</a></code> und <code><a href="#increasing">increasing</a></code>.
 </p>
-
 </dd>
 <dt> <code>integer, noninteger</code></dt>
 <dd><p><var>a_i</var> wird als eine ganzzahlige oder nicht-ganzzahlige Variable
-interpretiert.  Siehe <code><a href="#integer">integer</a></code>
- und <code><a href="#noninteger">noninteger</a></code>.
+interpretiert.  Siehe <code><a href="#integer">integer</a></code> und <code><a href="#noninteger">noninteger</a></code>.
 </p>
-
 </dd>
 <dt> <code>integervalued</code></dt>
 <dd><p>Erh&auml;lt eine Funktion die Eigenschaft <code>integervalued</code>, nimmt Maxima f&uuml;r
 Vereinfachungen an, dass die Funktionen einen ganzzahligen Wertebereich hat.
 F&uuml;r ein Beispiel siehe <code><a href="#integervalued">integervalued</a></code>.
 </p>
-
 </dd>
 <dt> <code>lassociative, rassociative</code></dt>
 <dd><p><var>a_i</var> wird als eine rechts- oder links-assoziative Funktion interpretiert.
-Siehe <code><a href="maxima_9.html#lassociative">lassociative</a></code>
- und <code><a href="maxima_9.html#rassociative">rassociative</a></code>.
+Siehe <code><a href="maxima_9.html#lassociative">lassociative</a></code> und <code><a href="maxima_9.html#rassociative">rassociative</a></code>.
 </p>
-
 </dd>
 <dt> <code>linear</code></dt>
 <dd><p>Entspricht der Deklaration einer Funktion als <code>outative</code> und
 <code>additive</code>.  Siehe auch <code><a href="maxima_9.html#linear">linear</a></code>.
 </p>
-
 </dd>
 <dt> <code>mainvar</code></dt>
 <dd><p>Wird eine Variable als <var>mainvar</var> deklariert, wird sie als eine 
@@ -554,7 +438,6 @@ Variablen in einer kanonischen Ordnung eines Maxima-Ausdr&uuml;ckes angeordnet.
 Die Anordnung wird durch die Funktion <code>ordergreatp</code> bestimmt.  Siehe auch
 <code><a href="maxima_6.html#mainvar">mainvar</a></code>.
 </p>
-
 </dd>
 <dt> <code>multiplicative</code></dt>
 <dd><p>Hat eine Funktion <code>f</code> die Eigenschaft <code>multiplicative</code>, werden
@@ -563,7 +446,6 @@ Ausdr&uuml;cke der Form <code><var>a_i</var>(x * y * z * ...)</code> zu
 Vereinfachung wird nur f&uuml;r das erste Argument der Funktion <var>f</var>
 ausgef&uuml;hrt.  Siehe <code><a href="maxima_9.html#multiplicative">multiplicative</a></code>.
 </p>
-
 </dd>
 <dt> <code>nary</code></dt>
 <dd><p>Erh&auml;lt eine Funktion oder ein Operator die Eigenschaft <code>nary</code>, wird die
@@ -575,7 +457,6 @@ W&auml;hrend der Funktionsaufruf einen neuen Operator definiert, wirkt sich die
 Deklaration nur auf die Vereinfachung aus.  Siehe auch 
 <code><a href="maxima_9.html#property_005fnary">nary</a></code>.
 </p>
-
 </dd>
 <dt> <code>nonarray</code></dt>
 <dd><p>Hat ein Symbol <var>a_i</var> die Eigenschaft <code>nonarray</code>, wird es nicht als ein
@@ -583,19 +464,16 @@ Array interpretiert, wenn das Symbol einen Index erh&auml;lt.  Diese Deklaration
 verhindert die mehrfache Auswertung, wenn <var>a_i</var> als indizierte Variable
 genutzt wird.  Siehe  <code><a href="#nonarray">nonarray</a></code>.
 </p>
-
 </dd>
 <dt> <code>nonscalar</code></dt>
 <dd><p><var>a_i</var> wird als eine nicht-skalare Variable interpretiert.  Ein Symbol wird
 also als ein Vektor oder eine Matrix deklariert.  Siehe <code><a href="#nonscalar">nonscalar</a></code>.
 </p>
-
 </dd>
 <dt> <code>noun</code></dt>
 <dd><p><var>a_i</var> wird als Substantivform interpretiert.  Abh&auml;ngig vom Kontext wird 
 <var>a_i</var> durch <code>'<var>a_i</var></code> oder <code>nounify(<var>a_i</var>)</code> ersetzt.
-Siehe auch <code><a href="maxima_6.html#noun">noun</a></code>.
- f&uuml;r ein Beispiel.
+Siehe auch <code><a href="maxima_6.html#noun">noun</a></code>. f&uuml;r ein Beispiel.
 </p>
 </dd>
 <dt> <code>outative</code></dt>
@@ -607,33 +485,25 @@ Argumente, wird ein Faktor dann als konstant angesehen, wenn das zweite Argument
 ein Symbol und der Faktor unabh&auml;ngig vom zweiten Argument ist.  Siehe auch
 <code><a href="maxima_9.html#outative">outative</a></code>.
 </p>
-
 </dd>
 <dt> <code>posfun</code></dt>
 <dd><p><var>a_i</var> wird als eine Funktion interpretiert, die nur positive Werte hat.
 Siehe <code><a href="#posfun">posfun</a></code>.
 </p>
-
 </dd>
 <dt> <code>rational, irrational</code></dt>
 <dd><p><var>a_i</var> wird als eine rationale oder irrationale Zahl interpretiert.  Siehe
-<code><a href="#rational">rational</a></code>
- und <code><a href="#irrational">irrational</a></code>.
+<code><a href="#rational">rational</a></code> und <code><a href="#irrational">irrational</a></code>.
 </p>
-
 </dd>
 <dt> <code>real, imaginary, complex</code></dt>
 <dd><p><var>a_i</var> wird als eine reelle, imagin&auml;re oder komplexe Zahl interpretiert.
-Siehe <code><a href="#real">real</a></code>,
- <code><a href="#imaginary">imaginary</a></code>
- und <code><a href="#complex">complex</a></code>.
+Siehe <code><a href="#real">real</a></code>, <code><a href="#imaginary">imaginary</a></code> und <code><a href="#complex">complex</a></code>.
 </p>
-
 </dd>
 <dt> <code>scalar</code></dt>
 <dd><p><var>a_i</var> wird als skalare Variable interpretiert.  Siehe <code><a href="#scalar">scalar</a></code>.
-</p>
-</dd>
+</p></dd>
 </dl>
 </dd></dl>
 
@@ -646,8 +516,7 @@ Siehe <code><a href="#real">real</a></code>,
 <dt><u>Eigenschaft:</u> <b>increasing</b>
 <a name="IDX429"></a>
 </dt>
-<dd><p>Erh&auml;lt eine Funktion mit der Funktion <code><a href="#declare">declare</a></code>
- die Eigenschaft 
+<dd><p>Erh&auml;lt eine Funktion mit der Funktion <code><a href="#declare">declare</a></code> die Eigenschaft 
 <code>decreasing</code> oder <code>increasing</code> wird die Funktion als eine steigende 
 oder fallende Funktion interpretiert.
 </p>
@@ -672,18 +541,13 @@ oder fallende Funktion interpretiert.
 <dt><u>Eigenschaften:</u> <b>odd</b>
 <a name="IDX431"></a>
 </dt>
-<dd><p>Hat eine Variable mit der Funktion <code><a href="#declare">declare</a></code>
- die Eigenschaft <code>even</code>
+<dd><p>Hat eine Variable mit der Funktion <code><a href="#declare">declare</a></code> die Eigenschaft <code>even</code>
 oder <code>odd</code> erhalten, wird sie von Maxima als gerade oder ungerade
 ganze Zahl interpretiert.  Diese Eigenschaften werden jedoch nicht von den
-Funktionen <code><a href="maxima_5.html#evenp">evenp</a></code>,
- <code><a href="maxima_5.html#oddp">oddp</a></code>
- oder <code><a href="maxima_5.html#integerp">integerp</a></code>
- erkannt.
+Funktionen <code><a href="maxima_5.html#evenp">evenp</a></code>, <code><a href="maxima_5.html#oddp">oddp</a></code> oder <code><a href="maxima_5.html#integerp">integerp</a></code> erkannt.
 </p>
 <p>Siehe auch die Funktion <code><a href="#askinteger">askinteger</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) declare(n, even);
@@ -708,12 +572,9 @@ eine Eigenschaft, so dass das Kommando <code>declare(x, sym)</code> einem Symbol
 </p>
 <p>Maxima unterscheidet Systemeigenschaften und mathematische Eigenschaften, die 
 Symbole und Ausdr&uuml;cke haben k&ouml;nnen.  F&uuml;r Systemeigenschaften siehe die 
-Funktion <code><a href="maxima_26.html#status">status</a></code>.
-  F&uuml;r mathematische Eigenschaften siehe die 
-Funktionen <code><a href="#declare">declare</a></code>
- und <code><a href="#featurep">featurep</a></code>.
+Funktion <code><a href="maxima_26.html#status">status</a></code>.  F&uuml;r mathematische Eigenschaften siehe die 
+Funktionen <code><a href="#declare">declare</a></code> und <code><a href="#featurep">featurep</a></code>.
 </p>
-
 <p>Beispiel:
 </p>
 <pre class="example">(%i1) declare (FOO, feature);
@@ -740,9 +601,7 @@ kann.
 </p>
 <p><code>featurep</code> wertet die Argumente aus.
 </p>
-<p>Siehe auch <code><a href="#declare">declare</a></code>
- und <code><a href="#featurep">featurep</a></code>.
-.
+<p>Siehe auch <code><a href="#declare">declare</a></code> und <code><a href="#featurep">featurep</a></code>..
 </p>
 <p>Beispiele:
 </p>
@@ -784,10 +643,8 @@ eingetragen werden:
 <p>Hinzu kommen die vom Nutzer definierten Eigenschaften.
 </p>
 <p><code>features</code> ist eine Liste der mathematischen Eigenschaften.  Es gibt 
-weitere Eigenschaften.  Siehe <code><a href="#declare">declare</a></code>
- und <code><a href="maxima_26.html#status">status</a></code>.
-</p>
-</dd></dl>
+weitere Eigenschaften.  Siehe <code><a href="#declare">declare</a></code> und <code><a href="maxima_26.html#status">status</a></code>.
+</p></dd></dl>
 
 <p><a name="get"></a>
 </p><dl>
@@ -829,12 +686,10 @@ x is not numeric.
 <dt><u>Eigenschaften:</u> <b>noninteger</b>
 <a name="IDX437"></a>
 </dt>
-<dd><p>Hat eine Variable mit der Funktion <code><a href="#declare">declare</a></code>
- die Eigenschaft <code>integer</code>
+<dd><p>Hat eine Variable mit der Funktion <code><a href="#declare">declare</a></code> die Eigenschaft <code>integer</code>
 oder <code>noninteger</code> erhalten, wird sie von Maxima als eine ganze Zahl oder 
 als nicht-ganze Zahl interpretiert.  Siehe auch <code><a href="#askinteger">askinteger</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) declare(n, integer, x, noninteger);
@@ -850,8 +705,7 @@ als nicht-ganze Zahl interpretiert.  Siehe auch <code><a href="#askinteger">aski
 <dt><u>Eigenschaft:</u> <b>integervalued</b>
 <a name="IDX438"></a>
 </dt>
-<dd><p>Erh&auml;lt eine Funktion mit <code><a href="#declare">declare</a></code>
- die Eigenschaft <code>integervalued</code>,
+<dd><p>Erh&auml;lt eine Funktion mit <code><a href="#declare">declare</a></code> die Eigenschaft <code>integervalued</code>,
 nimmt Maxima f&uuml;r Vereinfachungen an, dass der Wertebereich der Funktion
 ganzzahlig ist.
 </p>
@@ -955,8 +809,7 @@ Eigenschaft zum Kennzeichen <var>i</var> haben.
 </dt>
 <dd><p>Gibt eine Liste mit den Eigenschaften zur&uuml;ck, die das Symbol <var>a</var> von
 Maxima oder dem Nutzer erhalten hat.  Die R&uuml;ckgabe kann jede Eigenschaft
-enthalten, die mit der Funktion <code><a href="#declare">declare</a></code>
- einem Symbol zugewiesen ist.
+enthalten, die mit der Funktion <code><a href="#declare">declare</a></code> einem Symbol zugewiesen ist.
 Diese Eigenschaften sind:
 </p>
 <pre class="verbatim">   linear         additive       multiplicative
@@ -976,9 +829,7 @@ k&ouml;nnen:
 </p>
 <dl compact="compact">
 <dt> <code>value</code></dt>
-<dd><p>Der Variable ist mit dem Operatoren <code><a href="maxima_7.html#g_t_003a">:</a></code>
- oder <code><a href="maxima_7.html#g_t_003a_003a">::</a></code>
- ein Wert zugewiesen.
+<dd><p>Der Variable ist mit dem Operatoren <code><a href="maxima_7.html#g_t_003a">:</a></code> oder <code><a href="maxima_7.html#g_t_003a_003a">::</a></code> ein Wert zugewiesen.
 </p></dd>
 <dt> <code>system value</code></dt>
 <dd><p>Die Variable ist eine Optionsvariable oder Systemvariable, die von Maxima
@@ -986,8 +837,7 @@ definiert ist.
 </p></dd>
 <dt> <code>numer</code></dt>
 <dd><p>Die Variable hat einen numerischen Wert auf der Eigenschaftsliste, der mit
-der Funktion <code><a href="maxima_5.html#numerval">numerval</a></code>
- zugewiesen ist.
+der Funktion <code><a href="maxima_5.html#numerval">numerval</a></code> zugewiesen ist.
 </p></dd>
 <dt> <code>assign property</code></dt>
 <dd><p>Die Variable hat eine eine Funktion auf der Eigenschaftsliste, die die Zuweisung
@@ -999,14 +849,11 @@ eines Wertes kontrolliert.
 </p>
 <dl compact="compact">
 <dt> <code>function</code></dt>
-<dd><p>Eine mit dem Operator <code><a href="maxima_7.html#g_t_003a_003d">:=</a></code>
- oder der Funktion <code><a href="maxima_25.html#define">define</a></code>
- definierte
+<dd><p>Eine mit dem Operator <code><a href="maxima_7.html#g_t_003a_003d">:=</a></code> oder der Funktion <code><a href="maxima_25.html#define">define</a></code> definierte
 Nutzerfunktion.
 </p></dd>
 <dt> <code>macro</code></dt>
-<dd><p>Eine mit dem Operator <code><a href="maxima_7.html#g_t_003a_003a_003d">::=</a></code>
- definierte Makrofunktion.
+<dd><p>Eine mit dem Operator <code><a href="maxima_7.html#g_t_003a_003a_003d">::=</a></code> definierte Makrofunktion.
 </p></dd>
 <dt> <code>system function</code></dt>
 <dd><p>Ein interne Maxima-Funktion.
@@ -1015,10 +862,8 @@ Nutzerfunktion.
 <dd><p>Eine Maxima-Spezialform, die die Argumente nicht auswertet.
 </p></dd>
 <dt> <code>transfun</code></dt>
-<dd><p>Wird eine Nutzerfunktion mit <code><a href="maxima_28.html#translate">translate</a></code>
- &uuml;bersetzt oder mit der Funktion
-<code><a href="maxima_28.html#compile">compile</a></code>
- kompiliert, erh&auml;lt sie die Eigenschaft <code>transfun</code>.
+<dd><p>Wird eine Nutzerfunktion mit <code><a href="maxima_28.html#translate">translate</a></code> &uuml;bersetzt oder mit der Funktion
+<code><a href="maxima_28.html#compile">compile</a></code> kompiliert, erh&auml;lt sie die Eigenschaft <code>transfun</code>.
 Interne Maxima-Funktionen, die mit dem Lisp-Makro <code>defmfun</code> definiert
 werden, haben ebenfalls diese Eigenschaft.
 </p></dd>
@@ -1051,8 +896,7 @@ f&uuml;r spezielle Wertebereiche zu ermitteln.
 </p></dd>
 <dt> <code>user autoload function</code></dt>
 <dd><p>Die Funktion wird automatisch beim ersten Aufruf aus einer Datei geladen.  Der
-Nutzer kann mit dem Funktion <code><a href="maxima_30.html#setup_005fautoload">setup_autoload</a></code>
- eine solche Funktion
+Nutzer kann mit dem Funktion <code><a href="maxima_30.html#setup_005fautoload">setup_autoload</a></code> eine solche Funktion
 definieren.
 </p></dd>
 </dl>
@@ -1079,36 +923,30 @@ einen bestimmten Typ haben.
 </p>
 </dd>
 <dt> <code>array function</code></dt>
-<dd><p>Eine Array-Funktion die mit dem Operator <code><a href="maxima_7.html#g_t_003a_003d">:=</a></code>
- definiert ist.
+<dd><p>Eine Array-Funktion die mit dem Operator <code><a href="maxima_7.html#g_t_003a_003d">:=</a></code> definiert ist.
 </p>
 </dd>
 <dt> <code>atvalue</code></dt>
-<dd><p>Dem Symbol ist mit der Funktion <code><a href="maxima_16.html#atvalue">atvalue</a></code>
- ein Wert an einer Stelle
+<dd><p>Dem Symbol ist mit der Funktion <code><a href="maxima_16.html#atvalue">atvalue</a></code> ein Wert an einer Stelle
 zugewiesen.
 </p>
 </dd>
 <dt> <code>atomgrad</code></dt>
-<dd><p>F&uuml;r das Symbol ist mit der Funktion <code><a href="maxima_16.html#gradef">gradef</a></code>
- eine Ableitung definiert.
+<dd><p>F&uuml;r das Symbol ist mit der Funktion <code><a href="maxima_16.html#gradef">gradef</a></code> eine Ableitung definiert.
 </p>
 </dd>
 <dt> <code>dependency</code></dt>
 <dd><p>F&uuml;r das Symbol ist eine Abh&auml;ngigkeit mit der Funktion <code><a href="maxima_16.html#depends">depends</a></code>
-</p>
-<p>definiert.
+definiert.
 </p>
 </dd>
 <dt> <code>matchdeclare</code></dt>
-<dd><p>Das Symbol ist eine mit <code><a href="maxima_24.html#matchdeclare">matchdeclare</a></code>
- definierte Mustervariable, der eine
+<dd><p>Das Symbol ist eine mit <code><a href="maxima_24.html#matchdeclare">matchdeclare</a></code> definierte Mustervariable, der eine
 Aussagefunktion zugeordnet ist.
 </p>
 </dd>
 <dt> <code>modedeclare</code></dt>
-<dd><p>F&uuml;r das Symbol ist mit der Funktion <code><a href="maxima_28.html#mode_005fdeclare">mode_declare</a></code>
- ein Typ definiert.
+<dd><p>F&uuml;r das Symbol ist mit der Funktion <code><a href="maxima_28.html#mode_005fdeclare">mode_declare</a></code> ein Typ definiert.
 </p>
 </dd>
 <dt> <code>user properties</code></dt>
@@ -1131,22 +969,14 @@ Aussagefunktion zugeordnet ist.
 </p>
 <p><code>props</code> ist eine Liste der Symbole, die vom Nutzer eine Eigenschaft
 erhalten haben, die in die Lisp-Eigenschaftsliste des Symbols eingetragen wird.
-Neben den Funktionen <code><a href="#put">put</a></code>
- und <code><a href="#qput">qput</a></code>,
- mit denen der Nutzer
+Neben den Funktionen <code><a href="#put">put</a></code> und <code><a href="#qput">qput</a></code>, mit denen der Nutzer
 direkt eine Eigenschaft zu einem Symbol in die Lisp-Eigenschaftsliste eintragen
 kann, legen auch Maxima-Funktionen Eigenschaften zu Symbolen in der 
 Eigenschaftsliste ab und tragen diese Symbole in die Systemvariable <code>props</code>
 ein.  Zu diesen Funktionen geh&ouml;ren zum Beispiel <code><a href="#declare">declare</a></code>,
-
-<code><a href="maxima_5.html#numerval">numerval</a></code>,
- <code><a href="maxima_24.html#matchdeclare">matchdeclare</a></code>,
- <code><a href="maxima_28.html#mode_005fdeclare">mode_declare</a></code>,
-
-<code><a href="maxima_16.html#gradef">gradef</a></code>
- oder <code><a href="maxima_30.html#setup_005fautoload">setup_autoload</a></code>.
+<code><a href="maxima_5.html#numerval">numerval</a></code>, <code><a href="maxima_24.html#matchdeclare">matchdeclare</a></code>, <code><a href="maxima_28.html#mode_005fdeclare">mode_declare</a></code>,
+<code><a href="maxima_16.html#gradef">gradef</a></code> oder <code><a href="maxima_30.html#setup_005fautoload">setup_autoload</a></code>.
 </p>
-
 <p>Nach dem Start von Maxima sollte die Systemvariable <code>props</code> keine Symbole
 enthalten.  Das ist jedoch nicht der Fall und kann als ein Fehler betrachtet
 werden, der in Zukunft zu beheben ist.
@@ -1225,8 +1055,7 @@ Argumente nicht auswertet.
 <dt><u>Eigenschaft:</u> <b>irrational</b>
 <a name="IDX452"></a>
 </dt>
-<dd><p>Hat eine Variable mit der Funktion <code><a href="#declare">declare</a></code>
- die Eigenschaft 
+<dd><p>Hat eine Variable mit der Funktion <code><a href="#declare">declare</a></code> die Eigenschaft 
 <code>rational</code> oder <code>irrational</code> erhalten, wird sie von Maxima als eine 
 rationale Zahl oder als eine nicht rationale Zahl interpretiert.
 </p></dd></dl>
@@ -1244,8 +1073,7 @@ rationale Zahl oder als eine nicht rationale Zahl interpretiert.
 <dt><u>Eigenschaft:</u> <b>complex</b>
 <a name="IDX455"></a>
 </dt>
-<dd><p>Hat eine Variable mit der Funktion <code><a href="#declare">declare</a></code>
- die Eigenschaft <code>real</code>,
+<dd><p>Hat eine Variable mit der Funktion <code><a href="#declare">declare</a></code> die Eigenschaft <code>real</code>,
 <code>imaginary</code> oder <code>complex</code> erhalten, wird sie von Maxima als eine 
 reelle Zahl, imagin&auml;re Zahl oder als eine komplexe Zahl interpretiert.
 </p></dd></dl>
@@ -1294,14 +1122,8 @@ Eigenschaften sein.
 </p>
 <p><code>remove(&quot;<var>a</var>&quot;, operator)</code> oder <code>remove(&quot;<var>a</var>&quot;, op)</code>
 entfernen vom Atom <var>a</var> die Operatoreigenschaften, die mit den Funktionen
-<code><a href="maxima_7.html#prefix">prefix</a></code>,
- <code><a href="maxima_7.html#infix">infix</a></code>,
- <code><a href="maxima_7.html#nary">nary</a></code>,
- <code><a href="maxima_7.html#postfix">postfix</a></code>,
-
-<code><a href="maxima_7.html#matchfix">matchfix</a></code>
- oder <code><a href="maxima_7.html#nofix">nofix</a></code>
- definiert wurden.  Die Namen von Operatoren
+<code><a href="maxima_7.html#prefix">prefix</a></code>, <code><a href="maxima_7.html#infix">infix</a></code>, <code><a href="maxima_7.html#nary">nary</a></code>, <code><a href="maxima_7.html#postfix">postfix</a></code>,
+<code><a href="maxima_7.html#matchfix">matchfix</a></code> oder <code><a href="maxima_7.html#nofix">nofix</a></code> definiert wurden.  Die Namen von Operatoren
 m&uuml;ssen als eine Zeichenkette angegeben werden.
 </p>
 <p><code>remove</code> gibt immer <code>done</code> zur&uuml;ck.
@@ -1367,10 +1189,8 @@ aber in der R&uuml;ckgabe von <code>facts</code> nicht enthalten.  Um die Aussag
 Fakten eines anderen als des aktuellen Kontexts auszugeben, kann das Kommando 
 <code>facts(<var>context</var>)</code> ausgef&uuml;hrt werden.
 </p>
-<p>Die Systemvariable <code><a href="#activecontexts">activecontexts</a></code>
- enth&auml;lt eine Liste der aktiven
-Kontexte.  Siehe auch die Systemvariable <code><a href="#contexts">contexts</a></code>
- f&uuml;r eine Liste
+<p>Die Systemvariable <code><a href="#activecontexts">activecontexts</a></code> enth&auml;lt eine Liste der aktiven
+Kontexte.  Siehe auch die Systemvariable <code><a href="#contexts">contexts</a></code> f&uuml;r eine Liste
 aller Kontexte, die Maxima kennt.
 </p></dd></dl>
 
@@ -1385,10 +1205,8 @@ aller Kontexte, die Maxima kennt.
 mit der Funktion <code>activate</code> aktiviert wurden.  Unterkontexte sind aktiv,
 ohne dass die Funktion <code>activate</code> aufgerufen werden muss und sind nicht in
 der Liste <code>activecontexts</code> enthalten.  Siehe auch die Funktion
-<code><a href="#activate">activate</a></code>
- f&uuml;r die Aktivierung eines Kontextes und die Systemvariable
-<code><a href="#contexts">contexts</a></code>
- f&uuml;r eine Liste aller vorhandenen Kontexte.
+<code><a href="#activate">activate</a></code> f&uuml;r die Aktivierung eines Kontextes und die Systemvariable
+<code><a href="#contexts">contexts</a></code> f&uuml;r eine Liste aller vorhandenen Kontexte.
 </p></dd></dl>
 
 <p><a name="askinteger"></a>
@@ -1486,14 +1304,9 @@ oder <code>redunant</code> zur&uuml;ck.
 </p>
 <p><code>assume</code> wertet die Argumente aus.
 </p>
-<p>Siehe auch <code><a href="#is">is</a></code>,
- <code><a href="#facts">facts</a></code>,
- <code><a href="#forget">forget</a></code>,
-
-<code><a href="#context">context</a></code>
- und <code><a href="#declare">declare</a></code>.
+<p>Siehe auch <code><a href="#is">is</a></code>, <code><a href="#facts">facts</a></code>, <code><a href="#forget">forget</a></code>,
+<code><a href="#context">context</a></code> und <code><a href="#declare">declare</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) assume (xx &gt; 0, yy &lt; -1, zz &gt;= 0);
@@ -1548,16 +1361,11 @@ Skalar behandelt.
 </dl>
 
 <p>Es ist besser Variablen als ein Skalar oder Nicht-Skalar mit der Funktion
-<code><a href="#declare">declare</a></code>
- zu deklarieren, anstatt die Vereinfachung mit der 
+<code><a href="#declare">declare</a></code> zu deklarieren, anstatt die Vereinfachung mit der 
 Optionsvariablen <code>assumescalar</code> zu kontrollieren.  Siehe auch die 
-Eigenschaften <code><a href="#scalar">scalar</a></code>
- und <code><a href="#nonscalar">nonscalar</a></code>
- sowie die Funktionen 
-<code><a href="#scalarp">scalarp</a></code>
- und <code><a href="#nonscalarp">nonscalarp</a></code>.
+Eigenschaften <code><a href="#scalar">scalar</a></code> und <code><a href="#nonscalar">nonscalar</a></code> sowie die Funktionen 
+<code><a href="#scalarp">scalarp</a></code> und <code><a href="#nonscalarp">nonscalarp</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Maxima kann nicht ermitteln, ob das Symbol <code>x</code> ein Skalar oder ein
@@ -1595,21 +1403,17 @@ dann als einen Skalar, wenn <code>assumescalar</code> den Wert <code>all</code> 
 <dd><p>Standardwert: <code>false</code>
 </p>
 <p>Die Optionsvariable <code>assume_pos</code> kontrolliert das Ergebnis der Funktionen
-<code><a href="#sign">sign</a></code>
- und <code><a href="#asksign">asksign</a></code>,
- f&uuml;r den Fall, dass Maxima das Vorzeichen
+<code><a href="#sign">sign</a></code> und <code><a href="#asksign">asksign</a></code>, f&uuml;r den Fall, dass Maxima das Vorzeichen
 einer Variablen oder indizierten Variablen nicht aus den aktiven Kontexten 
 ermitteln kann.  Hat <code>assume_pos</code> den Wert <code>true</code>, dann wird f&uuml;r 
 Variable oder indizierte Variable, immer das Ergebnis <code>pos</code> ermittelt, wenn
 die Optionsvariable <code>assume_pos_pred</code> den Standardwert <code>false</code> hat und
 das Vorzeichen nicht aus den aktiven Kontexten ermittelt werden kann.
 </p>
-<p>Die Optionsvariable <code><a href="#assume_005fpos_005fpred">assume_pos_pred</a></code>
- hat den Standardwert <code>false</code>.
+<p>Die Optionsvariable <code><a href="#assume_005fpos_005fpred">assume_pos_pred</a></code> hat den Standardwert <code>false</code>.
 In diesem Fall werden von Maxima Variablen und indizierte Variablen als positiv
 angenommen, wenn <code>assume_pos</code> den Wert <code>true</code> hat.  Der 
-Optionsvariablen <code><a href="#assume_005fpos_005fpred">assume_pos_pred</a></code>
- kann eine Aussagefunktion mit einem
+Optionsvariablen <code><a href="#assume_005fpos_005fpred">assume_pos_pred</a></code> kann eine Aussagefunktion mit einem
 Argument zugewiesen werden.  Hat die Aussagefunktion f&uuml;r ein Argument 
 <var>expr</var> das Ergebnis <code>true</code>, wird das Argument als positiv 
 angenommen, wenn die Optionsvariable <code>assume_pos</code> den Wert <code>true</code> hat
@@ -1633,7 +1437,6 @@ Mechanismus der Optionsvariablen <code>assume_pos</code> unterdr&uuml;ckt werden
 </p>
 <p>Siehe f&uuml;r weitere Beispiele die Optionsvariable <code><a href="#assume_005fpos_005fpred">assume_pos_pred</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Das Vorzeichen der Variablen <code>x</code> ist nicht bekannt.  Erh&auml;lt die
@@ -1668,18 +1471,14 @@ Vorzeichen der Differenz ist dagegen weiterhin nicht bekannt.
 <dd><p>Standardwert: <code>false</code>
 </p>
 <p>Der Optionsvariablen <code>assume_pos_pred</code> kann eine Aussagefunktion wie zum
-Beispiel <code><a href="maxima_6.html#symbolp">symbolp</a></code>
- oder ein Lambda-Ausdruck mit einem Argument <code>x</code>
-zugewiesen werden.  Hat die Optionsvariable <code><a href="#assume_005fpos">assume_pos</a></code>
- den Wert
+Beispiel <code><a href="maxima_6.html#symbolp">symbolp</a></code> oder ein Lambda-Ausdruck mit einem Argument <code>x</code>
+zugewiesen werden.  Hat die Optionsvariable <code><a href="#assume_005fpos">assume_pos</a></code> den Wert
 <code>true</code>, werden Variablen, indizierte Variablen oder die Werte von 
 Funktionen dann als positiv angenommen, wenn die Aussagefunktion das Ergebnis 
 <code>true</code> hat.
 </p>
-<p>Die Aussagefunktion wird intern von den Funktionen <code><a href="#sign">sign</a></code>
- und 
-<code><a href="#asksign">asksign</a></code>
- aufgerufen, wenn die Optionsvariable <code>assume_pos</code> den Wert
+<p>Die Aussagefunktion wird intern von den Funktionen <code><a href="#sign">sign</a></code> und 
+<code><a href="#asksign">asksign</a></code> aufgerufen, wenn die Optionsvariable <code>assume_pos</code> den Wert
 <code>true</code> hat und das Vorzeichen einer Variablen, indizierten Variablen oder
 f&uuml;r den Wert einer Funktion nicht ermittelt werden konnte.  Gibt die
 Aussagefunktion das Ergebnis <code>true</code> zur&uuml;ck, wird das Argument als
@@ -1691,10 +1490,8 @@ wenn die Optionsvariable <code>assume_pos</code> den Wert <code>true</code> hat.
 entspricht einer Aussagefunktion, die als <code>lambda([x], symbolp(x) or
 subvarp(x))</code> definiert wird.
 </p>
-<p>Siehe auch <code><a href="#assume">assume</a></code>
- und <code><a href="#assume_005fpos">assume_pos</a></code>.
+<p>Siehe auch <code><a href="#assume">assume</a></code> und <code><a href="#assume_005fpos">assume_pos</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p>Der Optionsvariablen <code>assume_pos_pred</code> wird der Name der Aussagefunktion
@@ -1739,22 +1536,16 @@ Logarithmusfunktion oder eine Differenz zu.
 <dd><p>Standardwert: <code>initial</code>
 </p>
 <p>Die Optionsvariable <code>context</code> enth&auml;lt den Namen des aktuellen Kontextes.
-Das ist der Kontext, der die Aussagen der Funktion <code><a href="#assume">assume</a></code>
- oder die mit 
-der Funktion <code><a href="#declare">declare</a></code>
- definierten Eigenschaften aufnimmt und aus dem die 
-Aussagen mit der Funktion <code><a href="#forget">forget</a></code>
- oder die Eigenschaften mit der Funktion
-<code><a href="#remove">remove</a></code>
- gel&ouml;scht werden.
+Das ist der Kontext, der die Aussagen der Funktion <code><a href="#assume">assume</a></code> oder die mit 
+der Funktion <code><a href="#declare">declare</a></code> definierten Eigenschaften aufnimmt und aus dem die 
+Aussagen mit der Funktion <code><a href="#forget">forget</a></code> oder die Eigenschaften mit der Funktion
+<code><a href="#remove">remove</a></code> gel&ouml;scht werden.
 </p>
 <p>Wird der Optionsvariablen <code>context</code> der Name eines existierenden Kontextes
 zugewiesen, wird dieser zum aktuellen Kontext.  Existiert der Kontext noch 
-nicht, wird er durch Aufruf der Funktion <code><a href="#newcontext">newcontext</a></code>
- erzeugt.
+nicht, wird er durch Aufruf der Funktion <code><a href="#newcontext">newcontext</a></code> erzeugt.
 </p>
-<p>Siehe auch <code><a href="#contexts">contexts</a></code>
- f&uuml;r eine allgemeinere Beschreibung von Kontexten.
+<p>Siehe auch <code><a href="#contexts">contexts</a></code> f&uuml;r eine allgemeinere Beschreibung von Kontexten.
 </p>
 <p>Beispiele:
 </p>
@@ -1788,36 +1579,26 @@ Maxima bekannt sind.  Die Liste enth&auml;lt auch die nicht aktiven Kontexte.
 <p>Die Kontexte <code>global</code> und <code>initial</code> sind immer vorhanden.  Diese 
 werden von Maxima initialisiert und k&ouml;nnen nicht entfernt werden.  Der Kontext
 <code>global</code> enth&auml;lt Aussagen und Fakten f&uuml;r Systemvariablen und
-Systemfunktionen.  Mit den Funktionen <code><a href="#newcontext">newcontext</a></code>
- oder
-<code><a href="#supcontext">supcontext</a></code>
- kann der Nutzer weitere Kontexte anlegen.
+Systemfunktionen.  Mit den Funktionen <code><a href="#newcontext">newcontext</a></code> oder
+<code><a href="#supcontext">supcontext</a></code> kann der Nutzer weitere Kontexte anlegen.
 </p>
 <p>Die Kontexte haben eine Hierarchie.  Die Wurzel ist immer der Kontext
 <code>global</code>, der damit ein Unterkontext aller anderen Kontexte und immer aktiv
 ist.  Der Kontext <code>initial</code> ist anfangs leer und nimmt, sofern kein 
 weiterer Kontext angelegt wurde, die Aussagen und Fakten des Nutzers auf, die 
-mit den Funktionen <code><a href="#assume">assume</a></code>
- und <code><a href="#declare">declare</a></code>
- definiert werden.  Mit der
-Funktion <code><a href="#facts">facts</a></code>
- k&ouml;nnen die Aussagen und Fakten von Kontexten angezeigt
+mit den Funktionen <code><a href="#assume">assume</a></code> und <code><a href="#declare">declare</a></code> definiert werden.  Mit der
+Funktion <code><a href="#facts">facts</a></code> k&ouml;nnen die Aussagen und Fakten von Kontexten angezeigt
 werden.
 </p>
 <p>Die Verwaltung verschiedener Kontexte erm&ouml;glicht es, Aussagen und Fakten in
 einem Kontext zusammenzustellen.  Durch das Aktivieren mit der Funktion
-<code><a href="#activate">activate</a></code>
- oder Deaktivieren mit der Funktion <code><a href="#deactivate">deactivate</a></code>
- k&ouml;nnen
+<code><a href="#activate">activate</a></code> oder Deaktivieren mit der Funktion <code><a href="#deactivate">deactivate</a></code> k&ouml;nnen
 diese Aussagen und Fakten f&uuml;r Maxima verf&uuml;gbar gemacht oder wieder
 ausgeschaltet werden.
 </p>
 <p>Die Aussagen und Fakten in einem Kontext bleiben so lange verf&uuml;gbar, bis sie 
-mit den Funktionen <code><a href="#forget">forget</a></code>
- oder <code><a href="#remove">remove</a></code>
- gel&ouml;scht werden.
-Weiterhin kann der gesamte Kontext mit der Funktion <code><a href="#killcontext">killcontext</a></code>
- entfernt
+mit den Funktionen <code><a href="#forget">forget</a></code> oder <code><a href="#remove">remove</a></code> gel&ouml;scht werden.
+Weiterhin kann der gesamte Kontext mit der Funktion <code><a href="#killcontext">killcontext</a></code> entfernt
 werden.
 </p>
 <p>Beispiel:
@@ -1850,11 +1631,9 @@ Kontext enth&auml;lt die Aussage <code>[a&gt;0]</code>.  Der Kontext kann mit de
 <dd><p>Die Kontexte <var>context_1</var>, &hellip;, <var>context_n</var> werden deaktiviert.  Die
 Aussagen und Fakten dieser Kontexte stehen f&uuml;r die Auswertung von Aussagen 
 nicht mehr zur Verf&uuml;gung.  Die Kontexte werden nicht gel&ouml;scht und k&ouml;nnen 
-mit der Funktion <code><a href="#activate">activate</a></code>
- wieder aktiviert werden.
+mit der Funktion <code><a href="#activate">activate</a></code> wieder aktiviert werden.
 </p>
-<p>Die deaktivierten Kontexte werden aus der Liste <code><a href="#activecontexts">activecontexts</a></code>
- entfernt.
+<p>Die deaktivierten Kontexte werden aus der Liste <code><a href="#activecontexts">activecontexts</a></code> entfernt.
 </p></dd></dl>
 
 <p><a name="facts"></a>
@@ -1924,16 +1703,12 @@ Fakten der aktiven Kontexte entschieden werden kann.
 </p>
 <p>Kann die Aussage <var>expr</var> zu <code>true</code> oder <code>false</code> entschieden werden,
 wird das entsprechende Ergebnis zur&uuml;ckgegeben.  Andernfalls wird der 
-R&uuml;ckgabewert durch den Schalter <code><a href="#prederror">prederror</a></code>
- bestimmt.  Hat 
+R&uuml;ckgabewert durch den Schalter <code><a href="#prederror">prederror</a></code> bestimmt.  Hat 
 <code>prederror</code> den Wert <code>true</code>, wird eine Fehlermeldung ausgegeben.  
 Ansonsten wird <code>unknown</code> zur&uuml;ckgegeben.
 </p>
-<p>Siehe auch <code><a href="#assume">assume</a></code>,
- <code><a href="#facts">facts</a></code>
- und <code><a href="#maybe">maybe</a></code>.
+<p>Siehe auch <code><a href="#assume">assume</a></code>, <code><a href="#facts">facts</a></code> und <code><a href="#maybe">maybe</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p><code>is</code> wertet Aussagen aus.
@@ -2011,11 +1786,8 @@ gibt <code>maybe</code> den Wert <code>unknown</code> zur&uuml;ck.
 Dabei wird <code>maybe</code> ausgef&uuml;hrt, ohne dass <code>prederror</code> einen Wert 
 erh&auml;lt.
 </p>
-<p>Siehe auch <code><a href="#assume">assume</a></code>,
- <code><a href="#facts">facts</a></code>
- und <code><a href="#is">is</a></code>.
+<p>Siehe auch <code><a href="#assume">assume</a></code>, <code><a href="#facts">facts</a></code> und <code><a href="#is">is</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <pre class="example">(%i1) maybe (x &gt; 0);
@@ -2053,10 +1825,8 @@ nicht zu <code>true</code> oder <code>false</code> ausgewertet werden kann.
 <p>Hat <code>prederror</code> den Wert <code>false</code>, wird f&uuml;r diese F&auml;lle 
 <code>unknown</code> zur&uuml;ckgegeben.
 </p>
-<p>Siehe auch <code><a href="#is">is</a></code>
- und <code><a href="#maybe">maybe</a></code>.
-</p>
-</dd></dl>
+<p>Siehe auch <code><a href="#is">is</a></code> und <code><a href="#maybe">maybe</a></code>.
+</p></dd></dl>
 
 <p><a name="sign"></a>
 </p><dl>
@@ -2172,34 +1942,26 @@ einer Funktion reelle Zahlen enth&auml;lt.  Obwohl der Wertebereich von
 <dd><p>Repr&auml;sentiert die &Auml;quivalenz, das hei&szlig;t den gleichen Wert.
 </p>
 <p><code>equal</code> wird nicht ausgewertet oder vereinfacht.  Die Funktion
-<code><a href="#is">is</a></code>
- versucht einen Ausdruck mit <code>equal</code> zu einem booleschen Wert
+<code><a href="#is">is</a></code> versucht einen Ausdruck mit <code>equal</code> zu einem booleschen Wert
 auszuwerten.  <code>is(equal(<var>a</var>, <var>b</var>))</code> gibt <code>true</code> oder
 <code>false</code> zur&uuml;ck, wenn und nur wenn <var>a</var> und <var>b</var> gleich oder
 ungleich sind f&uuml;r alle Werte ihrer Variablen, was mit <code>ratsimp(<var>a</var> -
-<var>b</var>)</code> bestimmt wird.  Gibt <code><a href="maxima_17.html#ratsimp">ratsimp</a></code>
- das Ergebnis 0 zur&uuml;ck, werden
+<var>b</var>)</code> bestimmt wird.  Gibt <code><a href="maxima_17.html#ratsimp">ratsimp</a></code> das Ergebnis 0 zur&uuml;ck, werden
 die beiden Ausdr&uuml;cke als &auml;quivalent betracht.  Zwei Ausdr&uuml;cke k&ouml;nnen
 &auml;quivalent sein, obwohl sie nicht syntaktisch gleich (im allgemeinen
 identisch) sind.
 </p>
 <p>Kann <code>is</code> einen Ausdruck mit <code>equal</code> nicht zu <code>true</code> oder 
 <code>false</code> auswerten, h&auml;ngt das Ergebnis vom Wert des globalen Flags 
-<code><a href="#prederror">prederror</a></code>
- ab.  Hat <code>prederror</code> den Wert <code>true</code>, gibt <code>is</code>
+<code><a href="#prederror">prederror</a></code> ab.  Hat <code>prederror</code> den Wert <code>true</code>, gibt <code>is</code>
 eine Fehlermeldung zur&uuml;ck.  Ansonsten wird <code>unknown</code> zur&uuml;ckgegeben.
 </p>
 <p>Es gibt weitere Operatoren, die einen Ausdruck mit <code>equal</code> zu <code>true</code>
 oder <code>false</code> auswerten k&ouml;nnen.  Dazu geh&ouml;ren <code><a href="maxima_27.html#if">if</a></code>,
-
-<code><a href="maxima_7.html#and">and</a></code>,
- <code><a href="maxima_7.html#or">or</a></code>
- und <code><a href="maxima_7.html#not">not</a></code>.
+<code><a href="maxima_7.html#and">and</a></code>, <code><a href="maxima_7.html#or">or</a></code> und <code><a href="maxima_7.html#not">not</a></code>.
 </p>
-
 <p>Die Umkehrung von <code>equal</code> ist <code><a href="#notequal">notequal</a></code>.
 </p>
-
 <p>Beispiele:
 </p>
 <p><code>equal</code> wird von allein weder ausgewertet noch vereinfacht:
@@ -2376,7 +2138,7 @@ Andererseits hat <code>zeroequiv (log(a*b) - log(a) - log(b), a)</code> das Erge
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>September, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>Dezember, 9 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

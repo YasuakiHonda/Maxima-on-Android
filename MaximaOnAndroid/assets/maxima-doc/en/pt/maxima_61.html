@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on Setembro, 8 2014 by texi2html 1.76 -->
+<!-- Created on Janeiro, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual do Maxima: 61. opsubst</title>
+<title>Manual do Maxima 5.35.71.g68475e4: 61. orthopoly</title>
 
-<meta name="description" content="Manual do Maxima: 61. opsubst">
-<meta name="keywords" content="Manual do Maxima: 61. opsubst">
+<meta name="description" content="Manual do Maxima 5.35.71.g68475e4: 61. orthopoly">
+<meta name="keywords" content="Manual do Maxima 5.35.71.g68475e4: 61. orthopoly">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,234 +32,955 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="opsubst"></a>
-<a name="SEC218"></a>
+<a name="orthopoly"></a>
+<a name="SEC219"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_60.html#SEC217" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC219" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_60.html#SEC218" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC220" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_60.html#SEC215" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC217" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_62.html#SEC220" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#SEC228" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter"> 61. opsubst </h1>
-
+<h1 class="chapter"> 61. orthopoly </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC219">61.1 Defini&ccedil;&otilde;es para opsubst</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC220">61.1 Introdução a polinómios ortogonais</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC227">61.2 Definições para polinómios ortogonais</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <hr size="6">
-<a name="Defini_00e7_00f5es-para-opsubst"></a>
-<a name="SEC219"></a>
+<a name="Introdu_00e7_00e3o-a-polin_00f3mios-ortogonais"></a>
+<a name="SEC220"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC218" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_62.html#SEC220" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC219" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC221" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC218" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC218" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_62.html#SEC220" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC219" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC219" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#SEC228" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 61.1 Defini&ccedil;&otilde;es para opsubst </h2>
+<h2 class="section"> 61.1 Introdução a polinómios ortogonais </h2>
 
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>opsubst</b><i> (<var>f</var>,<var>g</var>,<var>e</var>)</i>
-<a name="IDX1821"></a>
-</dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>opsubst</b><i> (<var>g</var>=<var>f</var>,<var>e</var>)</i>
-<a name="IDX1822"></a>
-</dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>opsubst</b><i> ([<var>g1</var>=<var>f1</var>,<var>g2</var>=<var>f2</var>,..., <var>gn</var>=<var>fn</var>],<var>e</var>)</i>
-<a name="IDX1823"></a>
-</dt>
-<dd><p>A fun&ccedil;&atilde;o <code>opsubst</code>  similar &agrave; fun&ccedil;&atilde;o <code>subst</code>, excepto que
-<code>opsubst</code> somente faz substitui&ccedil;&otilde;es para as opera&ccedil;&otilde;es em uma express&otilde;es. Em geral, 
-quando <var>f</var> for um operador em uma express&atilde;o <var>e</var>, substitui <var>g</var> 
-por <var>f</var> na express&atilde;o <var>e</var>.
+<p><code>orthopoly</code> é um pacote para avaliação simbólica e numérica de
+muitos tipos de polinómios ortogonais, incluindo polinómios de Chebyshev,
+Laguerre, Hermite, Jacobi, Legendre, e ultraesférico
+(Gegenbauer). Adicionalmentey, <code>orthopoly</code> inclui suporte funções esféricas segundo o critério de
+Bessel, esféricas segundo o critério de Hankel, e funções harm&ocirc;nica esféricas.
 </p>
-<p>Para determinar o operador, <code>opsubst</code> escolhe <code>inflag</code> para verdadeiro ( true ). Isso significa que
-<code>opsubst</code> substitui para a forma de operador interna, n&atilde;o para a mostrada,
-na express&atilde;o.
+<p>Em sua maior parte, <code>orthopoly</code> segue as convenções de Abramowitz e Stegun
+<i>Handbook of Mathematical Functions</i>, Chapter 22 (10th printing, December 1972);
+adicionalmente, usamos Gradshteyn e Ryzhik, 
+<i>Table of Integrals, Series, and Products</i> (1980 corrected and 
+enlarged edition), e Eugen Merzbacher <i>Quantum Mechanics</i> (2nd edition, 1970).
 </p>
-<p>Exemplos:
-</p><pre class="example">(%i1) load (opsubst)$
 
-(%i2) opsubst(f,g,g(g(x)));
-(%o2)                     f(f(x))
-(%i3) opsubst(f,g,g(g));
-(%o3)                       f(g)
-(%i4) opsubst(f,g[x],g[x](z));
-(%o4)                       f(z)
-(%i5) opsubst(g[x],f, f(z));
-(%o5)                      g (z)
-                            x
-(%i6) opsubst(tan, sin, sin(sin));
-(%o6)                     tan(sin)
-(%i7) opsubst([f=g,g=h],f(x));
-(%o7)                       h(x)
-</pre>
-<p>Internamente, Maxima n&atilde;o usa os operadores de nega&ccedil;&atilde;o un&aacute;ria,
-divis&atilde;o, ou de subtra&ccedil;&atilde;o; dessa forma:
-</p><pre class="example">(%i8) opsubst(&quot;+&quot;,&quot;-&quot;,a-b);
-(%o8)                     a - b
-(%i9) opsubst(&quot;f&quot;,&quot;-&quot;,-a);
-(%o9)                      - a
-(%i10) opsubst(&quot;^^&quot;,&quot;/&quot;,a/b);
-                             a
-(%o10)                       -
-                             b
-</pre>
-<p>A representa&ccedil;&atilde;o interna de -a*b &eacute; *(-1,a,b); dessa forma
-</p><pre class="example">(%i11) opsubst(&quot;[&quot;,&quot;*&quot;, -a*b);
-(%o11)                  [- 1, a, b]
-</pre>
-<p>Quando o operador n&atilde;o for um s&iacute;mbolo Maxima, geralmente alguma outra fun&ccedil;&atilde;o
-sinalizar&aacute; um erro:
-</p><pre class="example">(%i12) opsubst(a+b,f, f(x));
 
-Improper name or value in functional position:
-b + a
+<p>Barton Willis da University de Nebraska e Kearney (UNK) escreveu
+o pacote <code>orthopoly</code> e sua documetação. O pacote 
+é liberado segundo a licença pública geral GNU (GPL).
+</p>
+<hr size="6">
+<a name="SEC221"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC220" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC222" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC219" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC220" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#SEC228" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 61.1.1 Iniciando com orthopoly </h3>
+
+<p><code>load (orthopoly)</code> torna o pacote <code>orthopoly</code> disponível para uso.
+</p>
+<p>Para encontrar o polinómio de Legendre de terceira ordem,
+</p>
+<pre class="example">(%i1) legendre_p (3, x);
+                      3             2
+             5 (1 - x)    15 (1 - x)
+(%o1)      - ---------- + ----------- - 6 (1 - x) + 1
+                 2             2
+</pre>
+<p>Para expressar esse polinómio como uma soma de potências de <var>x</var>, aplique <var>ratsimp</var> ou <var>rat</var>
+para o resultado anterior.
+</p>
+<pre class="example">(%i2) [ratsimp (%), rat (%)];
+                        3           3
+                     5 x  - 3 x  5 x  - 3 x
+(%o2)/R/            [----------, ----------]
+                         2           2
+</pre>
+<p>Alternativamente, faça o segundo argumento  para <code>legendre_p</code> (sua variável &quot;principal&quot;) 
+uma expressão racional canónica (CRE)  usando <code>rat(x)</code> em lugar de somente <code>x</code>.
+</p>
+<pre class="example">(%i1) legendre_p (3, rat (x));
+                              3
+                           5 x  - 3 x
+(%o1)/R/                   ----------
+                               2
+</pre>
+<p>Para avaliação em ponto flutuante, <code>orthopoly</code> usa uma análise de erro durante a execução
+para estimar uma associação superior para o erro. Por exemplo,
+</p>
+<pre class="example">(%i1) jacobi_p (150, 2, 3, 0.2);
+(%o1) interval(- 0.062017037936715, 1.533267919277521E-11)
+</pre>
+<p>intervalos possuem a forma <code>interval (<var>c</var>, <var>r</var>)</code>, onde <var>c</var> é o
+centro e <var>r</var> é o raio do intervalo. Uma vez que Maxima
+não suporta aritmética sobre intervalos, em algumas situações, tais
+como em gráficos, vai querer suprimir o erro e sair somente com o
+centro do intervalo. Para fazer isso, escolha a variável de
+opção <code>orthopoly_returns_intervals</code> para <code>false</code>.
+</p>
+<pre class="example">(%i1) orthopoly_returns_intervals : false;
+(%o1)                         false
+(%i2) jacobi_p (150, 2, 3, 0.2);
+(%o2)                  - 0.062017037936715
+</pre>
+<p>Veja a secção see <a href="#Avalia_00e7_00e3o-em-Ponto-Flutuante">Avaliação em Ponto Flutuante</a> para maiores informações.
+</p>
+<p>Muitas funções em <code>orthopoly</code> possuem uma propriedade <code>gradef</code>; dessa forma
+</p>
+<pre class="example">(%i1) diff (hermite (n, x), x);
+(%o1)                     2 n H     (x)
+                               n - 1
+(%i2) diff (gen_laguerre (n, a, x), x);
+              (a)               (a)
+           n L   (x) - (n + a) L     (x) unit_step(n)
+              n                 n - 1
+(%o2)      ------------------------------------------
+                               x
+</pre>
+<p>A função de um único passo no segundo exemplo previne um erro que poderia
+de outra forma surgir através da avaliação de <var>n</var> para 0.
+</p>
+<pre class="example">(%i3) ev (%, n = 0);
+(%o3)                           0
+</pre>
+<p>A propriedade <code>gradef</code> somente aplica para a variável &quot;principal&quot;; dderivadas com
+relação a outros argumentos usualmente resultam em uma mensagem de erro; por exemplo
+</p>
+<pre class="example">(%i1) diff (hermite (n, x), x);
+(%o1)                     2 n H     (x)
+                               n - 1
+(%i2) diff (hermite (n, x), n);
+
+Maxima doesn't know the derivative of hermite with respect the first argument
  -- an error.  Quitting.  To debug this try debugmode(true);
 </pre>
-<p>Todavia, operadores subscritos s&atilde;o permitidos:
-</p><pre class="example">(%i13) opsubst(g[5],f, f(x));
-(%o13)                     g (x)
-                            5
+<p>Geralmente, funções em <code>orthopoly</code> mapeiam sobre listas e matrizes. Para
+o mapeamento para avaliação total, as variáveis de opção 
+<code>doallmxops</code> e <code>listarith</code> devem ambas serem <code>true</code> (o valor padrão).
+Para ilustrar o mapeamento sobre matrizes, considere
+</p>
+<pre class="example">(%i1) hermite (2, x);
+                                     2
+(%o1)                    - 2 (1 - 2 x )
+(%i2) m : matrix ([0, x], [y, 0]);
+                            [ 0  x ]
+(%o2)                       [      ]
+                            [ y  0 ]
+(%i3) hermite (2, m);
+               [                             2  ]
+               [      - 2        - 2 (1 - 2 x ) ]
+(%o3)          [                                ]
+               [             2                  ]
+               [ - 2 (1 - 2 y )       - 2       ]
 </pre>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(&quot;opsubst&quot;)</code>.
+<p>No segundo exemplo, o elemento <code>i, j</code> do valor
+é <code>hermite (2, m[i,j])</code>; isso não é o mesmo que calcular
+<code>-2 + 4 m . m</code>, como visto no próximo exemplo.
+</p>
+<pre class="example">(%i4) -2 * matrix ([1, 0], [0, 1]) + 4 * m . m;
+                    [ 4 x y - 2      0     ]
+(%o4)               [                      ]
+                    [     0      4 x y - 2 ]
+</pre>
+<p>Se avaliar uma função em um ponto fora do seu domínio, geralmente
+<code>orthopoly</code> retorna uma função não avaliada. Por exemplo,
+</p>
+<pre class="example">(%i1) legendre_p (2/3, x);
+(%o1)                        P   (x)
+                              2/3
+</pre>
+<p><code>orthopoly</code> suporta tradução em TeX; <code>orthopoly</code> também faz saídas
+bidimensionais em um terminal.
+</p>
+<pre class="example">(%i1) spherical_harmonic (l, m, theta, phi);
+                          m
+(%o1)                    Y (theta, phi)
+                          l
+(%i2) tex (%);
+$$Y_{l}^{m}\left(\vartheta,\varphi\right)$$
+(%o2)                         false
+(%i3) jacobi_p (n, a, a - b, x/2);
+                          (a, a - b) x
+(%o3)                    P          (-)
+                          n          2
+(%i4) tex (%);
+$$P_{n}^{\left(a,a-b\right)}\left({{x}\over{2}}\right)$$
+(%o4)                         false
+</pre>
+<hr size="6">
+<a name="SEC222"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC221" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC223" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC219" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC220" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#SEC228" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 61.1.2 Limitations </h3>
+
+<p>Quando uma expressão envolve muitos polinómios ortogonais com ordens
+simbólicas, é possível que a expressão actualmente
+tenda para zero, e ainda ocorre também que Maxima estar incapacitado
+de simplificar essa expressão para zero. Se fizer uma divisão por
+tal quantidade que tende a zero, poderá ficar em apuros. Por exemplo,
+a seguinte expressão tende para zero para inteiros <var>n</var> maiores que
+1, e ainda ocorre também que Maxima está incapacitado de simplificar
+essa expressão para zero.
+</p>
+<pre class="example">(%i1) (2*n - 1) * legendre_p (n - 1, x) * x - n * legendre_p (n, x) + (1 - n) * legendre_p (n - 2, x);
+(%o1)  (2 n - 1) P     (x) x - n P (x) + (1 - n) P     (x)
+                  n - 1           n               n - 2
+</pre>
+<p>Para um <var>n</var> específico, podemos reduzir a expressão a zero.
+</p>
+<pre class="example">(%i2) ev (% ,n = 10, ratsimp);
+(%o2)                           0
+</pre>
+<p>Geralmente, a forma polinomial de um polinómio ortogonal esteja adequada de forma hostil
+para avaliaçao em ponto flutuante. Aqui está um exemplo.
+</p>
+<pre class="example">(%i1) p : jacobi_p (100, 2, 3, x)$
+
+(%i2) subst (0.2, x, p);
+(%o2)                3.4442767023833592E+35
+(%i3) jacobi_p (100, 2, 3, 0.2);
+(%o3)  interval(0.18413609135169, 6.8990300925815987E-12)
+(%i4) float(jacobi_p (100, 2, 3, 2/10));
+(%o4)                   0.18413609135169
+</pre>
+<p>O verdadeiro valor está em torno de 0.184; ess calculo suporta erro de 
+cancelamento por extremo subtrativo.Expandindo o polinómio e então
+avaliando, fornecendo um melhor resultado.
+</p><pre class="example">(%i5) p : expand(p)$
+(%i6) subst (0.2, x, p);
+(%o6) 0.18413609766122982
+</pre>
+<p>Essa não é uma regra geral; expandindo o polinómio não resulta sempre 
+em expressões que são melhores adaptadas a avaliação numérica.
+Com grande folga, o melhor caminho para fazer avaliação numérica é fazer um ou mais
+argumentos da função serem números em ponto flutuante. Em função disso, 
+algoritmos especializados em ponto flutuante são usados para avaliação.
+</p>
+<p>A função <code>float</code> do Maxima é até certo ponto indiscriminada; se aplicar 
+<code>float</code> a uma expressão envolvendo um polinómio ortogonal com um
+grau simbólico ou um parâmetro de ordem, esses parâmetos (inteiros) podem ser 
+convertido em números em ponto flutuante; após o que, a expressão não irá avaliar 
+completamente. Considere
+</p>
+<pre class="example">(%i1) assoc_legendre_p (n, 1, x);
+                               1
+(%o1)                         P (x)
+                               n
+(%i2) float (%);
+                              1.0
+(%o2)                        P   (x)
+                              n
+(%i3) ev (%, n=2, x=0.9);
+                             1.0
+(%o3)                       P   (0.9)
+                             2
+</pre>
+<p>A expressão em (%o3) não irá avaliar para um número em ponto flutuante; <code>orthopoly</code> não
+reconhece valores em ponto flutuante em lugares onde deve haver valores inteiros. Similarmente, 
+avaliação numérica da função <code>pochhammer</code> para ordens que
+excedam <code>pochhammer_max_index</code> pode ser perturbador; considere
+</p>
+<pre class="example">(%i1) x :  pochhammer (1, 10), pochhammer_max_index : 5;
+(%o1)                         (1)
+                                 10
+</pre>
+<p>Aplicando <code>float</code> não avalia <var>x</var> para um número em ponto flutuante
+</p>
+<pre class="example">(%i2) float (x);
+(%o2)                       (1.0)
+                                 10.0
+</pre>
+<p>Para avaliar <var>x</var> para um número em ponto flutuante, irá precisar associar
+<code>pochhammer_max_index</code> a 11 ou mais e aplicar <code>float</code> a <var>x</var>.
+</p>
+<pre class="example">(%i3) float (x), pochhammer_max_index : 11;
+(%o3)                       3628800.0
+</pre>
+<p>O valor padrão de <code>pochhammer_max_index</code> é 100;
+modifique esse valor após chama <code>orthopoly</code>.
+</p>
+<p>Finalmente, tenha consciência que os livros citados nas referências adotam diferentes definições de 
+polinómios ortogonais; geralmente adotamos as convenções 
+citadas nas convenções de Abramowitz e Stegun.
+</p>
+<p>Antes de suspeitar de um erro no pacote <code>orthopoly</code>, verifique alguns casos especiais 
+para determinar se suas definições coincidem com aquelas usadas por <code>orthopoly</code>. 
+Definitions muitas vezes diferem por uma normalização; ocasionalmente, autores
+utilizam versões &quot;modificadas&quot; das funções que fazem a família
+ortogonal sobre um intervalo diferente do intervalo <em>(-1, 1)</em>. Para definir, por exemplo,
+um polinómio de Legendre que é ortogonal a <em>(0, 1)</em>, defina
+</p>
+<pre class="example">(%i1) shifted_legendre_p (n, x) := legendre_p (n, 2*x - 1)$
+
+(%i2) shifted_legendre_p (2, rat (x));
+                            2
+(%o2)/R/                 6 x  - 6 x + 1
+(%i3) legendre_p (2, rat (x));
+                               2
+                            3 x  - 1
+(%o3)/R/                    --------
+                               2
+</pre>
+<p><a name="Avalia_00e7_00e3o-em-Ponto-Flutuante"></a>
+</p><hr size="6">
+<a name="SEC223"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC222" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC224" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC219" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC220" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#SEC228" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 61.1.3 Avaliação em Ponto Flutuante </h3>
+
+<p>Muitas funções em <code>orthopoly</code> utilizam análise de erro durante a execução para 
+estimar o erro em avaliações em ponto flutuante; as 
+exceções são funções de Bessel esféricas e os polinómios associados de
+Legendre do segundo tipo. Para avaliações numéricas, as funções 
+de Bessel esféricas chamam funções da colecção de programas <code>SLATEC</code>. Nenhum método especializado é usado
+para avaliação numérica dos polinómios associados  de Legendre do
+segundo tipo.
+</p>
+<p>A análise de erro durante a execução ignora erros que são de segunda ordem ou maior
+na máquina (também conhecida como perda de algarismos). A análise de erro durante a execução também
+ignora alguns poucos outros tipos de erro. É possível (embora não provável) 
+que o erro actual exceda o estimado.
+</p>
+<p>Intervalos possuem a forma <code>interval (<var>c</var>, <var>r</var>)</code>, onde <var>c</var> é o centro 
+do intervalo e <var>r</var> é seu raio. O 
+centro de um intervalo pode sr um número complexo, e o raio é sempre um número real positivo.
+</p>
+<p>Aqui está um exemplo.
+</p>
+
+<pre class="example">(%i1) fpprec : 50$
+
+(%i2) y0 : jacobi_p (100, 2, 3, 0.2);
+(%o2) interval(0.1841360913516871, 6.8990300925815987E-12)
+(%i3) y1 : bfloat (jacobi_p (100, 2, 3, 1/5));
+(%o3) 1.8413609135168563091370224958913493690868904463668b-1
+</pre>
+<p>Vamos testar o quanto o erro actual é é menor que o erro estimado
+</p>
+<pre class="example">(%i4) is (abs (part (y0, 1) - y1) &lt; part (y0, 2));
+(%o4)                         true
+</pre>
+<p>Realmente, por esse exemplo o erro estimado é um maior que
+o erro verdadeiro.
+</p>
+<p>Maxima não suporta aritmética sobre intervalos.
+</p>
+<pre class="example">(%i1) legendre_p (7, 0.1) + legendre_p (8, 0.1);
+(%o1) interval(0.18032072148437508, 3.1477135311021797E-15)
+        + interval(- 0.19949294375000004, 3.3769353084291579E-15)
+</pre>
+<p>Um utilizador pode definir operadores aritméticos que fazem matemática de intervalos. Para
+definir adição de intervalos, podemos definir
+</p>
+<pre class="example">(%i1) infix (&quot;@+&quot;)$
+
+(%i2) &quot;@+&quot;(x,y) := interval (part (x, 1) + part (y, 1), part (x, 2) + part (y, 2))$
+
+(%i3) legendre_p (7, 0.1) @+ legendre_p (8, 0.1);
+(%o3) interval(- 0.019172222265624955, 6.5246488395313372E-15)
+</pre>
+<p>As rotinas eseciais em ponto flutuante são chamadas quando os argumentos
+forem complexos.  Por exemplo,
+</p>
+<pre class="example">(%i1) legendre_p (10, 2 + 3.0*%i);
+(%o1) interval(- 3.876378825E+7 %i - 6.0787748E+7, 
+                                           1.2089173052721777E-6)
+</pre>
+<p>Let's compare this to the true value.
+</p>
+<pre class="example">(%i1) float (expand (legendre_p (10, 2 + 3*%i)));
+(%o1)          - 3.876378825E+7 %i - 6.0787748E+7
+</pre>
+<p>Adicionalmente, quando os argumentos forem grandes números em ponto flutuante, as rotinas especiais
+de ponto flutuante são chamadas; todavia, tos grandes números em ponto flutuante são convertidos para números em ponto flutuante de dupla precisão
+e o resultado final é número em ponto flutuante de precisão dupla.
+</p>
+<pre class="example">(%i1) ultraspherical (150, 0.5b0, 0.9b0);
+(%o1) interval(- 0.043009481257265, 3.3750051301228864E-14)
+</pre>
+<hr size="6">
+<a name="SEC224"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC223" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC225" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC219" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC220" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#SEC228" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 61.1.4 Gráficos e <code>orthopoly</code> </h3>
+
+<p>Para desenhar gráficos de expressões que envolvem polinómios
+ortogonais, deverá fazer duas coisas:
+</p><ol>
+<li> 
+Escolher a variável de opção <code>orthopoly_returns_intervals</code> para <code>false</code>,
+</li><li>
+Colocar apóstrofo em qualquer chamada a funções do pacote <code>orthopoly</code>.
+</li></ol>
+<p>Se chamadas a funções não receberem apóstrofo, Maxima irá avaliá-las para polinómios antes 
+de montar o gráfico; consequêntemente, as rotinas especializadas em ponto flutuante não serão chamadas.
+Aqui está um exemplo de como montar o gráfico de uma expressão que envolve
+um polinómio de Legendre.
+</p>
+<pre class="example">(%i1) plot2d ('(legendre_p (5, x)), [x, 0, 1]), orthopoly_returns_intervals : false;
+(%o1)
+</pre>
+<p><div class="image"><img src="./../figures/orthopoly1.gif" alt="../figures/orthopoly1"></div>
+</p>
+<p>A expressão <i>completa</i> <code>legendre_p (5, x)</code> recebe apóstrofo; isso é 
+diferente de apenas colocar apóstrofo no nome da função usando <code>'legendre_p (5, <var>x</var>)</code>.
+</p>
+<hr size="6">
+<a name="SEC225"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC224" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC226" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC219" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC220" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#SEC228" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 61.1.5 Funções Diversas </h3>
+
+<p>O pacote <code>orthopoly</code> define o
+síbolo de Pochhammer e uma função de passo de unidade. <code>orthopoly</code> utiliza 
+a função delta de Kronecker e a função de passo de unidade em
+declarações <code>gradef</code>.
+</p>
+<p>Para converter os símbolos Pochhammer em quocientes da funções gama,
+use <code>makegamma</code>.
+</p>
+<pre class="example">(%i1) makegamma (pochhammer (x, n));
+                          gamma(x + n)
+(%o1)                     ------------
+                            gamma(x)
+(%i2) makegamma (pochhammer (1/2, 1/2));
+                                1
+(%o2)                       ---------
+                            sqrt(%pi)
+</pre>
+<p>Derivadas de símbolos de Pochhammer são fornecidas em termos de <code>psi</code>
+function.
+</p>
+<pre class="example">(%i1) diff (pochhammer (x, n), x);
+(%o1)             (x)  (psi (x + n) - psi (x))
+                     n     0             0
+(%i2) diff (pochhammer (x, n), n);
+(%o2)                   (x)  psi (x + n)
+                           n    0
+</pre>
+<p>É preciso ser cuidadoso com expressões como (%o1); a diferença das
+funções <code>psi</code> possuem polinómios quando <code><var>x</var> = -1, -2, .., -<var>n</var></code>. Esses polinómios
+cacelam-se com factores em <code>pochhammer (<var>x</var>, <var>n</var>)</code> fazendo da derivada um polinómio
+de grau <code><var>n</var> - 1</code> quando <var>n</var> for um inteiro positivo.
+</p>
+<p>O símbolo de Pochhammer é definido de ordens negativas até sua
+representação como um quociente de funções gama. Considere
+</p>
+<pre class="example">(%i1) q : makegamma (pochhammer (x, n));
+                          gamma(x + n)
+(%o1)                     ------------
+                            gamma(x)
+(%i2) sublis ([x=11/3, n= -6], q);
+                               729
+(%o2)                        - ----
+                               2240
+</pre>
+<p>Alternativamente, podemos tomar ese resultado directamente.
+</p>
+<pre class="example">(%i1) pochhammer (11/3, -6);
+                               729
+(%o1)                        - ----
+                               2240
+</pre>
+<p>A função passo de unidade é contínua à esquerda; dessa forma
+</p>
+<pre class="example">(%i1) [unit_step (-1/10), unit_step (0), unit_step (1/10)];
+(%o1)                       [0, 0, 1]
+</pre>
+<p>Se precisar de uma função de degrau unitário que seja
+ou contínua à esquerda ou contínua à
+direita do zero, defina a sua própria função usando
+<code>signum</code>; por exemplo,
+</p>
+<pre class="example">(%i1) xunit_step (x) := (1 + signum (x))/2$
+
+(%i2) [xunit_step (-1/10), xunit_step (0), xunit_step (1/10)];
+                                1
+(%o2)                       [0, -, 1]
+                                2
+</pre>
+<p>Não redefina a própria <code>unit_step</code>; alguns código em <code>orthopoly</code>
+requerem que a função de passo de unidade seja contínua à esquerda.
+</p>
+<hr size="6">
+<a name="SEC226"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC225" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC227" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC219" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC220" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#SEC228" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 61.1.6 Algorítmos </h3>
+
+<p>Geralmente, <code>orthopoly</code> faz avaliações simbólicas pelo uso de uma representação 
+hipergeométrica de polinómios ortogonais. As funções 
+hipegeométricas são avaliadas usando as funções (não documetadas) <code>hypergeo11</code> 
+e <code>hypergeo21</code>. As excessões são as funções de Bessel metade inteiras 
+e a função de Legendre associada de segundo tipo. As funções de Bessel metade inteiras são
+avaliadas usando uma representação explícita, e a função de Legendre 
+associada de segundo tipo é avaliada usando recursividade.
+</p>
+<p>Para avaliação em ponto flutuante, nós novamente convertemos muitas fuções em
+uma forma hipergeométrica; nós avaliamos as funções hipergeométricas usando 
+recursividade para frente. Novamente, as excessões são as funções de Bessel metade inteiras 
+e a função de Legendre associada de segundo tipo. Numericamente, 
+as funções de Bessel meio inteiras são avaliadas usando o código SLATEC.
+</p>
+<hr size="6">
+<a name="Defini_00e7_00f5es-para-polin_00f3mios-ortogonais"></a>
+<a name="SEC227"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC226" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#SEC228" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC219" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC219" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#SEC228" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 61.2 Definições para polinómios ortogonais </h2>
+
+<dl>
+<dt><u>Função:</u> <b>assoc_legendre_p</b><i> (<var>n</var>, <var>m</var>, <var>x</var>)</i>
+<a name="IDX1819"></a>
+</dt>
+<dd><p>As funções de Legendre associadas de primeiro tipo. 
+</p>
+<p>Referência: Abramowitz e Stegun, equações 22.5.37, página 779, 8.6.6
+(segunda equação), página 334, e 8.2.5, página 333.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>assoc_legendre_q</b><i> (<var>n</var>, <var>m</var>, <var>x</var>)</i>
+<a name="IDX1820"></a>
+</dt>
+<dd><p>A função de Legendre associada de segundo tipo.
+</p>
+<p>Referência: Abramowitz e Stegun, equação 8.5.3 e 8.1.8.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>chebyshev_t</b><i> (<var>n</var>, <var>x</var>)</i>
+<a name="IDX1821"></a>
+</dt>
+<dd><p>A função de Chebyshev de primeiro tipo.
+</p>
+<p>Referência: Abramowitz e Stegun, equação 22.5.47,página 779.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>chebyshev_u</b><i> (<var>n</var>, <var>x</var>)</i>
+<a name="IDX1822"></a>
+</dt>
+<dd><p>A função de Chebyshev do segundo tipo.
+</p>
+<p>Referência: Abramowitz e Stegun, equação 22.5.48,página 779.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>gen_laguerre</b><i> (<var>n</var>, <var>a</var>, <var>x</var>)</i>
+<a name="IDX1823"></a>
+</dt>
+<dd><p>O poli&ocirc;mio generalizado de Laguerre.
+</p>
+<p>Referência: Abramowitz e Stegun, equação 22.5.54,página 780.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>hermite</b><i> (<var>n</var>, <var>x</var>)</i>
+<a name="IDX1824"></a>
+</dt>
+<dd><p>O polinómio de Hermite.
+</p>
+<p>Referência: Abramowitz e Stegun, equação 22.5.55,página 780.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>intervalp</b><i> (<var>e</var>)</i>
+<a name="IDX1825"></a>
+</dt>
+<dd><p>Retorna <code>true</code> se a entrada for um intervalo e retorna <code>false</code> se não for. 
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>jacobi_p</b><i> (<var>n</var>, <var>a</var>, <var>b</var>, <var>x</var>)</i>
+<a name="IDX1826"></a>
+</dt>
+<dd><p>o polinómio de Jacobi.
+</p>
+<p>Os polinómios de Jacobi são actualmente definidos para todo
+<var>a</var> e <var>b</var>; todavia, o peso do polinómio de
+Jacobi <code>(1 - <var>x</var>)^<var>a</var> (1 + <var>x</var>)^<var>b</var></code> não é integrável para <code><var>a</var> &lt;= -1</code> ou
+<code><var>b</var> &lt;= -1</code>. 
+</p>
+<p>Referência: Abramowitz e Stegun, equação 22.5.42,página 779.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>laguerre</b><i> (<var>n</var>, <var>x</var>)</i>
+<a name="IDX1827"></a>
+</dt>
+<dd><p>O polinómio de Laguerre.
+</p>
+<p>Referência: Abramowitz e Stegun, equatções 22.5.16 e 22.5.54,página 780.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>legendre_p</b><i> (<var>n</var>, <var>x</var>)</i>
+<a name="IDX1828"></a>
+</dt>
+<dd><p>O polinómio de Legendre de primeiro tipo.
+</p>
+<p>Referência: Abramowitz e Stegun, equações 22.5.50 e 22.5.51,página 779.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>legendre_q</b><i> (<var>n</var>, <var>x</var>)</i>
+<a name="IDX1829"></a>
+</dt>
+<dd><p>O polinómio de Legendre de primeiro tipo.
+</p>
+<p>Referência: Abramowitz e Stegun, equações 8.5.3 e 8.1.8.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>orthopoly_recur</b><i> (<var>f</var>, <var>args</var>)</i>
+<a name="IDX1830"></a>
+</dt>
+<dd><p>Retorna uma relação recursiva para a família de funções ortogonais
+<var>f</var> com argumentos <var>args</var>. A recursividade é com 
+relação ao grau do polinómio.
+</p>
+<pre class="example">(%i1) orthopoly_recur (legendre_p, [n, x]);
+                (2 n - 1) P     (x) x + (1 - n) P     (x)
+                           n - 1                 n - 2
+(%o1)   P (x) = -----------------------------------------
+         n                          n
+</pre>
+<p>O segundo argumento a <code>orthopoly_recur</code> deve ser uma lista com o 
+número correcto de argumentos para a função <var>f</var>; se o número de argumentos não for o correcto, 
+Maxima sinaliza com um erro.
+</p>
+<pre class="example">(%i1) orthopoly_recur (jacobi_p, [n, x]);
+
+Function jacobi_p needs 4 arguments, instead it received 2
+ -- an error.  Quitting.  To debug this try debugmode(true);
+</pre>
+<p>Adicionalmente, quando <var>f</var> não for o nome de uma das
+famílias de polinómios ortogonais, um erro é sinalizado.
+</p>
+<pre class="example">(%i1) orthopoly_recur (foo, [n, x]);
+
+A recursion relation for foo isn't known to Maxima
+ -- an error.  Quitting.  To debug this try debugmode(true);
+</pre></dd></dl>
+
+<dl>
+<dt><u>Variable:</u> <b>orthopoly_returns_intervals</b>
+<a name="IDX1831"></a>
+</dt>
+<dd><p>Valor por omissão: <code>true</code>
+</p>
+<p>Quando <code>orthopoly_returns_intervals</code> for <code>true</code>, resultados em ponto flutuante são retornados na
+forma <code>interval (<var>c</var>, <var>r</var>)</code>, onde <var>c</var> é o centro de um intervalo
+e <var>r</var> é seu raio. O centro pode ser um número complexo; nesse
+caso, o intervalo é um disco no plano complexo.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>orthopoly_weight</b><i> (<var>f</var>, <var>args</var>)</i>
+<a name="IDX1832"></a>
+</dt>
+<dd><p>Retorna uma lista de três elementos; o primeiro elemento é 
+a fórmula do peso para a família de polinómios ortogonais
+<var>f</var> com argumentos fornecidos pela lista <var>args</var>; os 
+segundos e terceiros elementos fornecem os pontos finais inferior e superior
+do intervalo de ortogonalidade. Por exemplo,
+</p>
+<pre class="example">(%i1) w : orthopoly_weight (hermite, [n, x]);
+                            2
+                         - x
+(%o1)                 [%e    , - inf, inf]
+(%i2) integrate (w[1] * hermite (3, x) * hermite (2, x), x, w[2], w[3]);
+(%o2)                           0
+</pre>
+<p>A variável principal de <var>f</var> deve ser um símbolo; Se não for, Maxima
+sinaliza com um erro. 
+</p>
+</dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>pochhammer</b><i> (<var>n</var>, <var>x</var>)</i>
+<a name="IDX1833"></a>
+</dt>
+<dd><p>O símbolo de Pochhammer. Para inteiros não negativos <var>n</var> com
+<code><var>n</var> &lt;= pochhammer_max_index</code>, a expressão <code>pochhammer (<var>x</var>, <var>n</var>)</code> 
+avalia para o produto <code><var>x</var> (<var>x</var> + 1) (<var>x</var> + 2) ... (<var>x</var> + n - 1)</code>
+when <code><var>n</var> &gt; 0</code> e
+para 1 quando <code><var>n</var> = 0</code>. Para valores negativos de <var>n</var>,
+<code>pochhammer (<var>x</var>, <var>n</var>)</code> é definido como <code>(-1)^<var>n</var> / pochhammer (1 - <var>x</var>, -<var>n</var>)</code>.
+Dessa forma
+</p>
+<pre class="example">(%i1) pochhammer (x, 3);
+(%o1)                   x (x + 1) (x + 2)
+(%i2) pochhammer (x, -3);
+                                 1
+(%o2)               - -----------------------
+                      (1 - x) (2 - x) (3 - x)
+</pre>
+<p>Para converter um símbolo de Pochhammer em um quociente de funções gama,
+(veja Abramowitz e Stegun, equação 6.1.22) use <code>makegamma</code>; por exemplo 
+</p>
+<pre class="example">(%i1) makegamma (pochhammer (x, n));
+                          gamma(x + n)
+(%o1)                     ------------
+                            gamma(x)
+</pre>
+<p>Quando <var>n</var> exceder <code>pochhammer_max_index</code> ou quando <var>n</var> 
+for simbólico, <code>pochhammer</code> retorna uma forma substantiva.
+</p>
+<pre class="example">(%i1) pochhammer (x, n);
+(%o1)                         (x)
+                                 n
+</pre></dd></dl>
+
+<dl>
+<dt><u>Variável:</u> <b>pochhammer_max_index</b>
+<a name="IDX1834"></a>
+</dt>
+<dd><p>Valor por omissão: 100
+</p>
+<p><code>pochhammer (<var>n</var>, <var>x</var>)</code> expande para um produto se e somente se
+<code><var>n</var> &lt;= pochhammer_max_index</code>.
+</p>
+<p>Exemplos:
+</p>
+<pre class="example">(%i1) pochhammer (x, 3), pochhammer_max_index : 3;
+(%o1)                   x (x + 1) (x + 2)
+(%i2) pochhammer (x, 4), pochhammer_max_index : 3;
+(%o2)                         (x)
+                                 4
+</pre>
+<p>Referência: Abramowitz e Stegun, equação 6.1.16,página 256.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>spherical_bessel_j</b><i> (<var>n</var>, <var>x</var>)</i>
+<a name="IDX1835"></a>
+</dt>
+<dd><p>A Função de Bessel esférica de primeiro tipo.
+</p>
+<p>Referência: Abramowitz e Stegun, equações 10.1.8,página 437 e 10.1.15,página 439.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>spherical_bessel_y</b><i> (<var>n</var>, <var>x</var>)</i>
+<a name="IDX1836"></a>
+</dt>
+<dd><p>A Função de Bessel esférica de segundo tipo. 
+</p>
+<p>Referência: Abramowitz e Stegun, equações 10.1.9,página 437 e 10.1.15,página 439.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>spherical_hankel1</b><i> (<var>n</var>, <var>x</var>)</i>
+<a name="IDX1837"></a>
+</dt>
+<dd><p>A Função de Hankel esférica de
+primeiro tipo.
+</p>
+<p>Referência: Abramowitz e Stegun, equação 10.1.36,página 439.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>spherical_hankel2</b><i> (<var>n</var>, <var>x</var>)</i>
+<a name="IDX1838"></a>
+</dt>
+<dd><p>A Função de Hankel esférica de segundo tipo.
+</p>
+<p>Referência: Abramowitz e Stegun, equação 10.1.17,página 439.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>spherical_harmonic</b><i> (<var>n</var>, <var>m</var>, <var>x</var>, <var>y</var>)</i>
+<a name="IDX1839"></a>
+</dt>
+<dd><p>A função arm&ocirc;nica esférica.
+</p>
+<p>Referência: Merzbacher 9.64.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>unit_step</b><i> (<var>x</var>)</i>
+<a name="IDX1840"></a>
+</dt>
+<dd><p>A função de passo de unidade contínua à esquerda; dessa forma
+<code>unit_step (<var>x</var>)</code> tende para <code><var>x</var> &lt;= 0</code> e é igual a
+1 para <code><var>x</var> &gt; 0</code>.
+</p>
+<p>Se quiser uma função de degrau unitário que tome o
+valor 1/2 em zero, use <code>(1 + signum (<var>x</var>))/2</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>ultraspherical</b><i> (<var>n</var>, <var>a</var>, <var>x</var>)</i>
+<a name="IDX1841"></a>
+</dt>
+<dd><p>A função polin&ocirc;mial ultraesférica (também conhecida como função polinomial de Gegenbauer).
+</p>
+<p>Referência: Abramowitz e Stegun, equação 22.5.46,página 779.
 </p></dd></dl>
 
 
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC218" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_62.html#SEC220" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC219" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#SEC228" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -267,12 +988,12 @@ b + a
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>Setembro, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>Janeiro, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

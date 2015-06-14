@@ -1,27 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年9月月15日 by texi2html 1.82
-texi2html was written by: 
-            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+<!-- Created on 5月, 20 2015 by texi2html 1.76 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
             Olaf Bachmann <obachman@mathematik.uni-kl.de>
             and many others.
-Maintained by: Many creative people.
-Send bugs and suggestions to <texi2html-bug@nongnu.org>
+Maintained by: Many creative people <dev@texi2html.cvshome.org>
+Send bugs and suggestions to <users@texi2html.cvshome.org>
+
 -->
 <head>
-<title>Maxima 5.34.1 Manual: 12. Plotting</title>
+<title>Maxima 5.36.1 Manual: 12. Plotting</title>
 
-<meta name="description" content="Maxima 5.34.1 Manual: 12. Plotting">
-<meta name="keywords" content="Maxima 5.34.1 Manual: 12. Plotting">
+<meta name="description" content="Maxima 5.36.1 Manual: 12. Plotting">
+<meta name="keywords" content="Maxima 5.36.1 Manual: 12. Plotting">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.82">
+<meta name="Generator" content="texi2html 1.76">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
 pre.display {font-family: serif}
 pre.format {font-family: serif}
 pre.menu-comment {font-family: serif}
@@ -30,109 +30,30 @@ pre.smalldisplay {font-family: serif; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.roman {font-family:serif; font-weight:normal;}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
@@ -157,129 +78,126 @@ div.categorybox
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="Plotting"></a>
+<a name="SEC62"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_11.html#Functions-and-Variables-for-Predicates" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-Plotting" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_11.html#SEC61" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC63" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_11.html#Maximas-Database" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_13.html#File-Input-and-Output" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_11.html#SEC57" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_13.html#SEC69" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Plotting-1"></a>
-<h1 class="chapter">12. Plotting</h1>
+<h1 class="chapter"> 12. Plotting </h1>
+
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-Plotting">12.1 Introduction to Plotting</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC63">12.1 Introduction to Plotting</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Plotting-Formats">12.2 Plotting Formats</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC64">12.2 Plotting Formats</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Plotting">12.3 Functions and Variables for Plotting</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC65">12.3 Functions and Variables for Plotting</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Plotting-Options">12.4 Plotting Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC66">12.4 Plotting Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Gnuplot-Options">12.5 Gnuplot Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC67">12.5 Gnuplot Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Gnuplot_005fpipes-Format-Functions">12.6 Gnuplot_pipes Format Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC68">12.6 Gnuplot_pipes Format Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <p><a name="Item_003a-Introduction-to-Plotting"></a>
 </p><hr size="6">
 <a name="Introduction-to-Plotting"></a>
+<a name="SEC63"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Plotting" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Plotting-Formats" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC62" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC64" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Plotting" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Plotting" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_13.html#File-Input-and-Output" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC62" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC62" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_13.html#SEC69" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-Plotting-1"></a>
-<h2 class="section">12.1 Introduction to Plotting</h2>
+<h2 class="section"> 12.1 Introduction to Plotting </h2>
 
 <p>Maximaはプロットするために外部のプロットパッケージを使います。
-（以下のPlottingフォーマットを参照してください）。
+（<code><a href="#SEC64">Plotting Formats</a></code>に関する節を参照してください）。
 プロット関数は点一式を計算し、コマンド一式と一緒にプロットパッケージに渡します。
 その情報は、
 パイプを通したり
 データが保存されたファイル名と共にプログラムをコールしたりして
 外部のプログラムに渡されます。
-データファイルの名前は <code>maxout.interface</code>です。
-<code>interface</code>は使用するプロットインターフェース名
-(gnuplotか, xmaxima, mgnuplot, gnuplot_pipes)です。
+データファイルの名前は <code>maxout.fromat</code>です。
+<code>format</code>は使用するプロットインターフェース名
+(<code>gnuplot</code>, <code>xmaxima</code>, <code>mgnuplot</code>, <code>gnuplot_pipes</code>)です。
 </p>
-<p>グラフィック形式ファイルでプロットを保存するのに使うことができるオプションがあります。
-それらの場合、ファイル <code>maxout.interface</code>が生成され、
-外部のプロットプログラムが結果を他のファイルに保存するためにそれを実行します;
-デフォルト名 <code>maxplot.format</code>を使います。ここで <code>format</code>は使われるフォーマットです。
+<p>グラフィック形式ファイルでプロットを保存する方法があります。
+それらの場合、 Maximaが生成するファイル <code>maxout.format</code>は
+外部のプロットプログラムに結果をグラフィックファイルに保存させるコマンドを含みます。
+そのグラフィックファイルのデフォルト名は <code>maxplot.extension</code>です。
+ここで <code>extension</code>は選択したグラフィックファイルの種類に通常使われる拡張子です。
 </p>
-<p><code>maxout.interface</code>と <code>maxplot.format</code>ファイル(もしくはオプションで与えられたプロット名)は、
-それらが使われる場合、システム変数 <code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
-が指定するディレクトリに生成されます。
+<p><code>maxout.format</code>と <code>maxplot.extension</code>ファイル(もしくはオプションで与えられたプロット名)は、システム変数 <code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>が指定するディレクトリに生成されます。
 Maximaが新規ファルを生成できる有効なディレクトリを示す文字列を
 その変数(もしくは環境変数 MAXIMA_TEMPDIR)に割り当てることで、
 その場所は変更可能です。
-生成されたファイル名はプロットコマンドの出力として表示されます。
+Maximaプロットコマンドの出力は、生成されたファイル名のリストです。ファイル名は完全なパスを含みます。
 </p>
-<p>プロットを生成した後でも、
-ファイル<code>maxout.interface</code>は、
-適切な外部のプログラムで再度実行することができます。
-もし Maximaのプロットコマンドが何かを表示するのに失敗したなら、
-問題の可能性のある元をファイルで調べることができます。
+<p>もし使用フォーマットが <code>gnuplot</code>か <code>xmaxima</code>なら、外部プログラム <code>gnuplot</code>か <code>xmaxima</code>を走らせることができます。
+Maximaで事前に生成したプロットを再度見るためには、ファイル <code>maxout.format</code>を引数として渡すことになります。
 </p>
-<p>この章で記述されたプロット関数と合わせて、
-パッケージ <code><a href="maxima_50.html#draw">draw</a></code>
-は他の機能を追加します。
-いくつかのプロットオプションはどちらのプロット文脈でも同じ名前が付けられていますが、
-異なる構文を持つことに注意してください;
-もしこれらのオプションに関係した描画情報をアクセスしたいなら、
-きっと <code>?? opt</code>とタイプするでしょう。ここで <code>opt</code>はオプション名です。
+<p>追加パッケージ <code><a href="maxima_50.html#SEC245">draw</a></code>はこの節で記述した関数にいくつかの機能を追加した関数を提供します。
+いくつかのプロットオプションはどちらのプロット文脈でも同じ名前が付けられていますが、構文と振る舞いが違うことに注意してください。
+これら2つのパッケージのどちらかの情報を選ぶために、グラフィックオプション <code>opt</code>のドキュメントを見るには
+<code>?? opt</code>とタイプしてください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p>
 <p><a name="Item_003a-Plotting-Formats"></a>
 </p><hr size="6">
 <a name="Plotting-Formats"></a>
+<a name="SEC64"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-Plotting" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Plotting" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC63" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC65" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Plotting" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Plotting" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_13.html#File-Input-and-Output" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC62" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC62" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_13.html#SEC69" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Plotting-Formats-1"></a>
-<h2 class="section">12.2 Plotting Formats</h2>
+<h2 class="section"> 12.2 Plotting Formats </h2>
 
-<p>今のところ、Maximaが使う外部のプロットプログラムは2つあります:
-GnuplotとXmaximaです。
+<p>Maximaは Gnuplotか Xmaximaをグラフィックスプログラムとして使うことができます。
+Gnuplotは別にインストールしなければいけない外部プログラムです。
+一方、 XmaximaはMaximaと一緒に配布されます。
 これらのプログラムに対して様々な異なるフォーマットがあります。
-それらはオプション <code><a href="#plot_005fformat">plot_format</a></code>
-で選択することができます。
-(Plotting Options節を参照してください。)
+それらはオプション <code><a href="#plot_005fformat">plot_format</a></code>で選択することができます。
+(<code><a href="#SEC66">Plotting Options</a></code>節も参照してください。)
 </p>
 <p>プロットフォーマットは以下の通りです:
 </p>
@@ -299,16 +217,14 @@ gnuplotがインストールされていなければいけません。
 <code>gnuplot</code>フォーマットと似ていますが、
 データがファイル <code>maxout.gnuplot_pipes</code>に保存される一方、
 コマンドがパイプを通してgnuplotに送られるところが違います。
-gnuplotパイプが関数 <code><a href="#gnuplot_005fclose">gnuplot_close</a></code>
-で閉じられない限り、
+gnuplotパイプが関数 <code><a href="#gnuplot_005fclose">gnuplot_close</a></code>で閉じられない限り、
 １つの gnuplotプロセスが開き続けて、続きのプロットコマンドは同じプロセスに送られ、
 以前のプロットを置き換えます。
-このフォーマットを使う時、関数 <code><a href="#gnuplot_005freplot">gnuplot_replot</a></code>
-は
+このフォーマットを使う時、関数 <code><a href="#gnuplot_005freplot">gnuplot_replot</a></code>は
 既にスクリーン上に表示されたプロットを変更するのに使うことができます。
 </p>
 <p>このフォーマットはスクリーンへプロットするためだけに使います;
-グラフィックファイルが生成される時はいつでも、フォーマットは自動的に <code>gnuplot</code>切り替えられ、グラフィックファイルを生成するのに必要なgnuplotコマンドは
+グラフィックファイルが生成される時はいつでも、フォーマットは暗黙のうちに <code>gnuplot</code>に切り替えられ、グラフィックファイルを生成するのに必要なgnuplotコマンドはデータと一緒に
 <code>maxout.gnuplot</code>に保存されます。
 </p>
 </li><li>
@@ -328,91 +244,92 @@ Mgnuplotは gnuplotと Tckl/Tkを別途インストールする必要があり�
 生成プロットを表示するのに使うことができます。
 このフォーマットを使うには xmaximaプログラム―これはMaximaと一緒に配布されます―
 をインストールする必要があります。
-もし Maximaを xmaxima自身から走らせるなら、
-このフォーマットを指定すると
-Maximaと Xmaximaの間の通信に使われているのと同じソケットを通して、
-プロット関数にデータとコマンドを送ります。
-コンソールや他のインターフェースから使われる時は、
-そのファイルの位置の名前を引数としてxmaximaプログラムを起動します。
+もし Maximaを Xmaximaコンソールから走らせるなら、
+Maximaと Xmaximaコンソールの間の通信に使われているのと同じソケットを通して、
+データとコマンドが xmaximaに渡されます。
+ターミナルや Xmaximaとは違うグラフィカルインターフェースから使う時は、
+コマンドとデータをファイル <code>maxout.xmaxima</code>に保存し、そのファイルの名前を引数として xmaximaプログラムを起動します。
 </p>
 <p>以前のバージョンではこのフォーマットは <code>openmath</code>と呼ばれていました;
-その古い名前はまだ <code>xmaxima</code>に対する同義語として受け付けられます。
+その古い名前はまだ <code>xmaxima</code>に対する同義語として機能します。
 </p>
 </li></ul>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p>
 <p><a name="Item_003a-Functions-and-Variables-for-Plotting"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-Plotting"></a>
+<a name="SEC65"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Plotting-Formats" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Plotting-Options" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC64" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC66" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Plotting" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Plotting" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_13.html#File-Input-and-Output" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC62" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC62" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_13.html#SEC69" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-Plotting-1"></a>
-<h2 class="section">12.3 Functions and Variables for Plotting</h2>
+<h2 class="section"> 12.3 Functions and Variables for Plotting </h2>
 
 <p><a name="contour_005fplot"></a>
 <a name="Item_003a-contour_005fplot"></a>
 </p><dl>
-<dt><a name="index-contour_005fplot"></a><u>関数:</u> <b>contour_plot</b><i> (<var>expr</var>, <var>x_range</var>, <var>y_range</var>, <var>options</var>, &hellip;)</i></dt>
-<dd>
-<p><var>expr</var>の等高線を領域 <var>x_range</var>, <var>y_range</var>でプロットします。
-他の引数は <code><a href="#plot3d">plot3d</a></code>
-と同じように扱われます。
+<dt><u>関数:</u> <b>contour_plot</b><i> (<var>expr</var>, <var>x_range</var>, <var>y_range</var>, <var>options</var>, &hellip;)</i>
+<a name="IDX430"></a>
+</dt>
+<dd><p><var>expr</var>の等高線を領域 <var>x_range</var>, <var>y_range</var>でプロットします。
+他の引数は <code><a href="#plot3d">plot3d</a></code>と同じように扱われます。
 </p>
 <p>プロットフォーマットが<code>gnuplot</code>か <code>gnuplot_pipes</code>の時だけ
 この関数は動作します。
-追加パッケージ <code>implicit_plot</code>も等高線をプロットするのに使われますが、
-それは任意のフォーマットで動作します。
-<code><a href="#implicit_005fplot">implicit_plot</a></code>
-も参照してください。
+任意のフォーマットで動作する追加パッケージ <code><a href="#implicit_005fplot">implicit_plot</a></code>も等高線をプロットするのに使われますが、
+それぞれの等高線に別々の指揮を与えなければいけません。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) contour_plot (x^2 + y^2, [x, -4, 4], [y, -4, 4])$
-</pre></td></tr></table>
-<img src="figures/plotting1.png" alt="figures/plotting1">
-
-<p><code>plot3d</code>が受け付ける任意のオプションを足すことができます;
-例えば、オプション <code><a href="#legend">legend</a></code>
-に falseの値を入れると凡例を取り除きます。
-Gnuplotはデフォルトで3つの高等線を示すように選びます。
-レベルの数を増やすにはカスタムの gnuplot前置きを指定する必要があります;
+<pre class="example">(%i1) contour_plot (x^2 + y^2, [x, -4, 4], [y, -4, 4])$
+</pre><p><div class="image"><img src="./figures/plotting1.png" alt="figures/plotting1"></div>
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) contour_plot (u^3 + v^2, [u, -4, 4], [v, -4, 4],
+<p><code>plot3d</code>が受け付ける任意のオプションを足すことができます;
+例えば、オプション <code><a href="#legend">legend</a></code>に falseの値を入れると凡例を取り除きます。
+デフォルトでは、 Gnuplotは3つの高等線を選び表示します。
+等高線の数を増やすには、次の例のようにカスタムの g<code><a href="#gnuplot_005fpreamble">gnuplot_preamble</a></code>を使う必要があります;
+</p>
+<pre class="example">(%i1) contour_plot (u^3 + v^2, [u, -4, 4], [v, -4, 4],
               [legend,false],
               [gnuplot_preamble, &quot;set cntrparam levels 12&quot;])$
-</pre></td></tr></table>
-<img src="figures/plotting2.png" alt="figures/plotting2">
+</pre><p><div class="image"><img src="./figures/plotting2.png" alt="figures/plotting2"></div>
+</p>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="get_005fplot_005foption"></a>
 <a name="Item_003a-get_005fplot_005foption"></a>
 </p><dl>
-<dt><a name="index-get_005fplot_005foption"></a><u>関数:</u> <b>get_plot_option</b><i> (<var>keyword</var>, <var>index</var>)</i></dt>
-<dd>
-<p><var>keyword</var>と名付けられたオプションの、グローバル変数 <code>plot_options</code>に保存されている現在のデフォルト値を返します。
-indexに1を与えるとキーワード自身を返します;
-2を与えるとキーワードに続く一番目のパラメータを返す、という具合です。
+<dt><u>関数:</u> <b>get_plot_option</b><i> (<var>keyword</var>, <var>index</var>)</i>
+<a name="IDX431"></a>
+</dt>
+<dd><p><var>keyword</var>と名付けられたオプションの現在のデフォルト値を返します。
+それはリストです。
+オプションの引数 <var>index</var>は正の整数でなければいけません。
+リストから1つの要素だけを抽出するのに使うことができます。
+(要素 1はオプションの名前です。)
 </p>
-<p><code><a href="#set_005fplot_005foption">set_plot_option</a></code>
-や <code><a href="#remove_005fplot_005foption">remove_plot_option</a></code>
-,
+<p><code><a href="#set_005fplot_005foption">set_plot_option</a></code>や <code><a href="#remove_005fplot_005foption">remove_plot_option</a></code>,
 Plotting Optionの節も参照してください。
 </p>
 </dd></dl>
@@ -420,38 +337,47 @@ Plotting Optionの節も参照してください。
 <p><a name="gnuplot_005fcommand"></a>
 <a name="Item_003a-gnuplot_005fcommand"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fcommand"></a><u>システム変数:</u> <b>gnuplot_command</b></dt>
-<dd>
-<p>この変数は、 プロットフォーマットが <code>gnuplot</code>の時にgnuplotプログラムを走らせるのに使われるコマンド名を保存します。
+<dt><u>システム変数:</u> <b>gnuplot_command</b>
+<a name="IDX432"></a>
+</dt>
+<dd><p>この変数は、 プロットフォーマットが <code>gnuplot</code>の時にgnuplotプログラムを走らせるのに使われるコマンド名を保存します。
 デフォルト値は、 Windowsでは &quot;wgunplot&quot;、他のシステムでは &quot;gnuplot&quot;です。
 完全なパスが与えられず gnuplotプログラムが見つからないか、違うバージョンを試したいときは、
 この変数の値を変えることができます。例えば、
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) gnuplot_command: &quot;/usr/local/bin/my_gnuplot&quot;$
-</pre></td></tr></table>
+<pre class="example">(%i1) gnuplot_command: &quot;/usr/local/bin/my_gnuplot&quot;$
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gnuplot_005ffile_005fargs"></a>
 <a name="Item_003a-gnuplot_005ffile_005fargs"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005ffile_005fargs"></a><u>システム変数:</u> <b>gnuplot_file_args</b></dt>
-<dd>
-<p>グラフィックファイルが <code>gnuplot</code>で生成されようとする時、
+<dt><u>システム変数:</u> <b>gnuplot_file_args</b>
+<a name="IDX433"></a>
+</dt>
+<dd><p>グラフィックファイルが <code>gnuplot</code>で生成されようとする時、
 この変数は、ファイル名をgnuplotに渡す方法を指定するのに使われます。
 デフォルト値は &quot;~s&quot;です。それはファイル名を直接渡すことを意味します。
-この変数の中身は、 gnuplotプログラムに関してオプションを、&quot;~s&quot;の前にオプションを加えて加えることで変更可能です。
+gnuplotプログラムのオプションを加えるために、この変数の中身を変更することができます。
+フォーマットディレクティブ &quot;~s&quot;の前にそれらのオプションを加えます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gnuplot_005fview_005fargs"></a>
 <a name="Item_003a-gnuplot_005fview_005fargs"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fview_005fargs"></a><u>システム変数:</u> <b>gnuplot_view_args</b></dt>
-<dd>
-<p>この変数は、プロットフォーマットが <code>gnuplot</code>の時 gnuplotプログラムに渡す引数をパースするのに使います。
+<dt><u>システム変数:</u> <b>gnuplot_view_args</b>
+<a name="IDX434"></a>
+</dt>
+<dd><p>この変数は、プロットフォーマットが <code>gnuplot</code>の時 gnuplotプログラムに渡す引数をパースするのに使います。
 デフォルト値は &quot;-persist ~s&quot;です。
 ここで &quot;~s&quot;は gnuplotコマンドが書かれるファイル名(通常 &quot;maxout.gnuplot&quot;)に置き換えられます。
 オプション <code>-persist</code>は ファイルの中のコマンドが実行された後、プロットを表示しているウィンドウを閉じずに gnuplotを終了させます。
@@ -459,9 +385,8 @@ Plotting Optionの節も参照してください。
 <p>gnuplotに詳しい人たちはこの変数の値を替えたいかもしれません。
 例えば、それを以下のように変えることで:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) gnuplot_view_args: &quot;~s -&quot;$
-</pre></td></tr></table>
-
+<pre class="example">(%i1) gnuplot_view_args: &quot;~s -&quot;$
+</pre>
 <p>ファイルの中のコマンドが実行された後、gnuplotは閉じません;
 なので、プロットを含むウィンドウはもちろん、プロットを修正するため他のコマンドを発行できるgnuplot対話シェルも残ります。
 </p>
@@ -470,48 +395,51 @@ Plotting Optionの節も参照してください。
 &quot;~s -&quot;は プロットウィンドウを残しながら gnuplotシェルを閉じました。
 なので、もし Windowsで古い gnuplotバージョンを使っているなら、 <code>gnuplot_view_args</code>の値を調整する必要があるかもしれません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="implicit_005fplot"></a>
 <a name="Item_003a-implicit_005fplot"></a>
 </p><dl>
-<dt><a name="index-implicit_005fplot"></a><u>関数:</u> <b>implicit_plot</b><i> (<var>expr</var>, <var>x_range</var>, <var>y_range</var>)</i></dt>
-<dt><a name="index-implicit_005fplot-1"></a><u>関数:</u> <b>implicit_plot</b><i> ([<var>expr_1</var>, ..., <var>expr_n</var>], <var>x_range</var>, <var>y_range</var>)</i></dt>
-<dd>
-<p>１つ以上の式のプロットを陰形式で表示します。
-<var>expr</var>はプロットされる式で、
-<var>x_range</var>は水平軸の範囲、
-<var>y_range</var>は垂直軸の範囲です。
-<code>implicit_plot</code>は
-<var>set_plot_option</var>関数が設定するgnuplotドライバのグローバル設定を考慮します。
-オプションはオプション引数として<code>implicit_plot</code>関数にも渡されることができます。
+<dt><u>関数:</u> <b>implicit_plot</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>implicit_plot</tt> (<var>expr</var>, <var>x_range</var>, <var>y_range</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>implicit_plot</tt> ([<var>expr_1</var>, &hellip;, <var>expr_n</var>], <var>x_range</var>, <var>y_range</var>)</i>
+<a name="IDX435"></a>
+</dt>
+<dd><p>式 <var>expr</var>が陰に定義する実平面上の関数のプロットを表示します。
+平面の領域は <var>x_range</var>と <var>y_range</var>で定義されます。
+いくつかの関数を、それらを定義する式のリスト [<var>expr_1</var>, &hellip;, <var>expr_n</var>]を与えることで、同じプロットで表示することができます。
+この関数は<code><a href="#set_005fplot_005foption">set_plot_option</a></code>で設定されたグローバルフォーマットオプションを使います。
+追加オプションも <code>implicit_plot</code>コマンドの追加引数として与えることができます。
 </p>
-<p><code>implicit_plot</code>は
-<var>x_range</var>と<var>y_range</var>で与えられる領域上で符号の変化を辿ることで機能し、
-複雑な式では失敗する可能性があります。
+<p><code>implicit_plot</code>はが使う方法は与えられた領域上の符号変化の追尾から構成されていて、
+複雑な式では失敗する可能性が有ります。
 </p>
 <p><code>load(implicit_plot)</code>はこの関数をロードします。
 </p>
 <p>例:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(implicit_plot)$
+</p><pre class="example">(%i1) load(implicit_plot)$
 (%i2) implicit_plot (x^2 = y^3 - 3*y + 1, [x, -4, 4], [y, -4, 4])$
-</pre></td></tr></table>
+</pre>
+<p><div class="image"><img src="./figures/plotting3.png" alt="figures/plotting3"></div>
+</p>
+<div class=categorybox>
 
-<img src="figures/plotting3.png" alt="figures/plotting3">
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
- &middot;<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_100.html#Category_003a-Package-implicit_005fplot">Package implicit_plot</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a> &middot;
+<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a> &middot;
+<a href="maxima_100.html#Category_003a-Package-implicit_005fplot">Package implicit_plot</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="julia"></a>
 <a name="Item_003a-julia"></a>
 </p><dl>
-<dt><a name="index-julia"></a><u>関数:</u> <b>julia</b><i> (<var>x</var>, <var>y</var>, ...<var>options</var>...)</i></dt>
-<dd>
-<p>複素数 (<var>x</var> + i <var>y</var>)に関する
+<dt><u>関数:</u> <b>julia</b><i> (<var>x</var>, <var>y</var>, ...<var>options</var>...)</i>
+<a name="IDX436"></a>
+</dt>
+<dd><p>複素数 (<var>x</var> + i <var>y</var>)に関する
 Julia集合の表現のグラフィックスファイルを生成します。
 2つの必須パラメータ <var>x</var>と <var>y</var>は実数でなければいけません。
 このプログラムは追加パッケージ <code>dynamics</code>の一部ですが、そのパッケージはロードする必要はなく、
@@ -519,125 +447,122 @@ juliaが使われる初回に自動的にロードされます。
 </p>
 <p>グリッドのそれぞれのピクセルは、
 その点からシュッパウして原点を中心とした半径2の収束円からはみ出るまでの繰り返しの回数に対応した色が与えられます。
-グリッドのピクセルの数は <code><a href="#grid">grid</a></code>
-プロットオプションが制御します(デフォルトは30掛ける30)。
-繰り返しの最大数はオプション <code><a href="#iterations">iterations</a></code>
-で設定されます。
+グリッドのピクセルの数は <code><a href="#grid">grid</a></code>プロットオプションが制御します(デフォルトは30掛ける30)。
+繰り返しの最大数はオプション <code><a href="#iterations">iterations</a></code>で設定されます。
 プログラムは自身のデフォルトパレットを使います: マゼンダ、紫、青、シアン、緑、黄、赤、茶、黒。
-しかしコマンドで明示的に <code><a href="#palette">palette</a></code>
-オプションを加えることで変更できます。
+しかしコマンドで明示的に <code><a href="#palette">palette</a></code>オプションを加えることで変更できます。
 </p>
 <p>使われるデフォルトの領域は、両方の軸で-2から2までで、 <code>x</code>と <code>y</code>オプションを使って変えられます。
-オプション <code><a href="#yx_005fratio">yx_ratio</a></code>
-を使うか、オプション <code><a href="#same_005fxy">same_xy</a></code>
-をディセーブルするかどちらかをしない限り
+オプション <code><a href="#yx_005fratio">yx_ratio</a></code>を使うか、オプション <code><a href="#same_005fxy">same_xy</a></code>をディセーブルするかどちらかをしない限り
 デフォルトでは2つの軸は同じスケールで表示されます。
 他の一般的なプロットオプションも受け入れられます。
 </p>
 <p>以下の例は、数-0.55 + i0.6に関するJulia集合の領域を表示します。
-オプション <code><a href="#color_005fbar_005ftics">color_bar_tics</a></code>
-は Gnuplotが色ボックスを40まで調整するのを抑制するのに使われています。
+オプション <code><a href="#color_005fbar_005ftics">color_bar_tics</a></code>は Gnuplotが色ボックスを40まで調整するのを抑制するのに使われています。
 この場合、最大36回の繰り返しに対応する点は黒ではないです。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) julia (-0.55, 0.6, [iterations, 36], [x, -0.3, 0.2], [y, 0.3, 0.9],
-      [grid, 400, 400], [color_bar_tics, 0, 6, 36])$
-</pre></td></tr></table>
+<pre class="example">(%i1) julia (-0.55, 0.6, [iterations, 36], [x, -0.3, 0.2],
+      [y, 0.3, 0.9], [grid, 400, 400], [color_bar_tics, 0, 6, 36])$
+</pre>
+<p><div class="image"><img src="./figures/plotting4.png" alt="figures/plotting4"></div>
+</p>
 
-<img src="figures/plotting4.png" alt="figures/plotting4">
+<div class=categorybox>
 
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-dynamics">Package dynamics</a>
- &middot;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-dynamics">Package dynamics</a> &middot;
+<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p>
 </dd></dl>
 
 
 <p><a name="make_005ftransform"></a>
 <a name="Item_003a-make_005ftransform"></a>
 </p><dl>
-<dt><a name="index-make_005ftransform"></a><u>関数:</u> <b>make_transform</b><i> ([<var>var1</var>, <var>var2</var>, <var>var3</var>], <var>fx</var>, <var>fy</var>, <var>fz</var>)</i></dt>
-<dd>
-<p>plot3dのオプション <code><a href="#transform_005fxy">transform_xy</a></code>
-での使用に適した関数を返します。
+<dt><u>関数:</u> <b>make_transform</b><i> ([<var>var1</var>, <var>var2</var>, <var>var3</var>], <var>fx</var>, <var>fy</var>, <var>fz</var>)</i>
+<a name="IDX437"></a>
+</dt>
+<dd><p>plot3dのオプション <code><a href="#transform_005fxy">transform_xy</a></code>での使用に適した関数を返します。
 3変数 <var>var1</var>, <var>var2</var>, <var>var3</var>は3つのダミー変数名です。
 それらは plot3dコマンドが与える3変数
 (最初2つの独立変数と、そのあとそれら2つの変数に依存する関数)を表します。
 3つの関数<var>fx</var>, <var>fy</var>, <var>fz</var>はそれら3変数だけで決まるはずで、
 プロットすべき対応する x, y, z座標を与えます。
 デフォルトで定義された2つの変換があります;
-<code><a href="#polar_005fto_005fxy">polar_to_xy</a></code>
-と<code><a href="#spherical_005fto_005fxyz">spherical_to_xyz</a></code>
-;
+<code><a href="#polar_005fto_005fxy">polar_to_xy</a></code>と<code><a href="#spherical_005fto_005fxyz">spherical_to_xyz</a></code>;
 それら2つの変換に関するドキュメンテーションを参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="mandelbrot"></a>
 <a name="Item_003a-mandelbrot"></a>
 </p><dl>
-<dt><a name="index-mandelbrot"></a><u>関数:</u> <b>mandelbrot</b><i> (<var>options</var>)</i></dt>
-<dd>
-<p>Mandelbrot集合の表現のグラフィックスファイルを生成します。
+<dt><u>関数:</u> <b>mandelbrot</b><i> (<var>options</var>)</i>
+<a name="IDX438"></a>
+</dt>
+<dd><p>Mandelbrot集合の表現のグラフィックスファイルを生成します。
 このプログラムは追加パッケージ <code>dynamics</code>の一部ですが、そのパッケージはロードする必要はなく、
 juliaが使われる初回に自動的にロードされます。
 </p>
 <p>このプログラムは引数なしに呼び出すことができます。その場合、
 点毎にデフォルト値の9回の繰り返し、
-<code><a href="#grid">grid</a></code>
-プロットオプション(デフォルトは30掛ける30)で設定された寸法のグリッド、
+<code><a href="#grid">grid</a></code>プロットオプション(デフォルトは30掛ける30)で設定された寸法のグリッド、
 両方の軸で-2から2まで拡張した領域を使います。
-オプションは plot2dが受け付けるのと同じものすべてと、加えて繰り返し数を変えるオプション <code><a href="#iterations">iterations</a></code>
-です。
+オプションは plot2dが受け付けるのと同じものすべてと、加えて繰り返し数を変えるオプション <code><a href="#iterations">iterations</a></code>です。
 </p>
 <p>グリッドのそれぞれのピクセルは、
 その点からシュッパウして原点を中心とした半径2の収束円からはみ出るまでの繰り返しの回数に対応した色が与えられます。
-グリッドのピクセルの数は <code><a href="#grid">grid</a></code>
-プロットオプションが制御します(デフォルトは30掛ける30)。
-繰り返しの最大数はオプション <code><a href="#iterations">iterations</a></code>
-で設定されます。
+グリッドのピクセルの数は <code><a href="#grid">grid</a></code>プロットオプションが制御します(デフォルトは30掛ける30)。
+繰り返しの最大数はオプション <code><a href="#iterations">iterations</a></code>で設定されます。
 プログラムは自身のデフォルトパレットを使います: マゼンダ、紫、青、シアン、緑、黄、赤、茶、黒。
-しかしコマンドで明示的に <code><a href="#palette">palette</a></code>
-オプションを加えることで変更できます。
-オプション <code><a href="#yx_005fratio">yx_ratio</a></code>
-を使うか、オプション <code><a href="#same_005fxy">same_xy</a></code>
-をディセーブルするかどちらかをしない限り
+しかしコマンドで明示的に <code><a href="#palette">palette</a></code>オプションを加えることで変更できます。
+オプション <code><a href="#yx_005fratio">yx_ratio</a></code>を使うか、オプション <code><a href="#same_005fxy">same_xy</a></code>をディセーブルするかどちらかをしない限り
 デフォルトでは2つの軸は同じスケールで表示されます。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) mandelbrot ([iterations, 30], [x, -2, 1], [y, -1.2, 1.2], [grid,400,400])$
-</pre></td></tr></table>
+<p>            [grid,400,400])$
+</p><pre class="example">(%i1) mandelbrot ([iterations, 30], [x, -2, 1], [y, -1.2, 1.2],
+            [grid,400,400])$
+</pre>
+<p><div class="image"><img src="./figures/plotting5.png" alt="figures/plotting5"></div>
+</p>
+<div class=categorybox>
 
-<img src="figures/plotting5.png" alt="figures/plotting5">
-
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-dynamics">Package dynamics</a>
- &middot;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-dynamics">Package dynamics</a> &middot;
+<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p>
 </dd></dl>
 
 
 <p><a name="polar_005fto_005fxy"></a>
 <a name="Item_003a-polar_005fto_005fxy"></a>
 </p><dl>
-<dt><a name="index-polar_005fto_005fxy"></a><u>システム関数:</u> <b>polar_to_xy</b></dt>
-<dd>
-<p>plot3dの <code><a href="#transform_005fxy">transform_xy</a></code>
-オプションに対する値として与えることができます。
+<dt><u>システム関数:</u> <b>polar_to_xy</b>
+<a name="IDX439"></a>
+</dt>
+<dd><p>plot3dの <code><a href="#transform_005fxy">transform_xy</a></code>オプションに対する値として与えることができます。
 その効果は plot3dの2つの独立変数をz軸からの距離と方位角(極座標)として通訳し、
 それらを xと y座標に変換することです。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="plot2d"></a>
 <a name="Item_003a-plot2d"></a>
 </p><dl>
-<dt><a name="index-plot2d"></a><u>関数:</u> <b>plot2d</b><i> (<var>plot</var>, <var>x_range</var>, &hellip;, <var>options</var>, &hellip;)</i></dt>
-<dt><a name="index-plot2d-1"></a><u>関数:</u> <b>plot2d</b><i> ([<var>plot_1</var>, &hellip;, <var>plot_n</var>], &hellip;, <var>options</var>, &hellip;)</i></dt>
-<dt><a name="index-plot2d-2"></a><u>関数:</u> <b>plot2d</b><i> ([<var>plot_1</var>, &hellip;, <var>plot_n</var>], <var>x_range</var>, &hellip;, <var>options</var>, &hellip;)</i></dt>
-<dd>
-<p>ここで <var>plot</var>, <var>plot_1</var>, &hellip;,
+<dt><u>関数:</u> <b>plot2d</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot2d</tt> (<var>plot</var>, <var>x_range</var>, &hellip;, <var>options</var>, &hellip;) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot2d</tt> ([<var>plot_1</var>, &hellip;, <var>plot_n</var>], &hellip;, <var>options</var>, &hellip;) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot2d</tt> ([<var>plot_1</var>, &hellip;, <var>plot_n</var>], <var>x_range</var>, &hellip;, <var>options</var>, &hellip;)</i>
+<a name="IDX440"></a>
+</dt>
+<dd><p>ここで <var>plot</var>, <var>plot_1</var>, &hellip;,
 <var>plot_n</var>は式か関数名、もしくは以下のいずれかの形式のリストです:
 </p>
 <p><code>[discrete, [<var>x1</var>, ..., <var>xn</var>], [<var>y1</var>, ..., <var>yn</var>]]</code>,
@@ -685,137 +610,123 @@ x軸上の連続する整数値(1,2,3,...)にプロットされる数値の数�
 </p>
 <p>他のすべてのオプションも
 キーワードで始まり、1つか複数の値が続くリストでなければいけません。
-<code><a href="#plot_005foptions">plot_options</a></code>
-を参照してください。
+<code><a href="#plot_005foptions">plot_options</a></code>を参照してください。
 </p>
 <p>もし複数のプロットがプロットされるなら式のそれぞれを識別するために凡例が書かれます。
-その凡例で使われるラベルはオプション <code><a href="#legend">legend</a></code>
-で与えることができます。
+その凡例で使われるラベルはオプション <code><a href="#legend">legend</a></code>で与えることができます。
 もしそのオプションが使われないなら Maximaは式や関数名からラベルを生成します。
 </p>
 <p><strong>例:</strong>
 </p>
 <p>よくある関数のプロット:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d (sin(x), [x, -%pi, %pi])$
-</pre></td></tr></table>
-
-<img src="figures/plotting6.png" alt="figures/plotting6">
-
-<p>もし関数の増大が速すぎるなら
-<code><a href="#y">y</a></code>
-オプションを使って垂直軸の値を制限する必要があるかもしれません:
+<pre class="example">(%i1) plot2d (sin(x), [x, -%pi, %pi])$
+</pre>
+<p><div class="image"><img src="./figures/plotting6.png" alt="figures/plotting6"></div>
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d (sec(x), [x, -2, 2], [y, -20, 20])$
+<p>もし関数の増大が速すぎるなら
+<code><a href="#y">y</a></code>オプションを使って垂直軸の値を制限する必要があるかもしれません:
+</p>
+<pre class="example">(%i1) plot2d (sec(x), [x, -2, 2], [y, -20, 20])$
 plot2d: some values were clipped.
-</pre></td></tr></table>
-
-<img src="figures/plotting7.png" alt="figures/plotting7">
-
+</pre>
+<p><div class="image"><img src="./figures/plotting7.png" alt="figures/plotting7"></div>
+</p>
 <p>プロットボックスがディセーブルの時は軸のためのラベルが生成荒れません。
-その場合、<code><a href="#xlabel">xlabel</a></code>
-と <code><a href="#ylabel">ylabel</a></code>
-を使って軸の名前を設定する代わりに
-もっと自由度の高いオプション <code><a href="#label">label</a></code>
-を使う方がいいです。
-オプション <code><a href="#yx_005fratio">yx_ratio</a></code>
-は、プロットの形のデフォルトである長方形を変更するのに使います;
+その場合、<code><a href="#xlabel">xlabel</a></code>と <code><a href="#ylabel">ylabel</a></code>を使って軸の名前を設定する代わりに
+もっと自由度の高いオプション <code><a href="#label">label</a></code>を使う方がいいです。
+オプション <code><a href="#yx_005fratio">yx_ratio</a></code>は、プロットの形のデフォルトである長方形を変更するのに使います;
 この例ではプロットは平方形を埋めます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d ( x^2 - 1, [x, -3, 3], [box, false], grid2d, [yx_ratio, 1],
-      [axes, solid], [xtics, -2, 4, 2], [ytics, 2, 2, 6],
-      [label, [&quot;x&quot;, 2.9, -0.3], [&quot;x^2-1&quot;, 0.1, 8]], [title, &quot;A parabola&quot;])$
-</pre></td></tr></table>
-
-<img src="figures/plotting8.png" alt="figures/plotting8">
-
+<pre class="example">(%i1) plot2d ( x^2 - 1, [x, -3, 3], [box, false], grid2d,
+      [yx_ratio, 1], [axes, solid], [xtics, -2, 4, 2],
+      [ytics, 2, 2, 6], [label, [&quot;x&quot;, 2.9, -0.3],
+      [&quot;x^2-1&quot;, 0.1, 8]], [title, &quot;A parabola&quot;])$
+</pre>
+<p><div class="image"><img src="./figures/plotting8.png" alt="figures/plotting8"></div>
+</p>
 <p>垂直軸方向の対数プロットの例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d (exp(3*s), [s, -2, 2], logy)$
-</pre></td></tr></table>
-
-<img src="figures/plotting9.png" alt="figures/plotting9">
-
+<pre class="example">(%i1) plot2d (exp(3*s), [s, -2, 2], logy)$
+</pre>
+<p><div class="image"><img src="./figures/plotting9.png" alt="figures/plotting9"></div>
+</p>
 <p>関数を名前でプロット:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) F(x) := x^2 $
-</pre><pre class="example">(%i2) :lisp (defun |$g| (x) (m* x x x))
+<pre class="example">(%i1) F(x) := x^2 $
+(%i2) :lisp (defun |$g| (x) (m* x x x))
 $g
-</pre><pre class="example">(%i2) H(x) := if x &lt; 0 then x^4 - 1 else 1 - x^5 $
+(%i2) H(x) := if x &lt; 0 then x^4 - 1 else 1 - x^5 $
 (%i3) plot2d ([F, G, H], [u, -1, 1], [y, -1.5, 1.5])$
-</pre></td></tr></table>
-
-<img src="figures/plotting10.png" alt="figures/plotting10">
-
+</pre>
+<p><div class="image"><img src="./figures/plotting10.png" alt="figures/plotting10"></div>
+</p>
 <p>パラメトリックに定義されたバタフライカーブのプロット:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) r: (exp(cos(t))-2*cos(4*t)-sin(t/12)^5)$
+<pre class="example">(%i1) r: (exp(cos(t))-2*cos(4*t)-sin(t/12)^5)$
 (%i2) plot2d([parametric, r*sin(t), r*cos(t), [t, -8*%pi, 8*%pi]])$
-</pre></td></tr></table>
-
-<img src="figures/plotting11.png" alt="figures/plotting11">
-
-<p>パラメトリック表現を使った円を-|x|と合わせてプロット。
-円は、もし2つの軸のスケールが同じなら、円のように見えるだけのものです。オプション <code><a href="#same_005fxy">same_xy</a></code>
-で指定します。
+</pre>
+<p><div class="image"><img src="./figures/plotting11.png" alt="figures/plotting11"></div>
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d([[parametric, cos(t), sin(t), [t,0,2*%pi]], -abs(x)],
+<p>パラメトリック表現を使った円を-|x|と合わせてプロット。
+円は、もし2つの軸のスケールが同じなら、円のように見えるだけのものです。オプション <code><a href="#same_005fxy">same_xy</a></code>で指定します。
+</p>
+<pre class="example">(%i1) plot2d([[parametric, cos(t), sin(t), [t,0,2*%pi]], -abs(x)],
          [x, -sqrt(2), sqrt(2)], same_xy)$
-</pre></td></tr></table>
-
-<img src="figures/plotting12.png" alt="figures/plotting12">
-
+</pre>
+<p><div class="image"><img src="./figures/plotting12.png" alt="figures/plotting12"></div>
+</p>
 <p>0から9の間の200個の乱数のプロット:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d ([discrete, makelist ( random(10), 200)])$
-</pre></td></tr></table>
-
-<img src="figures/plotting13.png" alt="figures/plotting13">
-
+<pre class="example">(%i1) plot2d ([discrete, makelist ( random(10), 200)])$
+</pre>
+<p><div class="image"><img src="./figures/plotting13.png" alt="figures/plotting13"></div>
+</p>
 <p>x座標, y座標を別々に定義した点の離散集合のプロット:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot2d ([discrete, makelist(i*%pi, i, 1, 5), [.6, .9, 0.2, 1.3, 1]])$
-</pre></td></tr></table>
-
-<img src="figures/plotting14.png" alt="figures/plotting14">
-
-<p>次の例では、3つの列を持つテーブルがファイル&rdquo;data.txt&rdquo;に保存され、
+<pre class="example">(%i1) plot2d ([discrete, makelist(i*%pi, i, 1, 5),
+                            [0.6, 0.9, 0.2, 1.3, 1]])$
+</pre>
+<p><div class="image"><img src="./figures/plotting14.png" alt="figures/plotting14"></div>
+</p>
+<p>次の例では、3つの列を持つテーブルがファイル&quot;data.txt&quot;に保存され、
 読み込まれ、2番目、3番目の列は2つの軸上にプロットされます:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) with_stdout (&quot;data.txt&quot;, for x:0 thru 10 do
+<pre class="example">(%i1) with_stdout (&quot;data.txt&quot;, for x:0 thru 10 do
                              print (x, x^2, x^3))$
-</pre><pre class="example">(%i2) data: transpose ( read_matrix (&quot;data.txt&quot;))$
-</pre><pre class="example">(%i3) plot2d ([discrete, transpose(data)[2], transpose(data)[3]],
+(%i2) data: transpose ( read_matrix (&quot;data.txt&quot;))$
+(%i3) plot2d ([discrete, transpose(data)[2], transpose(data)[3]],
   [style,points], [point_type,diamond], [color,red])$
-</pre></td></tr></table>
-
-<img src="figures/plotting15.png" alt="figures/plotting15">
-
+</pre>
+<p><div class="image"><img src="./figures/plotting15.png" alt="figures/plotting15"></div>
+</p>
 <p>離散データ点をデータを予測する連続関数と一緒にプロット:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) xy: [[10, .6], [20, .9], [30, 1.1], [40, 1.3], [50, 1.4]]$
-</pre><pre class="example">(%i2) plot2d([[discrete, xy], 2*%pi*sqrt(l/980)], [l,0,50],
+<pre class="example">(%i1) xy: [[10, .6], [20, .9], [30, 1.1], [40, 1.3], [50, 1.4]]$
+(%i2) plot2d([[discrete, xy], 2*%pi*sqrt(l/980)], [l,0,50],
         [style, points, lines], [color, red, blue],
         [point_type, asterisk],
         [legend, &quot;experiment&quot;, &quot;theory&quot;],
         [xlabel, &quot;pendulum's length (cm)&quot;],
         [ylabel, &quot;period (s)&quot;])$
-</pre></td></tr></table>
-
-<img src="figures/plotting16.png" alt="figures/plotting16">
-
+</pre>
+<p><div class="image"><img src="./figures/plotting16.png" alt="figures/plotting16"></div>
+</p>
 <p>プロットオプションに関する節も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="plot3d"></a>
 <a name="Item_003a-plot3d"></a>
 </p><dl>
-<dt><a name="index-plot3d"></a><u>関数:</u> <b>plot3d</b><i> (<var>expr</var>, <var>x_range</var>, <var>y_range</var>, &hellip;, <var>options</var>, &hellip;)</i></dt>
-<dt><a name="index-plot3d-1"></a><u>関数:</u> <b>plot3d</b><i> ([<var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>], <var>x_range</var>, <var>y_range</var>, &hellip;, <var>options</var>, &hellip;)</i></dt>
-<dd>
-<p>２変数関数もしくはパラメトリック形式で定義された１つか複数の表面のプロットを表示します。
+<dt><u>関数:</u> <b>plot3d</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot3d</tt> (<var>expr</var>, <var>x_range</var>, <var>y_range</var>, &hellip;, <var>options</var>, &hellip;) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot3d</tt> ([<var>expr_1</var>, &hellip;, <var>expr_n</var>], <var>x_range</var>, <var>y_range</var>, &hellip;, <var>options</var>, &hellip;)</i>
+<a name="IDX441"></a>
+</dt>
+<dd><p>２変数関数もしくはパラメトリック形式で定義された１つか複数の表面のプロットを表示します。
 </p>
 <p>プロットされる関数は式か関数名として指定できます。
 違った側面から表面を見るためにマウスを使ってプロットを回転することができます。
@@ -824,155 +735,149 @@ $g
 </p>
 <p>2変数関数のプロット:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d (u^2 - v^2, [u, -2, 2], [v, -3, 3], [grid, 100, 100],
+<pre class="example">(%i1) plot3d (u^2 - v^2, [u, -2, 2], [v, -3, 3], [grid, 100, 100],
         [mesh_lines_color,false])$
-</pre></td></tr></table>
-
-<img src="figures/plotting17.png" alt="figures/plotting17">
-
+</pre>
+<p><div class="image"><img src="./figures/plotting17.png" alt="figures/plotting17"></div>
+</p>
 <p>無限大に発散する関数を制限するための
-<code><a href="#z">z</a></code>
-オプションの使用(この場合、関数はxとy軸上でマイナス無限だい);
+<code><a href="#z">z</a></code>オプションの使用(この場合、関数はxとy軸上でマイナス無限だい);
 これは線のみ陰影なしでプロットする仕方も示します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d ( log ( x^2*y^2 ), [x, -2, 2], [y, -2, 2], [z, -8, 4],
+<pre class="example">(%i1) plot3d ( log ( x^2*y^2 ), [x, -2, 2], [y, -2, 2], [z, -8, 4],
          [palette, false], [color, magenta])$
-</pre></td></tr></table>
-
-<img src="figures/plotting18.png" alt="figures/plotting18">
-
-<p>zの無限大はいかなる漸近線上にも落ちないグリッドを選ぶことによっても避けることができます;
-次の例はパレットの変更の仕方と z変数の値を使って色を関連づけるカラーバーの表示の仕方も示します:
+</pre>
+<p><div class="image"><img src="./figures/plotting18.png" alt="figures/plotting18"></div>
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d (log (x^2*y^2), [x, -2, 2], [y, -2, 2],[grid, 29, 29],
-       [palette, [gradient, red, orange, yellow, green]], color_bar,
-       [xtics, 1], [ytics, 1], [ztics, 4],[color_bar_tics, 4])$
-</pre></td></tr></table>
-
-<img src="figures/plotting19.png" alt="figures/plotting19">
-
+<p>zの無限大の値は、次の例のように、関数が未定義となるいかなる点にも落ちないグリッドを選ぶことによっても避けることができます。
+この例は、パレットの変更の仕方と z変数の値に色を関連づけるカラーバーを含める仕方も示します:
+</p>
+<pre class="example">(%i1) plot3d (log (x^2*y^2), [x, -2, 2], [y, -2, 2],[grid, 29, 29],
+       [palette, [gradient, red, orange, yellow, green]],
+       color_bar, [xtics, 1], [ytics, 1], [ztics, 4],
+       [color_bar_tics, 4])$
+</pre>
+<p><div class="image"><img src="./figures/plotting19.png" alt="figures/plotting19"></div>
+</p>
 <p>同一プロットでの2つの表面。
-表面の1つに特化した範囲は共通のリストの中に式と範囲を置くことで与えることができます;
-この例ではそれぞれの表面は全体のプロットの領域と異なる領域で定義されています。
+表面の1つに特化した範囲は共通のリストの中にそれぞれ式とその範囲を置くことで与えることができます;
+完全なプロットのための全体範囲も関数定義の後で与えられます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d ([[-3*x - y, [x, -2, 2], [y, -2, 2]],
+<pre class="example">(%i1) plot3d ([[-3*x - y, [x, -2, 2], [y, -2, 2]],
    4*sin(3*(x^2 + y^2))/(x^2 + y^2), [x, -3, 3], [y, -3, 3]],
    [x, -4, 4], [y, -4, 4])$
-</pre></td></tr></table>
-
-<img src="figures/plotting20.png" alt="figures/plotting20">
-
+</pre>
+<p><div class="image"><img src="./figures/plotting20.png" alt="figures/plotting20"></div>
+</p>
 <p>パラメトリックに定義されたKleinの壷のプロット:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) expr_1: 5*cos(x)*(cos(x/2)*cos(y) + sin(x/2)*sin(2*y) + 3.0) - 10.0$
-(%i2) expr_2: -5*sin(x)*(cos(x/2)*cos(y) + sin(x/2)*sin(2*y) + 3.0)$
-(%i3) expr_3: 5*(-sin(x/2)*cos(y) + cos(x/2)*sin(2*y))$
-</pre><pre class="example">(%i4) plot3d ([expr_1, expr_2, expr_3], [x, -%pi, %pi],
+<pre class="example">(%i1) expr_1: 5*cos(x)*(cos(x/2)*cos(y)+sin(x/2)*sin(2*y)+3)-10$
+(%i2) expr_2: -5*sin(x)*(cos(x/2)*cos(y)+sin(x/2)*sin(2*y)+3)$
+(%i3) expr_3: 5*(-sin(x/2)*cos(y)+cos(x/2)*sin(2*y))$
+(%i4) plot3d ([expr_1, expr_2, expr_3], [x, -%pi, %pi],
         [y, -%pi, %pi], [grid, 50, 50])$
-</pre></td></tr></table>
-
-<img src="figures/plotting21.png" alt="figures/plotting21">
-
+</pre>
+<p><div class="image"><img src="./figures/plotting21.png" alt="figures/plotting21"></div>
+</p>
 <p>球座標から直交座標に変換するのにあらかじめ定義された変換
 <code>spherical_to_xyz</code>を使った「球調和」関数のプロット。
-<code><a href="#spherical_005fto_005fxyz">spherical_to_xyz</a></code>
-に関するドキュメンテーションを参照してください。
+<code><a href="#spherical_005fto_005fxyz">spherical_to_xyz</a></code>に関するドキュメンテーションを参照してください。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d (sin(2*theta)*cos(phi), [theta, 0, %pi],
+<pre class="example">(%i1) plot3d (sin(2*theta)*cos(phi), [theta, 0, %pi],
         [phi, 0, 2*%pi],
         [transform_xy, spherical_to_xyz], [grid,30,60],
    [legend,false])$
-</pre></td></tr></table>
-
-<img src="figures/plotting22.png" alt="figures/plotting22">
-
+</pre>
+<p><div class="image"><img src="./figures/plotting22.png" alt="figures/plotting22"></div>
+</p>
 <p>円筒座標から直交座標に変換するのにあらかじめ定義された変換
 <code>polar_to_xy</code>を使った球面調和関数のプロット。
-<code><a href="#polar_005fto_005fxy">polar_to_xy</a></code>
-に関するドキュメンテーションを参照してください。
+<code><a href="#polar_005fto_005fxy">polar_to_xy</a></code>に関するドキュメンテーションを参照してください。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d (r^.33*cos(th/3), [r, 0, 1], [th, 0, 6*%pi], [box, false],
+<pre class="example">((%i1) plot3d (r^.33*cos(th/3), [r,0,1], [th,0,6*%pi], [box, false],
    [grid, 12, 80], [transform_xy, polar_to_xy], [legend, false])$
-</pre></td></tr></table>
-
-<img src="figures/plotting23.png" alt="figures/plotting23">
-
+</pre>
+<p><div class="image"><img src="./figures/plotting23.png" alt="figures/plotting23"></div>
+</p>
 <p>球座標から直交座標への変換を使っての球のプロット。
-同じ比率でスケールされた3軸を得るのにオプション <code><a href="#same_005fxyz">same_xyz</a></code>
-を使います。
+同じ比率でスケールされた3軸を得るのにオプション <code><a href="#same_005fxyz">same_xyz</a></code>を使います。
 Gnuplotが表面を正確に表示しなくなるので、変換を使う時はメッシュ線を消すのは都合良くありません。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d ( 5, [theta, 0, %pi], [phi, 0, 2*%pi], same_xyz,
+<pre class="example">(%i1) plot3d ( 5, [theta, 0, %pi], [phi, 0, 2*%pi], same_xyz,
   [transform_xy, spherical_to_xyz], [mesh_lines_color,blue],
   [palette,[gradient,&quot;#1b1b4e&quot;, &quot;#8c8cf8&quot;]], [legend, false])$
-</pre></td></tr></table>
-
-<img src="figures/plotting24.png" alt="figures/plotting24">
-
+</pre>
+<p><div class="image"><img src="./figures/plotting24.png" alt="figures/plotting24"></div>
+</p>
 <p>行列を使った2変数関数の定義。
 関数の定義の中のシングルクォートに注意してください。
 行列が整数添字を要求する状況に実際に至る時
-plot3dが失敗しないためのものです。
+<code>plot3d</code>が失敗しないためのものです。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) M: matrix([1, 2, 3, 4], [1, 2, 3, 2], [1, 2, 3, 4], [1, 2, 3, 3])$
+<pre class="example">(%i1) M: matrix([1,2,3,4], [1,2,3,2], [1,2,3,4], [1,2,3,3])$
 (%i2) f(x, y) := float('M [round(x), round(y)])$
-</pre><pre class="example">(%i3) plot3d (f(x,y), [x, 1, 4], [y, 1, 4], [grid, 3, 3], [legend, false])$
-</pre></td></tr></table>
-
-<img src="figures/plotting25.png" alt="figures/plotting25">
-
+(%i3) plot3d (f(x,y), [x,1,4],[y,1,4],[grid,3,3],[legend,false])$
+</pre>
+<p><div class="image"><img src="./figures/plotting25.png" alt="figures/plotting25"></div>
+</p>
 <p>elevationを零に設定することで表面を地図として見ることができます。
 その地図はそれぞれの色は違ったレベルを表現します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) plot3d (cos (-x^2 + y^3/4), [x, -4, 4], [y, -4, 4], [zlabel, &quot;&quot;],
-        [mesh_lines_color, false], [elevation, 0], [azimuth, 0],
-        color_bar, [grid, 80, 80], [ztics, false], [color_bar_tics, 1])$
-</pre></td></tr></table>
-
-<img src="figures/plotting26.png" alt="figures/plotting26">
-
+<pre class="example">(%i1) plot3d (cos (-x^2 + y^3/4), [x,-4,4], [y,-4,4], [zlabel,&quot;&quot;],
+       [mesh_lines_color,false], [elevation,0], [azimuth,0],
+       color_bar, [grid,80,80], [ztics,false], [color_bar_tics,1])$
+</pre>
+<p><div class="image"><img src="./figures/plotting26.png" alt="figures/plotting26"></div>
+</p>
 <p>プロットオプションについての節も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="plot_005foptions"></a>
 <a name="Item_003a-plot_005foptions"></a>
 </p><dl>
-<dt><a name="index-plot_005foptions"></a><u>システム変数:</u> <b>plot_options</b></dt>
-<dd>
-<p>このオプションは古いバージョンとの互換性のために残されていますが、使用は勧めません。
+<dt><u>システム変数:</u> <b>plot_options</b>
+<a name="IDX442"></a>
+</dt>
+<dd><p>このオプションは古いバージョンとの互換性のために残されていますが、使用は勧めません。
 グローバルなプロットオプションを設定したり、現在の値を見たり、オプションを削除するには、
-<code><a href="#set_005fplot_005foption">set_plot_option</a></code>
-や <code><a href="#get_005fplot_005foption">get_plot_option</a></code>
-、 <code><a href="#remove_005fplot_005foption">remove_plot_option</a></code>.
-を使ってください。
+<code><a href="#set_005fplot_005foption">set_plot_option</a></code>や <code><a href="#get_005fplot_005foption">get_plot_option</a></code>、 <code><a href="#remove_005fplot_005foption">remove_plot_option</a></code>.を使ってください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="remove_005fplot_005foption"></a>
 <a name="Item_003a-remove_005fplot_005foption"></a>
 </p><dl>
-<dt><a name="index-remove_005fplot_005foption"></a><u>Function:</u> <b>remove_plot_option</b><i> (<var>name</var>)</i></dt>
-<dd>
-<p>オプションのデフォルト値を削除します。
+<dt><u>Function:</u> <b>remove_plot_option</b><i> (<var>name</var>)</i>
+<a name="IDX443"></a>
+</dt>
+<dd><p>オプションのデフォルト値を削除します。
 オプション名を与えなければいけません。
 </p>
-<p><code><a href="#set_005fplot_005foption">set_plot_option</a></code>
-と<code><a href="#get_005fplot_005foption">get_plot_option</a></code>
-,
+<p><code><a href="#set_005fplot_005foption">set_plot_option</a></code>と<code><a href="#get_005fplot_005foption">get_plot_option</a></code>,
 Plotting Optionsの節も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 <p><a name="set_005fplot_005foption"></a>
 <a name="Item_003a-set_005fplot_005foption"></a>
 </p><dl>
-<dt><a name="index-set_005fplot_005foption"></a><u>関数:</u> <b>set_plot_option</b><i> (<var>option</var>)</i></dt>
-<dd>
-<p>プロットオプションの節にリストされているオプションのすべてを受け付け、
+<dt><u>関数:</u> <b>set_plot_option</b><i> (<var>option</var>)</i>
+<a name="IDX444"></a>
+</dt>
+<dd><p>プロットオプションの節にリストされているオプションのすべてを受け付け、
 プロットコマンドでの使用のためそれらを保存します。
 プロットコマンドそれぞれで設定されるオプションの値は優先順位を持っていますが、
 そららのオプションが与えられないなら、この関数で設定されたデフォルト値が使われます。
@@ -980,17 +885,14 @@ Plotting Optionsの節も参照してください。
 <p><code>set_plot_option</code>は引数を評価し、(与えられたオプションを変更した後、)全体のリストを返します。
 もし引数なしで呼び出されたら、単に現在のデフォルトオプションのリストを表示します。
 </p>
-<p><code><a href="#remove_005fplot_005foption">remove_plot_option</a></code>
-と<code><a href="#get_005fplot_005foption">get_plot_option</a></code>
-,
+<p><code><a href="#remove_005fplot_005foption">remove_plot_option</a></code>と<code><a href="#get_005fplot_005foption">get_plot_option</a></code>,
 Plotting Optionsの節も参照してください。
 </p>
 <p>例:
 </p>
-<p><code><a href="#grid">grid</a></code>
-値の変更。
+<p><code><a href="#grid">grid</a></code>値の変更。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) set_plot_option ([grid, 30, 40]);
+<pre class="example">(%i1) set_plot_option ([grid, 30, 40]);
 (%o1) [[plot_format, gnuplot_pipes], [grid, 30, 40], 
 [run_viewer, true], [axes, true], [nticks, 29], [adapt_depth, 5], 
 [color, blue, red, green, magenta, black, cyan], 
@@ -998,47 +900,51 @@ Plotting Optionsの節も参照してください。
 [palette, [gradient, green, cyan, blue, violet], 
 [gradient, magenta, violet, blue, cyan, green, yellow, orange, 
 red, brown, black]], [gnuplot_preamble, ], [gnuplot_term, default]]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="spherical_005fto_005fxyz"></a>
 <a name="Item_003a-spherical_005fto_005fxyz"></a>
 </p><dl>
-<dt><a name="index-spherical_005fto_005fxyz"></a><u>システム関数:</u> <b>spherical_to_xyz</b></dt>
-<dd>
-<p><code><a href="#plot3d">plot3d</a></code>
-の <code><a href="#transform_005fxy">transform_xy</a></code>
-オプションの値として与えることができます。
+<dt><u>システム関数:</u> <b>spherical_to_xyz</b>
+<a name="IDX445"></a>
+</dt>
+<dd><p><code><a href="#plot3d">plot3d</a></code>の <code><a href="#transform_005fxy">transform_xy</a></code>オプションの値として与えることができます。
 その効果は <code>plot3d</code>での2つの独立変数と関数を点の球座標
 (1番目はz軸に対する角度、次にxy射影のx軸に対する角度、最後に原点からの距離)
 として解釈し、それらをx,y,z座標に変換することです。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-Plotting-Options"></a>
 </p><hr size="6">
 <a name="Plotting-Options"></a>
+<a name="SEC66"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Plotting" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Gnuplot-Options" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC65" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC67" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Plotting" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Plotting" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_13.html#File-Input-and-Output" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC62" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC62" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_13.html#SEC69" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Plotting-Options-1"></a>
-<h2 class="section">12.4 Plotting Options</h2>
+<h2 class="section"> 12.4 Plotting Options </h2>
 
 <p>すべてのオプションは、この節のキーワードの1つで始まり1つ以上の値が続くリストで構成されます。
 以下のリストで指摘されるように、オプションのいくつかは違うプロットコマンドで違う効果をを持ちます。
@@ -1048,18 +954,25 @@ red, brown, black]], [gnuplot_preamble, ], [gnuplot_term, default]]
 <p><a name="adapt_005fdepth"></a>
 <a name="Item_003a-adapt_005fdepth"></a>
 </p><dl>
-<dt><a name="index-adapt_005fdepth"></a><u>プロットオプション:</u> <b>adapt_depth</b><i> [adapt_depth, <var>integer</var>]</i></dt>
+<dt><u>プロットオプション:</u> <b>adapt_depth</b><i> [adapt_depth, <var>integer</var>]</i>
+<a name="IDX446"></a>
+</dt>
 <dd><p>デフォルト値: <code>5</code>
 </p>
 <p>適応プロットルーチンで使われる分割の最大数です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="axes"></a>
 <a name="Item_003a-axes"></a>
 </p><dl>
-<dt><a name="index-axes"></a><u>プロットオプション:</u> <b>axes</b><i> [axes, <var>symbol</var>]</i></dt>
+<dt><u>プロットオプション:</u> <b>axes</b><i> [axes, <var>symbol</var>]</i>
+<a name="IDX447"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p>ここで <var>symbol</var>は <code>true</code>, <code>false</code>, <code>x</code>, <code>y</code>, <code>solid</code>のいずれかです。
@@ -1068,51 +981,63 @@ red, brown, black]], [gnuplot_preamble, ], [gnuplot_term, default]]
 <code>true</code>に等しいなら両方の軸が表示され、 <code>solid</code>は2つの軸を、デフォルトの破線ではなく実線で表示します。
 このオプションは 3次元プロットでは効果も持ちません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="azimuth"></a>
 <a name="Item_003a-azimuth"></a>
 </p><dl>
-<dt><a name="index-azimuth"></a><u>プロットオプション:</u> <b>azimuth</b><i> [azimuth, <var>number</var>]</i></dt>
+<dt><u>プロットオプション:</u> <b>azimuth</b><i> [azimuth, <var>number</var>]</i>
+<a name="IDX448"></a>
+</dt>
 <dd><p>デフォルト値: <code>30</code>
 </p>
 <p>plot3dプロットは、
 plot2dと同じように水平軸と垂直軸を表す x軸と y軸と
 スクリーンから向かって来る z軸をスタート地点に考えることができます。
-その後、z軸を x軸の回りに <code><a href="#elevation">elevation</a></code>
-に等しい角度だけ回転し、
+その後、z軸を x軸の回りに <code><a href="#elevation">elevation</a></code>に等しい角度だけ回転し、
 さらに 新しい xy平面を新しい z軸の回りに角度 <code>azimuth</code>だけ回転します。
 このオプションは azimuthに関する値を単位、度で設定します。
 </p>
-<p><code><a href="#elevation">elevation</a></code>
-も参照してください。
+<p><code><a href="#elevation">elevation</a></code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="option_005fbox"></a>
 </p>
 <dl>
-<dt><a name="index-box-2"></a><u>プロットオプション:</u> <b>box</b><i> [box, <var>symbol</var>]</i></dt>
+<dt><u>プロットオプション:</u> <b>box</b><i> [box, <var>symbol</var>]</i>
+<a name="IDX449"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p>もし <code>true</code>に設定されるなら境界枠がプロットに表示されます;
 もし <code>false</code>に設定されるなら枠は表示されません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="color"></a>
 <a name="Item_003a-color"></a>
 </p><dl>
-<dt><a name="index-color"></a><u>プロットオプション:</u> <b>color</b><i> [color, <var>color_1</var>, &hellip;, <var>color_n</var>]</i></dt>
+<dt><u>プロットオプション:</u> <b>color</b><i> [color, <var>color_1</var>, &hellip;, <var>color_n</var>]</i>
+<a name="IDX450"></a>
+</dt>
 <dd><p>デフォルト値: <code>blue</code>, <code>red</code>, <code>green</code>, <code>magenta</code>,
 <code>black</code>, <code>cyan</code>
 </p>
 <p>2dプロットでは、これは様々な曲線の色を定義します。
-<code><a href="#plot3d">plot3d</a></code>
-では、パレットが使われないとき表面のメッシュ線の色を定義します。
+<code><a href="#plot3d">plot3d</a></code>では、パレットが使われないとき表面のメッシュ線の色を定義します。
 </p>
 <p>もし色よりも曲線や表面が多いなら色は順に繰り返されます。
 有効な色は <code>red</code>, <code>green</code>, <code>blue</code>, <code>magenta</code>, <code>cyan</code>, <code>yellow</code>, <code>orange</code>,
@@ -1120,184 +1045,227 @@ plot2dと同じように水平軸と垂直軸を表す x軸と y軸と
 2つは赤成分、2つは緑成分、2つは青成分です。
 もし未知の色の名前が与えられたら黒が代わりに使われます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="color_005fbar"></a>
 <a name="Item_003a-color_005fbar"></a>
 </p><dl>
-<dt><a name="index-color_005fbar"></a><u>プロットオプション:</u> <b>color_bar</b><i> [color_bar, <var>symbol</var>]</i></dt>
+<dt><u>プロットオプション:</u> <b>color_bar</b><i> [color_bar, <var>symbol</var>]</i>
+<a name="IDX451"></a>
+</dt>
 <dd><p>デフォルト値: plot3dでは<code>false</code>、mandelbrotやjuliaでは <code>true</code>
 </p>
 <p>ここで <var>symbol</var>は <code>true</code>か <code>false</code> です。  If
-もし <code>true</code>なら、 <code><a href="#plot3d">plot3d</a></code>
-か、<code><a href="#mandelbrot">mandelbrot</a></code>
-, <code><a href="#julia">julia</a></code>
-は異なる値を表現するのにパレットを使い、
+もし <code>true</code>なら、 <code><a href="#plot3d">plot3d</a></code>か、<code><a href="#mandelbrot">mandelbrot</a></code>, <code><a href="#julia">julia</a></code>は異なる値を表現するのにパレットを使い、
 色と値の間の対応を示すボックスが右に表示されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="color_005fbar_005ftics"></a>
 <a name="Item_003a-color_005fbar_005ftics"></a>
 </p><dl>
-<dt><a name="index-color_005fbar_005ftics"></a><u>プロットオプション:</u> <b>color_bar_tics</b><i> [color_bar_tics, <var>x1</var>, <var>x2</var>, <var>x3</var>]</i></dt>
-<dd>
-<p>カラーバー内でマークと数字を置く場所の値を定義します。
+<dt><u>プロットオプション:</u> <b>color_bar_tics</b><i> [color_bar_tics, <var>x1</var>, <var>x2</var>, <var>x3</var>]</i>
+<a name="IDX452"></a>
+</dt>
+<dd><p>カラーバー内でマークと数字を置く場所の値を定義します。
 マークを置く場所に関して一番目の数字は初期値、二番目は増分、三番目は最終値です。
 二番目と三番目の数字は省略できます。
 ただ1つの数字だけ与えたときは、それは自動的に選ばれる初期値からの増分として使われます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="elevation"></a>
 <a name="Item_003a-elevation"></a>
 </p><dl>
-<dt><a name="index-elevation"></a><u>プロットオプション:</u> <b>elevation</b><i> [elevation, <var>number</var>]</i></dt>
+<dt><u>プロットオプション:</u> <b>elevation</b><i> [elevation, <var>number</var>]</i>
+<a name="IDX453"></a>
+</dt>
 <dd><p>デフォルト値: <code>60</code>
 </p>
 <p>plot3dプロットは、
 plot2dと同じように水平軸と垂直軸を表す x軸と y軸と
 スクリーンから向かって来る z軸をスタート地点に考えることができます。
-その後、z軸を x軸の回りに <code><a href="#elevation">elevation</a></code>
-に等しい角度だけ回転し、
-さらに xy平面を新しい z軸の回りに角度 <code><a href="#azimuth">azimuth</a></code>
-だけ回転します。
+その後、z軸を x軸の回りに <code><a href="#elevation">elevation</a></code>に等しい角度だけ回転し、
+さらに xy平面を新しい z軸の回りに角度 <code><a href="#azimuth">azimuth</a></code>だけ回転します。
 このオプションは azimuthの値を度単位で設定します。
 </p>
-<p><code><a href="#azimuth">azimuth</a></code>
-も参照してください。
+<p><code><a href="#azimuth">azimuth</a></code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="grid"></a>
 <a name="Item_003a-grid"></a>
 </p><dl>
-<dt><a name="index-grid"></a><u>プロットオプション:</u> <b>grid</b><i> [grid, <var>integer</var>, <var>integer</var>]</i></dt>
+<dt><u>プロットオプション:</u> <b>grid</b><i> [grid, <var>integer</var>, <var>integer</var>]</i>
+<a name="IDX454"></a>
+</dt>
 <dd><p>デフォルト値: <code>30</code>, <code>30</code>
 </p>
-<p>3次元プロットや <code><a href="#julia">julia</a></code>
-, <code><a href="#mandelbrot">mandelbrot</a></code>
-プログラムのために x方向、y方向で使われるグリッド点の数を設定します。
+<p>3次元プロットや <code><a href="#julia">julia</a></code>, <code><a href="#mandelbrot">mandelbrot</a></code>プログラムのために x方向、y方向で使われるグリッド点の数を設定します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="grid2d"></a>
 <a name="Item_003a-grid2d"></a>
 </p><dl>
-<dt><a name="index-grid2d"></a><u>プロットオプション:</u> <b>grid2d</b><i> [grid, <var>value</var>]</i></dt>
+<dt><u>プロットオプション:</u> <b>grid2d</b><i> [grid, <var>value</var>]</i>
+<a name="IDX455"></a>
+</dt>
 <dd><p>でフォルト値: <code>false</code>
 </p>
 <p>xy平面上に線のグリッドを表示します。
 グリッド線が置かれる点は、xとy軸にマークされた目盛と同じ点です。
-目盛は <code><a href="#xtics">xtics</a></code>
-と <code><a href="#ytics">ytics</a></code>
-オプションで制御できます。
+目盛は <code><a href="#xtics">xtics</a></code>と <code><a href="#ytics">ytics</a></code>オプションで制御できます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="iterations"></a>
 <a name="Item_003a-iterations"></a>
 </p><dl>
-<dt><a name="index-iterations"></a><u>プロットオプション:</u> <b>iterations</b><i> [grid, <var>value</var>]</i></dt>
+<dt><u>プロットオプション:</u> <b>iterations</b><i> [grid, <var>value</var>]</i>
+<a name="IDX456"></a>
+</dt>
 <dd><p>デフォルト値: <code>9</code>
 </p>
 <p>プログラム mandelbrotと juliaが行う繰り返し回数。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="label"></a>
 <a name="Item_003a-label"></a>
 </p><dl>
-<dt><a name="index-label"></a><u>プロットオプション:</u> <b>label</b><i> [label, [<var>string</var>, <var>x</var>, <var>y</var>], &hellip;]</i></dt>
-<dd>
-<p>それぞれのラベルの後に示される <var>x</var>, <var>y</var>座標を持つ点にラベルを書きます。
+<dt><u>プロットオプション:</u> <b>label</b><i> [label, [<var>string</var>, <var>x</var>, <var>y</var>], &hellip;]</i>
+<a name="IDX457"></a>
+</dt>
+<dd><p>それぞれのラベルの後に示される <var>x</var>, <var>y</var>座標を持つ点にラベルを書きます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="legend"></a>
 <a name="Item_003a-legend"></a>
 </p><dl>
-<dt><a name="index-legend"></a><u>プロットオプション:</u> <b>legend</b><i> [legend, <var>string_1</var>, &hellip;, <var>string_n</var>]</i></dt>
-<dt><a name="index-legend-1"></a><u>プロットオプション:</u> <b>legend</b><i> [legend, <var>false</var>]</i></dt>
-<dd>
-<p>複数のプロットを表示する時プロットのラベルを指定します。
+<dt><u>プロットオプション:</u> <b>legend</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>legend</tt> [legend, <var>string_1</var>, &hellip;, <var>string_n</var>] &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>legend</tt> [legend, <var>false</var>]</i>
+<a name="IDX458"></a>
+</dt>
+<dd><p>複数のプロットを表示する時プロットのラベルを指定します。
 もし与えたラベルの数より多くの式があるならラベルは繰り返されます。
 もし値 <code>false</code>を与えたなら、凡例は表示されません。
 デフォルトでは式や関数の名前が使われます。また、点の離散集合に関しては単語
 discrete1, discrete2, &hellip;が使われます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="logx"></a>
 <a name="Item_003a-logx"></a>
 </p><dl>
-<dt><a name="index-logx"></a><u>プロットオプション:</u> <b>logx</b><i> [logx, <var>value</var>]</i></dt>
-<dd>
-<p>水平軸を対数的にスケールするようにします。
+<dt><u>プロットオプション:</u> <b>logx</b><i> [logx, <var>value</var>]</i>
+<a name="IDX459"></a>
+</dt>
+<dd><p>水平軸を対数的にスケールするようにします。
 trueか falseです。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="logy"></a>
 <a name="Item_003a-logy"></a>
 </p><dl>
-<dt><a name="index-logy"></a><u>プロットオプション:</u> <b>logy</b><i> [logy, <var>value</var>]</i></dt>
-<dd>
-<p>垂直軸を対数的にスケールするようにします。
+<dt><u>プロットオプション:</u> <b>logy</b><i> [logy, <var>value</var>]</i>
+<a name="IDX460"></a>
+</dt>
+<dd><p>垂直軸を対数的にスケールするようにします。
 trueか falseです。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="mesh_005flines_005fcolor"></a>
 <a name="Item_003a-mesh_005flines_005fcolor"></a>
 </p><dl>
-<dt><a name="index-mesh_005flines_005fcolor"></a><u>プロットオプション:</u> <b>mesh_lines_color</b><i> [mesh_lines_color, <var>color</var>]</i></dt>
+<dt><u>プロットオプション:</u> <b>mesh_lines_color</b><i> [mesh_lines_color, <var>color</var>]</i>
+<a name="IDX461"></a>
+</dt>
 <dd><p>デフォルト値: <code>black</code>
 </p>
 <p>パレットが使われる時 plot3dがメッシュ線を描くのに使う色を設定します。
-オプション <code><a href="#color">color</a></code>
-と同じ色を受け付けます。
-(<code><a href="#color">color</a></code>
-で許される色のリストを参照してください。)
+オプション <code><a href="#color">color</a></code>と同じ色を受け付けます。
+(<code><a href="#color">color</a></code>で許される色のリストを参照してください。)
 値 <code>false</code>を与えてメッシュ線を完全に消すこともできます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="nticks"></a>
 <a name="Item_003a-nticks"></a>
 </p><dl>
-<dt><a name="index-nticks"></a><u>プロットオプション:</u> <b>nticks</b><i> [nticks, <var>integer</var>]</i></dt>
+<dt><u>プロットオプション:</u> <b>nticks</b><i> [nticks, <var>integer</var>]</i>
+<a name="IDX462"></a>
+</dt>
 <dd><p>デフォルト値: <code>29</code>
 </p>
-<p><code><a href="#plot2d">plot2d</a></code>
-で関数をプロットする時、
+<p><code><a href="#plot2d">plot2d</a></code>で関数をプロットする時、
 関数をプロットするための適応プロットルーチンによって使われる点の数の初期値を与えます。
-<code><a href="#plot3d">plot3d</a></code>
-でパラメトリック関数をプロットする時、
+<code><a href="#plot3d">plot3d</a></code>でパラメトリック関数をプロットする時、
 プロットで表示される点の数を設定します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="palette"></a>
 <a name="Item_003a-palette"></a>
 </p><dl>
-<dt><a name="index-palette"></a><u>プロットオプション:</u> <b>palette</b><i> [palette, [<var>palette_1</var>], ..., [<var>palette_n</var>]]</i></dt>
-<dt><a name="index-palette-1"></a><u>プロットオプション:</u> <b>palette</b><i> [palette, <var>false</var>]</i></dt>
-<dd>
-<p>1つのパレットか複数のパレットのリストで構成されます。
+<dt><u>プロットオプション:</u> <b>palette</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>palette</tt> [palette, [<var>palette_1</var>], &hellip;, [<var>palette_n</var>]] &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>palette</tt> [palette, <var>false</var>]</i>
+<a name="IDX463"></a>
+</dt>
+<dd><p>1つのパレットか複数のパレットのリストで構成されます。
 パレットそれぞれはキーワードに複数の値が続くリストです。
 もしキーワードが gradientなら、有効な色のリストを続けなければいけません。
 </p>
@@ -1312,21 +1280,24 @@ zの最小値に割り当てられる基本色の色調と飽和、値を定義�
 xmaximaは、複数の表面を一緒にプロットする時リストの中のパレットを順に使います;
 パレットの数が尽きたらそれらは順に繰り返されます。
 </p>
-<p>メッシュ線の色はオプション <code><a href="#mesh_005flines_005fcolor">mesh_lines_color</a></code>
-で与えられます。
+<p>メッシュ線の色はオプション <code><a href="#mesh_005flines_005fcolor">mesh_lines_color</a></code>で与えられます。
 もし <code>palette</code>が値 <code>false</code>を与えられたら、
 表面は陰影されず曲線のメッシュだけで表されます。
-その場合、線の色はオプション <code><a href="#color">color</a></code>
-で決定されます。
+その場合、線の色はオプション <code><a href="#color">color</a></code>で決定されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="plot_005fformat"></a>
 <a name="Item_003a-plot_005fformat"></a>
 </p><dl>
-<dt><a name="index-plot_005fformat"></a><u>プロットオプション:</u> <b>plot_format</b><i> [plot_format, <var>format</var>]</i></dt>
+<dt><u>プロットオプション:</u> <b>plot_format</b><i> [plot_format, <var>format</var>]</i>
+<a name="IDX464"></a>
+</dt>
 <dd><p>デフォルト値: Windowsシステムでは<code>gnuplot</code>, 他のシステムでは<code>gnuplot_pipes</code>
 </p>
 <p>ここで<var>format</var>は以下のいずれかです;
@@ -1334,13 +1305,18 @@ gnuplot, xmaxima, mgnuplot, gnuplot_pipes.
 </p>
 <p>プロットで使われるフォーマットを設定します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="plot_005freal_005fpart"></a>
 <a name="Item_003a-plot_005frealpart"></a>
 </p><dl>
-<dt><a name="index-plot_005frealpart"></a><u>プロットオプション:</u> <b>plot_realpart</b><i> [plot_real_part, <var>symbol</var>]</i></dt>
+<dt><u>プロットオプション:</u> <b>plot_realpart</b><i> [plot_real_part, <var>symbol</var>]</i>
+<a name="IDX465"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>true</code>に設定される時、
@@ -1355,16 +1331,20 @@ gnuplot, xmaxima, mgnuplot, gnuplot_pipes.
 もし <code>plot_realpart</code>が <code>false</code>だったなら
 何もプロットされません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="point_005ftype"></a>
 <a name="Item_003a-point_005ftype"></a>
 </p><dl>
-<dt><a name="index-point_005ftype"></a><u>プロットオプション:</u> <b>point_type</b><i> [point_type, <var>type_1</var>, &hellip;, <var>type_n</var>]</i></dt>
-<dd>
-<p>gnuplotでは、
-スタイル&ldquo;points&rdquo;か&ldquo;linespoints&rdquo;でプロットされた点の集合それぞれは
+<dt><u>プロットオプション:</u> <b>point_type</b><i> [point_type, <var>type_1</var>, &hellip;, <var>type_n</var>]</i>
+<a name="IDX466"></a>
+</dt>
+<dd><p>gnuplotでは、
+スタイル&quot;points&quot;か&quot;linespoints&quot;でプロットされた点の集合それぞれは
 このリストから取られたオブジェクトを使って順に表されます。
 もしこのリスト内のオブジェクト以上に点の集合があるなら、
 それらは順に繰り返されます。
@@ -1372,125 +1352,139 @@ gnuplot, xmaxima, mgnuplot, gnuplot_pipes.
 <code>times</code>, <code>asterisk</code>, <code>box</code>, <code>square</code>, <code>triangle</code>,
 <code>delta</code>, <code>wedge</code>, <code>nabla</code>, <code>diamond</code>, <code>lozenge</code>
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="pdf_005ffile"></a>
 <a name="Item_003a-pdf_005ffile"></a>
 </p><dl>
-<dt><a name="index-pdf_005ffile"></a><u>プロットオプション:</u> <b>pdf_file</b><i> [pdf_file, <var>file_name</var>]</i></dt>
-<dd>
-<p>このオプションは、プロットをスクリーンに表示する代わりに
+<dt><u>プロットオプション:</u> <b>pdf_file</b><i> [pdf_file, <var>file_name</var>]</i>
+<a name="IDX467"></a>
+</dt>
+<dd><p>このオプションは、プロットをスクリーンに表示する代わりに
 <var>file_name</var>という名前の PDFファイルに保存します。
-<var>file_name</var>が文字&ldquo;/&rdquo;を含まない限り、デフォルトでは、そのファイルは変数
-<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
-で定義されたディレクトリに生成されます;
-<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
-の値を変えて違うディレクトリにファイルを保存できます。
-オプション <code><a href="#gnuplot_005fpdf_005fterm_005fcommand">gnuplot_pdf_term_command</a></code>
-も与えられた時は、それを使って Gnuplotの PDF端末をセットアップします;
+<var>file_name</var>が文字&quot;/&quot;を含まない限り、デフォルトでは、そのファイルは変数
+<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>で定義されたディレクトリに生成されます;
+<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>の値を変えて違うディレクトリにファイルを保存できます。
+オプション <code><a href="#gnuplot_005fpdf_005fterm_005fcommand">gnuplot_pdf_term_command</a></code>も与えられた時は、それを使って Gnuplotの PDF端末をセットアップします;
 そうでなければ、Gnuplotの pdfcairo端末は
 EPSオプション、幅 3の実線、17.2 cm掛ける12.9 cmのプロットサイズ、18ポイントのフォントを使います。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="png_005ffile"></a>
 <a name="Item_003a-png_005ffile"></a>
 </p><dl>
-<dt><a name="index-png_005ffile"></a><u>プロットオプション:</u> <b>png_file</b><i> [png_file, <var>file_name</var>]</i></dt>
-<dd>
-<p>このオプションは、プロットをスクリーンに表示する代わりに
+<dt><u>プロットオプション:</u> <b>png_file</b><i> [png_file, <var>file_name</var>]</i>
+<a name="IDX468"></a>
+</dt>
+<dd><p>このオプションは、プロットをスクリーンに表示する代わりに
 <var>file_name</var>という名前の PNGグラフィックファイルに保存します。
-<var>file_name</var>が文字&ldquo;/&rdquo;を含まない限り、デフォルトでは、そのファイルは変数
-<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
-で定義されたディレクトリに生成されます;
-<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
-の値を変えて違うディレクトリにファイルを保存できます。
-オプション <code><a href="#gnuplot_005fpng_005fterm_005fcommand">gnuplot_png_term_command</a></code>
-も与えられた時は、それを使って Gnuplotの PNG端末をセットアップします;
+<var>file_name</var>が文字&quot;/&quot;を含まない限り、デフォルトでは、そのファイルは変数
+<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>で定義されたディレクトリに生成されます;
+<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>の値を変えて違うディレクトリにファイルを保存できます。
+オプション <code><a href="#gnuplot_005fpng_005fterm_005fcommand">gnuplot_png_term_command</a></code>も与えられた時は、それを使って Gnuplotの PNG端末をセットアップします;
 そうでなければ、Gnuplotの pngcairo端末は 12ポイントのフォントを使います。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="ps_005ffile"></a>
 <a name="Item_003a-ps_005ffile"></a>
 </p><dl>
-<dt><a name="index-ps_005ffile"></a><u>プロットオプション:</u> <b>ps_file</b><i> [ps_file, <var>file_name</var>]</i></dt>
-<dd>
-<p>このオプションは、プロットをスクリーンに表示する代わりに
+<dt><u>プロットオプション:</u> <b>ps_file</b><i> [ps_file, <var>file_name</var>]</i>
+<a name="IDX469"></a>
+</dt>
+<dd><p>このオプションは、プロットをスクリーンに表示する代わりに
 <var>file_name</var>という名前のポストスクリプトファイルに保存します。
-<var>file_name</var>が文字&ldquo;/&rdquo;を含まない限り、デフォルトでは、そのファイルは変数
-<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
-で定義されたディレクトリに生成されます;
-<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
-の値を変えて違うディレクトリにファイルを保存できます。
-オプション <code><a href="#gnuplot_005fps_005fterm_005fcommand">gnuplot_ps_term_command</a></code>
-も与えられた時は、それを使ってGnuplotのPostscript端末をセットアップします;
+<var>file_name</var>が文字&quot;/&quot;を含まない限り、デフォルトでは、そのファイルは変数
+<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>で定義されたディレクトリに生成されます;
+<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>の値を変えて違うディレクトリにファイルを保存できます。
+オプション <code><a href="#gnuplot_005fps_005fterm_005fcommand">gnuplot_ps_term_command</a></code>も与えられた時は、それを使ってGnuplotのPostscript端末をセットアップします;
 そうでなければ、GnuplotのPostscript端末は
 EPSオプション、幅2の実線、16.4 cm掛ける12.3 cmのプロットサイズ、24ポイントのフォントを使います。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="run_005fviewer"></a>
 <a name="Item_003a-run_005fviewer"></a>
 </p><dl>
-<dt><a name="index-run_005fviewer"></a><u>プロットオプション:</u> <b>run_viewer</b><i> [run_viewer, <var>symbol</var>]</i></dt>
-<dd>
-<p>このオプションは、プロットフォーマットが <code>gnuplot</code>で端末が <code>default</code>の時か、
-Gnuplot端末が <code>dumb</code>(<code><a href="#gnuplot_005fterm">gnuplot_term</a></code>
-を参照してください)に設定される時、使用されるだけです。
+<dt><u>プロットオプション:</u> <b>run_viewer</b><i> [run_viewer, <var>symbol</var>]</i>
+<a name="IDX470"></a>
+</dt>
+<dd><p>このオプションは、プロットフォーマットが <code>gnuplot</code>で端末が <code>default</code>の時か、
+Gnuplot端末が <code>dumb</code>(<code><a href="#gnuplot_005fterm">gnuplot_term</a></code>を参照してください)に設定される時、使用されるだけです。
 trueかfalseを取ります。
 </p>
-<p>もし端末が <code>default</code>なら、ファイル <code>maxout.gnuplot</code> (もしくは<code><a href="#gnuplot_005fout_005ffile">gnuplot_out_file</a></code>
-)で指定された他の名前)が
+<p>もし端末が <code>default</code>なら、ファイル <code>maxout.gnuplot</code> (もしくは<code><a href="#gnuplot_005fout_005ffile">gnuplot_out_file</a></code>)で指定された他の名前)が
 プロットを生成するのに必要なgnuplotコマンドで作成されます。
 オプション <code>run_viewer</code>はこれらのコマンドを実行しプロットを表示するために Gnuplotが起動されるかどうかを制御します。
 </p>
 <p>もし端末が  <code>default</code>なら、gnuplotが起動し、 <code>maxout.gnuplot</code>内のコマンドを実行し、
-別のファイル <code>maxplot.txt</code>(もしくは<code><a href="#gnuplot_005fout_005ffile">gnuplot_out_file</a></code>
-で指定された別の名前)を生成します。
+別のファイル <code>maxplot.txt</code>(もしくは<code><a href="#gnuplot_005fout_005ffile">gnuplot_out_file</a></code>で指定された別の名前)を生成します。
 オプション <code>run_viewer</code>は
 プロットのASCII表現であるそのファイルをMaximaかXmaximaコンソールで表示するかどうかを制御します。
 </p>
 <p>このオプションのデフォルト値は trueで、プロットをコンソールか別のグラフィックウィンドウで表示されるようにします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="same_005fxy"></a>
 <a name="Item_003a-same_005fxy"></a>
 </p><dl>
-<dt><a name="index-same_005fxy"></a><u>プロットオプション:</u> <b>same_xy</b><i> [same_xy , <var>value</var>]</i></dt>
-<dd>
-<p>trueか falseを取ります。
+<dt><u>プロットオプション:</u> <b>same_xy</b><i> [same_xy , <var>value</var>]</i>
+<a name="IDX471"></a>
+</dt>
+<dd><p>trueか falseを取ります。
 2dでも 3dプロットでも、もし trueなら xとy軸で使われるスケールが同じになります。
-<code><a href="#yx_005fratio">yx_ratio</a></code>
-も参照してください。
+<code><a href="#yx_005fratio">yx_ratio</a></code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="same_005fxyz"></a>
 <a name="Item_003a-same_005fxyz"></a>
 </p><dl>
-<dt><a name="index-same_005fxyz"></a><u>プロットオプション:</u> <b>same_xyz</b><i> [same_xyz , <var>value</var>]</i></dt>
-<dd>
-<p>trueか falseを取ります。
+<dt><u>プロットオプション:</u> <b>same_xyz</b><i> [same_xyz , <var>value</var>]</i>
+<a name="IDX472"></a>
+</dt>
+<dd><p>trueか falseを取ります。
 もし trueなら 3dプロットの3軸で使われるスケールが同じになります。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="style"></a>
 <a name="Item_003a-style"></a>
 </p><dl>
-<dt><a name="index-style"></a><u>プロットオプション:</u> <b>style</b><i> [style, <var>type_1</var>, &hellip;, <var>type1_n</var>]</i></dt>
-<dt><a name="index-style-1"></a><u>プロットオプション:</u> <b>style</b><i> [style, [<var>style_1</var>], &hellip;, [<var>style_n</var>]]</i></dt>
-<dd>
-<p>様々な関数やデータ一式のために2dプロットで使われるスタイル。
+<dt><u>プロットオプション:</u> <b>style</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>style</tt> [style, <var>type_1</var>, &hellip;, <var>type_n</var>] &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>style</tt> [style, [<var>style_1</var>], &hellip;, [<var>style_n</var>]]</i>
+<a name="IDX473"></a>
+</dt>
+<dd><p>様々な関数やデータ一式のために2dプロットで使われるスタイル。
 単語 <var>style</var>の後には１つ以上のスタイルが続きます。
 もし与えられたスタイルよりも多くの関数やデータ集合があったらスタイルは繰り返されます。
 それぞれのスタイルは、実線のためには<var>lines</var>、孤立点のためには<var>points</var>、
@@ -1513,256 +1507,293 @@ Gnuplotでは <var>impulses</var>スタイルも使えます。
 7: 白四角, 8: 黒三角, 9: 白三角, 10: 黒逆三角, 11: 白逆三角, 12: 黒菱形, 13: 白菱形
 です。
 </p>
-<p><var>linesdots</var>は４つまでのパラメータを取ります;
+<p><var>linespoints</var>は４つまでのパラメータを取ります;
 線の太さ、点の半径、色、点を置き換えるオブジェクトのタイプ。
 </p>
-<p><code><a href="#color">color</a></code>
-と <code><a href="#point_005ftype">point_type</a></code>
-も参照してください。
+<p><code><a href="#color">color</a></code>と <code><a href="#point_005ftype">point_type</a></code>も参照してください。
 </p> 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="svg_005ffile"></a>
 <a name="Item_003a-svg_005ffile"></a>
 </p><dl>
-<dt><a name="index-svg_005ffile"></a><u>プロットオプション:</u> <b>svg_file</b><i> [svg_file, <var>file_name</var>]</i></dt>
-<dd>
-<p>このオプションは、プロットをスクリーンに表示する代わりに
+<dt><u>プロットオプション:</u> <b>svg_file</b><i> [svg_file, <var>file_name</var>]</i>
+<a name="IDX474"></a>
+</dt>
+<dd><p>このオプションは、プロットをスクリーンに表示する代わりに
 <var>file_name</var>という名前のポストスクリプトファイルに保存します。
-<var>file_name</var>が文字&ldquo;/&rdquo;を含まない限り、デフォルトでは、そのファイルは変数
-<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
-で定義されたディレクトリに生成されます;
-<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>
-の値を変えて違うディレクトリにファイルを保存できます。
-オプション <code><a href="#gnuplot_005fsvg_005fterm_005fcommand">gnuplot_svg_term_command</a></code>
-も与えられた時は、それを使ってGnuplotの SVG端末をセットアップします;
+<var>file_name</var>が文字&quot;/&quot;を含まない限り、デフォルトでは、そのファイルは変数
+<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>で定義されたディレクトリに生成されます;
+<code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>の値を変えて違うディレクトリにファイルを保存できます。
+オプション <code><a href="#gnuplot_005fsvg_005fterm_005fcommand">gnuplot_svg_term_command</a></code>も与えられた時は、それを使ってGnuplotの SVG端末をセットアップします;
 そうでなければ、Gnuplotの svg端末は 14ポイントのフォントを使います。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="t"></a>
 <a name="Item_003a-t"></a>
 </p><dl>
-<dt><a name="index-t"></a><u>プロットオプション:</u> <b>t</b><i> [t, <var>min</var>, <var>max</var>]</i></dt>
-<dd>
-<p>パラメトリックプロットのデフォルトの範囲。
+<dt><u>プロットオプション:</u> <b>t</b><i> [t, <var>min</var>, <var>max</var>]</i>
+<a name="IDX475"></a>
+</dt>
+<dd><p>パラメトリックプロットのデフォルトの範囲。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="title"></a>
 <a name="Item_003a-title"></a>
 </p><dl>
-<dt><a name="index-title"></a><u>プロットオプション:</u> <b>title</b><i> [title, <var>text</var>]</i></dt>
-<dd>
-<p>プロットの頭に書かれるタイトルを定義します。
+<dt><u>プロットオプション:</u> <b>title</b><i> [title, <var>text</var>]</i>
+<a name="IDX476"></a>
+</dt>
+<dd><p>プロットの頭に書かれるタイトルを定義します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="transform_005fxy"></a>
 <a name="Item_003a-transform_005fxy"></a>
 </p><dl>
-<dt><a name="index-transform_005fxy"></a><u>プロットオプション:</u> <b>transform_xy</b><i> [transform_xy, <var>symbol</var>]</i></dt>
+<dt><u>プロットオプション:</u> <b>transform_xy</b><i> [transform_xy, <var>symbol</var>]</i>
+<a name="IDX477"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p>ここで、<var>symbol</var>は <code>false</code>か関数
 <code>transform_xy</code>を使って得られる結果をです。
 もし <code>false</code>と違うなら plot3dで3座標を変換するのに使われます。
 </p>
-<p><code><a href="#make_005ftransform">make_transform</a></code>
-, <code><a href="#polar_005fto_005fxy">polar_to_xy</a></code>
-,
-<code><a href="#spherical_005fto_005fxyz">spherical_to_xyz</a></code>
-を参照してください。
+<p><code><a href="#make_005ftransform">make_transform</a></code>, <code><a href="#polar_005fto_005fxy">polar_to_xy</a></code>,
+<code><a href="#spherical_005fto_005fxyz">spherical_to_xyz</a></code>を参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="x"></a>
 <a name="Item_003a-x"></a>
 </p><dl>
-<dt><a name="index-x"></a><u>プロットオプション:</u> <b>x</b><i> [x, <var>min</var>, <var>max</var>]</i></dt>
-<dd>
-<p><code><a href="#plot2d">plot2d</a></code>
-コマンドの最初の(または <code><a href="#plot3d">plot3d</a></code>
-の最初の二つのどちらかの)
+<dt><u>プロットオプション:</u> <b>x</b><i> [x, <var>min</var>, <var>max</var>]</i>
+<a name="IDX478"></a>
+</dt>
+<dd><p><code><a href="#plot2d">plot2d</a></code>コマンドの最初の(または <code><a href="#plot3d">plot3d</a></code>の最初の二つのどちらかの)
 オプションとして使われる時、
 1番目の独立変数が xであることを示しその範囲を設定します。
 最初のオプションの後(またはplot3dでは2番目のオプションの後)、
 プロット内で示される有効な水平領域を定義するために再び使うことができます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="xlabel"></a>
 <a name="Item_003a-xlabel"></a>
 </p><dl>
-<dt><a name="index-xlabel"></a><u>プロットオプション:</u> <b>xlabel</b><i> [xlabel, <var>string</var>]</i></dt>
-<dd>
-<p>1番目の軸をラベルする<var>string</var>を指定します;
+<dt><u>プロットオプション:</u> <b>xlabel</b><i> [xlabel, <var>string</var>]</i>
+<a name="IDX479"></a>
+</dt>
+<dd><p>1番目の軸をラベルする<var>string</var>を指定します;
 もしこのオプションが使われないなら、
-<code><a href="#plot2d">plot2d</a></code>
-か <code><a href="#implicit_005fplot">implicit_plot</a></code>
-で関数をプロットする時、
+<code><a href="#plot2d">plot2d</a></code>か <code><a href="#implicit_005fplot">implicit_plot</a></code>で関数をプロットする時、
 そのラベルは独立変数の名前です。
-<code><a href="#plot3d">plot3d</a></code>
-で表面を、もしくは<code><a href="#contour_005fplot">contour_plot</a></code>
-で等高線をプロットする時、
+<code><a href="#plot3d">plot3d</a></code>で表面を、もしくは<code><a href="#contour_005fplot">contour_plot</a></code>で等高線をプロットする時、
 そのラベルは1番目の変数の名前です。
 パラメトリックプロットの場合、1番目の式です。
-<code><a href="#set_005fplot_005foption">set_plot_option</a></code>
-では使うことはできません。
+<code><a href="#set_005fplot_005foption">set_plot_option</a></code>では使うことはできません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="xtics"></a>
 <a name="Item_003a-xtics"></a>
 </p><dl>
-<dt><a name="index-xtics"></a><u>プロットオプション:</u> <b>xtics</b><i> [xtics, <var>x1</var>, <var>x2</var>, <var>x3</var>]</i></dt>
-<dd>
-<p>x軸上でマークと数が置かれる場所の値を定義します。
+<dt><u>プロットオプション:</u> <b>xtics</b><i> [xtics, <var>x1</var>, <var>x2</var>, <var>x3</var>]</i>
+<a name="IDX480"></a>
+</dt>
+<dd><p>x軸上でマークと数が置かれる場所の値を定義します。
 マークが置かれる場所に関して、一番目の数が初期値、二番目が増分、三番目が最終値です。
 二番目と三番目の数は省略できます。
 1つだけ数が与えられた時は、自動的に選ばれる初期値からの増分として使われます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="xy_005fscale"></a>
 <a name="Item_003a-xy_005fscale"></a>
 </p><dl>
-<dt><a name="index-xy_005fscale"></a><u>プロットオプション:</u> <b>xy_scale</b><i> [xy_scale, <var>sx</var>, <var>sy</var>]</i></dt>
-<dd>
-<p>2dプロットでは、ウィンドウの総サイズとプロットに使われるサイズの比を定義します。
+<dt><u>プロットオプション:</u> <b>xy_scale</b><i> [xy_scale, <var>sx</var>, <var>sy</var>]</i>
+<a name="IDX481"></a>
+</dt>
+<dd><p>2dプロットでは、ウィンドウの総サイズとプロットに使われるサイズの比を定義します。
 引数として与えられた2つの数は xと y軸でのスケール因子です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="y"></a>
 <a name="Item_003a-y"></a>
 </p><dl>
-<dt><a name="index-y"></a><u>プロットオプション:</u> <b>y</b><i> [y, <var>min</var>, <var>max</var>]</i></dt>
-<dd>
-<p><code><a href="#plot3d">plot3d</a></code>
-での最初の2つのオプションの1つとして使われる時、
+<dt><u>プロットオプション:</u> <b>y</b><i> [y, <var>min</var>, <var>max</var>]</i>
+<a name="IDX482"></a>
+</dt>
+<dd><p><code><a href="#plot3d">plot3d</a></code>での最初の2つのオプションの1つとして使われる時、
 独立変数の1つが yであることを示しその範囲を設定します。
 そうでないならプロットで示される2番目の変数の有効領域を定義します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="ylabel"></a>
 <a name="Item_003a-ylabel"></a>
 </p><dl>
-<dt><a name="index-ylabel"></a><u>プロットオプション:</u> <b>ylabel</b><i> [ylabel, <var>string</var>]</i></dt>
-<dd>
-<p>二番目の軸をラベルする<var>string</var>を指定します;
+<dt><u>プロットオプション:</u> <b>ylabel</b><i> [ylabel, <var>string</var>]</i>
+<a name="IDX483"></a>
+</dt>
+<dd><p>二番目の軸をラベルする<var>string</var>を指定します;
 もしこのオプションが使われないなら、
-<code><a href="#plot2d">plot2d</a></code>
-や <code><a href="#implicit_005fplot">implicit_plot</a></code>
-で関数をプロットする時
-そのラベルは、&rdquo;y&rdquo;となり、
-<code><a href="#plot3d">plot3d</a></code>
-で表面をプロットする時や <code><a href="#contour_005fplot">contour_plot</a></code>
-で等高線をプロットする時
+<code><a href="#plot2d">plot2d</a></code>や <code><a href="#implicit_005fplot">implicit_plot</a></code>で関数をプロットする時
+そのラベルは、&quot;y&quot;となり、
+<code><a href="#plot3d">plot3d</a></code>で表面をプロットする時や <code><a href="#contour_005fplot">contour_plot</a></code>で等高線をプロットする時
 二番目の変数名となり、
 パラメトリックプロットの場合には二番目の式になります。
-<code><a href="#set_005fplot_005foption">set_plot_option</a></code>
-では使うことはできません。
+<code><a href="#set_005fplot_005foption">set_plot_option</a></code>では使うことはできません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="ytics"></a>
 <a name="Item_003a-ytics"></a>
 </p><dl>
-<dt><a name="index-ytics"></a><u>プロットオプション:</u> <b>ytics</b><i> [ytics, <var>y1</var>, <var>y2</var>, <var>y3</var>]</i></dt>
-<dd>
-<p>y軸上でマークと数が置かれる場所の値を定義します。
+<dt><u>プロットオプション:</u> <b>ytics</b><i> [ytics, <var>y1</var>, <var>y2</var>, <var>y3</var>]</i>
+<a name="IDX484"></a>
+</dt>
+<dd><p>y軸上でマークと数が置かれる場所の値を定義します。
 マークが置かれる場所に関して、一番目の数が初期値、二番目が増分、三番目が最終値です。
 二番目と三番目の数は省略できます。
 1つだけ数が与えられた時は、自動的に選ばれる初期値からの増分として使われます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 <p><a name="yx_005fratio"></a>
 <a name="Item_003a-yx_005fratio"></a>
 </p><dl>
-<dt><a name="index-yx_005fratio"></a><u>プロットオプション:</u> <b>yx_ratio</b><i> [yx_ratio, <var>r</var>]</i></dt>
-<dd>
-<p>2dプロットでは、プロットを作るのに使われる長方形の垂直側と水平側の間の比。
-<code><a href="#same_005fxy">same_xy</a></code>
-も参照してください。
+<dt><u>プロットオプション:</u> <b>yx_ratio</b><i> [yx_ratio, <var>r</var>]</i>
+<a name="IDX485"></a>
+</dt>
+<dd><p>2dプロットでは、プロットを作るのに使われる長方形の垂直側と水平側の間の比。
+<code><a href="#same_005fxy">same_xy</a></code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="z"></a>
 <a name="Item_003a-z"></a>
 </p><dl>
-<dt><a name="index-z"></a><u>プロットオプション:</u> <b>z</b><i> [z, <var>min</var>, <var>max</var>]</i></dt>
-<dd>
-<p>プロットで示されるzの値の有効範囲を設定するために <code><a href="#plot3d">plot3d</a></code>
-で使われます。
+<dt><u>プロットオプション:</u> <b>z</b><i> [z, <var>min</var>, <var>max</var>]</i>
+<a name="IDX486"></a>
+</dt>
+<dd><p>プロットで示されるzの値の有効範囲を設定するために <code><a href="#plot3d">plot3d</a></code>で使われます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="zlabel"></a>
 <a name="Item_003a-zlabel"></a>
 </p><dl>
-<dt><a name="index-zlabel"></a><u>プロットオプション:</u> <b>zlabel</b><i> [zlabel, <var>string</var>]</i></dt>
-<dd>
-<p><code><a href="#plot3d">plot3d</a></code>
-を使う時、第三軸をラベルする <var>string</var>を指定します。
+<dt><u>プロットオプション:</u> <b>zlabel</b><i> [zlabel, <var>string</var>]</i>
+<a name="IDX487"></a>
+</dt>
+<dd><p><code><a href="#plot3d">plot3d</a></code>を使う時、第三軸をラベルする <var>string</var>を指定します。
 もしこのオプションが使われないなら、
-そのラベルは表面をプロットする時は&ldquo;z&rdquo;となり、
+そのラベルは表面をプロットする時は&quot;z&quot;となり、
 パラメトリックプロットの場合には三番目の式になります。
-<code><a href="#set_005fplot_005foption">set_plot_option</a></code>
-では使うことはできません。
-また、<code><a href="#plot2d">plot2d</a></code>
-, <code><a href="#implicit_005fplot">implicit_plot</a></code>
-では無視されます。
+<code><a href="#set_005fplot_005foption">set_plot_option</a></code>では使うことはできません。
+また、<code><a href="#plot2d">plot2d</a></code>, <code><a href="#implicit_005fplot">implicit_plot</a></code>では無視されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="zmin"></a>
 <a name="Item_003a-zmin"></a>
 </p><dl>
-<dt><a name="index-zmin"></a><u>プロットオプション:</u> <b>zmin</b><i> [zmin, <var>z</var>]</i></dt>
-<dd>
-<p>3dプロットでの、プロットボックスの底のzの値。
+<dt><u>プロットオプション:</u> <b>zmin</b><i> [zmin, <var>z</var>]</i>
+<a name="IDX488"></a>
+</dt>
+<dd><p>3dプロットでの、プロットボックスの底のzの値。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-Gnuplot-Options"></a>
 </p><hr size="6">
 <a name="Gnuplot-Options"></a>
+<a name="SEC67"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Plotting-Options" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Gnuplot_005fpipes-Format-Functions" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC66" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC68" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Plotting" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Plotting" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_13.html#File-Input-and-Output" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC62" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC62" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_13.html#SEC69" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Gnuplot-Options-1"></a>
-<h2 class="section">12.5 Gnuplot Options</h2>
+<h2 class="section"> 12.5 Gnuplot Options </h2>
 
 <p>gnuplotに特化したプロットオプションがいくつかあります。
 これらのオプションのいくつかは gnuplotコマンドそのものであり文字列として指定されます。
@@ -1774,36 +1805,33 @@ Gnuplotでは <var>impulses</var>スタイルも使えます。
 <p><a name="gnuplot_005fterm"></a>
 <a name="Item_003a-gnuplot_005fterm"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fterm"></a><u>プロットオプション:</u> <b>gnuplot_term</b><i> [gnuplot_term, <var>terminal_name</var>]</i></dt>
-<dd>
-<p>gnuplot用の出力端末タイプを設定します。
+<dt><u>プロットオプション:</u> <b>gnuplot_term</b><i> [gnuplot_term, <var>terminal_name</var>]</i>
+<a name="IDX489"></a>
+</dt>
+<dd><p>gnuplot用の出力端末タイプを設定します。
 引数 <var>terminal_name</var>は文字列か以下の3の特殊シンボルです。
 </p><ul>
 <li>
 <strong>default</strong> (デフォルト値)
 
 <p>Gnuplot出力が別のグラフィカルなウィンドウに表示されます。
-使われる gnuplot端末はオプション <code><a href="#gnuplot_005fdefault_005fterm_005fcommand">gnuplot_default_term_command</a></code>
-の値で指定されます。
+使われる gnuplot端末はオプション <code><a href="#gnuplot_005fdefault_005fterm_005fcommand">gnuplot_default_term_command</a></code>の値で指定されます。
 </p>
 </li><li>
 <strong>dumb</strong>
 
 <p>Gnuplot出力がグラフィックスの &quot;ASCIIアート&quot;近似でファイル <code>maxout.gnuplot</code>に保存されます。
-もしオプション <code><a href="#gnuplot_005fout_005ffile">gnuplot_out_file</a></code>
-が <var>filename</var>に設定されたなら、
+もしオプション <code><a href="#gnuplot_005fout_005ffile">gnuplot_out_file</a></code>が <var>filename</var>に設定されたなら、
 プロットはデフォルト <code>maxout.gnuplot</code>の代わりにそこに保存されます。
 </p>
 </li><li>
 <strong>ps</strong>
 
 <p>Gnuplotがポストスクリプトページ記述言語でコマンドを生成します。
-もしオプション <code><a href="#gnuplot_005fout_005ffile">gnuplot_out_file</a></code>
-が <var>filename</var>に設定されているなら、
+もしオプション <code><a href="#gnuplot_005fout_005ffile">gnuplot_out_file</a></code>が <var>filename</var>に設定されているなら、
 gnuplotは <var>filename</var>にポストスクリプトコマンドを書きます。
 そうでなけいなら <code>maxplot.ps</code>ファイルとして保存します。
-この端末の設定はオプション <code><a href="#gnuplot_005fdumb_005fterm_005fcommand">gnuplot_dumb_term_command</a></code>
-の値で与えられます。
+この端末の設定はオプション <code><a href="#gnuplot_005fdumb_005fterm_005fcommand">gnuplot_dumb_term_command</a></code>の値で与えられます。
 </p>
 
 </li><li>
@@ -1813,108 +1841,126 @@ gnuplotは <var>filename</var>にポストスクリプトコマンドを書き�
 生成することができます。
 これらのフォーマットを使うには、
 オプション <code>gnuplot_term</code>に
-任意のサポートされた gnuplot端末名(シンボル)を設定します。
-任意の有効なオプションを伴う gnuplot端末フル仕様(文字列)さえ設定可能です。
+任意のサポートされた gnuplot端末名(シンボルでなければいけません)を設定します。
+任意の有効なオプションを伴う 完全な gnuplot端末仕様(文字列でなければいけません)さえ設定可能です。
 例えば、<code>[gnuplot_term, png]</code>はPNG (Portable Network Graphics)形式で
 出力を生成しますし、
 <code>[gnuplot_term, &quot;png size 1000,1000&quot;]</code>は
 1000 x 1000ピクセルサイズのPNGを生成します。
 </p>
-<p>もしオプション <code><a href="#gnuplot_005fout_005ffile">gnuplot_out_file</a></code>
-が <var>filename</var>に設定されたら、
+<p>もしオプション <code><a href="#gnuplot_005fout_005ffile">gnuplot_out_file</a></code>が <var>filename</var>に設定されたら、
 gnuplotは <var>filename</var>に出力を書き込みます。
 そうでないなら <code>maxplot.<var>term</var></code>ファイルに書き込みます。
 ここで <var>term</var>はgnuplot端末名です。
 </p></li></ul>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gnuplot_005fout_005ffile"></a>
 <a name="Item_003a-gnuplot_005fout_005ffile"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fout_005ffile"></a><u>プロットオプション:</u> <b>gnuplot_out_file</b><i> [gnuplot_out_file, <var>file_name</var>]</i></dt>
-<dd>
-<p>端末が <code>default</code>に設定されている時、
+<dt><u>プロットオプション:</u> <b>gnuplot_out_file</b><i> [gnuplot_out_file, <var>file_name</var>]</i>
+<a name="IDX490"></a>
+</dt>
+<dd><p>端末が <code>default</code>に設定されている時、
 gnuplotがインタープレトするコマンドを含むファイルのデフォルト名を置き換えるのに使われます。
 また、端末が <code>default</code>と違う時、
 gnuplotが生成するグラフィックファイルのデフォルト名を置き換えるのに使われます。
-もし1以上のスラッシュ&ldquo;/&rdquo;を含むなら、
+もし1以上のスラッシュ&quot;/&quot;を含むなら、
 ファイルの名前はそのままになります;
 プロットコマンドが生成するファイルの完全な名前はいつも
 それらのコマンドの出力として送られるので、
 コマンドがセミコロンで終了しているならそれらを見ることができます。
 </p>
-<p><code><a href="#gnuplot_005fterm">gnuplot_term</a></code>
-オプションと関連して使われる時、
+<p><code><a href="#gnuplot_005fterm">gnuplot_term</a></code>オプションと関連して使われる時、
 Gnuplotがサポートするグラフィックフォーマットの１つで
 ファイルにプロットを保存するのに使われます。
 PNGや, PDF, ポストスクリプト, SVGを生成するには、
-オプション <code><a href="#png_005ffile">png_file</a></code>
-, <code><a href="#pdf_005ffile">pdf_file</a></code>
-, <code><a href="#ps_005ffile">ps_file</a></code>
-, <code><a href="#svg_005ffile">svg_file</a></code>
-を使うのがより簡単です。
+オプション <code><a href="#png_005ffile">png_file</a></code>, <code><a href="#pdf_005ffile">pdf_file</a></code>, <code><a href="#ps_005ffile">ps_file</a></code>, <code><a href="#svg_005ffile">svg_file</a></code>を使うのがより簡単です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gnuplot_005fpm3d"></a>
 <a name="Item_003a-gnuplot_005fpm3d"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fpm3d"></a><u>プロットオプション:</u> <b>gnuplot_pm3d</b><i> [gnuplot_pm3d, <var>value</var>]</i></dt>
-<dd>
-<p><code>false</code>の値ではPM3Dモードの使用をディレーブルするのに使われます。
+<dt><u>プロットオプション:</u> <b>gnuplot_pm3d</b><i> [gnuplot_pm3d, <var>value</var>]</i>
+<a name="IDX491"></a>
+</dt>
+<dd><p><code>false</code>の値ではPM3Dモードの使用をディレーブルするのに使われます。
 PM3Dモードはデフォルトで使用可能です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gnuplot_005fpreamble"></a>
 <a name="Item_003a-gnuplot_005fpreamble"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fpreamble"></a><u>プロットオプション:</u> <b>gnuplot_preamble</b><i> [gnuplot_preamble, <var>string</var>]</i></dt>
-<dd>
-<p>このオプションは Gnuplotに送られるどんな他のコマンドの前に gnuplotコマンドを挿入します。
+<dt><u>プロットオプション:</u> <b>gnuplot_preamble</b><i> [gnuplot_preamble, <var>string</var>]</i>
+<a name="IDX492"></a>
+</dt>
+<dd><p>このオプションは Gnuplotに送られるどんな他のコマンドの前に gnuplotコマンドを挿入します。
 有効な gnuplotコマンドはどんなものでも使うことができます。
 複数のコマンドはセミコロンで分離されなければいけません。
-<code><a href="#gnuplot_005fpostamble">gnuplot_postamble</a></code>
-も参照してください。
+<code><a href="#gnuplot_005fpostamble">gnuplot_postamble</a></code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gnuplot_005fpostamble"></a>
 <a name="Item_003a-gnuplot_005fpostamble"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fpostamble"></a><u>プロットオプション:</u> <b>gnuplot_postamble</b><i> [gnuplot_postamble, <var>string</var>]</i></dt>
-<dd>
-<p>このオプションは Gnuplotに送られる他のコマンドの後でプロットコマンドが送られる直前に gnuplotコマンドを挿入します。
+<dt><u>プロットオプション:</u> <b>gnuplot_postamble</b><i> [gnuplot_postamble, <var>string</var>]</i>
+<a name="IDX493"></a>
+</dt>
+<dd><p>このオプションは Gnuplotに送られる他のコマンドの後でプロットコマンドが送られる直前に gnuplotコマンドを挿入します。
 有効な gnuplotコマンドはどんなものでも使うことができます。
 複数のコマンドはセミコロンで分離されなければいけません。
-<code><a href="#gnuplot_005fpreamble">gnuplot_preamble</a></code>
-も参照してください。
+<code><a href="#gnuplot_005fpreamble">gnuplot_preamble</a></code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gnuplot_005fdefault_005fterm_005fcommand"></a>
 <a name="Item_003a-gnuplot_005fdefault_005fterm_005fcommand"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fdefault_005fterm_005fcommand"></a><u>プロットオプション:</u> <b>gnuplot_default_term_command</b></dt>
+<dt><u>プロットオプション:</u> <b>gnuplot_default_term_command</b>
+<a name="IDX494"></a>
+</dt>
 <dd><p>[gnuplot_default_term_command, <var>command</var>]
 </p>
 <p>デフォルト端末として端末タイプを設定するgnuplotコマンド。
 もしこのオプションが設定されていなければ、使われるコマンドは以下の通り:
 <code>&quot;set term wxt size 640,480 font \&quot;,12\&quot;; set term pop&quot;</code>
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gnuplot_005fdumb_005fterm_005fcommand"></a>
 <a name="Item_003a-gnuplot_005fdumb_005fterm_005fcommand"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fdumb_005fterm_005fcommand"></a><u>プロットオプション:</u> <b>gnuplot_dumb_term_command</b></dt>
+<dt><u>プロットオプション:</u> <b>gnuplot_dumb_term_command</b>
+<a name="IDX495"></a>
+</dt>
 <dd><p>[gnuplot_dumb_term_command, <var>command</var>]
 </p>
 <p>ダム端末として端末タイプを設定するgnuplotコマンド。
@@ -1922,112 +1968,146 @@ PM3Dモードはデフォルトで使用可能です。
 <code>&quot;set term dumb 79 22&quot;</code>
 これは79文字掛ける22文字のテキスト出力を生成します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gnuplot_005fpdf_005fterm_005fcommand"></a>
 <a name="Item_003a-gnuplot_005fpdf_005fterm_005fcommand"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fpdf_005fterm_005fcommand"></a><u>プロットオプション:</u> <b>gnuplot_pdf_term_command</b><i> [gnuplot_pdf_term_command, <var>command</var>]</i></dt>
-<dd>
-<p>PDF端末として端末タイプを設定するgnuplotコマンド。
+<dt><u>プロットオプション:</u> <b>gnuplot_pdf_term_command</b><i> [gnuplot_pdf_term_command, <var>command</var>]</i>
+<a name="IDX496"></a>
+</dt>
+<dd><p>PDF端末として端末タイプを設定するgnuplotコマンド。
 もしこのオプションが設定されていなければ、使われるコマンドは以下の通り:
 <code>&quot;set term pdfcairo color solid lw 3 size 17.2 cm, 12.9 cm font \&quot;,18\&quot;&quot;</code>
 更に知るにはgnuplotドキュメントを参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gnuplot_005fpng_005fterm_005fcommand"></a>
 <a name="Item_003a-gnuplot_005fpng_005fterm_005fcommand"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fpng_005fterm_005fcommand"></a><u>プロットオプション:</u> <b>gnuplot_png_term_command</b><i> [gnuplot_png_term_command, <var>command</var>]</i></dt>
-<dd>
-<p>PNG端末として端末タイプを設定するgnuplotコマンド。
+<dt><u>プロットオプション:</u> <b>gnuplot_png_term_command</b><i> [gnuplot_png_term_command, <var>command</var>]</i>
+<a name="IDX497"></a>
+</dt>
+<dd><p>PNG端末として端末タイプを設定するgnuplotコマンド。
 もしこのオプションが設定されていなければ、使われるコマンドは以下の通り:
 <code>&quot;set term pngcairo font \&quot;,12\&quot;&quot;</code>
 更に知るにはgnuplotドキュメントを参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gnuplot_005fps_005fterm_005fcommand"></a>
 <a name="Item_003a-gnuplot_005fps_005fterm_005fcommand"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fps_005fterm_005fcommand"></a><u>プロットオプション:</u> <b>gnuplot_ps_term_command</b><i> [gnuplot_ps_term_command, <var>command</var>]</i></dt>
-<dd>
-<p>ポストスクリプト端末として端末タイプを設定するgnuplotコマンド。
+<dt><u>プロットオプション:</u> <b>gnuplot_ps_term_command</b><i> [gnuplot_ps_term_command, <var>command</var>]</i>
+<a name="IDX498"></a>
+</dt>
+<dd><p>ポストスクリプト端末として端末タイプを設定するgnuplotコマンド。
 もしこのオプションが設定されていなければ、使われるコマンドは以下の通り:
 <code>&quot;set term postscript eps color solid lw 2 size 16.4 cm, 12.3 cm font \&quot;,24\&quot;&quot;</code>
 更に知るには <code>set term postscript</code>に関する gnuplotドキュメントを参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gnuplot_005fsvg_005fterm_005fcommand"></a>
 <a name="Item_003a-gnuplot_005fsvg_005fterm_005fcommand"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fsvg_005fterm_005fcommand"></a><u>プロットオプション:</u> <b>gnuplot_svg_term_command</b><i> [gnuplot_svg_term_command, <var>command</var>]</i></dt>
-<dd>
-<p>SVG端末として端末タイプを設定するgnuplotコマンド。
+<dt><u>プロットオプション:</u> <b>gnuplot_svg_term_command</b><i> [gnuplot_svg_term_command, <var>command</var>]</i>
+<a name="IDX499"></a>
+</dt>
+<dd><p>SVG端末として端末タイプを設定するgnuplotコマンド。
 もしこのオプションが設定されていなければ、使われるコマンドは以下の通り:
 <code>&quot;set term svg font \&quot;,14\&quot;&quot;</code>.
 更に知るには gnuplotドキュメントを参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gnuplot_005fcurve_005ftitles"></a>
 <a name="Item_003a-gnuplot_005fcurve_005ftitles"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fcurve_005ftitles"></a><u>プロットオプション:</u> <b>gnuplot_curve_titles</b></dt>
-<dd>
-<p>これは上記で記載した <code><a href="#legend">legend</a></code>
-で置き換えられた古いオプションです。
+<dt><u>プロットオプション:</u> <b>gnuplot_curve_titles</b>
+<a name="IDX500"></a>
+</dt>
+<dd><p>これは上記で記載した <code><a href="#legend">legend</a></code>で置き換えられた古いオプションです。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gnuplot_005fcurve_005fstyles"></a>
 <a name="Item_003a-gnuplot_005fcurve_005fstyles"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fcurve_005fstyles"></a><u>プロットオプション:</u> <b>gnuplot_curve_styles</b></dt>
-<dd>
-<p>これは上記で記載した <code><a href="#style">style</a></code>
-で置き換えられた古いオプションです。
+<dt><u>プロットオプション:</u> <b>gnuplot_curve_styles</b>
+<a name="IDX501"></a>
+</dt>
+<dd><p>これは上記で記載した <code><a href="#style">style</a></code>で置き換えられた古いオプションです。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 
 
 <dl>
-<dt><a name="index-gnuplot_005fdefault_005fterm_005fcommand-1"></a><u>プロットオプション:</u> <b>gnuplot_default_term_command</b></dt>
-<dd>
-<p>デフォルト端末の端末タイプを設定する gnuplotコマンド。
+<dt><u>プロットオプション:</u> <b>gnuplot_default_term_command</b>
+<a name="IDX502"></a>
+</dt>
+<dd><p>デフォルト端末の端末タイプを設定する gnuplotコマンド。
 デフォルト値は <code>&quot;set term pop&quot;</code>です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 
 
 <dl>
-<dt><a name="index-gnuplot_005fdumb_005fterm_005fcommand-1"></a><u>プロットオプション:</u> <b>gnuplot_dumb_term_command</b></dt>
-<dd>
-<p>ダム端末の端末タイプを設定するgnuplotコマンド。
+<dt><u>プロットオプション:</u> <b>gnuplot_dumb_term_command</b>
+<a name="IDX503"></a>
+</dt>
+<dd><p>ダム端末の端末タイプを設定するgnuplotコマンド。
 デフォルト値は <code>&quot;set term dumb 79 22&quot;</code>です。
 これは79文字 x 22文字のテキスト出力を生成します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 
 
 <dl>
-<dt><a name="index-gnuplot_005fps_005fterm_005fcommand-1"></a><u>プロットオプション:</u> <b>gnuplot_ps_term_command</b></dt>
-<dd>
-<p>ポストスクリプト端末の端末タイプを設定するgnuplotコマンド。
+<dt><u>プロットオプション:</u> <b>gnuplot_ps_term_command</b>
+<a name="IDX504"></a>
+</dt>
+<dd><p>ポストスクリプト端末の端末タイプを設定するgnuplotコマンド。
 デフォルト値は
 <code>&quot;set size 1.5, 1.5; set term postscript eps enhanced color solid 24&quot;</code>,
 です。
@@ -2035,113 +2115,134 @@ PM3Dモードはデフォルトで使用可能です。
 <code>set term postscript</code>の詳細については
 gnuplotドキュメンテーションを参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-Gnuplot_005fpipes-Format-Functions"></a>
 </p><hr size="6">
 <a name="Gnuplot_005fpipes-Format-Functions"></a>
+<a name="SEC68"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Gnuplot-Options" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_13.html#File-Input-and-Output" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC67" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_13.html#SEC69" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Plotting" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Plotting" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_13.html#File-Input-and-Output" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC62" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC62" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_13.html#SEC69" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Gnuplot_005fpipes-Format-Functions-1"></a>
-<h2 class="section">12.6 Gnuplot_pipes Format Functions</h2>
+<h2 class="section"> 12.6 Gnuplot_pipes Format Functions </h2>
 
 <p><a name="gnuplot_005fstart"></a>
 <a name="Item_003a-gnuplot_005fstart"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fstart"></a><u>関数:</u> <b>gnuplot_start</b><i> ()</i></dt>
-<dd>
-<p><code>gnuplot_pipes</code>フォーマットでのプロットのため使われる
+<dt><u>関数:</u> <b>gnuplot_start</b><i> ()</i>
+<a name="IDX505"></a>
+</dt>
+<dd><p><code>gnuplot_pipes</code>フォーマットでのプロットのため使われる
 gnuplotへのパイプを開きます。
 プロットの前に手動でパイプを開く必要はありません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="gnuplot_005fclose"></a>
 <a name="Item_003a-gnuplot_005fclose"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005fclose"></a><u>関数:</u> <b>gnuplot_close</b><i> ()</i></dt>
-<dd>
-<p><code>gnuplot_pipes</code>フォーマットで使われた
+<dt><u>関数:</u> <b>gnuplot_close</b><i> ()</i>
+<a name="IDX506"></a>
+</dt>
+<dd><p><code>gnuplot_pipes</code>フォーマットで使われた
 gnuplotへのパイプを閉じます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gnuplot_005frestart"></a>
 <a name="Item_003a-gnuplot_005frestart"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005frestart"></a><u>関数:</u> <b>gnuplot_restart</b><i> ()</i></dt>
-<dd>
-<p><code>gnuplot_pipes</code>フォーマットで使われた
+<dt><u>関数:</u> <b>gnuplot_restart</b><i> ()</i>
+<a name="IDX507"></a>
+</dt>
+<dd><p><code>gnuplot_pipes</code>フォーマットで使われた
 gnuplotへのパイプを閉じて新しいパイプを開きます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gnuplot_005freplot"></a>
 <a name="Item_003a-gnuplot_005freplot"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005freplot"></a><u>関数:</u> <b>gnuplot_replot</b><i> ()</i></dt>
-<dt><a name="index-gnuplot_005freplot-1"></a><u>関数:</u> <b>gnuplot_replot</b><i> (<var>s</var>)</i></dt>
-<dd>
-<p>gnuplotウィンドウを更新します。
+<dt><u>関数:</u> <b>gnuplot_replot</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>gnuplot_replot</tt> () &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>gnuplot_replot</tt> (<var>s</var>)</i>
+<a name="IDX508"></a>
+</dt>
+<dd><p>gnuplotウィンドウを更新します。
 もし <code>gnuplot_replot</code>が文字列 <var>s</var>の中の
 gnuplotコマンドを引数としてコールされたなら
 ウィンドウが再プロットされる前に <code>s</code>を gnuplotに送ります。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gnuplot_005freset"></a>
 <a name="Item_003a-gnuplot_005freset"></a>
 </p><dl>
-<dt><a name="index-gnuplot_005freset"></a><u>関数:</u> <b>gnuplot_reset</b><i> ()</i></dt>
-<dd>
-<p><code>gnuplot_pipes</code>フォーマットと一緒に使われる
+<dt><u>関数:</u> <b>gnuplot_reset</b><i> ()</i>
+<a name="IDX509"></a>
+</dt>
+<dd><p><code>gnuplot_pipes</code>フォーマットと一緒に使われる
 gnuplotの状態をリセットします。
 gnuplotウィンドウを更新するには
-<code>gnuplot_reset</code>の後に <code><a href="#gnuplot_005freplot">gnuplot_replot</a></code>
-をコールください。
+<code>gnuplot_reset</code>の後に <code><a href="#gnuplot_005freplot">gnuplot_replot</a></code>をコールください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Plotting">Plotting</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-File-Input-and-Output"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Plotting" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_13.html#File-Input-and-Output" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC62" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_13.html#SEC69" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>5月, 20 2015</em>に<a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>を用いて生成されました。
  </font>
  <br>
 

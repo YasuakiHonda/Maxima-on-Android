@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on Setembro, 8 2014 by texi2html 1.76 -->
+<!-- Created on Janeiro, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual do Maxima: 53. interpol</title>
+<title>Manual do Maxima 5.35.71.g68475e4: 53. lbfgs</title>
 
-<meta name="description" content="Manual do Maxima: 53. interpol">
-<meta name="keywords" content="Manual do Maxima: 53. interpol">
+<meta name="description" content="Manual do Maxima 5.35.71.g68475e4: 53. lbfgs">
+<meta name="keywords" content="Manual do Maxima 5.35.71.g68475e4: 53. lbfgs">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,429 +32,262 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="interpol"></a>
-<a name="SEC198"></a>
+<a name="lbfgs"></a>
+<a name="SEC200"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_52.html#SEC197" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC199" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_52.html#SEC199" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC201" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_52.html#SEC196" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_52.html#SEC197" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_54.html#SEC201" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_54.html#SEC203" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter"> 53. interpol </h1>
+<h1 class="chapter"> 53. lbfgs </h1>
+
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC199">53.1 Introdu&ccedil;&atilde;o a interpol</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC201">53.1 Introdução a lbfgs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC200">53.2 Defini&ccedil;&otilde;es para interpol</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC202">53.2 Definições para lbfgs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <hr size="6">
-<a name="Introdu_00e7_00e3o-a-interpol"></a>
-<a name="SEC199"></a>
+<a name="Introdu_00e7_00e3o-a-lbfgs"></a>
+<a name="SEC201"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC198" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC200" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC200" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC202" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC198" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC198" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_54.html#SEC201" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC200" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC200" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_54.html#SEC203" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 53.1 Introdu&ccedil;&atilde;o a interpol </h2>
+<h2 class="section"> 53.1 Introdução a lbfgs </h2>
 
-<p>Pacote <code>interpol</code> define os m&eacute;todos Lagrangiano, linear e o de
-splines c&uacute;bicos para interpola&ccedil;&atilde;o polinomial.
+<p><code>lbfgs</code> é uma implementação do algoritmo[1] L-BFGS (Broyden-Fletcher-Goldfarb-Shanno)
+para resolver problemas de minimização não limitada através de um algoritmo de memória limitada quasi-Newton (BFGS).
+Esse algoritmo é chamado de método de memória limitada porque uma aproximação de baixo ranque da
+inverso da matriz Hessiana é armazenado em lugar da inversa da matriz Hessiana completa.
+O programa foi escrito origináriamente em Fortran [2] por Jorge Nocedal,
+incorporando algumas funções originalmente escritas por Jorge J. Moré e David J. Thuente,
+e traduzidas para Lisp automaticamente através do programa <code>f2cl</code>.
+O pacote do Maxima <code>lbfgs</code> compreende o código traduzido e adicionalmente
+uma interface de função que gerencia alguns detallhes.
 </p>
-
-
-<p>Coment&aacute;rios, corre&ccedil;&otilde;es e sugest&otilde;es, por favor contacte-me em <var>'mario AT edu DOT xunta DOT es'</var>.
+<p>Referências:
 </p>
-
-
+<p>[1] D. Liu and J. Nocedal. &quot;On the limited memory BFGS method for large
+scale optimization&quot;. <i>Mathematical Programming B</i> 45:503-528 (1989)
+</p>
+<p>[2] http://netlib.org/opt/lbfgs_um.shar
+</p>
 <hr size="6">
-<a name="Defini_00e7_00f5es-para-interpol"></a>
-<a name="SEC200"></a>
+<a name="Defini_00e7_00f5es-para-lbfgs"></a>
+<a name="SEC202"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC199" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_54.html#SEC201" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC201" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_54.html#SEC203" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC198" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC198" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_54.html#SEC201" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC200" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC200" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_54.html#SEC203" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 53.2 Defini&ccedil;&otilde;es para interpol </h2>
-
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>lagrange</b><i> (<var>pontos</var>)</i>
-<a name="IDX1730"></a>
-</dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>lagrange</b><i> (<var>pontos</var>, <var>op&ccedil;&atilde;o</var>)</i>
-<a name="IDX1731"></a>
-</dt>
-<dd><p>Calcula a interpola&ccedil;&atilde;o polinomial atrav&eacute;s do m&eacute;todo Lagrangiano. O argumento <var>pontos</var> deve ser um dos seguintes:
-</p>
-<ul>
-<li>
-uma matriz de duas colunas, <code>p:matrix([2,4],[5,6],[9,3])</code>,
-</li><li>
-uma lista de pares, <code>p: [[2,4],[5,6],[9,3]]</code>,
-</li><li>
-uma lista de n&uacute;meros, <code>p: [4,6,3]</code>, e nesse caso as abcissas ir&atilde;o ser atribu&iacute;das automaticamente aos valores 1, 2, 3, etc.
-</li></ul>
-
-<p>Nos dois primeiros casos os pares s&atilde;o ordenados em rela&ccedil;&atilde;o &agrave; primeira coordenada antes de fazer os c&aacute;lculos.
-</p>
-<p>Com o argumento <var>op&ccedil;&atilde;o</var> &eacute; poss&iacute;vel escolher o nome da vari&aacute;vel independente, o qual &eacute; <code>'x</code> por padr&atilde;o; para definir qualquer outra, z por exemplo, escreva <code>varname='z</code>. 
-</p>
-<p>Exemplos:
-</p>
-<pre class="example">(%i1) load(&quot;interpol&quot;)$
-(%i2) p:[[7,2],[8,2],[1,5],[3,2],[6,7]]$
-(%i3) lagrange(p);
-                 4        3         2
-             73 x    701 x    8957 x    5288 x   186
-(%o3)        ----- - ------ + ------- - ------ + ---
-              420     210       420      105      5
-(%i4) f(x):=''%;
-                     4        3         2
-                 73 x    701 x    8957 x    5288 x   186
-(%o4)    f(x) := ----- - ------ + ------- - ------ + ---
-                  420     210       420      105      5
-(%i5) /* Evaluate the polynomial at some points */
-      map(f,[2.3,5/7,%pi]);
-                             919062
-(%o5)  [- 1.567534999999992, ------,
-                             84035
-                         4          3           2
-                   73 %pi    701 %pi    8957 %pi    5288 %pi   186
-                   ------- - -------- + --------- - -------- + ---]
-                     420       210         420        105       5
-(%i6) %,numer;
-(%o6) [- 1.567534999999992, 10.9366573451538, 2.89319655125692]
-(%i7) /* Plot the polynomial together with points */
-      plot2d([f(x),[discrete,p]],[x,0,10],
-           [gnuplot_curve_styles,
-                 [&quot;with lines&quot;,&quot;with points pointsize 3&quot;]])$
-(%i8) /* Change variable name */
-      lagrange(p, varname=w);
-                 4        3         2
-             73 w    701 w    8957 w    5288 w   186
-(%o8)        ----- - ------ + ------- - ------ + ---
-              420     210       420      105      5
-</pre>
-</dd></dl>
-
+<h2 class="section"> 53.2 Definições para lbfgs </h2>
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>charfun2</b><i> (<var>x</var>, <var>a</var>, <var>b</var>)</i>
+<dt><u>Função:</u> <b>lbfgs</b><i> (<var>FOM</var>, <var>X</var>, <var>X0</var>, <var>epsilon</var>, <var>iprint</var>)</i>
 <a name="IDX1732"></a>
 </dt>
-<dd><p>Retorna <code>true</code>, i. e., verdadeiro se o n&uacute;mero <var>x</var> pertence ao intervalo <em>[a, b)</em>, e <code>false</code>, i. e., falsono caso contr&aacute;rio.
-</p></dd></dl>
+<dd><p>Encontra uma solução aproximada da minimização não limitada de número de mérito <var>FOM</var>
+sobre a lista de variáveis <var>X</var>,
+começando a partir da estimativa inicial <var>X0</var>,
+tal que <em>norm grad FOM &lt; epsilon max(1, norm X)</em>.
+</p>
+<p>O algoritmo aplicado é um algoritmo de memória limitada[1] quasi-Newton (BFGS).
+Esse algoritmo é chamado de método de memória limitada porque uma aproximação de baixo ranque da
+inverso da matriz Hessiana é armazenado em lugar da inversa da matriz Hessiana completa.
+</p>
+<p><var>iprint</var> controla as messaens de progresso mostradas através de <code>lbfgs</code>.
+</p>
+<dl compact="compact">
+<dt> <code>iprint[1]</code></dt>
+<dd><p><code><var>iprint</var>[1]</code> controla a frequência das mensagens de progresso.
+</p><dl compact="compact">
+<dt> <code>iprint[1] &lt; 0</code></dt>
+<dd><p>Nenhuma mensagem de progresso.
+</p></dd>
+<dt> <code>iprint[1] = 0</code></dt>
+<dd><p>Messagens na primeira iteração e na última iteração.
+</p></dd>
+<dt> <code>iprint[1] &gt; 0</code></dt>
+<dd><p>Mostra uma mensagem a cada <code><var>iprint</var>[1]</code> iterações.
+</p></dd>
+</dl>
+</dd>
+<dt> <code>iprint[2]</code></dt>
+<dd><p><code><var>iprint</var>[2]</code> controla a quantidade de informações fornecidas pelas mensagens de progresso (verbosidade).
+</p><dl compact="compact">
+<dt> <code>iprint[2] = 0</code></dt>
+<dd><p>Mostra na tela o contador de iterações, o número de avaliações de <var>FOM</var>, o valor de <var>FOM</var>,
+a norma do gradiente de <var>FOM</var>, e o comprimento do salto.
+</p></dd>
+<dt> <code>iprint[2] = 1</code></dt>
+<dd><p>O mesmo que <code><var>iprint</var>[2] = 0</code>, adicionando <var>X0</var> e o gradiente de <var>FOM</var> avaliado em <var>X0</var>.
+</p></dd>
+<dt> <code>iprint[2] = 2</code></dt>
+<dd><p>O mesmo que <code><var>iprint</var>[2] = 1</code>, adicionando valores de <var>X</var> a cada iteração.
+</p></dd>
+<dt> <code>iprint[2] = 3</code></dt>
+<dd><p>O mesmo que <code><var>iprint</var>[2] = 2</code>, adicionando o gradiente de <var>FOM</var> a cada iteração.
+</p></dd>
+</dl>
+</dd>
+</dl>
 
+<p>Veja também <code>lbfgs_nfeval_max</code> e <code>lbfgs_ncorrections</code>.
+</p>
+<p>Referências:
+</p>
+<p>[1] D. Liu and J. Nocedal. &quot;On the limited memory BFGS method for large
+scale optimization&quot;. <i>Mathematical Programming B</i> 45:503-528 (1989)
+</p>
+<p>Exemplo:
+</p>
+<pre class="example">(%i1) load (lbfgs);
+(%o1)   /usr/share/maxima/5.10.0cvs/share/lbfgs/lbfgs.mac
+(%i2) FOM : '((1/length(X))*sum((F(X[i]) - Y[i])^2, i, 1, length(X)));
+                               2
+               sum((F(X ) - Y ) , i, 1, length(X))
+                       i     i
+(%o2)          -----------------------------------
+                            length(X)
+(%i3) X : [1, 2, 3, 4, 5];
+(%o3)                    [1, 2, 3, 4, 5]
+(%i4) Y : [0, 0.5, 1, 1.25, 1.5];
+(%o4)                [0, 0.5, 1, 1.25, 1.5]
+(%i5) F(x) := A/(1 + exp(-B*(x - C)));
+                                   A
+(%o5)            F(x) := ----------------------
+                         1 + exp((- B) (x - C))
+(%i6) ''FOM;
+                A               2            A                2
+(%o6) ((----------------- - 1.5)  + (----------------- - 1.25)
+          - B (5 - C)                  - B (4 - C)
+        %e            + 1            %e            + 1
+            A             2            A               2
+ + (----------------- - 1)  + (----------------- - 0.5)
+      - B (3 - C)                - B (2 - C)
+    %e            + 1          %e            + 1
+             2
+            A
+ + --------------------)/5
+      - B (1 - C)     2
+   (%e            + 1)
+(%i7) estimates : lbfgs (FOM, '[A, B, C], [1, 1, 1], 1e-4, [1, 0]);
+*************************************************
+  N=    3   NUMBER OF CORRECTIONS=25
+       INITIAL VALUES
+ F=  1.348738534246918D-01   GNORM=  2.000215531936760D-01
+*************************************************
+
+   I  NFN     FUNC                    GNORM                   STEPLENGTH
+
+   1    3     1.177820636622582D-01   9.893138394953992D-02   8.554435968992371D-01  
+   2    6     2.302653892214013D-02   1.180098521565904D-01   2.100000000000000D+01  
+   3    8     1.496348495303005D-02   9.611201567691633D-02   5.257340567840707D-01  
+   4    9     7.900460841091139D-03   1.325041647391314D-02   1.000000000000000D+00  
+   5   10     7.314495451266917D-03   1.510670810312237D-02   1.000000000000000D+00  
+   6   11     6.750147275936680D-03   1.914964958023047D-02   1.000000000000000D+00  
+   7   12     5.850716021108205D-03   1.028089194579363D-02   1.000000000000000D+00  
+   8   13     5.778664230657791D-03   3.676866074530332D-04   1.000000000000000D+00  
+   9   14     5.777818823650782D-03   3.010740179797255D-04   1.000000000000000D+00  
+
+ THE MINIMIZATION TERMINATED WITHOUT DETECTING ERRORS.
+ IFLAG = 0
+(%o7) [A = 1.461933911464101, B = 1.601593973254802, 
+                                           C = 2.528933072164854]
+(%i8) plot2d ([F(x), [discrete, X, Y]], [x, -1, 6]), ''estimates;
+(%o8) 
+</pre>
+</dd></dl>
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>linearinterpol</b><i> (<var>pontos</var>)</i>
+<dt><u>Variãvel:</u> <b>lbfgs_nfeval_max</b>
 <a name="IDX1733"></a>
 </dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>linearinterpol</b><i> (<var>pontos</var>, <var>op&ccedil;&atilde;o</var>)</i>
-<a name="IDX1734"></a>
-</dt>
-<dd><p>Calcula a interpola&ccedil;&atilde;o polinomial atrav&eacute;s do m&eacute;todo linear. O argumento <var>pontos</var> deve ser um dos seguintes:
+<dd><p>Valor por omissão: 100
 </p>
-<ul>
-<li>
-uma matriz de duas colunas, <code>p:matrix([2,4],[5,6],[9,3])</code>,
-</li><li>
-uma lista de pares, <code>p: [[2,4],[5,6],[9,3]]</code>,
-</li><li>
-uma lista de n&uacute;meros, <code>p: [4,6,3]</code>, e nesse caso as abcissas ir&atilde;o ser atribu&iacute;das automaticamente aos valores 1, 2, 3, etc.
-</li></ul>
-
-<p>Nos dois primeiros casos os pares s&atilde;o ordenados em rela&ccedil;&atilde;o &agrave; primeira coordenada antes de fazer os c&aacute;lculos.
-</p>
-<p>Com o argumento <var>op&ccedil;&atilde;o</var> &eacute; poss&iacute;vel escolher o nome da vari&aacute;vel independente, o qual &eacute; <code>'x</code> por padr&atilde;o; para definir qualquer outra, z por exemplo, escreva <code>varname='z</code>. 
-</p>
-<p>Examples:
-</p><pre class="example">(%i1) load(&quot;interpol&quot;)$
-(%i2) p: matrix([7,2],[8,3],[1,5],[3,2],[6,7])$
-(%i3) linearinterpol(p);
-        13   3 x
-(%o3)  (-- - ---) charfun2(x, minf, 3)
-        2     2
- + (x - 5) charfun2(x, 7, inf) + (37 - 5 x) charfun2(x, 6, 7)
-    5 x
- + (--- - 3) charfun2(x, 3, 6)
-     3
-
-(%i4) f(x):=''%;
-                13   3 x
-(%o4)  f(x) := (-- - ---) charfun2(x, minf, 3)
-                2     2
- + (x - 5) charfun2(x, 7, inf) + (37 - 5 x) charfun2(x, 6, 7)
-    5 x
- + (--- - 3) charfun2(x, 3, 6)
-     3
-(%i5)  /* Evaluate the polynomial at some points */
-       map(f,[7.3,25/7,%pi]);
-                            62  5 %pi
-(%o5)                 [2.3, --, ----- - 3]
-                            21    3
-(%i6) %,numer;
-(%o6)  [2.3, 2.952380952380953, 2.235987755982989]
-(%i7)  /* Plot the polynomial together with points */
-       plot2d(['(f(x)),[discrete,args(p)]],[x,-5,20],
-           [gnuplot_curve_styles,
-                 [&quot;with lines&quot;,&quot;with points pointsize 3&quot;]])$
-(%i8)  /* Change variable name */
-       linearinterpol(p, varname='s);
-       13   3 s
-(%o8) (-- - ---) charfun2(s, minf, 3)
-       2     2
- + (s - 5) charfun2(s, 7, inf) + (37 - 5 s) charfun2(s, 6, 7)
-    5 s
- + (--- - 3) charfun2(s, 3, 6)
-     3
-</pre>
 </dd></dl>
-
-
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>cspline</b><i> (<var>pontos</var>)</i>
-<a name="IDX1735"></a>
+<dt><u>Variãvel:</u> <b>lbfgs_ncorrections</b>
+<a name="IDX1734"></a>
 </dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>cspline</b><i> (<var>pontos</var>, <var>op&ccedil;&atilde;o1</var>, <var>op&ccedil;&atilde;o2</var>, ...)</i>
-<a name="IDX1736"></a>
-</dt>
-<dd><p>Calcula a interpola&ccedil;&atilde;o polnomial pelo m&eacute;todo de splines ( polin&oacute;mios de ordem k que interpolam os dados e t&ecirc;m k-1 derivadas cont&iacute;nuas em todo o intervalo ) c&uacute;bicos. O argumento <var>pontos</var> deve ser um dos
-seguintes:
+<dd><p>Valor por omissão: 25
 </p>
-<ul>
-<li>
-uma matriz de duas colunas, <code>p:matrix([2,4],[5,6],[9,3])</code>,
-</li><li>
-uma lista de pares, <code>p: [[2,4],[5,6],[9,3]]</code>,
-</li><li>
-uma lista de n&uacute;meros, <code>p: [4,6,3]</code>, e nesse caso as abcissas ir&atilde;o ser atribu&iacute;das automaticamente aos valores 1, 2, 3, etc.
-</li></ul>
-
-<p>Nos dois primeiros casos os pares s&atilde;o ordenados em rela&ccedil;&atilde;o &agrave; primeira coordenada antes de fazer os c&aacute;lculos.
-</p>
-<p>Existem tr&ecirc;s op&ccedil;&otilde;es para ajustar necessidades espec&iacute;ficas:
-</p><ul>
-<li>
-<code>'d1</code>, o padr&atilde;o &eacute; <code>'unknown</code>, &eacute; a primeira derivada em <em>x_1</em>; se essa primeira derivada for desconhecida, <code>'unknown</code>, a segunda derivada em <em>x_1</em> &eacute; igualada a 0 (o spline c&uacute;bico natural); se
-essa primeira
-derivada for igual a um n&uacute;mero, a segunda derivada &eacute; calculada baseando-se nesse n&uacute;mero.
-
-</li><li>
-<code>'dn</code>, o padr&atilde;o &eacute; <code>'unknown</code>, &eacute; a primeira derivada em <em>x_n</em>; se essa primeira derivada for desconhecida, <code>'unknown</code>, a segunda derivada em <em>x_n</em> &eacute; igualada a 0 (o spline c&uacute;bico natural); se
-essa primeira
-derivada for igual a um n&uacute;mero, a segunda derivada &eacute; calculada baseando-se nesse n&uacute;mero.
-
-</li><li>
-<code>'nome_var</code>, o padr&atilde;o &eacute; <code>'x</code>, &eacute; o nome da vari&aacute;vel independente.
-</li></ul>
-
-<p>Exemplos:
-</p><pre class="example">(%i1) load(&quot;interpol&quot;)$
-(%i2) p:[[7,2],[8,2],[1,5],[3,2],[6,7]]$
-(%i3) /* Unknown first derivatives at the extremes
-         is equivalent to natural cubic splines */
-      cspline(p);
-              3         2
-        1159 x    1159 x    6091 x   8283
-(%o3)  (------- - ------- - ------ + ----) charfun2(x, minf, 3)
-         3288      1096      3288    1096
-            3         2
-      2587 x    5174 x    494117 x   108928
- + (- ------- + ------- - -------- + ------) charfun2(x, 7, inf)
-       1644       137       1644      137
-          3          2
-    4715 x    15209 x    579277 x   199575
- + (------- - -------- + -------- - ------) charfun2(x, 6, 7)
-     1644       274        1644      274
-            3         2
-      3287 x    2223 x    48275 x   9609
- + (- ------- + ------- - ------- + ----) charfun2(x, 3, 6)
-       4932       274      1644     274
-
-(%i4) f(x):=''%$
-(%i5) /* Some evaluations */
-      map(f,[2.3,5/7,%pi]), numer;
-(%o5) [1.991460766423356, 5.823200187269903, 2.227405312429507]
-(%i6) /* Plotting interpolating function */
-      plot2d(['(f(x)),[discrete,p]],[x,0,10],
-          [gnuplot_curve_styles,
-               [&quot;with lines&quot;,&quot;with points pointsize 3&quot;]])$
-(%i7) /* New call, but giving values at the derivatives */
-      cspline(p,d1=0,dn=0);
-              3          2
-        1949 x    11437 x    17027 x   1247
-(%o7)  (------- - -------- + ------- + ----) charfun2(x, minf, 3)
-         2256       2256      2256     752
-            3          2
-      1547 x    35581 x    68068 x   173546
- + (- ------- + -------- - ------- + ------) charfun2(x, 7, inf)
-        564       564        141      141
-         3          2
-    607 x    35147 x    55706 x   38420
- + (------ - -------- + ------- - -----) charfun2(x, 6, 7)
-     188       564        141      47
-            3         2
-      3895 x    1807 x    5146 x   2148
- + (- ------- + ------- - ------ + ----) charfun2(x, 3, 6)
-       5076       188      141      47
-(%i8) /* Defining new interpolating function */
-      g(x):=''%$
-(%i9) /* Plotting both functions together */
-      plot2d(['(f(x)),'(g(x)),[discrete,p]],[x,0,10],
-           [gnuplot_curve_styles,
-              [&quot;with lines&quot;,&quot;with lines&quot;,&quot;with points pointsize 3&quot;]])$
-</pre>
 </dd></dl>
+
 
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC198" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_54.html#SEC201" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC200" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_54.html#SEC203" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -462,12 +295,12 @@ derivada for igual a um n&uacute;mero, a segunda derivada &eacute; calculada bas
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>Setembro, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>Janeiro, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on septiembre, 8 2014 by texi2html 1.76 -->
+<!-- Created on abril, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual de Maxima: 29. Teor&iacute;a de N&uacute;meros</title>
+<title>Manual de Maxima 5.36.0: 29. Teoría de Números</title>
 
-<meta name="description" content="Manual de Maxima: 29. Teor&iacute;a de N&uacute;meros">
-<meta name="keywords" content="Manual de Maxima: 29. Teor&iacute;a de N&uacute;meros">
+<meta name="description" content="Manual de Maxima 5.36.0: 29. Teoría de Números">
+<meta name="keywords" content="Manual de Maxima 5.36.0: 29. Teoría de Números">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,170 +32,92 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="Teor_00eda-de-N_00fameros"></a>
-<a name="SEC172"></a>
+<a name="SEC173"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_28.html#SEC171" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC173" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_28.html#SEC172" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC174" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC165" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_28.html#SEC166" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_30.html#SEC174" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_30.html#SEC175" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter"> 29. Teor&iacute;a de N&uacute;meros </h1>
+<h1 class="chapter"> 29. Teoría de Números </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC173">29.1 Funciones y variables para teor&iacute;a de n&uacute;meros</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+<tr><td align="left" valign="top"><a href="#SEC174">29.1 Funciones y variables para teoría de números</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
 </td></tr>
 </table>
 
 <hr size="6">
 <a name="Funciones-y-variables-para-teor_00eda-de-n_00fameros"></a>
-<a name="SEC173"></a>
+<a name="SEC174"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC172" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_30.html#SEC174" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC173" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_30.html#SEC175" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC172" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC172" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_30.html#SEC174" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC173" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC173" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_30.html#SEC175" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 29.1 Funciones y variables para teor&iacute;a de n&uacute;meros </h2>
+<h2 class="section"> 29.1 Funciones y variables para teoría de números </h2>
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>bern</b><i> (<var>n</var>)</i>
+<dt><u>Función:</u> <b>bern</b><i> (<var>n</var>)</i>
 <a name="IDX1255"></a>
 </dt>
-<dd><p>Devuelve el <var>n</var>-&eacute;simo n&uacute;mero de Bernoulli del entero <var>n</var>.
-Los n&uacute;meros de Bernoulli iguales a cero son suprimidos si <code>zerobern</code> vale <code>false</code>.
+<dd><p>Devuelve el <var>n</var>-ésimo número de Bernoulli del entero <var>n</var>.
+Los números de Bernoulli iguales a cero son suprimidos si <code>zerobern</code> vale <code>false</code>.
 </p>
-<p>V&eacute;ase tambi&eacute;n <code>burn</code>.
+<p>Véase también <code>burn</code>.
 </p>
 <pre class="example">(%i1) zerobern: true$
 (%i2) map (bern, [0, 1, 2, 3, 4, 5, 6, 7, 8]);
@@ -213,31 +135,31 @@ Los n&uacute;meros de Bernoulli iguales a cero son suprimidos si <code>zerobern<
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>bernpoly</b><i> (<var>x</var>, <var>n</var>)</i>
+<dt><u>Función:</u> <b>bernpoly</b><i> (<var>x</var>, <var>n</var>)</i>
 <a name="IDX1256"></a>
 </dt>
-<dd><p>Devuelve el <var>n</var>-&eacute;simo polinomio de Bernoulli de variable <var>x</var>.
+<dd><p>Devuelve el <var>n</var>-ésimo polinomio de Bernoulli de variable <var>x</var>.
 </p>
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>bfzeta</b><i> (<var>s</var>, <var>n</var>)</i>
+<dt><u>Función:</u> <b>bfzeta</b><i> (<var>s</var>, <var>n</var>)</i>
 <a name="IDX1257"></a>
 </dt>
-<dd><p>Devuelve la funci&oacute;n zeta de Riemann para el argumento <var>s</var>. El valor que devuelve es del tipo &quot;big float&quot; (bfloat) y 
-<var>n</var>  es su n&uacute;mero de d&iacute;gitos.
+<dd><p>Devuelve la función zeta de Riemann para el argumento <var>s</var>. El valor que devuelve es del tipo &quot;big float&quot; (bfloat) y 
+<var>n</var>  es su número de dígitos.
 </p>
-<p>Es necesario cargar en memoria esta funci&oacute;n haciendo <code>load (&quot;bffac&quot;)</code>.
+<p>Es necesario cargar en memoria esta función haciendo <code>load (&quot;bffac&quot;)</code>.
 </p>
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>bfhzeta</b><i> (<var>s</var>, <var>h</var>, <var>n</var>)</i>
+<dt><u>Función:</u> <b>bfhzeta</b><i> (<var>s</var>, <var>h</var>, <var>n</var>)</i>
 <a name="IDX1258"></a>
 </dt>
-<dd><p>Devuelve la funci&oacute;n zeta de Hurwitz para los argumentos <var>s</var> y <var>h</var>. El valor que devuelve es del tipo &quot;big float&quot; (bfloat) y <var>n</var>  es su n&uacute;mero de d&iacute;gitos.
+<dd><p>Devuelve la función zeta de Hurwitz para los argumentos <var>s</var> y <var>h</var>. El valor que devuelve es del tipo &quot;big float&quot; (bfloat) y <var>n</var>  es su número de dígitos.
 </p>
-<p>La funci&oacute;n zeta de Hurwitz se define como
+<p>La función zeta de Hurwitz se define como
 </p>
 <pre class="example">                        inf
                         ====
@@ -247,7 +169,7 @@ Los n&uacute;meros de Bernoulli iguales a cero son suprimidos si <code>zerobern<
                         ====  (k + h)
                         k = 0
 </pre>
-<p>Ejec&uacute;tese <code>load (bffac)</code> antes de hacer uso de esta funci&oacute;n.
+<p>Ejecútese <code>load (bffac)</code> antes de hacer uso de esta función.
 </p>
 </dd></dl>
 
@@ -255,13 +177,13 @@ Los n&uacute;meros de Bernoulli iguales a cero son suprimidos si <code>zerobern<
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>burn</b><i> (<var>n</var>)</i>
+<dt><u>Función:</u> <b>burn</b><i> (<var>n</var>)</i>
 <a name="IDX1259"></a>
 </dt>
-<dd><p>Siendo <var>n</var> entero, Devuelve un n&uacute;mero racional que aproxima el 
-<var>n</var>-&eacute;simo n&uacute;mero de Bernoulli. La funci&oacute;n <code>burn</code> aprovecha
-el hecho de que los n&uacute;meros de Bernoulli racionales se pueden aproximar
-con notable precisi&oacute;n gracias a 
+<dd><p>Siendo <var>n</var> entero, Devuelve un número racional que aproxima el 
+<var>n</var>-ésimo número de Bernoulli. La función <code>burn</code> aprovecha
+el hecho de que los números de Bernoulli racionales se pueden aproximar
+con notable precisión gracias a 
 </p>
 <pre class="example">                   n - 1  1 - 2 n
               (- 1)      2        zeta(2 n) (2 n)!
@@ -269,25 +191,25 @@ con notable precisi&oacute;n gracias a
                                 2 n
                              %pi
 </pre>
-<p>La funci&oacute;n <code>burn</code> puede ser m&aacute;s eficiente que <code>bern</code> cuando 
-<var>n</var> es un n&uacute;mero grande, ya que <code>bern</code> calcula todos los n&uacute;meros
-de Bernoulli hasta el <var>n</var>-&eacute;simo. Por el contrario, <code>burn</code> hace 
-uso de la aproximaci&oacute;n para enteros pares <var>n</var> &gt; 255. En caso de
-enteros impares y <var>n</var> &lt;= 255, se hace uso de la funci&oacute;n <code>bern</code>.
+<p>La función <code>burn</code> puede ser más eficiente que <code>bern</code> cuando 
+<var>n</var> es un número grande, ya que <code>bern</code> calcula todos los números
+de Bernoulli hasta el <var>n</var>-ésimo. Por el contrario, <code>burn</code> hace 
+uso de la aproximación para enteros pares <var>n</var> &gt; 255. En caso de
+enteros impares y <var>n</var> &lt;= 255, se hace uso de la función <code>bern</code>.
 </p>
-<p>Para utilizar esta funci&oacute;n hay que cargarla antes en memoria escribiendo
-<code>load (&quot;bffac&quot;)</code>. V&eacute;ase tambi&eacute;n <code>bern</code>.
+<p>Para utilizar esta función hay que cargarla antes en memoria escribiendo
+<code>load (&quot;bffac&quot;)</code>. Véase también <code>bern</code>.
 </p>
 </dd></dl>
 
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>chinese</b><i> ([<var>r_1</var>, &hellip;, <var>r_n</var>], [<var>m_1</var>, &hellip;, <var>m_n</var>])</i>
+<dt><u>Función:</u> <b>chinese</b><i> ([<var>r_1</var>, &hellip;, <var>r_n</var>], [<var>m_1</var>, &hellip;, <var>m_n</var>])</i>
 <a name="IDX1260"></a>
 </dt>
 <dd><p>Resulve el sistema de congruencias <code>x = r_1 mod m_1</code>, &hellip;, <code>x = r_n mod m_n</code>.
-Los restos <var>r_n</var> pueden ser enteros arbitrarios, mientras que los m&oacute;dulos <var>m_n</var>
+Los restos <var>r_n</var> pueden ser enteros arbitrarios, mientras que los módulos <var>m_n</var>
 deben ser positivos y primos dos a dos. 
 </p>
 <pre class="example">(%i1) mods : [1000, 1001, 1003, 1007];
@@ -309,43 +231,43 @@ deben ser positivos y primos dos a dos.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>cf</b><i> (<var>expr</var>)</i>
+<dt><u>Función:</u> <b>cf</b><i> (<var>expr</var>)</i>
 <a name="IDX1261"></a>
 </dt>
-<dd><p>Calcula aproximaciones con fracciones continuas. <var>expr</var> es una expresi&oacute;n
-que contiene fracciones continuas, ra&iacute;ces cuadradas de enteros,
-y n&uacute;meros reales (enteros, racionales, decimales en coma flotante y decimales de
-precisi&oacute;n arbitraria). <code>cf</code> calcula expansiones exactas de n&uacute;meros 
+<dd><p>Calcula aproximaciones con fracciones continuas. <var>expr</var> es una expresión
+que contiene fracciones continuas, raíces cuadradas de enteros,
+y números reales (enteros, racionales, decimales en coma flotante y decimales de
+precisión arbitraria). <code>cf</code> calcula expansiones exactas de números 
 racionales, pero las expansiones de nÃºmeros decimales de coma flotante se truncan
-de acuerdo con el valor de <code>ratepsilon</code>, y la de los de decimales de precisi&oacute;n
+de acuerdo con el valor de <code>ratepsilon</code>, y la de los de decimales de precisión
 arbitraria (bigfloats) lo hacen respecto de <code>10^(-fpprec)</code>.
 </p>
-<p>En las expresiones se pueden combinar operandos con operadores aritm&eacute;ticos.
-Maxima no conoce operaciones con fracciones continuas m&aacute;s all&aacute; de
-la funci&oacute;n <code>cf</code>.
+<p>En las expresiones se pueden combinar operandos con operadores aritméticos.
+Maxima no conoce operaciones con fracciones continuas más allá de
+la función <code>cf</code>.
 </p>
-<p>La funci&oacute;n <code>cf</code> eval&uacute;a sus argumentos despu&eacute;s de asignar a la 
-variable <code>listarith</code> el valor <code>false</code>, retornando una fracci&oacute;n
+<p>La función <code>cf</code> evalúa sus argumentos después de asignar a la 
+variable <code>listarith</code> el valor <code>false</code>, retornando una fracción
 continua en forma de lista.
 </p>
-<p>Una fracci&oacute;n continua <code>a + 1/(b + 1/(c + ...))</code> se representa como la
+<p>Una fracción continua <code>a + 1/(b + 1/(c + ...))</code> se representa como la
 lista <code>[a, b, c, ...]</code>, donde los elementos <code>a</code>, <code>b</code>, <code>c</code>, ... 
-se eval&uacute;an como enteros. La expresi&oacute;n <var>expr</var> puede contener tambi&eacute;n  
-<code>sqrt (n)</code> donde <code>n</code> es un entero; en tal caso, <code>cf</code> devolver&aacute; 
-tantos t&eacute;rminos de la fracci&oacute;n continua como indique el valor de la variable 
-<code>cflength</code> multiplicado por el per&iacute;odo.
+se evalúan como enteros. La expresión <var>expr</var> puede contener también  
+<code>sqrt (n)</code> donde <code>n</code> es un entero; en tal caso, <code>cf</code> devolverá 
+tantos términos de la fracción continua como indique el valor de la variable 
+<code>cflength</code> multiplicado por el período.
 </p>
-<p>Una fracci&oacute;n continua puede reducirse a un n&uacute;mero evaluando la representaci&oacute;n 
-aritm&eacute;tica que devuelve <code>cfdisrep</code>. V&eacute;ase tambi&eacute;n  <code>cfexpand</code>, 
+<p>Una fracción continua puede reducirse a un número evaluando la representación 
+aritmética que devuelve <code>cfdisrep</code>. Véase también  <code>cfexpand</code>, 
 que es otra alternativa para evaluar fracciones continuas.
 </p>
-<p>V&eacute;anse asimismo <code>cfdisrep</code>, <code>cfexpand</code> y <code>cflength</code>.
+<p>Véanse asimismo <code>cfdisrep</code>, <code>cfexpand</code> y <code>cflength</code>.
 </p>
 <p>Ejemplos:
 </p>
 <ul>
 <li>
-La expresi&oacute;n <var>expr</var> contiene fracciones continuas y ra&iacute;ces
+La expresión <var>expr</var> contiene fracciones continuas y raíces
 cuadradas de enteros.
 
 <pre class="example">(%i1) cf ([5, 3, 1]*[11, 9, 7] + [3, 7]/[4, 3, 2]);
@@ -354,8 +276,8 @@ cuadradas de enteros.
 (%o2)        [0, 1, 1, 1, 3, 2, 1, 4, 1, 9, 1, 9, 2]
 </pre>
 </li><li>
-La variable <code>cflength</code> controla cuantos per&iacute;odos de la fracci&oacute;n 
-continua se calculan para n&uacute;meros irracionales algebraicos.
+La variable <code>cflength</code> controla cuantos períodos de la fracción 
+continua se calculan para números irracionales algebraicos.
 
 <pre class="example">(%i1) cflength: 1$
 (%i2) cf ((1 + sqrt(5))/2);
@@ -368,7 +290,7 @@ continua se calculan para n&uacute;meros irracionales algebraicos.
 (%o6)           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2]
 </pre>
 </li><li>
-Una fracci&oacute;n continua puede calcularse evaluando la representaci&oacute;n aritm&eacute;tica 
+Una fracción continua puede calcularse evaluando la representación aritmética 
 que devuelve <code>cfdisrep</code>.
 
 <pre class="example">(%i1) cflength: 3$
@@ -377,8 +299,8 @@ que devuelve <code>cfdisrep</code>.
 (%o3)                   1.731707317073171
 </pre>
 </li><li>
-Maxima no sabe sobre operaciones con fracciones continuas m&aacute;s de lo que aporta 
-la funci&oacute;n <code>cf</code>.
+Maxima no sabe sobre operaciones con fracciones continuas más de lo que aporta 
+la función <code>cf</code>.
 
 <pre class="example">(%i1) cf ([1,1,1,1,1,2] * 3);
 (%o1)                     [4, 1, 5, 2]
@@ -392,10 +314,10 @@ la funci&oacute;n <code>cf</code>.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>cfdisrep</b><i> (<var>lista</var>)</i>
+<dt><u>Función:</u> <b>cfdisrep</b><i> (<var>lista</var>)</i>
 <a name="IDX1262"></a>
 </dt>
-<dd><p>Construye y devuelve una expresi&oacute;n aritm&eacute;tica ordinaria de la forma  <code>a + 1/(b + 1/(c + ...))</code> a partir de la representaci&oacute;n en formato lista de la fracci&oacute;n continua  <code>[a, b, c, ...]</code>.
+<dd><p>Construye y devuelve una expresión aritmética ordinaria de la forma  <code>a + 1/(b + 1/(c + ...))</code> a partir de la representación en formato lista de la fracción continua  <code>[a, b, c, ...]</code>.
 </p>
 <pre class="example">(%i1) cf ([1, 2, -3] + [1, -2, 1]);
 (%o1)                     [1, 1, 1, 2]
@@ -414,10 +336,10 @@ la funci&oacute;n <code>cf</code>.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>cfexpand</b><i> (<var>x</var>)</i>
+<dt><u>Función:</u> <b>cfexpand</b><i> (<var>x</var>)</i>
 <a name="IDX1263"></a>
 </dt>
-<dd><p>Devuelve la matriz con los numeradores y denominadores de la &uacute;ltima (columna 1) y pen&uacute;ltima (columna 2) convergentes de la fracci&oacute;n continua <var>x</var>.
+<dd><p>Devuelve la matriz con los numeradores y denominadores de la última (columna 1) y penúltima (columna 2) convergentes de la fracción continua <var>x</var>.
 </p>
 <pre class="example">(%i1) cf (rat (ev (%pi, numer)));
 
@@ -438,7 +360,7 @@ la funci&oacute;n <code>cf</code>.
 </dt>
 <dd><p>Valor por defecto: 1
 </p>
-<p>La variable <code>cflength</code> controla el n&uacute;mero de t&eacute;rminos de la fracci&oacute;n continua que devuelve la funci&oacute;n <code>cf</code>, que ser&aacute; <code>cflength</code> multiplicado por el per&iacute;odo. As&iacute;, el valor por defecto ser&aacute; el de un per&iacute;odo.
+<p>La variable <code>cflength</code> controla el número de términos de la fracción continua que devuelve la función <code>cf</code>, que será <code>cflength</code> multiplicado por el período. Así, el valor por defecto será el de un período.
 </p>
 <pre class="example">(%i1) cflength: 1$
 (%i2) cf ((1 + sqrt(5))/2);
@@ -456,13 +378,13 @@ la funci&oacute;n <code>cf</code>.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>divsum</b><i> (<var>n</var>, <var>k</var>)</i>
+<dt><u>Función:</u> <b>divsum</b><i> (<var>n</var>, <var>k</var>)</i>
 <a name="IDX1265"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>divsum</b><i> (<var>n</var>)</i>
+<dt><u>Función:</u> <b>divsum</b><i> (<var>n</var>)</i>
 <a name="IDX1266"></a>
 </dt>
-<dd><p>La llamada <code>divsum (<var>n</var>, <var>k</var>)</code> devuelve la suma de los divisores de <var>n</var> elevados a la <var>k</var>-&eacute;sima potencia.
+<dd><p>La llamada <code>divsum (<var>n</var>, <var>k</var>)</code> devuelve la suma de los divisores de <var>n</var> elevados a la <var>k</var>-ésima potencia.
 </p>
 <p>La llamada <code>divsum (<var>n</var>)</code> devuelve la suma de los divisores de <var>n</var>.
 </p>
@@ -479,13 +401,13 @@ la funci&oacute;n <code>cf</code>.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>euler</b><i> (<var>n</var>)</i>
+<dt><u>Función:</u> <b>euler</b><i> (<var>n</var>)</i>
 <a name="IDX1267"></a>
 </dt>
-<dd><p>Devuelve el <var>n</var>-&eacute;simo n&uacute;mero de Euler del entero no negativo <var>n</var>.
-Los n&uacute;mero de Euler iguales a cero se eliminan si <code>zerobern</code> vale <code>false</code>.
+<dd><p>Devuelve el <var>n</var>-ésimo número de Euler del entero no negativo <var>n</var>.
+Los número de Euler iguales a cero se eliminan si <code>zerobern</code> vale <code>false</code>.
 </p>
-<p>Para la constante de Euler-Mascheroni, v&eacute;ase <code>%gamma</code>.
+<p>Para la constante de Euler-Mascheroni, véase <code>%gamma</code>.
 </p>
 <pre class="example">(%i1) zerobern: true$
 (%i2) map (euler, [0, 1, 2, 3, 4, 5, 6]);
@@ -505,25 +427,25 @@ Los n&uacute;mero de Euler iguales a cero se eliminan si <code>zerobern</code> v
 <dd><p>Valor por defecto: <code>false</code>
 </p>
 <p>Controla el resultado devuelto por <code>ifactors</code>. El valor por defecto
-<code>false</code> hace que <code>ifactors</code> no d&eacute; informaci&oacute;n sobre las
+<code>false</code> hace que <code>ifactors</code> no dé información sobre las
 multiplicidades de los factores primos calculados. Cuando <code>factors_only</code>
 vale <code>true</code>, <code>ifactors</code> solo devuelve la lista de factores primos.
 </p>
-<p>Para ejemplos, v&eacute;ase <code>ifactors</code>.
+<p>Para ejemplos, véase <code>ifactors</code>.
 </p></dd></dl>
 
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>fib</b><i> (<var>n</var>)</i>
+<dt><u>Función:</u> <b>fib</b><i> (<var>n</var>)</i>
 <a name="IDX1269"></a>
 </dt>
-<dd><p>Devuelve el <var>n</var>-&eacute;simo n&uacute;mero de Fibonacci. La llamada <code>fib(0)</code> 
+<dd><p>Devuelve el <var>n</var>-ésimo número de Fibonacci. La llamada <code>fib(0)</code> 
 devuelve 0, <code>fib(1)</code> devuelve 1 y <code>fib (-<var>n</var>)</code> es igual a 
 <code>(-1)^(<var>n</var> + 1) * fib(<var>n</var>)</code>.
 </p>
-<p>Despu&eacute;s de llamar a <code>fib</code>, la variable <code>prevfib</code> toma el valor 
-<code>fib (<var>n</var> - 1)</code>, que es el n&uacute;mero de Fibonacci que precede al &uacute;ltimo calculado.
+<p>Después de llamar a <code>fib</code>, la variable <code>prevfib</code> toma el valor 
+<code>fib (<var>n</var> - 1)</code>, que es el número de Fibonacci que precede al último calculado.
 </p>
 <pre class="example">(%i1) map (fib, [-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8]);
 (%o1)           [- 3, 2, - 1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21]
@@ -531,10 +453,10 @@ devuelve 0, <code>fib(1)</code> devuelve 1 y <code>fib (-<var>n</var>)</code> es
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>fibtophi</b><i> (<var>expr</var>)</i>
+<dt><u>Función:</u> <b>fibtophi</b><i> (<var>expr</var>)</i>
 <a name="IDX1270"></a>
 </dt>
-<dd><p>Expresa los n&uacute;meros de Fibonacci en <var>expr</var> en t&eacute;rminos de la raz&oacute;n &aacute;urea <code>%phi</code>,
+<dd><p>Expresa los números de Fibonacci en <var>expr</var> en términos de la razón áurea <code>%phi</code>,
 que es <code>(1 + sqrt(5))/2</code>, aproximadamente 1.61803399.
 </p>
 <p>Ejemplos:
@@ -564,19 +486,19 @@ que es <code>(1 + sqrt(5))/2</code>, aproximadamente 1.61803399.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>ifactors</b><i> (<var>n</var>)</i>
+<dt><u>Función:</u> <b>ifactors</b><i> (<var>n</var>)</i>
 <a name="IDX1271"></a>
 </dt>
-<dd><p>Devuelve la factorizaci&oacute;n del entero positivo <var>n</var>. Si <code>n=p1^e1..pk^nk</code> es
-la descomposici&oacute;n de <var>n</var> en n&uacute;meros primos, <code>ifactors</code> devuelve 
+<dd><p>Devuelve la factorización del entero positivo <var>n</var>. Si <code>n=p1^e1..pk^nk</code> es
+la descomposición de <var>n</var> en números primos, <code>ifactors</code> devuelve 
 <code>[[p1, e1], ... , [pk, ek]]</code>.
 </p>
-<p>Los m&eacute;todos de factorizaci&oacute;n se basan en divisiones tentativas con n&uacute;meros primos
-hasta 9973, en los m&eacute;todos rho y p-1 de Pollard y en curvas el&iacute;pticas.
+<p>Los métodos de factorización se basan en divisiones tentativas con números primos
+hasta 9973, en los métodos rho y p-1 de Pollard y en curvas elípticas.
 </p>
-<p>La respuesta que se obtiene de <code>ifactors</code> est&aacute; controlada por la variable opcional
+<p>La respuesta que se obtiene de <code>ifactors</code> está controlada por la variable opcional
 <code>factors_only</code>. El valor por defecto <code>false</code> hace que <code>ifactors</code> no 
-d&eacute; informaci&oacute;n sobre las multiplicidades de los factores primos calculados. 
+dé información sobre las multiplicidades de los factores primos calculados. 
 Cuando <code>factors_only</code> vale <code>true</code>, <code>ifactors</code> solo devuelve la lista 
 de factores primos.
 </p>
@@ -592,17 +514,17 @@ de factores primos.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>igcdex</b><i> (<var>n</var>, <var>k</var>)</i>
+<dt><u>Función:</u> <b>igcdex</b><i> (<var>n</var>, <var>k</var>)</i>
 <a name="IDX1272"></a>
 </dt>
 <dd><p>Devuelve la lista <code>[<var>a</var>, <var>b</var>, <var>u</var>]</code>, donde <var>u</var> es
-el m&aacute;ximo com&uacute;n divisor de <var>n</var> y <var>k</var>, siendo <var>u</var>
+el máximo común divisor de <var>n</var> y <var>k</var>, siendo <var>u</var>
 igual a <code><var>a</var> <var>n</var> + <var>b</var> <var>k</var></code>. Los argumentos
 <var>n</var> y <var>k</var> deben ser enteros.
 </p>
-<p><code>igcdex</code> implementa el algoritmo de Euclides. V&eacute;ase tambi&eacute;n <code>gcdex</code>.
+<p><code>igcdex</code> implementa el algoritmo de Euclides. Véase también <code>gcdex</code>.
 </p>
-<p>La instrucci&oacute;n <code>load(gcdex)</code> carga esta funci&oacute;n.
+<p>La instrucción <code>load(gcdex)</code> carga esta función.
 </p>
 <p>Ejemplos:
 </p>
@@ -621,10 +543,10 @@ igual a <code><var>a</var> <var>n</var> + <var>b</var> <var>k</var></code>. Los 
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>inrt</b><i> (<var>x</var>, <var>n</var>)</i>
+<dt><u>Función:</u> <b>inrt</b><i> (<var>x</var>, <var>n</var>)</i>
 <a name="IDX1273"></a>
 </dt>
-<dd><p>Devuelve la ra&iacute;z entera <var>n</var>-&eacute;sima del valor absoluto de  <var>x</var>.
+<dd><p>Devuelve la raíz entera <var>n</var>-ésima del valor absoluto de  <var>x</var>.
 </p>
 <pre class="example">(%i1) l: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]$
 (%i2) map (lambda ([a], inrt (10^a, 3)), l);
@@ -633,12 +555,12 @@ igual a <code><var>a</var> <var>n</var> + <var>b</var> <var>k</var></code>. Los 
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>inv_mod</b><i> (<var>n</var>, <var>m</var>)</i>
+<dt><u>Función:</u> <b>inv_mod</b><i> (<var>n</var>, <var>m</var>)</i>
 <a name="IDX1274"></a>
 </dt>
-<dd><p>Calcula el inverso de <var>n</var> m&oacute;dulo <var>m</var>. 
+<dd><p>Calcula el inverso de <var>n</var> módulo <var>m</var>. 
 La llamada <code>inv_mod (n,m)</code> devuelve <code>false</code>
-si <var>n</var> es un divisor nulo m&oacute;dulo <var>m</var>.
+si <var>n</var> es un divisor nulo módulo <var>m</var>.
 </p>
 <pre class="example">(%i1) inv_mod(3, 41);
 (%o1)                           14
@@ -651,10 +573,10 @@ si <var>n</var> es un divisor nulo m&oacute;dulo <var>m</var>.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>isqrt</b><i> (<var>x</var>)</i>
+<dt><u>Función:</u> <b>isqrt</b><i> (<var>x</var>)</i>
 <a name="IDX1275"></a>
 </dt>
-<dd><p>Devuelve la &quot;ra&iacute;z cuadrada entera&quot;
+<dd><p>Devuelve la &quot;raíz cuadrada entera&quot;
 del valor absoluto de <var>x</var>,
 el cual debe ser un entero.
 </p>
@@ -663,10 +585,10 @@ el cual debe ser un entero.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>jacobi</b><i> (<var>p</var>, <var>q</var>)</i>
+<dt><u>Función:</u> <b>jacobi</b><i> (<var>p</var>, <var>q</var>)</i>
 <a name="IDX1276"></a>
 </dt>
-<dd><p>Devuelve el s&iacute;mbolo de Jacobi para <var>p</var> y <var>q</var>.
+<dd><p>Devuelve el símbolo de Jacobi para <var>p</var> y <var>q</var>.
 </p>
 <pre class="example">(%i1) l: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]$
 (%i2) map (lambda ([a], jacobi (a, 9)), l);
@@ -675,13 +597,13 @@ el cual debe ser un entero.
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>lcm</b><i> (<var>expr_1</var>, ..., <var>expr_n</var>)</i>
+<dt><u>Función:</u> <b>lcm</b><i> (<var>expr_1</var>, ..., <var>expr_n</var>)</i>
 <a name="IDX1277"></a>
 </dt>
-<dd><p>Devuelve el m&iacute;nimo com&uacute;n m&uacute;ltiplo de sus argumentos. 
+<dd><p>Devuelve el mínimo común múltiplo de sus argumentos. 
 Los argumentos pueden ser tanto expresiones en general como enteros.
 </p>
-<p>Es necesario cargar en memoria esta funci&oacute;n haciendo <code>load (&quot;functs&quot;)</code>.
+<p>Es necesario cargar en memoria esta función haciendo <code>load (&quot;functs&quot;)</code>.
 </p>
 </dd></dl>
 
@@ -690,19 +612,19 @@ Los argumentos pueden ser tanto expresiones en general como enteros.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>lucas</b><i> (<var>n</var>)</i>
+<dt><u>Función:</u> <b>lucas</b><i> (<var>n</var>)</i>
 <a name="IDX1278"></a>
 </dt>
-<dd><p>Devuelve el <var>n</var>-&eacute;simo n&uacute;mero de Lucas.
+<dd><p>Devuelve el <var>n</var>-ésimo número de Lucas.
 <code>lucas(0)</code> es igual a 2, <code>lucas(1)</code> es igual a 1 y 
 <code>lucas(-<var>n</var>)</code> es igual a <code>(-1)^(-<var>n</var>) * lucas(<var>n</var>)</code>.
 </p>
 <pre class="example">(%i1) map (lucas, [-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8]);
 (%o1)             [7, - 4, 3, - 1, 2, 1, 3, 4, 7, 11, 18, 29, 47]
 </pre>
-<p>Despu&eacute;s de llamar a <code>lucas</code>, la variable global <code>next_lucas</code>
-es igual a <code>lucas (<var>n</var> + 1)</code>, el n&uacute;mero de Lucas que sigue al
-&uacute;ltimo que se ha devuelto. El ejemplo muestra como los n&uacute;meros de
+<p>Después de llamar a <code>lucas</code>, la variable global <code>next_lucas</code>
+es igual a <code>lucas (<var>n</var> + 1)</code>, el número de Lucas que sigue al
+último que se ha devuelto. El ejemplo muestra como los números de
 Fibonacci se pueden calcular mediante  <code>lucas</code> y <code>next_lucas</code>.
 </p>
 <pre class="example">(%i1) fib_via_lucas(n) := 
@@ -718,19 +640,19 @@ Fibonacci se pueden calcular mediante  <code>lucas</code> y <code>next_lucas</co
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>mod</b><i> (<var>x</var>, <var>y</var>)</i>
+<dt><u>Función:</u> <b>mod</b><i> (<var>x</var>, <var>y</var>)</i>
 <a name="IDX1279"></a>
 </dt>
-<dd><p>Si <var>x</var> e <var>y</var> son n&uacute;meros reales e <var>y</var> es distinto de cero,
+<dd><p>Si <var>x</var> e <var>y</var> son números reales e <var>y</var> es distinto de cero,
 devuelve <code><var>x</var> - <var>y</var> * floor(<var>x</var> / <var>y</var>)</code>.
-Para todos los reales <var>x</var>, se tiene <code>mod (<var>x</var>, 0) = <var>x</var></code>. Para informaci&oacute;n sobre la definici&oacute;n de  <code>mod (<var>x</var>, 0) = <var>x</var></code>, v&eacute;ase la secci&oacute;n 3.4 de &quot;Concrete Mathematics&quot;, 
-by Graham, Knuth, and Patashnik. La funci&oacute;n <code>mod (<var>x</var>, 1)</code> es de diente de sierra con periodo unidad y con <code>mod (1, 1) = 0</code> y <code>mod (0, 1) = 0</code>.
+Para todos los reales <var>x</var>, se tiene <code>mod (<var>x</var>, 0) = <var>x</var></code>. Para información sobre la definición de  <code>mod (<var>x</var>, 0) = <var>x</var></code>, véase la sección 3.4 de &quot;Concrete Mathematics&quot;, 
+by Graham, Knuth, and Patashnik. La función <code>mod (<var>x</var>, 1)</code> es de diente de sierra con periodo unidad y con <code>mod (1, 1) = 0</code> y <code>mod (0, 1) = 0</code>.
 </p>
-<p>Para encontrar el argumento principal (un n&uacute;mero del intervalo <code>(-%pi, %pi]</code>) de un n&uacute;mero complejo, h&aacute;gase uso de la funci&oacute;n <code><var>x</var> |-&gt; %pi - mod (%pi - <var>x</var>, 2*%pi)</code>, donde <var>x</var> es un argumento.
+<p>Para encontrar el argumento principal (un número del intervalo <code>(-%pi, %pi]</code>) de un número complejo, hágase uso de la función <code><var>x</var> |-&gt; %pi - mod (%pi - <var>x</var>, 2*%pi)</code>, donde <var>x</var> es un argumento.
 </p>
-<p>Si <var>x</var> e <var>y</var> son expresiones constantes (por ejemplo, <code>10 * %pi</code>), <code>mod</code> utiliza el mismo esquema de evaluaci&oacute;n basado en n&uacute;meros grandes en coma flotante (big floats) que <code>floor</code> y <code>ceiling</code>. Tambi&eacute;n es posible, pero improbable, que <code>mod</code> pueda retornar un valor err&oacute;neo en tales casos.
+<p>Si <var>x</var> e <var>y</var> son expresiones constantes (por ejemplo, <code>10 * %pi</code>), <code>mod</code> utiliza el mismo esquema de evaluación basado en números grandes en coma flotante (big floats) que <code>floor</code> y <code>ceiling</code>. También es posible, pero improbable, que <code>mod</code> pueda retornar un valor erróneo en tales casos.
 </p>
-<p>Para argumentos no num&eacute;ricos <var>x</var> o <var>y</var>, <code>mod</code> aplica algunas reglas de simplificaci&oacute;n:
+<p>Para argumentos no numéricos <var>x</var> o <var>y</var>, <code>mod</code> aplica algunas reglas de simplificación:
 </p>
 <pre class="example">(%i1) mod (x, 0);
 (%o1)                           x
@@ -743,7 +665,7 @@ by Graham, Knuth, and Patashnik. La funci&oacute;n <code>mod (<var>x</var>, 1)</
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>next_prime</b><i> (<var>n</var>)</i>
+<dt><u>Función:</u> <b>next_prime</b><i> (<var>n</var>)</i>
 <a name="IDX1280"></a>
 </dt>
 <dd><p>Devuelve el menor de los primos mayores que <var>n</var>.
@@ -755,10 +677,10 @@ by Graham, Knuth, and Patashnik. La funci&oacute;n <code>mod (<var>x</var>, 1)</
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>partfrac</b><i> (<var>expr</var>, <var>var</var>)</i>
+<dt><u>Función:</u> <b>partfrac</b><i> (<var>expr</var>, <var>var</var>)</i>
 <a name="IDX1281"></a>
 </dt>
-<dd><p>Expande la expresi&oacute;n <var>expr</var> en fracciones parciales respecto de la variable principal <var>var</var>. La funci&oacute;n <code>partfrac</code> hace una descomposici&oacute;n completa en fracciones parciales. El algoritmo que se utiliza se basa en el hecho de que los denominadores de la expansi&oacute;n en fracciones parciales (los factores del denominador original) son primos relativos. Los numeradores se pueden escribir como combinaciones lineales de los denominadores.
+<dd><p>Expande la expresión <var>expr</var> en fracciones parciales respecto de la variable principal <var>var</var>. La función <code>partfrac</code> hace una descomposición completa en fracciones parciales. El algoritmo que se utiliza se basa en el hecho de que los denominadores de la expansión en fracciones parciales (los factores del denominador original) son primos relativos. Los numeradores se pueden escribir como combinaciones lineales de los denominadores.
 </p>
 <pre class="example">(%i1) 1/(1+x)^2 - 2/(1+x) + 2/(2+x);
                       2       2        1
@@ -782,12 +704,12 @@ by Graham, Knuth, and Patashnik. La funci&oacute;n <code>mod (<var>x</var>, 1)</
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>power_mod</b><i> (<var>a</var>, <var>n</var>, <var>m</var>)</i>
+<dt><u>Función:</u> <b>power_mod</b><i> (<var>a</var>, <var>n</var>, <var>m</var>)</i>
 <a name="IDX1282"></a>
 </dt>
 <dd><p>Utiliza un algoritmo modular para calcular <code>a^n mod m</code>,
 siendo <var>a</var> y <var>n</var> enteros cualesquiera y <var>m</var> un entero positivo.
-Si <var>n</var> es negativo, se utilizar&aacute; <code>inv_mod</code> para encontrar el
+Si <var>n</var> es negativo, se utilizará <code>inv_mod</code> para encontrar el
 inverso modular.
 </p>
 <pre class="example">(%i1) power_mod(3, 15, 5);
@@ -802,22 +724,22 @@ inverso modular.
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>primep</b><i> (<var>n</var>)</i>
+<dt><u>Función:</u> <b>primep</b><i> (<var>n</var>)</i>
 <a name="IDX1283"></a>
 </dt>
-<dd><p>Comprueba si el n&uacute;mero entero <var>n</var> es o no primo, devolviendo <code>true</code>
-o <code>false</code> seg&uacute;n el caso.
+<dd><p>Comprueba si el número entero <var>n</var> es o no primo, devolviendo <code>true</code>
+o <code>false</code> según el caso.
 </p>
 <p>Cuando el resultado de <code>primep (<var>n</var>)</code> es <code>false</code>, <var>n</var> es un
-n&uacute;mero compuesto, y si es <code>true</code>, <var>n</var> es primo con alta probabilidad.
+número compuesto, y si es <code>true</code>, <var>n</var> es primo con alta probabilidad.
 </p>
-<p>Si <var>n</var> es menor que 341550071728321, se utiliza una versi&oacute;n 
-determin&iacute;stica de la prueba de Miller-Rabin. En tal caso,
-si <code>primep (<var>n</var>)</code> devuelve <code>true</code>, entonces <var>n</var> es un n&uacute;mero primo.
+<p>Si <var>n</var> es menor que 341550071728321, se utiliza una versión 
+determinística de la prueba de Miller-Rabin. En tal caso,
+si <code>primep (<var>n</var>)</code> devuelve <code>true</code>, entonces <var>n</var> es un número primo.
 </p>
 <p>Para <var>n</var> mayor que 341550071728321 <code>primep</code> realiza 
 <code>primep_number_of_tests</code> pruebas de seudo-primalidad de Miller-Rabin y una 
-prueba de seudo-primalidad de Lucas. La probabilidad de que un n&uacute;mero compuesto 
+prueba de seudo-primalidad de Lucas. La probabilidad de que un número compuesto 
 <var>n</var> pase una prueba de Miller-Rabin es menor que 1/4. Con el valor por defecto de 
 <code>primep_number_of_tests</code>, que es 25, la probabilidad de que <var>n</var>
 sea compuesto es menor que 10^-15.
@@ -833,11 +755,11 @@ sea compuesto es menor que 10^-15.
 </dt>
 <dd><p>Valor por defecto: 25
 </p>
-<p>N&uacute;mero de pruebas de Miller-Rabin a realizar por <code>primep</code>.
+<p>Número de pruebas de Miller-Rabin a realizar por <code>primep</code>.
 </p></dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>prev_prime</b><i> (<var>n</var>)</i>
+<dt><u>Función:</u> <b>prev_prime</b><i> (<var>n</var>)</i>
 <a name="IDX1285"></a>
 </dt>
 <dd><p>Devuelve el mayor de los primos menores que <var>n</var>.
@@ -848,10 +770,10 @@ sea compuesto es menor que 10^-15.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>qunit</b><i> (<var>n</var>)</i>
+<dt><u>Función:</u> <b>qunit</b><i> (<var>n</var>)</i>
 <a name="IDX1286"></a>
 </dt>
-<dd><p>Devuelve la unidad principal de <code>sqrt (<var>n</var>)</code>, siendo <var>n</var> un entero; consiste en la resoluci&oacute;n de la ecuaci&oacute;n de Pell  <code>a^2 - <var>n</var> b^2 = 1</code>.
+<dd><p>Devuelve la unidad principal de <code>sqrt (<var>n</var>)</code>, siendo <var>n</var> un entero; consiste en la resolución de la ecuación de Pell  <code>a^2 - <var>n</var> b^2 = 1</code>.
 </p>
 <pre class="example">(%i1) qunit (17);
 (%o1)                     sqrt(17) + 4
@@ -863,10 +785,10 @@ sea compuesto es menor que 10^-15.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>totient</b><i> (<var>n</var>)</i>
+<dt><u>Función:</u> <b>totient</b><i> (<var>n</var>)</i>
 <a name="IDX1287"></a>
 </dt>
-<dd><p>Devuelve el n&uacute;mero de enteros menores o iguales a <var>n</var> que son primos relativos con <var>n</var>.
+<dd><p>Devuelve el número de enteros menores o iguales a <var>n</var> que son primos relativos con <var>n</var>.
 </p></dd></dl>
 
 <dl>
@@ -875,37 +797,37 @@ sea compuesto es menor que 10^-15.
 </dt>
 <dd><p>Valor por defecto: <code>true</code>
 </p>
-<p>Si <code>zerobern</code> vale <code>false</code>, <code>bern</code> excluye los n&uacute;meros de Bernoulli
-y <code>euler</code> excluye los n&uacute;meros de Euler que sean iguales a cero.
-V&eacute;ase <code>bern</code> y <code>euler</code>.
+<p>Si <code>zerobern</code> vale <code>false</code>, <code>bern</code> excluye los números de Bernoulli
+y <code>euler</code> excluye los números de Euler que sean iguales a cero.
+Véase <code>bern</code> y <code>euler</code>.
 </p></dd></dl>
 
 
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>zeta</b><i> (<var>n</var>)</i>
+<dt><u>Función:</u> <b>zeta</b><i> (<var>n</var>)</i>
 <a name="IDX1289"></a>
 </dt>
-<dd><p>Devuelve la funci&oacute;n zeta de Riemann. Si <var>n</var> es entero negativo,
-0 o n&uacute;mero par positivo, la funci&oacute;n zeta de Riemann devuelve un
-valor exacto; en el caso de n&uacute;mero par positivo, la variable opcional
-<code>zeta%pi</code>, adem&aacute;s, tiene que tener el valor <code>true</code> 
-(v&eacute;ase <code>zeta%pi</code>). 
-Cuando el argumento es un n&uacute;mero decimal o bigfloat,
-entonces la funci&oacute;n zeta de Riemann se calcula num&eacute;ricamente.
+<dd><p>Devuelve la función zeta de Riemann. Si <var>n</var> es entero negativo,
+0 o número par positivo, la función zeta de Riemann devuelve un
+valor exacto; en el caso de número par positivo, la variable opcional
+<code>zeta%pi</code>, además, tiene que tener el valor <code>true</code> 
+(véase <code>zeta%pi</code>). 
+Cuando el argumento es un número decimal o bigfloat,
+entonces la función zeta de Riemann se calcula numéricamente.
 Maxima devuelve una forma nominal <code>zeta (<var>n</var>)</code> para
 cualesquiera otros argumentos, incluidos los racionales no enteros,
-los n&uacute;meros complejos y los enteros pares si <code>zeta%pi</code> vale
+los números complejos y los enteros pares si <code>zeta%pi</code> vale
 <code>false</code>.
 </p>
-<p><code>zeta(1)</code> no est&aacute; definida, pero Maxima conce el l&iacute;mite 
+<p><code>zeta(1)</code> no está definida, pero Maxima conce el límite 
 de <code>limit(zeta(x), x, 1)</code> por ambos lados.
 </p>
-<p>La funci&oacute;n zeta de Riemann se distribuye sobre las listas, matrices
+<p>La función zeta de Riemann se distribuye sobre las listas, matrices
 y ecuaciones.
 </p>
-<p>V&eacute;anse tambi&eacute;n <code>bfzeta</code> y <code>zeta%pi</code>.
+<p>Véanse también <code>bfzeta</code> y <code>zeta%pi</code>.
 </p>
 <p>Ejemplos:
 </p>
@@ -932,7 +854,7 @@ y ecuaciones.
 </dt>
 <dd><p>Valor por defecto: <code>true</code>
 </p>
-<p>Si <code>zeta%pi</code> vale <code>true</code>, <code>zeta</code> devuelve una expresi&oacute;n proporcional a <code>%pi^n</code> si <code>n</code> es un n&uacute;mero par positivo. En caso contrario, <code>zeta</code> no se eval&uacute;a y devuelve la forma nominal <code>zeta (n)</code>.
+<p>Si <code>zeta%pi</code> vale <code>true</code>, <code>zeta</code> devuelve una expresión proporcional a <code>%pi^n</code> si <code>n</code> es un número par positivo. En caso contrario, <code>zeta</code> no se evalúa y devuelve la forma nominal <code>zeta (n)</code>.
 </p>
 <p>Ejemplos:
 </p>
@@ -954,12 +876,12 @@ y ecuaciones.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>zn_add_table</b><i> (<var>n</var>) </i>
+<dt><u>Función:</u> <b>zn_add_table</b><i> (<var>n</var>) </i>
 <a name="IDX1291"></a>
 </dt>
 <dd><p>Muestra la tabla de la suma de todos los elementos de (Z/<var>n</var>Z).
 </p>
-<p>V&eacute;anse tambi&eacute;n <code>zn_mult_table</code> y <code>zn_power_table</code>.
+<p>Véanse también <code>zn_mult_table</code> y <code>zn_power_table</code>.
 </p>
 </dd></dl>
 
@@ -970,16 +892,16 @@ y ecuaciones.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>zn_determinant</b><i> (<var>matrix</var>, <var>p</var>) </i>
+<dt><u>Función:</u> <b>zn_determinant</b><i> (<var>matrix</var>, <var>p</var>) </i>
 <a name="IDX1292"></a>
 </dt>
-<dd><p>Utiliza el procedimiento de la descomposici&oacute;n LU para calcular el determinante
-de <var>matrix</var> sobre (Z/<var>p</var>Z). El argumento <var>p</var> debe ser un n&uacute;mero primo.
+<dd><p>Utiliza el procedimiento de la descomposición LU para calcular el determinante
+de <var>matrix</var> sobre (Z/<var>p</var>Z). El argumento <var>p</var> debe ser un número primo.
 </p>
 <p>Si el determinante es igual a cero, el procedimiento puede fallar, en cuyo caso
 <code>zn_determinant</code> calcula el determinante no modular y luego reduce.
 </p>
-<p>V&eacute;ase tambi&eacute;n <code>zn_invert_by_lu</code>.
+<p>Véase también <code>zn_invert_by_lu</code>.
 </p>
 <p>Ejemplo:
 </p>
@@ -1005,15 +927,15 @@ de <var>matrix</var> sobre (Z/<var>p</var>Z). El argumento <var>p</var> debe ser
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>zn_invert_by_lu</b><i> (<var>matrix</var>, <var>p</var>) </i>
+<dt><u>Función:</u> <b>zn_invert_by_lu</b><i> (<var>matrix</var>, <var>p</var>) </i>
 <a name="IDX1293"></a>
 </dt>
-<dd><p>Utiliza el procedimiento de la descomposici&oacute;n LU para calcular la inversa
+<dd><p>Utiliza el procedimiento de la descomposición LU para calcular la inversa
 modular de <var>matrix</var> sobre (Z/<var>p</var>Z). El argumento <var>p</var> debe ser 
-un n&uacute;mero primo y <var>matrix</var> invertible. La funci&oacute;n <code>zn_invert_by_lu</code>
+un número primo y <var>matrix</var> invertible. La función <code>zn_invert_by_lu</code>
 devuelve <code>false</code> si <var>matrix</var> no es invertible.
 </p>
-<p>V&eacute;ase <code>zn_determinant</code>.
+<p>Véase <code>zn_determinant</code>.
 </p>
 <p>Ejemplo:
 </p>
@@ -1040,27 +962,27 @@ devuelve <code>false</code> si <var>matrix</var> no es invertible.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>zn_log</b><i> (<var>a</var>, <var>g</var>, <var>n</var>) </i>
+<dt><u>Función:</u> <b>zn_log</b><i> (<var>a</var>, <var>g</var>, <var>n</var>) </i>
 <a name="IDX1294"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>zn_log</b><i> (<var>a</var>, <var>g</var>, <var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i>
+<dt><u>Función:</u> <b>zn_log</b><i> (<var>a</var>, <var>g</var>, <var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i>
 <a name="IDX1295"></a>
 </dt>
-<dd><p>Calcula el logaritmo discreto. Sea (Z/<var>n</var>Z)* un grupo c&iacute;clico,
-<var>g</var> una ra&iacute;z primitiva m&oacute;dulo <var>n</var> y <var>a</var> un miembro
+<dd><p>Calcula el logaritmo discreto. Sea (Z/<var>n</var>Z)* un grupo cíclico,
+<var>g</var> una raíz primitiva módulo <var>n</var> y <var>a</var> un miembro
 de este grupo, entonces <code>zn_log (a, g, n)</code> calcula la congruencia <code>g^x = a mod n</code>.
 </p>
-<p>El algoritmo que se aplica necesita una factorizaci&oacute;n prima de <code>totient(n)</code>. Esta 
-factorizaci&oacute;n puede requerir mucho tiempo de c&aacute;lculo, por lo que en ciertos casos puede
+<p>El algoritmo que se aplica necesita una factorización prima de <code>totient(n)</code>. Esta 
+factorización puede requerir mucho tiempo de cálculo, por lo que en ciertos casos puede
 ser aconsejable factorizar primero y luego pasar la lista de factores a <code>zn_log</code> como
 cuarto argumento. La lista debe ser de la misma forma que las lista devuelta por 
-<code>ifactors(totient(n))</code> utilizando la opci&oacute;n por defecto <code>factors_only : false</code>.
+<code>ifactors(totient(n))</code> utilizando la opción por defecto <code>factors_only : false</code>.
 </p>
-<p>El algoritmo utiliza la reducci&oacute;n de Pohlig-Hellman y el m&eacute;todo Rho de Pollard
-para los logaritmos discretos. El tiempo de ejecuci&oacute;n de <code>zn_log</code> depende en
-primer lugar del n&uacute;mero de bits del mayor factor primo del totient.
+<p>El algoritmo utiliza la reducción de Pohlig-Hellman y el método Rho de Pollard
+para los logaritmos discretos. El tiempo de ejecución de <code>zn_log</code> depende en
+primer lugar del número de bits del mayor factor primo del totient.
 </p>
-<p>V&eacute;anse tambi&eacute;n <code>zn_primroot</code>, <code>zn_order</code>, <code>ifactors</code> y <code>totient</code>.
+<p>Véanse también <code>zn_primroot</code>, <code>zn_order</code>, <code>ifactors</code> y <code>totient</code>.
 </p>
 <p>Ejemplos:
 </p>
@@ -1104,20 +1026,20 @@ primer lugar del n&uacute;mero de bits del mayor factor primo del totient.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>zn_mult_table</b><i> (<var>n</var>) </i>
+<dt><u>Función:</u> <b>zn_mult_table</b><i> (<var>n</var>) </i>
 <a name="IDX1296"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>zn_mult_table</b><i> (<var>n</var>, all)</i>
+<dt><u>Función:</u> <b>zn_mult_table</b><i> (<var>n</var>, all)</i>
 <a name="IDX1297"></a>
 </dt>
 <dd><p>Sin el argumento opcional <var>all</var>, <code>zn_mult_table(n)</code> 
-muestra la tabla de multiplicaci&oacute;n de los elementos de (Z/<var>n</var>Z)*,
-que son todos elementos invertibles m&oacute;dulo <var>n</var>.
+muestra la tabla de multiplicación de los elementos de (Z/<var>n</var>Z)*,
+que son todos elementos invertibles módulo <var>n</var>.
 </p>
 <p>El argumento opcional <var>all</var> hace que la tabla se genere para todos los 
 elementos no nulos.
 </p>
-<p>V&eacute;anse tambi&eacute;n <code>zn_add_table</code> y <code>zn_power_table</code>.
+<p>Véanse también <code>zn_add_table</code> y <code>zn_power_table</code>.
 </p>
 <p>Ejemplo:
 </p>
@@ -1141,22 +1063,22 @@ elementos no nulos.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>zn_order</b><i> (<var>x</var>, <var>n</var>) </i>
+<dt><u>Función:</u> <b>zn_order</b><i> (<var>x</var>, <var>n</var>) </i>
 <a name="IDX1298"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>zn_order</b><i> (<var>x</var>, <var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i>
+<dt><u>Función:</u> <b>zn_order</b><i> (<var>x</var>, <var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i>
 <a name="IDX1299"></a>
 </dt>
 <dd><p>Devuelve el orden de <var>x</var> si es una unidad del grupo finito (Z/<var>n</var>Z)*, o devuelve <code>false</code>.
-<var>x</var> una unidad m&oacute;dulo <var>n</var> si es coprimo con <var>n</var>.
+<var>x</var> una unidad módulo <var>n</var> si es coprimo con <var>n</var>.
 </p>
-<p>El algoritmo que se aplica necesita una factorizaci&oacute;n prima de <code>totient(n)</code>. Esta 
-factorizaci&oacute;n puede requerir mucho tiempo de c&aacute;lculo, por lo que en ciertos casos puede
+<p>El algoritmo que se aplica necesita una factorización prima de <code>totient(n)</code>. Esta 
+factorización puede requerir mucho tiempo de cálculo, por lo que en ciertos casos puede
 ser aconsejable factorizar primero y luego pasar la lista de factores a <code>zn_log</code> como
 tercer argumento. La lista debe ser de la misma forma que las lista devuelta por 
-<code>ifactors(totient(n))</code> utilizando la opci&oacute;n por defecto <code>factors_only : false</code>.
+<code>ifactors(totient(n))</code> utilizando la opción por defecto <code>factors_only : false</code>.
 </p>
-<p>V&eacute;anse tambi&eacute;n <code>zn_primroot</code>, <code>ifactors</code> y <code>totient</code>.
+<p>Véanse también <code>zn_primroot</code>, <code>ifactors</code> y <code>totient</code>.
 </p>
 <p>Ejemplos:
 </p>
@@ -1198,24 +1120,24 @@ por <code>ifactors(totient(n))</code>.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>zn_power_table</b><i> (<var>n</var>) </i>
+<dt><u>Función:</u> <b>zn_power_table</b><i> (<var>n</var>) </i>
 <a name="IDX1300"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>zn_power_table</b><i> (<var>n</var>, all)</i>
+<dt><u>Función:</u> <b>zn_power_table</b><i> (<var>n</var>, all)</i>
 <a name="IDX1301"></a>
 </dt>
 <dd><p>Sin el argumento opcional <var>all</var>, <code>zn_power_table(n)</code> 
 muestra la tabla de potencias de los elementos de (Z/<var>n</var>Z)*,
-que son todos elementos invertibles m&oacute;dulo <var>n</var>. El exponente 
+que son todos elementos invertibles módulo <var>n</var>. El exponente 
 se obtiene con un bucle desde <code>1</code> hasta <code>totient(n)</code>
 y la tabla termina con una columna de unos al lado derecho.
 </p>
 <p>El argumento opcional <var>all</var> hace que la tabla se genere para todos los 
 elementos no nulos. En este caso, el exponente se calcula con un bucle desde
-<code>1</code> hasta <code>totient(n) + 1</code> y la &uacute;ltima columna es por lo tanto 
+<code>1</code> hasta <code>totient(n) + 1</code> y la última columna es por lo tanto 
 igual a la primera.
 </p>
-<p>V&eacute;anse tambi&eacute;n <code>zn_add_table</code> y <code>zn_mult_table</code>.
+<p>Véanse también <code>zn_add_table</code> y <code>zn_mult_table</code>.
 </p>
 <p>Ejemplo:
 </p>
@@ -1242,36 +1164,36 @@ igual a la primera.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>zn_primroot</b><i> (<var>n</var>) </i>
+<dt><u>Función:</u> <b>zn_primroot</b><i> (<var>n</var>) </i>
 <a name="IDX1302"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>zn_primroot</b><i> (<var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i>
+<dt><u>Función:</u> <b>zn_primroot</b><i> (<var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i>
 <a name="IDX1303"></a>
 </dt>
-<dd><p>Si el grupo multiplicativo es c&iacute;clico, <code>zn_primroot</code>
-calcula la menor ra&iacute;z primitiva de m&oacute;dulo <var>n</var>. (Z/<var>n</var>Z)* es
-c&iacute;clico si <var>n</var> es igual a <code>2</code>, <code>4</code>, <code>p^k</code> o <code>2*p^k</code>,
-siendo <code>p</code> primo y mayor que <code>2</code> y <code>k</code> un n&uacute;mero natural.
+<dd><p>Si el grupo multiplicativo es cíclico, <code>zn_primroot</code>
+calcula la menor raíz primitiva de módulo <var>n</var>. (Z/<var>n</var>Z)* es
+cíclico si <var>n</var> es igual a <code>2</code>, <code>4</code>, <code>p^k</code> o <code>2*p^k</code>,
+siendo <code>p</code> primo y mayor que <code>2</code> y <code>k</code> un número natural.
 Si a la variable opcional <code>zn_primroot_pretest</code>, cuyo valor por defecto es
 <code>false</code>, se le da el valor <code>true</code>, entonces <code>zn_primroot</code> 
-realiza una prueba previa. En cualquier caso, el c&aacute;lculo est&aacute; limitado por la
+realiza una prueba previa. En cualquier caso, el cálculo está limitado por la
 cota superior <code>zn_primroot_limit</code>.
 </p>
-<p>Si (Z/<var>n</var>Z)* no es c&iacute;clico o si no tiene ra&iacute;ces
+<p>Si (Z/<var>n</var>Z)* no es cíclico o si no tiene raíces
 primitivas menores que <code>zn_primroot_limit</code>, <code>zn_primroot</code> devuelve
 <code>false</code>.
 </p>
-<p>El algoritmo que se aplica necesita una factorizaci&oacute;n prima de <code>totient(n)</code>. Esta 
-factorizaci&oacute;n puede requerir mucho tiempo de c&aacute;lculo, por lo que en ciertos casos puede
+<p>El algoritmo que se aplica necesita una factorización prima de <code>totient(n)</code>. Esta 
+factorización puede requerir mucho tiempo de cálculo, por lo que en ciertos casos puede
 ser aconsejable factorizar primero y luego pasar la lista de factores a <code>zn_log</code> como
 argumento adicional. La lista debe ser de la misma forma que las lista devuelta por 
-<code>ifactors(totient(n))</code> utilizando la opci&oacute;n por defecto <code>factors_only : false</code>.
+<code>ifactors(totient(n))</code> utilizando la opción por defecto <code>factors_only : false</code>.
 </p>
-<p>V&eacute;anse tambi&eacute;n <code>zn_primroot_p</code>, <code>zn_order</code>, <code>ifactors</code> y <code>totient</code>.
+<p>Véanse también <code>zn_primroot_p</code>, <code>zn_order</code>, <code>ifactors</code> y <code>totient</code>.
 </p>
 <p>Ejemplos:
 </p>
-<p><code>zn_primroot</code> calcula la menor ra&iacute;z primitiva de m&oacute;dulo <var>n</var> o
+<p><code>zn_primroot</code> calcula la menor raíz primitiva de módulo <var>n</var> o
 devuelve <code>false</code>.
 </p>
 <pre class="example">(%i1) n : 14$
@@ -1315,9 +1237,9 @@ por <code>ifactors(totient(n))</code>.
 </dt>
 <dd><p>Valor por defecto: <code>1000</code> 
 </p>
-<p>Si <code>zn_primroot</code> no puede encontrar una ra&iacute;z primitiva,
+<p>Si <code>zn_primroot</code> no puede encontrar una raíz primitiva,
 entonces se para en esta cota superior. Si a la variable opcional 
-<code>zn_primroot_verbose</code> se le da el valor <code>true</code>, se imprimir&aacute; un
+<code>zn_primroot_verbose</code> se le da el valor <code>true</code>, se imprimirá un
 mensaje cuando <code>zn_primroot_limit</code> sea alcanzado.
 </p>
 </dd></dl>
@@ -1329,26 +1251,26 @@ mensaje cuando <code>zn_primroot_limit</code> sea alcanzado.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>zn_primroot_p</b><i> (<var>x</var>, <var>n</var>) </i>
+<dt><u>Función:</u> <b>zn_primroot_p</b><i> (<var>x</var>, <var>n</var>) </i>
 <a name="IDX1305"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>zn_primroot_p</b><i> (<var>x</var>, <var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i>
+<dt><u>Función:</u> <b>zn_primroot_p</b><i> (<var>x</var>, <var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i>
 <a name="IDX1306"></a>
 </dt>
-<dd><p>Comprueba si <var>x</var> es una ra&iacute;z primitiva en el 
+<dd><p>Comprueba si <var>x</var> es una raíz primitiva en el 
 grupo multiplizativo (Z/<var>n</var>Z)*.
 </p>
-<p>El algoritmo que se aplica necesita una factorizaci&oacute;n prima de <code>totient(n)</code>. Esta 
-factorizaci&oacute;n puede requerir mucho tiempo de c&aacute;lculo, por lo que en ciertos casos puede
+<p>El algoritmo que se aplica necesita una factorización prima de <code>totient(n)</code>. Esta 
+factorización puede requerir mucho tiempo de cálculo, por lo que en ciertos casos puede
 ser aconsejable factorizar primero y luego pasar la lista de factores a <code>zn_log</code> como
 tercer argumento. La lista debe ser de la misma forma que las lista devuelta por 
-<code>ifactors(totient(n))</code> utilizando la opci&oacute;n por defecto <code>factors_only : false</code>.
+<code>ifactors(totient(n))</code> utilizando la opción por defecto <code>factors_only : false</code>.
 </p>
-<p>V&eacute;anse tambi&eacute;n <code>zn_primroot</code>, <code>zn_order</code>, <code>ifactors</code> y <code>totient</code>.
+<p>Véanse también <code>zn_primroot</code>, <code>zn_order</code>, <code>ifactors</code> y <code>totient</code>.
 </p>
 <p>Ejemplos:
 </p>
-<p><code>zn_primroot_p</code> como funci&oacute;n de predicado.
+<p><code>zn_primroot_p</code> como función de predicado.
 </p>
 <pre class="example">(%i1) n : 14$
 (%i2) units_14 : sublist(makelist(i,i,1,13), lambda([i], gcd(i, n) = 1));
@@ -1384,13 +1306,13 @@ devuelta por <code>ifactors(totient(n))</code>.
 </dt>
 <dd><p>Valor por defecto: <code>false</code> 
 </p>
-<p>El grupo multiplicativo (Z/<var>n</var>Z)* es c&iacute;clico si if <var>n</var>
+<p>El grupo multiplicativo (Z/<var>n</var>Z)* es cíclico si if <var>n</var>
 es igual a <code>2</code>, <code>4</code>, <code>p^k</code> o <code>2*p^k</code>, siendo <code>p</code>
-un n&uacute;mero primo mayor que <code>2</code> y <code>k</code> es un n&uacute;mero natural.
+un número primo mayor que <code>2</code> y <code>k</code> es un número natural.
 </p>
 <p>La variable <code>zn_primroot_pretest</code> controla si <code>zn_primroot</code> debe
 comprobar si sucede alguna de estas situaciones antes de calcular la menor
-ra&iacute;z primitiva. Solo se realizar&aacute; esta comprobaci&oacute;n si
+raíz primitiva. Solo se realizará esta comprobación si
 <code>zn_primroot_pretest</code> toma el valor <code>true</code>.
 </p>
 </dd></dl>
@@ -1414,10 +1336,11 @@ ra&iacute;z primitiva. Solo se realizar&aacute; esta comprobaci&oacute;n si
 
 
 
+
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC172" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_30.html#SEC174" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC173" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_30.html#SEC175" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -1425,12 +1348,12 @@ ra&iacute;z primitiva. Solo se realizar&aacute; esta comprobaci&oacute;n si
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>septiembre, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>abril, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

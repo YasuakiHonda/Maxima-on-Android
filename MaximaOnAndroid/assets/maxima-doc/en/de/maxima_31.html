@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on September, 8 2014 by texi2html 1.76 -->
+<!-- Created on Dezember, 9 2014 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -32,111 +32,33 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
@@ -198,8 +120,7 @@ where <em>p</em> is a polynomial and <em>q</em> is a polynomial that
 terms, the <code>abs_integrate</code> package determines an antiderivative
 that is continuous on the entire real line.  Additionally, for an
 integrand that involves one or more parameters, the function
-<code><a href="#conditional_005fintegrate">conditional_integrate</a></code>
- tries to determine an antiderivative that
+<code><a href="#conditional_005fintegrate">conditional_integrate</a></code> tries to determine an antiderivative that
 is valid for all parameter values.
 </p>
 <p>Examples: 
@@ -213,8 +134,7 @@ is valid for all parameter values.
                                2
 </pre>
 <p>To convert (%o2) into an expression involving the absolute value function,
-apply <code><a href="#signum_005fto_005fabs">signum_to_abs</a></code>
-; thus
+apply <code><a href="#signum_005fto_005fabs">signum_to_abs</a></code>; thus
 </p>
 <pre class="example">(%i3) signum_to_abs(%);
                             x abs(x)
@@ -234,12 +154,8 @@ for example
                                 6
 </pre>
 <p>Additionally, <code>abs_integrate</code> is able to find antiderivatives of some
-integrands involving <code><a href="maxima_10.html#max">max</a></code>,
- <code><a href="maxima_10.html#min">min</a></code>,
- <code><a href="maxima_10.html#signum">signum</a></code>,
- and
-<code><a href="maxima_65.html#unit_005fstep">unit_step</a></code>,
- examples:
+integrands involving <code><a href="maxima_10.html#max">max</a></code>, <code><a href="maxima_10.html#min">min</a></code>, <code><a href="maxima_10.html#signum">signum</a></code>, and
+<code><a href="maxima_65.html#unit_005fstep">unit_step</a></code>, examples:
 </p>
 <pre class="example">(%i5) integrate(max(x,x^2),x);
            3      2                                        3    2
@@ -314,8 +230,7 @@ located at<br>
 <dd><p>Default value: <code>['signum_int, 'abs_integrate_use_if]</code>
 </p>
 <p>The list <code>extra_integration_methods</code> is a list of functions for
-integration.  When <code><a href="maxima_16.html#integrate">integrate</a></code>
- is unable to find an
+integration.  When <code><a href="maxima_16.html#integrate">integrate</a></code> is unable to find an
 antiderivative, Maxima uses the methods in
 <code>extra_integration_methods</code> to attempt to determine an
 antiderivative.
@@ -381,7 +296,6 @@ a conditional expression; for example
 </pre>
 <p>Related options <code><a href="#extra_005fdefinite_005fintegration_005fmethods">extra_definite_integration_methods</a></code>.
 </p>
-
 <p>To use <code>load(abs_integrate)</code>
 </p></dd></dl>
 
@@ -393,8 +307,7 @@ a conditional expression; for example
 <dd><p>Default value: <code>['abs_defint]</code>
 </p>
 <p>The list <code>extra_definite_integration_methods</code> is a list of extra
-functions for <i>definite</i> integration.  When <code><a href="maxima_16.html#integrate">integrate</a></code>
- is
+functions for <i>definite</i> integration.  When <code><a href="maxima_16.html#integrate">integrate</a></code> is
 unable to find a definite integral, Maxima uses the methods in
 <code>extra_definite_integration_methods</code> to attempt to determine an
 antiderivative.
@@ -412,7 +325,6 @@ that does not fail (or a pure noun form if all methods fail).
 </p>
 <p>Related options <code><a href="#extra_005fintegration_005fmethods">extra_integration_methods</a></code>.
 </p>
-
 <p>To use <code>load(abs_integrate)</code>.
 </p></dd></dl>
 
@@ -453,8 +365,7 @@ fact to the hash table, say <em>integrate(f) = g</em>, do this:
 (%o7)                        g(w(x))
 </pre>
 <p>An alternative to calling <code>intfudu</code> directly is to use the 
-<code><a href="#extra_005fintegration_005fmethods">extra_integration_methods</a></code>
- mechanism; an example:
+<code><a href="#extra_005fintegration_005fmethods">extra_integration_methods</a></code> mechanism; an example:
 </p>
 
 <pre class="example">(%i1) load(abs_integrate)$
@@ -480,8 +391,7 @@ fact to the hash table, say <em>integrate(f) = g</em>, do this:
 <a href="http://www.cs.berkeley.edu/~fateman/papers/partition.pdf">http://www.cs.berkeley.edu/~fateman/papers/partition.pdf</a>.
 </p>
 <p>Related functions <code><a href="#intfugudu">intfugudu</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="intfugudu"></a>
 </p><dl>
@@ -517,8 +427,7 @@ see the documentation for <code>intfudu</code>.
 <a href="http://www.cs.berkeley.edu/~fateman/papers/partition.pdf">http://www.cs.berkeley.edu/~fateman/papers/partition.pdf</a>
 </p>
 <p>Related functions <code><a href="#intfudu">intfudu</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 <p><a name="signum_005fto_005fabs"></a>
 </p><dl>
@@ -631,15 +540,13 @@ min(q1, q2, ..., qn)</code> and <code>max(q1, q2, ..., qn)</code> by equivalent
   -----------------------------, -------------------------------]
                 2                               2
 </pre>
-<p>To convert <code><a href="maxima_65.html#unit_005fstep">unit_step</a></code>
- to signum form, the function
+<p>To convert <code><a href="maxima_65.html#unit_005fstep">unit_step</a></code> to signum form, the function
 <code>convert_to_signum</code> uses <em>unit_step(x) = (1 + signum(x))/2</em>.
 </p>
 <p>To use <code>load(abs_integrate)</code>.
 </p>
 <p>Related functions <code><a href="#signum_005fto_005fabs">signum_to_abs</a></code>.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 
 
@@ -659,7 +566,7 @@ min(q1, q2, ..., qn)</code> and <code>max(q1, q2, ..., qn)</code> by equivalent
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>September, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>Dezember, 9 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

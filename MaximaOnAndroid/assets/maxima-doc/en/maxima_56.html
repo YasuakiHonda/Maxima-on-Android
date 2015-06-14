@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on September, 23 2014 by texi2html 1.76 -->
+<!-- Created on April, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Maxima 5.34.1 Manual: 56. fractals</title>
+<title>Maxima 5.36.0 Manual: 56. fractals</title>
 
-<meta name="description" content="Maxima 5.34.1 Manual: 56. fractals">
-<meta name="keywords" content="Maxima 5.34.1 Manual: 56. fractals">
+<meta name="description" content="Maxima 5.36.0 Manual: 56. fractals">
+<meta name="keywords" content="Maxima 5.36.0 Manual: 56. fractals">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,106 +32,28 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
@@ -142,35 +64,35 @@ div.categorybox
 <body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="fractals"></a>
-<a name="SEC272"></a>
+<a name="SEC276"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_55.html#SEC271" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC273" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_55.html#SEC275" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC277" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_55.html#SEC269" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_55.html#SEC273" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_57.html#SEC278" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_57.html#SEC282" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter"> 56. fractals </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC273">56.1 Introduction to fractals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC277">56.1 Introduction to fractals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC274">56.2 Definitions for IFS fractals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC278">56.2 Definitions for IFS fractals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC275">56.3 Definitions for complex fractals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC279">56.3 Definitions for complex fractals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC276">56.4 Definitions for Koch snowflakes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC280">56.4 Definitions for Koch snowflakes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC277">56.5 Definitions for Peano maps</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC281">56.5 Definitions for Peano maps</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -180,21 +102,21 @@ div.categorybox
 <p><a name="Item_003a-Introduction-to-fractals"></a>
 </p><hr size="6">
 <a name="Introduction-to-fractals"></a>
-<a name="SEC273"></a>
+<a name="SEC277"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC272" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC274" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC276" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC278" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC272" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC272" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_57.html#SEC278" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC276" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC276" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_57.html#SEC282" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 56.1 Introduction to fractals </h2>
@@ -221,21 +143,21 @@ to contact me at
 <p><a name="Item_003a-Definitions-for-IFS-fractals"></a>
 </p><hr size="6">
 <a name="Definitions-for-IFS-fractals"></a>
-<a name="SEC274"></a>
+<a name="SEC278"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC273" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC275" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC277" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC279" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC272" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC272" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_57.html#SEC278" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC276" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC276" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_57.html#SEC282" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 56.2 Definitions for IFS fractals </h2>
@@ -256,7 +178,7 @@ with the contraction ratio.
 <p><a name="Item_003a-sierpinskiale"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sierpinskiale</b><i> (<var>n</var>)</i>
-<a name="IDX2259"></a>
+<a name="IDX1973"></a>
 </dt>
 <dd><p>Sierpinski Triangle: 3 contractive maps; .5 contraction constant and translations;
 all maps have the same contraction ratio. Argument <var>n</var> must be great enougth, 10000 or greater.
@@ -269,7 +191,7 @@ all maps have the same contraction ratio. Argument <var>n</var> must be great en
 </pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fractals">Package fractals</a>
 </div>
 </p>
 </dd></dl>
@@ -277,7 +199,7 @@ all maps have the same contraction ratio. Argument <var>n</var> must be great en
 <p><a name="Item_003a-treefale"></a>
 </p><dl>
 <dt><u>Function:</u> <b>treefale</b><i> (<var>n</var>)</i>
-<a name="IDX2260"></a>
+<a name="IDX1974"></a>
 </dt>
 <dd><p>3 contractive maps all with the same contraction ratio.
 Argument <var>n</var> must be great enougth, 10000 or greater.
@@ -290,7 +212,7 @@ Argument <var>n</var> must be great enougth, 10000 or greater.
 </pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fractals">Package fractals</a>
 </div>
 </p>
 </dd></dl>
@@ -298,7 +220,7 @@ Argument <var>n</var> must be great enougth, 10000 or greater.
 <p><a name="Item_003a-fernfale"></a>
 </p><dl>
 <dt><u>Function:</u> <b>fernfale</b><i> (<var>n</var>)</i>
-<a name="IDX2261"></a>
+<a name="IDX1975"></a>
 </dt>
 <dd><p>4 contractive maps, the probability to choice a transformation must be related 
 with the contraction ratio. Argument <var>n</var> must be great enougth, 10000 or greater.
@@ -311,7 +233,7 @@ with the contraction ratio. Argument <var>n</var> must be great enougth, 10000 o
 </pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fractals">Package fractals</a>
 </div>
 </p>
 </dd></dl>
@@ -319,21 +241,21 @@ with the contraction ratio. Argument <var>n</var> must be great enougth, 10000 o
 <p><a name="Item_003a-Definitions-for-complex-fractals"></a>
 </p><hr size="6">
 <a name="Definitions-for-complex-fractals"></a>
-<a name="SEC275"></a>
+<a name="SEC279"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC274" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC276" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC278" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC280" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC272" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC272" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_57.html#SEC278" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC276" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC276" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_57.html#SEC282" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 56.3 Definitions for complex fractals </h2>
@@ -341,7 +263,7 @@ with the contraction ratio. Argument <var>n</var> must be great enougth, 10000 o
 <p><a name="Item_003a-mandelbrot_005fset"></a>
 </p><dl>
 <dt><u>Function:</u> <b>mandelbrot_set</b><i> (<var>x</var>, <var>y</var>)</i>
-<a name="IDX2262"></a>
+<a name="IDX1976"></a>
 </dt>
 <dd><p>Mandelbrot set.
 </p>
@@ -358,7 +280,7 @@ the computing time is also related with the number of grid points.
 </pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fractals">Package fractals</a>
 </div>
 </p>
 </dd></dl>
@@ -369,7 +291,7 @@ the computing time is also related with the number of grid points.
 <p><a name="Item_003a-julia_005fset"></a>
 </p><dl>
 <dt><u>Function:</u> <b>julia_set</b><i> (<var>x</var>, <var>y</var>)</i>
-<a name="IDX2263"></a>
+<a name="IDX1977"></a>
 </dt>
 <dd><p>Julia sets.
 </p>
@@ -388,7 +310,7 @@ the computing time is also related with the number of grid points.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fractals">Package fractals</a>
 </div>
 </p>
 </dd></dl>
@@ -399,7 +321,7 @@ the computing time is also related with the number of grid points.
 <p><a name="Item_003a-julia_005fparameter"></a>
 </p><dl>
 <dt><u>Optional variable:</u> <b>julia_parameter</b>
-<a name="IDX2264"></a>
+<a name="IDX1978"></a>
 </dt>
 <dd><p>Default value: <code>%i</code>
 </p>
@@ -410,7 +332,7 @@ Its default value is <code>%i</code>; we  suggest the  values <code>-.745+%i*.11
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fractals">Package fractals</a>
 </div>
 </p>
 </dd></dl>
@@ -422,7 +344,7 @@ Its default value is <code>%i</code>; we  suggest the  values <code>-.745+%i*.11
 <p><a name="Item_003a-julia_005fsin"></a>
 </p><dl>
 <dt><u>Function:</u> <b>julia_sin</b><i> (<var>x</var>, <var>y</var>)</i>
-<a name="IDX2265"></a>
+<a name="IDX1979"></a>
 </dt>
 <dd><p>While function <code>julia_set</code> implements the transformation <code>julia_parameter+z^2</code>,
 function <code>julia_sin</code> implements <code>julia_parameter*sin(z)</code>. See source code
@@ -446,7 +368,7 @@ the computing time is also related with the number of grid points.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fractals">Package fractals</a>
 </div>
 </p>
 </dd></dl>
@@ -454,21 +376,21 @@ the computing time is also related with the number of grid points.
 <p><a name="Item_003a-Definitions-for-Koch-snowflakes"></a>
 </p><hr size="6">
 <a name="Definitions-for-Koch-snowflakes"></a>
-<a name="SEC276"></a>
+<a name="SEC280"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC275" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC277" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC279" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC281" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC272" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC272" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_57.html#SEC278" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC276" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC276" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_57.html#SEC282" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 56.4 Definitions for Koch snowflakes </h2>
@@ -478,7 +400,7 @@ the computing time is also related with the number of grid points.
 <p><a name="Item_003a-snowmap"></a>
 </p><dl>
 <dt><u>Function:</u> <b>snowmap</b><i> (<var>ent</var>, <var>nn</var>)</i>
-<a name="IDX2266"></a>
+<a name="IDX1980"></a>
 </dt>
 <dd><p>Koch snowflake sets. Function <code>snowmap</code> plots the snow Koch map 
 over the vertex of an initial closed polygonal, in the complex plane. Here  
@@ -497,7 +419,7 @@ recursive applications of Koch transformation; <var>nn</var> must be small (5 or
 </pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fractals">Package fractals</a>
 </div>
 </p>
 </dd></dl>
@@ -505,21 +427,21 @@ recursive applications of Koch transformation; <var>nn</var> must be small (5 or
 <p><a name="Item_003a-Definitions-for-Peano-maps"></a>
 </p><hr size="6">
 <a name="Definitions-for-Peano-maps"></a>
-<a name="SEC277"></a>
+<a name="SEC281"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC276" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_57.html#SEC278" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC280" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_57.html#SEC282" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC272" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC272" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_57.html#SEC278" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC276" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC276" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_57.html#SEC282" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 56.5 Definitions for Peano maps </h2>
@@ -530,7 +452,7 @@ the number of points exponentially grows with <var>n</var>.
 <p><a name="Item_003a-hilbertmap"></a>
 </p><dl>
 <dt><u>Function:</u> <b>hilbertmap</b><i> (<var>nn</var>)</i>
-<a name="IDX2267"></a>
+<a name="IDX1981"></a>
 </dt>
 <dd><p>Hilbert map. Argument <var>nn</var> must be small (5, for example).
 Maxima can crash if <var>nn</var> is 7 or greater.
@@ -542,7 +464,7 @@ Maxima can crash if <var>nn</var> is 7 or greater.
 </pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fractals">Package fractals</a>
 </div>
 </p>
 </dd></dl>
@@ -550,7 +472,7 @@ Maxima can crash if <var>nn</var> is 7 or greater.
 <p><a name="Item_003a-sierpinskimap"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sierpinskimap</b><i> (<var>nn</var>)</i>
-<a name="IDX2268"></a>
+<a name="IDX1982"></a>
 </dt>
 <dd><p>Sierpinski map. Argument <var>nn</var> must be small (5, for example).
 Maxima can crash if <var>nn</var> is 7 or greater.
@@ -562,7 +484,7 @@ Maxima can crash if <var>nn</var> is 7 or greater.
 </pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-fractals">Package fractals</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-fractals">Package fractals</a>
 </div>
 </p>
 </dd></dl>
@@ -571,8 +493,8 @@ Maxima can crash if <var>nn</var> is 7 or greater.
 <p><a name="Item_003a-ggf"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC272" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_57.html#SEC278" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC276" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_57.html#SEC282" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -580,12 +502,12 @@ Maxima can crash if <var>nn</var> is 7 or greater.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>本田 康晃</em> on <em>September, 23 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>April, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

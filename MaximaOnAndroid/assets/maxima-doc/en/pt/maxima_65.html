@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on Setembro, 8 2014 by texi2html 1.76 -->
+<!-- Created on Janeiro, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual do Maxima: 65. simplex</title>
+<title>Manual do Maxima 5.35.71.g68475e4: 65. simplification</title>
 
-<meta name="description" content="Manual do Maxima: 65. simplex">
-<meta name="keywords" content="Manual do Maxima: 65. simplex">
+<meta name="description" content="Manual do Maxima 5.35.71.g68475e4: 65. simplification">
+<meta name="keywords" content="Manual do Maxima 5.35.71.g68475e4: 65. simplification">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,310 +32,829 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="simplex"></a>
-<a name="SEC234"></a>
+<a name="simplification"></a>
+<a name="SEC236"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_64.html#SEC233" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC235" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_64.html#SEC235" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC237" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_64.html#SEC232" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_64.html#SEC233" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_66.html#SEC237" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC246" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter"> 65. simplex </h1>
+<h1 class="chapter"> 65. simplification </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC235">65.1 Introdu&ccedil;&atilde;o a simplex</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC237">65.1 Introdução a simplification</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC236">65.2 Defini&ccedil;&otilde;es para simplex</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC238">65.2 Definições para simplification</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <hr size="6">
-<a name="Introdu_00e7_00e3o-a-simplex"></a>
-<a name="SEC235"></a>
+<a name="Introdu_00e7_00e3o-a-simplification"></a>
+<a name="SEC237"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC234" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC236" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC236" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC238" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC234" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC234" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_66.html#SEC237" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC236" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC236" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC246" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 65.1 Introdu&ccedil;&atilde;o a simplex </h2>
+<h2 class="section"> 65.1 Introdução a simplification </h2>
 
-<p><code>simplex</code> &eacute; um pacote para optimiza&ccedil;&atilde;o linear usando o algoritmo simplex.
+<p>O directório <code>maxima/share/simplification</code> contém muitos scripts
+que implementam regras de simplificação e funções,
+e também algumas funções não relacionadas a simplificação.
 </p>
-<p>Exemplo:
-</p>
-<pre class="example">(%i1) load(&quot;simplex&quot;)$
-(%i2) minimize_sx(x+y, [3*x+2*y&gt;2, x+4*y&gt;3]);
-                  9        7       1
-(%o2)            [--, [y = --, x = -]]
-                  10       10      5
-</pre>
 <hr size="6">
-<a name="Defini_00e7_00f5es-para-simplex"></a>
-<a name="SEC236"></a>
+<a name="Defini_00e7_00f5es-para-simplification"></a>
+<a name="SEC238"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC235" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_66.html#SEC237" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC237" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC239" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC234" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC234" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_66.html#SEC237" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC236" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC236" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC246" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 65.2 Defini&ccedil;&otilde;es para simplex </h2>
+<h2 class="section"> 65.2 Definições para simplification </h2>
 
-<dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>epsilon_sx</b>
-<a name="IDX1855"></a>
-</dt>
-<dd><p>Valor por omiss&atilde;o: <code>10^-8</code>
-</p>
-<p>Epsilon usando para c&aacute;lculos num&eacute;ricos em <code>linear_program</code>.
-</p>
-<p>Veja tamb&eacute;m: <code>linear_program</code>.
-</p>
-</dd></dl>
 
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>linear_program</b><i> (<var>A</var>, <var>b</var>, <var>c</var>)</i>
-<a name="IDX1856"></a>
-</dt>
-<dd><p><code>linear_program</code> &eacute; uma implementa&ccedil;&atilde;o do algoritmo simplex.
-<code>linear_program(A, b, c)</code> calcula um vetor <var>x</var> para o qual <code>c.x</code> &eacute; o m&iacute;nimo
-poss&iacute;vel entre vetores para os quais <code>A.x = b</code> e <code>x &gt;= 0</code>. O argumento
-<var>A</var> &eacute; uma matriz e os argumentos <var>b</var> e <var>c</var> s&atilde;o listas.
-</p>
-<p><code>linear_program</code> retorna uma lista contendo o vetor minimizado <var>x</var> e o
-valor m&iacute;nimo <code>c.x</code>. Se o problema for n&atilde;o associado, &eacute; retornado &quot;Problem not bounded!&quot; e
-se o problema for n&atilde;o vi&aacute;vel, &eacute; retornado &quot;Problem not feasible!&quot;.
-</p>
-<p>Para usar essa fun&ccedil;&atilde;o primeiramente chame o pacote <code>simplex</code> com <code>load(simplex);</code>.
-</p>
-<p>Exemplo:
-</p>
-<pre class="example">(%i2) A: matrix([1,1,-1,0], [2,-3,0,-1], [4,-5,0,0])$
-(%i3) b: [1,1,6]$
-(%i4) c: [1,-2,0,0]$
-(%i5) linear_program(A, b, c);
-                   13     19        3
-(%o5)            [[--, 4, --, 0], - -]
-                   2      2         2
-</pre>
-<p>Veja tamb&eacute;m: <code>minimize_sx</code>, <code>scale_sx</code>, e <code>epsilon_sx</code>.
-</p>
-</dd></dl>
+<hr size="6">
+<a name="SEC239"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC238" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC240" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC236" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC238" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC246" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 65.2.1 Package absimp </h3>
 
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>maximize_sx</b><i> (<var>obj</var>, <var>cond</var>, [<var>pos</var>])</i>
-<a name="IDX1857"></a>
-</dt>
-<dd><p>Maximiza a fun&ccedil;&atilde;o linear objetiva <var>obj</var> submetida a alguma restri&ccedil;&atilde;o linear
-<var>cond</var>. Veja <code>minimize_sx</code> para uma descri&ccedil;&atilde;o detalhada de argumentos e valores de
-retorno.
+<p>O pacote <code>absimp</code> contém regras de comparação de sequências decaractere que
+extendem as regras internas de simplificação para as funções <code>abs</code> e
+<code>signum</code>.
+<code>absimp</code> respeita as relações
+estabelecidas com a função interna <code>assume</code> e por meio de declarações tais
+como <code>modedeclare (m, even, n, odd)</code>  para inteiros paes ou ímpares.
 </p>
-
-<p>Veja tamb&eacute;m: <code>minimize_sx</code>.
+<p><code>absimp</code> define as funções <code>unitramp</code> e <code>unitstep</code>
+em termos de <code>abs</code> e <code>signum</code>.
 </p>
-</dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>minimize_sx</b><i> (<var>obj</var>, <var>cond</var>, [<var>pos</var>])</i>
-<a name="IDX1858"></a>
-</dt>
-<dd><p>Minimiza uma fun&ccedil;&atilde;o linear objetiva <var>obj</var> submetida a alguma restri&ccedil;&atilde;o
-linear <var>cond</var>. <var>cond</var> &eacute; uma lista de equa&ccedil;&otilde;es lineares ou
-desigualdades. Em desigualdades estritas <code>&gt;</code> &eacute;  substituido por <code>&gt;=</code>
-e <code>&lt;</code> por <code>&lt;=</code>. O argumento opcional <var>pos</var> &eacute; uma lista de
-vari&aacute;veis de decis&atilde;o que s&atilde;o assumidas como sendo positivas.
-</p>
-<p>Se o m&iacute;nimo existir, <code>minimize_sx</code> retorna uma lista que cont&eacute;m
-o menor valor da fun&ccedil;&atilde;o objetiva e uma lista de valores de vari&aacute;veis de
-decis&atilde;o para os quais o m&iacute;nimo &eacute; alcan&ccedil;ado. Se o problema for n&atilde;o associado,
-<code>minimize_sx</code> retorna &quot;Problem not bounded!&quot; e se o problema for
-n&atilde;o vi&aacute;vel, &eacute; retornado &quot;Ploblem not feasible!&quot;.
-</p>
-<p>As vari&aacute;veis de decis&atilde;o n&atilde;o s&atilde;o assumidas para serem n&atilde;o negativas por padr&atilde;o. Se todas
-as vari&aacute;veis de dicis&atilde;o forem n&atilde;o negativas, escolha <code>nonegative_sx</code> para <code>true</code>.
-Se somente algumas das vari&aacute;veis de decis&atilde;o forem positivas, coloque-as ent&atilde;o no argumento
-opcional <var>pos</var> (note que isso &eacute; mais eficiente que adicionar
-restri&ccedil;&otilde;es).
-</p>
-<p><code>minimize_sx</code> utiliza o algoritmo simplex que &eacute; implementado na fun&ccedil;&atilde;o
-<code>linear_program</code> do Maxima.
-</p>
-<p>Para usar essa fun&ccedil;&atilde;o primeiramente chame o pacote <code>simplex</code> com <code>load(simplex);</code>.
+<p><code>load (absimp)</code> torna esse pacote disponível para uso.
+<code>demo (absimp)</code> faz uma demonstração desse pacote.
 </p>
 <p>Exemplos:
 </p>
-<pre class="example">(%i1) minimize_sx(x+y, [3*x+y=0, x+2*y&gt;2]);
-                      4       6        2
-(%o1)                [-, [y = -, x = - -]]
-                      5       5        5
-(%i2) minimize_sx(x+y, [3*x+y&gt;0, x+2*y&gt;2]), nonegative_sx=true;
-(%o2)                [1, [y = 1, x = 0]]
-(%i3) minimize_sx(x+y, [3*x+y=0, x+2*y&gt;2]), nonegative_sx=true;
-(%o3)                Problem not feasible!
-(%i4) minimize_sx(x+y, [3*x+y&gt;0]);
-(%o4)                Problem not bounded!
+<pre class="example">(%i1) load (absimp)$
+(%i2) (abs (x))^2;
+                                       2
+(%o2)                                 x
+(%i3) diff (abs (x), x);
+                                      x
+(%o3)                               ------
+                                    abs(x)
+(%i4) cosh (abs (x));
+(%o4)                               cosh(x)
 </pre>
 
-<p>Veja tamb&eacute;m: <code>maximize_sx</code>, <code>nonegative_sx</code>, <code>epsilon_sx</code>.
+
+<hr size="6">
+<a name="SEC240"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC239" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC241" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC236" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC238" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC246" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 65.2.2 Package facexp </h3>
+
+<p>O pacote <code>facexp</code> contém muitas funções relacionadas a simplificações que
+fornecem ao utilizador a habilidade de estruturar expressões por meio de expansão
+controlada.   Essa capacidade é especialmente útil quando a expressão
+contém variáveis que possuem significado físico, porque é muitas vezes verdadeiro
+que a forma mais econ&ocirc;mica de uma tal expressão pode ser obtida por meio de
+uma expansão completa da expressão com relação a essas variáveis, e então
+factorizar seus coeficientes.  Apesar de ser verdadeiro que esse procedimento é
+fácil de realizar usando as funções padrão do Maxima, ajustes
+adicionais podem se desejáveis, e esses toques finais podem ser
+mais difíceis de aplicar.
 </p>
-</dd></dl>
+<p>A função <code>facsum</code>  e suas formas relacionadas
+fornecem um meio conveniente de controlar a estrutura de expressões
+por esse caminho.  Outra função, <code>collectterms</code>, pode ser usada para adicionar duas ou
+mais expressões que já tenham sido simplificadas para essa forma, sem
+resimplificar a expressão completa novamente.  Essa função pode ser
+útil quando expressões forem muito grandes.
+</p>
+
+<p><code>load (facexp)</code> torna dispon;ivel para uso esse pacote.
+<code>demo (facexp)</code> faz uma demonstração desse pacote.
+</p>
+<dl>
+<dt><u>Função:</u> <b>facsum</b><i> (<var>expr</var>, <var>arg_1</var>, ..., <var>arg_n</var>)</i>
+<a name="IDX1855"></a>
+</dt>
+<dd><p>Retorna uma forma de <var>expr</var>  que depende dos
+argumentos <var>arg_1</var>, ..., <var>arg_n</var>.
+Os argumentos podem ser quaisquer formas adequadas para <code>ratvars</code>, ou eles podem ser
+listas  de tais formas.  Se os argumentos não forem listas, então a forma
+retornada é completamente expandida com relação aos argumentos,  e os
+coeficientes dos argumentos foram factorizados.  Esses coeficientes são
+livres dos argumentos, excepto talvez no sentido não racional.
+</p>
+<p>Se quaisquer dos argumentos forem listas, então todas as tais listas são combinadas
+em uma lista simples,   e em lugar de chamar <code>factor</code>   sobre os
+coeficientes  dos  argumentos,  <code>facsum</code>  chama a si mesma sobre esses
+coeficientes, usando  essa nova lista simples que foi construída como o novo
+argumento listo  para essa chamada recursiva.  Esse processo pode ser repetido para um
+quantidade arbitrária de repetições por através do aninhamento dos elementos desejados nas listas.
+</p>
+<p>É possível que alguém possa querer usar <code>facsum</code> com relação a subexpressões
+mais complicadas,  tal como  <code>log (x + y)</code>.  Tais argumentos são
+também permitidos.   Sem especificação de variável,  por exemplo
+<code>facsum (<var>expr</var>)</code>, o resultado retornado é o mesmo que o que é retornado por meio de
+<code>ratsimp (<var>expr</var>)</code>.
+</p>
+<p>Ocasionalmente o utilizador pode querer obter quaisquer das formas abaixo
+para expressões que são especificadas somente por meio de seus operadores líderes.
+Por exemplo, alguém pode querer usar <code>facsum</code> com relação a todos os <code>log</code>'s.  Nessa
+situação, alguém pode incluir no meio dos argumentos ou o código
+dos <code>log</code>'s eespecíficos que devem ser tratados po esse caminho ou alternativamente a
+expressão  <code>operator (log)</code> ou a expressão <code>'operator (log)</code>.   Se alguém quiser usar
+<code>facsum</code> na expressão <var>expr</var> com relação aos operadores <var>op_1</var>, ..., <var>op_n</var>,
+pode-se avaliar <code>facsum (<var>expr</var>, operator (<var>op_1</var>, ..., <var>op_n</var>))</code>.
+A forma <code>operator</code> pode também aparecer dentro de uma lista de argumentos.
+</p>
+<p>Adicionalmente,  a escolha de comutadores <code>facsum_combine</code>  e
+<code>nextlayerfactor</code> pode afectar o ressultado de <code>facsum</code>.
+</p></dd></dl>
 
 <dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>nonegative_sx</b>
+<dt><u>Variável global:</u> <b>nextlayerfactor</b>
+<a name="IDX1856"></a>
+</dt>
+<dd><p>Valor por omissão: <code>false</code>
+</p>
+<p>Quando <code>nextlayerfactor</code> for <code>true</code>, chamadas recursivas a <code>facsum</code>
+são aplicdas aos factores da forma factorizada dos
+coeficientes dos argumentos.
+</p>
+<p>Quando <code>nextlayerfactor</code> for <code>false</code>, <code>facsum</code> é aplicada a
+cada coeficiente como um todo mesmo se chamadas recursivas a <code>facsum</code> acontecerem.
+</p>
+<p>A inclusão do átomo
+<code>nextlayerfactor</code> na lista argumento de <code>facsum</code>  tem o efieto de
+<code>nextlayerfactor: true</code>, mas para o próximo nível da expressão <i>somente</i>.
+Uma vez que <code>nextlayerfactor</code> é sempre associado ou a <code>true</code> ou a  <code>false</code>, <code>nextlayerfactor</code>
+deve ser apresentada com apóstrofo simples mesmo que <code>nextlayerfactor</code> apareça na lista de argumento de <code>facsum</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Variável global:</u> <b>facsum_combine</b>
+<a name="IDX1857"></a>
+</dt>
+<dd><p>Valor por omissão: <code>true</code>
+</p>
+<p><code>facsum_combine</code> controla a forma do resultado final retornada por meio de
+<code>facsum</code>  quando seu argumento é um quociente de polinómios.   Se
+<code>facsum_combine</code> for <code>false</code>  então a forma será retornada como um somatório
+completametne expandido como descrito acima,  mas se <code>true</code>,  então a expressão
+retornada é uma razão de polinómios, com cada polinómio na forma
+descrita acima.
+</p>
+<p>A escolha de <code>true</code> desse comutador é útil quando se
+deseja para <code>facsum</code> ambos o dumerador e o denominador de uma expressão
+racional,  mas não se deseja que o denominador seja multiplicado
+de forma completa pelos termos do numerador.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>factorfacsum</b><i> (<var>expr</var>, <var>arg_1</var>, ... <var>arg_n</var>)</i>
+<a name="IDX1858"></a>
+</dt>
+<dd><p>Retorna uma forma de <var>expr</var>  que é
+obtida por meio de chamada a <code>facsum</code> sobre os factores de <var>expr</var> com <var>arg_1</var>, ... <var>arg_n</var> como
+argumentos.  Se qualqeur dos factores de <var>expr</var> estiver elevado a um expoente, ambos
+o factor e o expoente irão ser processados por esse meio.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>collectterms</b><i> (<var>expr</var>, <var>arg_1</var>, ..., <var>arg_n</var>)</i>
 <a name="IDX1859"></a>
 </dt>
-<dd><p>Valor por omiss&atilde;o: <code>false</code>
+<dd><p>Se muitas expressões tiverem sido
+simplificadas com <code>facsum</code>, <code>factorfacsum</code>,  <code>factenexpand</code>,  <code>facexpten</code> ou
+com <code>factorfacexpten</code>,  e elas estão para serem adicionadas umas às outras, pode ser
+desejável combiná-las usando a função <code>collecterms</code>.
+<code>collecterms</code> pode pegar como argumentos todos os argumentos que podem ser
+fornecidos para essas outras funções associadas com excessão de
+<code>nextlayerfactor</code>, que não tem efeito sobre <code>collectterms</code>.  A vantagem
+de <code>collectterms</code>  está em que <code>collectterms</code> retorna uma forma similar a <code>facsum</code>, mas
+uma vez que <code>collectterms</code> está adicionando forma que já tenham sido processadas por <code>facsum</code>,
+<code>collectterms</code> não precisa repetir aquele esforço.   Essa capacidade é
+especialmente útil quando a expressão a ser somada for muito grande.
+</p></dd></dl>
+
+
+<hr size="6">
+<a name="SEC241"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC240" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC242" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC236" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC238" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC246" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 65.2.3 Pacote functs </h3>
+
+<dl>
+<dt><u>Função:</u> <b>rempart</b><i> (<var>expr</var>, <var>n</var>)</i>
+<a name="IDX1860"></a>
+</dt>
+<dd><p>Remove a parte <var>n</var> da expressão <var>expr</var>.
 </p>
-<p>Se <code>nonegative_sx</code> for verdadeiro (true) todas as vari&aacute;veis de decis&atilde;o para <code>minimize_sx</code>
-e <code>maximize_sx</code> s&atilde;o assumidas para serem positivas.
+<p>Se <var>n</var> é uma lsita da forma <code>[<var>l</var>, <var>m</var>]</code>
+então as partes de <var>l</var> até <var>m</var> são removidas.
 </p>
-<p>Veja tamb&eacute;m: <code>minimize_sx</code>.
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>wronskian</b><i> ([<var>f_1</var>, ..., <var>f_n</var>], <var>x</var>)</i>
+<a name="IDX1861"></a>
+</dt>
+<dd><p>Retorna a matriz Wronskiana das funções <var>f_1</var>, ..., <var>f_n</var> na variável <var>x</var>.
 </p>
-</dd></dl>
+<p><var>f_1</var>, ..., <var>f_n</var> pode ser o nome de funções definidas pelo utilizador,
+ou expressões na variável <var>x</var>.
+</p>
+<p>O determinante da matriz Wronskiana é o determinante Wronskiano do conjunto de funções.
+As funções são linearmente independentes entre si se seu determinante for igual a zero.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+
+<dl>
+<dt><u>Função:</u> <b>tracematrix</b><i> (<var>M</var>)</i>
+<a name="IDX1862"></a>
+</dt>
+<dd><p>Retorna o traço (somatório dos elementos da diagonal principal) da matriz <var>M</var>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>rational</b><i> (<code>z</code>)</i>
+<a name="IDX1863"></a>
+</dt>
+<dd><p>Multiplica o numerador e o denominador de <var>z</var> pelo complexo conjugado do denominador,
+racionando dessa forma o denominador complexo.
+Retorna a forma de expressão racional canónica (CRE) se fornecida uma CRE, caso contrário retorna a forma geral.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+
+
+<dl>
+<dt><u>Função:</u> <b>nonzeroandfreeof</b><i> (<var>x</var>, <var>expr</var>)</i>
+<a name="IDX1864"></a>
+</dt>
+<dd><p>Retorna <code>true</code> se <var>expr</var> for diferente de zero e <code>freeof (<var>x</var>, <var>expr</var>)</code> retorna <code>true</code>.
+Retorna <code>false</code> de outra forma.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>linear</b><i> (<var>expr</var>, <var>x</var>)</i>
+<a name="IDX1865"></a>
+</dt>
+<dd><p>Quando <var>expr</var> for uma expressão linear na variável <var>x</var>,
+<code>linear</code> retorna <code><var>a</var>*<var>x</var> + <var>b</var></code> onde <var>a</var> é diferente de zero,
+e <var>a</var> e <var>b</var> são livres de <var>x</var>.
+De outra forma, <code>linear</code> retorna <var>expr</var>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>gcdivide</b><i> (<var>p</var>, <var>q</var>)</i>
+<a name="IDX1866"></a>
+</dt>
+<dd><p>Quando <code>takegcd</code> for <code>true</code>,
+<code>gcdivide</code> divide os polinómios <var>p</var> e <var>q</var> por seu maior divisor comum (MDC)
+e retorna a razão dos resultados.
+</p>
+<p>Quando <code>takegcd</code> for <code>false</code>,
+<code>gcdivide</code> retorna a razão <code><var>p</var>/<var>q</var></code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+
+<dl>
+<dt><u>Função:</u> <b>arithmetic</b><i> (<var>a</var>, <var>d</var>, <var>n</var>)</i>
+<a name="IDX1867"></a>
+</dt>
+<dd><p>Retorna o <var>n</var>-ésiomo termo da série aritmética
+<code><var>a</var>, <var>a</var> + <var>d</var>, <var>a</var> + 2*<var>d</var>, ..., <var>a</var> + (<var>n</var> - 1)*<var>d</var></code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>geometric</b><i> (<var>a</var>, <var>r</var>, <var>n</var>)</i>
+<a name="IDX1868"></a>
+</dt>
+<dd><p>Retorna o <var>n</var>-ésimo termo da série geométrica
+<code><var>a</var>, <var>a</var>*<var>r</var>, <var>a</var>*<var>r</var>^2, ..., <var>a</var>*<var>r</var>^(<var>n</var> - 1)</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>harmonic</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>n</var>)</i>
+<a name="IDX1869"></a>
+</dt>
+<dd><p>Retorna o <var>n</var>-ésimo termo da série harm&ocirc;nica
+<code><var>a</var>/<var>b</var>, <var>a</var>/(<var>b</var> + <var>c</var>), <var>a</var>/(<var>b</var> + 2*<var>c</var>), ..., <var>a</var>/(<var>b</var> + (<var>n</var> - 1)*<var>c</var>)</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>arithsum</b><i> (<var>a</var>, <var>d</var>, <var>n</var>)</i>
+<a name="IDX1870"></a>
+</dt>
+<dd><p>Retorna a soma dos elementos da série aritmética de 1 a <var>n</var>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>geosum</b><i> (<var>a</var>, <var>r</var>, <var>n</var>)</i>
+<a name="IDX1871"></a>
+</dt>
+<dd><p>Retorna a soma dos elementos da série geométrica de 1 a <var>n</var>.  Se <var>n</var> for
+infinito (<code>inf</code>) então a soma será finita se e somente se o valor absoluto
+de <var>r</var> for menor que 1.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>gaussprob</b><i> (<var>x</var>)</i>
+<a name="IDX1872"></a>
+</dt>
+<dd><p>Retorna a função de probalilidade de Gauss
+<code>%e^(-<var>x</var>^2/2) / sqrt(2*%pi)</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>gd</b><i> (<var>x</var>)</i>
+<a name="IDX1873"></a>
+</dt>
+<dd><p>Retorna a função de Gudermann
+<code>2 * atan(%e^<var>x</var> - %pi/2)</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>agd</b><i> (<var>x</var>)</i>
+<a name="IDX1874"></a>
+</dt>
+<dd><p>Retorna o inverso da função de Gudermann
+<code>log (tan (%pi/4 + x/2)))</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>vers</b><i> (<var>x</var>)</i>
+<a name="IDX1875"></a>
+</dt>
+<dd><p>Retorna o <i>sinus versus</i> <code>1 - cos (x)</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>covers</b><i> (<var>x</var>)</i>
+<a name="IDX1876"></a>
+</dt>
+<dd><p>Retorna o <i>sinus versus</i> do complemento <code>1 - sin (<var>x</var>)</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>exsec</b><i> (<var>x</var>)</i>
+<a name="IDX1877"></a>
+</dt>
+<dd><p>Retorna a parte externa da secante <code>sec (<var>x</var>) - 1</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>hav</b><i> (<var>x</var>)</i>
+<a name="IDX1878"></a>
+</dt>
+<dd><p>Retorna o semi-<i>sinus versus</i> <code>(1 - cos(x))/2</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>combination</b><i> (<var>n</var>, <var>r</var>)</i>
+<a name="IDX1879"></a>
+</dt>
+<dd><p>Retorna o número de combinações de <var>n</var> objectos
+tomados em grupos de <var>r</var> elementos.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>permutation</b><i> (<var>n</var>, <var>r</var>)</i>
+<a name="IDX1880"></a>
+</dt>
+<dd><p>Retorna o número de permutações de <var>r</var> objectos
+seleccionados de um conjunto de <var>n</var> objectos.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(functs)</code>.
+</p></dd></dl>
+
+<hr size="6">
+<a name="SEC242"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC241" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC243" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC236" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC238" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC246" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 65.2.4 Package ineq </h3>
+
+<p>O pacote <code>ineq</code> contém regras de simplificação
+para desigualdades.
+</p>
+<p>Sessão exemplo:
+</p>
+<pre class="example">(%i1) load(ineq)$
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+(%i2) a&gt;=4;  /* uma desigualdade exemplo */
+(%o2)                               a &gt;= 4
+(%i3) (b&gt;c)+%; /* adiciona uma segunda e estrita desigualdade */
+(%o3)                            b + a &gt; c + 4
+(%i4) 7*(x&lt;y); /* multiplica por um número positivo */
+(%o4)                              7 x &lt; 7 y
+(%i5) -2*(x&gt;=3*z); /* multiplica por um número negativo */
+(%o5)                           - 2 x &lt;= - 6 z
+(%i6) (1+a^2)*(1/(1+a^2)&lt;=1); /* Maxima sabe que 1+a^2 &gt; 0 */
+                                        2
+(%o6)                             1 &lt;= a  + 1
+(%i7) assume(x&gt;0)$ x*(2&lt;3); /* assumindo x&gt;0 */
+(%o7)                              2 x &lt; 3 x
+(%i8) a&gt;=b; /* outa desigualdade */
+(%o8)                               a &gt;= b
+(%i9) 3+%; /* adiciona alguma coisa à desigualdade imediatamente acima */
+(%o9)                           a + 3 &gt;= b + 3
+(%i10) %-3; /* retirando essa alguma coisa */
+(%o10)                              a &gt;= b
+(%i11) a&gt;=c-b; /* ainda outra desigualdade */
+(%o11)                            a &gt;= c - b
+(%i12) b+%; /* adiciona b a ambos os lados da desigualdade */
+(%o12)                            b + a &gt;= c
+(%i13) %-c; /* subtrai c de ambos os lados */
+(%o13)                         - c + b + a &gt;= 0
+(%i14) -%;  /* multiplica por -1 */
+(%o14)                          c - b - a &lt;= 0
+(%i15) (z-1)^2&gt;-2*z; /* determinando a verdade de uma assertiva */
+                                      2
+(%o15)                         (z - 1)  &gt; - 2 z
+(%i16) expand(%)+2*z; /* expandindo essa assertiva e adicionado 2*z a ambos os lados */
+                                   2
+(%o16)                            z  + 1 &gt; 0
+(%i17) %,pred;
+(%o17)                               true
+</pre>
+<p>Seja cuidadoso com o uso dos parêntesis
+em torno de desigualdades: quando o utilizador digita <code>(A &gt; B) + (C = 5)</code> o
+resltado é <code>A + C &gt; B + 5</code>, mas <code>A &gt; B + C = 5</code> é um erro de sintaxe,
+e <code>(A &gt; B + C) = 5</code> é alguma coisa completametne diferente.
+</p>
+<p>Faça <code>disprule (all)</code> para ver uma lista completa
+das definições de regras.
+</p>
+<p>O utilizador será questionado se o Maxima for
+incapaz de decidir o sinal de uma quantidade multiplicando uma desigualdade.
+</p>
+<p>O mais comum recurso estranho é ilustrado por:
+</p>
+<pre class="example">(%i1) eq: a &gt; b;
+(%o1)                                a &gt; b
+(%i2) 2*eq;
+(%o2)                              2 (a &gt; b)
+(%i3) % - eq;
+(%o3)                                a &gt; b
+</pre>
+<p>Outro problema é 0 vezes uma desigualdade; o padrão para isso
+acontecer é 0 ter sido colocado à esquerda sozinho. Contudo, se
+digitar <code>X*<var>some_inequality</var></code> e Maxima perguntar sobre o sinal
+de <code>X</code> e responder <code>zero</code> (ou <code>z</code>), o programa retorna
+<code>X*<var>some_inequality</var></code> e não utiliza a
+informação que <code>X</code> é 0. Pode usar <code>ev (%, x:
+0)</code> em casos semelhantes a esse; a base de dados irá somente ser usada
+para propósitos de comparação em decisões, e não
+para o propósito de avaliação de <code>X</code>.
+</p>
+<p>O utilizador pode notar uma resposta lenta quando esse pacote é
+disponibilizado para uso, como o simplificador é forçado
+a examinar mais regras do precisaria sem esse pacote, então pode
+desejar remover essas regras após fazer uso delas. Faça
+<code>kill (rules)</code> para eliminar todas as regras (incluindo qualquer
+regra que possa ter definido); ou pode ser mais selectivo
+eliminando somente algumas delas; ou use <code>remrule</code> sobre uma regra
+específica.
+</p>
+<p>Note que se disponibilizar esse pacote para ser usado, após definir
+suas próprias regras, irá sobrescrever as suas regras que possuirem
+nomes identicos a nomes contidos nas regras do pacote. As regras no
+pacote são: <code>*rule1</code>, ..., <code>*rule8</code>, <code>+rule1</code>, ...,
+<code>+rule18</code>, e deve colocar o nome de regra entre aspas duplas
+ao referir-se a eles, como em <code>remrule (&quot;+&quot;, &quot;+rule1&quot;)</code> para
+especificamente remover a primeira regra sobre <code>&quot;+&quot;</code> ou
+<code>disprule (&quot;*rule2&quot;)</code> para mostrar a definição da
+segunda regra multiplicativa.
+</p>
+
+<hr size="6">
+<a name="SEC243"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC242" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC244" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC236" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC238" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC246" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 65.2.5 Package rducon </h3>
+
+<dl>
+<dt><u>Função:</u> <b>reduce_consts</b><i> (<var>expr</var>)</i>
+<a name="IDX1881"></a>
+</dt>
+<dd><p>Substitui subexpressões constantes de <var>expr</var> com
+construída com átomos constantes, gravando a definição de todas essas
+constantes construídas na lista de equações <code>const_eqns</code>, e
+retornando a expressão modificada <var>expr</var>.  Essas partes de <var>expr</var> são constantes que
+retornam <code>true</code> quando operadas por meio da função <code>constantp</code>.  Consequêntemente,
+antes de usar <code>reduce_consts</code>, se pode fazer
+</p>
+<pre class="example">declare ([<var>objecto que vai receber a propriedade constante</var>], constant)$
+</pre>
+<p>para escolher a base de dados das quantidades constantes ocorrendo em suas
+expressões.
+</p>
+<p>Se está a planear gerar saídas em Fortran após esses
+cálculos simbólicos, uma das primeiras secções de
+código pode ser o cálculo de todas as constantes.  Para gerar esse
+segmento de código, faça
+</p>
+<pre class="example">map ('fortran, const_eqns)$
+</pre>
+<p>Variables como <code>const_eqns</code> que afectam <code>reduce_consts</code> são:
+</p>
+<p><code>const_prefix</code> (valor padrão: <code>xx</code>) é a sequência de caracteres usada para prefixar todos
+os símbolos gerados por <code>reduce_consts</code> para representar subexpressões constantes.
+</p>
+<p><code>const_counter</code> (valor padrão: 1) é o índice inteiro usado para gerar símbolos
+únicos para representar cada subexpressão constante emcontrada por <code>reduce_consts</code>.
+</p>
+<p><code>load (rducon)</code> torna essa função disponível para uso.
+<code>demo (rducon)</code> faz uma demonstração dessa função.
+</p></dd></dl>
+
+
+<hr size="6">
+<a name="SEC244"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC243" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC245" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC236" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC238" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC246" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 65.2.6 Pacote scifac </h3>
+
+<dl>
+<dt><u>Função:</u> <b>gcfac</b><i> (<var>expr</var>)</i>
+<a name="IDX1882"></a>
+</dt>
+<dd><p><code>gcfac</code> função de factorização que tenta aplicar a mesma heurística que
+cientístas aplicam em tentativas de fazer expressões extremamente simples.  <code>gcfac</code> está limitada
+a factorizações monomiais.  Para um somatório, <code>gcfac</code> faz o seguinte:
+</p>
+<ol>
+<li>
+Factores sobre os inteiros.
+</li><li>
+Coloca em evidência o maior expoente de termos ocorrendo como
+coeficientes, independentemente da complexidade dos termos.
+</li><li>
+Usa (1) e (2) em factorizações de pares de termos adjascentes.
+</li><li>
+Repetidamente e recursivamente aplica essas técnicas até que
+a expressão não mais mude.
+</li></ol>
+
+<p>O item (3) não necessáriamente faz uma tarefa óptima factorização
+par a par devido à dificuldade combinatória natural de encontrar
+qual de todas dos possíveis rearranjos de pares retorna o mais
+compacto resultado de factorização de um par.
+</p>
+<p><code>load (scifac)</code> torna essa função disponível para uso.
+<code>demo (scifac)</code> faz uma demonstração dessa função.
+</p></dd></dl>
+
+<hr size="6">
+<a name="SEC245"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC244" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC246" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC236" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC238" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC246" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 65.2.7 Pacote sqdnst </h3>
+
+<dl>
+<dt><u>Função:</u> <b>sqrtdenest</b><i> (<var>expr</var>)</i>
+<a name="IDX1883"></a>
+</dt>
+<dd><p>Desaninha <code>sqrt</code> de simples, numérico, bin&ocirc;mios de raízes irracionais de números racionais , onde for possível.  E.g.
+</p>
+<pre class="example">(%i1) load (sqdnst)$
+(%i2) sqrt(sqrt(3)/2+1)/sqrt(11*sqrt(2)-12);
+                                    sqrt(3)
+                               sqrt(------- + 1)
+                                       2
+(%o2)                        ---------------------
+                             sqrt(11 sqrt(2) - 12)
+(%i3) sqrtdenest(%);
+                                  sqrt(3)   1
+                                  ------- + -
+                                     2      2
+(%o3)                            -------------
+                                    1/4    3/4
+                                 3 2    - 2
+</pre>
+<p>Algumas vezes isso ajuda na hora de aplicar <code>sqrtdenest</code> mais que uma vez, sobre coisas como
+<code>(19601-13860 sqrt(2))^(7/4)</code>.
+</p>
+<p><code>load (sqdnst)</code> Torna essa função disponível para uso.
+</p></dd></dl>
+
+
 
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC234" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_66.html#SEC237" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC236" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC246" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -343,12 +862,12 @@ e <code>maximize_sx</code> s&atilde;o assumidas para serem positivas.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>Setembro, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>Janeiro, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

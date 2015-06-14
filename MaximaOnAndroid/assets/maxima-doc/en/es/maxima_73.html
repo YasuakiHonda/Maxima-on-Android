@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on septiembre, 8 2014 by texi2html 1.76 -->
+<!-- Created on abril, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual de Maxima: 73. solve_rec</title>
+<title>Manual de Maxima 5.36.0: 73. solve_rec</title>
 
-<meta name="description" content="Manual de Maxima: 73. solve_rec">
-<meta name="keywords" content="Manual de Maxima: 73. solve_rec">
+<meta name="description" content="Manual de Maxima 5.36.0: 73. solve_rec">
+<meta name="keywords" content="Manual de Maxima 5.36.0: 73. solve_rec">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,168 +32,90 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="solve_005frec"></a>
-<a name="SEC349"></a>
+<a name="SEC354"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_72.html#SEC348" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC350" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_72.html#SEC353" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC355" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC340" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC345" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC352" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_74.html#SEC357" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter"> 73. solve_rec </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC350">73.1 Introducci&oacute;n a solve_rec</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC355">73.1 Introducción a solve_rec</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC351">73.2 Funciones y variables para solve_rec</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC356">73.2 Funciones y variables para solve_rec</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <hr size="6">
 <a name="Introducci_00f3n-a-solve_005frec"></a>
-<a name="SEC350"></a>
+<a name="SEC355"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC349" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC351" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC354" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC356" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC349" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC349" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC352" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC354" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC354" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_74.html#SEC357" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 73.1 Introducci&oacute;n a solve_rec </h2>
+<h2 class="section"> 73.1 Introducción a solve_rec </h2>
 
 <p>El paquete <code>solve_rec</code> resuelve expresiones recurrentes lineales con
 coeficientes polinomiales.
 </p>
-<p>Ejec&uacute;tese <code>demo(solve_rec);</code> para ver una demostraci&oacute;n sobre
-la utilizaci&oacute;n de este paquete.
+<p>Ejecútese <code>demo(solve_rec);</code> para ver una demostración sobre
+la utilización de este paquete.
 </p>
 <p>Ejemplo:
 </p>
@@ -208,33 +130,33 @@ la utilizaci&oacute;n de este paquete.
 <hr size="6">
 <a name="Funciones-y-variables-para-solve_005frec"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC350" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC352" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC355" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_74.html#SEC357" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC349" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC349" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC352" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC354" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC354" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_74.html#SEC357" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 
-<a name="SEC351"></a>
+<a name="SEC356"></a>
 <h2 class="section"> 73.2 Funciones y variables para solve_rec </h2>
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>reduce_order</b><i> (<var>rec</var>, <var>sol</var>, <var>var</var>)</i>
-<a name="IDX2628"></a>
+<dt><u>Función:</u> <b>reduce_order</b><i> (<var>rec</var>, <var>sol</var>, <var>var</var>)</i>
+<a name="IDX2670"></a>
 </dt>
-<dd><p>Reduce el orden de la expresi&oacute;n recurrente lineal <var>rec</var> cuando
-se conoce una soluci&oacute;n particular <var>sol</var>. La recurrencia
-reducida puede utilizarse para obterner m&aacute;s soluciones.
+<dd><p>Reduce el orden de la expresión recurrente lineal <var>rec</var> cuando
+se conoce una solución particular <var>sol</var>. La recurrencia
+reducida puede utilizarse para obterner más soluciones.
 </p>
 <p>Ejemplo:
 </p>
@@ -282,28 +204,28 @@ So the general solution is
 
 <dl>
 <dt><u>Variable opcional:</u> <b>simplify_products</b>
-<a name="IDX2629"></a>
+<a name="IDX2671"></a>
 </dt>
 <dd><p>Valor por defecto: <code>true</code>
 </p>
-<p>Si <code>simplify_products</code> vale <code>true</code>, <code>solve_rec</code> intentar&aacute;
+<p>Si <code>simplify_products</code> vale <code>true</code>, <code>solve_rec</code> intentará
 simplificar los productos del resultado.
 </p>
-<p>V&eacute;ase tambi&eacute;n <code>solve_rec</code>.
+<p>Véase también <code>solve_rec</code>.
 </p>
 </dd></dl>
 
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>simplify_sum</b><i> (<var>expr</var>)</i>
-<a name="IDX2630"></a>
+<dt><u>Función:</u> <b>simplify_sum</b><i> (<var>expr</var>)</i>
+<a name="IDX2672"></a>
 </dt>
 <dd><p>Intenta reducir todas las sumas que aparecen en <var>expr</var> a una forma
 cerrada.
 </p>
-<p>Para utilizar esta funci&oacute;n c&aacute;rguese previamente el paquete <code>simplify_sum</code>
-ejecutando la instrucci&oacute;n <code>load(simplify_sum)</code>.
+<p>Para utilizar esta función cárguese previamente el paquete <code>simplify_sum</code>
+ejecutando la instrucción <code>load(simplify_sum)</code>.
 </p>
 <p>Ejemplo:
 </p>
@@ -326,24 +248,24 @@ ejecutando la instrucci&oacute;n <code>load(simplify_sum)</code>.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>solve_rec</b><i> (<var>eqn</var>, <var>var</var>, [<var>init</var>])</i>
-<a name="IDX2631"></a>
+<dt><u>Función:</u> <b>solve_rec</b><i> (<var>eqn</var>, <var>var</var>, [<var>init</var>])</i>
+<a name="IDX2673"></a>
 </dt>
-<dd><p>Obtiene las soluciones hipergeom&eacute;tricas de la expresi&oacute;n recurrente <var>eqn</var>
+<dd><p>Obtiene las soluciones hipergeométricas de la expresión recurrente <var>eqn</var>
 con coeficientes lineales en la variable <var>var</var>. Los argumentos opcionales
 <var>init</var> son condiciones iniciales.
 </p>
-<p>La funci&oacute;n <code>solve_rec</code> puede resolver expresiones recurrentes con
-coeficientes constantes, encuentra soluciones hipergeom&eacute;tricas de
-expresiones recurrentes lineales homog&eacute;neas con coeficientes 
+<p>La función <code>solve_rec</code> puede resolver expresiones recurrentes con
+coeficientes constantes, encuentra soluciones hipergeométricas de
+expresiones recurrentes lineales homogéneas con coeficientes 
 polinomiales, obtiene soluciones racionales de expresiones recurrentes
-lineales con coeficientes lineales y resuelve tambi&eacute;n expresiones
+lineales con coeficientes lineales y resuelve también expresiones
 recurrentes de Ricatti.
 </p>
-<p>N&oacute;tese que el tiempo de ejecuci&oacute;n del algoritmo para encontrar soluciones 
-hipergeom&eacute;tricas es exponencial respecto del grado del coeficiente principal.
+<p>Nótese que el tiempo de ejecución del algoritmo para encontrar soluciones 
+hipergeométricas es exponencial respecto del grado del coeficiente principal.
 </p>
-<p>Para hacer uso de esta funci&oacute;n ejec&uacute;tese previamente <code>load(solve_rec);</code>.
+<p>Para hacer uso de esta función ejecútese previamente <code>load(solve_rec);</code>.
 </p>
 <p>Ejemplo de recurrencia lineal con coeficientes constantes:
 </p>
@@ -389,18 +311,18 @@ hipergeom&eacute;tricas es exponencial respecto del grado del coeficiente princi
              5 x  - 3 x  - 25 x  + 15 x  + 20 x  - 12 x - 1584
 </pre>
 
-<p>V&eacute;anse tambi&eacute;n <code>solve_rec_rat</code>, <code>simplify_products</code> y <code>product_use_gamma</code>.
+<p>Véanse también <code>solve_rec_rat</code>, <code>simplify_products</code> y <code>product_use_gamma</code>.
 </p>
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>solve_rec_rat</b><i> (<var>eqn</var>, <var>var</var>, [<var>init</var>])</i>
-<a name="IDX2632"></a>
+<dt><u>Función:</u> <b>solve_rec_rat</b><i> (<var>eqn</var>, <var>var</var>, [<var>init</var>])</i>
+<a name="IDX2674"></a>
 </dt>
 <dd><p>Calcula las soluciones racionales de las expresiones recurrentes lineales. 
-V&eacute;ase <code>solve_rec</code> para la descripci&oacute;n de sus argumentos.
+Véase <code>solve_rec</code> para la descripción de sus argumentos.
 </p>
-<p>Para hacer uso de esta funci&oacute;n ejec&uacute;tese previamente <code>load(solve_rec);</code>.
+<p>Para hacer uso de esta función ejecútese previamente <code>load(solve_rec);</code>.
 </p>
 <p>Ejemplo:
 </p>
@@ -415,29 +337,29 @@ V&eacute;ase <code>solve_rec</code> para la descripci&oacute;n de sus argumentos
 (%o2)      a  = ---------------
             x   (x - 1) (x + 1)
 </pre>
-<p>V&eacute;ase tambi&eacute;n <code>solve_rec</code>.
+<p>Véase también <code>solve_rec</code>.
 </p>
 </dd></dl>
 
 <dl>
 <dt><u>Variable opcional:</u> <b>product_use_gamma</b>
-<a name="IDX2633"></a>
+<a name="IDX2675"></a>
 </dt>
 <dd><p>Valor por defecto:<code>true</code> 
 </p>
 <p>Si <code>product_use_gamma</code> vale <code>true</code>,  <code>solve_rec</code>
-introduce la funci&oacute;n gamma en la expresi&oacute;n del resultado
+introduce la función gamma en la expresión del resultado
 cuando se simplifican productos.
 </p>
-<p>V&eacute;anse tambi&eacute;n <code>simplify_products</code> y <code>solve_rec</code>.
+<p>Véanse también <code>simplify_products</code> y <code>solve_rec</code>.
 </p>
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>summand_to_rec</b><i> (<var>summand</var>, <var>k</var>, <var>n</var>)</i>
-<a name="IDX2634"></a>
+<dt><u>Función:</u> <b>summand_to_rec</b><i> (<var>summand</var>, <var>k</var>, <var>n</var>)</i>
+<a name="IDX2676"></a>
 </dt>
-<dd><p>Devuelve la expresi&oacute;n recurrente que satisface la suma
+<dd><p>Devuelve la expresión recurrente que satisface la suma
 </p>
 <pre class="example">    inf
     ====
@@ -447,10 +369,10 @@ cuando se simplifican productos.
     ====
   k = minf
 </pre>
-<p>donde el sumando es hipergeom&eacute;trico en  <var>k</var> y <var>n</var>.
+<p>donde el sumando es hipergeométrico en  <var>k</var> y <var>n</var>.
 </p>
-<p>Para hacer uso de esta funci&oacute;n deben cargarse previamente los paquetes
-<code>zeilberger</code> y <code>solve_rec</code> mediante la ejecuci&oacute;n de las sentencias
+<p>Para hacer uso de esta función deben cargarse previamente los paquetes
+<code>zeilberger</code> y <code>solve_rec</code> mediante la ejecución de las sentencias
 <code>load(solve_rec)</code> y <code>load(zeilberger)</code>.
 </p>
 <pre class="example">(%i17) load(&quot;zeilberger&quot;)$
@@ -486,10 +408,11 @@ Dependent equations eliminated:  (3 2)
 </pre>
 </dd></dl>
 
+
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC349" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC352" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC354" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_74.html#SEC357" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -497,12 +420,12 @@ Dependent equations eliminated:  (3 2)
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>septiembre, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>abril, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

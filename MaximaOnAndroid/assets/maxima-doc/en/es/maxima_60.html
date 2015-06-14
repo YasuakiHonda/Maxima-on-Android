@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on septiembre, 8 2014 by texi2html 1.76 -->
+<!-- Created on abril, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual de Maxima: 60. lbfgs</title>
+<title>Manual de Maxima 5.36.0: 60. lbfgs</title>
 
-<meta name="description" content="Manual de Maxima: 60. lbfgs">
-<meta name="keywords" content="Manual de Maxima: 60. lbfgs">
+<meta name="description" content="Manual de Maxima 5.36.0: 60. lbfgs">
+<meta name="keywords" content="Manual de Maxima 5.36.0: 60. lbfgs">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,173 +32,95 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="lbfgs"></a>
-<a name="SEC299"></a>
+<a name="SEC304"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_59.html#SEC298" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC300" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_59.html#SEC303" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC305" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_59.html#SEC296" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_59.html#SEC301" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_61.html#SEC302" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_61.html#SEC307" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter"> 60. lbfgs </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC300">60.1 Introducci&oacute;n a lbfgs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC305">60.1 Introducción a lbfgs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC301">60.2 Funciones y variables para lbfgs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC306">60.2 Funciones y variables para lbfgs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <hr size="6">
 <a name="Introducci_00f3n-a-lbfgs"></a>
-<a name="SEC300"></a>
+<a name="SEC305"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC299" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC301" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC304" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC306" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC299" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC299" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_61.html#SEC302" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC304" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC304" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_61.html#SEC307" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 60.1 Introducci&oacute;n a lbfgs </h2>
+<h2 class="section"> 60.1 Introducción a lbfgs </h2>
 
-<p>La funci&oacute;n <code>lbfgs</code> implementa el llamado algoritmo L-BFGS [1]
-para resolver problemas de minimizaci&oacute;n sin restricciones mediante una
-t&eacute;cnica <i>cuasi-Newton con memoria limitada</i> (BFGS). El t&eacute;rmino
-memoria limitada procede del hecho de que se almacena una aproximaci&oacute;n
+<p>La función <code>lbfgs</code> implementa el llamado algoritmo L-BFGS [1]
+para resolver problemas de minimización sin restricciones mediante una
+técnica <i>cuasi-Newton con memoria limitada</i> (BFGS). El término
+memoria limitada procede del hecho de que se almacena una aproximación
 de rango bajo de la inversa de la matriz hessiana, en lugar de la matriz
 completa. El programa fue originalmente escrito en Fortran [2] por
 Jorge Nocedal, incorporando algunas funciones escritas originalmente
 por Jorge J. Mor&eacute; y David J. Thuente, traducidas posteriormente a Lisp
-autom&aacute;ticamente con el programa <code>f2cl</code>. El paquete <code>lbfgs</code>
-contiene el c&oacute;digo traducido, junto con una funci&oacute;n interfaz que para
+automáticamente con el programa <code>f2cl</code>. El paquete <code>lbfgs</code>
+contiene el código traducido, junto con una función interfaz que para
 controlar ciertos detalles.
 </p>
 
@@ -211,56 +133,56 @@ scale optimization&quot;. <i>Mathematical Programming B</i> 45:503-528 (1989)
 </p>
 <hr size="6">
 <a name="Funciones-y-variables-para-lbfgs"></a>
-<a name="SEC301"></a>
+<a name="SEC306"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC300" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_61.html#SEC302" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC305" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_61.html#SEC307" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC299" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC299" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_61.html#SEC302" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC304" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC304" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_61.html#SEC307" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 60.2 Funciones y variables para lbfgs </h2>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>lbfgs</b><i> (<var>FOM</var>, <var>X</var>, <var>X0</var>, <var>epsilon</var>, <var>iprint</var>)</i>
-<a name="IDX2460"></a>
+<dt><u>Función:</u> <b>lbfgs</b><i> (<var>FOM</var>, <var>X</var>, <var>X0</var>, <var>epsilon</var>, <var>iprint</var>)</i>
+<a name="IDX2502"></a>
 </dt>
 <dt><u>Function:</u> <b>lbfgs</b><i> ([<var>FOM</var>, <var>grad</var>] <var>X</var>, <var>X0</var>, <var>epsilon</var>, <var>iprint</var>)</i>
-<a name="IDX2461"></a>
+<a name="IDX2503"></a>
 </dt>
-<dd><p>Encuentra una soluci&oacute;n aproximada para el problema de minimizaci&oacute;n
-sin restricciones de la funci&oacute;n objetivo <var>FOM</var> para la lista de 
+<dd><p>Encuentra una solución aproximada para el problema de minimización
+sin restricciones de la función objetivo <var>FOM</var> para la lista de 
 variables <var>X</var>, partiendo de los estimadores iniciales <var>X0</var>,
 de tal manera que <em>norm(grad(FOM)) &lt; epsilon*max(1, norm(X))</em>.
 </p>
-<p>Si el argumento <var>grad</var> est&aacute; presente, debe ser el gradiente de <var>FOM</var> respecto
-de las variables <var>X</var>. <var>grad</var> puede ser una lista o una funci&oacute;n 
-que devuelva una lista con igual n&uacute;mero de elementos que <var>X</var>. 
-Si el argumento no est&aacute; presente, el gradiente se calcula autom&aacute;ticamente mediante derivaci&oacute;n
-simb&oacute;lica. Si <var>FOM</var> es una funci&oacute;n, el gradiente <var>grad</var> debe ser suministrado
+<p>Si el argumento <var>grad</var> está presente, debe ser el gradiente de <var>FOM</var> respecto
+de las variables <var>X</var>. <var>grad</var> puede ser una lista o una función 
+que devuelva una lista con igual número de elementos que <var>X</var>. 
+Si el argumento no está presente, el gradiente se calcula automáticamente mediante derivación
+simbólica. Si <var>FOM</var> es una función, el gradiente <var>grad</var> debe ser suministrado
 por el usuario.
 </p>
-<p>El algoritmo utilizado es una t&eacute;cnica <i>cuasi-Newton con memoria limitada</i>
-(BFGS) [1]. El t&eacute;rmino <i>memoria limitada</i> procede del hecho de que se almacena
-una aproximaci&oacute;n de rango bajo de la inversa de la matriz hessiana, en lugar
+<p>El algoritmo utilizado es una técnica <i>cuasi-Newton con memoria limitada</i>
+(BFGS) [1]. El término <i>memoria limitada</i> procede del hecho de que se almacena
+una aproximación de rango bajo de la inversa de la matriz hessiana, en lugar
 de la matriz completa.
-Cada iteraci&oacute;n del algoritmo es una b&uacute;squeda a lo largo de una recta,
-cuya direcci&oacute;n se calcula a partir de la matriz inversa aproximada del
-hessiano. La funci&oacute;n objetivo decrece siempre tras cada b&uacute;squeda
-exitosa a lo largo de la recta; adem&aacute;s, casi siempre decrece tambi&eacute;n
-el m&oacute;dulo del gradiente de la funci&oacute;n.
+Cada iteración del algoritmo es una búsqueda a lo largo de una recta,
+cuya dirección se calcula a partir de la matriz inversa aproximada del
+hessiano. La función objetivo decrece siempre tras cada búsqueda
+exitosa a lo largo de la recta; además, casi siempre decrece también
+el módulo del gradiente de la función.
 </p>
-<p>El argumento <var>iprint</var> controla los mensajes de progreso que env&iacute;a
-la funci&oacute;n <code>lbfgs</code>.
+<p>El argumento <var>iprint</var> controla los mensajes de progreso que envía
+la función <code>lbfgs</code>.
 </p>
 
 <dl compact="compact">
@@ -268,10 +190,10 @@ la funci&oacute;n <code>lbfgs</code>.
 <dd><p><code><var>iprint</var>[1]</code> controla la frecuencia con la que se emiten los mensajes.
 </p><dl compact="compact">
 <dt> <code>iprint[1] &lt; 0</code></dt>
-<dd><p>No se env&iacute;an mensajes.
+<dd><p>No se envían mensajes.
 </p></dd>
 <dt> <code>iprint[1] = 0</code></dt>
-<dd><p>Mensajes &uacute;nicamente en la primera y &uacute;ltima iteraciones.
+<dd><p>Mensajes únicamente en la primera y última iteraciones.
 </p></dd>
 <dt> <code>iprint[1] &gt; 0</code></dt>
 <dd><p>Imprime un mensaje cada <code><var>iprint</var>[1]</code> iteraciones.
@@ -279,20 +201,20 @@ la funci&oacute;n <code>lbfgs</code>.
 </dl>
 </dd>
 <dt> <code>iprint[2]</code></dt>
-<dd><p><code><var>iprint</var>[2]</code> controla la cantidad de informaci&oacute;n contenida en los mensajes.
+<dd><p><code><var>iprint</var>[2]</code> controla la cantidad de información contenida en los mensajes.
 </p><dl compact="compact">
 <dt> <code>iprint[2] = 0</code></dt>
-<dd><p>Imprime contador de iteraciones, n&uacute;mero de evaluaciones de <var>FOM</var>, valor de <var>FOM</var>,
-m&oacute;dulo del gradiente de <var>FOM</var> y amplitud del paso.
+<dd><p>Imprime contador de iteraciones, número de evaluaciones de <var>FOM</var>, valor de <var>FOM</var>,
+módulo del gradiente de <var>FOM</var> y amplitud del paso.
 </p></dd>
 <dt> <code>iprint[2] = 1</code></dt>
 <dd><p>Igual que <code><var>iprint</var>[2] = 0</code>, incluyendo <var>X0</var> y el gradiente de <var>FOM</var> evaluado en <var>X0</var>.
 </p></dd>
 <dt> <code>iprint[2] = 2</code></dt>
-<dd><p>Igual que <code><var>iprint</var>[2] = 1</code>, incluyendo los valores de <var>X</var> en cada iteraci&oacute;n.
+<dd><p>Igual que <code><var>iprint</var>[2] = 1</code>, incluyendo los valores de <var>X</var> en cada iteración.
 </p></dd>
 <dt> <code>iprint[2] = 3</code></dt>
-<dd><p>Igual que <code><var>iprint</var>[2] = 2</code>, incluyendo el gradiente de <var>FOM</var> en cada iteraci&oacute;n.
+<dd><p>Igual que <code><var>iprint</var>[2] = 2</code>, incluyendo el gradiente de <var>FOM</var> en cada iteración.
 </p></dd>
 </dl>
 </dd>
@@ -302,28 +224,28 @@ m&oacute;dulo del gradiente de <var>FOM</var> y amplitud del paso.
 </p>
 <dl compact="compact">
 <dt> <code>I</code></dt>
-<dd><p>N&uacute;mero de iteraciones. Se incremente tras cada b&uacute;squeda a lo
+<dd><p>Número de iteraciones. Se incremente tras cada búsqueda a lo
 largo de una recta.
 </p></dd>
 <dt> <code>NFN</code></dt>
-<dd><p>N&uacute;mero de evaluaciones de la funci&oacute;n objetivo.
+<dd><p>Número de evaluaciones de la función objetivo.
 </p></dd>
 <dt> <code>FUNC</code></dt>
-<dd><p>Valor de la funci&oacute;n objetivo al final de cada iteraci&oacute;n.
+<dd><p>Valor de la función objetivo al final de cada iteración.
 </p></dd>
 <dt> <code>GNORM</code></dt>
-<dd><p>M&oacute;dulo del gradiente de la funci&oacute;n objetivo al final de
-cada iteraci&oacute;n.
+<dd><p>Módulo del gradiente de la función objetivo al final de
+cada iteración.
 </p></dd>
 <dt> <code>STEPLENGTH</code></dt>
-<dd><p>Un par&aacute;metro interno del algoritmo de b&uacute;squeda.
+<dd><p>Un parámetro interno del algoritmo de búsqueda.
 </p></dd>
 </dl>
 
-<p>Para m&aacute;s informaci&oacute;n sobre el algoritmo se puede acudir a los
-comentarios en el c&oacute;digo original en Fortran [2].
+<p>Para más información sobre el algoritmo se puede acudir a los
+comentarios en el código original en Fortran [2].
 </p>
-<p>V&eacute;anse tambi&eacute;n <code>lbfgs_nfeval_max</code> y <code>lbfgs_ncorrections</code>.
+<p>Véanse también <code>lbfgs_nfeval_max</code> y <code>lbfgs_ncorrections</code>.
 </p>
 <p>Referencias:
 </p>
@@ -334,10 +256,10 @@ scale optimization&quot;. <i>Mathematical Programming B</i> 45:503-528 (1989)
 </p>
 <p>Ejemplos:
 </p>
-<p>La misma funci&oacute;n objetivo utilizada por FGCOMPUTE en el programa 
-sdrive.f del paquete LBFGS de Netlib. N&oacute;tese que las variables en
-cuesti&oacute;n est&aacute;n subindicadas. La funci&oacute;n objetivo tiene un
-m&iacute;nimo exacto igual a cero en <em>u[k] = 1</em>, para
+<p>La misma función objetivo utilizada por FGCOMPUTE en el programa 
+sdrive.f del paquete LBFGS de Netlib. Nótese que las variables en
+cuestión están subindicadas. La función objetivo tiene un
+mínimo exacto igual a cero en <em>u[k] = 1</em>, para
 <em>k = 1, ..., 8</em>.
 </p>
 <pre class="example">(%i1) load (lbfgs)$
@@ -414,11 +336,11 @@ u  = 1.000005339816132, u  = 1.000009942840108,
 u  = 1.000005339816132, u  = 1.000009942840108]
  7                       8
 </pre>
-<p>Un problema de regresi&oacute;n. La funci&oacute;n objetivo es el cuadrado medio
-de la diferencia entre la predicci&oacute;n <em>F(X[i])</em> y el valor observado
-<em>Y[i]</em>. La funci&oacute;n <em>F</em> es mon&oacute;tona y acotada (llamada en ocasiones
+<p>Un problema de regresión. La función objetivo es el cuadrado medio
+de la diferencia entre la predicción <em>F(X[i])</em> y el valor observado
+<em>Y[i]</em>. La función <em>F</em> es monótona y acotada (llamada en ocasiones
 &quot;sigmoidal&quot;). En este ejemplo, <code>lbfgs</code> calcula valores aproximados para los
-par&aacute;metros de <em>F</em> y <code>plot2d</code> hace una representaci&oacute;n gr&aacute;fica
+parámetros de <em>F</em> y <code>plot2d</code> hace una representación gráfica
 comparativa de <em>F</em> junto con los datos observados.
 </p>
 
@@ -477,8 +399,8 @@ comparativa de <em>F</em> junto con los datos observados.
 (%i8) plot2d ([F(x), [discrete, X, Y]], [x, -1, 6]), ''estimates;
 (%o8) 
 </pre>
-<p>Especificando el gradiente de la funci&oacute;n objetivo en lugar de calcularlo
-simb&oacute;licamente.
+<p>Especificando el gradiente de la función objetivo en lugar de calcularlo
+simbólicamente.
 </p>
 <pre class="example">(%i1) load (lbfgs)$
 (%i2) F(a, b, c) := (a - 5)^2 + (b - 3)^4 + (c - 2)^6$
@@ -520,33 +442,35 @@ simb&oacute;licamente.
 
 <dl>
 <dt><u>Variable:</u> <b>lbfgs_nfeval_max</b>
-<a name="IDX2462"></a>
+<a name="IDX2504"></a>
 </dt>
 <dd><p>Valor por defecto: 100
 </p>
-<p>La variable <code>lbfgs_nfeval_max</code> almacena el n&uacute;mero m&aacute;ximo de
-evaluaciones de la funci&oacute;n objetivo en <code>lbfgs</code>. Cuando se
+<p>La variable <code>lbfgs_nfeval_max</code> almacena el número máximo de
+evaluaciones de la función objetivo en <code>lbfgs</code>. Cuando se
 alcanza el valor <code>lbfgs_nfeval_max</code>, <code>lbfgs</code> devuelve
-el resultado logrado en la &uacute;ltima iteraci&oacute;n exitosa.
+el resultado logrado en la última iteración exitosa.
 </p>
 </dd></dl>
 
 <dl>
 <dt><u>Variable:</u> <b>lbfgs_ncorrections</b>
-<a name="IDX2463"></a>
+<a name="IDX2505"></a>
 </dt>
 <dd><p>Valor por defecto: 25
 </p>
-<p>La variable <code>lbfgs_ncorrections</code> almacena el n&uacute;mero de correcciones
+<p>La variable <code>lbfgs_ncorrections</code> almacena el número de correcciones
 aplicadas a la matriz inversa aproximada del hessiano, la cual es gestionada
 por <code>lbfgs</code>.
 </p>
 </dd></dl>
 
+
+
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC299" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_61.html#SEC302" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC304" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_61.html#SEC307" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -554,12 +478,12 @@ por <code>lbfgs</code>.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>septiembre, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>abril, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on septiembre, 8 2014 by texi2html 1.76 -->
+<!-- Created on abril, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual de Maxima: 77. to_poly_solve</title>
+<title>Manual de Maxima 5.36.0: 77. to_poly_solve</title>
 
-<meta name="description" content="Manual de Maxima: 77. to_poly_solve">
-<meta name="keywords" content="Manual de Maxima: 77. to_poly_solve">
+<meta name="description" content="Manual de Maxima 5.36.0: 77. to_poly_solve">
+<meta name="keywords" content="Manual de Maxima 5.36.0: 77. to_poly_solve">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,157 +32,79 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="to_005fpoly_005fsolve"></a>
-<a name="SEC364"></a>
+<a name="SEC369"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_76.html#SEC363" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC365" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_76.html#SEC368" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC370" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_76.html#SEC359" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_76.html#SEC364" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_78.html#SEC366" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_78.html#SEC371" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter"> 77. to_poly_solve </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC365">77.1 Funciones y variables para to_poly_solve</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC370">77.1 Funciones y variables para to_poly_solve</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <hr size="6">
 <a name="Funciones-y-variables-para-to_005fpoly_005fsolve"></a>
-<a name="SEC365"></a>
+<a name="SEC370"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC364" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_78.html#SEC366" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC369" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_78.html#SEC371" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC364" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC364" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_78.html#SEC366" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC369" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC369" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_78.html#SEC371" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 77.1 Funciones y variables para to_poly_solve </h2>
@@ -192,7 +114,7 @@ siendo posible que las especificaciones de sus funciones puedan
 cambiar en el futuro, o que algunas de estas funciones puedan ser
 incorporadas a otras partes de Maxima.
 </p>
-<p>Los paquetes <code>to_poly</code> y <code>to_poly_solve</code>, junto con su documentaci&oacute;n,
+<p>Los paquetes <code>to_poly</code> y <code>to_poly_solve</code>, junto con su documentación,
 fue escrito por Barton Willis de la Universidad de Nebraska en Kearney. 
 </p>
 
@@ -202,35 +124,35 @@ fue escrito por Barton Willis de la Universidad de Nebraska en Kearney.
 
 <dl>
 <dt><u>Operador:</u> <b>%and</b>
-<a name="IDX2772"></a>
+<a name="IDX2814"></a>
 </dt>
-<dd><p>El operador <code>%and</code> es una conjunci&oacute;n l&oacute;gica. Maxima simplifica
-una expresi&oacute;n <code>%and</code> a <code>true</code>, <code>false</code> o a una expresi&oacute;n
-l&oacute;gicamente equivalente, pero simplificada. El operador <code>%and</code>
-es asociativo, conmutativo e idempotente. As&iacute;, cuando <code>%and</code>
-devuelva una forma nominal, sus argumentos no ser&aacute;n redundantes; por ejemplo,
+<dd><p>El operador <code>%and</code> es una conjunción lógica. Maxima simplifica
+una expresión <code>%and</code> a <code>true</code>, <code>false</code> o a una expresión
+lógicamente equivalente, pero simplificada. El operador <code>%and</code>
+es asociativo, conmutativo e idempotente. Así, cuando <code>%and</code>
+devuelva una forma nominal, sus argumentos no serán redundantes; por ejemplo,
 </p>
 <pre class="example">(%i1) a %and (a %and b);
 (%o1)                       a %and b
 </pre>
-<p>Si uno de los argumentos de la conjunci&oacute;n es la negaci&oacute;n de otro argumento,
+<p>Si uno de los argumentos de la conjunción es la negación de otro argumento,
 <code>%and</code> devuelve <code>false</code>:
 </p>
 <pre class="example"> (%i2) a %and (not a);
  (%o2) false
 </pre>
-<p>Si cualquiera de los argumentos vale <code>false</code>, la conjunci&oacute;n devuelve
-<code>false</code>, incluso cuando haya alg&uacute;n otro argumento que sea una
-expresi&oacute;n no booleana; por ejemplo,
+<p>Si cualquiera de los argumentos vale <code>false</code>, la conjunción devuelve
+<code>false</code>, incluso cuando haya algún otro argumento que sea una
+expresión no booleana; por ejemplo,
 </p>
 <pre class="example">(%i2) a %and (not a);
 (%o2)                         false
 </pre>
-<p>Los argumentos de la expresi&oacute;n <code>%and</code> que sean inecuaciones se
-reducen con la simplificaci&oacute;n de Fourier; el m&eacute;todo que se
+<p>Los argumentos de la expresión <code>%and</code> que sean inecuaciones se
+reducen con la simplificación de Fourier; el método que se
 aplica dispone de un pre-procesador que convierte algunas, pero no
 todas, las inecuaciones no lineales a lineales. Por ejemplo, el
-m&eacute;todo de simplificaci&oacute;n de Fourier simplifica <code>abs(x) + 1 &gt; 0</code>
+método de simplificación de Fourier simplifica <code>abs(x) + 1 &gt; 0</code>
 a <code>true</code>:
 </p>
 <pre class="example">(%i4) (x &lt; 1) %and (abs(x) + 1 &gt; 0);
@@ -239,25 +161,25 @@ a <code>true</code>:
 <p><b>Notas</b>  
 </p><ul>
 <li> La variable opcional <code>prederror</code> no altera la
-simplificaci&oacute;n de las expresiones <code>%and</code>.
+simplificación de las expresiones <code>%and</code>.
 
 </li><li> Para evitar errores en la precedencia de las operaciones,
-se recomienda utilizar par&eacute;ntesis en las expresiones combinadas
+se recomienda utilizar paréntesis en las expresiones combinadas
 en las que aparezcan los operadores <code>%and</code>,  <code>%or</code> y <code>not</code> .
 
-</li><li> Los operadores <code>and</code> y <code>or</code>, tal como est&aacute;n
+</li><li> Los operadores <code>and</code> y <code>or</code>, tal como están
 programados en Maxima, no conocen las propiedades asociativa
 ni conmutativa.
 
 </li></ul>
 
-<p><b>Limitaciones</b> La conjunci&oacute;n <code>%and</code> simplifica inecuaciones
+<p><b>Limitaciones</b> La conjunción <code>%and</code> simplifica inecuaciones
 <i>locamente</i>, no <i>globalmente</i>, lo que significa que conjunciones tales como
 </p>
 <pre class="example">(%i5) (x &lt; 1) %and (x &gt; 1);
 (%o5)                 (x &gt; 1) %and (x &lt; 1)
 </pre>
-<p><i>no</i> simplifican a <code>false</code>. Adem&aacute;s, las rutinas de eliminaci&oacute;n de Fourier
+<p><i>no</i> simplifican a <code>false</code>. Además, las rutinas de eliminación de Fourier
 ignoran los hechos almacenados en la base de datos.
 </p>
 <pre class="example">(%i6) assume(x &gt; 5);
@@ -265,15 +187,15 @@ ignoran los hechos almacenados en la base de datos.
 (%i7) (x &gt; 1) %and (x &gt; 2);
 (%o7)                 (x &gt; 1) %and (x &gt; 2)
 </pre>
-<p>Por &uacute;ltimo, las inecuaciones no lineales que no se puedan reducir de
+<p>Por último, las inecuaciones no lineales que no se puedan reducir de
 manera sencilla a formas lineales, no se simplifican.
 </p>
-<p>No est&aacute; soportada la distributividad de <code>%and</code> respecto de <code>%or</code>,
-ni la negaci&oacute;n respecto de <code>%and</code>.
+<p>No está soportada la distributividad de <code>%and</code> respecto de <code>%or</code>,
+ni la negación respecto de <code>%and</code>.
 </p>
-<p>Para hacer uso de este operador, ejec&uacute;tese <code>load(to_poly_solve)</code>.
+<p>Para hacer uso de este operador, ejecútese <code>load(to_poly_solve)</code>.
 </p>
-<p>V&eacute;anse tambi&eacute;n <code>%or</code>, <code>%if</code>, <code>and</code>, <code>or</code> y <code>not</code>.
+<p>Véanse también <code>%or</code>, <code>%if</code>, <code>and</code>, <code>or</code> y <code>not</code>.
 </p>
 </dd></dl>
 
@@ -284,30 +206,30 @@ ni la negaci&oacute;n respecto de <code>%and</code>.
 
 <dl>
 <dt><u>Operador:</u> <b>%if</b><i> ( <var>bool</var>, <var>a</var>, <var>b</var>)</i>
-<a name="IDX2773"></a>
+<a name="IDX2815"></a>
 </dt>
-<dd><p>El operador <code>%if</code> es un condicional. La condici&oacute;n <var>bool</var>
-debe tomar un valor l&oacute;gico; cuando sea <code>true</code>, se devolver&aacute;
+<dd><p>El operador <code>%if</code> es un condicional. La condición <var>bool</var>
+debe tomar un valor lógico; cuando sea <code>true</code>, se devolverá
 el segundo argumento, y cuando valga <code>false</code>, el segundo. En
 cualquier otro caso, se obtiene una forma nominal.
 </p>
 <p>En Maxima, las expresiones con desigualdades o igualdades no adquieren
-valores l&oacute;gicos; por ejemplo, <em>5 &lt; 6</em> no se simplifica a <code>true</code>,
-ni <em>5 = 6</em> <code>false</code>. Sin embargo, en la condici&oacute;n de una
-sentencia <code>%if</code>, Maxima intenta determinar el valor l&oacute;gico
-de la expresi&oacute;n de forma autom&aacute;tica. V&eacute;ase un ejemplo:
+valores lógicos; por ejemplo, <em>5 &lt; 6</em> no se simplifica a <code>true</code>,
+ni <em>5 = 6</em> <code>false</code>. Sin embargo, en la condición de una
+sentencia <code>%if</code>, Maxima intenta determinar el valor lógico
+de la expresión de forma automática. Véase un ejemplo:
 </p>
 <pre class="example">(%i1) f : %if(x # 1, 2, 8);
 (%o1)                 %if(x - 1 # 0, 2, 8)
 (%i2) [subst(x = -1,f), subst(x=1,f)];
 (%o2)                        [2, 8]
 </pre>
-<p>Si en la condici&oacute;n aparece una inecuaci&oacute;n, Maxima la
-reduce con una simplificaci&oacute;n de Fourier.
+<p>Si en la condición aparece una inecuación, Maxima la
+reduce con una simplificación de Fourier.
 </p>
 <p><b>Notas</b> 
 </p><ul class="toc">
-<li> bullet  Si la condici&oacute;n no se reduce a un valor l&oacute;gico, Maxima devuelve
+<li> bullet  Si la condición no se reduce a un valor lógico, Maxima devuelve
 una forma nominal:
 <pre class="example">(%i3) %if(42,1,2);
 (%o3)                     %if(42, 1, 2)
@@ -315,10 +237,10 @@ una forma nominal:
 </li><li> bullet  El operador <code>if</code> de Maxima es n-ario, pero el operador <code>%if</code> no lo es.
 </li></ul>
 
-<p>Por &uacute;ltimo, las inecuaciones no lineales que no se puedan reducir de
+<p>Por último, las inecuaciones no lineales que no se puedan reducir de
 manera sencilla a formas lineales, no se simplifican.
 </p>
-<p>Para hacer uso de este operador, ejec&uacute;tese <code>load(to_poly_solve)</code>.
+<p>Para hacer uso de este operador, ejecútese <code>load(to_poly_solve)</code>.
 </p></dd></dl>
 
 
@@ -327,33 +249,33 @@ manera sencilla a formas lineales, no se simplifican.
   
 <dl>
 <dt><u>Operador:</u> <b>%or</b>
-<a name="IDX2774"></a>
+<a name="IDX2816"></a>
 </dt>
-<dd><p>El operador <code>%or</code> es una disyunci&oacute;n l&oacute;gica. Maxima simplifica
-una expresi&oacute;n <code>%or</code> a <code>true</code>, <code>false</code> o a una expresi&oacute;n
-l&oacute;gicamente equivalente, pero simplificada. El operador <code>%or</code>
-es asociativo, conmutativo e idempotente. As&iacute;, cuando <code>%or</code>
-devuelva una forma nominal, sus argumentos no ser&aacute;n redundantes; por ejemplo,
+<dd><p>El operador <code>%or</code> es una disyunción lógica. Maxima simplifica
+una expresión <code>%or</code> a <code>true</code>, <code>false</code> o a una expresión
+lógicamente equivalente, pero simplificada. El operador <code>%or</code>
+es asociativo, conmutativo e idempotente. Así, cuando <code>%or</code>
+devuelva una forma nominal, sus argumentos no serán redundantes; por ejemplo,
 </p>
 <pre class="example">(%i1) a %or (a %or b);
 (%o1)                        a %or b
 </pre>
-<p>Si uno de los argumentos de la disyunci&oacute;n es la negaci&oacute;n de otro argumento,
+<p>Si uno de los argumentos de la disyunción es la negación de otro argumento,
 <code>%or</code> devuelve <code>true</code>:
 </p>
 <pre class="example">(%i2) a %or (not a);
 (%o2)                         true
 </pre>
-<p>Si cualquiera de los argumentos vale <code>true</code>, la disyunci&oacute;n devuelve
-<code>true</code>, incluso cuando haya alg&uacute;n otro argumento que sea una
-expresi&oacute;n no booleana; por ejemplo,
+<p>Si cualquiera de los argumentos vale <code>true</code>, la disyunción devuelve
+<code>true</code>, incluso cuando haya algún otro argumento que sea una
+expresión no booleana; por ejemplo,
 </p>
 <pre class="example">(%i3) 42 %or true;
 (%o3)                         true
 </pre>
-<p>Los argumentos de la expresi&oacute;n <code>%or</code> que sean inecuaciones se
-reducen con la simplificaci&oacute;n de Fourier. Por ejemplo, el
-m&eacute;todo de simplificaci&oacute;n de Fourier simplifica <code>abs(x) + 1 &gt; 0</code>
+<p>Los argumentos de la expresión <code>%or</code> que sean inecuaciones se
+reducen con la simplificación de Fourier. Por ejemplo, el
+método de simplificación de Fourier simplifica <code>abs(x) + 1 &gt; 0</code>
 a <code>true</code>:
 </p>
 <pre class="example">(%i4) (x &lt; 1) %or (abs(x) + 1 &gt; 0);
@@ -362,25 +284,25 @@ a <code>true</code>:
 <p><b>Notas</b>  
 </p><ul>
 <li> La variable opcional <code>prederror</code> no altera la
-simplificaci&oacute;n de las expresiones <code>%or</code>.
+simplificación de las expresiones <code>%or</code>.
 
 </li><li> Para evitar errores en la precedencia de las operaciones,
-se recomienda utilizar par&eacute;ntesis en las expresiones combinadas
+se recomienda utilizar paréntesis en las expresiones combinadas
 en las que aparezcan los operadores <code>%and</code>,  <code>%or</code> y <code>not</code> .
 
-</li><li> Los operadores <code>and</code> y <code>or</code>, tal como est&aacute;n
+</li><li> Los operadores <code>and</code> y <code>or</code>, tal como están
 programados en Maxima, no conocen las propiedades asociativa
 ni conmutativa.
 
 </li></ul>
 
-<p><b>Limitaciones</b> La conjunci&oacute;n <code>%or</code> simplifica inecuaciones
+<p><b>Limitaciones</b> La conjunción <code>%or</code> simplifica inecuaciones
 <i>locamente</i>, no <i>globalmente</i>, lo que significa que disyunciones tales como
 </p>
 <pre class="example"> (%i1) (x &lt; 1) %or (x &gt;= 1);
  (%o1) (x &gt; 1) %or (x &gt;= 1)
 </pre>
-<p><i>no</i> simplifican a <code>true</code>. Adem&aacute;s, las rutinas de eliminaci&oacute;n de Fourier
+<p><i>no</i> simplifican a <code>true</code>. Además, las rutinas de eliminación de Fourier
 ignoran los hechos almacenados en la base de datos.
 </p>
 <pre class="example">(%i2) assume(x &gt; 5);
@@ -388,15 +310,15 @@ ignoran los hechos almacenados en la base de datos.
 (%i3) (x &gt; 1) %and (x &gt; 2);
 (%o3)                 (x &gt; 1) %and (x &gt; 2)
 </pre>
-<p>Por &uacute;ltimo, las inecuaciones no lineales que no se puedan reducir de
+<p>Por último, las inecuaciones no lineales que no se puedan reducir de
 manera sencilla a formas lineales, no se simplifican.
 </p>
-<p>No est&aacute; soportada la distributividad de <code>%or</code> respecto de <code>%and</code>,
-ni la negaci&oacute;n respecto de <code>%or</code>.
+<p>No está soportada la distributividad de <code>%or</code> respecto de <code>%and</code>,
+ni la negación respecto de <code>%or</code>.
 </p>
-<p>Para hacer uso de este operador, ejec&uacute;tese <code>load(to_poly_solve)</code>.
+<p>Para hacer uso de este operador, ejecútese <code>load(to_poly_solve)</code>.
 </p>
-<p>V&eacute;anse tambi&eacute;n <code>%and</code>, <code>%if</code>, <code>and</code>, <code>or</code> y <code>not</code>.
+<p>Véanse también <code>%and</code>, <code>%if</code>, <code>and</code>, <code>or</code> y <code>not</code>.
 </p>
 </dd></dl>
 
@@ -405,13 +327,13 @@ ni la negaci&oacute;n respecto de <code>%or</code>.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>complex_number_p</b><i> (<var>x</var>)</i>
-<a name="IDX2775"></a>
+<dt><u>Función:</u> <b>complex_number_p</b><i> (<var>x</var>)</i>
+<a name="IDX2817"></a>
 </dt>
-<dd><p>La funci&oacute;n <code>complex_number_p</code> devuelve <code>true</code> si su
+<dd><p>La función <code>complex_number_p</code> devuelve <code>true</code> si su
 argumento es de cualquiera de las formas <code>a + %i * b</code>, <code>a</code>, <code>%i b</code> o
 <code>%i</code>, donde <code>a</code> y <code>b</code> son racionales o decimales en coma flotante,
-de precisi&oacute;n doble o arbitraria (<i>bigfloats</i>); para cualesquiera otros argumentos,
+de precisión doble o arbitraria (<i>bigfloats</i>); para cualesquiera otros argumentos,
 <code>complex_number_p</code> devuelve <code>false</code>.
 </p>
 <p>Ejemplo:
@@ -423,9 +345,9 @@ de precisi&oacute;n doble o arbitraria (<i>bigfloats</i>); para cualesquiera otr
 (%i3) complex_number_p(cos(5 - 2 * %i));
 (%o3)                         false
 </pre>
-<p>V&eacute;ase tambi&eacute;n <code>isreal_p</code>.
+<p>Véase también <code>isreal_p</code>.
 </p>
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(to_poly_solve)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(to_poly_solve)</code>.
 </p></dd></dl>
 
 
@@ -434,11 +356,11 @@ de precisi&oacute;n doble o arbitraria (<i>bigfloats</i>); para cualesquiera otr
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>compose_functions</b><i> (<var>l</var>)</i>
-<a name="IDX2776"></a>
+<dt><u>Función:</u> <b>compose_functions</b><i> (<var>l</var>)</i>
+<a name="IDX2818"></a>
 </dt>
-<dd><p>La funci&oacute;n <code>compose_functions(l)</code> devuelve una expresi&oacute;n lambda
-que es la composici&oacute;n de las funciones presentes en la lista <var>l</var>.
+<dd><p>La función <code>compose_functions(l)</code> devuelve una expresión lambda
+que es la composición de las funciones presentes en la lista <var>l</var>.
 Las funciones se aplican de derecha a izquierda.
 </p>
 <p>Ejemplo:
@@ -450,7 +372,7 @@ Las funciones se aplican de derecha a izquierda.
                                   x
 (%o2)                       cos(%e )
 </pre>
-<p>Si la lista est&aacute; vac&iacute;a devuelve la funci&oacute;n identidad:
+<p>Si la lista está vacía devuelve la función identidad:
 </p>
 <pre class="example">(%i3) compose_functions([]);
 (%o3)                lambda([%g152], %g152)
@@ -460,7 +382,7 @@ Las funciones se aplican de derecha a izquierda.
 <p><b>Notas</b> 
 </p><ul>
 <li> Cuando Maxima detecta que un miembro de la lista no es un
-s&iacute;mbolo o expresi&oacute;n lambda, la funci&oacute;n 
+símbolo o expresión lambda, la función 
 <code>funmake</code> (no <code>compose_functions</code>) muestra un mensaje de
 error:
 <pre class="example">(%i5) compose_functions([a &lt; b]);
@@ -471,18 +393,18 @@ string, or lambda expression; found: a &lt; b
  -- an error. To debug this try: debugmode(true);
 </pre>
 </li><li> Para evitar conflictos de nombres, la variable independiente se determina
-con la funci&oacute;n <code>new_variable</code>:
+con la función <code>new_variable</code>:
 <pre class="example">(%i6) compose_functions([%g0]);
 (%o6)              lambda([%g154], %g0(%g154))
 (%i7) compose_functions([%g0]);
 (%o7)              lambda([%g155], %g0(%g155))
 </pre><p>Aunque las variables dependientes sean diferentes, Maxima es capaz de
-determinar que las expresiones lambda son sem&aacute;nticamente equivalentes:
+determinar que las expresiones lambda son semánticamente equivalentes:
 </p><pre class="example">(%i8) is(equal(%o6,%o7));
 (%o8)                         true
 </pre></li></ul>
 
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(to_poly_solve)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(to_poly_solve)</code>.
 </p></dd></dl>
 
 
@@ -491,12 +413,12 @@ determinar que las expresiones lambda son sem&aacute;nticamente equivalentes:
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>dfloat</b><i> (<var>x</var>)</i>
-<a name="IDX2777"></a>
+<dt><u>Función:</u> <b>dfloat</b><i> (<var>x</var>)</i>
+<a name="IDX2819"></a>
 </dt>
-<dd><p>La funci&oacute;n <code>dfloat</code> es similar a <code>float</code>, pero <code>dfloat</code> 
-aplica <code>rectform</code> cuando <code>float</code> no puede evaluar a un n&uacute;mero
-decimal de coma flotante de doble precisi&oacute;n. Ejemplo:
+<dd><p>La función <code>dfloat</code> es similar a <code>float</code>, pero <code>dfloat</code> 
+aplica <code>rectform</code> cuando <code>float</code> no puede evaluar a un número
+decimal de coma flotante de doble precisión. Ejemplo:
 </p>
 <pre class="example">(%i1) float(4.5^(1 + %i));
                                %i + 1
@@ -507,16 +429,16 @@ decimal de coma flotante de doble precisi&oacute;n. Ejemplo:
 <p><b>Notas</b> 
 </p>
 <ul>
-<li> La forma rectangular de una expresi&oacute;n puede no ser la
-m&aacute;s adecuada para c&aacute;lculos num&eacute;ricos
+<li> La forma rectangular de una expresión puede no ser la
+más adecuada para cálculos numéricos
 
 </li><li> El identificador <code>float</code> es al mismo tiempo una variable opcional,
-cuyo valor por defecto es <code>false</code> y el nombre de una funci&oacute;n.
+cuyo valor por defecto es <code>false</code> y el nombre de una función.
 </li></ul>
 
-<p>V&eacute;anse tambi&eacute;n <code>float</code> y <code>bfloat</code>.
+<p>Véanse también <code>float</code> y <code>bfloat</code>.
 </p>
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(to_poly_solve)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(to_poly_solve)</code>.
 </p>
 </dd></dl>
 
@@ -526,24 +448,24 @@ cuyo valor por defecto es <code>false</code> y el nombre de una funci&oacute;n.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>elim</b><i> (<var>l</var>, <var>x</var>)</i>
-<a name="IDX2778"></a>
+<dt><u>Función:</u> <b>elim</b><i> (<var>l</var>, <var>x</var>)</i>
+<a name="IDX2820"></a>
 </dt>
-<dd><p>La funci&oacute;n <code>elim</code> elimina las variables que se indican en el conjunto
+<dd><p>La función <code>elim</code> elimina las variables que se indican en el conjunto
 o lista <code>x</code> del conjunto o lista de ecuaciones en <code>l</code>. Cada
-elemento de <code>x</code> debe ser un s&iacute;mbolo, mientras que los
+elemento de <code>x</code> debe ser un símbolo, mientras que los
 elementos de <code>l</code> pueden ser ecuaciones o expresiones que se suponen
 igualadas a cero.
 </p>
-<p>La funci&oacute;n <code>elim</code> devuelve una lista formada por dos listas; la
-primera est&aacute; formada por las expresiones con las variables eliminadas y
+<p>La función <code>elim</code> devuelve una lista formada por dos listas; la
+primera está formada por las expresiones con las variables eliminadas y
 la segunda es la lista de pivotes o, en otras palabras, es la lista de
-expresiones que <code>elim</code> ha utilizado para proceder con la eliminaci&oacute;n.
+expresiones que <code>elim</code> ha utilizado para proceder con la eliminación.
 </p>
 <p>Ejemplo:
 </p>
-<p>Eliminaci&oacute;n entre ecuaciones lineales. Eliminando <code>x</code> e <code>y</code>
-se obtiene una &uacute;nica ecuaci&oacute;n <code>2 z - 7 = 0</code>; las ecuaciones
+<p>Eliminación entre ecuaciones lineales. Eliminando <code>x</code> e <code>y</code>
+se obtiene una única ecuación <code>2 z - 7 = 0</code>; las ecuaciones
 <code>y + 7 = 0</code> y <code>z - z + 1 = 1</code> se han utilizado como pivotes.
 </p>
 <pre class="example">(%i1) elim(set(x + y + z = 1, x - y  - z = 8, x - z = 1), 
@@ -564,31 +486,31 @@ lineal:
 (%o3)       [[], [2 y  - y  - 10 y - 24, y - x + 5]]
 </pre>
 <p>El usuario no puede controlar el orden en el que se eliminan las
-variables. El algoritmo utiliza una heur&iacute;stica con
-la que intenta escoger el mejor pivote y el mejor orden de eliminaci&oacute;n.
+variables. El algoritmo utiliza una heurística con
+la que intenta escoger el mejor pivote y el mejor orden de eliminación.
 </p>
 <p><b>Notas</b> 
 </p>
 <ul>
-<li> Al contrario que la funci&oacute;n relacionada <code>eliminate</code>, la
-funci&oacute;n <code>elim</code> no llama a la funci&oacute;n <code>solve</code> cuando el
-n&uacute;mero de ecuaciones iguala al de variables.
+<li> Al contrario que la función relacionada <code>eliminate</code>, la
+función <code>elim</code> no llama a la función <code>solve</code> cuando el
+número de ecuaciones iguala al de variables.
 
-</li><li> La funci&oacute;n <code>elim</code> trabaja aplicando resultantes; la variable
-opcional <code>resultant</code> determina qu&eacute; algoritmo va a utilizar Maxima.
-Con <code>sqfr</code>, Maxima factoriza cada resultante y suprime ceros m&uacute;ltiples.
+</li><li> La función <code>elim</code> trabaja aplicando resultantes; la variable
+opcional <code>resultant</code> determina qué algoritmo va a utilizar Maxima.
+Con <code>sqfr</code>, Maxima factoriza cada resultante y suprime ceros múltiples.
 
-</li><li> <code>elim</code> triangulariza un conjunto de ecuaciones polin&oacute;micas no
-lineales; el conjunto soluci&oacute;n del conjunto triangularizado puede ser mayor
+</li><li> <code>elim</code> triangulariza un conjunto de ecuaciones polinómicas no
+lineales; el conjunto solución del conjunto triangularizado puede ser mayor
 que el conjunto de soluciones del conjunto no triangularizado, por lo que
 las ecuaciones triangularizadas pueden tener soluciones falsas.
 
 </li></ul>
 
-<p>V&eacute;anse tambi&eacute;n <code>elim_allbut</code>, <code>eliminate_using</code>, <code>eliminate</code>
+<p>Véanse también <code>elim_allbut</code>, <code>eliminate_using</code>, <code>eliminate</code>
 y <code>resultant</code>.
 </p>
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(to_poly)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(to_poly)</code>.
 </p>
 </dd></dl>
 
@@ -599,11 +521,11 @@ y <code>resultant</code>.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>elim_allbut</b><i> (<var>l</var>, <var>x</var>)</i>
-<a name="IDX2779"></a>
+<dt><u>Función:</u> <b>elim_allbut</b><i> (<var>l</var>, <var>x</var>)</i>
+<a name="IDX2821"></a>
 </dt>
 <dd><p>Es similar a <code>elim</code>, excepto por el hecho de que elimina todas las variables
-que aparecen en la lista de ecuaciones <code>l</code> que no est&aacute;n en <code>x</code>.
+que aparecen en la lista de ecuaciones <code>l</code> que no están en <code>x</code>.
 </p>
 <p>Ejemplo:
 </p>
@@ -612,9 +534,9 @@ que aparecen en la lista de ecuaciones <code>l</code> que no est&aacute;n en <co
 (%i2) elim_allbut([x+y = 1, x - 5*y = 1],[x]);
 (%o2)                [[x - 1], [y + x - 1]]
 </pre>
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(to_poly)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(to_poly)</code>.
 </p>
-<p>V&eacute;anse tambi&eacute;n <code>elim</code>, <code>eliminate_using</code>, <code>eliminate</code>
+<p>Véanse también <code>elim</code>, <code>eliminate_using</code>, <code>eliminate</code>
 y <code>resultant</code>.
 </p>
 </dd></dl>
@@ -624,10 +546,10 @@ y <code>resultant</code>.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>eliminate_using</b><i> (<var>l</var>, <var>e</var>, <var>x</var>)</i>
-<a name="IDX2780"></a>
+<dt><u>Función:</u> <b>eliminate_using</b><i> (<var>l</var>, <var>e</var>, <var>x</var>)</i>
+<a name="IDX2822"></a>
 </dt>
-<dd><p>Elmina el s&iacute;mbolo <code>x</code> de la lista o conjunto de ecuaciones
+<dd><p>Elmina el símbolo <code>x</code> de la lista o conjunto de ecuaciones
 <code>l</code> haciendo uso del pivote <code>e</code>.
 </p>
 <p>Ejemplos:
@@ -648,9 +570,9 @@ y <code>resultant</code>.
         2            2       3              2      2      3    2
 (%o4) {y  - 3 x y + x  + 5, y  + (1 - 3 x) y  + 3 x  y - x  - x }
 </pre>
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(to_poly)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(to_poly)</code>.
 </p>
-<p>V&eacute;anse tambi&eacute;n <code>elim</code>, <code>elim_allbut</code>, <code>eliminate</code>
+<p>Véanse también <code>elim</code>, <code>elim_allbut</code>, <code>eliminate</code>
 y <code>resultant</code>.
 </p>
 </dd></dl>
@@ -661,11 +583,11 @@ y <code>resultant</code>.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>fourier_elim</b><i> ([<var>eq1</var>, <var>eq2</var>, ...], [<var>var1</var>, <var>var</var>, ...])</i>
-<a name="IDX2781"></a>
+<dt><u>Función:</u> <b>fourier_elim</b><i> ([<var>eq1</var>, <var>eq2</var>, ...], [<var>var1</var>, <var>var</var>, ...])</i>
+<a name="IDX2823"></a>
 </dt>
-<dd><p>La instrucci&oacute;n <code>fourier_elim([eq1,eq2,...], [var1,var2,...]</code> aplica el
-algoritmo de eliminaci&oacute;n de Fourier para resolver el sistema de inecuaciones 
+<dd><p>La instrucción <code>fourier_elim([eq1,eq2,...], [var1,var2,...]</code> aplica el
+algoritmo de eliminación de Fourier para resolver el sistema de inecuaciones 
 lineales <code>[eq1,eq2,...]</code> respecto de las variables <code>[var1,var2,...]</code>.
 </p>
 <p>Ejemplos:
@@ -676,19 +598,19 @@ lineales <code>[eq1,eq2,...]</code> respecto de las variables <code>[var1,var2,.
 (%o2)        [max(10, x - 7) &lt; y, y &lt; x + 5, 5 &lt; x]
 </pre>
 <p>Eliminando primero respecto de <em>x</em> y luego respecto de <em>y</em>,
-se obtienen l&iacute;mites inferior y superior para <em>x</em>
-que dependen de <em>y</em>, y l&iacute;mites num&eacute;ricos para <em>y</em>.
-Si se eliminan en orden inverso, se obtienen los l&iacute;mites
-de <em>y</em> en funci&oacute;n de <em>x</em>, y los de <em>x</em> son n&uacute;meros.
+se obtienen límites inferior y superior para <em>x</em>
+que dependen de <em>y</em>, y límites numéricos para <em>y</em>.
+Si se eliminan en orden inverso, se obtienen los límites
+de <em>y</em> en función de <em>x</em>, y los de <em>x</em> son números.
 </p>
-<p>De ser necesario, <code>fourier_elim</code> devuelve una disyunci&oacute;n de listas
+<p>De ser necesario, <code>fourier_elim</code> devuelve una disyunción de listas
 de ecuaciones:
 </p>
 <pre class="example">(%i3) fourier_elim([x # 6],[x]);
 (%o3)                  [x &lt; 6] or [6 &lt; x]
 </pre>
-<p>Si no existe soluci&oacute;n, <code>fourier_elim</code> devuelve <code>emptyset</code>,
-y si la soluci&oacute;n son todos los reales, <code>fourier_elim</code> devuelve 
+<p>Si no existe solución, <code>fourier_elim</code> devuelve <code>emptyset</code>,
+y si la solución son todos los reales, <code>fourier_elim</code> devuelve 
 <code>universalset</code>:
 </p>
 <pre class="example">(%i4) fourier_elim([x &lt; 1, x &gt; 1],[x]);
@@ -706,7 +628,7 @@ devuelve una lista de inecuaciones simplificadas:
 (%o7)                  [1 - 2 cos(x) &gt; 0]
 </pre>
 <p>En lugar de una lista de inecuaciones, el primer argumento pasado a
-<code>fourier_elim</code> puede ser una conjunci&oacute;n o disyunci&oacute;n l&oacute;gica.
+<code>fourier_elim</code> puede ser una conjunción o disyunción lógica.
 </p>
 <pre class="example">(%i8) fourier_elim((x + y &lt; 5) and (x - y &gt;8),[x,y]);
                                               3
@@ -715,14 +637,14 @@ devuelve una lista de inecuaciones simplificadas:
 (%i9) fourier_elim(((x + y &lt; 5) and x &lt; 1) or  (x - y &gt;8),[x,y]);
 (%o9)          [y + 8 &lt; x] or [x &lt; min(1, 5 - y)]
 </pre>
-<p>La funci&oacute;n <code>fourier_elim</code> soporta los operadores de desigualdad 
+<p>La función <code>fourier_elim</code> soporta los operadores de desigualdad 
 <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>#</code> y <code>=</code>.
 </p>
-<p>La rutina de eliminaci&oacute;n de Fourier dispone de un preprocesador que
+<p>La rutina de eliminación de Fourier dispone de un preprocesador que
 convierte algunas inecuaciones no lineales formadas con las funciones
-del valor absoluto, m&iacute;nimo y m&aacute;ximo a inecuaciones 
-lineales. Adem&aacute;s, el preprocesador admite algunas expresiones 
-que son productos o cocientes de t&eacute;rminos lineales:
+del valor absoluto, mínimo y máximo a inecuaciones 
+lineales. Además, el preprocesador admite algunas expresiones 
+que son productos o cocientes de términos lineales:
 </p>
 <pre class="example">(%i10) fourier_elim([max(x,y) &gt; 6, x # 8, abs(y-1) &gt; 12],[x,y]);
 (%o10) [6 &lt; x, x &lt; 8, y &lt; - 11] or [8 &lt; x, y &lt; - 11]
@@ -733,7 +655,7 @@ que son productos o cocientes de t&eacute;rminos lineales:
 (%i12) fourier_elim([x^2 - 1 # 0],[x]);
 (%o12)      [- 1 &lt; x, x &lt; 1] or [1 &lt; x] or [x &lt; - 1]
 </pre>
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(fourier_elim)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(fourier_elim)</code>.
 </p>
 </dd></dl>
 
@@ -744,40 +666,40 @@ que son productos o cocientes de t&eacute;rminos lineales:
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>isreal_p</b><i> (<var>e</var>)</i>
-<a name="IDX2782"></a>
+<dt><u>Función:</u> <b>isreal_p</b><i> (<var>e</var>)</i>
+<a name="IDX2824"></a>
 </dt>
 <dd><p>El predicado <code>isreal_p</code> devuelve <code>true</code> si <code>e</code> representa un
-n&uacute;mero real y <code>false</code> si no representa un punto de la recta; en cualquier
+número real y <code>false</code> si no representa un punto de la recta; en cualquier
 otro caso devuelve una forma nominal.
 </p>
 <pre class="example">(%i1) map('isreal_p, [-1, 0, %i, %pi]);
 (%o1)               [true, true, false, true]
 </pre>
-<p>Las variables de Maxima se interpretan como n&uacute;meros reales:
+<p>Las variables de Maxima se interpretan como números reales:
 </p>
 <pre class="example">(%i2) isreal_p(x);
 (%o2)                         true
 </pre>
-<p>La funci&oacute;n <code>isreal_p</code> consulta los hechos almacenados en la base de datos:
+<p>La función <code>isreal_p</code> consulta los hechos almacenados en la base de datos:
 </p><pre class="example">(%i3) declare(z,complex)$
 
 (%i4) isreal_p(z);
 (%o4)                      isreal_p(z)
 </pre>
-<p>Con frecuencia, <code>isreal_p</code> devuelve una forma nominal cuando deber&iacute;a
-devolver <code>false</code>; por ejemplo, la funci&oacute;n logar&iacute;tmica no toma valores
-reales en toda la recta real, por lo que  <code>isreal_p(log(x))</code> deber&iacute;a
+<p>Con frecuencia, <code>isreal_p</code> devuelve una forma nominal cuando debería
+devolver <code>false</code>; por ejemplo, la función logarítmica no toma valores
+reales en toda la recta real, por lo que  <code>isreal_p(log(x))</code> debería
 devolver <code>false</code>, sin embargo:
 </p>
 <pre class="example">(%i5) isreal_p(log(x));
 (%o5)                   isreal_p(log(x))
 </pre>
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(to_poly_solve)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(to_poly_solve)</code>.
 </p>
-<p>V&eacute;ase tambi&eacute;n <code>complex_number_p</code>.
+<p>Véase también <code>complex_number_p</code>.
 </p>
-<p>La funci&oacute;n <code>isreal_p</code> es experimental; sus
+<p>La función <code>isreal_p</code> es experimental; sus
 especificaciones pueden cambiar y su funcionalidad puede incorporarse a otras funciones
 de Maxima.
 </p></dd></dl>
@@ -788,19 +710,19 @@ de Maxima.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>new_variable</b><i> (<var>type</var>)</i>
-<a name="IDX2783"></a>
+<dt><u>Función:</u> <b>new_variable</b><i> (<var>type</var>)</i>
+<a name="IDX2825"></a>
 </dt>
-<dd><p>Devuelve un s&iacute;mbolo de la forma <code>%[z,n,r,c,g]k</code>,
-siendo <code>k</code> un n&uacute;mero entero. Los valores admisibles para <var>type</var>
+<dd><p>Devuelve un símbolo de la forma <code>%[z,n,r,c,g]k</code>,
+siendo <code>k</code> un número entero. Los valores admisibles para <var>type</var>
 son <code>integer</code>, <code>natural_number</code>, <code>real</code>, <code>natural_number</code>
-y <code>general</code>. Por n&uacute;mero natural se entiende <i>entero negativo</i>, de 
-manera que el ceero es un n&uacute;mero natural.
+y <code>general</code>. Por número natural se entiende <i>entero negativo</i>, de 
+manera que el ceero es un número natural.
 </p>
-<p>Cuando <var>type</var> no es de ninguno de los tipos indicados m&aacute;s arriba,
-<var>type</var> toma por defecto el valor <code>general</code>. Para enteros, n&uacute;meros
-naturales y n&uacute;meros complejos, Maxima a&ntilde;ade esta informaci&oacute;n a la base de
-datos de forma autom&aacute;tica.
+<p>Cuando <var>type</var> no es de ninguno de los tipos indicados más arriba,
+<var>type</var> toma por defecto el valor <code>general</code>. Para enteros, números
+naturales y números complejos, Maxima añade esta información a la base de
+datos de forma automática.
 </p>
 <pre class="example">(%i1) map('new_variable,
           ['integer, 'natural_number, 'real, 'complex, 'general]);
@@ -817,7 +739,7 @@ datos de forma autom&aacute;tica.
 (%o6)                         true
 </pre>
 <p>Es recomendable que al argumento de <code>new_variable</code> se le
-aplique el operador de comilla simple para evitar su evaluaci&oacute;n,
+aplique el operador de comilla simple para evitar su evaluación,
 de esta manera se evitan errores como el siguiente:
 </p>
 <pre class="example">(%i7) integer : 12$
@@ -827,9 +749,9 @@ de esta manera se evitan errores como el siguiente:
 (%i9) new_variable('integer);
 (%o9)                         %z150
 </pre>
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(to_poly_solve)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(to_poly_solve)</code>.
 </p>
-<p>V&eacute;ase tambi&eacute;n <code>nicedummies</code>.
+<p>Véase también <code>nicedummies</code>.
 </p>
 </dd></dl>
 
@@ -839,11 +761,11 @@ de esta manera se evitan errores como el siguiente:
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>nicedummies</b>
-<a name="IDX2784"></a>
+<dt><u>Función:</u> <b>nicedummies</b>
+<a name="IDX2826"></a>
 </dt>
-<dd><p>La funci&oacute;n <code>nicedummies</code> reescribe los &iacute;ndices,
-comenzando por cero, de las variables de una expresi&oacute;n qua hayan
+<dd><p>La función <code>nicedummies</code> reescribe los índices,
+comenzando por cero, de las variables de una expresión qua hayan
 sido introducidas por <code>new_variable</code>:
 </p>
 <pre class="example">(%i1) new_variable('integer) + 52 * new_variable('integer);
@@ -853,9 +775,9 @@ sido introducidas por <code>new_variable</code>:
 (%i3) nicedummies(%);
 (%o3)                       %z0 - %z1
 </pre>
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(to_poly_solve)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(to_poly_solve)</code>.
 </p>
-<p>V&eacute;ase tambi&eacute;n <code>new_variable</code>.
+<p>Véase también <code>new_variable</code>.
 </p>
 </dd></dl>
 
@@ -864,24 +786,24 @@ sido introducidas por <code>new_variable</code>:
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>parg</b><i> (<var>x</var>)</i>
-<a name="IDX2785"></a>
+<dt><u>Función:</u> <b>parg</b><i> (<var>x</var>)</i>
+<a name="IDX2827"></a>
 </dt>
-<dd><p>La funci&oacute;n <code>parg</code> es una versi&oacute;n con capacidades simplificadoras
-de la funci&oacute;n de argumento complejo <code>carg</code>:
+<dd><p>La función <code>parg</code> es una versión con capacidades simplificadoras
+de la función de argumento complejo <code>carg</code>:
 </p>
 <pre class="example">(%i1) map('parg,[1,1+%i,%i, -1 + %i, -1]);
                         %pi  %pi  3 %pi
 (%o1)               [0, ---, ---, -----, %pi]
                          4    2     4
 </pre>
-<p>Si el argumento pasado a la funci&oacute;n <code>parg</code> no es una constante,
-se devolver&aacute; una forma nominal:
+<p>Si el argumento pasado a la función <code>parg</code> no es una constante,
+se devolverá una forma nominal:
 </p>
 <pre class="example">(%i2) parg(x + %i * sqrt(x));
 (%o2)                 parg(x + %i sqrt(x))
 </pre>
-<p>Si <code>sign</code> detecta que la entrada es un n&uacute;mero real negativo o
+<p>Si <code>sign</code> detecta que la entrada es un número real negativo o
 positivo, <code>parg</code> devuelve una forma no nominal aunque la entrada
 no sea una constante:
 </p>
@@ -890,7 +812,7 @@ no sea una constante:
 (%i4) parg(-x^2-1);
 (%o4)                          %pi
 </pre>
-<p>La funci&oacute;n <code>sign</code> suele ignorar las variables declaradas complejas
+<p>La función <code>sign</code> suele ignorar las variables declaradas complejas
 (<code>declare(x,complex)</code>); en tales casos, <code>parg</code>
 puede retornar valores incorrectos:
 </p>
@@ -899,9 +821,9 @@ puede retornar valores incorrectos:
 (%i2) parg(x^2 + 1);
 (%o2) 0
 </pre>
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(to_poly_solve)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(to_poly_solve)</code>.
 </p>
-<p>V&eacute;anse tambi&eacute;n <code>carg</code>, <code>isreal_p</code>.
+<p>Véanse también <code>carg</code>, <code>isreal_p</code>.
 </p>
 </dd></dl>
 
@@ -911,12 +833,12 @@ puede retornar valores incorrectos:
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>real_imagpart_to_conjugate</b><i> (<var>e</var>)</i>
-<a name="IDX2786"></a>
+<dt><u>Función:</u> <b>real_imagpart_to_conjugate</b><i> (<var>e</var>)</i>
+<a name="IDX2828"></a>
 </dt>
-<dd><p>La funci&oacute;n <code>real_imagpart_to_conjugate</code> reemplaza todas las
-llamadas a <code>realpart</code> y <code>imagpart</code> presentes en una expresi&oacute;n 
-por llamadas a <code>conjugate</code>, obteniendo otra expresi&oacute;n equivalente:
+<dd><p>La función <code>real_imagpart_to_conjugate</code> reemplaza todas las
+llamadas a <code>realpart</code> y <code>imagpart</code> presentes en una expresión 
+por llamadas a <code>conjugate</code>, obteniendo otra expresión equivalente:
 </p>
 <pre class="example">(%i1) declare(x, complex)$
 
@@ -925,7 +847,7 @@ por llamadas a <code>conjugate</code>, obteniendo otra expresi&oacute;n equivale
 (%o2)     ---------------- - --------------------- = 3
                  2                     2
 </pre>
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(to_poly_solve)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(to_poly_solve)</code>.
 </p>
 </dd></dl>
 
@@ -934,12 +856,12 @@ por llamadas a <code>conjugate</code>, obteniendo otra expresi&oacute;n equivale
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>rectform_log_if_constant</b><i> (<var>e</var>)</i>
-<a name="IDX2787"></a>
+<dt><u>Función:</u> <b>rectform_log_if_constant</b><i> (<var>e</var>)</i>
+<a name="IDX2829"></a>
 </dt>
-<dd><p>La funci&oacute;n <code>rectform_log_if_constant</code> convierte todos los t&eacute;rminos
+<dd><p>La función <code>rectform_log_if_constant</code> convierte todos los términos
 de la forma <code>log(c)</code> a <code>rectform(log(c))</code>, siendo <code>c</code> 
-una expresi&oacute;n constante o declarada como tal.
+una expresión constante o declarada como tal.
 </p>
 <pre class="example">(%i1) rectform_log_if_constant(log(1-%i) - log(x - %i));
                                  log(2)   %i %pi
@@ -953,7 +875,7 @@ una expresi&oacute;n constante o declarada como tal.
 (%o3)             ------------ + %i atan2(b, a)
                        2
 </pre>
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(to_poly_solve)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(to_poly_solve)</code>.
 </p>
 </dd></dl>
 
@@ -962,13 +884,13 @@ una expresi&oacute;n constante o declarada como tal.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>simp_inequality</b><i> (<var>e</var>)</i>
-<a name="IDX2788"></a>
+<dt><u>Función:</u> <b>simp_inequality</b><i> (<var>e</var>)</i>
+<a name="IDX2830"></a>
 </dt>
-<dd><p>La funci&oacute;n <code>simp_inequality</code> aplica ciertas simplificaciones
+<dd><p>La función <code>simp_inequality</code> aplica ciertas simplificaciones
 a conjunciones y disyunciones de inecuaciones.
 </p>
-<p><b>Limitaciones</b> La funci&oacute;n <code>simp_inequality</code> est&aacute; limitada en
+<p><b>Limitaciones</b> La función <code>simp_inequality</code> está limitada en
 al menos dos aspectos; en primer lugar, las simplificaciones son locales:
 </p>
 <pre class="example">(%i1) simp_inequality((x &gt; minf) %and (x &lt; 0));
@@ -982,7 +904,7 @@ base de datos:
 (%i3) simp_inequality(x &gt; 0);
 (%o3)                         x &gt; 0
 </pre>
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(fourier_elim)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(fourier_elim)</code>.
 </p>
 </dd></dl>
 
@@ -991,15 +913,15 @@ base de datos:
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>standardize_inverse_trig</b><i> (<var>e</var>)</i>
-<a name="IDX2789"></a>
+<dt><u>Función:</u> <b>standardize_inverse_trig</b><i> (<var>e</var>)</i>
+<a name="IDX2831"></a>
 </dt>
-<dd><p>Esta funci&oacute;n aplica las identidades <code>cot(x) = atan(1/x)</code> y
+<dd><p>Esta función aplica las identidades <code>cot(x) = atan(1/x)</code> y
 <code>acsc(x) = asin(1/x)</code> y similares con <code>asec</code>, <code>acoth</code>
-y <code>acsch</code>. Cons&uacute;ltese Abramowitz y Stegun, ecuaciones
+y <code>acsch</code>. Consúltese Abramowitz y Stegun, ecuaciones
 4.4.6 a 4.4.8 y 4.6.4 a 4.6.6.
 </p>
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(to_poly_solve)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(to_poly_solve)</code>.
 </p>
 </dd></dl>
 
@@ -1008,10 +930,10 @@ y <code>acsch</code>. Cons&uacute;ltese Abramowitz y Stegun, ecuaciones
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>subst_parallel</b><i> (<var>l</var>, <var>e</var>)</i>
-<a name="IDX2790"></a>
+<dt><u>Función:</u> <b>subst_parallel</b><i> (<var>l</var>, <var>e</var>)</i>
+<a name="IDX2832"></a>
 </dt>
-<dd><p>Dada la ecuaci&oacute;n o lista de ecuaciones <var>l</var> y la expresi&oacute;n
+<dd><p>Dada la ecuación o lista de ecuaciones <var>l</var> y la expresión
 <var>e</var>, sustituye <i>en paralelo</i> en <var>e</var> los miembros izquierdos
 de las ecuaciones por los derechos:
 </p>
@@ -1020,14 +942,14 @@ de las ecuaciones por los derechos:
 (%i2) subst_parallel([x=y,y=x], [x,y]);
 (%o2)                        [y, x]
 </pre>
-<p>Comp&aacute;rese el resultado anterior con las sustituciones hechas en serie: 
+<p>Compárese el resultado anterior con las sustituciones hechas en serie: 
 </p>
 <pre class="example">(%i3) subst([x=y,y=x],[x,y]);
 (%o3)                        [x, x]
 </pre>
-<p>La funci&oacute;n <code>subst_parallel</code> es similar a <code>sublis</code>, excepto por
-el hecho de que <code>subst_parallel</code> permite la sustituci&oacute;n de expresiones
-no at&oacute;micas:
+<p>La función <code>subst_parallel</code> es similar a <code>sublis</code>, excepto por
+el hecho de que <code>subst_parallel</code> permite la sustitución de expresiones
+no atómicas:
 </p>
 <pre class="example">(%i4) subst_parallel([x^2 = a, y = b], x^2 * y);
 (%o4)                          a b
@@ -1037,17 +959,17 @@ no at&oacute;micas:
 sublis: left-hand side of equation must be a symbol; found: x
  -- an error. To debug this try: debugmode(true);
 </pre>
-<p>Las sustituciones hechas por <code>subst_parallel</code> son literales, no sem&aacute;nticas,
-por lo que <code>subst_parallel</code> no reconoce que <em>x * y</em> sea una subexpresi&oacute;n
+<p>Las sustituciones hechas por <code>subst_parallel</code> son literales, no semánticas,
+por lo que <code>subst_parallel</code> no reconoce que <em>x * y</em> sea una subexpresión
 de <em>x^2 * y</em>:
 </p>
 <pre class="example">(%i6) subst_parallel([x * y = a], x^2 * y);
                                2
 (%o6)                         x  y
 </pre>
-<p>La funci&oacute;n <code>subst_parallel</code> realiza todas las sustituciones
-antes de proceder a la simplificaci&oacute;n, lo que permite sustituciones
-en expresiones condicionales que podr&iacute;n producir 
+<p>La función <code>subst_parallel</code> realiza todas las sustituciones
+antes de proceder a la simplificación, lo que permite sustituciones
+en expresiones condicionales que podrín producir 
 errores en caso de simplificar antes de sustituir:
 </p>
 <pre class="example">(%i7) subst_parallel([x = 0], %if(x &lt; 1, 5, log(x)));
@@ -1057,9 +979,9 @@ errores en caso de simplificar antes de sustituir:
 log: encountered log(0).
  -- an error. To debug this try: debugmode(true);
 </pre>
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(to_poly_solve_extra.lisp)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(to_poly_solve_extra.lisp)</code>.
 </p>
-<p>V&eacute;anse tambi&eacute;n <code>subst</code>, <code>sublis</code> y <code>ratsubst</code>.
+<p>Véanse también <code>subst</code>, <code>sublis</code> y <code>ratsubst</code>.
 </p>
 </dd></dl>
 
@@ -1069,15 +991,15 @@ log: encountered log(0).
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>to_poly</b><i> (<var>e</var>, <var>l</var>)</i>
-<a name="IDX2791"></a>
+<dt><u>Función:</u> <b>to_poly</b><i> (<var>e</var>, <var>l</var>)</i>
+<a name="IDX2833"></a>
 </dt>
-<dd><p>La funci&oacute;n <code>to_poly</code> intenta convertir la ecuaci&oacute;n <var>e</var>
+<dd><p>La función <code>to_poly</code> intenta convertir la ecuación <var>e</var>
 en un sistema de polinomios, junto con restricciones en forma de
-desigualdades. Las soluciones del sistema polin&oacute;mico que cumplan
-las restricciones son, a su vez, las soluciones de la ecuaci&oacute;n <var>e</var>.
+desigualdades. Las soluciones del sistema polinómico que cumplan
+las restricciones son, a su vez, las soluciones de la ecuación <var>e</var>.
 Dicho de manera informal, <code>to_poly</code> intenta pasar a forma de
-polinomio la ecuaci&oacute;n <var>e</var>; un ejemplo ayudar&aacute; a aclarar su
+polinomio la ecuación <var>e</var>; un ejemplo ayudará a aclarar su
 comportamiento:
 </p>
 <pre class="example">(%i1) load(to_poly_solve)$
@@ -1090,20 +1012,20 @@ comportamiento:
                        2                                 2
 </pre>
 <p>Las condiciones <code>-%pi/2&lt;parg(%g130),parg(%g130)&lt;=%pi/2</code> dicen que
-<code>%g130</code> est&aacute; en el rango de la funci&oacute;n radical; cuando eso se
+<code>%g130</code> está en el rango de la función radical; cuando eso se
 cumpla, el conjunto de ecuaciones de <code>sqrt(x) = 3</code> coincide con
 el de <code>%g130-3,x=%g130^2</code>.
 </p>
-<p>Para convertir a forma polin&oacute;mica una expresi&oacute;n trigonom&eacute;trica,
-es necesario introducir una sustituci&oacute;n no algebraica; tal sustituci&oacute;n
+<p>Para convertir a forma polinómica una expresión trigonométrica,
+es necesario introducir una sustitución no algebraica; tal sustitución
 se devuelve en la tercera lista de la respuesta de <code>to_poly</code>:
 </p>
 <pre class="example">(%i3) to_poly(cos(x),[x]);
                 2                                 %i x
 (%o3)    [[%g131  + 1], [2 %g131 # 0], [%g131 = %e    ]]
 </pre>
-<p>Los t&eacute;rminos constantes no se transforman a polinomios a menos que el
-n&uacute;mero uno se introduzca en la lista de variables:
+<p>Los términos constantes no se transforman a polinomios a menos que el
+número uno se introduzca en la lista de variables:
 </p>
 <pre class="example">(%i4) to_poly(x = sqrt(5),[x]);
 (%o4)                [[x - sqrt(5)], [], []]
@@ -1115,16 +1037,16 @@ n&uacute;mero uno se introduzca en la lista de variables:
                        2                                 2
 </pre>
 <p>Para generar un polinomio que tenga <em>sqrt(5) + sqrt(7)</em> como
-ra&iacute;z puede hacerse lo siguiente:
+raíz puede hacerse lo siguiente:
 </p>
 <pre class="example">(%i6) first(elim_allbut(first(to_poly(x = sqrt(5) + sqrt(7),
                                       [1,x])), [x]));
                           4       2
 (%o6)                   [x  - 24 x  + 4]
 </pre>
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(to_poly)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(to_poly)</code>.
 </p>
-<p>V&eacute;ase tambi&eacute;n <code>to_poly_solve</code>.
+<p>Véase también <code>to_poly_solve</code>.
 </p>
 </dd></dl>
 
@@ -1134,20 +1056,20 @@ ra&iacute;z puede hacerse lo siguiente:
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>to_poly_solve</b><i> (<var>e</var>, <var>l</var>, [options])</i>
-<a name="IDX2792"></a>
+<dt><u>Función:</u> <b>to_poly_solve</b><i> (<var>e</var>, <var>l</var>, [options])</i>
+<a name="IDX2834"></a>
 </dt>
-<dd><p>La funci&oacute;n <code>to_poly_solve</code> intenta resolver las ecuaciones <var>e</var>
-de inc&oacute;gnitas <var>l</var>. El argumento <var>e</var> puede ser una &uacute;nica ecuaci&oacute;n,
+<dd><p>La función <code>to_poly_solve</code> intenta resolver las ecuaciones <var>e</var>
+de incógnitas <var>l</var>. El argumento <var>e</var> puede ser una única ecuación,
 o una lista o conjunto de ecuaciones; de forma similar, <var>l</var> puede ser un
-s&iacute;mbolo o una lista o conjunto de s&iacute;mbolos. Cuando
+símbolo o una lista o conjunto de símbolos. Cuando
 uno de los elementos de <var>e</var> no sea una igualdad, como <em>x^2 -1</em>,
-se supodr&aacute; que es igual a cero.
+se supodrá que es igual a cero.
 </p>
-<p>La estrategia b&aacute;sica de <code>to_poly_solve</code> consiste en convertir la entrada en un
-polinomio y luego invocar a la funci&oacute;n <code>algsys</code>. Internamente,  <code>to_poly_solve</code>
+<p>La estrategia básica de <code>to_poly_solve</code> consiste en convertir la entrada en un
+polinomio y luego invocar a la función <code>algsys</code>. Internamente,  <code>to_poly_solve</code>
 asigna a <code>algexact</code> el valor <code>true</code>. Para cambiar el valor de <code>algexact</code>,
-debe an&ntilde;adirse <code>'algexact=false</code> a la lista de argumentos de <code>to_poly_solve</code>.
+debe anñadirse <code>'algexact=false</code> a la lista de argumentos de <code>to_poly_solve</code>.
 </p>
 <p>Cuando <code>to_poly_solve</code> consigue determinar el conjunto de soluciones, cada
 miembro del conjunto de soluciones es una lista en un objeto  <code>%union</code>:
@@ -1167,30 +1089,30 @@ unable to solve
                           k
 (%o3)            %solve([x  + 2 x + 1 = 0], [x])
 </pre>
-<p>A veces se puede obtener la soluci&oacute;n haciendo una sustituci&oacute;n en <code>%solve</code>:
+<p>A veces se puede obtener la solución haciendo una sustitución en <code>%solve</code>:
 </p>
 <pre class="example">(%i4) subst(k = 2, %);
 (%o4)                   %union([x = - 1])
 </pre>
-<p>Especialmente en el caso de las funciones trigonom&eacute;tricas, los resultados pueden
-incorporar n&uacute;meros enteros arbitrarios de la forma <code>%zXXX</code>, siendo <code>XXX</code>
-un &iacute;ndice entero:
+<p>Especialmente en el caso de las funciones trigonométricas, los resultados pueden
+incorporar números enteros arbitrarios de la forma <code>%zXXX</code>, siendo <code>XXX</code>
+un índice entero:
 </p>
 <pre class="example">(%i5) to_poly_solve(sin(x) = 0, x);
 (%o5)   %union([x = 2 %pi %z33 + %pi], [x = 2 %pi %z35])
 </pre>
-<p>Para inicializar los &iacute;ndices, h&aacute;gase uso de <code>nicedummies</code>:
+<p>Para inicializar los índices, hágase uso de <code>nicedummies</code>:
 </p>
 <pre class="example">(%i6) nicedummies(%);
 (%o6)    %union([x = 2 %pi %z0 + %pi], [x = 2 %pi %z1])
 </pre>
-<p>En ocasiones, se introducen n&uacute;meros complejos arbitrarios de la forma
-<code>%cXXX</code>, o reales de la forma <code>%rXXX</code>. La funci&oacute;n <code>nicedummies</code>
+<p>En ocasiones, se introducen números complejos arbitrarios de la forma
+<code>%cXXX</code>, o reales de la forma <code>%rXXX</code>. La función <code>nicedummies</code>
 inicializa estos identificadores a cero.
 </p>
-<p>Tambi&eacute;n a veces, la soluci&oacute;n incorpora versiones simplificadas de los
-operadores l&oacute;gicos <code>%and</code>, <code>%or</code> y <code>%if</code>, que representan, respectivamente,
-la conjunci&oacute;n, la disyunci&oacute;n y la implicaci&oacute;n:
+<p>También a veces, la solución incorpora versiones simplificadas de los
+operadores lógicos <code>%and</code>, <code>%or</code> y <code>%if</code>, que representan, respectivamente,
+la conjunción, la disyunción y la implicación:
 </p>
 <pre class="example">(%i7) sol : to_poly_solve(abs(x) = a, x);
 (%o7) %union(%if(isnonnegative_p(a), [x = - a], %union()), 
@@ -1200,13 +1122,13 @@ la conjunci&oacute;n, la disyunci&oacute;n y la implicaci&oacute;n:
 (%i9) subst(a = -42, sol);
 (%o9)                       %union()
 </pre>
-<p>El conjunto vac&iacute;o se representa por <code>%union</code>.
+<p>El conjunto vacío se representa por <code>%union</code>.
 </p>
-<p>La funci&oacute;n <code>to_poly_solve</code> es capaz de resolver algunas ecuaciones
+<p>La función <code>to_poly_solve</code> es capaz de resolver algunas ecuaciones
 con potencias racionales, potencias no racionales, valores absolutos, funciones
-trigonom&eacute;tricas y funciones del m&iacute;nimo y del m&aacute;ximo. 
-Tambi&eacute;n puede resolver algunas ecuaciones resolubles en t&eacute;rminos de la
-funci&oacute;n W de Lambert:
+trigonométricas y funciones del mínimo y del máximo. 
+También puede resolver algunas ecuaciones resolubles en términos de la
+función W de Lambert:
 </p>
 <pre class="example">(%i1) load(to_poly_solve)$
 
@@ -1247,8 +1169,8 @@ funci&oacute;n W de Lambert:
 (%i7) to_poly_solve(x * exp(x) = a, x);
 (%o7)              %union([x = lambert_w(a)])
 </pre>
-<p>En el caso de inecuaciones lineales, <code>to_poly_solve</code> aplica autom&aacute;ticamente
-la eliminaci&oacute;n de Fourier:
+<p>En el caso de inecuaciones lineales, <code>to_poly_solve</code> aplica automáticamente
+la eliminación de Fourier:
 </p>
 <pre class="example">(%i8) to_poly_solve([x + y &lt; 1, x - y &gt;= 8], [x,y]);
                                7
@@ -1258,12 +1180,12 @@ la eliminaci&oacute;n de Fourier:
                                  [y + 8 &lt; x, x &lt; 1 - y, y &lt; - -])
                                                               2
 </pre>
-<p>Los argumentos opcionales deben tener forma de ecuaci&oacute;n; generalmente, el orden
+<p>Los argumentos opcionales deben tener forma de ecuación; generalmente, el orden
 de estas opciones no reviste importancia.
 </p>
 <ul class="toc">
 <li> <code>simpfuncs = l</code>, siendo <code>l</code> una lista de funciones,
-aplica la composici&oacute;n de los elementos de <code>l</code> a cada soluci&oacute;n:
+aplica la composición de los elementos de <code>l</code> a cada solución:
 <pre class="example">(%i1) to_poly_solve(x^2=%i,x);
                                1/4             1/4
 (%o1)       %union([x = - (- 1)   ], [x = (- 1)   ])
@@ -1272,7 +1194,7 @@ aplica la composici&oacute;n de los elementos de <code>l</code> a cada soluci&oa
 (%o2) %union([x = - ------- - -------], [x = ------- + -------])
                     sqrt(2)   sqrt(2)        sqrt(2)   sqrt(2)
 </pre>
-<p>A veces, una simplificaci&oacute;n puede anular una simplificaci&oacute;n anterior:
+<p>A veces, una simplificación puede anular una simplificación anterior:
 </p><pre class="example">(%i3) to_poly_solve(x^2=1,x);
 (%o3)              %union([x = - 1], [x = 1])
 (%i4) to_poly_solve(x^2= 1,x, 'simpfuncs = [polarform]);
@@ -1284,7 +1206,7 @@ todos simplificaciones:
 </p><pre class="example">(%i5) to_poly_solve(x^2 = %i,x, 'simpfuncs = [lambda([s],s^2)]);
 (%o5)                   %union([x = %i])
 </pre>
-<p>Para convertir cada soluci&oacute;n a real de doble precisi&oacute;n h&aacute;gase uso de
+<p>Para convertir cada solución a real de doble precisión hágase uso de
 <code>simpfunc = ['dfloat]</code>:
 </p><pre class="example">(%i6) to_poly_solve(x^3 +x + 1 = 0,x, 
                     'simpfuncs = ['dfloat]), algexact : true;
@@ -1292,10 +1214,10 @@ todos simplificaciones:
 [x = .3411639019140089 - 1.161541399997251 %i], 
 [x = 1.161541399997251 %i + .3411639019140089])
 </pre>
-</li><li> Con la opci&oacute;n <code>use_grobner = true</code> se aplica la funci&oacute;n 
+</li><li> Con la opción <code>use_grobner = true</code> se aplica la función 
 <code>poly_reduced_grobner</code> a las ecuaciones antes de intentar resolverlas.
-En primer lugar, esta opci&oacute;n proporciona una manera de soslayar algunas
-debilidades de la funci&oacute;n <code>algsys</code>:
+En primer lugar, esta opción proporciona una manera de soslayar algunas
+debilidades de la función <code>algsys</code>:
 
 <pre class="example">(%i7) to_poly_solve([x^2+y^2=2^2,(x-1)^2+(y-1)^2=2^2],[x,y],
                     'use_grobner = true);
@@ -1309,7 +1231,7 @@ debilidades de la funci&oacute;n <code>algsys</code>:
 (%o8)                       %union()
 </pre>
 </li><li> <code>maxdepth = k</code>, siendo <code>k</code> un positivo entero, controla el nivel
-de recursi&oacute;n. El valor por defecto es cinco. Cuando se excede el nivel de recursi&oacute;n
+de recursión. El valor por defecto es cinco. Cuando se excede el nivel de recursión
 se obtiene un mensaje de error:
 <pre class="example">(%i9) to_poly_solve(cos(x) = x,x, 'maxdepth = 2);
 
@@ -1317,8 +1239,8 @@ Unable to solve
 Unable to solve
 (%o9)        %solve([cos(x) = x], [x], maxdepth = 2)
 </pre>
-</li><li> Con <code>parameters = l</code>, siendo <code>l</code> una lista de s&iacute;mbolos,
-el programa intenta encontrar una soluci&oacute;n v&aacute;lida para todos los miembros de la
+</li><li> Con <code>parameters = l</code>, siendo <code>l</code> una lista de símbolos,
+el programa intenta encontrar una solución válida para todos los miembros de la
 lista <code>l</code>:
 <pre class="example">(%i10) to_poly_solve(a * x = x, x);
 (%o10)                   %union([x = 0])
@@ -1326,14 +1248,14 @@ lista <code>l</code>:
 (%o11) %union(%if(a - 1 = 0, [x = %c111], %union()), 
                                %if(a - 1 # 0, [x = 0], %union()))
 </pre><p>En <code>(%o2)</code>, el programa introduce una variable ficticia; para reinicializarla,
-&uacute;sese la funci&oacute;n <code>nicedummies</code>:
+úsese la función <code>nicedummies</code>:
 </p><pre class="example">(%i12) nicedummies(%);
 (%o12) %union(%if(a - 1 = 0, [x = %c0], %union()), 
                                %if(a - 1 # 0, [x = 0], %union()))
 </pre></li></ul>
 
-<p><code>to_poly_solve</code> utiliza informaci&oacute;n almacenada en el array <code>one_to_one_reduce</code>
-para resolver ecuaciones de la forma  <em>f(a) = f(b)</em>. La asignaci&oacute;n 
+<p><code>to_poly_solve</code> utiliza información almacenada en el array <code>one_to_one_reduce</code>
+para resolver ecuaciones de la forma  <em>f(a) = f(b)</em>. La asignación 
 <code>one_to_one_reduce['f,'f] : lambda([a,b], a=b)</code> le dice a <code>to_poly_solve</code>
 que el conjunto de soluciones de <em>f(a) = f(b)</em> es igual al conjunto de soluciones
 de <em>a=b</em>:
@@ -1342,7 +1264,7 @@ de <em>a=b</em>:
 (%i14) to_poly_solve(f(x^2-1) = f(0),x);
 (%o14)             %union([x = - 1], [x = 1])
 </pre>
-<p>De forma m&aacute;s general, la asignaci&oacute;n 
+<p>De forma más general, la asignación 
 <code>one_to_one_reduce['f,'g] : lambda([a,b], w(a,b)=0</code> le indica a
 <code>to_poly_solve</code> que el cojunto de soluciones de <em>f(a) = f(b)</em> 
 es igual al conjunto de soluciones de <em>w(a,b) = 0</em>:
@@ -1351,9 +1273,9 @@ es igual al conjunto de soluciones de <em>w(a,b) = 0</em>:
 (%i16) to_poly_solve(f(x) - g(x),x);
 (%o16)                   %union([x = 2])
 </pre>
-<p>Adem&aacute;s, <code>to_poly_solve</code> utiliza informaci&oacute;n almacenada en el array
+<p>Además, <code>to_poly_solve</code> utiliza información almacenada en el array
 <code>function_inverse</code> para resolver ecuaciones de la forma <em>f(a) = b</em>.
-La asignaci&oacute;n <code>function_inverse['f] : lambda([s], g(s))</code> le dice a
+La asignación <code>function_inverse['f] : lambda([s], g(s))</code> le dice a
 <code>to_poly_solve</code> que el conjunto de soluciones de <em>f(x) = b</em> es
 igual al conjunto de soluciones de <em>x = g(b)</em>:
 </p><pre class="example">(%i17) function_inverse['Q] : lambda([s], P(s))$
@@ -1368,7 +1290,7 @@ igual al conjunto de soluciones de <em>x = g(b)</em>:
 <p><b>Notas</b>
 </p>
 <ul class="toc">
-<li> Las inc&oacute;gnitas a resolver no necesitan ser s&iacute;mbolos, lo cual es
+<li> Las incógnitas a resolver no necesitan ser símbolos, lo cual es
 cierto cuando <code>fullratsubst</code> es capaz de hacer las sustituciones de forma apropiadas:
 <pre class="example">(%i1) to_poly_solve([x^2 + y^2 + x * y = 5, x * y = 8],
                     [x^2 + y^2, x * y]);
@@ -1376,7 +1298,7 @@ cierto cuando <code>fullratsubst</code> es capaz de hacer las sustituciones de f
 (%o1)           %union([x y = 8, y  + x  = - 3])
 </pre>
 </li><li> Cuando las ecuaciones involucran conjugados de complejos, el programa
-a&ntilde;ade autom&aacute;ticamente las ecuaciones conjugadas:
+añade automáticamente las ecuaciones conjugadas:
 <pre class="example">(%i1) declare(x,complex)$
 
 (%i2) to_poly_solve(x + (5 + %i) * conjugate(x) = 1, x);
@@ -1393,7 +1315,7 @@ a&ntilde;ade autom&aacute;ticamente las ecuaciones conjugadas:
 </pre>
 </li><li> Cuando las funciones involucran valores absolutos, <code>to_poly_solve</code>
 consulta los hechos de la base de datos para decidir si los argumentos de los valores
-absolutos son n&uacute;meros complejos:
+absolutos son números complejos:
 <pre class="example">(%i1) to_poly_solve(abs(x) = 6, x);
 (%o1)              %union([x = - 6], [x = 6])
 (%i2) declare(z,complex)$
@@ -1402,20 +1324,21 @@ absolutos son n&uacute;meros complejos:
 (%o3) %union(%if((%c11 # 0) %and (%c11 conjugate(%c11) - 36 = 
                                        0), [z = %c11], %union()))
 </pre>
-<p>Esta es la &uacute;nica situaci&oacute;n en la que <code>to_poly_solve</code> consulta la base de
-datos; si una inc&oacute;gnita se declara, por ejemplo, como entero, <code>to_poly_solve</code> lo ignora.
+<p>Esta es la única situación en la que <code>to_poly_solve</code> consulta la base de
+datos; si una incógnita se declara, por ejemplo, como entero, <code>to_poly_solve</code> lo ignora.
 </p></li></ul>
 
-<p>Para hacer uso de esta funci&oacute;n, ejec&uacute;tese <code>load(to_poly_solve)</code>.
+<p>Para hacer uso de esta función, ejecútese <code>load(to_poly_solve)</code>.
 </p>
-<p>V&eacute;ase tambi&eacute;n <code>algexact</code>, <code>resultant</code>, <code>algebraic</code> y <code>to_poly</code>.
+<p>Véase también <code>algexact</code>, <code>resultant</code>, <code>algebraic</code> y <code>to_poly</code>.
 </p>
 </dd></dl>
 
+
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC364" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_78.html#SEC366" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC369" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_78.html#SEC371" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -1423,12 +1346,12 @@ datos; si una inc&oacute;gnita se declara, por ejemplo, como entero, <code>to_po
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>septiembre, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>abril, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

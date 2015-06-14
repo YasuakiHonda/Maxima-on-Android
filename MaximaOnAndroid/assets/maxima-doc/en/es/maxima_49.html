@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on septiembre, 8 2014 by texi2html 1.76 -->
+<!-- Created on abril, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual de Maxima: 49. dynamics</title>
+<title>Manual de Maxima 5.36.0: 49. dynamics</title>
 
-<meta name="description" content="Manual de Maxima: 49. dynamics">
-<meta name="keywords" content="Manual de Maxima: 49. dynamics">
+<meta name="description" content="Manual de Maxima 5.36.0: 49. dynamics">
+<meta name="keywords" content="Manual de Maxima 5.36.0: 49. dynamics">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,585 +32,1037 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="dynamics"></a>
-<a name="SEC254"></a>
+<a name="SEC255"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_48.html#SEC253" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC255" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_48.html#SEC254" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC256" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_48.html#SEC250" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_48.html#SEC251" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_50.html#SEC257" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_50.html#SEC262" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter"> 49. dynamics </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC255">49.1 Introducci&oacute;n a dynamics</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC256">49.1 El paquete dynamics</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC256">49.2 Funciones y variables para dynamics</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC257">49.2 Análisis gráfico de sistemas dinámicos discretos</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC258">49.3 Visualización usando VTK</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <hr size="6">
-<a name="Introducci_00f3n-a-dynamics"></a>
-<a name="SEC255"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC254" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC256" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC254" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC254" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_50.html#SEC257" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 49.1 Introducci&oacute;n a dynamics </h2>
-
-<p>El paquete adicional <code>dynamics</code> incluye varias funciones para crear
-diversas representaciones gr&aacute;ficas de sistemas din&aacute;micos y fractales,
-y adem&aacute;s una implementaci&oacute;n del m&eacute;todo num&eacute;rico de Runge-Kutta de
-cuarto orden, para resolver sistemas de ecuaciones diferenciales.
-</p>
-<p>Para usar las funciones en este paquete ser&aacute; necesario primero que todo
-cargarlo con <code>load(&quot;dynamics&quot;)</code>, y las funciones que crean
-gr&aacute;ficas necesitan que Xmaxima est&eacute; instalado.
-</p>
-<hr size="6">
-<a name="Funciones-y-variables-para-dynamics"></a>
+<a name="El-paquete-dynamics"></a>
 <a name="SEC256"></a>
 <table cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#SEC255" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_50.html#SEC257" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC257" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC254" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC254" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_50.html#SEC257" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC255" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC255" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_50.html#SEC262" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 49.2 Funciones y variables para dynamics </h2>
+<h2 class="section"> 49.1 El paquete dynamics </h2>
 
-<dl>
-<dt><u>Funci&oacute;n:</u> <b>chaosgame</b><i> (<code>[[</code><var>x1</var>, <var>y1</var><code>]</code>...<code>[</code><var>xm</var>, <var>ym</var><code>]]</code>, <code>[</code><var>x0</var>, <var>y0</var><code>]</code>, <var>b</var>, <var>n</var>, ...opciones...);</i>
-<a name="IDX2152"></a>
+<p>El paquete adicional <code>dynamics</code> incluye funciones para
+visualización 3D, animaciones, análisis gráfico de ecuaciones
+diferenciales y ecuaciones de diferencias y para resolución numérica de
+ecuaciones diferenciales. Las funciones para ecuaciones diferenciales se
+describen en la sección sobre <code><a href="maxima_22.html#SEC121">Métodos numéricos</a></code> y las funciones
+para representar las gráficas de los conjuntos de Mandelbrot y de Julia
+se describen en la sección sobre <code><a href="maxima_12.html#SEC75">Gráficos</a></code>.
+</p>
+<p>Todas las funciones en este paquete se cargan automáticamente la primera
+vez que se usan.
+</p>
+<hr size="6">
+<a name="An_00e1lisis-gr_00e1fico-de-sistemas-din_00e1micos-discretos"></a>
+<a name="SEC257"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC256" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC258" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC255" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC255" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_50.html#SEC262" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 49.2 Análisis gráfico de sistemas dinámicos discretos </h2>
+
+<p><a name="chaosgame"></a>
+</p><dl>
+<dt><u>Función:</u> <b>chaosgame</b><i> ([[<var>x1</var>, <var>y1</var>]&hellip;[<var>xm</var>, <var>ym</var>]], [<var>x0</var>, <var>y0</var>], <var>b</var>, <var>n</var>, <var>opciones</var>, &hellip;);</i>
+<a name="IDX2155"></a>
 </dt>
-<dd><p>Usa el m&eacute;todo llamado juego del caos, para producir fractales: se dibuja
-un punto inicial (<var>x0</var>, <var>y0</var>) y luego se elije aleatoriamente uno
-de los <var>m</var> puntos <code>[</code><var>x1</var>, <var>y1</var><code>]</code>...<code>[</code><var>xm</var>,
-<var>ym</var><code>]</code>. Despu&eacute;s se dibuja un nuevo punto que estar&aacute; en
-el segmento entre el &uacute;ltimo punto dibujado y el punto que se acab&oacute; de
-elegir aleatoriamente, a una distancia del punto elegido que ser&aacute;
-<var>b</var> veces la longitud del segmento. El proceso se repite <var>n</var> veces.
+<dd><p>Usa el método llamado juego del caos, para producir fractales: se dibuja
+un punto inicial (<var>x0</var>, <var>y0</var>) y luego se elije aleatoriamente
+uno de los <var>m</var> puntos <code>[</code><var>x1</var>,
+<var>y1</var><code>]</code>...<code>[</code><var>xm</var>, <var>ym</var><code>]</code>. Después se dibuja
+un nuevo punto que estará en el segmento entre el último punto dibujado
+y el punto que se acabó de elegir aleatoriamente, a una distancia del
+punto elegido que será <var>b</var> veces la longitud del segmento. El
+proceso se repite <var>n</var> veces.  Este programa acepta las mismas
+opciones de <code><a href="maxima_12.html#plot2d">plot2d</a></code>.
+</p>
+<p><strong>Ejemplo</strong>. Gráfico del triángulo de Sierpinsky:
+</p>
+<pre class="example">(%i1) chaosgame([[0, 0], [1, 0], [0.5, sqrt(3)/2]], [0.1, 0.1], 1/2,
+                 30000, [style, dots]);
+</pre>
+<p><div class="image"><img src="./../figures/dynamics7.png" alt="../figures/dynamics7"></div>
 </p>
 </dd></dl>
 
-<dl>
-<dt><u>Funci&oacute;n:</u> <b>evolution</b><i> (<var>F</var>, <var>y0</var>, <var>n</var>,...opciones...);</i>
-<a name="IDX2153"></a>
+<p><a name="evolution"></a>
+</p><dl>
+<dt><u>Función:</u> <b>evolution</b><i> evolution (<var>F</var>, <var>y0</var>, <var>n</var>,  &hellip;, <var>opciones</var>, &hellip;);</i>
+<a name="IDX2156"></a>
 </dt>
-<dd><p>Dibuja <var>n+1</var> puntos en una gr&aacute;fica bidimensional (serie de
+<dd><p>Dibuja <var>n+1</var> puntos en una gráfica bidimensional (serie de
 tiempo), en que las coordenadas horizontales de los puntos son los
-n&uacute;meros enteros 0, 1, 2, ..., <var>n</var>, y las coordenadas verticales
+números enteros 0, 1, 2, ..., <var>n</var>, y las coordenadas verticales
 son los valores <var>y(n)</var> correspondientes, obtenidos a partir de la
-relaci&oacute;n de recurrencia
+relación de recurrencia
 </p><pre class="example">        y(n+1) = F(y(n))
 </pre>
-<p>Con valor inicial <var>y(0)</var> igual a <var>y0</var>. <var>F</var> deber&aacute; ser una
-expresi&oacute;n que dependa &uacute;nicamente de la variable <var>y</var> (y no de <var>n</var>),
-<var>y0</var> deber&aacute; ser un n&uacute;mero real y <var>n</var> un n&uacute;mero entero positivo.
+<p>Con valor inicial <var>y(0)</var> igual a <var>y0</var>. <var>F</var> deberá ser una
+expresión que dependa únicamente de la variable <var>y</var> (y no de <var>n</var>),
+<var>y0</var> deberá ser un número real y <var>n</var> un número entero positivo.
+Esta función acepta las mismas opciones que <code><a href="maxima_12.html#plot2d">plot2d</a></code>.
+</p>
+<p><strong>Ejemplo</strong>.
+</p>
+<pre class="example">(%i1) evolution(cos(y), 2, 11);
+</pre><p><div class="image"><img src="./../figures/dynamics1.png" alt="../figures/dynamics1"></div>
 </p>
 </dd></dl>
 
-<dl>
-<dt><u>Funci&oacute;n:</u> <b>evolution2d</b><i> (<code>[</code><var>F</var>, <var>G</var><code>]</code>, <code>[</code><var>x0</var>, <var>y0</var><code>]</code>, <var>n</var>, ...opciones...);</i>
-<a name="IDX2154"></a>
+<p><a name="evolution2d"></a>
+</p><dl>
+<dt><u>Función:</u> <b>evolution2d</b><i> ([<var>F</var>, <var>G</var>], [<var>u</var>, <var>v</var>], [<var>u0</var>, <var>y0</var>], <var>n</var>, <var>opciones</var>, &hellip;);</i>
+<a name="IDX2157"></a>
 </dt>
-<dd><p>Muestra, en una gr&aacute;fica bidimensional, los primeros <var>n+1</var> puntos de
-la sucesi&oacute;n definida a partir del sistema din&aacute;mico discreto con
+<dd><p>Muestra, en una gráfica bidimensional, los primeros <var>n+1</var> puntos de
+la sucesión definida a partir del sistema dinámico discreto con
 relaciones de recurrencia:
 </p><pre class="example">        x(n+1) = F(x(n), y(n))    y(n+1) = G(x(n), y(n))
 </pre>
 <p>Con valores iniciales <var>x0</var> y <var>y0</var>. <var>F</var> y <var>G</var> deben ser dos
-expresiones que dependan &uacute;nicamente de <var>x</var> y <var>y</var>. 
+expresiones que dependan únicamente de <var>x</var> y <var>y</var>. Esta función
+acepta las mismas opciones que <code><a href="maxima_12.html#plot2d">plot2d</a></code>.
+</p>
+<p><strong>Ejemplo</strong>. Evolución de un sistema dinámico discreto en dos
+dimensiones:
+</p>
+<pre class="example">(%i1) f: 0.6*x*(1+2*x)+0.8*y*(x-1)-y^2-0.9$
+(%i2) g: 0.1*x*(1-6*x+4*y)+0.1*y*(1+9*y)-0.4$
+(%i3) evolution2d([f,g], [x,y], [-0.5,0], 50000, [style,dots]);
+</pre>
+<p><div class="image"><img src="./../figures/dynamics5.png" alt="../figures/dynamics5"></div>
+</p>
+<p>Y un acercamiento de una pequeña región en ese fractal:
+</p>
+<pre class="example">(%i9) evolution2d([f,g], [x,y], [-0.5,0], 300000, [x,-0.8,-0.6],
+                  [y,-0.4,-0.2], [style, dots]);
+</pre>
+<p><div class="image"><img src="./../figures/dynamics6.png" alt="../figures/dynamics6"></div>
 </p>
 </dd></dl>
 
-<dl>
-<dt><u>Funci&oacute;n:</u> <b>ifs</b><i> (<code>[</code><var>r1</var>,...,<var>rm</var><code>]</code>,<code>[</code><var>A1</var>,...,<var>Am</var><code>]</code>, <code>[[</code><var>x1</var>,<var>y1</var><code>]</code>...<code>[</code><var>xm</var>, <var>ym</var><code>]]</code>, <code>[</code><var>x0</var>,<var>y0</var><code>]</code>, <var>n</var>, ...opciones...);</i>
-<a name="IDX2155"></a>
+<p><a name="ifs"></a>
+</p><dl>
+<dt><u>Función:</u> <b>ifs</b><i> ([<var>r1</var>, &hellip;, <var>rm</var>], [<var>A1</var>,&hellip;, <var>Am</var>], [[<var>x1</var>, <var>y1</var>], &hellip;, [<var>xm</var>, <var>ym</var>]], [<var>x0</var>, <var>y0</var>], <var>n</var>, <var>opciones</var>, &hellip;);</i>
+<a name="IDX2158"></a>
 </dt>
-<dd><p>Usa el m&eacute;todo del Sistema de Funciones Iteradas (IFS, en ingl&eacute;s
-Iterated Function System). Ese m&eacute;todo es semejante al m&eacute;todo descrito
-en la funci&oacute;n <code>chaosgame</code>, pero en vez de aproximar el &uacute;ltimo punto
-al punto elegido aleatoriamente, las dos coordenadas del &uacute;ltimo punto
+<dd><p>Usa el método del Sistema de Funciones Iteradas (IFS, en inglés
+Iterated Function System). Ese método es semejante al método descrito
+en la función <code><a href="#chaosgame">chaosgame</a></code>. pero en vez de aproximar el último punto
+al punto elegido aleatoriamente, las dos coordenadas del último punto
 se multiplican por una matriz 2 por 2 <var>Ai</var> correspondiente al punto
 que fue elegido aleatoriamente.
 </p>
-<p>La selecci&oacute;n aleatoria de uno de los <var>m</var> puntos atractivos puede
-ser realizada con una funci&oacute;n de probabilidad no uniforme, definida
+<p>La selección aleatoria de uno de los <var>m</var> puntos atractivos puede
+ser realizada con una función de probabilidad no uniforme, definida
 con los pesos <var>r1</var>,...,<var>rm</var>. Esos pesos deben ser dados en forma
 acumulada; por ejemplo, si se quieren 3 puntos con probabilidades 0.2, 0.5 y
-0.3, los pesos <var>r1</var>, <var>r2</var> y <var>r3</var> podr&iacute;an ser 2, 7 y 10, o
-cualquier otro grupo de n&uacute;meros que tengan la misma proporci&oacute;n.
+0.3, los pesos <var>r1</var>, <var>r2</var> y <var>r3</var> podrían ser 2, 7 y 10, o
+cualquier otro grupo de números que tengan la misma proporción. Esta
+función acepta las mismas opciones que <code><a href="maxima_12.html#plot2d">plot2d</a></code>.
+</p>
+<p><strong>Ejemplo</strong>. El helecho de Barnsley, creado con 4 matrices y 4
+puntos:
+</p>
+<pre class="example">(%i1) a1: matrix([0.85,0.04],[-0.04,0.85])$
+(%i2) a2: matrix([0.2,-0.26],[0.23,0.22])$
+(%i3) a3: matrix([-0.15,0.28],[0.26,0.24])$
+(%i4) a4: matrix([0,0],[0,0.16])$
+(%i5) p1: [0,1.6]$
+(%i6) p2: [0,1.6]$
+(%i7) p3: [0,0.44]$
+(%i8) p4: [0,0]$
+(%i9) w: [85,92,99,100]$
+(%i10) ifs(w, [a1,a2,a3,a4], [p1,p2,p3,p4], [5,0], 50000, [style,dots]);
+</pre>
+<p><div class="image"><img src="./../figures/dynamics8.png" alt="../figures/dynamics8"></div>
 </p>
 </dd></dl>
 
-<dl>
-<dt><u>Funci&oacute;n:</u> <b>julia</b><i> (<var>x</var>, <var>y</var>, ...<var>opciones</var>...)</i>
-<a name="IDX2156"></a>
-</dt>
-<dd><p>Crea un fichero gr&aacute;fico con la representaci&oacute;n del conjunto de Julia
-del n&uacute;mero complejo (<var>x</var> + i <var>y</var>). Los par&aacute;metros <var>x</var> y
-<var>y</var> deben ser reales. El fichero se crea en el direct&oacute;rio actual o
-en el direct&oacute;rio del usuario, usando el formato gr&aacute;fico XPM. El
-programa puede demorar varios segundos a ser ejecutado y cuando termina
-imprime un mensaje con el nombre del fichero creado.
-</p>
-<p>Se asignan diferentes colores a los puntos que no pertenecen al conjunto
-de Julia, de acuerdo con el n&uacute;mero de iteraciones que demore la
-secuencia, comenzando en ese punto, a salir fuera del
-c&iacute;rculo de convergencia con radio 2. El n&uacute;mero m&aacute;ximo
-de iteraciones se define con la opci&oacute;n <var>levels</var>; despu&eacute;s de
-ejecutadas ese n&uacute;mero de iteraciones, si la secuencia aun est&aacute;
-dentro del c&iacute;rculo de convergencia, el punto ser&aacute;
-coloreado con el color definido por la opci&oacute;n <var>color</var>.
-</p>
-<p>Todos los colores usados para los puntos que no pertenecen al conjunto
-de Julia tendr&aacute;n los mismos valores de saturaci&oacute;n (<var>saturation</var>)
-y valor (<var>value</var>), pero con diferentes &aacute;ngulos de tonalidad,
-distribuidos uniformemente en el intervalo entre <var>hue</var> y (<var>hue</var>
-+ <var>huerange</var>).
-</p>
-<p>Se puede dar a la funci&oacute;n una secuencia de opciones. La lista de
-posibles opciones aparece en una secci&oacute;n m&aacute;s al frente.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Funci&oacute;n:</u> <b>mandelbrot</b><i> (<var>options</var>)</i>
-<a name="IDX2157"></a>
-</dt>
-<dd><p>Crea un fichero gr&aacute;fico con la representaci&oacute;n del conjunto de
-Mandelbrot. El fichero se crea en el direct&oacute;rio actual o en el
-direct&oacute;rio del usuario, usando el formato gr&aacute;fico XPM. El programa
-puede demorar varios segundos a ser ejecutado y cuando termina imprime
-un mensaje con el nombre del fichero creado.
-</p>
-<p>Se asignan diferentes colores a los puntos que no pertenecen al conjunto
-de Mandelbrot, de acuerdo con el n&uacute;mero de iteraciones que demore la
-secuencia generada por ese punto a salir fuera del c&iacute;rculo
-de convergencia con radio 2. El n&uacute;mero m&aacute;ximo de iteraciones se
-define con la opci&oacute;n <var>levels</var>; despu&eacute;s de ejecutadas ese
-n&uacute;mero de iteraciones, si la secuencia aun est&aacute; dentro del
-c&iacute;rculo de convergencia, el punto ser&aacute; coloreado con el
-color definido por la opci&oacute;n <var>color</var>.
-</p>
-<p>Todos los colores usados para los puntos que no pertenecen al conjunto
-de Mandelbrot tendr&aacute;n los mismos valores de saturaci&oacute;n
-(<var>saturation</var>) y valor (<var>value</var>), pero con diferentes &aacute;ngulos
-de tonalidad, distribuidos uniformemente en el intervalo entre <var>hue</var>
-y (<var>hue</var> + <var>huerange</var>).
-</p>
-<p>Se puede dar a la funci&oacute;n una secuencia de opciones. La lista de
-posibles opciones aparece en una secci&oacute;n m&aacute;s al frente.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Funci&oacute;n:</u> <b>orbits</b><i> (<var>F</var>, <var>y0</var>, <var>n1</var>, <var>n2</var>, [<var>x</var>, <var>x0</var>, <var>xf</var>, <var>xstep</var>], ...opciones...);</i>
-<a name="IDX2158"></a>
-</dt>
-<dd><p>Dibuja el diagrama de &oacute;rbitas de una familia de sistemas din&aacute;micos
-discretos unidimensionales, con un par&aacute;metro <var>x</var>; ese tipo de diagrama
-se usa para mostrar las bifurcaciones de un sistema discreto unidimensional.
-</p>
-<p>La funci&oacute;n <var>F(y)</var> define una secuencia que comienza con un valor
-inicial <var>y0</var>, igual que en el caso de la funci&oacute;n <code>evolution</code>, pero
-en este caso la funci&oacute;n tambi&eacute;n depender&aacute; del par&aacute;metro <var>x</var>,
-el cual tomar&aacute; valores comprendidos en el intervalo de <var>x0</var> a <var>xf</var>,
-con incrementos <var>xstep</var>. Cada valor usado para el par&aacute;metro <var>x</var> se
-muestra en el eje horizontal. En el eje vertical se mostrar&aacute;n <var>n2</var>
-valores de la sucesi&oacute;n <var>y(n1+1)</var>,..., <var>y(n1+n2+1)</var>, obtenidos
-despu&eacute;s de dejarla evolucionar durante <var>n1</var> iteraciones iniciales.
-</p>
-</dd></dl>
-
-
-
-<dl>
-<dt><u>Funci&oacute;n:</u> <b>staircase</b><i> (<var>F</var>, <var>y0</var>, <var>n</var>, ...opciones...);</i>
+<p><a name="orbits"></a>
+</p><dl>
+<dt><u>Función:</u> <b>orbits</b><i> (<var>F</var>, <var>y0</var>, <var>n1</var>, <var>n2</var>, [<var>x</var>, <var>x0</var>, <var>xf</var>, <var>xstep</var>], <var>opciones</var>, &hellip;);</i>
 <a name="IDX2159"></a>
 </dt>
-<dd><p>Dibuja un diagrama de escalera (o diagrama de red) para la sucesi&oacute;n
-definida por la ecuaci&oacute;n de recurrencia
-</p><pre class="example">        y(n+1) = F(y(n))
+<dd><p>Dibuja el diagrama de órbitas de una familia de sistemas dinámicos
+discretos unidimensionales, con un parámetro <var>x</var>; ese tipo de
+diagrama se usa para mostrar las bifurcaciones de un sistema discreto
+unidimensional.
+</p>
+<p>La función <var>F(y)</var> define una secuencia que comienza con un valor
+inicial <var>y0</var>, igual que en el caso de la función <code>evolution</code>,
+pero en este caso la función también dependerá del parámetro <var>x</var>, el
+cual tomará valores comprendidos en el intervalo de <var>x0</var> a <var>xf</var>,
+con incrementos <var>xstep</var>. Cada valor usado para el parámetro <var>x</var>
+se muestra en el eje horizontal. En el eje vertical se mostrarán
+<var>n2</var> valores de la sucesión <var>y(n1+1)</var>,..., <var>y(n1+n2+1)</var>,
+obtenidos después de dejarla evolucionar durante <var>n1</var> iteraciones
+iniciales.
+</p>
+<p><strong>Ejemplo</strong>. Diagrama de órbitas para el mapa cuadrático
+</p>
+<pre class="example">(%i1) orbits(x^2+a, 0, 50, 200, [a, -2, 0.25], [style, dots]);
 </pre>
-<p>La interpretaci&oacute;n y valores permitidos de los par&aacute;metros de entrada
-es la misma que para la funci&oacute;n <code>evolution</code>. Un diagrama de
-escalera consiste en una gr&aacute;fica de la funci&oacute;n <var>F(y)</var>, junto con
-la recta <var>G(y)</var> <code>=</code> <var>y</var>. Se comienza por dibujar un
-segmento vertical desde el punto (<var>y0</var>, <var>y0</var>) en la recta, hasta
-el punto de intersecci&oacute;n con la funci&oacute;n <var>F</var>. En seguida, desde
-ese punto se dibuja un segmento horizontal hasta el punto de
-intersecci&oacute;n con la recta, (<var>y1</var>, <var>y1</var>); el procedimiento se
-repite <var>n</var> veces hasta alcanzar el punto (<var>yn</var>, <var>yn</var>).
+<p><div class="image"><img src="./../figures/dynamics3.png" alt="../figures/dynamics3"></div>
+</p>
+<p>Para ampliar la región alrededor de la bifurcación en la parte de
+abajo, cerca de x <code>=</code> -1.25, se usa el comando:
+</p><pre class="example">(%i2) orbits(x^2+a, 0, 100, 400, [a,-1,-1.53], [x,-1.6,-0.8],
+             [nticks, 400], [style,dots]);
+</pre>
+<p><div class="image"><img src="./../figures/dynamics4.png" alt="../figures/dynamics4"></div>
 </p>
 </dd></dl>
 
-<p><b>Opciones</b>
-</p>
-<p>Cada opci&oacute;n es una lista con dos o m&aacute;s elementos. El primer elemento
-en la lista es el nombre de la opci&oacute;n y el resto consiste en los
-argumentos para esa opci&oacute;n.
-</p>
-<p>Las opciones aceptadas por las funciones evolution, evolution2,
-staircase, orbits, ifs y chaosgame son las siguientes:
-</p>
-<ul>
-<li>
-<em>domain</em> especifica los valores m&iacute;nimo y m&aacute;ximo de la
-variable independiente para la gr&aacute;fica de la funci&oacute;n <var>F</var>
-representada por <code>staircase</code>.
-
-</li><li>
-<em>pointsize</em> define el radio de cada punto dibujado, en unidades de
-puntos.  El valor por omisi&oacute;n es 1.
-
-</li><li>
-<em>xaxislabel</em> es la etiqueta que se escribir&aacute; en el eje horizontal.
-
-</li><li>
-<em>xcenter</em> es la coordenada x del punto que deber&aacute; aparecer en el
-centro de la gr&aacute;fica. Esta opci&oacute;n no es usada por la funci&oacute;n
-<code>orbits</code>.
-
-</li><li>
-<em>xradius</em> es mitad de la longitud del intervalo de valores de x que
-ser&aacute; representado. Esta opci&oacute;n no es usada por la funci&oacute;n
-<code>orbits</code>.
-
-</li><li>
-<em>yaxislabel</em> es la etiqueta que se escribir&aacute; en el eje vertical.
-
-</li><li>
-<em>ycenter</em> es la coordenada y del punto que deber&aacute; aparecer en el
-centro de la gr&aacute;fica.
-
-</li><li>
-<em>yradius</em> es mitad de la longitud del intervalo de valores de y que
-ser&aacute; representado.
-
-</li></ul>
-
-<p>Las opciones aceptadas por los programas julia y mandelbrot son las
-siguientes:
-</p>
-<ul>
-<li>
-<em>size</em> acepta uno o dos argumentos. Si se da solo un argumento, el
-ancho y la altura del fichero gr&aacute;fico creado ser&aacute;n iguales a ese
-valor en pixels. Si se dan dos argumentos, esos dos valores ser&aacute;n
-usados para el ancho y la altura. El valor por omisi&oacute;n es 400 pixels
-tanto para el ancho como para la altura. Si los dos valores no son
-iguales, el conjunto aparecer&aacute; distorcionado.
-
-</li><li>
-<em>levels</em> define el n&uacute;mero m&aacute;ximo de iteraciones, que es
-tambi&eacute;n el n&uacute;mero de colores usado para los puntos que no pertenecem
-al conjunto. El valor por omisi&oacute;n es 12; valores mayores implican
-tiempos de procesamiento m&aacute;s elevados.
-
-</li><li>
-<em>huerange</em> define el intervalo de &aacute;ngulos usados para la tonalidad
-de los puntos que no pertenecen al conjunto. El valor por omisi&oacute;n es
-360, que hace que los colores usados abarcar&aacute;n todo el rango de
-tonalidades. Valores mayores que 360 implican repetici&oacute;n de algunos
-valores de la tonalidad, y pueden usarse valores negativos para que el
-&aacute;ngulo de tonalidad sea menor a medida que el n&uacute;mero de iteraciones
-aumente.
-
-</li><li>
-<em>hue</em> define la tonalidad, en grados, del primer color usado para
-representar los puntos que no pertenecen al conjunto.  Su valor por
-omisi&oacute;n es 300 grados, que corresponde al color magenta; el color
-correspondiente para otros valores estandar es rojo 0, naranja 45,
-amarillo 60, verde 120, cian 180 y azul 240. Consulte tambi&eacute;n la
-opci&oacute;n <var>huerange</var>.
-
-</li><li>
-<em>saturation</em> define el nivel de saturaci&oacute;n que ser&aacute; usado para
-los colores de los puntos que no pertenecen al conjunto. Debe ser un valor
-entre 0 y 1. El valor por omisi&oacute;n es 0.46.
-
-</li><li>
-<em>value</em> define el valor de los colores usados para puntos que no
-pertenezcan al conjunto. Debe estar comprendido entre 0 y 1; cuanto
-mayor sea, mas brilhantes ser&aacute;n los colores. Su valor por omisi&oacute;n es
-0.96.
-
-</li><li>
-<em>color</em> debe ir seguido de tres par&aacute;metros que definen la
-tonalidad, saturaci&oacute;n y valor del color que ser&aacute; usado para los
-puntos del conjunto. El valor por omisi&oacute;n es 0 para los tres
-par&aacute;metros, que corresponde al negro. Consulte las explicaci&oacute;n sobre
-el rango de valores aceptados en la explicaci&oacute;n de las opciones
-<var>hue</var>, <var>saturation</var> y <var>value</var>.
-
-</li><li>
-<em>center</em> deber&aacute; tener dos par&aacute;metros reales que dan las
-coordenadas, en el plano complejo, del punto en el centro de la regi&oacute;n
-representada. El valor por omisi&oacute;n es 0 para las dos coordenadas (el
-origen).
-
-</li><li>
-<em>radius</em> es el radio de el mayor c&iacute;rculo que
-cabe dentro de la regi&oacute;n quadrada que ser&aacute; representada. El valor
-por omisi&oacute;n es 2.
-
-</li><li>
-<em>filename</em> da el nombre del fichero donde se guardar&aacute; la gr&aacute;fica
-producida. A ese nombre se le acrecentar&aacute; la terminaci&oacute;n .xpm. Si el
-fichero ya existe, ser&aacute; substituido por el fichero producido por la
-funci&oacute;n. El valor por omisi&oacute;n es julia para el conjunto de Julia y
-mandelbrot para el conjunto de Mandelbrot.
-
-</li></ul>
-
-<p><b>Ejemplos</b>
-</p>
-<p>Representaci&oacute;n gr&aacute;fica y diagrama de escalera de la secuencia:
-2, cos(2), cos(cos(2)),...
-</p>
-<pre class="example">(%i1) load(&quot;dynamics&quot;)$
-(%i2) evolution(cos(y), 2, 11, [yaxislabel, &quot;y&quot;], [xaxislabel,&quot;n&quot;]);
-(%i3) staircase(cos(y), 1, 11, [domain, 0, 1.2]);
+<p><a name="staircase"></a>
+</p><dl>
+<dt><u>Función:</u> <b>staircase</b><i> (<var>F</var>, <var>y0</var>, <var>n</var>,<var>opciones</var>,&hellip;);</i>
+<a name="IDX2160"></a>
+</dt>
+<dd><p>Dibuja un diagrama de escalera (o diagrama de red) para la sucesión
+definida por la ecuación de recurrencia
+</p><pre class="example">        y(n+1) = F(y(n))
 </pre>
-<p><div class="image"><img src="./../figures/dynamics1.gif" alt="../figures/dynamics1"></div>
-<div class="image"><img src="./../figures/dynamics2.gif" alt="../figures/dynamics2"></div>
+<p>La interpretación y valores permitidos de los parámetros de entrada
+es la misma que para la función <code>evolution</code>. Un diagrama de
+escalera consiste en una gráfica de la función <var>F(y)</var>, junto con
+la recta <var>G(y)</var> <code>=</code> <var>y</var>. Se comienza por dibujar un
+segmento vertical desde el punto (<var>y0</var>, <var>y0</var>) en la recta, hasta
+el punto de intersección con la función <var>F</var>. En seguida, desde
+ese punto se dibuja un segmento horizontal hasta el punto de
+intersección con la recta, (<var>y1</var>, <var>y1</var>); el procedimiento se
+repite <var>n</var> veces hasta alcanzar el punto (<var>yn</var>, <var>yn</var>). Esta
+función acepta las mismas opciones que <code><a href="maxima_12.html#plot2d">plot2d</a></code>.
 </p>
-<p>Si su procesador es lento, tendr&aacute; que reducir el n&uacute;mero de
-iteraciones usado en los ejemplos siguientes. Y el valor de
-<var>pointsize</var> que da mejores resultados depende del monitor y de la
-resoluci&oacute;n que use. Tendr&aacute; que experimentar con diferentes valores.
+<p><strong>Ejemplo</strong>.
 </p>
-<p>Diagrama de &oacute;rbitas para el mapa cuadr&aacute;tico
-</p><pre class="example">        y(n+1) = x + y(n)^2
+<pre class="example">(%i1) staircase(cos(y), 1, 11, [y, 0, 1.2]);
+</pre><p><div class="image"><img src="./../figures/dynamics2.png" alt="../figures/dynamics2"></div>
+</p>
+</dd></dl>
+
+<hr size="6">
+<a name="Visualizaci_00f3n-usando-VTK"></a>
+<a name="SEC258"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC257" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC259" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC255" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC255" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_50.html#SEC262" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 49.3 Visualización usando VTK </h2>
+
+<p>La función scene crea imágenes tridimensionales y animaciones usando el
+software <em>Visualization ToolKit</em> (VTK). Para poder usar esa función
+es necesario tener Xmaxima y VTK instalados en el sistema (incluyendo la
+biblioteca para usar VTK desde TCL que en algunos sistemas viene en un
+paquete separado).
+</p>
+<p><a name="scene"></a>
+</p><dl>
+<dt><u>Función:</u> <b>scene</b><i> (<var>objetos</var>, &hellip;, <var>opciones</var>, &hellip;);</i>
+<a name="IDX2161"></a>
+</dt>
+<dd><p>Acepta una lista vacía o una lista de varios
+<code><a href="#scene_005fobjetos">objetos</a></code> y <code><a href="#scene_005fopciones">opciones</a></code>. El
+programa ejecuta Xmaxima, que abre una ventana donde se representan los
+objetos dados, en un espacio tridimensional y aplicando las opciones
+dadas. Cada objeto debe pertenecer una de las 4 clases: sphere, cube,
+cylinder o cone (ver <code><a href="#scene_005fobjetos">Objetos de scene</a></code>). Los
+objetos se identifican dando el nombre de su clase, o una lista en que
+el primer elemento es el nombre de la clase y los restantes elementos
+son opciones para ese objeto.
+</p> 
+<p><strong>Ejemplo</strong>. Una pirámide hexagonal con fondo azul:
+</p><pre class="example">(%i1) scene(cone, [background,&quot;#9980e5&quot;])$
+</pre><p><div class="image"><img src="./../figures/scene1.png" alt="../figures/scene1"></div>
+</p>
+<p>Presionando el botón izquierdo del ratón mientras se mueve dentro de la
+ventana gráfica, se puede rotar la cámara, mostrando diferentes vistas
+de la pirámide. Las dos opciones <code><a href="#scene_005felevation">elevation</a></code> y
+<code><a href="#scene_005fazimuth">azimuth</a></code> se pueden usar también para cambiar la
+orientación de la cámara. La cámara se puede mover presionando el botón
+del medio y moviendo el ratón y el botón del lado derecho se usa para
+aumentar o disminuir el zoom, moviendo el ratón para arriba y para
+bajo.
+</p>
+<p>Cada opción de un objeto deberá ser una lista comenzando con el nombre
+de la opción, seguido por su valor. La lista de posibles opciones se
+encuentra en la sección
+<code><a href="#objeto_005fopciones">Opciones de objetos de scene</a></code>.
+</p>
+<p><strong>Ejemplo</strong>. Este ejemplo mostrará una esfera cayendo para el piso
+y rebotando sin perder energía. Para comenzar o poner en pausa la
+animación se debe oprimir el botón de play/pausa.
+</p>
+<pre class="example">(%i1) p: makelist ([0,0,2.1- 9.8*t^2/2], t, 0, 0.64, 0.01)$
+
+(%i2) p: append (p, reverse(p))$
+
+(%i3) bola: [sphere, [radius,0.1], [thetaresolution,20],
+  [phiresolution,20], [position,0,0,2.1], [color,red],
+  [animate,position,p]]$
+
+(%i4) piso: [cube, [xlength,2], [ylength,2], [zlength,0.2],
+  [position,0,0,-0.1],[color,violet]]$
+
+(%i5) scene (bola, piso, restart)$
+</pre><p><div class="image"><img src="./../figures/scene2.png" alt="../figures/scene2"></div>
+</p>
+<p>La opción <var>restart</var> fue usada para hacer que la animación recomienze
+cada vez que se llega al último punto en la lista. Los valores
+permitidos para los colores son los mismo que para la opción <code><a href="maxima_12.html#color">color</a></code>
+de plot2d. 
+</p>
+</dd></dl>
+
+<p><a name="scene_005fopciones"></a>
+</p><hr size="6">
+<a name="SEC259"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC258" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC260" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC255" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC258" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_50.html#SEC262" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 49.3.1 Opciones de scene </h3>
+
+<p><a name="scene_005fazimuth"></a>
+</p><dl>
+<dt><u>Opción de scene:</u> <b>azimuth</b><i> [azimuth, <var>ángulo</var>]</i>
+<a name="IDX2162"></a>
+</dt>
+<dd><p>Valor predefinido: <code>135</code>
+</p>
+<p>La rotación de la cámara en el plano horizontal (x, y). <var>ángulo</var>
+debe ser un número real; un ángulo de 0 significa que la cámara apunta
+en la dirección del eje y, haciendo que el eje x aparezca a la derecha.
+</p>
+</dd></dl>
+
+<p><a name="scene_005fbackground"></a>
+</p><dl>
+<dt><u>Opción de scene:</u> <b>background</b><i> [background, <var>color</var>]</i>
+<a name="IDX2163"></a>
+</dt>
+<dd><p>Valor predefinido: <code>black</code>
+</p>
+<p>El color del fondo de la ventana gráfica. Acepta nombres de colores o
+secuencias de caracteres hexadecimales para rojo-verde-azul (ver la
+opción <code><a href="maxima_12.html#color">color</a></code> de plot2d).
+</p>
+</dd></dl>
+
+<p><a name="scene_005felevation"></a>
+</p><dl>
+<dt><u>Opción de scene:</u> <b>elevation</b><i> [elevation, <var>ángulo</var>]</i>
+<a name="IDX2164"></a>
+</dt>
+<dd><p>Valor predefinido: <code>30</code>
+</p>
+<p>La rotación vertical de la cámara. El <var>ángulo</var> debe ser un número
+real; un ángulo de 0 significa que la cámara apunta en la horizontal y
+el valor predefinido de 30 significa que la cámara apunta 30 grados para
+abajo de la horizontal.
+</p>
+</dd></dl>
+
+<p><a name="scene_005fheight"></a>
+</p><dl>
+<dt><u>Opción de scene:</u> <b>height</b><i> [height, <var>pixels</var>]</i>
+<a name="IDX2165"></a>
+</dt>
+<dd><p>Valor predefinido: <code>500</code>
+</p>
+<p>La altura, en pixels, de la ventana gráfica. <var>pixels</var> debe ser un
+número entero positivo.
+</p>
+</dd></dl>
+
+<p><a name="scene_005frestart"></a>
+</p><dl>
+<dt><u>Opción de scene:</u> <b>restart</b><i> [restart, <var>valor</var>]</i>
+<a name="IDX2166"></a>
+</dt>
+<dd><p>Valor predefinido: <code>false</code>
+</p>
+<p>Un valor 'true' significa que la animación recomenzará automáticamente
+cuando llegue al final. Escribir simplemente &quot;restart&quot; es equivalente
+a escribir [restart, <var>true</var>].
+</p>
+</dd></dl>
+
+<p><a name="scene_005ftstep"></a>
+</p><dl>
+<dt><u>Opción de scene:</u> <b>tstep</b><i> [tstep, <var>tiempo</var>]</i>
+<a name="IDX2167"></a>
+</dt>
+<dd><p>Valor predefinido: <code>10</code>
+</p>
+<p>El intervalo de tiempo, en milisegundos, entre iteraciones consecutivas
+de las partes de una animación. <var>tiempo</var> debe ser un número real.
+</p>
+</dd></dl>
+
+<p><a name="scene_005fwidth"></a>
+</p><dl>
+<dt><u>Opción de scene:</u> <b>width</b><i> [width, <var>pixels</var>]</i>
+<a name="IDX2168"></a>
+</dt>
+<dd><p>Valor predefinido: <code>500</code>
+</p>
+<p>El ancho, en pixels, de la ventana gráfica. <var>pixels</var> deberá ser un
+número entero positivo.
+</p>
+</dd></dl>
+
+<p><a name="scene_005fwindowname"></a>
+</p><dl>
+<dt><u>Opción de scene:</u> <b>windowname</b><i> [windowtitle, <var>nombre</var>]</i>
+<a name="IDX2169"></a>
+</dt>
+<dd><p>Valor predefinido: <code>.scene</code>
+</p>
+<p><var>nombre</var> deberá ser una secuencia de caracteres que pueda ser usada
+para el nombre de una ventana de Tk, creada por Xmaxima para los
+gráficos de <code>scene</code>. El valor predefinido <code>.scene</code> implica que
+será creada una nueva ventana.
+</p>
+</dd></dl>
+
+<p><a name="scene_005fwindowtitle"></a>
+</p><dl>
+<dt><u>Opción de scene:</u> <b>windowtitle</b><i> [windowtitle, <var>nombre</var>]</i>
+<a name="IDX2170"></a>
+</dt>
+<dd><p>Valor predefinido: <code>Xmaxima: scene</code>
+</p>
+<p><var>nombre</var> debe ser una secuencia de caracteres que serán escritos en
+el encabezado de la ventana creada por  <code>scene</code>.
+</p>
+</dd></dl>
+
+<p><a name="scene_005fobjetos"></a>
+</p><hr size="6">
+<a name="SEC260"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC259" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC261" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC255" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC258" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_50.html#SEC262" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 49.3.2 Objetos de scene </h3>
+
+<p><a name="cone"></a>
+</p><dl>
+<dt><u>Objeto de scene:</u> <b>cone</b><i> [cone, <var>opciones</var>]</i>
+<a name="IDX2171"></a>
+</dt>
+<dd><p>Crea una pirámide regular con altura 1 unidad y base hexagonal con
+vértices a 0.5 unidades del eje. Las opciones
+<code><a href="#objeto_005fheight">height</a></code> y <code><a href="#objeto_005fradius">radius</a></code> se pueden
+usar para alterar esos valores predefinidos y la opción
+<code><a href="#objeto_005fresolution">resolution</a></code> se usa para alterar el número de
+aristas de la base; valores mayores harán que la pirámide parezca un
+cono. Por omisión, el eje estará a lo largo del eje x, el punto medio de
+la altura estará en el origen y el vértice en el lado positivo del eje
+x; las opciones <code><a href="#objeto_005forientation">orientation</a></code> y
+<code><a href="#objeto_005fcenter">center</a></code> permiten alterar eso.
+</p>
+<p><strong>Ejemplo</strong>. El siguiente comando muestra una pirámide que comienza
+a dar vueltas cuando se oprime el botón de animación.
+</p> 
+<pre class="example">(%i1) scene([cone, [orientation,0,30,0], [tstep,100],
+   [animate,orientation,makelist([0,30,i],i,5,360,5)]], restart)$
 </pre>
-<pre class="example">(%i4) orbits(y^2+x, 0, 50, 200, [x, -2, 0.25, 0.01], [pointsize, 0.9]);
+</dd></dl>
+
+<p><a name="cube"></a>
+</p><dl>
+<dt><u>Objeto de scene:</u> <b>cube</b><i> [cube, <var>opciones</var>]</i>
+<a name="IDX2172"></a>
+</dt>
+<dd><p>Un cubo con aristas de 1 unidad y caras paralelas al los planos xy, xz y
+yz. Las longitudes de las 3 aristas se pueden modificar con las opciones
+<code><a href="#objeto_005fxlength">xlength</a></code>, <code><a href="#objeto_005fylength">ylength</a></code> y
+<code><a href="#objeto_005fzlength">zlength</a></code>, convirtiéndolo en un paralelepípedo y
+las caras se pueden hacer rotar con la opción
+<code><a href="#objeto_005forientation">orientation</a></code>.
+</p>
+</dd></dl>
+
+<p><a name="cylinder"></a>
+</p><dl>
+<dt><u>Objeto de scene:</u> <b>cylinder</b><i> [cylinder, <var>opciones</var>]</i>
+<a name="IDX2173"></a>
+</dt>
+<dd><p>Crea un prisma regular con altura de 1 unidad y base hexagonal con los
+vértices a 0.5 unidades del eje. Las opciones
+<code><a href="#objeto_005fheight">height</a></code> y <code><a href="#objeto_005fradius">radius</a></code> permiten
+modificar esos valores predefinidos y la opción
+<code><a href="#objeto_005fresolution">resolution</a></code> se puede usar para modificar el
+número de aristas de la base; valores mayores tornan el prisma más
+parecido a un cilindro. La altura predefinida se puede alterar con la
+opción <code><a href="#objeto_005fheight">height</a></code>. Por omisión el eje estará
+orientado a lo largo del eje x, y el punto medio de la altura estará en
+el origen; se pueden cambiar esas propiedades con las opciones
+<code><a href="#objeto_005forientation">orientation</a></code> y <code><a href="#objeto_005fcenter">center</a></code>.
+</p>
+</dd></dl>
+
+<p><a name="sphere"></a>
+</p><dl>
+<dt><u>Objeto de scene:</u> <b>sphere</b><i> [sphere, <var>opciones</var>]</i>
+<a name="IDX2174"></a>
+</dt>
+<dd><p>Una esfera de radio igual a 0.5 unidades y centro en el origen.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005fopciones"></a>
+</p><hr size="6">
+<a name="SEC261"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC260" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_50.html#SEC262" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC255" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC258" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_50.html#SEC262" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection"> 49.3.3 Opciones de objetos de scene </h3>
+
+<p><a name="objeto_005fanimation"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>animation</b><i> [animation, <var>propiedad</var>, <var>posiciones</var>]</i>
+<a name="IDX2175"></a>
+</dt>
+<dd><p><var>propiedad</var> deberá ser una de las 4 siguientes propiedades del
+objeto: <code><a href="#objeto_005forigin">origin</a></code>,
+<code><a href="#objeto_005fscale">scale</a></code>, <code><a href="#objeto_005fposition">position</a></code> o
+<code><a href="#objeto_005forientation">orientation</a></code> y <var>posiciones</var> deberá ser una
+lista de puntos. Cuando se oprime el botón &quot;play&quot;, esa propiedad
+tomará sucesivamente los valores en la lista, en intervalos regulares de
+tiempo definidos por la opción <code><a href="#scene_005ftstep">tstep</a></code>. El botón de
+volver al comienzo puede usarse para recomenzar desde el principio de la
+lista, haciendo que la animación comience nuevamente cuando se presione
+otra vez el botón de play.
+</p>
+<p>Consulte también <code><a href="#objeto_005ftrack">track</a></code>.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005fcapping"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>capping</b><i> [capping, <var>número</var>]</i>
+<a name="IDX2176"></a>
+</dt>
+<dd><p>Valor predefinido: <code>1</code>
+</p>
+<p>En un objeto &quot;cone&quot; o &quot;cylinder&quot;, determina si la base (o bases) se
+muestran o no. Un valor de 1 para <var>número</var> torna la base visible y
+un valor de 0 la hace invisible.
+</p> 
+</dd></dl>
+
+<p><a name="objeto_005fcenter"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>center</b><i> [center, <var>punto</var>]</i>
+<a name="IDX2177"></a>
+</dt>
+<dd><p>Valor predefinido: <code>[0, 0, 0]</code>
+</p>
+<p>Coordenadas del centro geométrico del objeto, en relación a su posición
+(<code><a href="#objeto_005fposition">position</a></code>); <var>punto</var> puede ser una lista de
+3 números reales o 3 números separados por comas. En objetos de clase
+&quot;cylinder&quot;,&quot;cone&quot; o &quot;cube&quot; estará localizado en el punto medio de
+la altura y en objetos de clase &quot;sphere&quot; estará en su centro.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005fcolor"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>color</b><i> [color, <var>nombre</var>]</i>
+<a name="IDX2178"></a>
+</dt>
+<dd><p>Valor predefinido: <code>white</code>
+</p>
+<p>El color del objeto. Acepta nombres de colores conocidos o secuencias de
+6 dígitos (rojo-verde-azul) precedidos por # (ver la opción <code><a href="maxima_12.html#color">color</a></code>
+de plot2d).
+</p>
+</dd></dl>
+
+<p><a name="objeto_005fendphi"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>endphi</b><i> [endphi, <var>ángulo</var>]</i>
+<a name="IDX2179"></a>
+</dt>
+<dd><p>Valor predefinido: <code>180</code>
+</p>
+<p>En una esfera, phi es el ángulo en el plano vertical que pasa por el eje
+z, medido a partir de la parte positiva del eje z. <var>ángulo</var> debe ser
+un múmero entre 0 y 180 que determina el valor final de phi hasta donde
+se mostrará la superficie. Valores menores que 180 eliminan una parte de
+la superficie.
+</p>
+<p>Consulte también <code><a href="#objeto_005fstartphi">startphi</a></code> y
+<code><a href="#objeto_005fphiresolution">phiresolution</a></code>.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005fendtheta"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>endtheta</b><i> [endtheta, <var>ángulo</var>]</i>
+<a name="IDX2180"></a>
+</dt>
+<dd><p>Valor predefinido: <code>360</code>
+</p>
+<p>En una esfera, theta es el ángulo en el plano horizontal (longitud),
+medido desde la parte positiva del eje x. <var>ángulo</var> debe ser un
+número entre 0 y 360 que determina el valor final donde la superficie
+terminará. Valores menores que 360 hacen que se elimine una parte de la
+superficie de la esfera.
+</p>
+<p>Consulte también <code><a href="#objeto_005fstarttheta">starttheta</a></code> y
+<code><a href="#objeto_005fthetaresolution">thetaresolution</a></code>.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005fheight"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>height</b><i> [height, <var>valor</var>]</i>
+<a name="IDX2181"></a>
+</dt>
+<dd><p>Valor predefinido: <code>1</code>
+</p>
+<p><var>valor</var> debe ser un número positivo que define la altura de un cono
+o cilindro.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005flinewidth"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>linewidth</b><i> [linewidth, <var>valor</var>]</i>
+<a name="IDX2182"></a>
+</dt>
+<dd><p>Valor predefinido: <code>1</code>
+</p>
+<p>El ancho de las líneas cuando se usa la opción
+<code><a href="#objeto_005fwireframe">wireframe</a></code>. <var>valor</var> debe ser un número
+positivo.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005fopacity"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>opacity</b><i> [opacity, <var>valor</var>]</i>
+<a name="IDX2183"></a>
+</dt>
+<dd><p>Valor predefinido: <code>1</code>
+</p>
+<p><var>valor</var> debe se un número entre 0 y 1. Cuanto menor sea el número,
+mas transparente será el objeto. El valor predefinido de 1 implica un
+objeto completamente opaco.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005forientation"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>orientation</b><i> [orientation, <var>ángulos</var>]</i>
+<a name="IDX2184"></a>
+</dt>
+<dd><p>Valor predefinido: <code>[0, 0, 0]</code>
+</p>
+<p>Tres ángulos que de rotaciones que serán realizadas en el objeto,
+alrededor de los tres ejes.<var>ángulos</var> puede ser una lista con tres
+números reales o tres números separados por comas. <strong>Ejemplo</strong>:
+<code>[0, 0, 90]</code> rota el eje x del objeto hasta el eje y del sistema de
+referencia.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005forigin"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>origin</b><i> [origin, <var>punto</var>]</i>
+<a name="IDX2185"></a>
+</dt>
+<dd><p>Valor predefinido: <code>[0, 0, 0]</code>
+</p>
+<p>Coordenadas del origen del objeto, en relación al cual las otras
+dimensiones serán definidas. <var>punto</var> pueden ser tres números
+separados por comas, o una lista de tres números.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005fphiresolution"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>phiresolution</b><i> [phiresolution, <var>num</var>]</i>
+<a name="IDX2186"></a>
+</dt>
+<dd><p>Valor predefinido: <code></code>
+</p>
+<p>Número de sub-intervalos en que se divide el intervalo de valores del
+ángulo phi, que comienza en <code><a href="#objeto_005fstartphi">startphi</a></code> y termina
+en <code><a href="#objeto_005fendphi">endphi</a></code>. <var>num</var> debe ser un número entero
+positivo.
+</p>
+<p>Consulte también <code><a href="#objeto_005fstartphi">startphi</a></code> y
+<code><a href="#objeto_005fendphi">endphi</a></code>.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005fpoints"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>points</b><i>  [points]</i>
+<a name="IDX2187"></a>
+</dt>
+<dd><p>Esta opción hace que en vez de que se muestre la superficie, se muestren
+únicamente los vértices en la triangulación usada para construir la
+superficie. <strong>Ejemplo</strong>: <code>[sphere, [points]]</code>
+</p>
+<p>Consulte también <code><a href="#objeto_005fsurface">surface</a></code> y
+<code><a href="#objeto_005fwireframe">wireframe</a></code>.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005fpointsize"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>pointsize</b><i> [pointsize, <var>valor</var>]</i>
+<a name="IDX2188"></a>
+</dt>
+<dd><p>Valor predefinido: <code>1</code>
+</p>
+<p>Tamaño de los puntos, cuando se usa la opción
+<code><a href="#objeto_005fpoints">points</a></code>. <var>valor</var> debe ser un número positivo.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005fposition"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>position</b><i> [position, <var>punto</var>]</i>
+<a name="IDX2189"></a>
+</dt>
+<dd><p>Valor predefinido: <code>[0, 0, 0]</code>
+</p>
+<p>Coordenadas de la posición del objeto. <var>punto</var> puede ser tres
+números separados por comas o una lista de tres números.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005fradius"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>radius</b><i> [radius, <var>valor</var>]</i>
+<a name="IDX2190"></a>
+</dt>
+<dd><p>Valor predefinido: <code>0.5</code>
+</p>
+<p>El radio de una esfera o la distancia desde el eje hasta los vértices de
+la base en cilindros o conos. <var>valor</var> debe ser un número positivo.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005fresolution"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>resolution</b><i> [resolution, <var>número</var>]</i>
+<a name="IDX2191"></a>
+</dt>
+<dd><p>Valor predefinido: <code>6</code>
+</p>
+<p><var>número</var> debe ser un número entero mayor que 2, que define el número
+de aristas de la base en objetos de clase &quot;cone&quot; o &quot;cylinder&quot;.
+</p> 
+</dd></dl>
+
+<p><a name="objeto_005fscale"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>scale</b><i> [scale, <var>factores</var>]</i>
+<a name="IDX2192"></a>
+</dt>
+<dd><p>Valor predefinido: <code>[1, 1, 1]</code>
+</p>
+<p>Tres factores de escala en que serán deformadas las dimensiones del
+objeto en relación a los tres ejes. <var>factors</var> pueden ser tres número
+separados por comas o una lista con tres números. <strong>Ejemplo</strong>:
+<code>[2, 0.5, 1]</code> estira el objeto suplicando sus dimensiones paralelas
+la eje x, reduce a mitad las dimensiones paralelas al eje y, dejando
+iguales las dimensiones paralelas al eje z.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005fstartphi"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>startphi</b><i> [startphi, <var>ángulo</var>]</i>
+<a name="IDX2193"></a>
+</dt>
+<dd><p>Valor predefinido: <code>0</code>
+</p>
+<p>En una esfera, phi es el ángulo en el plano vertical que pasa por el eje
+z, medido a partir de la parte positiva del eje z. <var>ángulo</var> debe ser
+un múmero entre 0 y 180 que determina el valor inicial de phi desde donde
+se mostrará la superficie. Valores superiores a 0 eliminan una parte de
+la superficie.
+</p>
+<p>Consulte también <code><a href="#objeto_005fendphi">endphi</a></code> y
+<code><a href="#objeto_005fphiresolution">phiresolution</a></code>.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005fstarttheta"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>starttheta</b><i> [starttheta, <var>ángulo</var>]</i>
+<a name="IDX2194"></a>
+</dt>
+<dd><p>Valor predefinido: <code>0</code>
+</p>
+<p>En una esfera, theta es el ángulo en el plano horizontal (longitud),
+medido desde la parte positiva del eje x. <var>ángulo</var> debe ser un
+número entre 0 y 360 que determina el valor inicial donde la superficie
+comienza. Valores mayores que 0 hacen que se elimine una parte de la
+superficie de la esfera.
+</p>
+<p>Consulte también <code><a href="#objeto_005fendtheta">endtheta</a></code> y
+<code><a href="#objeto_005fthetaresolution">thetaresolution</a></code>.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005fsurface"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>surface</b><i> [surface]</i>
+<a name="IDX2195"></a>
+</dt>
+<dd><p>Hace que se muestre la superficie del objeto y no los las líneas ni los
+vértices de la triangulación usada para construirlo. Ese es el
+comportamiento habitual que se puede alterar con las opciones
+<code><a href="#objeto_005fpoints">points</a></code> o <code><a href="#objeto_005fwireframe">wireframe</a></code>.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005fthetaresolution"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>thetaresolution</b><i> [thetaresolution, <var>num</var>]</i>
+<a name="IDX2196"></a>
+</dt>
+<dd><p>Valor predefinido: <code></code>
+</p>
+<p>Número de sub-intervalos en que se divide el intervalo de valores del
+ángulo theta, que comienza en <code><a href="#objeto_005fstarttheta">starttheta</a></code> y termina
+en <code><a href="#objeto_005fendtheta">endtheta</a></code>. <var>num</var> debe ser un número entero
+positivo.
+Consulte también <code><a href="#objeto_005fstarttheta">starttheta</a></code> y
+<code><a href="#objeto_005fendtheta">endtheta</a></code>.
+</p>
+</dd></dl>
+
+<p><a name="objeto_005ftrack"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>track</b><i> [track, <var>posiciones</var>]</i>
+<a name="IDX2197"></a>
+</dt>
+<dd><p><var>posiciones</var> deberá ser una lista de puntos. Cuando se oprime el
+botón de &quot;play&quot;, la posición del objeto tomara secuencialmente los
+valores en la lista, a intervalos regulares de tiempo definidos por la
+opción <code><a href="#scene_005ftstep">tstep</a></code>, dejando un rastro de la
+trayectoria del objeto. El botón de volver al comienzo puede usarse para
+recomenzar desde el principio de la lista, haciendo que la animación
+comience nuevamente cuando se presione otra vez el botón de play.
+</p>
+<p><strong>Ejemplo</strong>. Estos comandos muestran la trayectoria de una bola
+lanzada con velocidad inicial de 5 m/s, a un ángulo de 45 grados, cuando
+se puede ignorar la resistencia del aire:
+</p>
+<pre class="example">(%i1) p: makelist ([0,4*t,4*t- 9.8*t^2/2], t, 0, 0.82, 0.01)$
+
+(%i2) bola: [sphere, [radius,0.1], [color,red], [track,p]]$
+
+(%i3) piso: [cube, [xlength,2], [ylength,4], [zlength,0.2],
+      [position,0,1.5,-0.2],[color,green]]$
+
+(%i4) scene (bola, piso)$
 </pre>
-<p><div class="image"><img src="./../figures/dynamics3.gif" alt="../figures/dynamics3"></div>
+<p>Consulte también <code><a href="#objeto_005fanimation">animation</a></code>.
 </p>
-<p>Para ampliar la regi&oacute;n alrededor de la bifurcaci&oacute;n en la parte de
-abajo, cerca de x <code>=</code> -1.25, use el comando:
-</p><pre class="example">(%i5) orbits(x+y^2, 0, 100, 400, [x,-1,-1.53,-0.001], [pointsize,0.9],
-             [ycenter,-1.2], [yradius,0.4]);
-</pre>
-<p><div class="image"><img src="./../figures/dynamics4.gif" alt="../figures/dynamics4"></div>
+</dd></dl>
+
+<p><a name="objeto_005fxlength"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>xlength</b><i> [xlength, <var>altura</var>]</i>
+<a name="IDX2198"></a>
+</dt>
+<dd><p>Valor predefinido: <code>1</code>
 </p>
-<p>Evoluci&oacute;n de un sistema en dos dimensiones, que conduce a un fractal:
+<p>Altura de un objeto de clase &quot;cube&quot;, en la dirección x. <var>altura</var>
+debe ser un número positivo. Consulte también
+<code><a href="#objeto_005fylength">ylength</a></code> y <code><a href="#objeto_005fzlength">zlength</a></code>.
 </p>
-<pre class="example">(%i6) f: 0.6*x*(1+2*x)+0.8*y*(x-1)-y^2-0.9$
-(%i7) g: 0.1*x*(1-6*x+4*y)+0.1*y*(1+9*y)-0.4$
-(%i8) evolution2d([f,g],[-0.5,0],50000,[pointsize,0.7]);
-</pre>
-<p><div class="image"><img src="./../figures/dynamics5.gif" alt="../figures/dynamics5"></div>
+</dd></dl>
+
+<p><a name="objeto_005fylength"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>ylength</b><i> [ylength, <var>altura</var>]</i>
+<a name="IDX2199"></a>
+</dt>
+<dd><p>Valor predefinido: <code>1</code>
 </p>
-<p>Y una ampliaci&oacute;n de una peque&ntilde;a regi&oacute;n en el fractal:
+<p>Altura de un objeto de clase &quot;cube&quot;, en la dirección y. <var>altura</var>
+debe ser un número positivo. Consulte también
+<code><a href="#objeto_005fxlength">xlength</a></code> y <code><a href="#objeto_005fzlength">zlength</a></code>.
 </p>
-<pre class="example">(%i9) evolution2d([f,g],[-0.5,0],300000,[pointsize,0.7], [xcenter,-0.7],
-                  [ycenter,-0.3],[xradius,0.1],[yradius,0.1]);
-</pre>
-<p><div class="image"><img src="./../figures/dynamics6.gif" alt="../figures/dynamics6"></div>
+</dd></dl>
+
+<p><a name="objeto_005fzlength"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>zlength</b><i> [zlength, <var>altura</var>]</i>
+<a name="IDX2200"></a>
+</dt>
+<dd><p>Valor predefinido: <code>1</code>
 </p>
-<p>Una gr&aacute;fica del triangulo de Sierpinsky, obtenida con el juego del caos:
+<p>Altura de un objeto de clase &quot;cube&quot;, en la dirección z. <var>altura</var>
+debe ser un número positivo. Consulte también
+<code><a href="#objeto_005fxlength">xlength</a></code> y <code><a href="#objeto_005fylength">ylength</a></code>.
 </p>
-<pre class="example">(%i9) chaosgame([[0, 0], [1, 0], [0.5, sqrt(3)/2]], [0.1, 0.1], 1/2,
-                 30000, [pointsize,0.7]);
-</pre>
-<p><div class="image"><img src="./../figures/dynamics7.gif" alt="../figures/dynamics7"></div>
+</dd></dl>
+
+<p><a name="objeto_005fwireframe"></a>
+</p><dl>
+<dt><u>Opción de objeto:</u> <b>wireframe</b><i>  [wireframe]</i>
+<a name="IDX2201"></a>
+</dt>
+<dd><p>Esta opción hace que en vez de que se muestre la superficie, se muestren
+únicamente las aristas de la triangulación usada para construir la
+superficie. <strong>Ejemplo</strong>: <code>[cube, [wireframe]]</code>
 </p>
-<p>El helecho de Barnsley, obtenido con el Sistema de Funciones Iteradas:
+<p>Consulte también <code><a href="#objeto_005fsurface">surface</a></code> y
+<code><a href="#objeto_005fpoints">points</a></code>.
 </p>
-<pre class="example">(%i10) a1: matrix([0.85,0.04],[-0.04,0.85])$
-(%i11) a2: matrix([0.2,-0.26],[0.23,0.22])$
-(%i12) a3: matrix([-0.15,0.28],[0.26,0.24])$
-(%i13) a4: matrix([0,0],[0,0.16])$
-(%i14) p1: [0,1.6]$
-(%i15) p2: [0,1.6]$
-(%i16) p3: [0,0.44]$
-(%i17) p4: [0,0]$
-(%i18) w: [85,92,99,100]$
-(%i19) ifs(w,[a1,a2,a3,a4],[p1,p2,p3,p4],[5,0],50000,[pointsize,0.9]);
-</pre>
-<p><div class="image"><img src="./../figures/dynamics8.gif" alt="../figures/dynamics8"></div>
-</p>
-<p>Para crear un fichero llamado <em>dinamica9.xpm</em> con la
-representaci&oacute;n gr&aacute;fica del conjunto de Mandelbrot, con 12 colores,
-use el comando:
-</p>
-<pre class="example">mandelbrot([filename,&quot;dinamica9&quot;])$
-</pre>
-<p>y el conjunto de Julia del n&uacute;mero (-0.55 + i 0.6) puede ser obtenido con:
-</p><pre class="example">julia(-0.55, 0.6, [levels, 36], [center, 0, 0.6], [radius, 0.3],
-      [hue, 240], [huerange, -180], [filename, &quot;dinamica10&quot;])$
-</pre>
-<p>la gr&aacute;fica se guardar&aacute; en el fichero <em>dinamica10.xpm</em> y
-mostrar&aacute; la regi&oacute;n desde -0.3 hasta 0.3 en la direcci&oacute;n x, y desde
-0.3 hasta 0.9 en la direcci&oacute;n y. Ser&aacute;n usados 36 colores, comenzando
-con azul e terminando con amarillo.
-</p>
-<p>Para resolver num&eacute;ricamente la ecuaci&oacute;n diferencial
-</p>
-<pre class="example">          dx/dt = t - x^2
-</pre>
-<p>Con valor inicial x(t=0) = 1, en el intervalo de t desde 0 hasta 8, y
-con incrementos de 0.1, se usa:
-</p>
-<pre class="example">(%i20) resultados: rk(t-x^2,x,1,[t,0,8,0.1])$
-</pre>
-<p>los resultados quedar&aacute;n guardados en la lista resultados.
-</p>
-<p>Para resolver num&eacute;ricamente el sistema:
-</p>
-<pre class="example">        dx/dt = 4-x^2-4*y^2     dy/dt = y^2-x^2+1
-</pre>
-<p>para t entre 0 y 4, con valores iniciales -1.25 y 0.75 para (x, y) en t=0:
-</p>
-<pre class="example">(%i21) sol: rk([4-x^2-4*y^2,y^2-x^2+1],[x,y],[-1.25,0.75],[t,0,4,0.02])$
-</pre>
+</dd></dl>
+
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC254" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_50.html#SEC257" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC255" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_50.html#SEC262" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -618,12 +1070,12 @@ con incrementos de 0.1, se usa:
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>septiembre, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>abril, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

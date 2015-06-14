@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on septiembre, 8 2014 by texi2html 1.76 -->
+<!-- Created on abril, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual de Maxima: 40. Bernstein</title>
+<title>Manual de Maxima 5.36.0: 40. Bernstein</title>
 
-<meta name="description" content="Manual de Maxima: 40. Bernstein">
-<meta name="keywords" content="Manual de Maxima: 40. Bernstein">
+<meta name="description" content="Manual de Maxima 5.36.0: 40. Bernstein">
+<meta name="keywords" content="Manual de Maxima 5.36.0: 40. Bernstein">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,163 +32,85 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="Bernstein"></a>
-<a name="SEC214"></a>
+<a name="SEC215"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_39.html#SEC213" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC215" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_39.html#SEC214" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC216" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_39.html#SEC212" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_39.html#SEC213" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_41.html#SEC216" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_41.html#SEC217" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter"> 40. Bernstein </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC215">40.1 Funciones y variables para Bernstein</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC216">40.1 Funciones y variables para Bernstein</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <hr size="6">
 <a name="Funciones-y-variables-para-Bernstein"></a>
-<a name="SEC215"></a>
+<a name="SEC216"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC214" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_41.html#SEC216" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC215" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_41.html#SEC217" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC214" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC214" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_41.html#SEC216" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC215" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC215" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_41.html#SEC217" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 40.1 Funciones y variables para Bernstein </h2>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>bernstein_poly</b><i> (<var>k</var>, <var>n</var>, <var>x</var>)</i>
+<dt><u>Función:</u> <b>bernstein_poly</b><i> (<var>k</var>, <var>n</var>, <var>x</var>)</i>
 <a name="IDX1593"></a>
 </dt>
 <dd><p>Si <code>k</code> no es un entero negativo, los polinomios de Bernstein se 
@@ -196,7 +118,7 @@ definen como <code>bernstein_poly(k,n,x) = binomial(n,k) x^k (1-x)^(n-k)</code>;
 en cambio, si <code>k</code> es un entero negativo, el polinomio de Bernstein
 <code>bernstein_poly(k,n,x)</code> se anula. Cuando o bien <code>k</code> o <code>n</code> 
 no son enteros, la variable opcional <code>bernstein_explicit</code> controla
-la expansi&oacute;n de los polinomios de Bernstein a su forma expl&iacute;cita.
+la expansión de los polinomios de Bernstein a su forma explícita.
 </p>
 <p>Ejemplo:
 </p>
@@ -220,8 +142,8 @@ la expansi&oacute;n de los polinomios de Bernstein a su forma expl&iacute;cita.
  ----------------------------------------------------------------
                               k + 1
 </pre>
-<p>Cuando los argumentos contienen n&uacute;meros decimales en coma flotante, los
-polinomios de Bernstein tambi&eacute;n devuelven resultados decimales.
+<p>Cuando los argumentos contienen números decimales en coma flotante, los
+polinomios de Bernstein también devuelven resultados decimales.
 </p>
 <pre class="example">(%i6) bernstein_poly(5,9, 1/2 + %i);
                         39375 %i   39375
@@ -230,7 +152,7 @@ polinomios de Bernstein tambi&eacute;n devuelven resultados decimales.
 (%i7) bernstein_poly(5,9, 0.5b0 + %i);
 (%o7)           3.076171875b2 %i + 1.5380859375b2
 </pre>
-<p>Para hacer uso de <code>bernstein_poly</code>, ejec&uacute;tese primero <code>load(&quot;bernstein&quot;)</code>.
+<p>Para hacer uso de <code>bernstein_poly</code>, ejecútese primero <code>load(&quot;bernstein&quot;)</code>.
 </p>
 </dd></dl>
 
@@ -241,7 +163,7 @@ polinomios de Bernstein tambi&eacute;n devuelven resultados decimales.
 <dd><p>Valor por defecto: <code>false</code>
 </p>
 <p>Cuando o bien <code>k</code> o <code>n</code> no son enteros, la variable opcional <code>bernstein_explicit</code> controla
-la expansi&oacute;n de los polinomios de Bernstein a su forma expl&iacute;cita.
+la expansión de los polinomios de Bernstein a su forma explícita.
 </p>
 <p>Ejemplo:
 </p>
@@ -252,32 +174,32 @@ la expansi&oacute;n de los polinomios de Bernstein a su forma expl&iacute;cita.
 (%o2)                   binomial(n, k) (1 - x)      x
 </pre>
 <p>Cuando tanto <code>k</code> como <code>n</code> son enteros, <code>bernstein(k,n,x)</code> se
-expande siempre a su forma expl&iacute;cita.
+expande siempre a su forma explícita.
 </p>
 </dd></dl>
 
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>multibernstein_poly</b><i> (<var>[k1,k2,...,kp]</var>,<var>[n1,n2,..., np]</var>,<var>[x1,x2,..., xp]</var>)</i>
+<dt><u>Función:</u> <b>multibernstein_poly</b><i> (<var>[k1,k2,...,kp]</var>,<var>[n1,n2,..., np]</var>,<var>[x1,x2,..., xp]</var>)</i>
 <a name="IDX1595"></a>
 </dt>
 <dd><p>La sentencia <code>multibernstein_poly (<var>[k1,k2,...,kp]</var>,<var>[n1,n2,..., np]</var>,<var>[x1,x2,..., xp]</var>)</code>
 es el producto de polinomios de Bernstein 
 <code>bernstein_poly(k1,n1,x1) bernstein_poly(k2,n2,x2) ... bernstein_poly(kp,np,xp)</code>.
 </p>
-<p>Para hacer uso de <code>multibernstein_poly</code>, ejec&uacute;tese primero <code>load(&quot;bernstein&quot;)</code>.
+<p>Para hacer uso de <code>multibernstein_poly</code>, ejecútese primero <code>load(&quot;bernstein&quot;)</code>.
 </p>
 </dd></dl>
 
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>bernstein_approx</b><i> (<var>f</var>,<var>[x1,x1,...,xn]</var>,n)</i>
+<dt><u>Función:</u> <b>bernstein_approx</b><i> (<var>f</var>,<var>[x1,x1,...,xn]</var>,n)</i>
 <a name="IDX1596"></a>
 </dt>
-<dd><p>Devuelve el polinomio de Bernstein uniforme de <code>n</code>-&eacute;simo orden que aproxima 
-la funci&oacute;n <code>(x1,x2,..xn) |--&gt; f</code>.
+<dd><p>Devuelve el polinomio de Bernstein uniforme de <code>n</code>-ésimo orden que aproxima 
+la función <code>(x1,x2,..xn) |--&gt; f</code>.
 </p>
 <p>Ejemplos:
 </p>
@@ -299,17 +221,17 @@ la funci&oacute;n <code>(x1,x2,..xn) |--&gt; f</code>.
  + 2 f(-, 0) (1 - x) x (1 - y)  + f(0, 0) (1 - x)  (1 - y)
        2
 </pre>
-<p>Para hacer uso de <code>bernstein_approx</code>, ejec&uacute;tese primero <code>load(&quot;bernstein&quot;)</code>.
+<p>Para hacer uso de <code>bernstein_approx</code>, ejecútese primero <code>load(&quot;bernstein&quot;)</code>.
 </p>
 </dd></dl>
 
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>bernstein_expand</b><i> (<var>e</var>, <var>[x1,x1,...,xn]</var>)</i>
+<dt><u>Función:</u> <b>bernstein_expand</b><i> (<var>e</var>, <var>[x1,x1,...,xn]</var>)</i>
 <a name="IDX1597"></a>
 </dt>
-<dd><p>Expresa el polinomio <code>e</code> como una combinaci&oacute;n lineal de polinomios de
+<dd><p>Expresa el polinomio <code>e</code> como una combinación lineal de polinomios de
 Bernstein multivariantes.
 </p>
 <pre class="example">(%i1) bernstein_expand(x*y+1,[x,y]);
@@ -319,14 +241,15 @@ Bernstein multivariantes.
 </pre>
 <p>Maxima devuelve un error si el primer argumento no es un polinomio.
 </p>
-<p>Para hacer uso de <code>bernstein_expand</code>, ejec&uacute;tese primero <code>load(&quot;bernstein&quot;)</code>.
+<p>Para hacer uso de <code>bernstein_expand</code>, ejecútese primero <code>load(&quot;bernstein&quot;)</code>.
 </p>
 </dd></dl>
 
+
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC214" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_41.html#SEC216" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC215" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_41.html#SEC217" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -334,12 +257,12 @@ Bernstein multivariantes.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>septiembre, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>abril, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on Setembro, 8 2014 by texi2html 1.76 -->
+<!-- Created on Janeiro, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual do Maxima: 30. S&eacute;ries</title>
+<title>Manual do Maxima 5.35.71.g68475e4: 30. Séries</title>
 
-<meta name="description" content="Manual do Maxima: 30. S&eacute;ries">
-<meta name="keywords" content="Manual do Maxima: 30. S&eacute;ries">
+<meta name="description" content="Manual do Maxima 5.35.71.g68475e4: 30. Séries">
+<meta name="keywords" content="Manual do Maxima 5.35.71.g68475e4: 30. Séries">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,111 +32,33 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
@@ -156,15 +78,15 @@ div.categorybox
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter"> 30. S&eacute;ries </h1>
+<h1 class="chapter"> 30. Séries </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC121">30.1 Introdu&ccedil;&atilde;o a S&eacute;ries</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">      
+<tr><td align="left" valign="top"><a href="#SEC121">30.1 Introdução a Séries</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">      
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC122">30.2 Defini&ccedil;&otilde;es para S&eacute;ries</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">      
+<tr><td align="left" valign="top"><a href="#SEC122">30.2 Definições para Séries</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">      
 </td></tr>
 </table>
 
@@ -184,14 +106,14 @@ div.categorybox
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 30.1 Introdu&ccedil;&atilde;o a S&eacute;ries </h2>
-<p>Maxima cont&eacute;m fun&ccedil;&otilde;es <code>taylor</code> e <code>powerseries</code> (s&eacute;ries de pot&ecirc;ncia) para encontrar as
-s&eacute;ries de fun&ccedil;&otilde;es diferenci&aacute;veis.   Maxima tamb&eacute;m tem ferramentas  tais como <code>nusum</code>
-capazes de encontrar a forma fechada de algumas s&eacute;ries.   Opera&ccedil;&otilde;es tais como adi&ccedil;&atilde;o e multiplica&ccedil;&atilde;o travalham da forma usual sobre s&eacute;ries.  Essa sec&ccedil;&atilde;o apresenta as vari&aacute;veis globais que controlam a
-expans&atilde;o.
+<h2 class="section"> 30.1 Introdução a Séries </h2>
+<p>Maxima contém funções <code>taylor</code> e <code>powerseries</code> (séries de potência) para encontrar as
+séries de funções diferenciáveis.   Maxima também tem ferramentas  tais como <code>nusum</code>
+capazes de encontrar a forma fechada de algumas séries.   Operações tais como adição e multiplicação travalham da forma usual sobre séries.  Essa secção apresenta as variáveis globais que controlam a
+expansão.
 </p><hr size="6">
 <a name="Defini_00e7_00f5es-para-S_00e9ries"></a>
 <a name="SEC122"></a>
@@ -208,23 +130,23 @@ expans&atilde;o.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 30.2 Defini&ccedil;&otilde;es para S&eacute;ries </h2>
+<h2 class="section"> 30.2 Definições para Séries </h2>
 
 <dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>cauchysum</b>
-<a name="IDX1015"></a>
+<dt><u>Variável de opção:</u> <b>cauchysum</b>
+<a name="IDX1014"></a>
 </dt>
-<dd><p>Valor por omiss&atilde;o: <code>false</code>
+<dd><p>Valor por omissão: <code>false</code>
 </p>
-<p>Quando multiplicando adi&ccedil;&otilde;es jutas com <code>inf</code> como seus limites superiores,
+<p>Quando multiplicando adições jutas com <code>inf</code> como seus limites superiores,
 se <code>sumexpand</code> for <code>true</code> e <code>cauchysum</code> for <code>true</code>
-ent&atilde;o o produto de Cauchy ser&aacute; usado em lugar do produto
+então o produto de Cauchy será usado em lugar do produto
 usual.
-No produto de Cauchy o &iacute;ndice do somat&oacute;rio interno &eacute; uma
-fun&ccedil;&atilde;o do &iacute;ndice do externo em lugar de variar
+No produto de Cauchy o índice do somatório interno é uma
+função do índice do externo em lugar de variar
 independentemente.
 </p>
 <p>Exemplo:
@@ -253,18 +175,18 @@ independentemente.
 </dd></dl>
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>deftaylor</b><i> (<var>f_1</var>(<var>x_1</var>), <var>expr_1</var>, ..., <var>f_n</var>(<var>x_n</var>), <var>expr_n</var>)</i>
-<a name="IDX1016"></a>
+<dt><u>Função:</u> <b>deftaylor</b><i> (<var>f_1</var>(<var>x_1</var>), <var>expr_1</var>, ..., <var>f_n</var>(<var>x_n</var>), <var>expr_n</var>)</i>
+<a name="IDX1015"></a>
 </dt>
-<dd><p>Para cada fun&ccedil;&atilde;o <var>f_i</var> de uma vari&aacute;vel <var>x_i</var>, 
-<code>deftaylor</code> define <var>expr_i</var> como a s&eacute;ries de Taylor sobre zero.
-<var>expr_i</var> &eacute; tipicamente um polin&oacute;mio em <var>x_i</var> ou um somat&oacute;rio;
-express&otilde;es mais gerais s&atilde;o aceitas por <code>deftaylor</code> sem reclama&ccedil;&otilde;es.
+<dd><p>Para cada função <var>f_i</var> de uma variável <var>x_i</var>, 
+<code>deftaylor</code> define <var>expr_i</var> como a séries de Taylor sobre zero.
+<var>expr_i</var> é tipicamente um polinómio em <var>x_i</var> ou um somatório;
+expressões mais gerais são aceitas por <code>deftaylor</code> sem reclamações.
 </p>
 <p><code>powerseries (<var>f_i</var>(<var>x_i</var>), <var>x_i</var>, 0)</code>
-retorna as s&eacute;ries definidas por <code>deftaylor</code>.
+retorna as séries definidas por <code>deftaylor</code>.
 </p>
-<p><code>deftaylor</code> retorna uma lista das fun&ccedil;&otilde;es
+<p><code>deftaylor</code> retorna uma lista das funções
 <var>f_1</var>, ..., <var>f_n</var>.
 <code>deftaylor</code> avalia seus argumentos.
 </p>
@@ -289,31 +211,31 @@ retorna as s&eacute;ries definidas por <code>deftaylor</code>.
 </dd></dl>
 
 <dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>maxtayorder</b>
-<a name="IDX1017"></a>
+<dt><u>Variável de opção:</u> <b>maxtayorder</b>
+<a name="IDX1016"></a>
 </dt>
-<dd><p>Valor por omiss&atilde;o: <code>true</code>
+<dd><p>Valor por omissão: <code>true</code>
 </p>
-<p>Quando <code>maxtayorder</code> for <code>true</code>, durante a manipula&ccedil;&atilde;o
-alg&eacute;brica de s&eacute;ries (truncadas) de Taylor, <code>taylor</code> tenta reter
+<p>Quando <code>maxtayorder</code> for <code>true</code>, durante a manipulação
+algébrica de séries (truncadas) de Taylor, <code>taylor</code> tenta reter
 tantos termos quantos forem conhecidos serem correctos.
 </p>
 </dd></dl>
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>niceindices</b><i> (<var>expr</var>)</i>
-<a name="IDX1018"></a>
+<dt><u>Função:</u> <b>niceindices</b><i> (<var>expr</var>)</i>
+<a name="IDX1017"></a>
 </dt>
-<dd><p>Renomeia os &iacute;ndices de adi&ccedil;&otilde;es e produtos em <var>expr</var>.
-<code>niceindices</code> tenta renomear cada &iacute;ndice para o valor de <code>niceindicespref[1]</code>,
-a menos que o nome apare&ccedil;a nas parcelas do somat&oacute;rio ou produt&oacute;rio,
+<dd><p>Renomeia os índices de adições e produtos em <var>expr</var>.
+<code>niceindices</code> tenta renomear cada índice para o valor de <code>niceindicespref[1]</code>,
+a menos que o nome apareça nas parcelas do somatório ou produtório,
 nesses casos <code>niceindices</code> tenta
-os elementos seguintes de <code>niceindicespref</code> por sua vez, at&eacute; que uma var&aacute;vel n&atilde;o usada unused variable seja encontrada.
+os elementos seguintes de <code>niceindicespref</code> por sua vez, até que uma varável não usada unused variable seja encontrada.
 Se a lista inteira for exaurida,
-&iacute;ndices adicionais s&atilde;o constr&iacute;dos atrav&eacute;s da anexaao de inteiros ao valor de
+índices adicionais são constrídos através da anexaao de inteiros ao valor de
 <code>niceindicespref[1]</code>, e.g., <code>i0</code>, <code>i1</code>, <code>i2</code>, ....
 </p>
-<p><code>niceindices</code> retorna uma express&atilde;o.
+<p><code>niceindices</code> retorna uma expressão.
 <code>niceindices</code> avalia seu argumento.
 </p>
 <p>Exemplo:
@@ -340,16 +262,16 @@ Se a lista inteira for exaurida,
 </dd></dl>
 
 <dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>niceindicespref</b>
-<a name="IDX1019"></a>
+<dt><u>Variável de opção:</u> <b>niceindicespref</b>
+<a name="IDX1018"></a>
 </dt>
-<dd><p>Valor por omiss&atilde;o: <code>[i, j, k, l, m, n]</code>
+<dd><p>Valor por omissão: <code>[i, j, k, l, m, n]</code>
 </p>
-<p><code>niceindicespref</code> &eacute; a lista da qual <code>niceindices</code>
-obt&eacute;m os nomes dos &iacute;ndices de adi&ccedil;&otilde;es e produtos products.
+<p><code>niceindicespref</code> é a lista da qual <code>niceindices</code>
+obtém os nomes dos índices de adições e produtos products.
 </p>
-<p>Os elementos de <code>niceindicespref</code> s&atilde;o tipicamente nomes de vari&aacute;veis,
-embora que n&atilde;o seja imposto por <code>niceindices</code>.
+<p>Os elementos de <code>niceindicespref</code> são tipicamente nomes de variáveis,
+embora que não seja imposto por <code>niceindices</code>.
 </p>
 <p>Exemplo:
 </p>
@@ -374,24 +296,24 @@ embora que n&atilde;o seja imposto por <code>niceindices</code>.
 </dd></dl>
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>nusum</b><i> (<var>expr</var>, <var>x</var>, <var>i_0</var>, <var>i_1</var>)</i>
-<a name="IDX1020"></a>
+<dt><u>Função:</u> <b>nusum</b><i> (<var>expr</var>, <var>x</var>, <var>i_0</var>, <var>i_1</var>)</i>
+<a name="IDX1019"></a>
 </dt>
-<dd><p>Realiza o somat&oacute;rio hipergeom&eacute;trico indefinido de <var>expr</var> com
-rela&ccedil;&atilde;o a <var>x</var> usando um procedimento de decis&atilde;o devido a R.W. Gosper.
-<var>expr</var> e o resultado deve ser express&aacute;vel como produtos de expoentes inteiros,
-factoriais, binomios, e fun&ccedil;&otilde;es recionais.
+<dd><p>Realiza o somatório hipergeométrico indefinido de <var>expr</var> com
+relação a <var>x</var> usando um procedimento de decisão devido a R.W. Gosper.
+<var>expr</var> e o resultado deve ser expressável como produtos de expoentes inteiros,
+factoriais, binomios, e funções recionais.
 </p>
 <p>Os termos &quot;definido&quot;
-and &quot;e somat&oacute;rio indefinido&quot; s&atilde;o usados analogamente a &quot;definida&quot; and
-&quot;integra&ccedil;&atilde;o indefinida&quot;.
-Adicionar indefinidamente significa dar um resultado sim&oacute;lico
-para a adi&ccedil;&atilde;o sobre intervalos de comprimentos de vari&aacute;veis, n&atilde;o apenas e.g. 0 a
-infinito.  Dessa forma, uma vez que n&atilde;o existe f&oacute;rmula para a adi&ccedil;&atilde;o parcial geral de
-s&eacute;ries binomiais, <code>nusum</code> n&atilde;o pode fazer isso.
+and &quot;e somatório indefinido&quot; são usados analogamente a &quot;definida&quot; and
+&quot;integração indefinida&quot;.
+Adicionar indefinidamente significa dar um resultado simólico
+para a adição sobre intervalos de comprimentos de variáveis, não apenas e.g. 0 a
+infinito.  Dessa forma, uma vez que não existe fórmula para a adição parcial geral de
+séries binomiais, <code>nusum</code> não pode fazer isso.
 </p>
-<p><code>nusum</code> e <code>unsum</code> conhecem um porco sobre adi&ccedil;&otilde;es e subtra&ccedil;&otilde;es de produtos finitos.
-Veja tamb&eacute;m <code>unsum</code>.
+<p><code>nusum</code> e <code>unsum</code> conhecem um porco sobre adições e subtrações de produtos finitos.
+Veja também <code>unsum</code>.
 </p>
 <p>Exemplos:
 </p>
@@ -429,27 +351,27 @@ Dependent equations eliminated:  (2 3)
 </dd></dl>
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>pade</b><i> (<var>taylor_series</var>, <var>numer_deg_bound</var>, <var>denom_deg_bound</var>)</i>
-<a name="IDX1021"></a>
+<dt><u>Função:</u> <b>pade</b><i> (<var>taylor_series</var>, <var>numer_deg_bound</var>, <var>denom_deg_bound</var>)</i>
+<a name="IDX1020"></a>
 </dt>
 <dd><p>Retorna uma lista de
-todas as fun&ccedil;&otilde;es racionais que possuem a dada expans&atilde;o da s&eacute;ries de Taylor
-onde a adi&ccedil;&atilde;o dos graus do numerador e do denominador &eacute;
-menor que ou igual ao n&iacute;vel de trunca&ccedil;&atilde;o das s&eacute;ries de pot&ecirc;ncia, i.e.
-s&atilde;o &quot;melhores&quot; aproxima&ccedil;&otilde;es, e que adicionalmente satisfazem o grau
+todas as funções racionais que possuem a dada expansão da séries de Taylor
+onde a adição dos graus do numerador e do denominador é
+menor que ou igual ao nível de truncação das séries de potência, i.e.
+são &quot;melhores&quot; aproximações, e que adicionalmente satisfazem o grau
 especificado associado.
 </p>
-<p><var>taylor_series</var> &eacute; uma s&eacute;ries de Taylor de uma vari&aacute;vel.
+<p><var>taylor_series</var> é uma séries de Taylor de uma variável.
 <var>numer_deg_bound</var> e <var>denom_deg_bound</var>
-s&atilde;o inteiros positivos especificando o grau associado sobre
+são inteiros positivos especificando o grau associado sobre
 o numerador e o denominador.
 </p>
-<p><var>taylor_series</var> podem tamb&eacute;m ser s&eacute;ries de Laurent, e o grau
-associado pode ser <code>inf</code> que acarreta todas fun&ccedil;&otilde;es racionais cujo grau
-total for menor que ou igual ao comprimento das s&eacute;ries de pot&ecirc;ncias a serem
-retornadas.  O grau total &eacute; definido como <code><var>numer_deg_bound</var> + <var>denom_deg_bound</var></code>.
-O comprimento de s&eacute;ries de pot&ecirc;ncia &eacute; definido como
-<code>&quot;n&iacute;vel de trnca&ccedil;&atilde;o&quot; + 1 - min(0, &quot;ordem das s&eacute;ries&quot;)</code>.
+<p><var>taylor_series</var> podem também ser séries de Laurent, e o grau
+associado pode ser <code>inf</code> que acarreta todas funções racionais cujo grau
+total for menor que ou igual ao comprimento das séries de potências a serem
+retornadas.  O grau total é definido como <code><var>numer_deg_bound</var> + <var>denom_deg_bound</var></code>.
+O comprimento de séries de potência é definido como
+<code>&quot;nível de trncação&quot; + 1 - min(0, &quot;ordem das séries&quot;)</code>.
 </p>
 <pre class="example">(%i1) taylor (1 + x + x^2 + x^3, x, 0, 3);
                               2    3
@@ -475,10 +397,10 @@ O comprimento de s&eacute;ries de pot&ecirc;ncia &eacute; definido como
 (%i4) pade (t, 4, 4);
 (%o4)                          []
 </pre>
-<p>N&atilde;o existe fun&ccedil;&atilde;o racional de grau 4 numerador/denominador, com essa
-expans&atilde;o de s&eacute;rie de pot&ecirc;ncia.  Voc&ecirc; obrigatoriamente em geral tem grau do numerador e
-grau do denominador adicionando para cima ao menor grau das s&eacute;ries de pot&ecirc;ncia,
-com o objectivo de ter dispon&iacute;vel coeficientes desconhecidos para resolver.
+<p>Não existe função racional de grau 4 numerador/denominador, com essa
+expansão de série de potência.  Você obrigatoriamente em geral tem grau do numerador e
+grau do denominador adicionando para cima ao menor grau das séries de potência,
+com o objectivo de ter disponível coeficientes desconhecidos para resolver.
 </p>
 <pre class="example">(%i5) pade (t, 5, 5);
                      5                4                 3
@@ -496,29 +418,29 @@ com o objectivo de ter dispon&iacute;vel coeficientes desconhecidos para resolve
 </dd></dl>
 
 <dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>powerdisp</b>
-<a name="IDX1022"></a>
+<dt><u>Variável de opção:</u> <b>powerdisp</b>
+<a name="IDX1021"></a>
 </dt>
-<dd><p>Valor por omiss&atilde;o: <code>false</code>
+<dd><p>Valor por omissão: <code>false</code>
 </p>
 <p>Quando <code>powerdisp</code> for <code>true</code>,
-uma adi&ccedil;&atilde;o &eacute; mostrada com seus termos em ordem do crescimento do expoente.
-Dessa forma um polin&oacute;mio &eacute; mostrado como s&eacute;ries de pot&ecirc;ncias truncadas,
-com o termo constante primeiro e o maior expoente por &uacute;ltimo.
+uma adição é mostrada com seus termos em ordem do crescimento do expoente.
+Dessa forma um polinómio é mostrado como séries de potências truncadas,
+com o termo constante primeiro e o maior expoente por último.
 </p>
-<p>Por pad&atilde;o, termos de uma adi&ccedil;&atilde;o s&atilde;o mostrados em ordem do expoente decrescente.
+<p>Por padão, termos de uma adição são mostrados em ordem do expoente decrescente.
 </p>
 </dd></dl>
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>powerseries</b><i> (<var>expr</var>, <var>x</var>, <var>a</var>)</i>
-<a name="IDX1023"></a>
+<dt><u>Função:</u> <b>powerseries</b><i> (<var>expr</var>, <var>x</var>, <var>a</var>)</i>
+<a name="IDX1022"></a>
 </dt>
-<dd><p>Retorna a forma geral expans&atilde;o de s&eacute;ries de pot&ecirc;ncia para <var>expr</var>
-na vari&aacute;vel <var>x</var> sobre o ponto <var>a</var> (o qual pode ser <code>inf</code> para infinito).
+<dd><p>Retorna a forma geral expansão de séries de potência para <var>expr</var>
+na variável <var>x</var> sobre o ponto <var>a</var> (o qual pode ser <code>inf</code> para infinito).
 </p>
 <p>Se <code>powerseries</code> incapaz de expandir <var>expr</var>,
-<code>taylor</code> pode dar os primeiros muitos termos de s&eacute;ries.
+<code>taylor</code> pode dar os primeiros muitos termos de séries.
 </p>
 <p>Quando <code>verbose</code> for <code>true</code>,
 <code>powerseries</code> mostra mensagens de progresso. 
@@ -553,36 +475,36 @@ in the first simplification we have returned:
 </dd></dl>
 
 <dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>psexpand</b>
-<a name="IDX1024"></a>
+<dt><u>Variável de opção:</u> <b>psexpand</b>
+<a name="IDX1023"></a>
 </dt>
-<dd><p>Valor por omiss&atilde;o: <code>false</code>
+<dd><p>Valor por omissão: <code>false</code>
 </p>
 <p>Quando <code>psexpand</code> for <code>true</code>,
-uma express&atilde;o fun&ccedil;&atilde;o racional extendida &eacute; mostrada completamente expandida.
+uma expressão função racional extendida é mostrada completamente expandida.
 O comutador <code>ratexpand</code> tem o mesmo efeito.
 </p>
 <p>Quando <code>psexpand</code> for <code>false</code>,
-uma express&atilde;o de v&aacute;rias vari&aacute;veis &eacute; mostrada apenas como no pacote de fun&ccedil;&atilde;o racional.
+uma expressão de várias variáveis é mostrada apenas como no pacote de função racional.
 </p>
 <p>Quando <code>psexpand</code> for  <code>multi</code>,
-ent&atilde;o termos com o mesmo grau total nas vari&aacute;veis s&atilde;o agrupados juntos.
+então termos com o mesmo grau total nas variáveis são agrupados juntos.
 </p>
 </dd></dl>
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>revert</b><i> (<var>expr</var>, <var>x</var>)</i>
+<dt><u>Função:</u> <b>revert</b><i> (<var>expr</var>, <var>x</var>)</i>
+<a name="IDX1024"></a>
+</dt>
+<dt><u>Função:</u> <b>revert2</b><i> (<var>expr</var>, <var>x</var>, <var>n</var>)</i>
 <a name="IDX1025"></a>
 </dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>revert2</b><i> (<var>expr</var>, <var>x</var>, <var>n</var>)</i>
-<a name="IDX1026"></a>
-</dt>
-<dd><p>Essas fun&ccedil;&otilde;es retornam a revers&atilde;o de <var>expr</var>, uma s&eacute;rie de Taylor sobre zero na vari&aacute;vel <var>x</var>.
-<code>revert</code> retorna um polin&oacute;mio de grau igual ao maior expoente em <var>expr</var>.
-<code>revert2</code> retorna um polin&oacute;mio de grau <var>n</var>,
+<dd><p>Essas funções retornam a reversão de <var>expr</var>, uma série de Taylor sobre zero na variável <var>x</var>.
+<code>revert</code> retorna um polinómio de grau igual ao maior expoente em <var>expr</var>.
+<code>revert2</code> retorna um polinómio de grau <var>n</var>,
 o qual pode ser maior que, igual a, ou menor que o grau de <var>expr</var>.
 </p>
-<p><code>load (&quot;revert&quot;)</code> chama essas fun&ccedil;&otilde;es.
+<p><code>load (&quot;revert&quot;)</code> chama essas funções.
 </p>
 <p>Exemplos:
 </p>
@@ -618,65 +540,65 @@ o qual pode ser maior que, igual a, ou menor que o grau de <var>expr</var>.
 </dd></dl>
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>taylor</b><i> (<var>expr</var>, <var>x</var>, <var>a</var>, <var>n</var>)</i>
+<dt><u>Função:</u> <b>taylor</b><i> (<var>expr</var>, <var>x</var>, <var>a</var>, <var>n</var>)</i>
+<a name="IDX1026"></a>
+</dt>
+<dt><u>Função:</u> <b>taylor</b><i> (<var>expr</var>, [<var>x_1</var>, <var>x_2</var>, ...], <var>a</var>, <var>n</var>)</i>
 <a name="IDX1027"></a>
 </dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>taylor</b><i> (<var>expr</var>, [<var>x_1</var>, <var>x_2</var>, ...], <var>a</var>, <var>n</var>)</i>
+<dt><u>Função:</u> <b>taylor</b><i> (<var>expr</var>, [<var>x</var>, <var>a</var>, <var>n</var>, 'asymp])</i>
 <a name="IDX1028"></a>
 </dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>taylor</b><i> (<var>expr</var>, [<var>x</var>, <var>a</var>, <var>n</var>, 'asymp])</i>
+<dt><u>Função:</u> <b>taylor</b><i> (<var>expr</var>, [<var>x_1</var>, <var>x_2</var>, ...], [<var>a_1</var>, <var>a_2</var>, ...], [<var>n_1</var>, <var>n_2</var>, ...])</i>
 <a name="IDX1029"></a>
 </dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>taylor</b><i> (<var>expr</var>, [<var>x_1</var>, <var>x_2</var>, ...], [<var>a_1</var>, <var>a_2</var>, ...], [<var>n_1</var>, <var>n_2</var>, ...])</i>
+<dt><u>Função:</u> <b>taylor</b><i> (<var>expr</var>, [<var>x_1</var>, <var>a_1</var>, <var>n_1</var>], [<var>x_2</var>, <var>a_2</var>, <var>n_2</var>], ...)</i>
 <a name="IDX1030"></a>
 </dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>taylor</b><i> (<var>expr</var>, [<var>x_1</var>, <var>a_1</var>, <var>n_1</var>], [<var>x_2</var>, <var>a_2</var>, <var>n_2</var>], ...)</i>
-<a name="IDX1031"></a>
-</dt>
-<dd><p><code>taylor (<var>expr</var>, <var>x</var>, <var>a</var>, <var>n</var>)</code> expande a express&atilde;o <var>expr</var>
-em uma s&eacute;rie truncada de Taylor ou de Laurent na vari&aacute;vel <var>x</var>
+<dd><p><code>taylor (<var>expr</var>, <var>x</var>, <var>a</var>, <var>n</var>)</code> expande a expressão <var>expr</var>
+em uma série truncada de Taylor ou de Laurent na variável <var>x</var>
 em torno do ponto <var>a</var>,
-contendo termos at&eacute; <code>(<var>x</var> - <var>a</var>)^<var>n</var></code>.
+contendo termos até <code>(<var>x</var> - <var>a</var>)^<var>n</var></code>.
 </p>
-<p>Se <var>expr</var> &eacute; da forma <code><var>f</var>(<var>x</var>)/<var>g</var>(<var>x</var>)</code>
-e <code><var>g</var>(<var>x</var>)</code> n&atilde;o possui de grau acima do grau <var>n</var>
-ent&atilde;o <code>taylor</code> tenta expandir <code><var>g</var>(<var>x</var>)</code> acima do gau <code>2 <var>n</var></code>.
-Se existe ainda termos n&atilde;o zero, <code>taylor</code> dobra o
-grau de expans&atilde;o de <code><var>g</var>(<var>x</var>)</code>
-contanto que o grau da expans&atilde;o o grau da expans&atilde;o seja menor que ou igual a <code><var>n</var> 2^taylordepth</code>.
+<p>Se <var>expr</var> é da forma <code><var>f</var>(<var>x</var>)/<var>g</var>(<var>x</var>)</code>
+e <code><var>g</var>(<var>x</var>)</code> não possui de grau acima do grau <var>n</var>
+então <code>taylor</code> tenta expandir <code><var>g</var>(<var>x</var>)</code> acima do gau <code>2 <var>n</var></code>.
+Se existe ainda termos não zero, <code>taylor</code> dobra o
+grau de expansão de <code><var>g</var>(<var>x</var>)</code>
+contanto que o grau da expansão o grau da expansão seja menor que ou igual a <code><var>n</var> 2^taylordepth</code>.
 </p>
 <p><code>taylor (<var>expr</var>, [<var>x_1</var>, <var>x_2</var>, ...], <var>a</var>, <var>n</var>)</code>
-retorna uma s&eacute;rie de pot&ecirc;ncia truncada 
-de grau <var>n</var> em todas as vari&aacute;veis <var>x_1</var>, <var>x_2</var>, ...
+retorna uma série de potência truncada 
+de grau <var>n</var> em todas as variáveis <var>x_1</var>, <var>x_2</var>, ...
 sobre o ponto <code>(<var>a</var>, <var>a</var>, ...)</code>.
 </p>
 <p><code>taylor (<var>expr</var>, [<var>x_1</var>, <var>a_1</var>, <var>n_1</var>], [<var>x_2</var>, <var>a_2</var>, <var>n_2</var>], ...)</code>
-retorna uma s&eacute;rie de pot&ecirc;ncia truncada nas vari&aacute;veis <var>x_1</var>, <var>x_2</var>, ...
+retorna uma série de potência truncada nas variáveis <var>x_1</var>, <var>x_2</var>, ...
 sobre o ponto <code>(<var>a_1</var>, <var>a_2</var>, ...)</code>,
 truncada em <var>n_1</var>, <var>n_2</var>, ....
 </p>
 <p><code>taylor (<var>expr</var>, [<var>x_1</var>, <var>x_2</var>, ...], [<var>a_1</var>, <var>a_2</var>, ...], [<var>n_1</var>, <var>n_2</var>, ...])</code>
-retorna uma s&eacute;rie de pot&ecirc;ncia truncada nas vari&aacute;veis <var>x_1</var>, <var>x_2</var>, ...
+retorna uma série de potência truncada nas variáveis <var>x_1</var>, <var>x_2</var>, ...
 sobre o ponto <code>(<var>a_1</var>, <var>a_2</var>, ...)</code>,
 truncada em <var>n_1</var>, <var>n_2</var>, ....
 </p>
 <p><code>taylor (<var>expr</var>, [<var>x</var>, <var>a</var>, <var>n</var>, 'asymp])</code>
-retorna uma expans&atilde;o de <var>expr</var> em expoentes negativos de <code><var>x</var> - <var>a</var></code>.
-O termo de maior ordem &eacute; <code>(<var>x</var> - <var>a</var>)^<var>-n</var></code>.
+retorna uma expansão de <var>expr</var> em expoentes negativos de <code><var>x</var> - <var>a</var></code>.
+O termo de maior ordem é <code>(<var>x</var> - <var>a</var>)^<var>-n</var></code>.
 </p>
-<p>Quando <code>maxtayorder</code> for <code>true</code>, ent&atilde;o durante maniplula&ccedil;&atilde;o
-alg&eacute;brica da s&eacute;ries de Taylor (truncada), <code>taylor</code> tenta reter
+<p>Quando <code>maxtayorder</code> for <code>true</code>, então durante maniplulação
+algébrica da séries de Taylor (truncada), <code>taylor</code> tenta reter
 tantos termos quantos forem conhecidos serem correctos.
 </p>
 <p>Quando <code>psexpand</code> for <code>true</code>,
-uma express&atilde;o de fun&ccedil;&atilde;o racional extendida &eacute; mostrada completamente expandida.
+uma expressão de função racional extendida é mostrada completamente expandida.
 O comutador <code>ratexpand</code> tem o mesmo efeito.
 Quando <code>psexpand</code> for <code>false</code>,
-uma express&atilde;o de v&aacute;rias vari&aacute;veis &eacute; mostrada apenas como no pacote de fun&ccedil;&atilde;o racional.
+uma expressão de várias variáveis é mostrada apenas como no pacote de função racional.
 Quando <code>psexpand</code> for  <code>multi</code>,
-ent&atilde;o os termos com o mesmo grau total nas vari&aacute;veis s&atilde;o agrupados juntos.
+então os termos com o mesmo grau total nas variáveis são agrupados juntos.
 </p>
-<p>Veja tamb&eacute;m o comutador <code>taylor_logexpand</code> para controlar a expans&atilde;o.
+<p>Veja também o comutador <code>taylor_logexpand</code> para controlar a expansão.
 </p>
 <p>Exemplos:
 </p>
@@ -789,27 +711,27 @@ ent&atilde;o os termos com o mesmo grau total nas vari&aacute;veis s&atilde;o ag
 </dd></dl>
 
 <dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>taylordepth</b>
-<a name="IDX1032"></a>
+<dt><u>Variável de opção:</u> <b>taylordepth</b>
+<a name="IDX1031"></a>
 </dt>
-<dd><p>Valor por omiss&atilde;o: 3
+<dd><p>Valor por omissão: 3
 </p>
-<p>Se existem ainda termos n&atilde;o zero, <code>taylor</code> dobra o
-grau da expans&atilde;o de <code><var>g</var>(<var>x</var>)</code>
-contanto que o grau da expans&atilde;o seja menor que ou igual a <code><var>n</var> 2^taylordepth</code>.
+<p>Se existem ainda termos não zero, <code>taylor</code> dobra o
+grau da expansão de <code><var>g</var>(<var>x</var>)</code>
+contanto que o grau da expansão seja menor que ou igual a <code><var>n</var> 2^taylordepth</code>.
 </p>
 </dd></dl>
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>taylorinfo</b><i> (<var>expr</var>)</i>
-<a name="IDX1033"></a>
+<dt><u>Função:</u> <b>taylorinfo</b><i> (<var>expr</var>)</i>
+<a name="IDX1032"></a>
 </dt>
-<dd><p>Retorna information about the s&eacute;ries de Taylor <var>expr</var>.
-O valor de retorno &eacute; uma lista de listas.
-Cada lista compreende o nome de uma vari&aacute;vel,
-o ponto de expans&atilde;o, e o grau da expans&atilde;o.
+<dd><p>Retorna information about the séries de Taylor <var>expr</var>.
+O valor de retorno é uma lista de listas.
+Cada lista compreende o nome de uma variável,
+o ponto de expansão, e o grau da expansão.
 </p>
-<p><code>taylorinfo</code> retorna <code>false</code> se <var>expr</var> n&atilde;o for uma s&eacute;ries de Taylor.
+<p><code>taylorinfo</code> retorna <code>false</code> se <var>expr</var> não for uma séries de Taylor.
 </p>
 <p>Exemplo:
 </p>
@@ -831,85 +753,85 @@ o ponto de expans&atilde;o, e o grau da expans&atilde;o.
 </dd></dl>
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>taylorp</b><i> (<var>expr</var>)</i>
-<a name="IDX1034"></a>
+<dt><u>Função:</u> <b>taylorp</b><i> (<var>expr</var>)</i>
+<a name="IDX1033"></a>
 </dt>
-<dd><p>Retorna <code>true</code> se <var>expr</var> for uma s&eacute;ries de Taylor,
+<dd><p>Retorna <code>true</code> se <var>expr</var> for uma séries de Taylor,
 e <code>false</code> de outra forma.
 </p>
 </dd></dl>
 
 <dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>taylor_logexpand</b>
+<dt><u>Variável de opção:</u> <b>taylor_logexpand</b>
+<a name="IDX1034"></a>
+</dt>
+<dd><p>Valor por omissão: <code>true</code>
+</p>
+<p><code>taylor_logexpand</code> controla expansão de logaritmos em
+séries de <code>taylor</code>.
+</p>
+<p>Quando <code>taylor_logexpand</code> for <code>true</code>, todos  logaritmos são expandidos completamente dessa forma
+problemas de reconhecimento de zero envolvendo envolvendo identidades logarítmicas não
+atrapalham o processo de expansão.  Todavia, esse esquema não é sempre
+matematicamente correcto uma vez que isso ignora informações de ramo.
+</p>
+<p>Quando <code>taylor_logexpand</code> for escolhida para <code>false</code>, então a expansão logarítmica que ocorre
+é somente aquela que for necessária para obter uma séries de potência formal.
+</p>
+</dd></dl>
+
+<dl>
+<dt><u>Variável de opção:</u> <b>taylor_order_coefficients</b>
 <a name="IDX1035"></a>
 </dt>
-<dd><p>Valor por omiss&atilde;o: <code>true</code>
+<dd><p>Valor por omissão: <code>true</code>
 </p>
-<p><code>taylor_logexpand</code> controla expans&atilde;o de logaritmos em
-s&eacute;ries de <code>taylor</code>.
-</p>
-<p>Quando <code>taylor_logexpand</code> for <code>true</code>, todos  logaritmos s&atilde;o expandidos completamente dessa forma
-problemas de reconhecimento de zero envolvendo envolvendo identidades logar&iacute;tmicas n&atilde;o
-atrapalham o processo de expans&atilde;o.  Todavia, esse esquema n&atilde;o &eacute; sempre
-matematicamente correcto uma vez que isso ignora informa&ccedil;&otilde;es de ramo.
-</p>
-<p>Quando <code>taylor_logexpand</code> for escolhida para <code>false</code>, ent&atilde;o a expans&atilde;o logar&iacute;tmica que ocorre
-&eacute; somente aquela que for necess&aacute;ria para obter uma s&eacute;ries de pot&ecirc;ncia formal.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>taylor_order_coefficients</b>
-<a name="IDX1036"></a>
-</dt>
-<dd><p>Valor por omiss&atilde;o: <code>true</code>
-</p>
-<p><code>taylor_order_coefficients</code> controla a ordena&ccedil;&atilde;o dos
-coeficientes em uma s&eacute;rie de Taylor.
+<p><code>taylor_order_coefficients</code> controla a ordenação dos
+coeficientes em uma série de Taylor.
 </p>
 <p>Quando <code>taylor_order_coefficients</code> for <code>true</code>,
-coeficientes da s&eacute;ries de Taylor s&atilde;o ordenados canonicamente.
+coeficientes da séries de Taylor são ordenados canonicamente.
 </p>
 </dd></dl>
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>taylor_simplifier</b><i> (<var>expr</var>)</i>
+<dt><u>Função:</u> <b>taylor_simplifier</b><i> (<var>expr</var>)</i>
+<a name="IDX1036"></a>
+</dt>
+<dd><p>Simplifica coeficientes da séries  de potência <var>expr</var>.
+<code>taylor</code> chama essa função.
+</p>
+</dd></dl>
+
+<dl>
+<dt><u>Variável de opção:</u> <b>taylor_truncate_polynomials</b>
 <a name="IDX1037"></a>
 </dt>
-<dd><p>Simplifica coeficientes da s&eacute;ries  de pot&ecirc;ncia <var>expr</var>.
-<code>taylor</code> chama essa fun&ccedil;&atilde;o.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>taylor_truncate_polynomials</b>
-<a name="IDX1038"></a>
-</dt>
-<dd><p>Valor por omiss&atilde;o: <code>true</code>
+<dd><p>Valor por omissão: <code>true</code>
 </p>
 <p>Quando <code>taylor_truncate_polynomials</code> for <code>true</code>,
-polin&oacute;mios s&atilde;o truncados baseados sobre a entrada de n&iacute;veis de trunca&ccedil;&atilde;o.
+polinómios são truncados baseados sobre a entrada de níveis de truncação.
 </p>
 <p>De outra forma,
-entrada de polin&oacute;mios para <code>taylor</code> s&atilde;o consideradas terem precis&atilde;o infinita.
+entrada de polinómios para <code>taylor</code> são consideradas terem precisão infinita.
 </p>
 </dd></dl>
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>taytorat</b><i> (<var>expr</var>)</i>
+<dt><u>Função:</u> <b>taytorat</b><i> (<var>expr</var>)</i>
+<a name="IDX1038"></a>
+</dt>
+<dd><p>Converte <var>expr</var> da forma <code>taylor</code> para a forma de expressão racional canónica (CRE).
+O efeito é o mesmo que <code>rat (ratdisrep (<var>expr</var>))</code>, mas mais rápido.
+</p>
+</dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>trunc</b><i> (<var>expr</var>)</i>
 <a name="IDX1039"></a>
 </dt>
-<dd><p>Converte <var>expr</var> da forma <code>taylor</code> para a forma de express&atilde;o racional can&oacute;nica (CRE).
-O efeito &eacute; o mesmo que <code>rat (ratdisrep (<var>expr</var>))</code>, mas mais r&aacute;pido.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>trunc</b><i> (<var>expr</var>)</i>
-<a name="IDX1040"></a>
-</dt>
-<dd><p>Coloca notas na representa&ccedil;&atilde;o interna da express&atilde;o geral <var>expr</var>
-de modo que isso &eacute; mostrado como se suas adi&ccedil;&otilde;es forem s&eacute;ries de Taylor truncadas.
+<dd><p>Coloca notas na representação interna da expressão geral <var>expr</var>
+de modo que isso é mostrado como se suas adições forem séries de Taylor truncadas.
 <var>expr</var> is not otherwise modified.
 </p>
 <p>Exemplo:
@@ -926,13 +848,13 @@ de modo que isso &eacute; mostrado como se suas adi&ccedil;&otilde;es forem s&ea
 </dd></dl>
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>unsum</b><i> (<var>f</var>, <var>n</var>)</i>
-<a name="IDX1041"></a>
+<dt><u>Função:</u> <b>unsum</b><i> (<var>f</var>, <var>n</var>)</i>
+<a name="IDX1040"></a>
 </dt>
-<dd><p>Retorna a primeira diferen&ccedil;&atilde; de tr&aacute;s para frente <code><var>f</var>(<var>n</var>) - <var>f</var>(<var>n</var> - 1)</code>.
-Dessa forma <code>unsum</code> logicamente &eacute; a inversa de <code>sum</code>.
+<dd><p>Retorna a primeira diferençã de trás para frente <code><var>f</var>(<var>n</var>) - <var>f</var>(<var>n</var> - 1)</code>.
+Dessa forma <code>unsum</code> logicamente é a inversa de <code>sum</code>.
 </p>
-<p>Veja tamb&eacute;m <code>nusum</code>.
+<p>Veja também <code>nusum</code>.
 </p>
 <p>Exemplos:
 </p>
@@ -960,15 +882,16 @@ Dessa forma <code>unsum</code> logicamente &eacute; a inversa de <code>sum</code
 </dd></dl>
 
 <dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>verbose</b>
-<a name="IDX1042"></a>
+<dt><u>Variável de opção:</u> <b>verbose</b>
+<a name="IDX1041"></a>
 </dt>
-<dd><p>Valor por omiss&atilde;o: <code>false</code>
+<dd><p>Valor por omissão: <code>false</code>
 </p>
 <p>Quando <code>verbose</code> for <code>true</code>,
 <code>powerseries</code> mostra mensagens de progresso.
 </p>
 </dd></dl>
+
 
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
@@ -981,12 +904,12 @@ Dessa forma <code>unsum</code> logicamente &eacute; a inversa de <code>sum</code
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>Setembro, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>Janeiro, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

@@ -1,27 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年9月月15日 by texi2html 1.82
-texi2html was written by: 
-            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+<!-- Created on 5月, 20 2015 by texi2html 1.76 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
             Olaf Bachmann <obachman@mathematik.uni-kl.de>
             and many others.
-Maintained by: Many creative people.
-Send bugs and suggestions to <texi2html-bug@nongnu.org>
+Maintained by: Many creative people <dev@texi2html.cvshome.org>
+Send bugs and suggestions to <users@texi2html.cvshome.org>
+
 -->
 <head>
-<title>Maxima 5.34.1 Manual: 44. clebsch_gordan</title>
+<title>Maxima 5.36.1 Manual: 44. clebsch_gordan</title>
 
-<meta name="description" content="Maxima 5.34.1 Manual: 44. clebsch_gordan">
-<meta name="keywords" content="Maxima 5.34.1 Manual: 44. clebsch_gordan">
+<meta name="description" content="Maxima 5.36.1 Manual: 44. clebsch_gordan">
+<meta name="keywords" content="Maxima 5.36.1 Manual: 44. clebsch_gordan">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.82">
+<meta name="Generator" content="texi2html 1.76">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
 pre.display {font-family: serif}
 pre.format {font-family: serif}
 pre.menu-comment {font-family: serif}
@@ -30,109 +30,30 @@ pre.smalldisplay {font-family: serif; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.roman {font-family:serif; font-weight:normal;}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
@@ -157,123 +78,148 @@ div.categorybox
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="clebsch_005fgordan"></a>
+<a name="SEC222"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_43.html#Functions-and-Variables-for-bode" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-clebsch_005fgordan" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_43.html#SEC221" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC223" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_43.html#bode" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_45.html#cobyla" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_43.html#SEC220" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_45.html#SEC224" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="clebsch_005fgordan-1"></a>
-<h1 class="chapter">44. clebsch_gordan</h1>
+<h1 class="chapter"> 44. clebsch_gordan </h1>
+
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-clebsch_005fgordan">44.1 Functions and Variables for clebsch_gordan</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC223">44.1 Functions and Variables for clebsch_gordan</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <p><a name="Item_003a-Functions-and-Variables-for-clebsch_005fgordan"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-clebsch_005fgordan"></a>
+<a name="SEC223"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#clebsch_005fgordan" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_45.html#cobyla" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC222" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_45.html#SEC224" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#clebsch_005fgordan" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#clebsch_005fgordan" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_45.html#cobyla" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC222" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC222" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_45.html#SEC224" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-clebsch_005fgordan-1"></a>
-<h2 class="section">44.1 Functions and Variables for clebsch_gordan</h2>
+<h2 class="section"> 44.1 Functions and Variables for clebsch_gordan </h2>
 
 
 <dl>
-<dt><a name="index-clebsch_005fgordan"></a><u>関数:</u> <b>clebsch_gordan</b><i> (<var>j1</var>, <var>j2</var>, <var>m1</var>, <var>m2</var>, <var>j</var>, <var>m</var>)</i></dt>
-<dd>
-<p>Clebsch-Gordan 係数 <tt>&lt;j1, j2, m1, m2 | j, m&gt;</tt> を計算します。
+<dt><u>関数:</u> <b>clebsch_gordan</b><i> (<var>j1</var>, <var>j2</var>, <var>m1</var>, <var>m2</var>, <var>j</var>, <var>m</var>)</i>
+<a name="IDX1425"></a>
+</dt>
+<dd><p>Clebsch-Gordan 係数 <tt>&lt;j1, j2, m1, m2 | j, m&gt;</tt> を計算します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-clebsch_005fgordan">clebsch_gordan</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-clebsch_005fgordan">clebsch_gordan</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-racah_005fv"></a>
 </p><dl>
-<dt><a name="index-racah_005fv"></a><u>関数:</u> <b>racah_v</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>a1</var>, <var>b1</var>, <var>c1</var>)</i></dt>
-<dd>
-<p>(関連の Clebsch-Gordan 係数を使って計算される) Racah&rsquo;s V 係数を計算します。
+<dt><u>関数:</u> <b>racah_v</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>a1</var>, <var>b1</var>, <var>c1</var>)</i>
+<a name="IDX1426"></a>
+</dt>
+<dd><p>(関連の Clebsch-Gordan 係数を使って計算される) Racah's V 係数を計算します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-clebsch_005fgordan">clebsch_gordan</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-clebsch_005fgordan">clebsch_gordan</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-racah_005fw"></a>
 </p><dl>
-<dt><a name="index-racah_005fw"></a><u>関数:</u> <b>racah_w</b><i> (<var>j1</var>, <var>j2</var>, <var>j5</var>, <var>j4</var>, <var>j3</var>, <var>j6</var>)</i></dt>
-<dd>
-<p>(Wigner <tt>6j</tt> シンボルを使って計算される)Racah&rsquo;s W 係数を計算します。
+<dt><u>関数:</u> <b>racah_w</b><i> (<var>j1</var>, <var>j2</var>, <var>j5</var>, <var>j4</var>, <var>j3</var>, <var>j6</var>)</i>
+<a name="IDX1427"></a>
+</dt>
+<dd><p>(Wigner <tt>6j</tt> シンボルを使って計算される)Racah's W 係数を計算します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-clebsch_005fgordan">clebsch_gordan</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-clebsch_005fgordan">clebsch_gordan</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-wigner_005f3j"></a>
 </p><dl>
-<dt><a name="index-wigner_005f3j"></a><u>関数:</u> <b>wigner_3j</b><i> (<var>j1</var>, <var>j2</var>, <var>j3</var>, <var>m1</var>, <var>m2</var>, <var>m3</var>)</i></dt>
-<dd>
-<p>(関連の Clebsch-Gordan 係数を使って計算される) Wigner&rsquo;s <tt>3j</tt> シンボルを計算します。
+<dt><u>関数:</u> <b>wigner_3j</b><i> (<var>j1</var>, <var>j2</var>, <var>j3</var>, <var>m1</var>, <var>m2</var>, <var>m3</var>)</i>
+<a name="IDX1428"></a>
+</dt>
+<dd><p>(関連の Clebsch-Gordan 係数を使って計算される) Wigner's <tt>3j</tt> シンボルを計算します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-clebsch_005fgordan">clebsch_gordan</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-clebsch_005fgordan">clebsch_gordan</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-wigner_005f6j"></a>
 </p><dl>
-<dt><a name="index-wigner_005f6j"></a><u>関数:</u> <b>wigner_6j</b><i> (<var>j1</var>, <var>j2</var>, <var>j3</var>, <var>j4</var>, <var>j5</var>, <var>j6</var>)</i></dt>
-<dd>
-<p>Wigner&rsquo;s <tt>6j</tt> シンボルを計算します。
+<dt><u>関数:</u> <b>wigner_6j</b><i> (<var>j1</var>, <var>j2</var>, <var>j3</var>, <var>j4</var>, <var>j5</var>, <var>j6</var>)</i>
+<a name="IDX1429"></a>
+</dt>
+<dd><p>Wigner's <tt>6j</tt> シンボルを計算します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-clebsch_005fgordan">clebsch_gordan</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-clebsch_005fgordan">clebsch_gordan</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-wigner_005f9j"></a>
 </p><dl>
-<dt><a name="index-wigner_005f9j"></a><u>関数:</u> <b>wigner_9j</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>d</var>, <var>e</var>, <var>f</var>, <var>g</var>, <var>h</var>, <var>i</var>, <var>j</var>,)</i></dt>
-<dd>
-<p>Wigner&rsquo;s <tt>9j</tt> シンボルを計算します。
+<dt><u>関数:</u> <b>wigner_9j</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>d</var>, <var>e</var>, <var>f</var>, <var>g</var>, <var>h</var>, <var>i</var>, <var>j</var>,)</i>
+<a name="IDX1430"></a>
+</dt>
+<dd><p>Wigner's <tt>9j</tt> シンボルを計算します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-clebsch_005fgordan">clebsch_gordan</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-clebsch_005fgordan">clebsch_gordan</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-cobyla"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#clebsch_005fgordan" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_45.html#cobyla" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC222" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_45.html#SEC224" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>5月, 20 2015</em>に<a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>を用いて生成されました。
  </font>
  <br>
 

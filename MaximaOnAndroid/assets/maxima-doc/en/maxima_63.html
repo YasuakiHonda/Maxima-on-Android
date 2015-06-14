@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on September, 23 2014 by texi2html 1.76 -->
+<!-- Created on April, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Maxima 5.34.1 Manual: 63. lbfgs</title>
+<title>Maxima 5.36.0 Manual: 63. lbfgs</title>
 
-<meta name="description" content="Maxima 5.34.1 Manual: 63. lbfgs">
-<meta name="keywords" content="Maxima 5.34.1 Manual: 63. lbfgs">
+<meta name="description" content="Maxima 5.36.0 Manual: 63. lbfgs">
+<meta name="keywords" content="Maxima 5.36.0 Manual: 63. lbfgs">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,106 +32,28 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
@@ -142,50 +64,50 @@ div.categorybox
 <body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="lbfgs"></a>
-<a name="SEC305"></a>
+<a name="SEC309"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_62.html#SEC304" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC306" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_62.html#SEC308" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC310" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_62.html#SEC302" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#SEC306" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_64.html#SEC308" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_64.html#SEC312" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter"> 63. lbfgs </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC306">63.1 Introduction to lbfgs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC310">63.1 Introduction to lbfgs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC307">63.2 Functions and Variables for lbfgs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC311">63.2 Functions and Variables for lbfgs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <p><a name="Item_003a-Introduction-to-lbfgs"></a>
 </p><hr size="6">
 <a name="Introduction-to-lbfgs"></a>
-<a name="SEC306"></a>
+<a name="SEC310"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC305" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC307" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC309" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC311" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC305" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC305" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_64.html#SEC308" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC309" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC309" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_64.html#SEC312" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 63.1 Introduction to lbfgs </h2>
@@ -209,41 +131,38 @@ scale optimization&quot;. <i>Mathematical Programming B</i> 45:503-528 (1989)
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a>  &middot;
-<a href="maxima_100.html#Category_003a-Optimization">Optimization</a> &middot;
-<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a> &middot;
-<a href="maxima_100.html#Category_003a-Package-lbfgs">Package lbfgs</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Numerical-methods">Numerical methods</a>  &middot;
+<a href="maxima_99.html#Category_003a-Optimization">Optimization</a> &middot;
+<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a> &middot;
+<a href="maxima_99.html#Category_003a-Package-lbfgs">Package lbfgs</a>
 </div>
 </p>
 <p><a name="Item_003a-Functions-and-Variables-for-lbfgs"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-lbfgs"></a>
-<a name="SEC307"></a>
+<a name="SEC311"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC306" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_64.html#SEC308" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC310" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_64.html#SEC312" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC305" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC305" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_64.html#SEC308" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC309" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC309" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_64.html#SEC312" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 63.2 Functions and Variables for lbfgs </h2>
 
 
 <dl>
-<dt><u>Function:</u> <b>lbfgs</b><i> (<var>FOM</var>, <var>X</var>, <var>X0</var>, <var>epsilon</var>, <var>iprint</var>)</i>
-<a name="IDX2522"></a>
-</dt>
-<dt><u>Function:</u> <b>lbfgs</b><i> ([<var>FOM</var>, <var>grad</var>] <var>X</var>, <var>X0</var>, <var>epsilon</var>, <var>iprint</var>)</i>
-<a name="IDX2523"></a>
+<dt><u>Function:</u> <b>lbfgs</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>lbfgs</tt> (<var>FOM</var>, <var>X</var>, <var>X0</var>, <var>epsilon</var>, <var>iprint</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>lbfgs</tt> ([<var>FOM</var>, <var>grad</var>] <var>X</var>, <var>X0</var>, <var>epsilon</var>, <var>iprint</var>)</i>
+<a name="IDX2219"></a>
 </dt>
 <dd><p>Finds an approximate solution of the unconstrained minimization of the figure of merit <var>FOM</var>
 over the list of variables <var>X</var>,
@@ -515,7 +434,7 @@ Both the FOM and its gradient are passed as functions to <code>lbfgs</code>.
 </pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lbfgs">Package lbfgs</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-lbfgs">Package lbfgs</a>
 </div>
 </p>
 </dd></dl>
@@ -523,7 +442,7 @@ Both the FOM and its gradient are passed as functions to <code>lbfgs</code>.
 <p><a name="Item_003a-lbfgs_005fnfeval_005fmax"></a>
 </p><dl>
 <dt><u>Variable:</u> <b>lbfgs_nfeval_max</b>
-<a name="IDX2524"></a>
+<a name="IDX2220"></a>
 </dt>
 <dd><p>Default value: 100
 </p>
@@ -533,7 +452,7 @@ When <code>lbfgs_nfeval_max</code> is reached,
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lbfgs">Package lbfgs</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-lbfgs">Package lbfgs</a>
 </div>
 </p>
 </dd></dl>
@@ -541,7 +460,7 @@ When <code>lbfgs_nfeval_max</code> is reached,
 <p><a name="Item_003a-lbfgs_005fncorrections"></a>
 </p><dl>
 <dt><u>Variable:</u> <b>lbfgs_ncorrections</b>
-<a name="IDX2525"></a>
+<a name="IDX2221"></a>
 </dt>
 <dd><p>Default value: 25
 </p>
@@ -550,7 +469,7 @@ to the approximate inverse Hessian matrix which is maintained by <code>lbfgs</co
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lbfgs">Package lbfgs</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-lbfgs">Package lbfgs</a>
 </div>
 </p>
 </dd></dl>
@@ -558,8 +477,8 @@ to the approximate inverse Hessian matrix which is maintained by <code>lbfgs</co
 <p><a name="Item_003a-lindstedt"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC305" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_64.html#SEC308" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC309" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_64.html#SEC312" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -567,12 +486,12 @@ to the approximate inverse Hessian matrix which is maintained by <code>lbfgs</co
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_84.html#SEC389" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>本田 康晃</em> on <em>September, 23 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>April, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

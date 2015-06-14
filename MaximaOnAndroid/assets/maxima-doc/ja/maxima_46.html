@@ -1,27 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年9月月15日 by texi2html 1.82
-texi2html was written by: 
-            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+<!-- Created on 5月, 20 2015 by texi2html 1.76 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
             Olaf Bachmann <obachman@mathematik.uni-kl.de>
             and many others.
-Maintained by: Many creative people.
-Send bugs and suggestions to <texi2html-bug@nongnu.org>
+Maintained by: Many creative people <dev@texi2html.cvshome.org>
+Send bugs and suggestions to <users@texi2html.cvshome.org>
+
 -->
 <head>
-<title>Maxima 5.34.1 Manual: 46. contrib_ode</title>
+<title>Maxima 5.36.1 Manual: 46. contrib_ode</title>
 
-<meta name="description" content="Maxima 5.34.1 Manual: 46. contrib_ode">
-<meta name="keywords" content="Maxima 5.34.1 Manual: 46. contrib_ode">
+<meta name="description" content="Maxima 5.36.1 Manual: 46. contrib_ode">
+<meta name="keywords" content="Maxima 5.36.1 Manual: 46. contrib_ode">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.82">
+<meta name="Generator" content="texi2html 1.76">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
 pre.display {font-family: serif}
 pre.format {font-family: serif}
 pre.menu-comment {font-family: serif}
@@ -30,109 +30,30 @@ pre.smalldisplay {font-family: serif; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.roman {font-family:serif; font-weight:normal;}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
@@ -157,34 +78,35 @@ div.categorybox
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="contrib_005fode"></a>
+<a name="SEC228"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_45.html#Examples-for-cobyla" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-contrib_005fode" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_45.html#SEC227" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC229" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_45.html#cobyla" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#descriptive" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_45.html#SEC224" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#SEC234" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="contrib_005fode-1"></a>
-<h1 class="chapter">46. contrib_ode</h1>
+<h1 class="chapter"> 46. contrib_ode </h1>
+
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-contrib_005fode">46.1 Introduction to contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC229">46.1 Introduction to contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-contrib_005fode">46.2 Functions and Variables for contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC230">46.2 Functions and Variables for contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Possible-improvements-to-contrib_005fode">46.3 Possible improvements to contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC231">46.3 Possible improvements to contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Test-cases-for-contrib_005fode">46.4 Test cases for contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC232">46.4 Test cases for contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#References-for-contrib_005fode">46.5 References for contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC233">46.5 References for contrib_ode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -192,24 +114,24 @@ div.categorybox
 </p><hr size="6">
 <a name="Introduction-to-contrib_005fode"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#contrib_005fode" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-contrib_005fode" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC228" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC230" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#contrib_005fode" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#contrib_005fode" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#descriptive" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#SEC234" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 
-<a name="Introduction-to-contrib_005fode-1"></a>
-<h2 class="section">46.1 Introduction to contrib_ode</h2>
+<a name="SEC229"></a>
+<h2 class="section"> 46.1 Introduction to contrib_ode </h2>
 
 <p>Maximaの常微分方程式 (ODE)ソルバ <code>ode2</code>は一階と二階の初等線形 ODEを解きます。
 関数 <code>contrib_ode</code>は線形と非線形一階 ODEと線形斉次二階 ODEに関する追加の方法で
@@ -253,7 +175,7 @@ ODE (右辺が 0なら左辺だけでもいいです)、
 <p>一階非線形 ODEは複数解を持ち得るので、解のリストを返す必要があります。
 例えば:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load('contrib_ode)$
+<pre class="example">(%i1) load('contrib_ode)$
 
 (%i2) eqn:x*'diff(y,x)^2-(1+x*y)*'diff(y,x)+y=0;
 
@@ -267,12 +189,11 @@ ODE (右辺が 0なら左辺だけでもいいです)、
 (%i4) method;
 
 (%o4)                        factor
-</pre></td></tr></table>
-
+</pre>
 <p>以下の例の二番目の解のように、
 非線形ODEは積分定数を持たない特異解を持ち得ます:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load('contrib_ode)$
+<pre class="example">(%i1) load('contrib_ode)$
 
 (%i2) eqn:'diff(y,x)^2+x*'diff(y,x)-y=0;
 
@@ -288,13 +209,12 @@ ODE (右辺が 0なら左辺だけでもいいです)、
 (%i4) method;
 
 (%o4)                       clairault
-</pre></td></tr></table>
-
+</pre>
 
 <p>以下の ODEはダミー変数 <code>%t</code>を使った２つのパラメトリック解を持ちます。
 この場合、パラメトリック解を操作して陽解を与えることができます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load('contrib_ode)$
+<pre class="example">(%i1) load('contrib_ode)$
 
 (%i2) eqn:'diff(y,x)=(x+y)^2;
 
@@ -308,11 +228,10 @@ ODE (右辺が 0なら左辺だけでもいいです)、
 (%i4) method;
 
 (%o4)                       lagrange
-</pre></td></tr></table>
-
+</pre>
 <p>以下の例 (Kamke 1.112)は陰解を例示します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load('contrib_ode)$
+<pre class="example">(%i1) load('contrib_ode)$
 
 (%i2) assume(x&gt;0,y&gt;0);
 
@@ -330,14 +249,13 @@ ODE (右辺が 0なら左辺だけでもいいです)、
 (%i5) method;
 
 (%o5)                          lie
-</pre></td></tr></table>
-
+</pre>
  
 <p>以下の Riccati方程式は
 変数 <code>%u</code>に関する線形二階 ODEに変換されます。
 Maximaは新しい ODEを解くことができません。
 なので未評価で返します。
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load('contrib_ode)$
+</p><pre class="example">(%i1) load('contrib_ode)$
 
 (%i2) eqn:x^2*'diff(y,x)=a+b*x^n+c*x^2*y^2;
 
@@ -355,8 +273,7 @@ Maximaは新しい ODEを解くことができません。
 (%i4) method;
 
 (%o4)                        riccati
-</pre></td></tr></table>
-
+</pre>
 
 <p>一階 ODEに対して <code>contrib_ode</code>は <code>ode2</code>をコールします。
 その後、以下の方法を試します:
@@ -372,56 +289,64 @@ Lie方法は Abel方程式には試みられませんが、
 <code>put('contrib_ode,true,'verbose)</code>を実行したら
 長いデバッグトレースとメッセージが表示されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Differential-equations">Differential equations</a>
- &middot;<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Differential-equations">Differential equations</a> &middot;
+<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a> &middot;
+<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
 
 <p><a name="Item_003a-Functions-and-Variables-for-contrib_005fode"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-contrib_005fode"></a>
+<a name="SEC230"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-contrib_005fode" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Possible-improvements-to-contrib_005fode" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC229" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC231" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#contrib_005fode" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#contrib_005fode" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#descriptive" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#SEC234" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-contrib_005fode-1"></a>
-<h2 class="section">46.2 Functions and Variables for contrib_ode</h2>
+<h2 class="section"> 46.2 Functions and Variables for contrib_ode </h2>
 
 
 <dl>
-<dt><a name="index-contrib_005fode"></a><u>関数:</u> <b>contrib_ode</b><i> (<var>eqn</var>, <var>y</var>, <var>x</var>)</i></dt>
-<dd>
-<p>独立変数 <var>x</var>と従属変数 <var>y</var>に関する ODE <var>eqn</var>の解のリストを返します。
+<dt><u>関数:</u> <b>contrib_ode</b><i> (<var>eqn</var>, <var>y</var>, <var>x</var>)</i>
+<a name="IDX1433"></a>
+</dt>
+<dd><p>独立変数 <var>x</var>と従属変数 <var>y</var>に関する ODE <var>eqn</var>の解のリストを返します。
 </p>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-odelin"></a>
 </p><dl>
-<dt><a name="index-odelin"></a><u>関数:</u> <b>odelin</b><i> (<var>eqn</var>, <var>y</var>, <var>x</var>)</i></dt>
-<dd>
-<p><code>odelin</code>は独立変数 <var>x</var>と従属変数 <var>y</var>に関する一階および二階線形斉次
+<dt><u>関数:</u> <b>odelin</b><i> (<var>eqn</var>, <var>y</var>, <var>x</var>)</i>
+<a name="IDX1434"></a>
+</dt>
+<dd><p><code>odelin</code>は独立変数 <var>x</var>と従属変数 <var>y</var>に関する一階および二階線形斉次
 ODEを解きます。
 ODEの基本的な解一式を返します。
 </p>
 <p>二階 ODEに対して <code>odelin</code>は、与えられた特殊関数を使って解を探索する
 Bronsteinと Lafailleによる方法を使います。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load('contrib_ode);
+<pre class="example">(%i1) load('contrib_ode);
 
 (%i2) odelin(x*(x+1)*'diff(y,x,2)+(x+5)*'diff(y,x,1)+(-4)*y,y,x);
 ...trying factor method
@@ -441,20 +366,23 @@ Bronsteinと Lafailleによる方法を使います。
                     4                            4
                    x                            x
 
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-ode_005fcheck"></a>
 </p><dl>
-<dt><a name="index-ode_005fcheck"></a><u>関数:</u> <b>ode_check</b><i> (<var>eqn</var>, <var>soln</var>)</i></dt>
-<dd>
-<p>可能な解 <var>soln</var>を代入した後、 ODE <var>eqn</var>の値を返します。
+<dt><u>関数:</u> <b>ode_check</b><i> (<var>eqn</var>, <var>soln</var>)</i>
+<a name="IDX1435"></a>
+</dt>
+<dd><p>可能な解 <var>soln</var>を代入した後、 ODE <var>eqn</var>の値を返します。
 もし <var>soln</var>が <var>eqn</var>の解なら値はゼロと同値です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load('contrib_ode)$
+<pre class="example">(%i1) load('contrib_ode)$
 
 (%i2) eqn:'diff(y,x,2)+(a*x+b)*y;
 
@@ -477,57 +405,76 @@ Bronsteinと Lafailleによる方法を使います。
 (%i4) ode_check(eqn,ans[1]);
 
 (%o4)                           0
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-method"></a>
 </p><dl>
-<dt><a name="index-method"></a><u>システム変数:</u> <b>method</b></dt>
-<dd>
-<p>変数 <code>method</code>は成功した解法に設定されます。
+<dt><u>システム変数:</u> <b>method</b>
+<a name="IDX1436"></a>
+</dt>
+<dd><p>変数 <code>method</code>は成功した解法に設定されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-_0025c"></a>
 </p><dl>
-<dt><a name="index-_0025c"></a><u>変数:</u> <b>%c</b></dt>
-<dd>
-<p><code>%c</code>は一階 ODEの積分定数です。
+<dt><u>変数:</u> <b>%c</b>
+<a name="IDX1437"></a>
+</dt>
+<dd><p><code>%c</code>は一階 ODEの積分定数です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-_0025k1"></a>
 </p><dl>
-<dt><a name="index-_0025k1"></a><u>変数:</u> <b>%k1</b></dt>
-<dd>
-<p><code>%k1</code>は二階 ODEの最初の積分定数です。
+<dt><u>変数:</u> <b>%k1</b>
+<a name="IDX1438"></a>
+</dt>
+<dd><p><code>%k1</code>は二階 ODEの最初の積分定数です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-_0025k2"></a>
 </p><dl>
-<dt><a name="index-_0025k2"></a><u>変数:</u> <b>%k2</b></dt>
-<dd>
-<p><code>%k2</code>は二階 ODEの二番目の積分定数です。
+<dt><u>変数:</u> <b>%k2</b>
+<a name="IDX1439"></a>
+</dt>
+<dd><p><code>%k2</code>は二階 ODEの二番目の積分定数です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-gauss_005fa"></a>
 </p><dl>
-<dt><a name="index-gauss_005fa"></a><u>関数:</u> <b>gauss_a</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i></dt>
-<dd>
-<p><code>gauss_a(a,b,c,x)</code>と <code>gauss_b(a,b,c,x)</code>は 2F1幾何関数です。
+<dt><u>関数:</u> <b>gauss_a</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i>
+<a name="IDX1440"></a>
+</dt>
+<dd><p><code>gauss_a(a,b,c,x)</code>と <code>gauss_b(a,b,c,x)</code>は 2F1幾何関数です。
 それらは超幾何微分方程式
 <code>x(1-x) diff(y,x,2) + [c-(a+b+1)x] diff(y,x) - aby = 0</code>
 の任意の２つの独立解を表します (A&amp;S 15.5.1)。
@@ -538,43 +485,62 @@ Bronsteinと Lafailleによる方法を使います。
 </p>
 <p><code>gauss_b</code>, <code>dgauss_a</code>, <code>gauss_b</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-gauss_005fb"></a>
 </p><dl>
-<dt><a name="index-gauss_005fb"></a><u>関数:</u> <b>gauss_b</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i></dt>
+<dt><u>関数:</u> <b>gauss_b</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i>
+<a name="IDX1441"></a>
+</dt>
 <dd><p><code>gauss_a</code>を参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-dgauss_005fa"></a>
 </p><dl>
-<dt><a name="index-dgauss_005fa"></a><u>関数:</u> <b>dgauss_a</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i></dt>
+<dt><u>関数:</u> <b>dgauss_a</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i>
+<a name="IDX1442"></a>
+</dt>
 <dd><p><code>gauss_a(<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</code>の <var>x</var>に関する導関数。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-dgauss_005fb"></a>
 </p><dl>
-<dt><a name="index-dgauss_005fb"></a><u>関数:</u> <b>dgauss_b</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i></dt>
+<dt><u>関数:</u> <b>dgauss_b</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</i>
+<a name="IDX1443"></a>
+</dt>
 <dd><p><code>gauss_b(<var>a</var>, <var>b</var>, <var>c</var>, <var>x</var>)</code>の <var>x</var>に関する導関数。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
 </dd></dl>
 
 
 <p><a name="Item_003a-kummer_005fm"></a>
 </p><dl>
-<dt><a name="index-kummer_005fm"></a><u>関数:</u> <b>kummer_m</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i></dt>
-<dd>
-<p>Abramowitz and Stegun,
+<dt><u>関数:</u> <b>kummer_m</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i>
+<a name="IDX1444"></a>
+</dt>
+<dd><p>Abramowitz and Stegun,
 <i>Handbook of Mathematical Functions</i>, Section 13.1.2の中で定義される
 Kummerの M関数
 </p>
@@ -584,40 +550,57 @@ Kummerの M関数
 </p>
 <p><code>kummer_u</code>, <code>dkummer_m</code>, <code>dkummer_u</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-kummer_005fu"></a>
 </p><dl>
-<dt><a name="index-kummer_005fu"></a><u>関数:</u> <b>kummer_u</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i></dt>
-<dd>
-<p>Abramowitz and Stegun,
+<dt><u>関数:</u> <b>kummer_u</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i>
+<a name="IDX1445"></a>
+</dt>
+<dd><p>Abramowitz and Stegun,
 <i>Handbook of Mathematical Functions</i>, Section 13.1.3の中で定義される
 Kummerの U関数
 </p>
 <p><code>kummer_m</code>を参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-dkummer_005fm"></a>
 </p><dl>
-<dt><a name="index-dkummer_005fm"></a><u>関数:</u> <b>dkummer_m</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i></dt>
+<dt><u>関数:</u> <b>dkummer_m</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i>
+<a name="IDX1446"></a>
+</dt>
 <dd><p><code>kummer_m(<var>a</var>, <var>b</var>, <var>x</var>)</code>の <var>x</var>に関する導関数。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-dkummer_005fu"></a>
 </p><dl>
-<dt><a name="index-dkummer_005fu"></a><u>関数:</u> <b>dkummer_u</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i></dt>
+<dt><u>関数:</u> <b>dkummer_u</b><i> (<var>a</var>, <var>b</var>, <var>x</var>)</i>
+<a name="IDX1447"></a>
+</dt>
 <dd><p><code>kummer_u(<var>a</var>, <var>b</var>, <var>x</var>)</code>の <var>x</var>に関する導関数。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-contrib_005fode">Package contrib_ode</a>
+</div>
+</p>
 </dd></dl>
 
 
@@ -625,24 +608,24 @@ Kummerの U関数
 <p><a name="Item_003a-Possible-improvements-to-contrib_005fode"></a>
 </p><hr size="6">
 <a name="Possible-improvements-to-contrib_005fode"></a>
+<a name="SEC231"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-contrib_005fode" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Test-cases-for-contrib_005fode" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC230" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC232" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#contrib_005fode" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#contrib_005fode" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#descriptive" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#SEC234" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Possible-improvements-to-contrib_005fode-1"></a>
-<h2 class="section">46.3 Possible improvements to contrib_ode</h2>
+<h2 class="section"> 46.3 Possible improvements to contrib_ode </h2>
 
 
 <p>これらのルーチンは開発進行中です。まだ以下をする必要があります:
@@ -682,24 +665,24 @@ Lie対称群ルーチン <code>ode1_lie</code>に関する仕事。
 <p><a name="Item_003a-Test-cases-for-contrib_005fode"></a>
 </p><hr size="6">
 <a name="Test-cases-for-contrib_005fode"></a>
+<a name="SEC232"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Possible-improvements-to-contrib_005fode" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#References-for-contrib_005fode" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC231" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC233" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#contrib_005fode" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#contrib_005fode" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#descriptive" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#SEC234" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Test-cases-for-contrib_005fode-1"></a>
-<h2 class="section">46.4 Test cases for contrib_ode</h2>
+<h2 class="section"> 46.4 Test cases for contrib_ode </h2>
 
 
 <p>ルーチンは
@@ -725,24 +708,24 @@ Murphyと Kamkeの中の Clairault方程式の知られている解すべてを�
 <p><a name="Item_003a-References-for-contrib_005fode"></a>
 </p><hr size="6">
 <a name="References-for-contrib_005fode"></a>
+<a name="SEC233"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Test-cases-for-contrib_005fode" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#descriptive" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC232" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#SEC234" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#contrib_005fode" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#contrib_005fode" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#descriptive" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC228" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#SEC234" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="References-for-contrib_005fode-1"></a>
-<h2 class="section">46.5 References for contrib_ode</h2>
+<h2 class="section"> 46.5 References for contrib_ode </h2>
 
 
 <ol>
@@ -759,11 +742,11 @@ D. Zwillinger, Handbook of Differential Equations, 3rd edition,
     Academic Press, 1998
 
 </li><li>
-F. Schwarz, Symmetry Analysis of Abel&rsquo;s Equation, Studies in
+F. Schwarz, Symmetry Analysis of Abel's Equation, Studies in
     Applied Mathematics, 100:269-294 (1998)
 
 </li><li>
-F. Schwarz, Algorithmic Solution of Abel&rsquo;s Equation,
+F. Schwarz, Algorithmic Solution of Abel's Equation,
     Computing 61, 39-49 (1998)
 
 </li><li>
@@ -795,21 +778,21 @@ Proceedings of ISSAC 2002, Lille, ACM Press, 23-28.
 <p><a name="Item_003a-descriptive"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#contrib_005fode" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#descriptive" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC228" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_47.html#SEC234" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>5月, 20 2015</em>に<a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>を用いて生成されました。
  </font>
  <br>
 

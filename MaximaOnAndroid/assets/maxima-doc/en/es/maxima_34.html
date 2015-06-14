@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on septiembre, 8 2014 by texi2html 1.76 -->
+<!-- Created on abril, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual de Maxima: 34. Reglas y patrones</title>
+<title>Manual de Maxima 5.36.0: 34. Reglas y patrones</title>
 
-<meta name="description" content="Manual de Maxima: 34. Reglas y patrones">
-<meta name="keywords" content="Manual de Maxima: 34. Reglas y patrones">
+<meta name="description" content="Manual de Maxima 5.36.0: 34. Reglas y patrones">
+<meta name="keywords" content="Manual de Maxima 5.36.0: 34. Reglas y patrones">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,225 +32,147 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="Reglas-y-patrones"></a>
-<a name="SEC186"></a>
+<a name="SEC187"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_33.html#SEC185" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC187" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_33.html#SEC186" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC188" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_33.html#SEC182" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_33.html#SEC183" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_35.html#SEC189" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_35.html#SEC190" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter"> 34. Reglas y patrones </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC187">34.1 Introducci&oacute;n a reglas y patrones</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+<tr><td align="left" valign="top"><a href="#SEC188">34.1 Introducción a reglas y patrones</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC188">34.2 Funciones y variables sobre reglas y patrones</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+<tr><td align="left" valign="top"><a href="#SEC189">34.2 Funciones y variables sobre reglas y patrones</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
 </td></tr>
 </table>
 
 <hr size="6">
 <a name="Introducci_00f3n-a-reglas-y-patrones"></a>
-<a name="SEC187"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC186" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC188" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC186" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC186" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_35.html#SEC189" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 34.1 Introducci&oacute;n a reglas y patrones </h2>
-
-<p>Esta secci&oacute;n describe las reglas de simplificaci&oacute;n y los patrones de comparaci&oacute;n definidos por el usuario. Hay dos grupos de funciones que implementan diferentes esquemas de comparaci&oacute;n de patrones. En un grupo est&aacute;n <code>tellsimp</code>, <code>tellsimpafter</code>, <code>defmatch</code>, <code>defrule</code>, <code>apply1</code>, <code>applyb1</code> y <code>apply2</code>. En el otro, se encuentran <code>let</code> y <code>letsimp</code>. Ambos esquemas definen patrones en t&eacute;rminos de variables de patrones declaradas mediante  <code>matchdeclare</code>.
-</p>
-<p>Las reglas de comparaci&oacute;n de patrones definidas por <code>tellsimp</code> y <code>tellsimpafter</code> se aplican autom&aacute;ticamente por el simplificador de Maxima. Las reglas definidas por <code>defmatch</code>, <code>defrule</code> y <code>let</code> se aplican previa llamada a una funci&oacute;n.
-</p>
-<p>Hay otros mecanismos para las reglas; las relativas a polinomios se controlan mediante <code>tellrat</code> y las del &aacute;lgebra conmutativa y no conmutativa se definen en el paquete <code>affine</code>.
-</p>
-<hr size="6">
-<a name="Funciones-y-variables-sobre-reglas-y-patrones"></a>
 <a name="SEC188"></a>
 <table cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#SEC187" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_35.html#SEC189" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC189" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC186" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC186" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_35.html#SEC189" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC187" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC187" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_35.html#SEC190" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 34.1 Introducción a reglas y patrones </h2>
+
+<p>Esta sección describe las reglas de simplificación y los patrones de comparación definidos por el usuario. Hay dos grupos de funciones que implementan diferentes esquemas de comparación de patrones. En un grupo están <code>tellsimp</code>, <code>tellsimpafter</code>, <code>defmatch</code>, <code>defrule</code>, <code>apply1</code>, <code>applyb1</code> y <code>apply2</code>. En el otro, se encuentran <code>let</code> y <code>letsimp</code>. Ambos esquemas definen patrones en términos de variables de patrones declaradas mediante  <code>matchdeclare</code>.
+</p>
+<p>Las reglas de comparación de patrones definidas por <code>tellsimp</code> y <code>tellsimpafter</code> se aplican automáticamente por el simplificador de Maxima. Las reglas definidas por <code>defmatch</code>, <code>defrule</code> y <code>let</code> se aplican previa llamada a una función.
+</p>
+<p>Hay otros mecanismos para las reglas; las relativas a polinomios se controlan mediante <code>tellrat</code> y las del álgebra conmutativa y no conmutativa se definen en el paquete <code>affine</code>.
+</p>
+<hr size="6">
+<a name="Funciones-y-variables-sobre-reglas-y-patrones"></a>
+<a name="SEC189"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC188" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_35.html#SEC190" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC187" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC187" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_35.html#SEC190" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 34.2 Funciones y variables sobre reglas y patrones </h2>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>apply1</b><i> (<var>expr</var>, <var>regla_1</var>, ..., <var>regla_n</var>)</i>
+<dt><u>Función:</u> <b>apply1</b><i> (<var>expr</var>, <var>regla_1</var>, ..., <var>regla_n</var>)</i>
 <a name="IDX1384"></a>
 </dt>
-<dd><p>Aplica de forma repetida la <var>regla_1</var> a <var>expr</var> hasta que falla, a continuaci&oacute;n aplica repetidamente la misma regla a todas las subexpresiones de <var>expr</var>, de izquierda a derecha, hasta que la <var>regla_1</var> haya fallado en todas las subexpresiones. Ll&aacute;mese <var>expr_2</var> al resultado de transformar <var>expr</var> de esta forma. Entonces la <var>regla_2</var> se aplica de la misma manera comenzando en el nivel superior de <var>expr_2</var>. Cuando la <var>regla_n</var> falla en la &uacute;ltima expresi&oacute;n, se devuelve el resultado.
+<dd><p>Aplica de forma repetida la <var>regla_1</var> a <var>expr</var> hasta que falla, a continuación aplica repetidamente la misma regla a todas las subexpresiones de <var>expr</var>, de izquierda a derecha, hasta que la <var>regla_1</var> haya fallado en todas las subexpresiones. Llámese <var>expr_2</var> al resultado de transformar <var>expr</var> de esta forma. Entonces la <var>regla_2</var> se aplica de la misma manera comenzando en el nivel superior de <var>expr_2</var>. Cuando la <var>regla_n</var> falla en la última expresión, se devuelve el resultado.
 </p>
-<p><code>maxapplydepth</code> es el nivel de las subexpresiones m&aacute;s internas procesadas por <code>apply1</code> y <code>apply2</code>.
+<p><code>maxapplydepth</code> es el nivel de las subexpresiones más internas procesadas por <code>apply1</code> y <code>apply2</code>.
 </p>
-<p>V&eacute;ase tambi&eacute;n <code>applyb1</code>, <code>apply2</code> y <code>let</code>.
+<p>Véase también <code>applyb1</code>, <code>apply2</code> y <code>let</code>.
 </p>
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>apply2</b><i> (<var>expr</var>, <var>regla_1</var>, ..., <var>regla_n</var>)</i>
+<dt><u>Función:</u> <b>apply2</b><i> (<var>expr</var>, <var>regla_1</var>, ..., <var>regla_n</var>)</i>
 <a name="IDX1385"></a>
 </dt>
-<dd><p>Si la <var>regla_1</var> falla en una subexpresi&oacute;n dada, entonces se aplica la <var>regla_2</var> repetidamente, etc. S&oacute;lo si todas las reglas fallan en una subexpresi&oacute;n ser&aacute;n aplicadas todas las reglas de forma repetida a la siguiente subexpresi&oacute;n. Si alguna de las reglas tiene &eacute;xito entonces la misma subexpresi&oacute;n es reprocesada, comenzando por la primera regla.
+<dd><p>Si la <var>regla_1</var> falla en una subexpresión dada, entonces se aplica la <var>regla_2</var> repetidamente, etc. Sólo si todas las reglas fallan en una subexpresión serán aplicadas todas las reglas de forma repetida a la siguiente subexpresión. Si alguna de las reglas tiene éxito entonces la misma subexpresión es reprocesada, comenzando por la primera regla.
 </p>
-<p><code>maxapplydepth</code> es el nivel de las subexpresiones m&aacute;s internas procesadas por <code>apply1</code> y <code>apply2</code>.
+<p><code>maxapplydepth</code> es el nivel de las subexpresiones más internas procesadas por <code>apply1</code> y <code>apply2</code>.
 </p>
-<p>V&eacute;ase tambi&eacute;n <code>applyb1</code> y <code>let</code>.
+<p>Véase también <code>applyb1</code> y <code>let</code>.
 </p>
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>applyb1</b><i> (<var>expr</var>, <var>regla_1</var>, ..., <var>regla_n</var>)</i>
+<dt><u>Función:</u> <b>applyb1</b><i> (<var>expr</var>, <var>regla_1</var>, ..., <var>regla_n</var>)</i>
 <a name="IDX1386"></a>
 </dt>
-<dd><p>Aplica la <var>regla_1</var> reiteradamente hasta la subexpresi&oacute;n m&aacute;s interna de <var>expr</var> hasta que falle, a continuaci&oacute;n pasa a aplicar la misma regla en un nivel superior (esto es, en subexpresiones m&aacute;s grandes), hasta que la <var>regla_1</var> falle en la expresi&oacute;n de nivel m&aacute;s alto. Despu&eacute;s se aplica la <var>regla_2</var> de la misma manera al resultado obtenido de <var>regla_1</var>. Tras la aplicaci&oacute;n de la <var>regla_n</var> a la expresi&oacute;n de mayor nivel, se devuelve el resultado.
+<dd><p>Aplica la <var>regla_1</var> reiteradamente hasta la subexpresión más interna de <var>expr</var> hasta que falle, a continuación pasa a aplicar la misma regla en un nivel superior (esto es, en subexpresiones más grandes), hasta que la <var>regla_1</var> falle en la expresión de nivel más alto. Después se aplica la <var>regla_2</var> de la misma manera al resultado obtenido de <var>regla_1</var>. Tras la aplicación de la <var>regla_n</var> a la expresión de mayor nivel, se devuelve el resultado.
 </p>
-<p>La funci&oacute;n <code>applyb1</code> es similar a <code>apply1</code> pero opera de abajo-arriba, en lugar de arriba-abajo.
+<p>La función <code>applyb1</code> es similar a <code>apply1</code> pero opera de abajo-arriba, en lugar de arriba-abajo.
 </p>
-<p><code>maxapplyheight</code> es la m&aacute;xima altura a la que llega <code>applyb1</code> antes de terminar su cometido.
+<p><code>maxapplyheight</code> es la máxima altura a la que llega <code>applyb1</code> antes de terminar su cometido.
 </p>
-<p>V&eacute;ase tambi&eacute;n <code>apply1</code>, <code>apply2</code> y <code>let</code>.
+<p>Véase también <code>apply1</code>, <code>apply2</code> y <code>let</code>.
 </p>
 </dd></dl>
 
@@ -260,9 +182,9 @@ div.categorybox
 </dt>
 <dd><p>Valor por defecto: <code>default_let_rule_package</code>
 </p>
-<p>La variable <code>current_let_rule_package</code> es el nombre del paquete de reglas que est&aacute;n utilizando las funciones del paquete <code>let</code> (<code>letsimp</code>, etc.), a menos que se especifique otro paquete de reglas. A esta variable se le puede asignar el nombre de cualquier paquete de reglas definido por medio de la instrucci&oacute;n <code>let</code>.
+<p>La variable <code>current_let_rule_package</code> es el nombre del paquete de reglas que están utilizando las funciones del paquete <code>let</code> (<code>letsimp</code>, etc.), a menos que se especifique otro paquete de reglas. A esta variable se le puede asignar el nombre de cualquier paquete de reglas definido por medio de la instrucción <code>let</code>.
 </p>
-<p>Si se hace la llamada <code>letsimp (expr, rule_pkg_name)</code>, el paquete de reglas <code>rule_pkg_name</code> ser&aacute; utilizado &uacute;nicamente para esa llamada y el valor de <code>current_let_rule_package</code> no cambia.
+<p>Si se hace la llamada <code>letsimp (expr, rule_pkg_name)</code>, el paquete de reglas <code>rule_pkg_name</code> será utilizado únicamente para esa llamada y el valor de <code>current_let_rule_package</code> no cambia.
 </p>
 </dd></dl>
 
@@ -272,40 +194,40 @@ div.categorybox
 </dt>
 <dd><p>Valor por defecto: <code>default_let_rule_package</code>
 </p>
-<p>La variable <code>default_let_rule_package</code> es el nombre del paquete de reglas utilizado cuando el usuario no especifica otro expl&iacute;citamente con <code>let</code> o cambiando el valor de <code>current_let_rule_package</code>.
+<p>La variable <code>default_let_rule_package</code> es el nombre del paquete de reglas utilizado cuando el usuario no especifica otro explícitamente con <code>let</code> o cambiando el valor de <code>current_let_rule_package</code>.
 </p>
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>defmatch</b><i> (<var>nombre_prog</var>, <var>patr&oacute;n</var>, <var>x_1</var>, ..., <var>x_n</var>)</i>
+<dt><u>Función:</u> <b>defmatch</b><i> (<var>nombre_prog</var>, <var>patrón</var>, <var>x_1</var>, ..., <var>x_n</var>)</i>
 <a name="IDX1389"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>defmatch</b><i> (<var>progname</var>, <var>pattern</var>)</i>
+<dt><u>Función:</u> <b>defmatch</b><i> (<var>progname</var>, <var>pattern</var>)</i>
 <a name="IDX1390"></a>
 </dt>
-<dd><p>Define una funci&oacute;n <code><var>nombre_prog</var>(<var>expr</var>, <var>x_1</var>, ..., <var>x_n</var>)</code> que analiza si <var>expr</var> coincide con el <var>patr&oacute;n</var>.
+<dd><p>Define una función <code><var>nombre_prog</var>(<var>expr</var>, <var>x_1</var>, ..., <var>x_n</var>)</code> que analiza si <var>expr</var> coincide con el <var>patrón</var>.
 </p>
-<p>El argumento <var>patr&oacute;n</var> es una expresi&oacute;n que contiene los
-argumentos de patr&oacute;n <var>x_1</var>, ..., <var>x_n</var> y algunas variables de patr&oacute;n.
-Los argumentos de patr&oacute;n se dan de forma expl&iacute;cita
-como argumentos a <code>defmatch</code>, mientras que las variables de patr&oacute;n
-se declaran mediante la funci&oacute;n <code>matchdeclare</code>.
-Cualquier variable no declarada bien como variable patr&oacute;n en <code>matchdeclare</code>,
-bien como argumento patr&oacute;n en <code>defmatch</code> se hace coincidir con ella
+<p>El argumento <var>patrón</var> es una expresión que contiene los
+argumentos de patrón <var>x_1</var>, ..., <var>x_n</var> y algunas variables de patrón.
+Los argumentos de patrón se dan de forma explícita
+como argumentos a <code>defmatch</code>, mientras que las variables de patrón
+se declaran mediante la función <code>matchdeclare</code>.
+Cualquier variable no declarada bien como variable patrón en <code>matchdeclare</code>,
+bien como argumento patrón en <code>defmatch</code> se hace coincidir con ella
 misma.
 </p>
-<p>El primer argumento de la funci&oacute;n definida <var>nombre_prog</var> es una expresi&oacute;n
-a ser comparada con el patr&oacute;n y los dem&aacute;s argumentos son los argumentos 
-que se corresponden con las variables ficticias <var>x_1</var>, ..., <var>x_n</var> del patr&oacute;n.
+<p>El primer argumento de la función definida <var>nombre_prog</var> es una expresión
+a ser comparada con el patrón y los demás argumentos son los argumentos 
+que se corresponden con las variables ficticias <var>x_1</var>, ..., <var>x_n</var> del patrón.
 </p>
-<p>Si el resultado de la comparaci&oacute;n es positivo, <var>nombre_prog</var> devuelve
+<p>Si el resultado de la comparación es positivo, <var>nombre_prog</var> devuelve
 una lista de ecuaciones cuyos miembros izquierdos son los argumentos y variables de
-patr&oacute;n, y cuyos miembros derechos son las subexpresiones en las que se han 
-producido las coincidencias con patrones. A las variables de patr&oacute;n, no a los
+patrón, y cuyos miembros derechos son las subexpresiones en las que se han 
+producido las coincidencias con patrones. A las variables de patrón, no a los
 argumentos, se les asignan las subexpresiones con las que coinciden. Si la 
-comparaci&oacute;n falla, <var>nombre_prog</var> devuelve <code>false</code>.  
+comparación falla, <var>nombre_prog</var> devuelve <code>false</code>.  
 </p>
-<p>Un patr&oacute;n literal, es decir, que no contiene ni argumentos ni variables de patr&oacute;n,
+<p>Un patrón literal, es decir, que no contiene ni argumentos ni variables de patrón,
 devuelve <code>true</code> en caso de coincidencia.
 </p>
 
@@ -314,15 +236,15 @@ devuelve <code>true</code> en caso de coincidencia.
 (that is, a pattern which contains neither pattern arguments nor pattern variables)
 returns <code>true</code> if the match succeeds.
 </p>
-<p>V&eacute;ase tambi&eacute;n <code>matchdeclare</code>, <code>defrule</code>, <code>tellsimp</code> y <code>tellsimpafter</code>.
+<p>Véase también <code>matchdeclare</code>, <code>defrule</code>, <code>tellsimp</code> y <code>tellsimpafter</code>.
 </p>
 <p>Ejemplos:
 </p>
-<p>Define una funci&oacute;n <code>linearp(expr, x)</code> que comprueba si
+<p>Define una función <code>linearp(expr, x)</code> que comprueba si
 <code>expr</code> es de la forma <code>a*x + b</code>, donde
 ni <code>a</code> ni <code>b</code> contienen a <code>x</code> y <code>a</code> es no nulo.
-La funci&oacute;n definida reconoce expresiones lineales respecto de
-cualquier variable, pues el argumento de patr&oacute;n <code>x</code> es
+La función definida reconoce expresiones lineales respecto de
+cualquier variable, pues el argumento de patrón <code>x</code> es
 pasado a <code>defmatch</code>.
 </p>
 <pre class="example">(%i1) matchdeclare (a, lambda ([e], e#0 and freeof(x, e)),
@@ -341,12 +263,12 @@ pasado a <code>defmatch</code>.
 (%i6) x;
 (%o6)                           x
 </pre>
-<p>Define una funci&oacute;n <code>linearp(expr)</code> que comprueba si
+<p>Define una función <code>linearp(expr)</code> que comprueba si
 <code>expr</code> es de la forma <code>a*x + b</code>, donde
 ni <code>a</code> ni <code>b</code> contienen a <code>x</code> y <code>a</code> es no nulo.
-La funci&oacute;n definida s&oacute;lo reconoce expresiones lineales
-&uacute;nicamente respecto de <code>x</code>, pues no se le pasa a <code>defmatch</code>
-nig&uacute;n argumento de patr&oacute;n
+La función definida sólo reconoce expresiones lineales
+únicamente respecto de <code>x</code>, pues no se le pasa a <code>defmatch</code>
+nigún argumento de patrón
 </p>
 <pre class="example">(%i1) matchdeclare (a, lambda ([e], e#0 and freeof(x, e)),
                     b, freeof(x));
@@ -359,7 +281,7 @@ nig&uacute;n argumento de patr&oacute;n
                              2
 (%o4)                  [b = y , a = y + 4]
 </pre>
-<p>Define una funci&oacute;n <code>checklimits(expr)</code> que comprueba si
+<p>Define una función <code>checklimits(expr)</code> que comprueba si
 <code>expr</code> es una integral definida.
 </p>
 <pre class="example">(%i1) matchdeclare ([a, f], true);
@@ -390,31 +312,31 @@ nig&uacute;n argumento de patr&oacute;n
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>defrule</b><i> (<var>nombre_regla</var>, <var>patr&oacute;n</var>, <var>reemplazamiento</var>)</i>
+<dt><u>Función:</u> <b>defrule</b><i> (<var>nombre_regla</var>, <var>patrón</var>, <var>reemplazamiento</var>)</i>
 <a name="IDX1391"></a>
 </dt>
-<dd><p>Define y da nombre a una regla de reemplazamiento para el patr&oacute;n dado. Si la regla <var>nombre_regla</var> es aplicada a una expresi&oacute;n (por <code>apply1</code>, <code>applyb1</code> o <code>apply2</code>), cada subexpresi&oacute;n que coincida con el patr&oacute;n ser&aacute; reemplazada por el contenido de <var>reemplazamiento</var>.
+<dd><p>Define y da nombre a una regla de reemplazamiento para el patrón dado. Si la regla <var>nombre_regla</var> es aplicada a una expresión (por <code>apply1</code>, <code>applyb1</code> o <code>apply2</code>), cada subexpresión que coincida con el patrón será reemplazada por el contenido de <var>reemplazamiento</var>.
 </p>
-<p>Las propias reglas pueden ser tratadas como funciones que transforman una expresi&oacute;n mediante una operaci&oacute;n consistente en la b&uacute;squeda de una coincidencia y posterior aplicaci&oacute;n de un reemplazamiento. Si la comparaci&oacute;n falla, la funci&oacute;n que implementa la regla devuelve <code>false</code>.
+<p>Las propias reglas pueden ser tratadas como funciones que transforman una expresión mediante una operación consistente en la búsqueda de una coincidencia y posterior aplicación de un reemplazamiento. Si la comparación falla, la función que implementa la regla devuelve <code>false</code>.
 </p>
 
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>disprule</b><i> (<var>nombre_regla_1</var>, ..., <var>nombre_regla_n</var>)</i>
+<dt><u>Función:</u> <b>disprule</b><i> (<var>nombre_regla_1</var>, ..., <var>nombre_regla_n</var>)</i>
 <a name="IDX1392"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>disprule</b><i> (all)</i>
+<dt><u>Función:</u> <b>disprule</b><i> (all)</i>
 <a name="IDX1393"></a>
 </dt>
-<dd><p>Muestra las reglas de <var>nombre_regla_1</var>, ..., <var>nombre_regla_n</var>, tal como son devueltas por <code>defrule</code>, <code>tellsimp</code> o <code>tellsimpafter</code>, o un patr&oacute;n definido por <code>defmatch</code>.
-Cada regla se muestra con una etiqueta de expresi&oacute;n intermedia (<code>%t</code>).
+<dd><p>Muestra las reglas de <var>nombre_regla_1</var>, ..., <var>nombre_regla_n</var>, tal como son devueltas por <code>defrule</code>, <code>tellsimp</code> o <code>tellsimpafter</code>, o un patrón definido por <code>defmatch</code>.
+Cada regla se muestra con una etiqueta de expresión intermedia (<code>%t</code>).
 </p>
 <p>La llamada <code>disprule (all)</code> muestra todas las reglas.
 </p>
-<p>La funci&oacute;n <code>disprule</code> no eval&uacute;a sus argumentos y devuelve la lista de etiquetas de expresiones intermedias correspondientes a las reglas mostradas.
+<p>La función <code>disprule</code> no evalúa sus argumentos y devuelve la lista de etiquetas de expresiones intermedias correspondientes a las reglas mostradas.
 </p>
-<p>V&eacute;ase tambi&eacute;n <code>letrules</code>, que muestra las reglas definidas por <code>let</code>.
+<p>Véase también <code>letrules</code>, que muestra las reglas definidas por <code>let</code>.
 </p>
 <p>Ejemplos:
 </p>
@@ -439,31 +361,31 @@ Cada regla se muestra con una etiqueta de expresi&oacute;n intermedia (<code>%t<
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>let</b><i> (<var>prod</var>, <var>repl</var>, <var>predname</var>, <var>arg_1</var>, ..., <var>arg_n</var>)</i>
+<dt><u>Función:</u> <b>let</b><i> (<var>prod</var>, <var>repl</var>, <var>predname</var>, <var>arg_1</var>, ..., <var>arg_n</var>)</i>
 <a name="IDX1394"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>let</b><i> ([<var>prod</var>, <var>repl</var>, <var>predname</var>, <var>arg_1</var>, ..., <var>arg_n</var>], <var>nombre_paquete</var>)</i>
+<dt><u>Función:</u> <b>let</b><i> ([<var>prod</var>, <var>repl</var>, <var>predname</var>, <var>arg_1</var>, ..., <var>arg_n</var>], <var>nombre_paquete</var>)</i>
 <a name="IDX1395"></a>
 </dt>
-<dd><p>Define una regla de sustituci&oacute;n para <code>letsimp</code> tal que <var>prod</var> es sustituido por <var>repl</var>, donde <var>prod</var> es un producto de potencias positivas o negativas de los t&eacute;rminos siguientes:
+<dd><p>Define una regla de sustitución para <code>letsimp</code> tal que <var>prod</var> es sustituido por <var>repl</var>, donde <var>prod</var> es un producto de potencias positivas o negativas de los términos siguientes:
 </p>
 <ul>
 <li>
-&Aacute;tomos que <code>letsimp</code> buscar&aacute; a menos que antes de llamar a <code>letsimp</code> se utilice la funci&oacute;n <code>matchdeclare</code> para asociar un predicado con el &aacute;tomo. En este caso <code>letsimp</code> har&aacute; coincidir el &aacute;tomo con cualquier t&eacute;rmino del producto que satisfaga el predicado.
+Átomos que <code>letsimp</code> buscará a menos que antes de llamar a <code>letsimp</code> se utilice la función <code>matchdeclare</code> para asociar un predicado con el átomo. En este caso <code>letsimp</code> hará coincidir el átomo con cualquier término del producto que satisfaga el predicado.
 </li><li>
-Expresiones b&aacute;sicas como <code>sin(x)</code>, <code>n!</code>, <code>f(x,y)</code>, etc.  Como en el caso anterior, <code>letsimp</code> buscar&aacute; coincidencias exactas, a menos que se utilice <code>matchdeclare</code> para asociar un predicado con el argumento de la expresi&oacute;n b&aacute;sica (<code>sin(x)</code>, <code>n!</code>, <code>f(x,y)</code>, ...).
+Expresiones básicas como <code>sin(x)</code>, <code>n!</code>, <code>f(x,y)</code>, etc.  Como en el caso anterior, <code>letsimp</code> buscará coincidencias exactas, a menos que se utilice <code>matchdeclare</code> para asociar un predicado con el argumento de la expresión básica (<code>sin(x)</code>, <code>n!</code>, <code>f(x,y)</code>, ...).
 </li></ul>
 
-<p>Si se incluye un predicado en la funci&oacute;n <code>let</code> seguido de una lista de argumentos, una coincidencia aceptable  (es decir, una que fuese aceptada si se hubiese omitido el predicado) se aceptar&aacute; s&oacute;lo si <code>predname (arg_1', ..., arg_n')</code> vale <code>true</code>, donde <var>arg_i'</var> es el valor coincidente con <var>arg_i</var>.  El argumento <var>arg_i</var> puede ser el nombre de cualquier &aacute;tomo o el argumento de cualquier expresi&oacute;n b&aacute;sica que aparezca en <var>prod</var>. 
-<var>repl</var> puede ser cualquier expresi&oacute;n racional. Si cualquiera de los &aacute;tomos o argumentos de <var>prod</var> aparece en <var>repl</var> se llevan a cabo las sustituciones correspondientes.
+<p>Si se incluye un predicado en la función <code>let</code> seguido de una lista de argumentos, una coincidencia aceptable  (es decir, una que fuese aceptada si se hubiese omitido el predicado) se aceptará sólo si <code>predname (arg_1', ..., arg_n')</code> vale <code>true</code>, donde <var>arg_i'</var> es el valor coincidente con <var>arg_i</var>.  El argumento <var>arg_i</var> puede ser el nombre de cualquier átomo o el argumento de cualquier expresión básica que aparezca en <var>prod</var>. 
+<var>repl</var> puede ser cualquier expresión racional. Si cualquiera de los átomos o argumentos de <var>prod</var> aparece en <var>repl</var> se llevan a cabo las sustituciones correspondientes.
 </p>
-<p>La variable global <code>letrat</code> controla la simplificaci&oacute;n de los cocientes por <code>letsimp</code>. Cuando <code>letrat</code> vale  <code>false</code>, <code>letsimp</code> simplifica separadamente el numerador y denominador de  <var>expr</var> y no simplifica el cociente. Sustituciones como que <code>n!/n</code> se reduzca a <code>(n-1)!</code> ya no se realizar&aacute;n. Cuando  <code>letrat</code> vale  <code>true</code>, entonces se simplifican el numerador, el denominador y el cociente, en este orden.
+<p>La variable global <code>letrat</code> controla la simplificación de los cocientes por <code>letsimp</code>. Cuando <code>letrat</code> vale  <code>false</code>, <code>letsimp</code> simplifica separadamente el numerador y denominador de  <var>expr</var> y no simplifica el cociente. Sustituciones como que <code>n!/n</code> se reduzca a <code>(n-1)!</code> ya no se realizarán. Cuando  <code>letrat</code> vale  <code>true</code>, entonces se simplifican el numerador, el denominador y el cociente, en este orden.
 </p>
-<p>Estas funciones de sustituci&oacute;n permiten al usuario trabajar con varios paquetes de reglas al mismo tiempo. Cada paquete de reglas puede contener cierto n&uacute;mero de reglas <code>let</code> que son referenciadas por un nombre dado por el usuario. 
-<code>let ([<var>prod</var>, <var>repl</var>, <var>predname</var>, <var>arg_1</var>, ..., <var>arg_n</var>], <var>nombre_paquete</var>)</code> a&ntilde;ade la regla  <var>predname</var> al paquete de reglas  <var>nombre_paquete</var>. <code>letsimp (<var>expr</var>, <var>package_name</var>)</code> aplica las reglas de <var>nombre_paquete</var>. La llamada <code>letsimp (<var>expr</var>, <var>nombre_paquete1</var>, <var>nombre_paquete2</var>, ...)</code>
+<p>Estas funciones de sustitución permiten al usuario trabajar con varios paquetes de reglas al mismo tiempo. Cada paquete de reglas puede contener cierto número de reglas <code>let</code> que son referenciadas por un nombre dado por el usuario. 
+<code>let ([<var>prod</var>, <var>repl</var>, <var>predname</var>, <var>arg_1</var>, ..., <var>arg_n</var>], <var>nombre_paquete</var>)</code> añade la regla  <var>predname</var> al paquete de reglas  <var>nombre_paquete</var>. <code>letsimp (<var>expr</var>, <var>package_name</var>)</code> aplica las reglas de <var>nombre_paquete</var>. La llamada <code>letsimp (<var>expr</var>, <var>nombre_paquete1</var>, <var>nombre_paquete2</var>, ...)</code>
 es equivalente a <code>letsimp (<var>expr</var>, <var>nombre_paquete1</var>)</code> seguida de <code>letsimp (%, <var>nombre_paquete2</var>)</code>, ....
 </p>
-<p><code>current_let_rule_package</code> es el nombre del paquete de reglas que se est&aacute; utilizando. A esta variable se le puede asignar el nombre de cualquier paquete de reglas definido mediante el comando <code>let</code>. Siempre que una de las funciones incluidas en el paquete  <code>let</code> sean invocadas sin nombre de paquete, se utilizar&aacute; el paquete cuyo nombre se guarde en <code>current_let_rule_package</code>. Si se hace una llamada tal como <code>letsimp (<var>expr</var>, <var>rule_pkg_name</var>)</code>, el paquete de reglas <var>rule_pkg_name</var> es utilizado solamente para ese comando <code>letsimp</code>, sin efectuarse cambios en 
+<p><code>current_let_rule_package</code> es el nombre del paquete de reglas que se está utilizando. A esta variable se le puede asignar el nombre de cualquier paquete de reglas definido mediante el comando <code>let</code>. Siempre que una de las funciones incluidas en el paquete  <code>let</code> sean invocadas sin nombre de paquete, se utilizará el paquete cuyo nombre se guarde en <code>current_let_rule_package</code>. Si se hace una llamada tal como <code>letsimp (<var>expr</var>, <var>rule_pkg_name</var>)</code>, el paquete de reglas <var>rule_pkg_name</var> es utilizado solamente para ese comando <code>letsimp</code>, sin efectuarse cambios en 
 <code>current_let_rule_package</code>. A menos que se indique otra cosa, <code>current_let_rule_package</code> toma por defecto el valor de <code>default_let_rule_package</code>.
 </p>
 <pre class="example">(%i1) matchdeclare ([a, a1, a2], true)$
@@ -492,7 +414,7 @@ es equivalente a <code>letsimp (<var>expr</var>, <var>nombre_paquete1</var>)</co
 </dt>
 <dd><p>Valor por defecto: <code>false</code>
 </p>
-<p>Cuando <code>letrat</code> vale <code>false</code>, <code>letsimp</code> simplifica separadamente el numerador y denominador de una fracci&oacute;n sin simplificar luego el cociente.
+<p>Cuando <code>letrat</code> vale <code>false</code>, <code>letsimp</code> simplifica separadamente el numerador y denominador de una fracción sin simplificar luego el cociente.
 </p>
 <p>Cuando <code>letrat</code> vale <code>true</code>, se simplifican el numerador, denominador y cociente, por este orden.
 </p>
@@ -513,38 +435,38 @@ es equivalente a <code>letsimp (<var>expr</var>, <var>nombre_paquete1</var>)</co
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>letrules</b><i> ()</i>
+<dt><u>Función:</u> <b>letrules</b><i> ()</i>
 <a name="IDX1397"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>letrules</b><i> (<var>nombre_paquete</var>)</i>
+<dt><u>Función:</u> <b>letrules</b><i> (<var>nombre_paquete</var>)</i>
 <a name="IDX1398"></a>
 </dt>
 <dd><p>Muestra las reglas de un paquete de reglas. La llamada <code>letrules ()</code> muestra las reglas del paquete de reglas actual. La llamada <code>letrules (<var>nombre_paquete</var>)</code> muestra las reglas de <var>nombre_paquete</var>.
 </p>
 <p>El paquete de reglas actual tiene su nombre almacenado en by <code>current_let_rule_package</code>. A menos que se indique de otra manera, <code>current_let_rule_package</code> toma por defecto el valor de <code>default_let_rule_package</code>.
 </p>
-<p>V&eacute;ase tambi&eacute;n <code>disprule</code>, que muestra las reglas definidas por <code>tellsimp</code> y <code>tellsimpafter</code>.
+<p>Véase también <code>disprule</code>, que muestra las reglas definidas por <code>tellsimp</code> y <code>tellsimpafter</code>.
 </p>
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>letsimp</b><i> (<var>expr</var>)</i>
+<dt><u>Función:</u> <b>letsimp</b><i> (<var>expr</var>)</i>
 <a name="IDX1399"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>letsimp</b><i> (<var>expr</var>, <var>nombre_paquete</var>)</i>
+<dt><u>Función:</u> <b>letsimp</b><i> (<var>expr</var>, <var>nombre_paquete</var>)</i>
 <a name="IDX1400"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>letsimp</b><i> (<var>expr</var>, <var>nombre_paquete_1</var>, ..., <var>nombre_paquete_n</var>)</i>
+<dt><u>Función:</u> <b>letsimp</b><i> (<var>expr</var>, <var>nombre_paquete_1</var>, ..., <var>nombre_paquete_n</var>)</i>
 <a name="IDX1401"></a>
 </dt>
-<dd><p>Aplica repetidamente las reglas definidas por <code>let</code> hasta que no se puedan hacer m&aacute;s cambios en <var>expr</var>.
+<dd><p>Aplica repetidamente las reglas definidas por <code>let</code> hasta que no se puedan hacer más cambios en <var>expr</var>.
 </p>
 <p>La llamada <code>letsimp (<var>expr</var>)</code> utiliza las reglas de <code>current_let_rule_package</code>.
 </p>
 <p>La llamada <code>letsimp (<var>expr</var>, <var>nombre_paquete</var>)</code> utiliza las reglas de <var>nombre_paquete</var> sin efectuar cambios en <code>current_let_rule_package</code>.
 </p>
 <p>La llamada <code>letsimp (<var>expr</var>, <var>nombre_paquete_1</var>, ..., <var>nombre_paquete_n</var>)</code>
-es equivalente a <code>letsimp (<var>expr</var>, <var>nombre_paquete_1</var></code>, seguida de  <code>letsimp (%, <var>nombre_paquete_2</var>)</code> y as&iacute; sucesivamente.
+es equivalente a <code>letsimp (<var>expr</var>, <var>nombre_paquete_1</var></code>, seguida de  <code>letsimp (%, <var>nombre_paquete_2</var>)</code> y así sucesivamente.
 </p>
 </dd></dl>
 
@@ -559,50 +481,50 @@ es equivalente a <code>letsimp (<var>expr</var>, <var>nombre_paquete_1</var></co
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>matchdeclare</b><i> (<var>a_1</var>, <var>pred_1</var>, ..., <var>a_n</var>, <var>pred_n</var>)</i>
+<dt><u>Función:</u> <b>matchdeclare</b><i> (<var>a_1</var>, <var>pred_1</var>, ..., <var>a_n</var>, <var>pred_n</var>)</i>
 <a name="IDX1403"></a>
 </dt>
-<dd><p>Asocia un predicado <var>pred_k</var> con una variable o lista de variables  <var>a_k</var>, de forma que  <var>a_k</var> se comparar&aacute; con expresiones para las cuales el predicado devuelva algo que no sea <code>false</code>.
+<dd><p>Asocia un predicado <var>pred_k</var> con una variable o lista de variables  <var>a_k</var>, de forma que  <var>a_k</var> se comparará con expresiones para las cuales el predicado devuelva algo que no sea <code>false</code>.
 </p>
-<p>Un predicado puede ser el nombre de una funci&oacute;n, una expresi&oacute;n lambda, una
-llamada a funci&oacute;n, una llamada a una expresi&oacute;n lambda sin
-el &uacute;ltimo argumento, <code>true</code> o <code>all</code>.
-Cualquier expresi&oacute;n se hace coincidir con <code>true</code> o <code>all</code>. 
+<p>Un predicado puede ser el nombre de una función, una expresión lambda, una
+llamada a función, una llamada a una expresión lambda sin
+el último argumento, <code>true</code> o <code>all</code>.
+Cualquier expresión se hace coincidir con <code>true</code> o <code>all</code>. 
 </p>
-<p>Si el predicado se especifica como una llamada a funci&oacute;n o a
-una expresi&oacute;n lambda, la expresi&oacute;n a ser analizada es a&ntilde;adida 
+<p>Si el predicado se especifica como una llamada a función o a
+una expresión lambda, la expresión a ser analizada es añadida 
 a la lista de argumentos, siendo los argumentos evaluados en el 
-momento de ser evaluada la comparaci&oacute;n. 
-En cambio, si el predicado se especifica como un nombre de funci&oacute;n
-o como una expresi&oacute;n lambda, la expresi&oacute;n a ser analizada ser&aacute; 
-su &uacute;nico argumento. No es necesario definir una funci&oacute;n de predicado cuando se hace una llamada a <code>matchdeclare</code>; el predicado no se eval&uacute;a hasta que se ensaya  una comparaci&oacute;n.
+momento de ser evaluada la comparación. 
+En cambio, si el predicado se especifica como un nombre de función
+o como una expresión lambda, la expresión a ser analizada será 
+su único argumento. No es necesario definir una función de predicado cuando se hace una llamada a <code>matchdeclare</code>; el predicado no se evalúa hasta que se ensaya  una comparación.
 </p>
-<p>Un predicado puede devolver tanto una expresi&oacute;n booleana,
+<p>Un predicado puede devolver tanto una expresión booleana,
 como <code>true</code> o <code>false</code>.
-Las expresiones booleanas se eval&uacute;an con <code>is</code> dentro
+Las expresiones booleanas se evalúan con <code>is</code> dentro
 de la regla, por lo que no es necesario llamar a <code>is</code>
 desde dentro del predicado.
 </p>
-<p>Si una expresi&oacute;n satisface un predicado, se asigna a la variable de comparaci&oacute;n la expresi&oacute;n, excepto cuando las variables de comparaci&oacute;n son operandos de sumas <code>+</code> o multiplicaciones <code>*</code>. Solamente las sumas y multiplicaciones son tratadas de forma especial; los dem&aacute;s operadores n-arios (tanto los del sistema como los definidos por el usuario) son tratados como funciones ordinarias.
+<p>Si una expresión satisface un predicado, se asigna a la variable de comparación la expresión, excepto cuando las variables de comparación son operandos de sumas <code>+</code> o multiplicaciones <code>*</code>. Solamente las sumas y multiplicaciones son tratadas de forma especial; los demás operadores n-arios (tanto los del sistema como los definidos por el usuario) son tratados como funciones ordinarias.
 </p>
-<p>En el caso de sumas y multiplicaciones, a la variable de comparaci&oacute;n se le puede asignar una expresi&oacute;n simple que satisfaga el predicado de comparaci&oacute;n, o una suma o producto, respectivamente, de tales expresiones. Los predicados son evaluados en el orden en el que sus variables asociadas aparecen en el patr&oacute;n de comparaci&oacute;n, y un t&eacute;rmino que satisfaga m&aacute;s de un predicado es tomado por el primer predicado que satisfaga. Cada predicado se compara con todos los operandos de la suma o producto antes de ser evaluado el siguiente predicado. Adem&aacute;s, si 0 o 1, respectivamente, satisface un predicado de comparaci&oacute;n, y no hay otros t&eacute;rminos que lo satisfagan, se asignar&aacute; el 0 o 1 a la variable de comparaci&oacute;n asociada al predicado.
+<p>En el caso de sumas y multiplicaciones, a la variable de comparación se le puede asignar una expresión simple que satisfaga el predicado de comparación, o una suma o producto, respectivamente, de tales expresiones. Los predicados son evaluados en el orden en el que sus variables asociadas aparecen en el patrón de comparación, y un término que satisfaga más de un predicado es tomado por el primer predicado que satisfaga. Cada predicado se compara con todos los operandos de la suma o producto antes de ser evaluado el siguiente predicado. Además, si 0 o 1, respectivamente, satisface un predicado de comparación, y no hay otros términos que lo satisfagan, se asignará el 0 o 1 a la variable de comparación asociada al predicado.
 </p>
-<p>El algoritmo para procesar patrones de suma y multiplicaci&oacute;n hace que los resultados de algunas comparaciones dependan del orden de los t&eacute;rminos en el patr&oacute;n de comparaci&oacute;n y en la expresi&oacute;n a ser comparada. Sin embargo, si todos los predicados de comparaci&oacute;n son mutuamente excluyentes, el resultado de la comparaci&oacute;n no depende para nada de la ordenaci&oacute;n, puesto que un predicado de comparaci&oacute;n no puede aceptar t&eacute;rminos aceptados por otros predicados.
+<p>El algoritmo para procesar patrones de suma y multiplicación hace que los resultados de algunas comparaciones dependan del orden de los términos en el patrón de comparación y en la expresión a ser comparada. Sin embargo, si todos los predicados de comparación son mutuamente excluyentes, el resultado de la comparación no depende para nada de la ordenación, puesto que un predicado de comparación no puede aceptar términos aceptados por otros predicados.
 </p>
-<p>Invocando <code>matchdeclare</code> con una variable <var>a</var> como argumento cambia la propiedad de <code>matchdeclare</code> para  <var>a</var>, si ya hab&iacute;a una declarada; solamente el <code>matchdeclare</code> m&aacute;s reciente est&aacute; activo cuando se define una regla. Cambios posteriores en la propiedad de <code>matchdeclare</code> (via <code>matchdeclare</code> o <code>remove</code>) no afectan a las reglas existentes.
+<p>Invocando <code>matchdeclare</code> con una variable <var>a</var> como argumento cambia la propiedad de <code>matchdeclare</code> para  <var>a</var>, si ya había una declarada; solamente el <code>matchdeclare</code> más reciente está activo cuando se define una regla. Cambios posteriores en la propiedad de <code>matchdeclare</code> (via <code>matchdeclare</code> o <code>remove</code>) no afectan a las reglas existentes.
 </p>
 <p><code>propvars (matchdeclare)</code> devuelve la lista de todas las variables para las cuales hay una propiedad de <code>matchdeclare</code>. La llamada <code>printprops (<var>a</var>, matchdeclare)</code> devuelve el predicado para la variable <code>a</code>.
 La llamada <code>printprops (all, matchdeclare)</code> devuelve la lista de predicados de todas las variables de <code>matchdeclare</code>. La llamada <code>remove (<var>a</var>, matchdeclare)</code> borra la propiedad <code>matchdeclare</code> de <var>a</var>.
 </p>
 <p>Las funciones <code>defmatch</code>, <code>defrule</code>, <code>tellsimp</code>, <code>tellsimpafter</code> y <code>let</code> construyen reglas que analizan expresiones mediante patrones.
 </p>
-<p><code>matchdeclare</code> no eval&uacute;a sus argumentos y siempre devuelve <code>done</code>.
+<p><code>matchdeclare</code> no evalúa sus argumentos y siempre devuelve <code>done</code>.
 </p>
 <p>Ejemplos:
 </p>
-<p>Un predicado puede ser el nombre de una funci&oacute;n, una expresi&oacute;n lambda, una
-llamada a funci&oacute;n, una llamada a una expresi&oacute;n lambda sin
-el &uacute;ltimo argumento, <code>true</code> o <code>all</code>.
+<p>Un predicado puede ser el nombre de una función, una expresión lambda, una
+llamada a función, una llamada a una expresión lambda sin
+el último argumento, <code>true</code> o <code>all</code>.
 </p>
 <pre class="example">(%i1) matchdeclare (aa, integerp);
 (%o1)                         done
@@ -617,7 +539,7 @@ el &uacute;ltimo argumento, <code>true</code> o <code>all</code>.
 (%i6) matchdeclare (ff, all);
 (%o6)                         done
 </pre>
-<p>Si una expresi&oacute;n satisface un predicado, se asigna a la variable de comparaci&oacute;n la expresi&oacute;n.
+<p>Si una expresión satisface un predicado, se asigna a la variable de comparación la expresión.
 </p>
 <pre class="example">(%i1) matchdeclare (aa, integerp, bb, atom);
 (%o1)                         done
@@ -627,7 +549,7 @@ el &uacute;ltimo argumento, <code>true</code> o <code>all</code>.
 (%i3) r1 (%pi^8);
 (%o3)               [integer = 8, atom = %pi]
 </pre>
-<p>En el caso de sumas y multiplicaciones, a la variable de comparaci&oacute;n se le puede asignar una expresi&oacute;n simple que satisfaga el predicado de comparaci&oacute;n, o una suma o producto, respectivamente, de tales expresiones. 
+<p>En el caso de sumas y multiplicaciones, a la variable de comparación se le puede asignar una expresión simple que satisfaga el predicado de comparación, o una suma o producto, respectivamente, de tales expresiones. 
 </p>
 <pre class="example">(%i1) matchdeclare (aa, atom, bb, lambda ([x], not atom(x)));
 (%o1)                         done
@@ -654,7 +576,7 @@ bb aa partitions `product'
 </dt>
 <dd><p>Valor por defecto: 10000
 </p>
-<p>La variable <code>maxapplydepth</code> es la m&aacute;xima profundidad a la que van a introducirse <code>apply1</code> y  <code>apply2</code>.
+<p>La variable <code>maxapplydepth</code> es la máxima profundidad a la que van a introducirse <code>apply1</code> y  <code>apply2</code>.
 </p>
 </dd></dl>
 
@@ -665,39 +587,39 @@ bb aa partitions `product'
 </dt>
 <dd><p>Valor por defecto: 10000
 </p>
-<p>La variable <code>maxapplyheight</code> es la m2'axima altura a la que escalar&aacute; <code>applyb1</code> antes de detenerse.
+<p>La variable <code>maxapplyheight</code> es la m2'axima altura a la que escalará <code>applyb1</code> antes de detenerse.
 </p>
 </dd></dl>
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>remlet</b><i> (<var>prod</var>, <var>nombre</var>)</i>
+<dt><u>Función:</u> <b>remlet</b><i> (<var>prod</var>, <var>nombre</var>)</i>
 <a name="IDX1406"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>remlet</b><i> ()</i>
+<dt><u>Función:</u> <b>remlet</b><i> ()</i>
 <a name="IDX1407"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>remlet</b><i> (all)</i>
+<dt><u>Función:</u> <b>remlet</b><i> (all)</i>
 <a name="IDX1408"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>remlet</b><i> (all, <var>nombre</var>)</i>
+<dt><u>Función:</u> <b>remlet</b><i> (all, <var>nombre</var>)</i>
 <a name="IDX1409"></a>
 </dt>
-<dd><p>Elimina la &uacute;ltima regla de sustituci&oacute;n <var>prod</var> -&gt; repl que haya sido definida por la funci&oacute;n <code>let</code>. Si se suministar el nombre la regla ser&aacute; borrada del paquete con ese mismo nombre.
+<dd><p>Elimina la última regla de sustitución <var>prod</var> -&gt; repl que haya sido definida por la función <code>let</code>. Si se suministar el nombre la regla será borrada del paquete con ese mismo nombre.
 </p>
-<p>Las llamadas <code>remlet()</code> y <code>remlet(all)</code> eliminan todas las reglas de sustituci&oacute;n del paquete de reglas actual. Si se suministra el nombre de un paquete de reglas, como en <code>remlet (all, <var>nombre</var>)</code>, el paquete de reglas con ese  <var>nombre</var> es tambi&eacute;n eliminado.
+<p>Las llamadas <code>remlet()</code> y <code>remlet(all)</code> eliminan todas las reglas de sustitución del paquete de reglas actual. Si se suministra el nombre de un paquete de reglas, como en <code>remlet (all, <var>nombre</var>)</code>, el paquete de reglas con ese  <var>nombre</var> es también eliminado.
 </p>
-<p>Si es necesario cambiar una sustituci&oacute;n haciendo uso de la misma producci&oacute;n, no es necesario llamar a  <code>remlet</code>, simplemente redef&iacute;nase la sustituci&oacute;n utilizando la misma producci&oacute;n con la funci&oacute;n  <code>let</code> junto con el nuevo reemplazamiento y/o nombre de predicado. De ser llamado nuevamente <code>remlet (<var>prod</var>)</code> la sustituci&oacute;n original ser&iacute;a recuperada.
+<p>Si es necesario cambiar una sustitución haciendo uso de la misma producción, no es necesario llamar a  <code>remlet</code>, simplemente redefínase la sustitución utilizando la misma producción con la función  <code>let</code> junto con el nuevo reemplazamiento y/o nombre de predicado. De ser llamado nuevamente <code>remlet (<var>prod</var>)</code> la sustitución original sería recuperada.
 </p>
-<p>V&eacute;ase tambi&eacute;n <code>remrule</code>, que elimina una regla definida por  <code>tellsimp</code> o <code>tellsimpafter</code>.
+<p>Véase también <code>remrule</code>, que elimina una regla definida por  <code>tellsimp</code> o <code>tellsimpafter</code>.
 </p>
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>remrule</b><i> (<var>op</var>, <var>nombre_regla</var>)</i>
+<dt><u>Función:</u> <b>remrule</b><i> (<var>op</var>, <var>nombre_regla</var>)</i>
 <a name="IDX1410"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>remrule</b><i> (<var>op</var>, all)</i>
+<dt><u>Función:</u> <b>remrule</b><i> (<var>op</var>, all)</i>
 <a name="IDX1411"></a>
 </dt>
 <dd><p>Elimina las reglas previamente definidas por <code>tellsimp</code> o <code>tellsimpafter</code>.
@@ -708,7 +630,7 @@ bb aa partitions `product'
 </p>
 <p>La llamada <code>remrule (<var>function</var>, all)</code> borra todas las reglas para el operador <var>op</var>.
 </p>
-<p>V&eacute;ase tambi&eacute;n <code>remlet</code>, que elimina una regla definida mediante <code>let</code>.
+<p>Véase también <code>remlet</code>, que elimina una regla definida mediante <code>let</code>.
 </p>
 <p>Ejemplos:
 </p>         
@@ -746,14 +668,14 @@ bb aa partitions `product'
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>tellsimp</b><i> (<var>patr&oacute;n</var>, <var>reemplazamiento</var>)</i>
+<dt><u>Función:</u> <b>tellsimp</b><i> (<var>patrón</var>, <var>reemplazamiento</var>)</i>
 <a name="IDX1412"></a>
 </dt>
-<dd><p>La funci&oacute;n <code>tellsimp</code> es similar a  <code>tellsimpafter</code> pero coloca nueva informaci&oacute;n antes que la antigua, de manera que se aplica antes que las reglas de simplificaci&oacute;n de Maxima.
+<dd><p>La función <code>tellsimp</code> es similar a  <code>tellsimpafter</code> pero coloca nueva información antes que la antigua, de manera que se aplica antes que las reglas de simplificación de Maxima.
 </p>
-<p>La funci&oacute;n <code>tellsimp</code> se utiliza cuando es importante utilizar la expresi&oacute;n antes de que el simplificador opere sobre ella; por ejemplo, cuando el simplificador ya &quot;sabe&quot; algo sobre una expresi&oacute;n, pero lo que devuelve no es lo que quiere el usuario. En cambio, cuando  el simplificador ya &quot;sabe&quot; algo sobre una expresi&oacute;n pero lo que devuelve no es lo suficiente para el usuario, entonces &eacute;ste podr&aacute; estar interesado en utilizar <code>tellsimpafter</code>.
+<p>La función <code>tellsimp</code> se utiliza cuando es importante utilizar la expresión antes de que el simplificador opere sobre ella; por ejemplo, cuando el simplificador ya &quot;sabe&quot; algo sobre una expresión, pero lo que devuelve no es lo que quiere el usuario. En cambio, cuando  el simplificador ya &quot;sabe&quot; algo sobre una expresión pero lo que devuelve no es lo suficiente para el usuario, entonces éste podrá estar interesado en utilizar <code>tellsimpafter</code>.
 </p>
-<p>El patr&oacute;n no puede ser una suma, ni un producto, ni una variable ni un n&uacute;mero.
+<p>El patrón no puede ser una suma, ni un producto, ni una variable ni un número.
 </p>
 <p><code>rules</code> es la lista de reglas definidas por
 <code>defrule</code>, <code>defmatch</code>, <code>tellsimp</code> y <code>tellsimpafter</code>.
@@ -802,33 +724,33 @@ bb aa partitions `product'
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>tellsimpafter</b><i> (<var>patr&oacute;n</var>, <var>reemplazamiento</var>)</i>
+<dt><u>Función:</u> <b>tellsimpafter</b><i> (<var>patrón</var>, <var>reemplazamiento</var>)</i>
 <a name="IDX1413"></a>
 </dt>
-<dd><p>Define una regla de simplificaci&oacute;n que el simplificador aplicar&aacute; despu&eacute;s de las reglas de simplificaci&oacute;n propias de de Maxima. El <var>patr&oacute;n</var> es una expresi&oacute;n que contiene variables de patr&oacute;n (declaradas por <code>matchdeclare</code>) junto con otros &aacute;tomos y operadores. El contenido de <var>reemplazamiento</var> sustituye una expresi&oacute;n que coincida con el patr&oacute;n; a las variables de patr&oacute;n en <var>reemplazamiento</var> se les asignan los valores coincidentes en la expresi&oacute;n.
+<dd><p>Define una regla de simplificación que el simplificador aplicará después de las reglas de simplificación propias de de Maxima. El <var>patrón</var> es una expresión que contiene variables de patrón (declaradas por <code>matchdeclare</code>) junto con otros átomos y operadores. El contenido de <var>reemplazamiento</var> sustituye una expresión que coincida con el patrón; a las variables de patrón en <var>reemplazamiento</var> se les asignan los valores coincidentes en la expresión.
 </p>
-<p>El <var>patr&oacute;n</var> puede ser una expresi&oacute;n no at&oacute;mica en la que el operador principal no sea una variable de patr&oacute;n; la regla de simplificaci&oacute;n se asocia con el operador principal. Los nombres de las funciones (con una excepci&oacute;n que se indica m&aacute;s abajo), listas y arrays pueden aparecer en el <var>patr&oacute;n</var> como operador principal s&oacute;lo como literales (no variables de patrones); esto excluye expresiones como  <code>aa(x)</code> y <code>bb[y]</code>, si tanto <code>aa</code> como <code>bb</code> son patrones de variables. Nombres de funciones, listas y arrays que sean variables de patr&oacute;n pueden aparecer como operadores que no sean el operador principal de  <var>patr&oacute;n</var>.
+<p>El <var>patrón</var> puede ser una expresión no atómica en la que el operador principal no sea una variable de patrón; la regla de simplificación se asocia con el operador principal. Los nombres de las funciones (con una excepción que se indica más abajo), listas y arrays pueden aparecer en el <var>patrón</var> como operador principal sólo como literales (no variables de patrones); esto excluye expresiones como  <code>aa(x)</code> y <code>bb[y]</code>, si tanto <code>aa</code> como <code>bb</code> son patrones de variables. Nombres de funciones, listas y arrays que sean variables de patrón pueden aparecer como operadores que no sean el operador principal de  <var>patrón</var>.
 </p>
-<p>Hay una excepci&oacute;n a la regla indicada m&aacute;s arriba concerniente a los nombres de funciones. El nombre de una funci&oacute;n subindicada en una expresi&oacute;n tal como <code>aa[x](y)</code> puede ser una variable de patr&oacute;n porque el operador principal no es  <code>aa</code> sino el &aacute;tomo de Lisp  <code>mqapply</code>. Esta es una consecuencia de la representaci&oacute;n de expresiones que contienen funciones subindicadas.
+<p>Hay una excepción a la regla indicada más arriba concerniente a los nombres de funciones. El nombre de una función subindicada en una expresión tal como <code>aa[x](y)</code> puede ser una variable de patrón porque el operador principal no es  <code>aa</code> sino el átomo de Lisp  <code>mqapply</code>. Esta es una consecuencia de la representación de expresiones que contienen funciones subindicadas.
 </p>
-<p>Las reglas de simplificaci&oacute;n se aplican tras las evaluaciones (a menos que se supriman con el ap&oacute;strofo o la variable <code>noeval</code>). Las reglas establecidas por <code>tellsimpafter</code> se aplican en el orden en que han sido definidas y despu&eacute;s de las reglas propias de Maxima. Las reglas se aplican de abajo arriba, esto es, se aplican primero a las subexpresiones antes que a toda la expresi&oacute;n. Puede ser necesario simplificar repetidamente un resultado (por ejemplo, mediante el operador de doble comilla simple <code>''</code> o la variable <code>infeval</code>) para asegurar que se aplican todas las reglas.
+<p>Las reglas de simplificación se aplican tras las evaluaciones (a menos que se supriman con el apóstrofo o la variable <code>noeval</code>). Las reglas establecidas por <code>tellsimpafter</code> se aplican en el orden en que han sido definidas y después de las reglas propias de Maxima. Las reglas se aplican de abajo arriba, esto es, se aplican primero a las subexpresiones antes que a toda la expresión. Puede ser necesario simplificar repetidamente un resultado (por ejemplo, mediante el operador de doble comilla simple <code>''</code> o la variable <code>infeval</code>) para asegurar que se aplican todas las reglas.
 </p>
-<p>Las variables de patr&oacute;n se tratan como variables locales en las reglas de simplificaci&oacute;n. Una vez definida una regla, el valor de una variable de patr&oacute;n no afecta a la regla, ni se ve influenciada poe &eacute;sta. Una asignaci&oacute;n a una variable de patr&oacute;n que resulta de la aplicaci&oacute;n exitosa de una regla no afecta a la asignaci&oacute;n actual de la variable de patr&oacute;n. Sin embargo, como cualquier otro &aacute;tomo de Maxima, las propiedades de las variables de patr&oacute;n (tal como se definen con <code>put</code> y sus funciones relacionadas) son globales.
+<p>Las variables de patrón se tratan como variables locales en las reglas de simplificación. Una vez definida una regla, el valor de una variable de patrón no afecta a la regla, ni se ve influenciada poe ésta. Una asignación a una variable de patrón que resulta de la aplicación exitosa de una regla no afecta a la asignación actual de la variable de patrón. Sin embargo, como cualquier otro átomo de Maxima, las propiedades de las variables de patrón (tal como se definen con <code>put</code> y sus funciones relacionadas) son globales.
 </p>
-<p>La regla construida por  <code>tellsimpafter</code> es nombrada detr&aacute;s del operador principal de <var>patr&oacute;n</var>. Reglas para operadores de Maxima y operadores definidos por el usuario con <code>infix</code>, <code>prefix</code>, <code>postfix</code>, <code>matchfix</code> y <code>nofix</code>, tienen nombres que son cadenas alfanum&eacute;ricas de Maxima. Reglas para otras funciones tienen nombres que son identificadores ordinarios de Maxima.
+<p>La regla construida por  <code>tellsimpafter</code> es nombrada detrás del operador principal de <var>patrón</var>. Reglas para operadores de Maxima y operadores definidos por el usuario con <code>infix</code>, <code>prefix</code>, <code>postfix</code>, <code>matchfix</code> y <code>nofix</code>, tienen nombres que son cadenas alfanuméricas de Maxima. Reglas para otras funciones tienen nombres que son identificadores ordinarios de Maxima.
 </p>
-<p>El tratamiento de formas nominales y verbales es hasta cierto punto confuso. Si se define una regla para una forma nominal (o verbal)  y ya existe una regla para la correspondiente forma verbal (o nominal), la regla reci&eacute;n definida se aplica a ambas formas (nominal y verbal). Si no existe regla para una forma verbal (o nominal) la regla reci&eacute;n definida se aplica &uacute;nicamente a la forma nominal (o verbal).
+<p>El tratamiento de formas nominales y verbales es hasta cierto punto confuso. Si se define una regla para una forma nominal (o verbal)  y ya existe una regla para la correspondiente forma verbal (o nominal), la regla recién definida se aplica a ambas formas (nominal y verbal). Si no existe regla para una forma verbal (o nominal) la regla recién definida se aplica únicamente a la forma nominal (o verbal).
 </p>
-<p>La regla construida por  <code>tellsimpafter</code> es una t&iacute;pica funci&oacute;n de Lisp. Si el nombre de la regla es <code>$foorule1</code>, la sentencia <code>:lisp (trace $foorule1)</code> hace una traza de la funci&oacute;n y  <code>:lisp (symbol-function '$foorule1)</code> muestra su definici&oacute;n.
+<p>La regla construida por  <code>tellsimpafter</code> es una típica función de Lisp. Si el nombre de la regla es <code>$foorule1</code>, la sentencia <code>:lisp (trace $foorule1)</code> hace una traza de la función y  <code>:lisp (symbol-function '$foorule1)</code> muestra su definición.
 </p>
-<p>La funci&oacute;n <code>tellsimpafter</code> no eval&uacute;a sus argumentos y devuelve la lista de reglas para el operador principal de  <var>patr&oacute;n</var>, incluida la regla reci&eacute;n establecida.
+<p>La función <code>tellsimpafter</code> no evalúa sus argumentos y devuelve la lista de reglas para el operador principal de  <var>patrón</var>, incluida la regla recién establecida.
 </p>
-<p>V&eacute;anse tambi&eacute;n <code>matchdeclare</code>, <code>defmatch</code>, <code>defrule</code>, <code>tellsimp</code>, <code>let</code>,
+<p>Véanse también <code>matchdeclare</code>, <code>defmatch</code>, <code>defrule</code>, <code>tellsimp</code>, <code>let</code>,
 <code>kill</code>, <code>remrule</code> y <code>clear_rules</code>.
 </p>
 <p>Ejemplos:
 </p>
-<p><var>pattern</var> puede ser cualquier expresi&oacute;n no at&oacute;mica en la que el operador principal no sea una variable de patr&oacute;n.
+<p><var>pattern</var> puede ser cualquier expresión no atómica en la que el operador principal no sea una variable de patrón.
 </p>
 <pre class="example">(%i1) matchdeclare (aa, atom, [ll, mm], listp, xx, true)$
 (%i2) tellsimpafter (sin (ll), map (sin, ll));
@@ -847,7 +769,7 @@ bb aa partitions `product'
 (%i7) foo (bar (u - v));
 (%o7)                    bar(foo(u - v))
 </pre>
-<p>Las reglas se aplican en el orden en que se definen. Si dos reglas coinciden con una expresi&oacute;n, se aplica aqu&eacute;lla que haya sido definida en primer lugar.
+<p>Las reglas se aplican en el orden en que se definen. Si dos reglas coinciden con una expresión, se aplica aquélla que haya sido definida en primer lugar.
 </p>
 <pre class="example">(%i1) matchdeclare (aa, integerp);
 (%o1)                         done
@@ -858,8 +780,8 @@ bb aa partitions `product'
 (%i4) foo (42);
 (%o4)                       bar_1(42)
 </pre>
-<p>Las variables de patr&oacute;n se tratan como variables locales en las reglas de simplificaci&oacute;n.
-(Comp&aacute;rese con <code>defmatch</code>, que trata las variables de patr&oacute;n como globales.)
+<p>Las variables de patrón se tratan como variables locales en las reglas de simplificación.
+(Compárese con <code>defmatch</code>, que trata las variables de patrón como globales.)
 </p>
 <pre class="example">(%i1) matchdeclare (aa, integerp, bb, atom);
 (%o1)                         done
@@ -872,7 +794,7 @@ bb aa partitions `product'
 (%i5) bb;
 (%o5)                         12345
 </pre>
-<p>Como cualquier otro &aacute;tomo, las propiedades de las variables de patr&oacute;n son globales, incluso cuando sus valores sean locales. En este ejemplo se declara una propiedad de asignaci&oacute;n a treav&eacute;s de  <code>define_variable</code>. Esta es una propiedad del &aacute;tomo  <code>bb</code> en todo Maxima.
+<p>Como cualquier otro átomo, las propiedades de las variables de patrón son globales, incluso cuando sus valores sean locales. En este ejemplo se declara una propiedad de asignación a treavés de  <code>define_variable</code>. Esta es una propiedad del átomo  <code>bb</code> en todo Maxima.
 </p>
 <pre class="example">(%i1) matchdeclare (aa, integerp, bb, atom);
 (%o1)                         done
@@ -886,7 +808,7 @@ bb aa partitions `product'
 Error: bb was declared mode boolean, has value: %e
  -- an error.  Quitting.  To debug this try debugmode(true);
 </pre>
-<p>Las reglas se nombran despu&eacute;s de los operadores principales. Los nombres de reglas tanto para las funciones de Maxima como para las definidas por el usuario son cadenas alfanum&eacute;ricas, mientras que los nombres de las otras funciones son identificadores t&iacute;picos.
+<p>Las reglas se nombran después de los operadores principales. Los nombres de reglas tanto para las funciones de Maxima como para las definidas por el usuario son cadenas alfanuméricas, mientras que los nombres de las otras funciones son identificadores típicos.
 </p>
 <pre class="example">(%i1) tellsimpafter (foo (%pi + %e), 3*%pi);
 (%o1)                   [foorule1, false]
@@ -940,10 +862,10 @@ foorule2, foorule3, +rule1, *rule1, ^rule1]
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>clear_rules</b><i> ()</i>
+<dt><u>Función:</u> <b>clear_rules</b><i> ()</i>
 <a name="IDX1414"></a>
 </dt>
-<dd><p>Ejecuta <code>kill (rules)</code> y despu&eacute;s inicializa el siguiente n&uacute;mero de regla a 1 para la adici&oacute;n <code>+</code>, multiplicaci&oacute;n <code>*</code> y exponenciaci&oacute;n <code>^</code>.
+<dd><p>Ejecuta <code>kill (rules)</code> y después inicializa el siguiente número de regla a 1 para la adición <code>+</code>, multiplicación <code>*</code> y exponenciación <code>^</code>.
 </p>
 </dd></dl>
 
@@ -980,10 +902,11 @@ foorule2, foorule3, +rule1, *rule1, ^rule1]
 
 
 
+
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC186" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_35.html#SEC189" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC187" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_35.html#SEC190" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -991,12 +914,12 @@ foorule2, foorule3, +rule1, *rule1, ^rule1]
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>septiembre, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>abril, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

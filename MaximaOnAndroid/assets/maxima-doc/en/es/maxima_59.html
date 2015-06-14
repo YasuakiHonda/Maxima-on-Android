@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on septiembre, 8 2014 by texi2html 1.76 -->
+<!-- Created on abril, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual de Maxima: 59. lapack</title>
+<title>Manual de Maxima 5.36.0: 59. lapack</title>
 
-<meta name="description" content="Manual de Maxima: 59. lapack">
-<meta name="keywords" content="Manual de Maxima: 59. lapack">
+<meta name="description" content="Manual de Maxima 5.36.0: 59. lapack">
+<meta name="keywords" content="Manual de Maxima 5.36.0: 59. lapack">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,228 +32,150 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="lapack"></a>
-<a name="SEC296"></a>
+<a name="SEC301"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_58.html#SEC295" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC297" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_58.html#SEC300" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC302" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_58.html#SEC293" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_58.html#SEC298" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_60.html#SEC299" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC304" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter"> 59. lapack </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC297">59.1 Introducci&oacute;n a lapack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC302">59.1 Introducción a lapack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC298">59.2 Funciones y variables para lapack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC303">59.2 Funciones y variables para lapack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <hr size="6">
 <a name="Introducci_00f3n-a-lapack"></a>
-<a name="SEC297"></a>
+<a name="SEC302"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC296" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC298" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC301" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC303" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_60.html#SEC299" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC301" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC301" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC304" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 59.1 Introducci&oacute;n a lapack </h2>
+<h2 class="section"> 59.1 Introducción a lapack </h2>
 
-<p><code>lapack</code> es una traducci&oacute;n autom&aacute;tica a Common Lisp (con el programa <code>f2c</code>)  
-de la librer&iacute;a LAPACK escrita en Fortran.
+<p><code>lapack</code> es una traducción automática a Common Lisp (con el programa <code>f2c</code>)  
+de la librería LAPACK escrita en Fortran.
 </p>
 
 <hr size="6">
 <a name="Funciones-y-variables-para-lapack"></a>
-<a name="SEC298"></a>
+<a name="SEC303"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC297" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_60.html#SEC299" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC302" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC304" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_60.html#SEC299" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC301" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC301" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC304" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 59.2 Funciones y variables para lapack </h2>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>dgeev</b><i> (<var>A</var>)</i>
-<a name="IDX2450"></a>
+<dt><u>Función:</u> <b>dgeev</b><i> (<var>A</var>)</i>
+<a name="IDX2492"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>dgeev</b><i> (<var>A</var>, <var>right_p</var>, <var>left_p</var>)</i>
-<a name="IDX2451"></a>
+<dt><u>Función:</u> <b>dgeev</b><i> (<var>A</var>, <var>right_p</var>, <var>left_p</var>)</i>
+<a name="IDX2493"></a>
 </dt>
-<dd><p>Calcula los autovalores y, opcionalmente, tambi&eacute;n los autovectores de la matriz <var>A</var>.
-Todos los elementos de <var>A</var> deben ser enteros o n&uacute;meros decimales en coma flotante.
-Adem&aacute;s, <var>A</var> debe ser cuadrada (igual n&uacute;mero de filas que de columnas) y puede
-ser o no sim&eacute;trica.
+<dd><p>Calcula los autovalores y, opcionalmente, también los autovectores de la matriz <var>A</var>.
+Todos los elementos de <var>A</var> deben ser enteros o números decimales en coma flotante.
+Además, <var>A</var> debe ser cuadrada (igual número de filas que de columnas) y puede
+ser o no simétrica.
 </p>
-<p><code>dgeev(<var>A</var>)</code> calcula s&oacute;lo los autovalores de <var>A</var>. 
+<p><code>dgeev(<var>A</var>)</code> calcula sólo los autovalores de <var>A</var>. 
 <code>dgeev(<var>A</var>, <var>right_p</var>, <var>left_p</var>)</code> calcula los autovalores de <var>A</var>
 y los autovectores por la derecha cuando <em><var>right_p</var> = <code>true</code></em>, y
 los autovectores por la izquierda cuando <em><var>left_p</var> = <code>true</code></em>.
 </p>
-<p>La funci&oacute;n devuelve una lista de tres elementos.
+<p>La función devuelve una lista de tres elementos.
 El primer elemento es una lista con los autovalores.
 El segundo elemento es <code>false</code> o la matriz de autovectores por la derecha.
 El tercer elemento es <code>false</code> o la matriz de autovectores por la izquierda.
 </p>
-<p>El autovector por la derecha <em>v(j)</em> (la <em>j</em>-&eacute;sima columna de la matriz de
+<p>El autovector por la derecha <em>v(j)</em> (la <em>j</em>-ésima columna de la matriz de
 autovectores por la derecha) satisface
 </p>
 <p><em>A . v(j) = lambda(j) . v(j)</em>
 </p>
 <p>donde <em>lambda(j)</em> es su autovalor asociado.
 </p>
-<p>El autovector por la izquierda <em>u(j)</em> (la <em>j</em>-&eacute;sima columna de la matriz de
+<p>El autovector por la izquierda <em>u(j)</em> (la <em>j</em>-ésima columna de la matriz de
 autovectores por la izquierda) satisface
 </p>
 <p><em>u(j)**H . A = lambda(j) . u(j)**H</em>
 </p>
 <p>donde <em>u(j)**H</em> denota la transpuesta conjugada de <em>u(j)</em>.
 </p>
-<p>La funci&oacute;n de Maxima <code>ctranspose</code> calcula la transpuesta conjugada.
+<p>La función de Maxima <code>ctranspose</code> calcula la transpuesta conjugada.
 </p>
-<p>Los autovectores calculados est&aacute;n normalizados para que su norma
-eucl&iacute;dea valga 1 y su componente mayor tenga su parte
+<p>Los autovectores calculados están normalizados para que su norma
+euclídea valga 1 y su componente mayor tenga su parte
 imaginaria igual a cero.
 </p>
 <p>Ejemplo:
@@ -291,19 +213,19 @@ imaginaria igual a cero.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>dgeqrf</b><i> (<var>A</var>)</i>
-<a name="IDX2452"></a>
+<dt><u>Función:</u> <b>dgeqrf</b><i> (<var>A</var>)</i>
+<a name="IDX2494"></a>
 </dt>
-<dd><p>Calcula la descomposici&oacute;n QR de la matriz <var>A</var>.
-Todos los elementos de <var>A</var> deben ser enteros o n&uacute;meros
+<dd><p>Calcula la descomposición QR de la matriz <var>A</var>.
+Todos los elementos de <var>A</var> deben ser enteros o números
 reales. No es necesario que <var>A</var> tenga
-el mismo n&uacute;mero de filas que de columnas.
+el mismo número de filas que de columnas.
 </p>
-<p>La funci&oacute;n devuelve una lista con dos elementos; el primero es
-la matriz cuadrada ortonormal <var>Q</var>, con el mismo n&uacute;mero de
+<p>La función devuelve una lista con dos elementos; el primero es
+la matriz cuadrada ortonormal <var>Q</var>, con el mismo número de
 filas que <var>A</var>, y el segundo es la matriz triangular superior <var>R</var>,
 de iguales dimensiones que <var>A</var>. El producto <code><var>Q</var> . <var>R</var></code>, 
-siendo &quot;.&quot; el operador de la multiplicaci&oacute;n matricial, es igual a
+siendo &quot;.&quot; el operador de la multiplicación matricial, es igual a
 <var>A</var>, ignorando errores de redondeo.
 </p>
 <pre class="example">(%i1) load (lapack) $
@@ -329,26 +251,26 @@ siendo &quot;.&quot; el operador de la multiplicaci&oacute;n matricial, es igual
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>dgesv</b><i> (<var>A</var>, <var>b</var>)</i>
-<a name="IDX2453"></a>
+<dt><u>Función:</u> <b>dgesv</b><i> (<var>A</var>, <var>b</var>)</i>
+<a name="IDX2495"></a>
 </dt>
-<dd><p>Calcula la soluci&oacute;n <var>x</var> de la ecuaci&oacute;n <em><var>A</var> <var>x</var> = <var>b</var></em>,
+<dd><p>Calcula la solución <var>x</var> de la ecuación <em><var>A</var> <var>x</var> = <var>b</var></em>,
 siendo <var>A</var> una matriz cuadrada y <var>b</var> otra matriz con el mismo
-n&uacute;mero de filas que <var>A</var> y un n&uacute;mero arbitrario de columnas. Las 
-dimensiones de la soluci&oacute;n <var>x</var> son las mismas de <var>b</var>.
+número de filas que <var>A</var> y un número arbitrario de columnas. Las 
+dimensiones de la solución <var>x</var> son las mismas de <var>b</var>.
 </p>
-<p>Los elementos de <var>A</var> y <var>b</var> deben ser reducibles a n&uacute;meros decimales
-si se les aplica la funci&oacute;n <code>float</code>, por lo que tales elementos
-pueden en principio ser de cualquier tipo num&eacute;rico, constantes num&eacute;ricas
-simb&oacute;licas o cualesquiera expresiones reducibles a un n&uacute;mero decimal.
-Los elementos de <var>x</var> son siempre n&uacute;meros decimales. Todas las
-operaciones aritm&eacute;ticas se realizan en coma flotante.
+<p>Los elementos de <var>A</var> y <var>b</var> deben ser reducibles a números decimales
+si se les aplica la función <code>float</code>, por lo que tales elementos
+pueden en principio ser de cualquier tipo numérico, constantes numéricas
+simbólicas o cualesquiera expresiones reducibles a un número decimal.
+Los elementos de <var>x</var> son siempre números decimales. Todas las
+operaciones aritméticas se realizan en coma flotante.
 </p>
-<p><code>dgesv</code> calcula la soluci&oacute;n mediante la descomposici&oacute;n LU de <var>A</var>.
+<p><code>dgesv</code> calcula la solución mediante la descomposición LU de <var>A</var>.
 </p>
 <p>Ejemplos:
 </p>
-<p><code>dgesv</code> calcula la soluci&oacute;n <var>x</var> de la ecuaci&oacute;n 
+<p><code>dgesv</code> calcula la solución <var>x</var> de la ecuación 
 <em><var>A</var> <var>x</var> = <var>b</var></em>.
 </p>
 <pre class="example">(%i1) A : matrix ([1, -2.5], [0.375, 5]);
@@ -366,8 +288,8 @@ operaciones aritm&eacute;ticas se realizan en coma flotante.
 (%i4) dlange (inf_norm, b - A.x);
 (%o4)                                 0.0
 </pre>
-<p><var>b</var> una matriz con el mismo n&uacute;mero de filas que <var>A</var>
-y un n&uacute;mero arbitrario de columnas. Las dimensiones de 
+<p><var>b</var> una matriz con el mismo número de filas que <var>A</var>
+y un número arbitrario de columnas. Las dimensiones de 
 <var>x</var> son las mismas de <var>b</var>.
 </p>
 <pre class="example">(%o0)                                done
@@ -386,7 +308,7 @@ y un n&uacute;mero arbitrario de columnas. Las dimensiones de
 (%i4) dlange (inf_norm, b - A . x);
 (%o4)                       1.1102230246251565E-15
 </pre>
-<p>Los elementos de <var>A</var> y <var>b</var> deben ser reducibles a n&uacute;meros decimales.
+<p>Los elementos de <var>A</var> y <var>b</var> deben ser reducibles a números decimales.
 </p>
 <pre class="example">(%i1) A : matrix ([5, -%pi], [1b0, 11/17]);
                                [   5    - %pi ]
@@ -411,20 +333,20 @@ y un n&uacute;mero arbitrario de columnas. Las dimensiones de
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>dgesvd</b><i> (<var>A</var>)</i>
-<a name="IDX2454"></a>
+<dt><u>Función:</u> <b>dgesvd</b><i> (<var>A</var>)</i>
+<a name="IDX2496"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>dgesvd</b><i> (<var>A</var>, <var>left_p</var>, <var>right_p</var>)</i>
-<a name="IDX2455"></a>
+<dt><u>Función:</u> <b>dgesvd</b><i> (<var>A</var>, <var>left_p</var>, <var>right_p</var>)</i>
+<a name="IDX2497"></a>
 </dt>
-<dd><p>Calcula la descomposici&oacute;n singular (SVD, en ingl&eacute;s) de la matriz <var>A</var>,
+<dd><p>Calcula la descomposición singular (SVD, en inglés) de la matriz <var>A</var>,
 que contiene los valores singulares y, opcionalmente, los vectores singulares por
 la derecha o por la izquierda. Todos los elementos de <var>A</var> deben ser enteros o 
-n&uacute;meros decimales en coma flotante. La matriz <var>A</var> puede ser cuadrada o no 
-(igual n&uacute;mero de filas que de columnas).
+números decimales en coma flotante. La matriz <var>A</var> puede ser cuadrada o no 
+(igual número de filas que de columnas).
 </p>
-<p>Sea <em>m</em> el n&uacute;mero de filas y <em>n</em> el de columnas de <var>A</var>.
-La descomposici&oacute;n singular de <var>A</var> consiste en calcular tres matrices: 
+<p>Sea <em>m</em> el número de filas y <em>n</em> el de columnas de <var>A</var>.
+La descomposición singular de <var>A</var> consiste en calcular tres matrices: 
 <var>U</var>, <var>Sigma</var> y <var>V^T</var>, tales que
 </p>
 <p><em><var>A</var> = <var>U</var> . <var>Sigma</var> . <var>V</var>^T</em>
@@ -436,18 +358,18 @@ La descomposici&oacute;n singular de <var>A</var> consiste en calcular tres matr
 <p>Sea <em>sigma[i]</em> un elemento diagonal de <em>Sigma</em>, esto es,
 <em><var>Sigma</var>[i, i] = <var>sigma</var>[i]</em>. Los elementos <em>sigma[i]</em>
 se llaman valores singulares de <var>A</var>, los cuales son reales y no negativos,
-siendo devueltos por la funci&oacute;n <code>dgesvd</code> en orden descendente. 
+siendo devueltos por la función <code>dgesvd</code> en orden descendente. 
 </p>
 <p>Las primeras <em>min(m, n)</em> columnas de <var>U</var> y <var>V</var> son los vectores
-singulares izquierdo y derecho de <var>A</var>. N&oacute;tese que <code>dgesvd</code>
+singulares izquierdo y derecho de <var>A</var>. Nótese que <code>dgesvd</code>
 devuelve la transpuesta de <var>V</var>, no la propia matriz <var>V</var>.
 </p>
-<p><code>dgesvd(<var>A</var>)</code> calcula &uacute;nicamente los valores singulares de <var>A</var>.
+<p><code>dgesvd(<var>A</var>)</code> calcula únicamente los valores singulares de <var>A</var>.
 <code>dgesvd(<var>A</var>, <var>left_p</var>, <var>right_p</var>)</code> calcula los valores singulares
 de <var>A</var> y los vectores sigulares por la izquierda cuando <em><var>left_p</var> = <code>true</code></em>,
 y los vectores sigulares por la derecha cuando <em><var>right_p</var> = <code>true</code></em>.
 </p>
-<p>La funci&oacute;n devuelve una lista de tres elementos.
+<p>La función devuelve una lista de tres elementos.
 El primer elemento es una lista con los valores singulares.
 El segundo elemento es <code>false</code> o la matriz de vectores singulares por la izquierda.
 El tercer elemento es <code>false</code> o la matriz de vectores singulares por la derecha.
@@ -522,31 +444,31 @@ El tercer elemento es <code>false</code> o la matriz de vectores singulares por 
 </dd></dl>
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>dlange</b><i> (<var>norm</var>, <var>A</var>)</i>
-<a name="IDX2456"></a>
+<dt><u>Función:</u> <b>dlange</b><i> (<var>norm</var>, <var>A</var>)</i>
+<a name="IDX2498"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>zlange</b><i> (<var>norm</var>, <var>A</var>)</i>
-<a name="IDX2457"></a>
+<dt><u>Función:</u> <b>zlange</b><i> (<var>norm</var>, <var>A</var>)</i>
+<a name="IDX2499"></a>
 </dt>
 <dd><p>Calcula una norma o seudonorma de la matriz <var>A</var>.
 </p>
 <dl compact="compact">
 <dt> <code>max</code></dt>
-<dd><p>Calcula <em>max(abs(A(i, j)))</em>, siendo <em>i</em> y <em>j</em> n&uacute;meros de filas
+<dd><p>Calcula <em>max(abs(A(i, j)))</em>, siendo <em>i</em> y <em>j</em> números de filas
 y columnas, respectivamente, de <var>A</var>.
-N&oacute;tese que esta funci&oacute;n no es una norma matricial.
+Nótese que esta función no es una norma matricial.
 </p></dd>
 <dt> <code>one_norm</code></dt>
 <dd><p>Calcula la norma <em>L[1]</em> de <var>A</var>,
-esto es, el m&aacute;ximo de la suma de los valores absolutos de los elementos de cada columna.
+esto es, el máximo de la suma de los valores absolutos de los elementos de cada columna.
 </p></dd>
 <dt> <code>inf_norm</code></dt>
 <dd><p>Calcula la norma <em>L[inf]</em> de <var>A</var>,
-esto es, el m&aacute;ximo de la suma de los valores absolutos de los elementos de cada fila.
+esto es, el máximo de la suma de los valores absolutos de los elementos de cada fila.
 </p></dd>
 <dt> <code>frobenius</code></dt>
 <dd><p>Calcula la norma de Frobenius de <var>A</var>,
-esto es, la ra&iacute;z cuadrada de la suma de los cuadrados de los elementos de
+esto es, la raíz cuadrada de la suma de los cuadrados de los elementos de
 la matriz.
 </p></dd>
 </dl>
@@ -554,46 +476,46 @@ la matriz.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>dgemm</b><i> (<var>A</var>, <var>B</var>)</i>
-<a name="IDX2458"></a>
+<dt><u>Función:</u> <b>dgemm</b><i> (<var>A</var>, <var>B</var>)</i>
+<a name="IDX2500"></a>
 </dt>
-<dt><u>Funci&oacute;n:</u> <b>dgemm</b><i> (<var>A</var>, <var>B</var>, <var>options</var>)</i>
-<a name="IDX2459"></a>
+<dt><u>Función:</u> <b>dgemm</b><i> (<var>A</var>, <var>B</var>, <var>options</var>)</i>
+<a name="IDX2501"></a>
 </dt>
 <dd><p>Calcula el producto de dos matrices y, opcionalmente, suma este producto
 con una tercera matriz.
 </p>
-<p>En su forma m&aacute;s simple, <code>dgemm(<var>A</var>, <var>B</var>)</code> calcula el
+<p>En su forma más simple, <code>dgemm(<var>A</var>, <var>B</var>)</code> calcula el
 producto de las matrices reales <var>A</var> y <var>B</var>.
 </p>
 <p>En la segunda forma, <code>dgemm</code> calcula <em><var>alpha</var> *
 <var>A</var> * <var>B</var> + <var>beta</var> * <var>C</var></em>, donde <var>A</var>, <var>B</var> y
 <var>C</var> son matrices reales de dimensiones apropiadas, siendo <var>alpha</var> 
-y <var>beta</var> n&uacute;meros reales. De forma opcional, tanto <var>A</var> como <var>B</var>
-pueden transponerse antes de calcular su producto. Los par&aacute;metros adicionales
+y <var>beta</var> números reales. De forma opcional, tanto <var>A</var> como <var>B</var>
+pueden transponerse antes de calcular su producto. Los parámetros adicionales
 se pueden especificar en cualquier orden, siendo su sintaxis de la forma
 <code>clave=valor</code>. Las claves reconocidas son:
 </p>
 <dl compact="compact">
 <dt> <code>C</code></dt>
 <dd><p>La matriz <var>C</var> que debe ser sumada. El valor por defecto es <code>false</code>,
-lo que significa que no se sumar&aacute; ninguna matriz.
+lo que significa que no se sumará ninguna matriz.
 </p></dd>
 <dt> <code>alpha</code></dt>
-<dd><p>El producto de <var>A</var> por <var>B</var> se multiplicar&aacute; por este vaalor. El valor
+<dd><p>El producto de <var>A</var> por <var>B</var> se multiplicará por este vaalor. El valor
 por defecto es 1.
 </p></dd>
 <dt> <code>beta</code></dt>
-<dd><p>Si se da la matriz <var>C</var>, se multiplicar&aacute; por este valor antes de ser sumada.
+<dd><p>Si se da la matriz <var>C</var>, se multiplicará por este valor antes de ser sumada.
 El valor por defecto es 0, lo que significa que <var>C</var> no se suma, incluso estando
-presente. Por lo tanto, t&eacute;ngase cuidado en especificar un valor no nulo para <var>beta</var>.
+presente. Por lo tanto, téngase cuidado en especificar un valor no nulo para <var>beta</var>.
 </p></dd>
 <dt> <code>transpose_a</code></dt>
-<dd><p>Si toma el valor <code>true</code>, se utilizar&aacute; la transpuesta de <var>A</var>, en lugar de la 
+<dd><p>Si toma el valor <code>true</code>, se utilizará la transpuesta de <var>A</var>, en lugar de la 
 propia matriz <var>A</var>, en el producto. El valor por defecto es <code>false</code>.
 </p></dd>
 <dt> <code>transpose_b</code></dt>
-<dd><p>Si toma el valor <code>true</code>, se utilizar&aacute; la transpuesta de <var>B</var>, en lugar de la 
+<dd><p>Si toma el valor <code>true</code>, se utilizará la transpuesta de <var>B</var>, en lugar de la 
 propia matriz <var>B</var>, en el producto. El valor por defecto es <code>false</code>.
 </p></dd>
 </dl>
@@ -669,10 +591,11 @@ propia matriz <var>B</var>, en el producto. El valor por defecto es <code>false<
 </pre></dd></dl>
 
 
+
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC296" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_60.html#SEC299" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC301" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC304" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -680,12 +603,12 @@ propia matriz <var>B</var>, en el producto. El valor por defecto es <code>false<
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>septiembre, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>abril, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

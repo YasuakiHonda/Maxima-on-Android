@@ -78,7 +78,7 @@ public class MaximaOnAndroidActivity extends Activity implements
 	CommandExec maximaProccess;
 	File internalDir;
 	File externalDir;
-	MaximaVersion mvers = new MaximaVersion(5, 34, 1);
+	MaximaVersion mvers = new MaximaVersion(5, 36, 1);
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

@@ -1,27 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年9月月15日 by texi2html 1.82
-texi2html was written by: 
-            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+<!-- Created on 5月, 20 2015 by texi2html 1.76 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
             Olaf Bachmann <obachman@mathematik.uni-kl.de>
             and many others.
-Maintained by: Many creative people.
-Send bugs and suggestions to <texi2html-bug@nongnu.org>
+Maintained by: Many creative people <dev@texi2html.cvshome.org>
+Send bugs and suggestions to <users@texi2html.cvshome.org>
+
 -->
 <head>
-<title>Maxima 5.34.1 Manual: 80. to_poly_solve</title>
+<title>Maxima 5.36.1 Manual: 80. to_poly_solve</title>
 
-<meta name="description" content="Maxima 5.34.1 Manual: 80. to_poly_solve">
-<meta name="keywords" content="Maxima 5.34.1 Manual: 80. to_poly_solve">
+<meta name="description" content="Maxima 5.36.1 Manual: 80. to_poly_solve">
+<meta name="keywords" content="Maxima 5.36.1 Manual: 80. to_poly_solve">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.82">
+<meta name="Generator" content="texi2html 1.76">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
 pre.display {font-family: serif}
 pre.format {font-family: serif}
 pre.menu-comment {font-family: serif}
@@ -30,109 +30,30 @@ pre.smalldisplay {font-family: serif; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.roman {font-family:serif; font-weight:normal;}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
@@ -157,50 +78,51 @@ div.categorybox
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="to_005fpoly_005fsolve"></a>
+<a name="SEC379"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_79.html#Functions-and-Variables-for-strings" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-to_005fpoly_005fsolve" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_79.html#SEC378" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC380" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_79.html#stringproc" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#unit" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_79.html#SEC374" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#SEC381" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="to_005fpoly_005fsolve-1"></a>
-<h1 class="chapter">80. to_poly_solve</h1>
+<h1 class="chapter"> 80. to_poly_solve </h1>
+
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-to_005fpoly_005fsolve">80.1 Functions and Variables for to_poly_solve</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC380">80.1 Functions and Variables for to_poly_solve</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <p><a name="Item_003a-Functions-and-Variables-for-to_005fpoly_005fsolve"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-to_005fpoly_005fsolve"></a>
+<a name="SEC380"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#to_005fpoly_005fsolve" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#unit" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC379" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#SEC381" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#to_005fpoly_005fsolve" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#to_005fpoly_005fsolve" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#unit" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC379" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC379" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#SEC381" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-to_005fpoly_005fsolve-1"></a>
-<h2 class="section">80.1 Functions and Variables for to_poly_solve</h2>
+<h2 class="section"> 80.1 Functions and Variables for to_poly_solve </h2>
 
 <p>パッケージ <code>to_poly</code>と <code>to_poly_solve</code>は実験的なものです;
 これらのパッケージの関数の仕様は変更の可能性があり、
@@ -212,34 +134,32 @@ div.categorybox
 </p>
 <p><a name="Item_003a-_0025and"></a>
 </p><dl>
-<dt><a name="index-_0025and"></a><u>Operator:</u> <b>%and</b></dt>
-<dd>
-<p>演算子 <code>%and</code>は整理化(simplifying)非短絡論理積です。
+<dt><u>Operator:</u> <b>%and</b>
+<a name="IDX2462"></a>
+</dt>
+<dd><p>演算子 <code>%and</code>は整理化(simplifying)非短絡論理積です。
 Maximaは <code>%and</code>式を trueか falseか論理的に同値ですが整理された式に整理します。
 演算子 <code>%and</code>は結合的で可換でべき等的です。
 そして、 <code>%and</code>が名詞形を返す時、
 <code>%and</code>の引数は非冗長なソートされたリストを形成します;
 例えば、
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) a %and (a %and b);
+<pre class="example">(%i1) a %and (a %and b);
 (%o1)                       a %and b
-</pre></td></tr></table>
-
+</pre>
 <p>もし積の引数の1つが <i>明示的に</i>もう一つの引数の否定なら、
 <code>%and</code>は falseを返します:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) a %and (not a);
+<pre class="example">(%i2) a %and (not a);
 (%o2)                         false
-</pre></td></tr></table>
-
+</pre>
 <p>積のいずれかのメンバーが falseなら、
 たとえ他のメンバーが明白に非ブーリアンでも積は falseに整理されます;
 例えば、
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) 42 %and false;
+<pre class="example">(%i3) 42 %and false;
 (%o3)                         false
-</pre></td></tr></table>
-
+</pre>
 <p>inequation(すなわち、不等もしくは等式)の <code>%and</code>式の任意の引数は
 Fourier消去パッケージを使って整理されます。
 Fourier消去整理器は
@@ -248,10 +168,9 @@ inequationに変換するプリプロセッサを持ちます;
 例えば、 Fourier消去コードは
 <code>abs(x) + 1 &gt; 0</code>を trueに整理します。だから、
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) (x &lt; 1) %and (abs(x) + 1 &gt; 0);
+<pre class="example">(%i4) (x &lt; 1) %and (abs(x) + 1 &gt; 0);
 (%o4)                         x &lt; 1
-</pre></td></tr></table>
-
+</pre>
 <p><b>注釈</b>  
 </p><ul>
 <li>
@@ -272,24 +191,22 @@ Maxima演算子 <code>and</code>と <code>or</code>はどちらも短絡的で�
 <i>大域的にではなく局所的に</i>整理します。
 これは以下のような積は falseに整理<i>されない</i>ことを意味します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) (x &lt; 1) %and (x &gt; 1);
+<pre class="example">(%i5) (x &lt; 1) %and (x &gt; 1);
 (%o5)                 (x &gt; 1) %and (x &lt; 1)
-</pre></td></tr></table>
-
+</pre>
 <p>また、 Fourier消去コードは事実データベースを<i>無視します</i>。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) assume(x &gt; 5);
+<pre class="example">(%i6) assume(x &gt; 5);
 (%o6)                        [x &gt; 5]
 (%i7) (x &gt; 1) %and (x &gt; 2);
 (%o7)                 (x &gt; 1) %and (x &gt; 2)
-</pre></td></tr></table>
-
+</pre>
 <p>最終的に、同値の線形 inequationに容易に変換されない非線形 inequationは整理されません。
 </p>
 <p><code>%or</code>上に <code>%and</code>を分配するためのサポートはありません;
 <code>%and</code>上に論理否定を分配するサポートもありません。
 </p>
-<p><b>利用のためには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+<p><b>利用のためには</b> <tt>`load(to_poly_solve)'</tt>
 </p>
 <p><b>関連関数</b> <code>%or, %if, and, or, not</code>
 </p>
@@ -301,9 +218,10 @@ Maxima演算子 <code>and</code>と <code>or</code>はどちらも短絡的で�
 
 <p><a name="Item_003a-_0025if"></a>
 </p><dl>
-<dt><a name="index-_0025if"></a><u>演算子:</u> <b>%if</b><i> (<var>bool</var>, <var>a</var>, <var>b</var>)</i></dt>
-<dd>
-<p>演算子 <code>%if</code>は整理化条件文です。
+<dt><u>演算子:</u> <b>%if</b><i> (<var>bool</var>, <var>a</var>, <var>b</var>)</i>
+<a name="IDX2463"></a>
+</dt>
+<dd><p>演算子 <code>%if</code>は整理化条件文です。
 <i>条件</i> <var>bool</var>はブーリアン値でなければいけません。
 条件が trueの時、二番目の引数を返します;
 条件が falseの時、三番目の引数を返します;
@@ -316,12 +234,11 @@ Maxima演算子 <code>and</code>と <code>or</code>はどちらも短絡的で�
 Maximaは <i>自動的に</i> inequationの真値を決定しようとします。
 例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) f : %if(x # 1, 2, 8);
+<pre class="example">(%i1) f : %if(x # 1, 2, 8);
 (%o1)                 %if(x - 1 # 0, 2, 8)
 (%i2) [subst(x = -1,f), subst(x=1,f)];
 (%o2)                        [2, 8]
-</pre></td></tr></table>
-
+</pre>
 <p>もし条件が inequationを含むなら、
 Maximaは Fourier消去パッケージを使ってそれを整理します。
 </p>
@@ -332,10 +249,9 @@ Maximaは Fourier消去パッケージを使ってそれを整理します。
 もし条件が明白に非ブーリアンなら、 Maximaは名詞形を返します:
 </li></ul>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) %if(42,1,2);
+<pre class="example">(%i3) %if(42,1,2);
 (%o3)                     %if(42, 1, 2)
-</pre></td></tr></table>
-
+</pre>
 <ul>
 <li>
 Maxima演算子 <code>if</code>は n項演算子ですが、演算子 <code>%if</code>は
@@ -346,7 +262,7 @@ n項演算子<i>ではないです</i>。
 同値の線形 inequationに容易に変換可能な非線形 inequationだけを
 整理します。
 </p>
-<p><b>利用には:</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+<p><b>利用には:</b> <tt>`load(to_poly_solve)'</tt>
 </p>
 <p><b>状況:</b> 演算子 <code>%if</code>は実験的です;
 仕様は変更の可能性があり、
@@ -356,9 +272,10 @@ n項演算子<i>ではないです</i>。
   
 <p><a name="Item_003a-_0025or"></a>
 </p><dl>
-<dt><a name="index-_0025or"></a><u>演算子:</u> <b>%or</b></dt>
-<dd>
-<p>演算子 <code>%or</code>は整理化非短絡論理和です。
+<dt><u>演算子:</u> <b>%or</b>
+<a name="IDX2464"></a>
+</dt>
+<dd><p>演算子 <code>%or</code>は整理化非短絡論理和です。
 Maximaは
 <code>%or</code>式を trueか falseか論理的に同値ですが整理された式に整理します。
 演算子 <code>%or</code>は結合的で可換でべき等です。
@@ -367,34 +284,30 @@ Maximaは
 <code>%or</code>の引数は非冗長なソートされたリストを形成します;
 例えば、
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) a %or (a %or b);
+<pre class="example">(%i1) a %or (a %or b);
 (%o1)                        a %or b
-</pre></td></tr></table>
-
+</pre>
 <p>もし和のメンバーの１つが<i>明示的に</i>他のメンバーの否定なら、
 <code>%or</code>は trueを返します:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) a %or (not a);
+<pre class="example">(%i2) a %or (not a);
 (%o2)                         true
-</pre></td></tr></table>
-
+</pre>
 <p>もし和の任意のメンバーが trueなら、
 たとえ和の他のメンバーが明白に非ブーリアンでも和は trueに整理されます。
 例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) 42 %or true;
+<pre class="example">(%i3) 42 %or true;
 (%o3)                         true
-</pre></td></tr></table>
-
+</pre>
 <p>inequation(不等式か等式)である <code>%or</code>式の任意の引数は
 Fourier消去パッケージを使って整理されます。
 Fourier消去コードは <code>abs(x) + 1 &gt; 0</code>を trueに整理します。
 なので、
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) (x &lt; 1) %or (abs(x) + 1 &gt; 0);
+<pre class="example">(%i4) (x &lt; 1) %or (abs(x) + 1 &gt; 0);
 (%o4)                         true
-</pre></td></tr></table>
-
+</pre>
 <p><b>注釈</b>  
 </p><ul>
 <li>
@@ -416,25 +329,23 @@ Maxima演算子 <code>and</code>と <code>or</code>はどちらも短絡的で�
 これは以下のような和は trueに整理<i>されない</i>ことを意味します。
 </p>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) (x &lt; 1) %or (x &gt;= 1);
+<pre class="example">(%i1) (x &lt; 1) %or (x &gt;= 1);
 (%o1) (x &gt; 1) %or (x &gt;= 1)
-</pre></td></tr></table>
-
+</pre>
 <p>更に Fourier消去コードは事実データベースを無視します:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) assume(x &gt; 5);
+<pre class="example">(%i2) assume(x &gt; 5);
 (%o2)                        [x &gt; 5]
 (%i3) (x &gt; 1) %and (x &gt; 2);
 (%o3)                 (x &gt; 1) %and (x &gt; 2)
-</pre></td></tr></table>
-
+</pre>
 <p>最終的に、同値の線形 inequationに容易に変換されない非線形 inequationは整理されません。
 </p>
 <p>両方とも falseである項を探すアルゴリズムは弱いものです;
 また、<code>%and</code>上に <code>%or</code>を分配するためのサポートはありません;
 <code>%or</code>上に論理否定を分配するサポートもありません。
 </p>
-<p><b>利用のためには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+<p><b>利用のためには</b> <tt>`load(to_poly_solve)'</tt>
 </p>
 <p><b>関連関数</b> <code>%or, %if, and, or, not</code>
 </p>
@@ -446,26 +357,26 @@ Maxima演算子 <code>and</code>と <code>or</code>はどちらも短絡的で�
 
 <p><a name="Item_003a-complex_005fnumber_005fp"></a>
 </p><dl>
-<dt><a name="index-complex_005fnumber_005fp"></a><u>関数:</u> <b>complex_number_p</b><i> (<var>x</var>)</i></dt>
-<dd>
-<p>もし引数が
+<dt><u>関数:</u> <b>complex_number_p</b><i> (<var>x</var>)</i>
+<a name="IDX2465"></a>
+</dt>
+<dd><p>もし引数が
 <code>a + %i * b</code>, <code>a</code>, <code>%i b</code>, <code>%i</code>のいずれかなら、
 述語論理 <code>complex_number_p</code>は trueを返します。
 ここで <code>a</code>と <code>b</code>は有理数か(多倍長浮動小数点数を含む)浮動小数点数です;
 他のすべての入力に対して、
 <code>complex_number_p</code>は falseを返します; 例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) map('complex_number_p,[2/3, 2 + 1.5 * %i, %i]);
+<pre class="example">(%i1) map('complex_number_p,[2/3, 2 + 1.5 * %i, %i]);
 (%o1)                  [true, true, true]
 (%i2) complex_number_p((2+%i)/(5-%i));
 (%o2)                         false
 (%i3) complex_number_p(cos(5 - 2 * %i));
 (%o3)                         false
-</pre></td></tr></table>
-
+</pre>
 <p><b>関連関数</b> <code>isreal_p</code>
 </p>
-<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+<p><b>利用するには</b> <tt>`load(to_poly_solve)'</tt>
 </p>
 <p><b>状況</b> 関数 <code>complex_number_p</code>は実験的です;
 仕様は変更の可能性があり、
@@ -475,28 +386,27 @@ Maxima演算子 <code>and</code>と <code>or</code>はどちらも短絡的で�
 
 <p><a name="Item_003a-compose_005ffunctions"></a>
 </p><dl>
-<dt><a name="index-compose_005ffunctions"></a><u>関数:</u> <b>compose_functions</b><i> (<var>l</var>)</i></dt>
-<dd>
-<p>関数コール <code>compose_functions(l)</code>は
+<dt><u>関数:</u> <b>compose_functions</b><i> (<var>l</var>)</i>
+<a name="IDX2466"></a>
+</dt>
+<dd><p>関数コール <code>compose_functions(l)</code>は
 リスト <var>l</var>の中の関数の合成をラムダ形を返します。
 関数は<i>右</i>から <i>左</i>へ適用されます; 例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) compose_functions([cos, exp]);
+<pre class="example">(%i1) compose_functions([cos, exp]);
                                         %g151
 (%o1)             lambda([%g151], cos(%e     ))
 (%i2) %(x);
                                   x
 (%o2)                       cos(%e )
-</pre></td></tr></table>
-
+</pre>
 <p>関数リストが空のとき、恒等関数を返します:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) compose_functions([]);
+<pre class="example">(%i3) compose_functions([]);
 (%o3)                lambda([%g152], %g152)
 (%i4)  %(x);
 (%o4)                           x
-</pre></td></tr></table>
-
+</pre>
 <p><b>注釈</b> 
 </p><ul>
 <li>
@@ -504,33 +414,30 @@ Maximaがリストメンバーがシンボルやラムダ形でないか決め�
 (<code>compose_functions</code><i>ではなく</i>) <code>funmake</code>がエラーをシグナルします:
 </li></ul>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) compose_functions([a &lt; b]);
+<pre class="example">(%i5) compose_functions([a &lt; b]);
 
 funmake: first argument must be a symbol, subscripted symbol,
 string, or lambda expression; found: a &lt; b
 #0: compose_functions(l=[a &lt; b])(to_poly_solve.mac line 40)
  -- an error. To debug this try: debugmode(true);
-</pre></td></tr></table>
-
+</pre>
 <ul>
 <li>
 名前の衝突を避けるために、独立変数は関数 <code>new_variable</code>が決めます。
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) compose_functions([%g0]);
+<pre class="example">(%i6) compose_functions([%g0]);
 (%o6)              lambda([%g154], %g0(%g154))
 (%i7) compose_functions([%g0]);
 (%o7)              lambda([%g155], %g0(%g155))
-</pre></td></tr></table>
-
+</pre>
 <p>独立変数が違っても、
 Maximaはこれらのラムダ形が意味的に等しいことを演繹できます:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i8) is(equal(%o6,%o7));
+<pre class="example">(%i8) is(equal(%o6,%o7));
 (%o8)                         true
-</pre></td></tr></table>
-</li></ul>
+</pre></li></ul>
 
-<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+<p><b>利用するには</b> <tt>`load(to_poly_solve)'</tt>
 </p>
 <p><b>状況</b> 関数 <code>compose_functions</code>は実験的です;
 仕様は変更の可能性があり、
@@ -539,27 +446,27 @@ Maximaはこれらのラムダ形が意味的に等しいことを演繹でき�
 
 <p><a name="Item_003a-dfloat"></a>
 </p><dl>
-<dt><a name="index-dfloat"></a><u>関数:</u> <b>dfloat</b><i> (<var>x</var>)</i></dt>
-<dd>
-<p>関数 <code>dfloat</code>は
+<dt><u>関数:</u> <b>dfloat</b><i> (<var>x</var>)</i>
+<a name="IDX2467"></a>
+</dt>
+<dd><p>関数 <code>dfloat</code>は
 <code>float</code>に似ていますが、
 <code>float</code>が IEEE 倍精度浮動小数点数に評価するのを失敗した時、
 関数 <code>dfloat</code>は
 <code>rectform</code>を適用します; 例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) float(4.5^(1 + %i));
+<pre class="example">(%i1) float(4.5^(1 + %i));
                                %i + 1
 (%o1)                       4.5
 (%i2) dfloat(4.5^(1 + %i));
 (%o2)        4.48998802962884 %i + .3000124893895671
-</pre></td></tr></table>
-
+</pre>
 <p><b>注釈</b> 
 </p>
 <ul>
 <li>
 式の直交形は
-数値評価には不完全で合わないかもしれません&ndash;例えば、
+数値評価には不完全で合わないかもしれません-例えば、
 直交形は不必要に浮動小数点数の差(桁落ち)を含むかもしれません。
 
 </li><li>
@@ -570,7 +477,7 @@ Maximaはこれらのラムダ形が意味的に等しいことを演繹でき�
 
 <p><b>関連関数</b> <code>float, bfloat</code>
 </p>
-<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+<p><b>利用するには</b> <tt>`load(to_poly_solve)'</tt>
 </p>
 <p><b>状況</b> 関数 <code>dfloat</code>は実験的です;
 仕様は変更の可能性があり、
@@ -580,9 +487,10 @@ Maximaはこれらのラムダ形が意味的に等しいことを演繹でき�
 
 <p><a name="Item_003a-elim"></a>
 </p><dl>
-<dt><a name="index-elim"></a><u>関数:</u> <b>elim</b><i> (<var>l</var>, <var>x</var>)</i></dt>
-<dd>
-<p>関数 <code>elim</code>は
+<dt><u>関数:</u> <b>elim</b><i> (<var>l</var>, <var>x</var>)</i>
+<a name="IDX2468"></a>
+</dt>
+<dd><p>関数 <code>elim</code>は
 集合もしくはリスト <code>l</code>内の等式から
 集合もしくはリスト <code>x</code>内の変数を消去します。
 <code>x</code>のメンバーそれぞれはシンボルでなければいけません;
@@ -596,27 +504,24 @@ Maximaはこれらのラムダ形が意味的に等しいことを演繹でき�
 </p>
 <p>以下は線形方程式を消去する例です:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) elim(set(x + y + z = 1, x - y  - z = 8, x - z = 1), 
+<pre class="example">(%i1) elim(set(x + y + z = 1, x - y  - z = 8, x - z = 1), 
            set(x,y));
 (%o1)            [[2 z - 7], [y + 7, z - x + 1]]
-</pre></td></tr></table>
-
+</pre>
 <p><code>x</code>と <code>y</code>の消去は一つの等式 <code>2 z - 7 = 0</code>をもたらします;
 等式 <code>y + 7 = 0</code>と <code>z - z + 1 = 1</code>がピボットとして使われました。
 これらの等式から3つの変数すべての消去は、線形系を三角化します:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) elim(set(x + y + z = 1, x - y  - z = 8, x - z = 1),
+<pre class="example">(%i2) elim(set(x + y + z = 1, x - y  - z = 8, x - z = 1),
            set(x,y,z));
 (%o2)           [[], [2 z - 7, y + 7, z - x + 1]]
-</pre></td></tr></table>
-
+</pre>
 <p>もちろん、等式は線形である必要はありません:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) elim(set(x^2 - 2 * y^3 = 1,  x - y = 5), [x,y]);
+<pre class="example">(%i3) elim(set(x^2 - 2 * y^3 = 1,  x - y = 5), [x,y]);
                      3    2
 (%o3)       [[], [2 y  - y  - 10 y - 24, y - x + 5]]
-</pre></td></tr></table>
-
+</pre>
 <p>ユーザーは変数が消去される順序を制御しません。
 確かに、アルゴリズムは最良のピボットと最良の消去順序を選ぼうとする発見的方法を使います。
 </p>
@@ -646,7 +551,7 @@ Maximaはそれぞれの終結式を因数分解し、多重零点を抑制し�
 </p>
 <p><b>オプション変数</b> <i>resultant</i>
 </p>
-<p><b>利用するには</b> &lsquo;<tt>load(to_poly)</tt>&rsquo;
+<p><b>利用するには</b> <tt>`load(to_poly)'</tt>
 </p>
 <p><b>状況</b> 関数 <code>elim</code>は実験的です;
 仕様は変更の可能性があり、
@@ -656,20 +561,20 @@ Maximaはそれぞれの終結式を因数分解し、多重零点を抑制し�
  
 <p><a name="Item_003a-elim_005fallbut"></a>
 </p><dl>
-<dt><a name="index-elim_005fallbut"></a><u>関数:</u> <b>elim_allbut</b><i> (<var>l</var>, <var>x</var>)</i></dt>
-<dd>
-<p>この関数は、
+<dt><u>関数:</u> <b>elim_allbut</b><i> (<var>l</var>, <var>x</var>)</i>
+<a name="IDX2469"></a>
+</dt>
+<dd><p>この関数は、
 等式のリスト <code>l</code>内のリスト
 <code>x</code>内の変数を <i>除いて</i>変数すべてを消去することを除いて、
 <code>elim</code>に似ています。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) elim_allbut([x+y = 1, x - 5*y = 1],[]);
+<pre class="example">(%i1) elim_allbut([x+y = 1, x - 5*y = 1],[]);
 (%o1)                 [[], [y, y + x - 1]]
 (%i2) elim_allbut([x+y = 1, x - 5*y = 1],[x]);
 (%o2)                [[x - 1], [y + x - 1]]
-</pre></td></tr></table>
-
-<p><b>利用するには</b> &lsquo;<tt>load(to_poly)</tt>&rsquo;
+</pre>
+<p><b>利用するには</b> <tt>`load(to_poly)'</tt>
 </p>
 <p><b>オプション変数</b> <i>resultant</i>
 </p>
@@ -683,14 +588,14 @@ Maximaはそれぞれの終結式を因数分解し、多重零点を抑制し�
 
 <p><a name="Item_003a-eliminate_005fusing"></a>
 </p><dl>
-<dt><a name="index-eliminate_005fusing"></a><u>関数:</u> <b>eliminate_using</b><i> (<var>l</var>, <var>e</var>, <var>x</var>)</i></dt>
-<dd>
-
-<p><code>e</code>をピボットとして使って、
+<dt><u>関数:</u> <b>eliminate_using</b><i> (<var>l</var>, <var>e</var>, <var>x</var>)</i>
+<a name="IDX2470"></a>
+</dt>
+<dd><p><code>e</code>をピボットとして使って、
 <code>l</code>の中の等式のリストか集合からシンボル <code>x</code>を消去します。
 関数 <code>eliminate_using</code>は集合を返します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) eq : [x^2 - y^2 - z^3 , x*y - z^2 - 5, x - y + z];
+<pre class="example">(%i1) eq : [x^2 - y^2 - z^3 , x*y - z^2 - 5, x - y + z];
                3    2    2     2
 (%o1)      [- z  - y  + x , - z  + x y - 5, z - y + x]
 (%i2) eliminate_using(eq,first(eq),z);
@@ -705,13 +610,12 @@ Maximaはそれぞれの終結式を因数分解し、多重零点を抑制し�
 (%i4) eliminate_using(eq, third(eq),z);
         2            2       3              2      2      3    2
 (%o4) {y  - 3 x y + x  + 5, y  + (1 - 3 x) y  + 3 x  y - x  - x }
-</pre></td></tr></table>
-
+</pre>
 <p><b>オプション変数</b> <i>resultant</i>
 </p>
 <p><b>関連関数</b> <i>elim, eliminate, elim_allbut</i>
 </p>
-<p><b>利用するには</b> &lsquo;<tt>load(to_poly)</tt>&rsquo;
+<p><b>利用するには</b> <tt>`load(to_poly)'</tt>
 </p>
 <p><b>状況</b> 関数 <code>elimimate_using</code>は実験的です;
 仕様は変更の可能性があり、
@@ -721,21 +625,21 @@ Maximaはそれぞれの終結式を因数分解し、多重零点を抑制し�
 
 <p><a name="Item_003a-fourier_005felim"></a>
 </p><dl>
-<dt><a name="index-fourier_005felim"></a><u>関数:</u> <b>fourier_elim</b><i> ([<var>eq1</var>, <var>eq2</var>, &hellip;], [<var>var1</var>, <var>var</var>, &hellip;])</i></dt>
-<dd>
-<p>Fourier消去は
+<dt><u>関数:</u> <b>fourier_elim</b><i> ([<var>eq1</var>, <var>eq2</var>, &hellip;], [<var>var1</var>, <var>var</var>, &hellip;])</i>
+<a name="IDX2471"></a>
+</dt>
+<dd><p>Fourier消去は
 Gauss消去の線形 inequation(等式か不等式)に関する類似物です。
 関数コール <code>fourier_elim([eq1, eq2, ...], [var1, var2, ...])</code>は
 線形 inequationsのリスト <code>[eq1, eq2, ...]</code>上の変数
 <code>[var1, var2, ...]</code>に関する Fourier消去です;
 例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) fourier_elim([y-x &lt; 5, x - y &lt; 7, 10 &lt; y],[x,y]);
+<pre class="example">(%i1) fourier_elim([y-x &lt; 5, x - y &lt; 7, 10 &lt; y],[x,y]);
 (%o1)            [y - 5 &lt; x, x &lt; y + 7, 10 &lt; y]
 (%i2) fourier_elim([y-x &lt; 5, x - y &lt; 7, 10 &lt; y],[y,x]);
 (%o2)        [max(10, x - 7) &lt; y, y &lt; x + 5, 5 &lt; x]
-</pre></td></tr></table>
-
+</pre>
 <p>最初に <em>x</em>を、次に <em>y</em>を消去することは
 <em>x</em>の下限と上限―<em>y</em>に依存します―をもたらし、
 そして <em>y</em>の下限と上限ーそれらは数ですーをもたらします。
@@ -744,41 +648,37 @@ Gauss消去の線形 inequation(等式か不等式)に関する類似物です�
 </p>
 <p>必要な時、 <code>fourier_elim</code>は inequationのリストの<em>論理和</em>を返します:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) fourier_elim([x # 6],[x]);
+<pre class="example">(%i3) fourier_elim([x # 6],[x]);
 (%o3)                  [x &lt; 6] or [6 &lt; x]
-</pre></td></tr></table>
-
+</pre>
 <p>解集合が空の時、 <code>fourier_elim</code>は <code>emptyset</code>を返し、
 解集合が実数すべての時、 <code>fourier_elim</code>は <code>universalset</code>を返します;
 例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) fourier_elim([x &lt; 1, x &gt; 1],[x]);
+<pre class="example">(%i4) fourier_elim([x &lt; 1, x &gt; 1],[x]);
 (%o4)                       emptyset
 (%i5) fourier_elim([minf &lt; x, x &lt; inf],[x]);
 (%o5)                     universalset
-</pre></td></tr></table>
-
+</pre>
 <p>非線形 inequationに対して、
 <code>fourier_elim</code>は(幾分)整理された inequationsのリストを返します:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) fourier_elim([x^3 - 1 &gt; 0],[x]);
-</pre><pre class="example">               2                             2
+<pre class="example">(%i6) fourier_elim([x^3 - 1 &gt; 0],[x]);
+               2                             2
 (%o6) [1 &lt; x, x  + x + 1 &gt; 0] or [x &lt; 1, - (x  + x + 1) &gt; 0]
-</pre><pre class="example">(%i7) fourier_elim([cos(x) &lt; 1/2],[x]);
+(%i7) fourier_elim([cos(x) &lt; 1/2],[x]);
 (%o7)                  [1 - 2 cos(x) &gt; 0]
-</pre></td></tr></table>
-
+</pre>
 <p>inequationのリストの代わりに、
 <code>fourier_elim</code>の一番目の引数は論理和か論理積であるかもしれません:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i8) fourier_elim((x + y &lt; 5) and (x - y &gt;8),[x,y]);
+<pre class="example">(%i8) fourier_elim((x + y &lt; 5) and (x - y &gt;8),[x,y]);
                                               3
 (%o8)            [y + 8 &lt; x, x &lt; 5 - y, y &lt; - -]
                                               2
 (%i9) fourier_elim(((x + y &lt; 5) and x &lt; 1) or  (x - y &gt;8),[x,y]);
 (%o9)          [y + 8 &lt; x] or [x &lt; min(1, 5 - y)]
-</pre></td></tr></table>
-
+</pre>
 <p>関数 <code>fourier_elim</code>は
 inequation演算子 <code>&lt;, &lt;=, &gt;, &gt;=, #</code>, <code>=</code>をサポートします。
 </p>
@@ -787,7 +687,7 @@ inequation演算子 <code>&lt;, &lt;=, &gt;, &gt;=, #</code>, <code>=</code>を�
 線形 inequationに変換するプリプロセッサを持ちます．
 加えて、プリプロセッサは線形項の積か商であるいくつかの式を扱います:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i10) fourier_elim([max(x,y) &gt; 6, x # 8, abs(y-1) &gt; 12],[x,y]);
+<pre class="example">(%i10) fourier_elim([max(x,y) &gt; 6, x # 8, abs(y-1) &gt; 12],[x,y]);
 (%o10) [6 &lt; x, x &lt; 8, y &lt; - 11] or [8 &lt; x, y &lt; - 11]
  or [x &lt; 8, 13 &lt; y] or [x = y, 13 &lt; y] or [8 &lt; x, x &lt; y, 13 &lt; y]
  or [y &lt; x, 13 &lt; y]
@@ -795,41 +695,38 @@ inequation演算子 <code>&lt;, &lt;=, &gt;, &gt;=, #</code>, <code>=</code>を�
 (%o11)           [x = 12] or [12 &lt; x] or [x &lt; 9]
 (%i12) fourier_elim([x^2 - 1 # 0],[x]);
 (%o12)      [- 1 &lt; x, x &lt; 1] or [1 &lt; x] or [x &lt; - 1]
-</pre></td></tr></table>
-
-<p><b>利用するには</b> &lsquo;<tt>load(fourier_elim)</tt>&rsquo;
+</pre>
+<p><b>利用するには</b> <tt>`load(fourier_elim)'</tt>
 </p>
 </dd></dl>
 
 <p><a name="Item_003a-isreal_005fp"></a>
 </p><dl>
-<dt><a name="index-isreal_005fp"></a><u>関数:</u> <b>isreal_p</b><i> (<var>e</var>)</i></dt>
-<dd>
-<p>述語論理 <code>isreal_p</code>は、
+<dt><u>関数:</u> <b>isreal_p</b><i> (<var>e</var>)</i>
+<a name="IDX2472"></a>
+</dt>
+<dd><p>述語論理 <code>isreal_p</code>は、
 Maximaが <code>e</code>が実数線<i>全体</i>上で実数値であることを
 決められる時 trueを返します;
 Maximaが実数線の空でないある部分集合上で
 <code>e</code>が実数値で<i>ない</i>ことを決められる時 falseを返します;
 他の場合、名詞形を返します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) map('isreal_p, [-1, 0, %i, %pi]);
+<pre class="example">(%i1) map('isreal_p, [-1, 0, %i, %pi]);
 (%o1)               [true, true, false, true]
-</pre></td></tr></table>
-
+</pre>
 <p>Maxima変数は実と仮定されます; たとえば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) isreal_p(x);
+<pre class="example">(%i2) isreal_p(x);
 (%o2)                         true
-</pre></td></tr></table>
-
+</pre>
 <p>関数 <code>isreal_p</code>は事実データベースを検査します:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) declare(z,complex)$
+<pre class="example">(%i3) declare(z,complex)$
 
 (%i4) isreal_p(z);
 (%o4)                      isreal_p(z)
-</pre></td></tr></table>
-
+</pre>
 <p><b>制限</b>
 頻繁すぎるほど <code>isreal_p</code>は
 falseを返すことができる時に名詞形を返します;
@@ -837,11 +734,10 @@ falseを返すことができる時に名詞形を返します;
 だから <code>isreal_p(log(x))</code>は falseを返すべきです;
 しかしながら
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) isreal_p(log(x));
+<pre class="example">(%i5) isreal_p(log(x));
 (%o5)                   isreal_p(log(x))
-</pre></td></tr></table>
-
-<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+</pre>
+<p><b>利用するには</b> <tt>`load(to_poly_solve)'</tt>
 </p>
 <p><b>関連関数</b> <i>complex_number_p</i>
 </p>
@@ -853,9 +749,10 @@ falseを返すことができる時に名詞形を返します;
 
 <p><a name="Item_003a-new_005fvariable"></a>
 </p><dl>
-<dt><a name="index-new_005fvariable"></a><u>関数:</u> <b>new_variable</b><i> (type)</i></dt>
-<dd>
-<p><code>%[z,n,r,c,g]k</code>という形のユニークなシンボルを返します。
+<dt><u>関数:</u> <b>new_variable</b><i> (type)</i>
+<a name="IDX2473"></a>
+</dt>
+<dd><p><code>%[z,n,r,c,g]k</code>という形のユニークなシンボルを返します。
 ここで <code>k</code>は整数です
 <em>type</em>に許される値は
 <i>integer, natural_number, real, natural_number,</i> <i>general</i>です。
@@ -868,7 +765,7 @@ falseを返すことができる時に名詞形を返します;
 整数、自然数、複素数に対して、
 Maximaは自動的にこの情報を事実データベースに追加します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) map('new_variable,
+<pre class="example">(%i1) map('new_variable,
           ['integer, 'natural_number, 'real, 'complex, 'general]);
 (%o1)          [%z144, %n145, %r146, %c147, %g148]
 (%i2) nicedummies(%);
@@ -881,22 +778,20 @@ Maximaは自動的にこの情報を事実データベースに追加します�
 (%o5)                         true
 (%i6) featurep(%c0, 'complex);
 (%o6)                         true
-</pre></td></tr></table>
-
+</pre>
 <p><b>注釈</b> 一般に、<code>new_variable</code>の引数はクォートすべきです。
 クォートは以下に似たエラーを防ぎます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i7) integer : 12$
+<pre class="example">(%i7) integer : 12$
 
 (%i8) new_variable(integer);
 (%o8)                         %g149
 (%i9) new_variable('integer);
 (%o9)                         %z150
-</pre></td></tr></table>
-
+</pre>
 <p><b>関連関数</b> <i>nicedummies</i>
 </p>
-<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+<p><b>利用するには</b> <tt>`load(to_poly_solve)'</tt>
 </p>
 <p><b>状況</b> 関数 <code>new_variable</code>は実験的です;
 仕様は変更の可能性があり、
@@ -906,22 +801,22 @@ Maximaは自動的にこの情報を事実データベースに追加します�
 
 <p><a name="Item_003a-nicedummies"></a>
 </p><dl>
-<dt><a name="index-nicedummies"></a><u>関数:</u> <b>nicedummies</b></dt>
-<dd>
-<p>関数 <code>nicedummies</code>は
+<dt><u>関数:</u> <b>nicedummies</b>
+<a name="IDX2474"></a>
+</dt>
+<dd><p>関数 <code>nicedummies</code>は
 <code>new_variable</code>が導入した式の中の変数を零から再インデックスします;
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) new_variable('integer) + 52 * new_variable('integer);
+<pre class="example">(%i1) new_variable('integer) + 52 * new_variable('integer);
 (%o1)                   52 %z136 + %z135
 (%i2) new_variable('integer) - new_variable('integer);
 (%o2)                     %z137 - %z138
 (%i3) nicedummies(%);
 (%o3)                       %z0 - %z1
-</pre></td></tr></table>
-
+</pre>
 <p><b>関連関数</b> <i>new_variable</i>
 </p>
-<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+<p><b>利用するには</b> <tt>`load(to_poly_solve)'</tt>
 </p>
 <p><b>状況</b> 関数 <code>nicedummies</code>は実験的です;
 仕様は変更の可能性があり、
@@ -931,34 +826,32 @@ Maximaは自動的にこの情報を事実データベースに追加します�
 
 <p><a name="Item_003a-parg"></a>
 </p><dl>
-<dt><a name="index-parg"></a><u>関数:</u> <b>parg</b><i> (<var>x</var>)</i></dt>
-<dd>
-<p>関数 <code>parg</code>は複素偏角関数 <code>carg</code>の整理化バージョンです;
+<dt><u>関数:</u> <b>parg</b><i> (<var>x</var>)</i>
+<a name="IDX2475"></a>
+</dt>
+<dd><p>関数 <code>parg</code>は複素偏角関数 <code>carg</code>の整理化バージョンです;
 例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) map('parg,[1,1+%i,%i, -1 + %i, -1]);
+<pre class="example">(%i1) map('parg,[1,1+%i,%i, -1 + %i, -1]);
                         %pi  %pi  3 %pi
 (%o1)               [0, ---, ---, -----, %pi]
                          4    2     4
-</pre></td></tr></table>
-
+</pre>
 <p>一般に非定数入力に対して <code>parg</code>は名詞形を返します;例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) parg(x + %i * sqrt(x));
+<pre class="example">(%i2) parg(x + %i * sqrt(x));
 (%o2)                 parg(x + %i sqrt(x))
-</pre></td></tr></table>
-
+</pre>
 <p><code>sign</code>を使って入力が正の実数か負の実数か決めることができる時
 <code>parg</code>は非定数入力に対して非名詞形を返します。
 以下は2つの例です:
 </p>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) parg(abs(x));
+<pre class="example">(%i3) parg(abs(x));
 (%o3) 0
 (%i4) parg(-x^2-1);
 (%o4)                          %pi
-</pre></td></tr></table>
-
+</pre>
 <p><b>注釈</b> <code>sign</code>関数は
 複素数と宣言された変数 (<code>declare(x,complex)</code>)を
 ほとんど無視します;
@@ -967,15 +860,14 @@ Maximaは自動的にこの情報を事実データベースに追加します�
 例えば
 </p>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) declare(x,complex)$
+<pre class="example">(%i1) declare(x,complex)$
 
 (%i2) parg(x^2 + 1);
 (%o2) 0
-</pre></td></tr></table>
-
+</pre>
 <p><b>Related function</b> <i>carg, isreal_p</i>
 </p>
-<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+<p><b>利用するには</b> <tt>`load(to_poly_solve)'</tt>
 </p>
 <p><b>状況</b> 関数 <code>parg</code>は実験的です;
 仕様は変更の可能性があり、
@@ -985,21 +877,21 @@ Maximaは自動的にこの情報を事実データベースに追加します�
 
 <p><a name="Item_003a-real_005fimagpart_005fto_005fconjugate"></a>
 </p><dl>
-<dt><a name="index-real_005fimagpart_005fto_005fconjugate"></a><u>関数:</u> <b>real_imagpart_to_conjugate</b><i> (<var>e</var>)</i></dt>
-<dd>
-<p>関数 <code>real_imagpart_to_conjugate</code>は
+<dt><u>関数:</u> <b>real_imagpart_to_conjugate</b><i> (<var>e</var>)</i>
+<a name="IDX2476"></a>
+</dt>
+<dd><p>関数 <code>real_imagpart_to_conjugate</code>は
 <code>realpart</code>と <code>imagpart</code>をすべて
 <code>conjugate</code>を含む代数的に同値な式に置き換えます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) declare(x, complex)$
+<pre class="example">(%i1) declare(x, complex)$
 
 (%i2) real_imagpart_to_conjugate(realpart(x) +  imagpart(x) = 3);
           conjugate(x) + x   %i (x - conjugate(x))
 (%o2)     ---------------- - --------------------- = 3
                  2                     2
-</pre></td></tr></table>
-
-<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+</pre>
+<p><b>利用するには</b> <tt>`load(to_poly_solve)'</tt>
 </p>
 <p><b>状況</b> 関数 <code>real_imagpart_to_conjugate</code>は実験的です;
 仕様は変更の可能性があり、
@@ -1009,14 +901,15 @@ Maximaは自動的にこの情報を事実データベースに追加します�
 
 <p><a name="Item_003a-rectform_005flog_005fif_005fconstant"></a>
 </p><dl>
-<dt><a name="index-rectform_005flog_005fif_005fconstant"></a><u>関数:</u> <b>rectform_log_if_constant</b><i> (<var>e</var>)</i></dt>
-<dd>
-<p>関数 <code>rectform_log_if_constant</code>は
+<dt><u>関数:</u> <b>rectform_log_if_constant</b><i> (<var>e</var>)</i>
+<a name="IDX2477"></a>
+</dt>
+<dd><p>関数 <code>rectform_log_if_constant</code>は
 <code> log(c)</code>の形の項をすべて
 <code>rectform(log(c))</code>に変換します。
 ここで <code>c</code>は宣言された定数式か明示的に宣言された定数です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) rectform_log_if_constant(log(1-%i) - log(x - %i));
+<pre class="example">(%i1) rectform_log_if_constant(log(1-%i) - log(x - %i));
                                  log(2)   %i %pi
 (%o1)            - log(x - %i) + ------ - ------
                                    2        4
@@ -1027,9 +920,8 @@ Maximaは自動的にこの情報を事実データベースに追加します�
                   log(b  + a )
 (%o3)             ------------ + %i atan2(b, a)
                        2
-</pre></td></tr></table>
-
-<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+</pre>
+<p><b>利用するには</b> <tt>`load(to_poly_solve)'</tt>
 </p>
 <p><b>状況</b> 関数 <code>rectform_log_if_constant</code>は実験的です;
 仕様は変更の可能性があり、
@@ -1039,28 +931,27 @@ Maximaは自動的にこの情報を事実データベースに追加します�
 
 <p><a name="Item_003a-simp_005finequality"></a>
 </p><dl>
-<dt><a name="index-simp_005finequality"></a><u>関数:</u> <b>simp_inequality</b><i> (<var>e</var>)</i></dt>
-<dd>
-<p>関数 <code>simp_inequality</code>は
+<dt><u>関数:</u> <b>simp_inequality</b><i> (<var>e</var>)</i>
+<a name="IDX2478"></a>
+</dt>
+<dd><p>関数 <code>simp_inequality</code>は
 inequationの論理積と論理和にいくつかの整理を適用します。
 </p>
 <p><b>制限</b> 関数 <code>simp_inequality</code>は少なくとも2つの点で制限されます;
 第一に整理が局所的です; 例えば
 </p>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) simp_inequality((x &gt; minf) %and (x &lt; 0));
+<pre class="example">(%i1) simp_inequality((x &gt; minf) %and (x &lt; 0));
 (%o1) (x&gt;1) %and (x&lt;1)
-</pre></td></tr></table>
-
+</pre>
 <p>第二に <code>simp_inequality</code>は事実データベースを参照しません:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) assume(x &gt; 0)$
+<pre class="example">(%i2) assume(x &gt; 0)$
 
 (%i3) simp_inequality(x &gt; 0);
 (%o3)                         x &gt; 0
-</pre></td></tr></table>
-
-<p><b>利用するには</b> &lsquo;<tt>load(fourier_elim)</tt>&rsquo;
+</pre>
+<p><b>利用するには</b> <tt>`load(fourier_elim)'</tt>
 </p>
 <p><b>状況</b> 関数 <code>simp_inequality</code>は実験的です;
 仕様は変更の可能性があり、
@@ -1070,15 +961,16 @@ inequationの論理積と論理和にいくつかの整理を適用します。
 
 <p><a name="Item_003a-standardize_005finverse_005ftrig"></a>
 </p><dl>
-<dt><a name="index-standardize_005finverse_005ftrig"></a><u>関数:</u> <b>standardize_inverse_trig</b><i> (<var>e</var>)</i></dt>
-<dd>
-<p>この関数は
+<dt><u>関数:</u> <b>standardize_inverse_trig</b><i> (<var>e</var>)</i>
+<a name="IDX2479"></a>
+</dt>
+<dd><p>この関数は
 恒等式 <code>cot(x) = atan(1/x), acsc(x) = asin(1/x),</code>と
 <code>asec, acoth, acsch</code> <code>asech</code>に関する類似の恒等式を式に適応します。
 Abramowitz and Stegun, Eqs. 4.4.6 から 4.4.8までと
 4.6.4から 4.6.6までを参照してください。
 </p>
-<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+<p><b>利用するには</b> <tt>`load(to_poly_solve)'</tt>
 </p>
 <p><b>状況</b> 関数 <code>standardize_inverse_trig</code>は実験的です;
 仕様は変更の可能性があり、
@@ -1087,61 +979,57 @@ Abramowitz and Stegun, Eqs. 4.4.6 から 4.4.8までと
 
 <p><a name="Item_003a-subst_005fparallel"></a>
 </p><dl>
-<dt><a name="index-subst_005fparallel"></a><u>関数:</u> <b>subst_parallel</b><i> (<var>l</var>, <var>e</var>)</i></dt>
-<dd>
-<p><code>l</code>が単一の等式か等式のリストの時、それぞれの等式の右辺側を左辺に代入します。
+<dt><u>関数:</u> <b>subst_parallel</b><i> (<var>l</var>, <var>e</var>)</i>
+<a name="IDX2480"></a>
+</dt>
+<dd><p><code>l</code>が単一の等式か等式のリストの時、それぞれの等式の右辺側を左辺に代入します。
 代入は並列に行われます; 例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(to_poly_solve)$
+<pre class="example">(%i1) load(to_poly_solve)$
 
 (%i2) subst_parallel([x=y,y=x], [x,y]);
 (%o2)                        [y, x]
-</pre></td></tr></table>
-
+</pre>
 <p>これを順にされる代入と比較します:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) subst([x=y,y=x],[x,y]);
+<pre class="example">(%i3) subst([x=y,y=x],[x,y]);
 (%o3)                        [x, x]
-</pre></td></tr></table>
-
+</pre>
 <p>関数 <code>subst_parallel</code>は、
 <code>subst_parallel</code>は非アトムの代入を許すことを除いて
 <code>sublis</code>と似ています;
 例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) subst_parallel([x^2 = a, y = b], x^2 * y);
+<pre class="example">(%i4) subst_parallel([x^2 = a, y = b], x^2 * y);
 (%o4)                          a b
 (%i5) sublis([x^2 = a, y = b], x^2 * y);
 
                                                              2
 sublis: left-hand side of equation must be a symbol; found: x
  -- an error. To debug this try: debugmode(true);
-</pre></td></tr></table>
-
+</pre>
 <p><code>subst_parallel</code>が行う代入は文字通りであり意味論的ではありません;
 なので
 <code>subst_parallel</code>は
 <em>x * y</em>が <em>x^2 * y</em>の部分式であることを認識<i>しません</i>
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) subst_parallel([x * y = a], x^2 * y);
+<pre class="example">(%i6) subst_parallel([x * y = a], x^2 * y);
                                2
 (%o6)                         x  y
-</pre></td></tr></table>
-
+</pre>
 <p>関数 <code>subst_parallel</code>は整理の<i>前に</i>すべての代入を完了します。
 これは、もし整理が前に行われていたらエラーが起こるような条件式への代入を許します:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i7) subst_parallel([x = 0], %if(x &lt; 1, 5, log(x)));
+<pre class="example">(%i7) subst_parallel([x = 0], %if(x &lt; 1, 5, log(x)));
 (%o7)                           5
 (%i8) subst([x = 0], %if(x &lt; 1, 5, log(x)));
 
 log: encountered log(0).
  -- an error. To debug this try: debugmode(true);
-</pre></td></tr></table>
-
+</pre>
 <p><b>関連関数</b> <i>subst, sublis, ratsubst</i>
 </p>
-<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve_extra.lisp)</tt>&rsquo;
+<p><b>利用するには</b> <tt>`load(to_poly_solve_extra.lisp)'</tt>
 </p>
 <p><b>状況</b> 関数 <code>subst_parallel</code>は実験的です;
 仕様は変更の可能性があり、
@@ -1151,15 +1039,16 @@ log: encountered log(0).
 
 <p><a name="Item_003a-to_005fpoly"></a>
 </p><dl>
-<dt><a name="index-to_005fpoly"></a><u>関数:</u> <b>to_poly</b><i> (<var>e</var>, <var>l</var>)</i></dt>
-<dd>
-<p>関数 <code>to_poly</code>は等式 <code>e</code>を
+<dt><u>関数:</u> <b>to_poly</b><i> (<var>e</var>, <var>l</var>)</i>
+<a name="IDX2481"></a>
+</dt>
+<dd><p>関数 <code>to_poly</code>は等式 <code>e</code>を
 inequation制約を伴う多項式系に変換しようとします;
 制約を満たす多項式系の解は等式 <code>e</code>の解です。
 非公式には <code>to_poly</code>は等式 <var>e</var>を多項式化しようとします; 
 例がわかりやすいかもしれません:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(to_poly_solve)$
+<pre class="example">(%i1) load(to_poly_solve)$
 
 (%i2) to_poly(sqrt(x) = 3, [x]);
                             2
@@ -1167,8 +1056,7 @@ inequation制約を伴う多項式系に変換しようとします;
                       %pi                               %pi
                    [- --- &lt; parg(%g130), parg(%g130) &lt;= ---], []]
                        2                                 2
-</pre></td></tr></table>
-
+</pre>
 <p>条件 <code>-%pi/2&lt;parg(%g130),parg(%g130)&lt;=%pi/2</code>は
 <code>%g130</code>が平方根関数の範囲内であることを告げます。
 これが trueの時、
@@ -1180,15 +1068,14 @@ inequation制約を伴う多項式系に変換しようとします;
 <code>to_poly</code>が返す三番目のリスト内で返されます;
 例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) to_poly(cos(x),[x]);
+<pre class="example">(%i3) to_poly(cos(x),[x]);
                 2                                 %i x
 (%o3)    [[%g131  + 1], [2 %g131 # 0], [%g131 = %e    ]]
-</pre></td></tr></table>
-
+</pre>
 <p>数字 1が変数リストのメンバーでない限り定数項は多項式化されません;
 例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) to_poly(x = sqrt(5),[x]);
+<pre class="example">(%i4) to_poly(x = sqrt(5),[x]);
 (%o4)                [[x - sqrt(5)], [], []]
 (%i5) to_poly(x = sqrt(5),[1,x]);
                             2
@@ -1196,20 +1083,18 @@ inequation制約を伴う多項式系に変換しようとします;
                       %pi                               %pi
                    [- --- &lt; parg(%g132), parg(%g132) &lt;= ---], []]
                        2                                 2
-</pre></td></tr></table>
-
+</pre>
 <p>根の 1つとして
 <em>sqrt(5) + sqrt(7)</em>を持つ多項式を生成するには、以下のコマンドを使います。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) first(elim_allbut(first(to_poly(x = sqrt(5) + sqrt(7),
+<pre class="example">(%i6) first(elim_allbut(first(to_poly(x = sqrt(5) + sqrt(7),
                                       [1,x])), [x]));
                           4       2
 (%o6)                   [x  - 24 x  + 4]
-</pre></td></tr></table>
-
+</pre>
 <p><b>関連関数</b> <i>to_poly_solve</i>
 </p>
-<p><b>利用するには</b> &lsquo;<tt>load(to_poly)</tt>&rsquo;
+<p><b>利用するには</b> <tt>`load(to_poly)'</tt>
 </p>
 <p><b>状況:</b> 関数 <code>to_poly</code>は実験的です;
 仕様は変更の可能性があり、
@@ -1219,9 +1104,10 @@ inequation制約を伴う多項式系に変換しようとします;
 
 
 <dl>
-<dt><a name="index-to_005fpoly_005fsolve"></a><u>関数:</u> <b>to_poly_solve</b><i> (<var>e</var>, <var>l</var>, [options])</i></dt>
-<dd>
-<p>関数 <code>to_poly_solve</code>は等式 <em>e</em>を変数 <em>l</em>について解こうとします。
+<dt><u>関数:</u> <b>to_poly_solve</b><i> (<var>e</var>, <var>l</var>, [options])</i>
+<a name="IDX2482"></a>
+</dt>
+<dd><p>関数 <code>to_poly_solve</code>は等式 <em>e</em>を変数 <em>l</em>について解こうとします。
 等式 <em>e</em>は単一の式か式の集合もしくはリストでありえます;
 同様に <em>l</em>は単一のシンボルかシンボルの集合のリストでありえます;
 <em>e</em>のメンバーが明示的に等式でない時(例えば <em>x^2 -1</em>)、
@@ -1230,50 +1116,45 @@ inequation制約を伴う多項式系に変換しようとします;
 <p><code>to_poly_solve</code>の基本戦略は
 入力を多項式形に変換し、 多項式系上で<code>algsys</code>を呼ぶことです。
 内部的には、 <code>to_poly_solve</code>は <code>algexact</code>を trueに設定します。
-<code>algexact</code>のデフォルト置を変えるには、 &rsquo;algexact=falseを  <code>to_poly_solve</code>の引数リストに追加してください。
+<code>algexact</code>のデフォルト置を変えるには、 'algexact=falseを  <code>to_poly_solve</code>の引数リストに追加してください。
 </p>
 <p><code>to_poly_solve</code>が解集合を決定できる時、解集合のそれぞれのメンバーは
 <code>%union</code>オブジェクト内のリストです:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(to_poly_solve)$
+<pre class="example">(%i1) load(to_poly_solve)$
 
 (%i2) to_poly_solve(x*(x-1) = 0, x);
 (%o2)               %union([x = 0], [x = 1])
-</pre></td></tr></table>
-
+</pre>
 <p><code>to_poly_solve</code>が解集合を決定<i>できない</i>時
 <code>%solve</code>名詞形が返されます。(この場合、警告が印字されます。)
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) to_poly_solve(x^k + 2* x + 1 = 0, x);
+<pre class="example">(%i3) to_poly_solve(x^k + 2* x + 1 = 0, x);
 
 Nonalgebraic argument given to 'to_poly'
 unable to solve
                           k
 (%o3)            %solve([x  + 2 x + 1 = 0], [x])
-</pre></td></tr></table>
-
+</pre>
 <p><code>%solve</code>名詞形への代入は時々解に帰着します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) subst(k = 2, %);
+<pre class="example">(%i4) subst(k = 2, %);
 (%o4)                   %union([x = - 1])
-</pre></td></tr></table>
-
+</pre>
 <p>特に三角等式の場合、ソルバは時々任意整数の導入を必要とします。
 これらの任意整数は
 <code>%zXXX</code>という形を持ちます。
 ここで <code>XXX</code>は整数です;
 例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) to_poly_solve(sin(x) = 0, x);
+<pre class="example">(%i5) to_poly_solve(sin(x) = 0, x);
 (%o5)   %union([x = 2 %pi %z33 + %pi], [x = 2 %pi %z35])
-</pre></td></tr></table>
-
+</pre>
 <p>これらの変数を零から再インデックスするには <code>nicedummies</code>を使います:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) nicedummies(%);
+<pre class="example">(%i6) nicedummies(%);
 (%o6)    %union([x = 2 %pi %z0 + %pi], [x = 2 %pi %z1])
-</pre></td></tr></table>
-
+</pre>
 <p>時折、ソルバは
 <code>%cXXX</code>という形の任意複素数か
 <code>%rXXX</code>という形の任意実数を導入します。
@@ -1284,15 +1165,14 @@ unable to solve
 <code>%if</code>を含む様々な論理演算子の整理化バージョンを含みます;
 例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i7) sol : to_poly_solve(abs(x) = a, x);
+<pre class="example">(%i7) sol : to_poly_solve(abs(x) = a, x);
 (%o7) %union(%if(isnonnegative_p(a), [x = - a], %union()), 
                       %if(isnonnegative_p(a), [x = a], %union()))
 (%i8) subst(a = 42, sol);
 (%o8)             %union([x = - 42], [x = 42])
 (%i9) subst(a = -42, sol);
 (%o9)                       %union()
-</pre></td></tr></table>
-
+</pre>
 <p>空集合は <code>%union</code>によって表現されます。
 </p>
 <p>関数 <code>to_poly_solve</code>は有理数や非有理べき、絶対値、三角関数、最小最大を含む等式の
@@ -1300,7 +1180,7 @@ unable to solve
 Lambert W 函数を使って解くことができるいくつかの等式も解くことができます;
 例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(to_poly_solve)$
+<pre class="example">(%i1) load(to_poly_solve)$
 
 (%i2) to_poly_solve(set(max(x,y) = 5, x+y = 2), set(x,y));
 (%o2)      %union([x = - 3, y = 5], [x = 5, y = - 3])
@@ -1329,28 +1209,26 @@ Lambert W 函数を使って解くことができるいくつかの等式も解�
 (%o6) %union([x = -----------------------------------], 
                                   1/a
                                  2
-</pre><pre class="example">                                                  2 %i %pi %z83
+                                                  2 %i %pi %z83
                                                   -------------
                                             1/a         a
                           (- sqrt(3) %i - 1)    %e
                      [x = -------------------------------------])
                                            1/a
                                           2
-</pre><pre class="example">(%i7) to_poly_solve(x * exp(x) = a, x);
+(%i7) to_poly_solve(x * exp(x) = a, x);
 (%o7)              %union([x = lambert_w(a)])
-</pre></td></tr></table>
-
+</pre>
 <p><i>線形</i>不等式に対して、 <code>to_poly_solve</code>は自動的に Fourier消去を行います:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i8) to_poly_solve([x + y &lt; 1, x - y &gt;= 8], [x,y]);
+<pre class="example">(%i8) to_poly_solve([x + y &lt; 1, x - y &gt;= 8], [x,y]);
                                7
 (%o8) %union([x = y + 8, y &lt; - -], 
                                2
                                                               7
                                  [y + 8 &lt; x, x &lt; 1 - y, y &lt; - -])
                                                               2
-</pre></td></tr></table>
-
+</pre>
 <p><code>to_poly_solve</code>のオプション引数のそれぞれは等式でなければいけません;
 一般にこれらのオプションの順序は問題になりません．
 </p>
@@ -1360,43 +1238,39 @@ Lambert W 函数を使って解くことができるいくつかの等式も解�
 ここで <code>l</code>は函数のリストです。
 lのメンバーの合成をそれぞれの解に適用します。
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) to_poly_solve(x^2=%i,x);
+<pre class="example">(%i1) to_poly_solve(x^2=%i,x);
                                1/4             1/4
 (%o1)       %union([x = - (- 1)   ], [x = (- 1)   ])
 (%i2) to_poly_solve(x^2= %i,x, 'simpfuncs = ['rectform]);
                       %i         1             %i         1
 (%o2) %union([x = - ------- - -------], [x = ------- + -------])
                     sqrt(2)   sqrt(2)        sqrt(2)   sqrt(2)
-</pre></td></tr></table>
-
+</pre>
 <p>時々追加の整理は整理を戻すことがあります;
 例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) to_poly_solve(x^2=1,x);
+<pre class="example">(%i3) to_poly_solve(x^2=1,x);
 (%o3)              %union([x = - 1], [x = 1])
 (%i4) to_poly_solve(x^2= 1,x, 'simpfuncs = [polarform]);
                                         %i %pi
 (%o4)            %union([x = 1], [x = %e      ]
-</pre></td></tr></table>
-
+</pre>
 <p>Maximaは
 関数リスト <code>l</code>のそれぞれのメンバーが純粋に整理であるかチェックしようとしません;
 例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) to_poly_solve(x^2 = %i,x, 'simpfuncs = [lambda([s],s^2)]);
+<pre class="example">(%i5) to_poly_solve(x^2 = %i,x, 'simpfuncs = [lambda([s],s^2)]);
 (%o5)                   %union([x = %i])
-</pre></td></tr></table>
-
+</pre>
 <p>それぞれの解を倍精度浮動小数点数に変換するには
 <code>simpfunc = ['dfloat]</code>を使います:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) to_poly_solve(x^3 +x + 1 = 0,x, 
+<pre class="example">(%i6) to_poly_solve(x^3 +x + 1 = 0,x, 
                     'simpfuncs = ['dfloat]), algexact : true;
 (%o6) %union([x = - .6823278038280178], 
 [x = .3411639019140089 - 1.161541399997251 %i], 
 [x = 1.161541399997251 %i + .3411639019140089])
-</pre></td></tr></table>
-
+</pre>
 </li><li>
 <code>use_grobner = true</code>
 このオプションを使うと
@@ -1404,18 +1278,17 @@ lのメンバーの合成をそれぞれの解に適用します。
 主として、このオプションは関数 <code>algsys</code>の弱みに対する応急措置を提供します。
 以下はそんな応急措置の例です:
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i7) to_poly_solve([x^2+y^2=2^2,(x-1)^2+(y-1)^2=2^2],[x,y],
+<pre class="example">(%i7) to_poly_solve([x^2+y^2=2^2,(x-1)^2+(y-1)^2=2^2],[x,y],
                     'use_grobner = true);
-</pre><pre class="example">                    sqrt(7) - 1      sqrt(7) + 1
+                    sqrt(7) - 1      sqrt(7) + 1
 (%o7) %union([x = - -----------, y = -----------], 
                          2                2
-</pre><pre class="example">                                 sqrt(7) + 1        sqrt(7) - 1
+                                 sqrt(7) + 1        sqrt(7) - 1
                             [x = -----------, y = - -----------])
                                       2                  2
 (%i8) to_poly_solve([x^2+y^2=2^2,(x-1)^2+(y-1)^2=2^2],[x,y]);
 (%o8)                       %union()
-</pre></td></tr></table>
-
+</pre>
 </li><li>
 <code>maxdepth = k</code>,
 ここで <code>k</code>は正の整数です。
@@ -1423,34 +1296,31 @@ lのメンバーの合成をそれぞれの解に適用します。
 <code>maxdepth</code>のデフォルト値は 5です。
 再帰深さを越えた時、ソルバはエラーをシグナルします:
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i9) to_poly_solve(cos(x) = x,x, 'maxdepth = 2);
+<pre class="example">(%i9) to_poly_solve(cos(x) = x,x, 'maxdepth = 2);
 
 Unable to solve
 Unable to solve
 (%o9)        %solve([cos(x) = x], [x], maxdepth = 2)
-</pre></td></tr></table>
-
+</pre>
 </li><li>
 <code>parameters = l</code>,
 ここで <code>l</code>はシンボルのリストです。
 ソルバはリスト <code>l</code>のメンバーすべてに有効な解を返そうとします;
 例えば:
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i10) to_poly_solve(a * x = x, x);
+<pre class="example">(%i10) to_poly_solve(a * x = x, x);
 (%o10)                   %union([x = 0])
 (%i11) to_poly_solve(a * x = x, x, 'parameters = [a]);
 (%o11) %union(%if(a - 1 = 0, [x = %c111], %union()), 
                                %if(a - 1 # 0, [x = 0], %union()))
-</pre></td></tr></table>
-
+</pre>
 <p><code>(%o2)</code>で、ソルバはダミー変数を導入しました;
 これらのダミー変数を再インデックスするには、関数 <code>nicedummies</code>を使います:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i12) nicedummies(%);
+<pre class="example">(%i12) nicedummies(%);
 (%o12) %union(%if(a - 1 = 0, [x = %c0], %union()), 
                                %if(a - 1 # 0, [x = 0], %union()))
-</pre></td></tr></table>
-</li></ul>
+</pre></li></ul>
 
 <p><em>f(a) = f(b)</em>という形の等式を解くために
 <code>to_poly_solve</code>はハッシュ配列
@@ -1460,24 +1330,22 @@ Unable to solve
 <em>f(a) = f(b)</em>の解集合が<em>a=b</em>の解集合に等しいことを告げます;
 例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i13) one_to_one_reduce['f,'f] : lambda([a,b], a=b)$
+<pre class="example">(%i13) one_to_one_reduce['f,'f] : lambda([a,b], a=b)$
 
 (%i14) to_poly_solve(f(x^2-1) = f(0),x);
 (%o14)             %union([x = - 1], [x = 1])
-</pre></td></tr></table>
-
+</pre>
 <p>さらに一般的に、割り当て
 <code>one_to_one_reduce['f,'g] : lambda([a,b], w(a, b) = 0</code>は
 <code>to_poly_solve</code>に
 <em>f(a) = f(b)</em>の解集合が <em>w(a,b) = 0</em>の解集合に等しいことを告げます;
 例えば
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i15) one_to_one_reduce['f,'g] : lambda([a,b], a = 1 + b/2)$
+<pre class="example">(%i15) one_to_one_reduce['f,'g] : lambda([a,b], a = 1 + b/2)$
 
 (%i16) to_poly_solve(f(x) - g(x),x);
 (%o16)                   %union([x = 2])
-</pre></td></tr></table>
-
+</pre>
 <p>加えて、<em>f(a) = b</em>という形の等式を解くために関数
 <code>to_poly_solve</code>はハッシュ配列
 <code>function_inverse</code>に記憶されたデータを使います。
@@ -1487,7 +1355,7 @@ Unable to solve
 <code>x = g(b)</code>に設定された解に等しいことを知らせます;
 2つの例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i17) function_inverse['Q] : lambda([s], P(s))$
+<pre class="example">(%i17) function_inverse['Q] : lambda([s], P(s))$
 
 (%i18) to_poly_solve(Q(x-1) = 2009,x);
 (%o18)              %union([x = P(2009) + 1])
@@ -1495,31 +1363,29 @@ Unable to solve
 (%o19)       lambda([s], s + new_variable(integer))
 (%i20) to_poly_solve(G(x - a) = b,x);
 (%o20)             %union([x = b + a + %z125])
-</pre></td></tr></table>
-
+</pre>
 
 <p><b>注釈</b>
 </p>
-<ul>
+<ul class="toc">
 <li>
 解く変数はシンボルである必要はありません;
 <code>fullratsubst</code>が適切に代入できる時、
 解く変数は非シンボルであり得ます:
 </li></ul>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) to_poly_solve([x^2 + y^2 + x * y = 5, x * y = 8],
+<pre class="example">(%i1) to_poly_solve([x^2 + y^2 + x * y = 5, x * y = 8],
                     [x^2 + y^2, x * y]);
                                   2    2
 (%o1)           %union([x y = 8, y  + x  = - 3])
-</pre></td></tr></table>
-
-<ul>
+</pre>
+<ul class="toc">
 <li>
 複素共役を含む等式に対して、ソルバは自動的に共役等式を追加します;
 例えば
 </li></ul>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) declare(x,complex)$
+<pre class="example">(%i1) declare(x,complex)$
 
 (%i2) to_poly_solve(x + (5 + %i) * conjugate(x) = 1, x);
                                    %i + 21
@@ -1532,23 +1398,21 @@ Unable to solve
                            %i - 42        %i + 42
 (%o4)        %union([x = - -------, y = - -------])
                               2              2
-</pre></td></tr></table>
-
-<ul>
+</pre>
+<ul class="toc">
 <li>
 絶対値関数を含む等式に対して、
 <code>to_poly_solve</code>は
 絶対値の引数が複素数値か決めるため事実データベースに問い合わせます。
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) to_poly_solve(abs(x) = 6, x);
+<pre class="example">(%i1) to_poly_solve(abs(x) = 6, x);
 (%o1)              %union([x = - 6], [x = 6])
 (%i2) declare(z,complex)$
 
 (%i3) to_poly_solve(abs(z) = 6, z);
 (%o3) %union(%if((%c11 # 0) %and (%c11 conjugate(%c11) - 36 = 
                                        0), [z = %c11], %union()))
-</pre></td></tr></table>
-
+</pre>
 <p><i>これはソルバが事実データベースを参照する唯一の状況です。
 例えば、もし解く変数が整数と宣言されていたら、
 <code>to_poly_solve</code>はこの宣言を無視します</i>。
@@ -1558,7 +1422,7 @@ Unable to solve
 </p>
 <p><b>関連関数</b> <i>to_poly</i>
 </p>
-<p><b>利用するには</b> &lsquo;<tt>load(to_poly_solve)</tt>&rsquo;
+<p><b>利用するには</b> <tt>`load(to_poly_solve)'</tt>
 </p>
 <p><b>状況:</b> 関数 <code>to_poly_solve</code>は実験的です;
 仕様は変更の可能性があり、
@@ -1568,21 +1432,21 @@ Unable to solve
 <p><a name="Item_003a-unit"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#to_005fpoly_005fsolve" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#unit" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC379" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_81.html#SEC381" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>5月, 20 2015</em>に<a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>を用いて生成されました。
  </font>
  <br>
 

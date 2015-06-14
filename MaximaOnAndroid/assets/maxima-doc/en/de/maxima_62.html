@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on September, 8 2014 by texi2html 1.76 -->
+<!-- Created on Dezember, 9 2014 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -32,111 +32,33 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
@@ -192,10 +114,8 @@ div.categorybox
 
 
 <p>Das Paket mnewton implementiert das Newton-Verfahren mit der Funktion
-<code><a href="#SEC331">mnewton</a></code>
- f&uuml;r das numerische L&ouml;sen nichtlinear Gleichungen in einer
-oder mehrerer Variablen.  Die Funktion <code><a href="#newton">newton</a></code>
- ist eine weitere
+<code><a href="#SEC331">mnewton</a></code> f&uuml;r das numerische L&ouml;sen nichtlinear Gleichungen in einer
+oder mehrerer Variablen.  Die Funktion <code><a href="#newton">newton</a></code> ist eine weitere
 Implementierung, die im Paket newton1 enthalten ist.
 </p>
 <hr size="6">
@@ -222,13 +142,12 @@ Implementierung, die im Paket newton1 enthalten ist.
 <p><a name="newtonepsilon"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>newtonepsilon</b>
-<a name="IDX2500"></a>
+<a name="IDX2498"></a>
 </dt>
 <dd><p>Standardwert: <code>1.0e-8</code>
 </p>
 
-<p>Genauigkeit mit der getestet wird, wie gut die Funktion <code><a href="#SEC331">mnewton</a></code>
- sich der
+<p>Genauigkeit mit der getestet wird, wie gut die Funktion <code><a href="#SEC331">mnewton</a></code> sich der
 L&ouml;sung angen&auml;hert hat.  Unterschreitet die &Auml;nderung der Approximation
 den Wert <code>newtonepsilon</code>, bricht der Algorithmus ab und gibt das Ergebnis
 zur&uuml;ck.
@@ -237,20 +156,19 @@ zur&uuml;ck.
 <p><a name="newtonmaxiter"></a>
 </p><dl>
 <dt><u>Optionsvariable:</u> <b>newtonmaxiter</b>
-<a name="IDX2501"></a>
+<a name="IDX2499"></a>
 </dt>
 <dd><p>Standardwert: <code>50</code>
 </p>
 
 <p>Obere Grenze f&uuml;r die Anzahl an Iterationen, falls die Funktion
-<code><a href="#SEC331">mnewton</a></code>
- nicht oder sehr langsam konvergiert.
+<code><a href="#SEC331">mnewton</a></code> nicht oder sehr langsam konvergiert.
 </p></dd></dl>
 
 <p><a name="function_005fmnewton"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>mnewton</b><i> (<var>FuncList</var>, <var>VarList</var>, <var>GuessList</var>)</i>
-<a name="IDX2502"></a>
+<a name="IDX2500"></a>
 </dt>
 <dd>
 <p>Implementation des Newton-Verfahrens f&uuml;r das numerische L&ouml;sen von
@@ -264,15 +182,12 @@ ist eine Liste mit den Startwerten des Newton-Verfahrens.
 gefunden werden, ist die R&uuml;ckgabe eine leere Liste <code>[]</code>.
 </p>
 
-<p><code>mnewton</code> wird von den Funktionen <code><a href="#newtonepsilon">newtonepsilon</a></code>
- und
-<code><a href="#newtonmaxiter">newtonmaxiter</a></code>
- kontrolliert.
+<p><code>mnewton</code> wird von den Funktionen <code><a href="#newtonepsilon">newtonepsilon</a></code> und
+<code><a href="#newtonmaxiter">newtonmaxiter</a></code> kontrolliert.
 </p>
 
 <p>Die Funktion wird mit dem Kommando <code>load(mnewton)</code> geladen.  Siehe die
-Funktion <code><a href="#newton">newton</a></code>
- f&uuml;r eine alternative Implementierung des
+Funktion <code><a href="#newton">newton</a></code> f&uuml;r eine alternative Implementierung des
 Newton-Verfahrens.
 </p>
 <p>Beispiele:
@@ -288,8 +203,7 @@ Newton-Verfahrens.
 (%o4) [[u = 1.066618389595407, v = 1.552564766841786]]
 </pre>
 
-<p>Die Optionsvariable <code><a href="#newtonepsilon">newtonepsilon</a></code>
- kontrolliert die Genauigkeit der
+<p>Die Optionsvariable <code><a href="#newtonepsilon">newtonepsilon</a></code> kontrolliert die Genauigkeit der
 Approximation.  Weiterhin kontrolliert die Optionsvariable, ob die Berechnung
 mit Gleitkommazahlen in doppelter oder gro&szlig;er Genauigkeit durchgef&uuml;hrt
 wird.
@@ -306,7 +220,7 @@ wird.
 <p><a name="newton"></a>
 </p><dl>
 <dt><u>Funktion:</u> <b>newton</b><i> (<var>expr</var>, <var>x</var>, <var>x_0</var>, <var>eps</var>)</i>
-<a name="IDX2503"></a>
+<a name="IDX2501"></a>
 </dt>
 <dd>
 <p>Die Funktion <code>newton</code> gibt eine N&auml;herungsl&ouml;sung der Gleichung
@@ -326,13 +240,9 @@ ausgewertet werden kann.  Daher ist es nicht notwendig, dass der Ausdruck
 <p>Das Kommando <code>load(newton1)</code> l&auml;dt die Funktion.
 </p>
 
-<p>Siehe auch die Funktionen <code><a href="maxima_18.html#realroots">realroots</a></code>,
- <code><a href="maxima_18.html#allroots">allroots</a></code>
- und
-<code><a href="maxima_23.html#find_005froot">find_root</a></code>,
- um numerische L&ouml;sungen von Gleichungen zu finden.
-Das Paket mnewton enth&auml;lt mit der Funktion <code><a href="#SEC331">mnewton</a></code>
- eine weitere
+<p>Siehe auch die Funktionen <code><a href="maxima_18.html#realroots">realroots</a></code>, <code><a href="maxima_18.html#allroots">allroots</a></code> und
+<code><a href="maxima_23.html#find_005froot">find_root</a></code>, um numerische L&ouml;sungen von Gleichungen zu finden.
+Das Paket mnewton enth&auml;lt mit der Funktion <code><a href="#SEC331">mnewton</a></code> eine weitere
 Implementation des Newton-Verfahrens.
 </p>
 <p>Achtung: Auch mit <code>load(newton)</code> wird eine Funktion mit dem Namen
@@ -374,7 +284,7 @@ beschriebenen Funktion unterscheidet und auch nicht dokumentiert ist.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>September, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>Dezember, 9 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

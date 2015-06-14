@@ -1,27 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年9月月15日 by texi2html 1.82
-texi2html was written by: 
-            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+<!-- Created on 5月, 20 2015 by texi2html 1.76 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
             Olaf Bachmann <obachman@mathematik.uni-kl.de>
             and many others.
-Maintained by: Many creative people.
-Send bugs and suggestions to <texi2html-bug@nongnu.org>
+Maintained by: Many creative people <dev@texi2html.cvshome.org>
+Send bugs and suggestions to <users@texi2html.cvshome.org>
+
 -->
 <head>
-<title>Maxima 5.34.1 Manual: 61. interpol</title>
+<title>Maxima 5.36.1 Manual: 61. interpol</title>
 
-<meta name="description" content="Maxima 5.34.1 Manual: 61. interpol">
-<meta name="keywords" content="Maxima 5.34.1 Manual: 61. interpol">
+<meta name="description" content="Maxima 5.36.1 Manual: 61. interpol">
+<meta name="keywords" content="Maxima 5.36.1 Manual: 61. interpol">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.82">
+<meta name="Generator" content="texi2html 1.76">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
 pre.display {font-family: serif}
 pre.format {font-family: serif}
 pre.menu-comment {font-family: serif}
@@ -30,109 +30,30 @@ pre.smalldisplay {font-family: serif; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.roman {font-family:serif; font-weight:normal;}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
@@ -157,90 +78,95 @@ div.categorybox
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="interpol"></a>
+<a name="SEC303"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_60.html#Functions-and-Variables-for-impdiff" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-interpol" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_60.html#SEC302" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC304" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_60.html#impdiff" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_62.html#lapack" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC301" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#SEC306" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="interpol-1"></a>
-<h1 class="chapter">61. interpol</h1>
+<h1 class="chapter"> 61. interpol </h1>
+
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-interpol">61.1 Introduction to interpol</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC304">61.1 Introduction to interpol</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-interpol">61.2 Functions and Variables for interpol</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC305">61.2 Functions and Variables for interpol</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <p><a name="Item_003a-Introduction-to-interpol"></a>
 </p><hr size="6">
 <a name="Introduction-to-interpol"></a>
+<a name="SEC304"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#interpol" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-interpol" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC303" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC305" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#interpol" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#interpol" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_62.html#lapack" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC303" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC303" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#SEC306" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-interpol-1"></a>
-<h2 class="section">61.1 Introduction to interpol</h2>
+<h2 class="section"> 61.1 Introduction to interpol </h2>
 
 <p>パッケージ <code>interpol</code>は多項式内挿のための
 Lagrange、線形、三次スプライン法を定義します。
 </p>
 <p>コメント、バグ、提案は
-<var>&rsquo;mario AT edu DOT xunta DOT es&rsquo;</var>にコンタクトを取ってください。
+<var>'mario AT edu DOT xunta DOT es'</var>にコンタクトを取ってください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a>
- &middot;<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_100.html#Category_003a-Package-interpol">Package interpol</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a> &middot;
+<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a> &middot;
+<a href="maxima_100.html#Category_003a-Package-interpol">Package interpol</a>
+</div>
+</p>
 <p><a name="Item_003a-Functions-and-Variables-for-interpol"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-interpol"></a>
+<a name="SEC305"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-interpol" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_62.html#lapack" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC304" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#SEC306" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#interpol" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#interpol" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_62.html#lapack" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC303" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC303" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#SEC306" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-interpol-1"></a>
-<h2 class="section">61.2 Functions and Variables for interpol</h2>
+<h2 class="section"> 61.2 Functions and Variables for interpol </h2>
 
 
 <p><a name="Item_003a-lagrange"></a>
 </p><dl>
-<dt><a name="index-lagrange"></a><u>関数:</u> <b>lagrange</b><i> (<var>points</var>)</i></dt>
-<dt><a name="index-lagrange-1"></a><u>関数:</u> <b>lagrange</b><i> (<var>points</var>, <var>option</var>)</i></dt>
+<dt><u>関数:</u> <b>lagrange</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>lagrange</tt> (<var>points</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>lagrange</tt> (<var>points</var>, <var>option</var>)</i>
+<a name="IDX2207"></a>
+</dt>
 <dd><p>Lagrange法で多項式内挿を計算します。
 引数 <var>points</var>は以下のいずれかでなければいけません:
 </p>
@@ -267,7 +193,7 @@ Lagrange、線形、三次スプライン法を定義します。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(interpol)$
+<pre class="example">(%i1) load(interpol)$
 (%i2) p:[[7,2],[8,2],[1,5],[3,2],[6,7]]$
 (%i3) lagrange(p);
        (x - 7) (x - 6) (x - 3) (x - 1)
@@ -339,28 +265,36 @@ Lagrange、線形、三次スプライン法を定義します。
    (w - 8) (w - 7) (w - 6) (w - 3)
  + -------------------------------
                  84
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-interpol">Package interpol</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-interpol">Package interpol</a>
+</div>
+</p>
 </dd></dl>
 
 
 <p><a name="Item_003a-charfun2"></a>
 </p><dl>
-<dt><a name="index-charfun2"></a><u>関数:</u> <b>charfun2</b><i> (<var>x</var>, <var>a</var>, <var>b</var>)</i></dt>
+<dt><u>関数:</u> <b>charfun2</b><i> (<var>x</var>, <var>a</var>, <var>b</var>)</i>
+<a name="IDX2208"></a>
+</dt>
 <dd><p>もし数 <var>x</var>が区間 <em>[a, b)</em>に属するなら <code>true</code>を返し、
 そうでないなら <code>false</code>を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-interpol">Package interpol</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-interpol">Package interpol</a>
+</div>
+</p>
 </dd></dl>
 
 
 <p><a name="Item_003a-linearinterpol"></a>
 </p><dl>
-<dt><a name="index-linearinterpol"></a><u>関数:</u> <b>linearinterpol</b><i> (<var>points</var>)</i></dt>
-<dt><a name="index-linearinterpol-1"></a><u>関数:</u> <b>linearinterpol</b><i> (<var>points</var>, <var>option</var>)</i></dt>
+<dt><u>関数:</u> <b>linearinterpol</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>linearinterpol</tt> (<var>points</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>linearinterpol</tt> (<var>points</var>, <var>option</var>)</i>
+<a name="IDX2209"></a>
+</dt>
 <dd><p>線形法で多項式内挿を計算します。
 引数 <var>points</var>は以下のいずれかでなければいけません:
 </p>
@@ -385,7 +319,7 @@ Lagrange、線形、三次スプライン法を定義します。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(interpol)$
+<pre class="example">(%i1) load(interpol)$
 (%i2) p: matrix([7,2],[8,3],[1,5],[3,2],[6,7])$
 (%i3) linearinterpol(p);
         13   3 x
@@ -430,18 +364,21 @@ Lagrange、線形、三次スプライン法を定義します。
     5 s
  + (--- - 3) charfun2(s, 3, 6)
      3
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-interpol">Package interpol</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-interpol">Package interpol</a>
+</div>
+</p>
 </dd></dl>
 
 
 
 <p><a name="Item_003a-cspline"></a>
 </p><dl>
-<dt><a name="index-cspline"></a><u>関数:</u> <b>cspline</b><i> (<var>points</var>)</i></dt>
-<dt><a name="index-cspline-1"></a><u>関数:</u> <b>cspline</b><i> (<var>points</var>, <var>option1</var>, <var>option2</var>, ...)</i></dt>
+<dt><u>関数:</u> <b>cspline</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>cspline</tt> (<var>points</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>cspline</tt> (<var>points</var>, <var>option1</var>, <var>option2</var>, ...)</i>
+<a name="IDX2210"></a>
+</dt>
 <dd><p>三次スプライン法で多項式内挿を計算します。
 引数 <var>points</var>は以下のいずれかでなければいけません:
 </p>
@@ -479,7 +416,7 @@ Lagrange、線形、三次スプライン法を定義します。
 <p><code>lagrange</code>, <code>linearinterpol</code>, <code>ratinterpol</code>も参照してください。
 </p>
 <p>例:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(interpol)$
+</p><pre class="example">(%i1) load(interpol)$
 (%i2) p:[[7,2],[8,2],[1,5],[3,2],[6,7]]$
 (%i3) /* Unknown first derivatives at the extremes
          is equivalent to natural cubic splines */
@@ -547,16 +484,19 @@ Lagrange、線形、三次スプライン法を定義します。
         color      = blue,
         key        = &quot;Sample points&quot;,
         points(p))$
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-interpol">Package interpol</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-interpol">Package interpol</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-ratinterpol"></a>
 </p><dl>
-<dt><a name="index-ratinterpol"></a><u>関数:</u> <b>ratinterpol</b><i> (<var>points</var>, <var>numdeg</var>)</i></dt>
-<dt><a name="index-ratinterpol-1"></a><u>関数:</u> <b>ratinterpol</b><i> (<var>points</var>, <var>numdeg</var>, <var>option1</var>)</i></dt>
+<dt><u>関数:</u> <b>ratinterpol</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ratinterpol</tt> (<var>points</var>, <var>numdeg</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ratinterpol</tt> (<var>points</var>, <var>numdeg</var>, <var>option1</var>)</i>
+<a name="IDX2211"></a>
+</dt>
 <dd><p><var>points</var>で与えられたデータと
 <var>numdeg</var>に等しい分子の次数の関して有理形内挿を生成します;
 分子の次数は自動的に計算されます。
@@ -585,7 +525,7 @@ Lagrange、線形、三次スプライン法を定義します。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(interpol)$
+<pre class="example">(%i1) load(interpol)$
 (%i2) load(draw)$
 (%i3) p:[[7.2,2.5],[8.5,2.1],[1.6,5.1],[3.4,2.4],[6.7,7.9]]$
 (%i4) for k:0 thru length(p)-1 do                                     
@@ -595,30 +535,32 @@ Lagrange、線形、三次スプライン法を定義します。
           points(p),                                             
           title = concat(&quot;Degree of numerator = &quot;,k),            
           yrange=[0,10])$
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-interpol">Package interpol</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-interpol">Package interpol</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-lapack"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#interpol" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_62.html#lapack" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC303" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_62.html#SEC306" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>5月, 20 2015</em>に<a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>を用いて生成されました。
  </font>
  <br>
 

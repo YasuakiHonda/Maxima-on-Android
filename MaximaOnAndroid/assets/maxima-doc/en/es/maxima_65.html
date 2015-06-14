@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on septiembre, 8 2014 by texi2html 1.76 -->
+<!-- Created on abril, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual de Maxima: 65. minpack</title>
+<title>Manual de Maxima 5.36.0: 65. minpack</title>
 
-<meta name="description" content="Manual de Maxima: 65. minpack">
-<meta name="keywords" content="Manual de Maxima: 65. minpack">
+<meta name="description" content="Manual de Maxima 5.36.0: 65. minpack">
+<meta name="keywords" content="Manual de Maxima 5.36.0: 65. minpack">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,185 +32,107 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="minpack"></a>
-<a name="SEC311"></a>
+<a name="SEC316"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_64.html#SEC310" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC312" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_64.html#SEC315" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC317" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_64.html#SEC309" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_64.html#SEC314" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_66.html#SEC314" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC319" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter"> 65. minpack </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC312">65.1 Introducci&oacute;n a minpack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC317">65.1 Introducción a minpack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC313">65.2 Funciones y variables para minpack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC318">65.2 Funciones y variables para minpack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <hr size="6">
 <a name="Introducci_00f3n-a-minpack"></a>
-<a name="SEC312"></a>
+<a name="SEC317"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC311" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC313" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC316" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC318" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC311" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC311" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_66.html#SEC314" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC316" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC316" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC319" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 65.1 Introducci&oacute;n a minpack </h2>
+<h2 class="section"> 65.1 Introducción a minpack </h2>
 
-<p><code>Minpack</code> es una traducci&oacute;n a Common Lisp (via <code>f2cl</code>) de la
-librer&iacute;a MINPACK escrita en Fortran, tal como se puede
+<p><code>Minpack</code> es una traducción a Common Lisp (via <code>f2cl</code>) de la
+librería MINPACK escrita en Fortran, tal como se puede
 obtener de Netlib.
 </p>
 
 <hr size="6">
 <a name="Funciones-y-variables-para-minpack"></a>
-<a name="SEC313"></a>
+<a name="SEC318"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC312" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_66.html#SEC314" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC317" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC319" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC311" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC311" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_66.html#SEC314" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC316" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC316" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC319" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 65.2 Funciones y variables para minpack </h2>
@@ -218,13 +140,13 @@ obtener de Netlib.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>minpack_lsquares</b><i> (<var>flist</var>, <var>varlist</var>, <var>guess</var> [, <var>tolerance</var>, <var>jacobian</var>])</i>
-<a name="IDX2532"></a>
+<dt><u>Función:</u> <b>minpack_lsquares</b><i> (<var>flist</var>, <var>varlist</var>, <var>guess</var> [, <var>tolerance</var>, <var>jacobian</var>])</i>
+<a name="IDX2574"></a>
 </dt>
 <dd><p>Calcula el punto <code>x</code> que minimiza la suma de los cuadrados de las
 funciones de la lista <var>flist</var>. Las variables se escriben en
 la lista <code>varlist</code>. El argumento <var>guess</var> debe guardar una
-estimaci&oacute;n inicial del punto &oacute;ptimo.
+estimación inicial del punto óptimo.
 </p>
 <p>Los argumentos opcionales <var>tolerance</var> y <var>jacobian</var> permiten
 mantener cierto control sobre el algoritmo; <var>tolerance</var> es el
@@ -233,23 +155,23 @@ mientras que <var>jacobian</var> puede utilizarse para especificar el
 jacobiano. Si <var>jacobian</var> no se suministra, o se le da el valor
 <code>true</code>, el que ya tiene por defecto, el jacobiano se calcula
 a partir de <var>flist</var>. Si <var>jacobian</var> vale <code>false</code>, se
-utilizar&aacute; una aproximaci&oacute;n num&eacute;rica.
+utilizará una aproximación numérica.
 </p>
 <p><code>minpack_lsquares</code> devuelve una lista, siendo su primer 
-elemento la soluci&oacute;n estimada, el segundo la suma de cuadrados y
+elemento la solución estimada, el segundo la suma de cuadrados y
 el tercero indica la bondad del algoritmo, siendo sus posibles valores
 los siguientes:
 </p>
 <dl compact="compact">
 <dt> <code>0</code></dt>
-<dd><p>N&uacute;mero incorrecto de par&aacute;metros.
+<dd><p>Número incorrecto de parámetros.
 </p></dd>
 <dt> <code>1</code></dt>
 <dd><p>El algoritmo estima que el error relativo de la suma de cuadrados
 es, como mucho, igual a <code>tolerance</code>.
 </p></dd>
 <dt> <code>2</code></dt>
-<dd><p>El algoritmo estima que el error relativo entre <var>x</var> y la soluci&oacute;n es,
+<dd><p>El algoritmo estima que el error relativo entre <var>x</var> y la solución es,
 como mucho, igual a <code>tolerance</code>.
 </p></dd>
 <dt> <code>3</code></dt>
@@ -257,20 +179,20 @@ como mucho, igual a <code>tolerance</code>.
 </p></dd>
 <dt> <code>4</code></dt>
 <dd><p>El vector formado por las funciones evaluadas en el punto <var>x</var> es
-ortogonal a las columnas del jacobiano dentro de la precisi&oacute;n de la
-m&aacute;quina. 
+ortogonal a las columnas del jacobiano dentro de la precisión de la
+máquina. 
 </p></dd>
 <dt> <code>5</code></dt>
-<dd><p>El n&uacute;mero de llamadas a las funciones ha alcanzado 100*(n+1), siendo
-n el n&uacute;mero de variables.
+<dd><p>El número de llamadas a las funciones ha alcanzado 100*(n+1), siendo
+n el número de variables.
 </p></dd>
 <dt> <code>6</code></dt>
-<dd><p>La tolerancia es demasiado peque&ntilde;a, no siendo posible reducir m&aacute;s la
+<dd><p>La tolerancia es demasiado pequeña, no siendo posible reducir más la
 suma de cuadrados.
 </p></dd>
 <dt> <code>7</code></dt>
-<dd><p>La tolerancia es demasiado peque&ntilde;a, no siendo posible mejorar la
-soluci&oacute;n aproximada <var>x</var>.
+<dd><p>La tolerancia es demasiado pequeña, no siendo posible mejorar la
+solución aproximada <var>x</var>.
 </p></dd>
 </dl>
 
@@ -296,13 +218,13 @@ soluci&oacute;n aproximada <var>x</var>.
 
 
 <dl>
-<dt><u>Funci&oacute;n:</u> <b>minpack_solve</b><i> (<var>flist</var>, <var>varlist</var>, <var>guess</var> [, <var>tolerance</var>, <var>jacobian</var>])</i>
-<a name="IDX2533"></a>
+<dt><u>Función:</u> <b>minpack_solve</b><i> (<var>flist</var>, <var>varlist</var>, <var>guess</var> [, <var>tolerance</var>, <var>jacobian</var>])</i>
+<a name="IDX2575"></a>
 </dt>
-<dd><p>Resuelve un sistema de <code>n</code> ecuaciones con <code>n</code> inc&oacute;gnitas.
+<dd><p>Resuelve un sistema de <code>n</code> ecuaciones con <code>n</code> incógnitas.
 Las <code>n</code> ecuaciones forman la lista <var>flist</var>, estando la
-lista <var>varlist</var> formada por las inc&oacute;gnitas. El argumento
-<var>guess</var> es una estimaci&oacute;n inicial de la soluci&oacute;n.
+lista <var>varlist</var> formada por las incógnitas. El argumento
+<var>guess</var> es una estimación inicial de la solución.
 </p>
 <p>Los argumentos opcionales <var>tolerance</var> y <var>jacobian</var> permiten
 mantener cierto control sobre el algoritmo; <var>tolerance</var> es el
@@ -311,27 +233,27 @@ mientras que <var>jacobian</var> puede utilizarse para especificar el
 jacobiano. Si <var>jacobian</var> no se suministra, o se le da el valor
 <code>true</code>, el que ya tiene por defecto, el jacobiano se calcula
 a partir de <var>flist</var>. Si <var>jacobian</var> vale <code>false</code>, se
-utilizar&aacute; una aproximaci&oacute;n num&eacute;rica.
+utilizará una aproximación numérica.
 </p>
 <p><code>minpack_solve</code> devuelve una lista, siendo su primer 
-elemento la soluci&oacute;n estimada, el segundo la suma de cuadrados y
+elemento la solución estimada, el segundo la suma de cuadrados y
 el tercero indica la bondad del algoritmo, siendo sus posibles valores
 los siguientes:
 </p>
 <dl compact="compact">
 <dt> <code>0</code></dt>
-<dd><p>N&uacute;mero incorrecto de par&aacute;metros.
+<dd><p>Número incorrecto de parámetros.
 </p></dd>
 <dt> <code>1</code></dt>
 <dd><p>El algoritmo estima que el error relativo de la suma de cuadrados
 es, como mucho, igual a <code>tolerance</code>.
 </p></dd>
 <dt> <code>2</code></dt>
-<dd><p>El n&uacute;mero de llamadas a las funciones ha alcanzado 100*(n+1), siendo
-n el n&uacute;mero de inc&oacute;gnitas.
+<dd><p>El número de llamadas a las funciones ha alcanzado 100*(n+1), siendo
+n el número de incógnitas.
 </p></dd>
 <dt> <code>3</code></dt>
-<dd><p>La tolerancia es demasiado peque&ntilde;a, no siendo posible reducir m&aacute;s la
+<dd><p>La tolerancia es demasiado pequeña, no siendo posible reducir más la
 suma de cuadrados.
 </p></dd>
 <dt> <code>4</code></dt>
@@ -340,10 +262,11 @@ suma de cuadrados.
 </dl>
 </dd></dl>
 
+
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC311" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_66.html#SEC314" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC316" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC319" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -351,12 +274,12 @@ suma de cuadrados.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_81.html#SEC376" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>septiembre, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>abril, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

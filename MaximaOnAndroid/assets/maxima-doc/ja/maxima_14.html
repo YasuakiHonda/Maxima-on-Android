@@ -1,27 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年9月月15日 by texi2html 1.82
-texi2html was written by: 
-            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+<!-- Created on 5月, 20 2015 by texi2html 1.76 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
             Olaf Bachmann <obachman@mathematik.uni-kl.de>
             and many others.
-Maintained by: Many creative people.
-Send bugs and suggestions to <texi2html-bug@nongnu.org>
+Maintained by: Many creative people <dev@texi2html.cvshome.org>
+Send bugs and suggestions to <users@texi2html.cvshome.org>
+
 -->
 <head>
-<title>Maxima 5.34.1 Manual: 14. Polynomials</title>
+<title>Maxima 5.36.1 Manual: 14. Polynomials</title>
 
-<meta name="description" content="Maxima 5.34.1 Manual: 14. Polynomials">
-<meta name="keywords" content="Maxima 5.34.1 Manual: 14. Polynomials">
+<meta name="description" content="Maxima 5.36.1 Manual: 14. Polynomials">
+<meta name="keywords" content="Maxima 5.36.1 Manual: 14. Polynomials">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.82">
+<meta name="Generator" content="texi2html 1.76">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
 pre.display {font-family: serif}
 pre.format {font-family: serif}
 pre.menu-comment {font-family: serif}
@@ -30,109 +30,30 @@ pre.smalldisplay {font-family: serif; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.roman {font-family:serif; font-weight:normal;}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
@@ -157,52 +78,53 @@ div.categorybox
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="Polynomials"></a>
+<a name="SEC75"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_13.html#Functions-and-Variables-for-Fortran-Output" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-Polynomials" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_13.html#SEC74" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC76" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_13.html#File-Input-and-Output" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_15.html#Special-Functions" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_13.html#SEC69" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_15.html#SEC78" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Polynomials-1"></a>
-<h1 class="chapter">14. Polynomials</h1>
+<h1 class="chapter"> 14. Polynomials </h1>
+
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-Polynomials">14.1 Introduction to Polynomials</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+<tr><td align="left" valign="top"><a href="#SEC76">14.1 Introduction to Polynomials</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Polynomials">14.2 Functions and Variables for Polynomials</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+<tr><td align="left" valign="top"><a href="#SEC77">14.2 Functions and Variables for Polynomials</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
 </td></tr>
 </table>
 
 <p><a name="Item_003a-Introduction-to-Polynomials"></a>
 </p><hr size="6">
 <a name="Introduction-to-Polynomials"></a>
+<a name="SEC76"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Polynomials" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Polynomials" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC75" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC77" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Polynomials" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Polynomials" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_15.html#Special-Functions" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC75" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC75" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_15.html#SEC78" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-Polynomials-1"></a>
-<h2 class="section">14.1 Introduction to Polynomials</h2>
+<h2 class="section"> 14.1 Introduction to Polynomials </h2>
 
 <p>Maximaの中では多項式は一般形か標準有理式(CRE)形として記憶されます。
 後者は標準形であり、 factor, ratsimpなどのような演算が内部で使います。
@@ -239,70 +161,83 @@ Maximaはアルファベットの順序付けを選びます。
 それは切り詰めの次数のような追加の情報を持ちます。
 CRE形として、そんな式の行ラベルにはシンボル/T/が付きます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
- &middot;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a> &middot;
+<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p>
 
 <p><a name="Item_003a-Functions-and-Variables-for-Polynomials"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-Polynomials"></a>
+<a name="SEC77"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-Polynomials" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_15.html#Special-Functions" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC76" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_15.html#SEC78" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Polynomials" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Polynomials" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_15.html#Special-Functions" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC75" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC75" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_15.html#SEC78" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-Polynomials-1"></a>
-<h2 class="section">14.2 Functions and Variables for Polynomials</h2>
+<h2 class="section"> 14.2 Functions and Variables for Polynomials </h2>
 
 <p><a name="algebraic"></a>
 <a name="Item_003a-algebraic"></a>
 </p><dl>
-<dt><a name="index-algebraic"></a><u>オプション変数:</u> <b>algebraic</b></dt>
+<dt><u>オプション変数:</u> <b>algebraic</b>
+<a name="IDX548"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p>代数的整数が整理されるようにするためには、
 <code>algebraic</code>を<code>true</code>に設定しなければいけません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-berlefact"></a>
 </p><dl>
-<dt><a name="index-berlefact"></a><u>オプション変数:</u> <b>berlefact</b></dt>
+<dt><u>オプション変数:</u> <b>berlefact</b>
+<a name="IDX549"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>berlefact</code>が<code>false</code>の時、
 Kroneckerの因数分解アルゴリズムを使います。
 そうでないなら Berlekampのアルゴリズム―これがデフォルトですーを使います。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="bezout"></a>
 <a name="Item_003a-bezout"></a>
 </p><dl>
-<dt><a name="index-bezout"></a><u>関数:</u> <b>bezout</b><i> (<var>p1</var>, <var>p2</var>, <var>x</var>)</i></dt>
-<dd>
-<p><code><a href="#resultant">resultant</a></code>
-コマンドの代替です。
+<dt><u>関数:</u> <b>bezout</b><i> (<var>p1</var>, <var>p2</var>, <var>x</var>)</i>
+<a name="IDX550"></a>
+</dt>
+<dd><p><code><a href="#resultant">resultant</a></code>コマンドの代替です。
 行列を返します。
 この行列の<code>determinant</code>が望みの終結式です。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) bezout(a*x+b, c*x^2+d, x);
+<pre class="example">(%i1) bezout(a*x+b, c*x^2+d, x);
                          [ b c  - a d ]
 (%o1)                    [            ]
                          [  a     b   ]
@@ -312,16 +247,19 @@ Kroneckerの因数分解アルゴリズムを使います。
 (%i3) resultant(a*x+b, c*x^2+d, x);
                             2      2
 (%o3)                      a  d + b  c
-</pre></td></tr></table>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+</pre><div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-bothcoef"></a>
 </p><dl>
-<dt><a name="index-bothcoef"></a><u>関数:</u> <b>bothcoef</b><i> (<var>expr</var>, <var>x</var>)</i></dt>
-<dd>
-<p>最初のメンバーが
+<dt><u>関数:</u> <b>bothcoef</b><i> (<var>expr</var>, <var>x</var>)</i>
+<a name="IDX551"></a>
+</dt>
+<dd><p>最初のメンバーが
 （<var>expr</var>が CRE形なら <code>ratcoef</code>が見つけるような）
 <var>expr</var>の中の <var>x</var>の係数であり、
 ２番目のメンバーが <var>expr</var>の残りの部分であるリストを返します。
@@ -330,22 +268,24 @@ Kroneckerの因数分解アルゴリズムを使います。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) islinear (expr, x) := block ([c],
+<pre class="example">(%i1) islinear (expr, x) := block ([c],
         c: bothcoef (rat (expr, x), x),
         is (freeof (x, c) and c[1] # 0))$
 (%i2) islinear ((r^2 - (x - r)^2)/x, x);
 (%o2)                         true
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-coeff"></a>
 </p><dl>
-<dt><a name="index-coeff"></a><u>関数:</u> <b>coeff</b><i> (<var>expr</var>, <var>x</var>, <var>n</var>)</i></dt>
-<dt><a name="index-coeff-1"></a><u>関数:</u> <b>coeff</b><i> (<var>expr</var>, <var>x</var>)</i></dt>
-<dd>
-<p><var>expr</var>の <code><var>x</var>^<var>n</var></code>の係数を返します。
+<dt><u>関数:</u> <b>coeff</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>coeff</tt> (<var>expr</var>, <var>x</var>, <var>n</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>coeff</tt> (<var>expr</var>, <var>x</var>)</i>
+<a name="IDX552"></a>
+</dt>
+<dd><p><var>expr</var>の <code><var>x</var>^<var>n</var></code>の係数を返します。
 ここで <var>expr</var>は <var>x</var>の多項式か単項式です。
 </p>
 <p><code>coeff(<var>expr</var>, <var>x</var>^<var>n</var>)</code>は
@@ -366,34 +306,31 @@ exprの部分式です。
 </p>
 <p><code>coeff</code>は <var>expr</var>の <code><var>x</var>^<var>n</var></code>の係数を返します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) coeff (b^3*a^3 + b^2*a^2 + b*a + 1, a^3);
+<pre class="example">(%i1) coeff (b^3*a^3 + b^2*a^2 + b*a + 1, a^3);
                                 3
 (%o1)                          b
-</pre></td></tr></table>
-
+</pre>
 <p><code>coeff(<var>expr</var>, <var>x</var>^<var>n</var>)</code>は
 <code>coeff(<var>expr</var>, <var>x</var>, <var>n</var>)</code>と同値です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) coeff (c[4]*z^4 - c[3]*z^3 - c[2]*z^2 + c[1]*z, z, 3);
+<pre class="example">(%i1) coeff (c[4]*z^4 - c[3]*z^3 - c[2]*z^2 + c[1]*z, z, 3);
 (%o1)                         - c
                                  3
 (%i2) coeff (c[4]*z^4 - c[3]*z^3 - c[2]*z^2 + c[1]*z, z^3);
 (%o2)                         - c
                                  3
-</pre></td></tr></table>
-
+</pre>
 <p><code>coeff(<var>expr</var>, <var>x</var>, 0)</code>は
 <var>expr</var>の <var>x</var>を含まない剰余項です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) coeff (a*u + b^2*u^2 + c^3*u^3, b, 0);
+<pre class="example">(%i1) coeff (a*u + b^2*u^2 + c^3*u^3, b, 0);
                             3  3
 (%o1)                      c  u  + a u
-</pre></td></tr></table>
-
+</pre>
 <p><var>x</var>は単純変数か添字付き変数か、演算子1つとその引数のすべてから構成される
 exprの部分式です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) coeff (h^4 - 2*%pi*h^2 + 1, h, 2);
+<pre class="example">(%i1) coeff (h^4 - 2*%pi*h^2 + 1, h, 2);
 (%o1)                        - 2 %pi
 (%i2) coeff (v[1]^4 - 2*%pi*v[1]^2 + 1, v[1], 2);
 (%o2)                        - 2 %pi
@@ -402,12 +339,11 @@ exprの部分式です。
 (%o3)                        sin (x)
 (%i4) coeff ((d - a)^2*(b + c)^3 + (a + b)^4*(c - d), a + b, 4);
 (%o4)                         c - d
-</pre></td></tr></table>
-
+</pre>
 <p><code>coeff</code>自身は <code>expand</code>や
 <code>factor</code>や他のいかなる関数も適用しません。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) coeff (c*(a + b)^3, a);
+<pre class="example">(%i1) coeff (c*(a + b)^3, a);
 (%o1)                           0
 (%i2) expand (c*(a + b)^3);
                  3          2        2        3
@@ -422,54 +358,64 @@ exprの部分式です。
 (%o5)                      (b + a)  c
 (%i6) coeff (%, (a + b)^3);
 (%o6)                           c
-</pre></td></tr></table>
-
+</pre>
 <p><code>coeff</code>はリスト、行列、等式上を散逸します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) coeff ([4*a, -3*a, 2*a], a);
+<pre class="example">(%i1) coeff ([4*a, -3*a, 2*a], a);
 (%o1)                      [4, - 3, 2]
 (%i2) coeff (matrix ([a*x, b*x], [-c*x, -d*x]), x);
-</pre><pre class="example">                          [  a    b  ]
+                          [  a    b  ]
 (%o2)                     [          ]
                           [ - c  - d ]
-</pre><pre class="example">(%i3) coeff (a*u - b*v = 7*u + 3*v, u);
+(%i3) coeff (a*u - b*v = 7*u + 3*v, u);
 (%o3)                         a = 7
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-content"></a>
 </p><dl>
-<dt><a name="index-content"></a><u>関数:</u> <b>content</b><i> (<var>p_1</var>, <var>x_1</var>, &hellip;, <var>x_n</var>)</i></dt>
+<dt><u>関数:</u> <b>content</b><i> (<var>p_1</var>, <var>x_1</var>, &hellip;, <var>x_n</var>)</i>
+<a name="IDX553"></a>
+</dt>
 <dd><p>一番目のメンバーが多項式変数 <var>p_1</var>の
 <var>x_n</var>に関する項の係数の最大公約数（これが容量です）であり、
 二番目のメンバーが多項式 <var>p_1</var>を容量で割ったものであるリストを返します。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) content (2*x*y + 4*x^2*y^2, y);
-</pre><pre class="example">                                   2
+<pre class="example">(%i1) content (2*x*y + 4*x^2*y^2, y);
+                                   2
 (%o1)                   [2 x, 2 x y  + y]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-denom"></a>
 </p><dl>
-<dt><a name="index-denom"></a><u>関数:</u> <b>denom</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p>有理式 <var>expr</var>の分母を返します。
+<dt><u>関数:</u> <b>denom</b><i> (<var>expr</var>)</i>
+<a name="IDX554"></a>
+</dt>
+<dd><p>有理式 <var>expr</var>の分母を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-divide"></a>
 </p><dl>
-<dt><a name="index-divide"></a><u>関数:</u> <b>divide</b><i> (<var>p_1</var>, <var>p_2</var>, <var>x_1</var>, &hellip;, <var>x_n</var>)</i></dt>
-<dd>
-<p>主多項式変数 <var>x_n</var>に関して、
+<dt><u>関数:</u> <b>divide</b><i> (<var>p_1</var>, <var>p_2</var>, <var>x_1</var>, &hellip;, <var>x_n</var>)</i>
+<a name="IDX555"></a>
+</dt>
+<dd><p>主多項式変数 <var>x_n</var>に関して、
 多項式 <var>p_1</var>を多項式 <var>p_2</var>で割った商と余りを計算します。
 他の変数は <code>ratvars</code>関数での宣言に従います。
 (The other variables are as in the <code>ratvars</code> function.)
@@ -477,22 +423,26 @@ exprの部分式です。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) divide (x + y, x - y, x);
+<pre class="example">(%i1) divide (x + y, x - y, x);
 (%o1)                       [1, 2 y]
 (%i2) divide (x + y, x - y);
 (%o2)                      [- 1, 2 x]
-</pre></td></tr></table>
+</pre>
 
 <p>二番目の例では <code>y</code>が主変数であることに注意してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-eliminate"></a>
 </p><dl>
-<dt><a name="index-eliminate"></a><u>関数:</u> <b>eliminate</b><i> ([<var>eqn_1</var>, &hellip;, <var>eqn_n</var>], [<var>x_1</var>, &hellip;, <var>x_k</var>])</i></dt>
-<dd>
-<p>連続する終結式を取ることによって、
+<dt><u>関数:</u> <b>eliminate</b><i> ([<var>eqn_1</var>, &hellip;, <var>eqn_n</var>], [<var>x_1</var>, &hellip;, <var>x_k</var>])</i>
+<a name="IDX556"></a>
+</dt>
+<dd><p>連続する終結式を取ることによって、
 等式（もしくは0に等しいと仮定された式）から変数を消去します。
 <var>k</var>個の変数 <var>x_1</var>, ..., <var>x_k</var>を消去した
 <code><var>n</var> - <var>k</var></code>個の式のリストを返します。
@@ -504,7 +454,7 @@ exprの部分式です。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) expr1: 2*x^2 + y*x + z;
+<pre class="example">(%i1) expr1: 2*x^2 + y*x + z;
                                       2
 (%o1)                    z + x y + 2 x
 (%i2) expr2: 3*x + 5*y - z - 1;
@@ -518,32 +468,32 @@ exprの部分式です。
 
                                     3         2
                             - 5154 x  - 1291 x  + 7688 x + 15376]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
- &middot;<a href="maxima_100.html#Category_003a-Algebraic-equations">Algebraic equations</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a> &middot;
+<a href="maxima_100.html#Category_003a-Algebraic-equations">Algebraic equations</a>
+</div>
+</p></dd></dl>
 
 <p><a name="ezgcd"></a>
 <a name="Item_003a-ezgcd"></a>
 </p><dl>
-<dt><a name="index-ezgcd"></a><u>関数:</u> <b>ezgcd</b><i> (<var>p_1</var>, <var>p_2</var>, <var>p_3</var>, &hellip;)</i></dt>
+<dt><u>関数:</u> <b>ezgcd</b><i> (<var>p_1</var>, <var>p_2</var>, <var>p_3</var>, &hellip;)</i>
+<a name="IDX557"></a>
+</dt>
 <dd><p>一番目の要素が多項式 <var>p_1</var>, <var>p_2</var>, <var>p_3</var>, &hellip;の最大公約数で、
 残りの要素は多項式を最大公約数で割ったものであるリストを返します。
 これはいつも <code>ezgcd</code>アルゴリズムを使います。
 </p>
-<p><code><a href="#gcd">gcd</a></code>
-, <code><a href="#gcdex">gcdex</a></code>
-, <code><a href="maxima_75.html#gcdivide">gcdivide</a></code>
-, <code><a href="maxima_59.html#poly_005fgcd">poly_gcd</a></code>
-も参照してください。
+<p><code><a href="#gcd">gcd</a></code>, <code><a href="#gcdex">gcdex</a></code>, <code><a href="maxima_75.html#gcdivide">gcdivide</a></code>, <code><a href="maxima_59.html#poly_005fgcd">poly_gcd</a></code>も参照してください。
 </p>
 <p>例:
 </p>
 <p>三つの多項式は最大公約数 <code>2*x-3</code>を持ちます。
 GCDは最初、関数 <code>gcd</code>で計算され、その後、関数 <code>ezgcd</code>で計算されます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) p1 : 6*x^3-17*x^2+14*x-3;
+<pre class="example">(%i1) p1 : 6*x^3-17*x^2+14*x-3;
                         3       2
 (%o1)                6 x  - 17 x  + 14 x - 3
 (%i2) p2 : 4*x^4-14*x^3+12*x^2+2*x-3;
@@ -559,30 +509,37 @@ GCDは最初、関数 <code>gcd</code>で計算され、その後、関数 <code
 (%i5) ezgcd(p1, p2, p3);
                    2               3      2           2
 (%o5) [2 x - 3, 3 x  - 4 x + 1, 2 x  - 4 x  + 1, - 4 x  + x + 1]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-facexpand"></a>
 </p><dl>
-<dt><a name="index-facexpand"></a><u>オプション変数:</u> <b>facexpand</b></dt>
+<dt><u>オプション変数:</u> <b>facexpand</b>
+<a name="IDX558"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>facexpand</code>は <code>factor</code>が返すこれ以上小さくできない因子が
 展開された形式（デフォルト）か再帰的（正規のCRE）形式かを制御します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="factor"></a>
 <a name="Item_003a-factor"></a>
 </p><dl>
-<dt><a name="index-factor"></a><u>関数:</u> <b>factor</b><i> (<var>expr</var>)</i></dt>
-<dt><a name="index-factor-1"></a><u>関数:</u> <b>factor</b><i> (<var>expr</var>, <var>p</var>)</i></dt>
-<dd>
-<p>任意の数の変数と関数を含んだ式 <var>expr</var>を整数上既約な因子に因数分解します。
+<dt><u>関数:</u> <b>factor</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>factor</tt> (<var>expr</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>factor</tt> (<var>expr</var>, <var>p</var>)</i>
+<a name="IDX559"></a>
+</dt>
+<dd><p>任意の数の変数と関数を含んだ式 <var>expr</var>を整数上既約な因子に因数分解します。
 <code>factor (<var>expr</var>, <var>p</var>)</code>は <var>expr</var>を
 最小多項式が <var>p</var>である要素を加えた有理数体上で因数分解します。
 </p>
@@ -614,7 +571,7 @@ GCDは最初、関数 <code>gcd</code>で計算され、その後、関数 <code
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) factor (2^63 - 1);
+<pre class="example">(%i1) factor (2^63 - 1);
                     2
 (%o1)              7  73 127 337 92737 649657
 (%i2) factor (-8*y - 4*x + z^2*(2*y + x));
@@ -623,11 +580,11 @@ GCDは最初、関数 <code>gcd</code>で計算され、その後、関数 <code
                 2  2        2    2    2
 (%o3)          x  y  + 2 x y  + y  - x  - 2 x - 1
 (%i4) block ([dontfactor: [x]], factor (%/36/(1 + 2*y + y^2)));
-</pre><pre class="example">                       2
+                       2
                      (x  + 2 x + 1) (y - 1)
 (%o4)                ----------------------
                            36 (y + 1)
-</pre><pre class="example">(%i5) factor (1 + %e^(3*x));
+(%i5) factor (1 + %e^(3*x));
                       x         2 x     x
 (%o5)              (%e  + 1) (%e    - %e  + 1)
 (%i6) factor (1 + x^4, a^2 - 2);
@@ -642,12 +599,12 @@ GCDは最初、関数 <code>gcd</code>で計算され、その後、関数 <code
                                            2
                     (x + 3) (x + b) (x + c)
 (%i9) ratsimp (%);
-</pre><pre class="example">                4                  3
+                4                  3
 (%o9) (x + 2)/(x  + (2 c + b + 3) x
 
      2                       2             2                   2
  + (c  + (2 b + 6) c + 3 b) x  + ((b + 3) c  + 6 b c) x + 3 b c )
-</pre><pre class="example">(%i10) partfrac (%, x);
+(%i10) partfrac (%, x);
            2                   4                3
 (%o10) - (c  - 4 c - b + 6)/((c  + (- 2 b - 6) c
 
@@ -669,7 +626,7 @@ GCDは最初、関数 <code>gcd</code>で計算され、その後、関数 <code
              2
    ((b - 3) c  + (18 - 6 b) c + 9 b - 27) (x + 3)
 (%i11) map ('factor, %);
-</pre><pre class="example">              2
+              2
              c  - 4 c - b + 6                 c - 2
 (%o11) - ------------------------- - ------------------------
                 2        2                                  2
@@ -679,7 +636,7 @@ GCDは最初、関数 <code>gcd</code>で計算され、その後、関数 <code
             + ------------------------ - ------------------------
                              2                          2
               (b - 3) (c - b)  (x + b)   (b - 3) (c - 3)  (x + 3)
-</pre><pre class="example">(%i12) ratsimp ((x^5 - 1)/(x - 1));
+(%i12) ratsimp ((x^5 - 1)/(x - 1));
                        4    3    2
 (%o12)                x  + x  + x  + x + 1
 (%i13) subst (a, x, %);
@@ -706,28 +663,36 @@ GCDは最初、関数 <code>gcd</code>で計算され、その後、関数 <code
 
     30    27    21    18    12    9    3
  - x   - x   + x   + x   - x   - x  + x  + 1)
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-factorflag"></a>
 </p><dl>
-<dt><a name="index-factorflag"></a><u>オプション変数:</u> <b>factorflag</b></dt>
+<dt><u>オプション変数:</u> <b>factorflag</b>
+<a name="IDX560"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>factorflag</code>が <code>false</code>の時
 有理式の整数因子の素因素分解を抑制します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-factorout"></a>
 </p><dl>
-<dt><a name="index-factorout"></a><u>関数:</u> <b>factorout</b><i> (<var>expr</var>, <var>x_1</var>, <var>x_2</var>, &hellip;)</i></dt>
-<dd>
-<p>和 <var>expr</var>を形式
+<dt><u>関数:</u> <b>factorout</b><i> (<var>expr</var>, <var>x_1</var>, <var>x_2</var>, &hellip;)</i>
+<a name="IDX561"></a>
+</dt>
+<dd><p>和 <var>expr</var>を形式
 <code>f (<var>x_1</var>, <var>x_2</var>, &hellip;)*g</code>の項の和に再整理します。
 ここで <code>g</code>はどの<var>x_i</var>も含まない式の積で <code>f</code>は因数分解されたものです。
 </p>
@@ -735,23 +700,26 @@ GCDは最初、関数 <code>gcd</code>で計算され、その後、関数 <code
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) expand (a*(x+1)*(x-1)*(u+1)^2);
+<pre class="example">(%i1) expand (a*(x+1)*(x-1)*(u+1)^2);
              2  2          2      2      2
 (%o1)     a u  x  + 2 a u x  + a x  - a u  - 2 a u - a
 (%i2) factorout(%,x);
          2
 (%o2) a u  (x - 1) (x + 1) + 2 a u (x - 1) (x + 1)
                                               + a (x - 1) (x + 1)
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-factorsum"></a>
 </p><dl>
-<dt><a name="index-factorsum"></a><u>関数:</u> <b>factorsum</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p><var>expr</var>の和の形の因子の中の項を
+<dt><u>関数:</u> <b>factorsum</b><i> (<var>expr</var>)</i>
+<a name="IDX562"></a>
+</dt>
+<dd><p><var>expr</var>の和の形の因子の中の項を
 項の和が因数分解可能であるような項のグループにまとめようとします。
 <code>factorsum</code>は
 <code>expand ((x + y)^2 + (z + w)^2)</code>の結果を回復できますが、
@@ -760,7 +728,7 @@ GCDは最初、関数 <code>gcd</code>で計算され、その後、関数 <code
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) expand ((x + 1)*((u + v)^2 + a*(w + z)^2));
+<pre class="example">(%i1) expand ((x + 1)*((u + v)^2 + a*(w + z)^2));
            2      2                            2      2
 (%o1) a x z  + a z  + 2 a w x z + 2 a w z + a w  x + v  x
 
@@ -769,16 +737,19 @@ GCDは最初、関数 <code>gcd</code>で計算され、その後、関数 <code
 (%i2) factorsum (%);
                                    2          2
 (%o2)            (x + 1) (a (z + w)  + (v + u) )
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-fasttimes"></a>
 </p><dl>
-<dt><a name="index-fasttimes"></a><u>関数:</u> <b>fasttimes</b><i> (<var>p_1</var>, <var>p_2</var>)</i></dt>
-<dd>
-<p>多項式の掛け算のための特殊なアルゴリズムを使って、
+<dt><u>関数:</u> <b>fasttimes</b><i> (<var>p_1</var>, <var>p_2</var>)</i>
+<a name="IDX563"></a>
+</dt>
+<dd><p>多項式の掛け算のための特殊なアルゴリズムを使って、
 多項式 <var>p_1</var>と <var>p_2</var>の積を返します。
 <code>p_1</code>と <code>p_2</code>は多変数で密でほぼ同じサイズであるべきです。
 <code>n_1</code>が <code>p_1</code>の次数で
@@ -787,14 +758,18 @@ GCDは最初、関数 <code>gcd</code>で計算され、その後、関数 <code
 <code>n_1 n_2</code>のオーダーですが、
 <code>fasttimes</code>は <code>max (n_1, n_2)^1.585</code>のオーダーです。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-fullratsimp"></a>
 </p><dl>
-<dt><a name="index-fullratsimp"></a><u>関数:</u> <b>fullratsimp</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p><code>fullratsimp</code>は
+<dt><u>関数:</u> <b>fullratsimp</b><i> (<var>expr</var>)</i>
+<a name="IDX564"></a>
+</dt>
+<dd><p><code>fullratsimp</code>は
 ratsimpと式の非有理的整理を式変形されなくなるまで繰り返し適応し、結果を返します。
 </p>
 <p>非有理式が含まれる時は、
@@ -808,7 +783,7 @@ ratsimpと式の非有理的整理を式変形されなくなるまで繰り返�
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) expr: (x^(a/2) + 1)^2*(x^(a/2) - 1)^2/(x^a - 1);
+<pre class="example">(%i1) expr: (x^(a/2) + 1)^2*(x^(a/2) - 1)^2/(x^a - 1);
                        a/2     2   a/2     2
                      (x    - 1)  (x    + 1)
 (%o1)                -----------------------
@@ -829,18 +804,21 @@ ratsimpと式の非有理的整理を式変形されなくなるまで繰り返�
 (%o4)/R/             -----------------------
                               a
                              x  - 1
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-functions">Simplification functions</a>
- &middot;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-<div class=categorybox></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-functions">Simplification functions</a> &middot;
+<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+<div class=categorybox>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-fullratsubst"></a>
 </p><dl>
-<dt><a name="index-fullratsubst"></a><u>関数:</u> <b>fullratsubst</b><i> (<var>a</var>, <var>b</var>, <var>c</var>)</i></dt>
-<dd>
-<p>結果が変わらなくなるまで自身を再帰的にコールすることを除いて
+<dt><u>関数:</u> <b>fullratsubst</b><i> (<var>a</var>, <var>b</var>, <var>c</var>)</i>
+<a name="IDX565"></a>
+</dt>
+<dd><p>結果が変わらなくなるまで自身を再帰的にコールすることを除いて
 <code>ratsubst</code>と同じです。
 置き換える式と置き換えられる式が１つ以上の変数を共通に持つ時、
 この関数は役に立ちます。
@@ -854,67 +832,65 @@ ratsimpと式の非有理的整理を式変形されなくなるまで繰り返�
 <p>例:
 </p>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (&quot;lrats&quot;)$
-</pre></td></tr></table>
-<ul>
+<pre class="example">(%i1) load (&quot;lrats&quot;)$
+</pre><ul>
 <li>
 <code>subst</code>は多重代入を実行できます。
 <code>lratsubst</code>は <code>subst</code>に似ています。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) subst ([a = b, c = d], a + c);
+<pre class="example">(%i2) subst ([a = b, c = d], a + c);
 (%o2)                         d + b
 (%i3) lratsubst ([a^2 = b, c^2 = d], (a + e)*c*(a + c));
 (%o3)                (d + a c) e + a d + b c
-</pre></td></tr></table>
-<ul>
+</pre><ul>
 <li>
 もし代入一つだけを望むなら、
 一番目の引数に等式を一つ与えます。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) lratsubst (a^2 = b, a^3);
+<pre class="example">(%i4) lratsubst (a^2 = b, a^3);
 (%o4)                          a b
-</pre></td></tr></table>
-<ul>
+</pre><ul>
 <li>
 <code>fullratsubst</code>は結果が変わらなくなるまで再帰することを除いて
 <code>ratsubst</code>と同値です。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i5) ratsubst (b*a, a^2, a^3);
+<pre class="example">(%i5) ratsubst (b*a, a^2, a^3);
                                2
 (%o5)                         a  b
 (%i6) fullratsubst (b*a, a^2, a^3);
                                  2
 (%o6)                         a b
-</pre></td></tr></table>
-<ul>
+</pre><ul>
 <li>
 <code>fullratsubst</code>も、
 一番目の引数として等式のリストもしくは式一つを受け入れます。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i7) fullratsubst ([a^2 = b, b^2 = c, c^2 = a], a^3*b*c);
+<pre class="example">(%i7) fullratsubst ([a^2 = b, b^2 = c, c^2 = a], a^3*b*c);
 (%o7)                           b
 (%i8) fullratsubst (a^2 = b*a, a^3);
                                  2
 (%o8)                         a b
-</pre></td></tr></table>
-<ul>
+</pre><ul>
 <li>
 <code>fullratsubst</code>は不確定な再帰を起こすことがあります。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i9) errcatch (fullratsubst (b*a^2, a^2, a^3));
+<pre class="example">(%i9) errcatch (fullratsubst (b*a^2, a^2, a^3));
 
 *** - Lisp stack overflow. RESET
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="gcd"></a>
 <a name="Item_003a-gcd"></a>
 </p><dl>
-<dt><a name="index-gcd"></a><u>関数:</u> <b>gcd</b><i> (<var>p_1</var>, <var>p_2</var>, <var>x_1</var>, &hellip;)</i></dt>
-<dd>
-<p><var>p_1</var>と <var>p_2</var>の最大公約数を返します。
+<dt><u>関数:</u> <b>gcd</b><i> (<var>p_1</var>, <var>p_2</var>, <var>x_1</var>, &hellip;)</i>
+<a name="IDX566"></a>
+</dt>
+<dd><p><var>p_1</var>と <var>p_2</var>の最大公約数を返します。
 フラグ <code>gcd</code>はどのアルゴリズムを利用するか決めます。
 <code>gcd</code>を <code>ez</code>か, <code>subres</code>, <code>red</code>,
 <code>spmod</code>いずれかに設定すると、それぞれ
@@ -934,15 +910,11 @@ ratsimpと式の非有理的整理を式変形されなくなるまで繰り返�
 式が標準有理式(CRE)形に変換される時も最大公約数を計算しません。
 もし gcdが不要ならこれは時々計算のスピードを上げます。
 </p>
-<p><code><a href="#ezgcd">ezgcd</a></code>
-, <code><a href="#gcdex">gcdex</a></code>
-, <code><a href="maxima_75.html#gcdivide">gcdivide</a></code>
-, <code><a href="maxima_59.html#poly_005fgcd">poly_gcd</a></code>
-も参照してください。
+<p><code><a href="#ezgcd">ezgcd</a></code>, <code><a href="#gcdex">gcdex</a></code>, <code><a href="maxima_75.html#gcdivide">gcdivide</a></code>, <code><a href="maxima_59.html#poly_005fgcd">poly_gcd</a></code>も参照してください。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) p1:6*x^3+19*x^2+19*x+6; 
+<pre class="example">(%i1) p1:6*x^3+19*x^2+19*x+6; 
                         3       2
 (%o1)                6 x  + 19 x  + 19 x + 6
 (%i2) p2:6*x^5+13*x^4+12*x^3+13*x^2+6*x;
@@ -956,30 +928,30 @@ ratsimpと式の非有理的整理を式変形されなくなるまで繰り返�
 (%i5) p2/gcd(p1, p2), ratsimp;
                               3
 (%o5)                        x  + x
-</pre></td></tr></table>
-
-<p><code><a href="#ezgcd">ezgcd</a></code>
-は
+</pre>
+<p><code><a href="#ezgcd">ezgcd</a></code>は
 一番目の要素が多項式 <var>p_1</var>と <var>p_2</var>の最大公約数で、
 残りの要素が最大公約数で多項式を割ったもので構成されるリストを返します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) ezgcd(p1, p2);
+<pre class="example">(%i6) ezgcd(p1, p2);
                     2                     3
 (%o6)           [6 x  + 13 x + 6, x + 1, x  + x]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
- &middot;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a> &middot;
+<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="gcdex"></a>
 <a name="Item_003a-gcdex"></a>
 </p><dl>
-<dt><a name="index-gcdex"></a><u>関数:</u> <b>gcdex</b><i> (<var>f</var>, <var>g</var>)</i></dt>
-<dt><a name="index-gcdex-1"></a><u>関数:</u> <b>gcdex</b><i> (<var>f</var>, <var>g</var>, <var>x</var>)</i></dt>
-<dd>
-<p>リスト <code>[<var>a</var>, <var>b</var>, <var>u</var>]</code>を返します。
+<dt><u>関数:</u> <b>gcdex</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>gcdex</tt> (<var>f</var>, <var>g</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>gcdex</tt> (<var>f</var>, <var>g</var>, <var>x</var>)</i>
+<a name="IDX567"></a>
+</dt>
+<dd><p>リスト <code>[<var>a</var>, <var>b</var>, <var>u</var>]</code>を返します。
 ここで <var>u</var>は <var>f</var>と <var>g</var>の最大公約数(gcd)であり、
 かつ <code><var>a</var> <var>f</var> + <var>b</var> <var>g</var></code>は<var>u</var>に等しいです。
 引数 <var>f</var>と <var>g</var>は１変数多項式であるか、
@@ -995,88 +967,96 @@ gcdは他の変数の有理関数係数を持つ１変数多項式としての <
 余り <code>r[i+2]</code>がゼロの時 <code>L[i+1]</code>で終了します。
 </p>
 <p>引数 <var>f</var>と <var>g</var>は整数であり得ます。
-この場合、<code>gcdex</code>は関数 <code><a href="maxima_29.html#igcdex">igcdex</a></code>
-を呼び出します。
+この場合、<code>gcdex</code>は関数 <code><a href="maxima_29.html#igcdex">igcdex</a></code>を呼び出します。
 </p>
-<p><code><a href="#ezgcd">ezgcd</a></code>
-, <code><a href="#gcd">gcd</a></code>
-, <code><a href="maxima_75.html#gcdivide">gcdivide</a></code>
-, <code><a href="maxima_59.html#poly_005fgcd">poly_gcd</a></code>
-も参照してください。
+<p><code><a href="#ezgcd">ezgcd</a></code>, <code><a href="#gcd">gcd</a></code>, <code><a href="maxima_75.html#gcdivide">gcdivide</a></code>, <code><a href="maxima_59.html#poly_005fgcd">poly_gcd</a></code>も参照してください。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) gcdex (x^2 + 1, x^3 + 4);
-</pre><pre class="example">                       2
+<pre class="example">(%i1) gcdex (x^2 + 1, x^3 + 4);
+                       2
                       x  + 4 x - 1  x + 4
 (%o1)/R/           [- ------------, -----, 1]
                            17        17
-</pre><pre class="example">(%i2) % . [x^2 + 1, x^3 + 4, -1];
+(%i2) % . [x^2 + 1, x^3 + 4, -1];
 (%o2)/R/                        0
-</pre></td></tr></table>
-
+</pre>
 <p>以下の gcdは
 <code>k(y)[x]</code>に対して働くので　<code>1</code>です。
 <code>k[y, x]</code>で期待する　<code>y+1</code>ではないことに注意してください。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) gcdex (x*(y + 1), y^2 - 1, x);
-</pre><pre class="example">                               1
+<pre class="example">(%i1) gcdex (x*(y + 1), y^2 - 1, x);
+                               1
 (%o1)/R/                 [0, ------, 1]
                               2
                              y  - 1
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
- &middot;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a> &middot;
+<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 
 
 <p><a name="Item_003a-gcfactor"></a>
 </p><dl>
-<dt><a name="index-gcfactor"></a><u>関数:</u> <b>gcfactor</b><i> (<var>n</var>)</i></dt>
-<dd>
-<p>ガウス整数(すなわち <var>a</var>と <var>b</var>が有理整数(通常の整数)であるとして形式
+<dt><u>関数:</u> <b>gcfactor</b><i> (<var>n</var>)</i>
+<a name="IDX568"></a>
+</dt>
+<dd><p>ガウス整数(すなわち <var>a</var>と <var>b</var>が有理整数(通常の整数)であるとして形式
 <code><var>a</var> + <var>b</var> <code>%i</code></code>の数) <var>n</var>を
 ガウス整数上で因数分解します。
 因子は <var>a</var>と <var>b</var>を非負にすることによって正規化されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Integers">Integers</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Integers">Integers</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-gfactor"></a>
 </p><dl>
-<dt><a name="index-gfactor"></a><u>関数:</u> <b>gfactor</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p>多項式 <var>expr</var>をガウス整数（虚数単位<code>%i</code>を付け加えた整数）上で因数分解します。
+<dt><u>関数:</u> <b>gfactor</b><i> (<var>expr</var>)</i>
+<a name="IDX569"></a>
+</dt>
+<dd><p>多項式 <var>expr</var>をガウス整数（虚数単位<code>%i</code>を付け加えた整数）上で因数分解します。
 <var>a</var>が <code>%i</code>となる <code>factor (<var>expr</var>, <var>a</var>^2+1)</code>ようなものです。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) gfactor (x^4 - 1);
+<pre class="example">(%i1) gfactor (x^4 - 1);
 (%o1)           (x - 1) (x + 1) (x - %i) (x + %i)
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-gfactorsum"></a>
 </p><dl>
-<dt><a name="index-gfactorsum"></a><u>関数:</u> <b>gfactorsum</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p><code>factorsum</code>に似ていますが
+<dt><u>関数:</u> <b>gfactorsum</b><i> (<var>expr</var>)</i>
+<a name="IDX570"></a>
+</dt>
+<dd><p><code>factorsum</code>に似ていますが
 <code>factor</code>の代わりに <code>gfactor</code>を適用します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-hipow"></a>
 </p><dl>
-<dt><a name="index-hipow"></a><u>関数:</u> <b>hipow</b><i> (<var>expr</var>, <var>x</var>)</i></dt>
-<dd>
-<p><var>expr</var>の中の <var>x</var>の明示的に示された指数の最も大きなものを返します。
+<dt><u>関数:</u> <b>hipow</b><i> (<var>expr</var>, <var>x</var>)</i>
+<a name="IDX571"></a>
+</dt>
+<dd><p><var>expr</var>の中の <var>x</var>の明示的に示された指数の最も大きなものを返します。
 <var>x</var>は変数もしくは一般式です。
 もし <var>x</var>が <var>expr</var>の中に現れないなら、
 <code>hipow</code>は <code>0</code>を返します。
@@ -1088,7 +1068,7 @@ gcdは他の変数の有理関数係数を持つ１変数多項式としての <
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) hipow (y^3 * x^2 + x * y^4, x);
+<pre class="example">(%i1) hipow (y^3 * x^2 + x * y^4, x);
 (%o1)                           2
 (%i2) hipow ((x + y)^5, x);
 (%o2)                           1
@@ -1098,15 +1078,19 @@ gcdは他の変数の有理関数係数を持つ１変数多項式としての <
 (%o4)                           5
 (%i5) hipow (expand ((x + y)^5), x + y);
 (%o5)                           0
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-intfaclim"></a>
 </p><dl>
-<dt><a name="index-intfaclim"></a><u>オプション変数:</u> <b>intfaclim</b></dt>
+<dt><u>オプション変数:</u> <b>intfaclim</b>
+<a name="IDX572"></a>
+</dt>
 <dd><p>デフォルト値: true
 </p>
 <p>もし <code>true</code>なら、
@@ -1123,12 +1107,17 @@ Maximaは整数の素因素分解をあきらめ、素因数分解は完了し�
 <code>intfaclim</code>を <code>true</code>に設定することは
 大きな整数を素因数分解するのに費やす時間を少なくするかもしれません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Integers">Integers</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Integers">Integers</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-keepfloat"></a>
 </p><dl>
-<dt><a name="index-keepfloat"></a><u>オプション変数:</u> <b>keepfloat</b></dt>
+<dt><u>オプション変数:</u> <b>keepfloat</b>
+<a name="IDX573"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>keepfloat</code>が<code>true</code>なら、
@@ -1140,7 +1129,7 @@ Maximaは整数の素因素分解をあきらめ、素因数分解は完了し�
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) rat(x/2.0);
+<pre class="example">(%i1) rat(x/2.0);
 
 `rat' replaced 0.5 by 1/2 = 0.5
                                        x
@@ -1149,41 +1138,46 @@ Maximaは整数の素因素分解をあきらめ、素因数分解は完了し�
 (%i2) rat(x/2.0), keepfloat;
 
 (%o2)/R/                     E        0.5 x
-</pre></td></tr></table>
-
+</pre>
 <p><code>solve</code>は <code>keepfloat</code>を無視します:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) solve(1.0-x,x), keepfloat;
+<pre class="example">(%i3) solve(1.0-x,x), keepfloat;
 
 `rat' replaced 1.0 by 1/1 = 1.0
 (%o3)                               [x = 1]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Numerical-evaluation">Numerical evaluation</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Numerical-evaluation">Numerical evaluation</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="lowpow"></a>
 <a name="Item_003a-lopow"></a>
 </p><dl>
-<dt><a name="index-lopow"></a><u>関数:</u> <b>lopow</b><i> (<var>expr</var>, <var>x</var>)</i></dt>
-<dd>
-<p><var>expr</var>の中に明示的に現れる <var>x</var>の最小の指数を返します。
+<dt><u>関数:</u> <b>lopow</b><i> (<var>expr</var>, <var>x</var>)</i>
+<a name="IDX574"></a>
+</dt>
+<dd><p><var>expr</var>の中に明示的に現れる <var>x</var>の最小の指数を返します。
 例えば、
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) lopow ((x+y)^2 + (x+y)^a, x+y);
+<pre class="example">(%i1) lopow ((x+y)^2 + (x+y)^a, x+y);
 (%o1)                       min(a, 2)
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-lratsubst"></a>
 </p><dl>
-<dt><a name="index-lratsubst"></a><u>関数:</u> <b>lratsubst</b><i> (<var>L</var>, <var>expr</var>)</i></dt>
-<dd>
-<p><code>subst</code>の代わりに <code>ratsubst</code>を使うことを除いて、
+<dt><u>関数:</u> <b>lratsubst</b><i> (<var>L</var>, <var>expr</var>)</i>
+<a name="IDX575"></a>
+</dt>
+<dd><p><code>subst</code>の代わりに <code>ratsubst</code>を使うことを除いて、
 <code>subst (<var>L</var>, <var>expr</var>)</code>に似ています。
 </p>
 <p><code>lratsubst</code>の一番目の引数は
@@ -1194,34 +1188,36 @@ Maximaは整数の素因素分解をあきらめ、素因数分解は完了し�
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (&quot;lrats&quot;)$
-</pre></td></tr></table>
-<ul>
+<pre class="example">(%i1) load (&quot;lrats&quot;)$
+</pre><ul>
 <li>
 <code>subst</code>は多重代入を実行できます。
 <code>lratsubst</code>は <code>subst</code>に似ています。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) subst ([a = b, c = d], a + c);
+<pre class="example">(%i2) subst ([a = b, c = d], a + c);
 (%o2)                         d + b
 (%i3) lratsubst ([a^2 = b, c^2 = d], (a + e)*c*(a + c));
 (%o3)                (d + a c) e + a d + b c
-</pre></td></tr></table>
-<ul>
+</pre><ul>
 <li>
 もし代入１つだけを望むなら等式一つを一番目の引数として与えることができます。
 </li></ul>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) lratsubst (a^2 = b, a^3);
+<pre class="example">(%i4) lratsubst (a^2 = b, a^3);
 (%o4)                          a b
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
- &middot;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a> &middot;
+<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="modulus"></a>
 <a name="Item_003a-modulus"></a>
 </p><dl>
-<dt><a name="index-modulus"></a><u>オプション変数:</u> <b>modulus</b></dt>
+<dt><u>オプション変数:</u> <b>modulus</b>
+<a name="IDX576"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>modulus</code>が正の数 <var>p</var>の時、
@@ -1250,7 +1246,7 @@ Maximaは整数の素因素分解をあきらめ、素因数分解は完了し�
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) modulus:7;
+<pre class="example">(%i1) modulus:7;
 (%o1)                           7
 (%i2) polymod([0,1,2,3,4,5,6,7]);
 (%o2)            [0, 1, 2, 3, - 3, - 2, - 1, 0]
@@ -1270,35 +1266,41 @@ Maximaは整数の素因素分解をあきらめ、素因数分解は完了し�
 (%i8) polymod(%);
                             6    2
 (%o8)                      x  + x  + 1
-</pre></td></tr></table>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Integers">Integers</a>
-</div></p></dd></dl>
+</pre><div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Integers">Integers</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-num"></a>
 </p><dl>
-<dt><a name="index-num"></a><u>関数:</u> <b>num</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p>もし <var>expr</var>が比ならその分子を返します。
+<dt><u>関数:</u> <b>num</b><i> (<var>expr</var>)</i>
+<a name="IDX577"></a>
+</dt>
+<dd><p>もし <var>expr</var>が比ならその分子を返します。
 もし <var>expr</var>が比でないなら <var>expr</var>が返されます。
 </p>
 <p><code>num</code>は引数を評価します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Expressions">Expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="polydecomp"></a>
 <a name="Item_003a-polydecomp"></a>
 </p><dl>
-<dt><a name="index-polydecomp"></a><u>関数:</u> <b>polydecomp</b><i> (<var>p</var>, <var>x</var>)</i></dt>
-<dd>
-<p>変数 <var>x</var>の多項式 <var>p</var>を <var>x</var>の多項式の関数合成に分解します。
+<dt><u>関数:</u> <b>polydecomp</b><i> (<var>p</var>, <var>x</var>)</i>
+<a name="IDX578"></a>
+</dt>
+<dd><p>変数 <var>x</var>の多項式 <var>p</var>を <var>x</var>の多項式の関数合成に分解します。
 <code>polydecomp</code>は
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">lambda ([x], p_1) (lambda ([x], p_2) (... (lambda ([x], p_n) (x))
+<pre class="example">lambda ([x], p_1) (lambda ([x], p_2) (... (lambda ([x], p_n) (x))
   ...))
-</pre></td></tr></table>
-
+</pre>
 <p>が <var>p</var>に等しいようなリスト <code>[<var>p_1</var>, ..., <var>p_n</var>]</code>を返します。
 <var>n</var>より小さい <var>i</var>について <var>p_i</var>の次数は1より大きいです。
 </p>
@@ -1306,7 +1308,7 @@ Maximaは整数の素因素分解をあきらめ、素因数分解は完了し�
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) polydecomp (x^210, x);
+<pre class="example">(%i1) polydecomp (x^210, x);
                           7   5   3   2
 (%o1)                   [x , x , x , x ]
 (%i2) p : expand (subst (x^3 - x - 1, x, x^2 - a));
@@ -1315,29 +1317,26 @@ Maximaは整数の素因素分解をあきらめ、素因数分解は完了し�
 (%i3) polydecomp (p, x);
                         2       3
 (%o3)                 [x  - a, x  - x - 1]
-</pre></td></tr></table>
-
+</pre>
 <p>以下の関数は <code>x</code>の関数として
 <code>L = [e_1, ..., e_n]</code>を合成します;
 それはpolydecompの逆です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">compose (L, x) :=
+<pre class="example">compose (L, x) :=
   block ([r : x], for e in L do r : subst (e, x, r), r) $
-</pre></td></tr></table>
-
+</pre>
 <p><code>compose</code>を使って上の例を再表現します:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) polydecomp (compose ([x^2 - a, x^3 - x - 1], x), x);
+<pre class="example">(%i3) polydecomp (compose ([x^2 - a, x^3 - x - 1], x), x);
                         2       3
 (%o3)                 [x  - a, x  - x - 1]
-</pre></td></tr></table>
-
+</pre>
 <p><code>compose (polydecomp (<var>p</var>, <var>x</var>), <var>x</var>)</code>はいつも（展開されていない）
 <var>p</var>を返しますが、
 <code>polydecomp (compose ([<var>p_1</var>, ..., <var>p_n</var>], <var>x</var>), <var>x</var>)</code>は
 必ずしも <code>[<var>p_1</var>, ..., <var>p_n</var>]</code>を返さ<i>ない</i>ことに注意してください。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) polydecomp (compose ([x^2 + 2*x + 3, x^2], x), x);
+<pre class="example">(%i4) polydecomp (compose ([x^2 + 2*x + 3, x^2], x), x);
                           2       2
 (%o4)                   [x  + 2, x  + 1]
 (%i5) polydecomp (compose ([x^2 + x + 1, x^2 + x + 1], x), x);
@@ -1345,50 +1344,56 @@ Maximaは整数の素因素分解をあきらめ、素因数分解は完了し�
                      x  + 3  x  + 5
 (%o5)               [------, ------, 2 x + 1]
                        4       2
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
-<p><a name="polymod"></a>
-<a name="Item_003a-polymod"></a>
+<p><a name="Item_003a-polymod"></a>
 </p><dl>
-<dt><a name="index-polymod"></a><u>関数:</u> <b>polymod</b><i> (<var>p</var>)</i></dt>
-<dt><a name="index-polymod-1"></a><u>関数:</u> <b>polymod</b><i> (<var>p</var>, <var>m</var>)</i></dt>
-<dd>
-<p>多項式 <var>p</var>を現在の法(変数 <code>modulus</code>の値)に関するモジュラー表現に変換します。
+<dt><u>関数:</u> <b>polymod</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>polymod</tt> (<var>p</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>polymod</tt> (<var>p</var>, <var>m</var>)</i>
+<a name="IDX579"></a>
+</dt>
+<dd><p>多項式 <var>p</var>を現在の法(変数 <code>modulus</code>の値)に関するモジュラー表現に変換します。
 </p>
 <p><code>polymod (<var>p</var>, <var>m</var>)</code>は
 <code>modulus</code>の現在値の代わりに法 <var>m</var>を使うように指定します。
 </p>
-<p><code><a href="#modulus">modulus</a></code>
-を参照してください。
+<p><code><a href="#modulus">modulus</a></code>を参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="quotient"></a>
 <a name="Item_003a-quotient"></a>
 </p><dl>
-<dt><a name="index-quotient"></a><u>関数:</u> <b>quotient</b><i> (<var>p_1</var>, <var>p_2</var>)</i></dt>
-<dt><a name="index-quotient-1"></a><u>関数:</u> <b>quotient</b><i> (<var>p_1</var>, <var>p_2</var>, <var>x_1</var>, &hellip;, <var>x_n</var>)</i></dt>
-<dd>
-<p>多項式 <var>p_1</var>を多項式 <var>p_2</var>で割った結果を返します。
+<dt><u>関数:</u> <b>quotient</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quotient</tt> (<var>p_1</var>, <var>p_2</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quotient</tt> (<var>p_1</var>, <var>p_2</var>, <var>x_1</var>, &hellip;, <var>x_n</var>)</i>
+<a name="IDX580"></a>
+</dt>
+<dd><p>多項式 <var>p_1</var>を多項式 <var>p_2</var>で割った結果を返します。
 引数 <var>x_1</var>, &hellip;, <var>x_n</var>は <code>ratvars</code>と同様に解釈されます。
 </p>
 <p><code>quotient</code>は <code>divide</code>が返す２要素リストの最初の要素を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-rat"></a>
 </p><dl>
-<dt><a name="index-rat"></a><u>関数:</u> <b>rat</b><i> (<var>expr</var>)</i></dt>
-<dt><a name="index-rat-1"></a><u>関数:</u> <b>rat</b><i> (<var>expr</var>, <var>x_1</var>, &hellip;, <var>x_n</var>)</i></dt>
-<dd>
-<p><var>expr</var>を標準有理式(CRE)形式に変換します。
+<dt><u>関数:</u> <b>rat</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>rat</tt> (<var>expr</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>rat</tt> (<var>expr</var>, <var>x_1</var>, &hellip;, <var>x_n</var>)</i>
+<a name="IDX581"></a>
+</dt>
+<dd><p><var>expr</var>を標準有理式(CRE)形式に変換します。
 具体的には、展開し、共通の分母上ですべての項を結合し、通分し、
 <code>ratepsilon</code>の許容誤差内で浮動小数点を有理数に変換します。
 もし変数が指定されたなら、
@@ -1419,9 +1424,9 @@ CRE形式の中のアトム(数と変数）は一般形式でのそれと同じ�
 <p><code>ratexpand</code>と <code>ratsimp</code>も参照してください。
 </p>
 <p>例:
-</p><table><tr><td>&nbsp;</td><td><pre class="example">(%i1) ((x - 2*y)^4/(x^2 - 4*y^2)^2 + 1)*(y + a)*(2*y + x) /
+</p><pre class="example">(%i1) ((x - 2*y)^4/(x^2 - 4*y^2)^2 + 1)*(y + a)*(2*y + x) /
       (4*y^2 + x^2);
-</pre><pre class="example">                                           4
+                                           4
                                   (x - 2 y)
               (y + a) (2 y + x) (------------ + 1)
                                    2      2 2
@@ -1429,35 +1434,42 @@ CRE形式の中のアトム(数と変数）は一般形式でのそれと同じ�
 (%o1)         ------------------------------------
                               2    2
                            4 y  + x
-</pre><pre class="example">(%i2) rat (%, y, a, x);
+(%i2) rat (%, y, a, x);
                             2 a + 2 y
 (%o2)/R/                    ---------
                              x + 2 y
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-ratalgdenom"></a>
 </p><dl>
-<dt><a name="index-ratalgdenom"></a><u>オプション変数:</u> <b>ratalgdenom</b></dt>
+<dt><u>オプション変数:</u> <b>ratalgdenom</b>
+<a name="IDX582"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>ratalgdenom</code>が <code>true</code>の時
 根号に関する分母の有理化を有効にします。
 <code>ratalgdenom</code>は標準有理式(CRE)が代数モードで使われる時だけ効果を持ちます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p>
 </dd></dl>
 
 
 <p><a name="Item_003a-ratcoef"></a>
 </p><dl>
-<dt><a name="index-ratcoef"></a><u>関数:</u> <b>ratcoef</b><i> (<var>expr</var>, <var>x</var>, <var>n</var>)</i></dt>
-<dt><a name="index-ratcoef-1"></a><u>関数:</u> <b>ratcoef</b><i> (<var>expr</var>, <var>x</var>)</i></dt>
-<dd>
-<p>式 <var>expr</var>の中の式 <code><var>x</var>^<var>n</var></code>の係数を返します。
+<dt><u>関数:</u> <b>ratcoef</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ratcoef</tt> (<var>expr</var>, <var>x</var>, <var>n</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ratcoef</tt> (<var>expr</var>, <var>x</var>)</i>
+<a name="IDX583"></a>
+</dt>
+<dd><p>式 <var>expr</var>の中の式 <code><var>x</var>^<var>n</var></code>の係数を返します。
 <var>n</var>を省略した場合 <var>n</var>は1が仮定されます。
 </p>
 <p>戻り値は（非有理な意味で可能な場合を除いて）xの中の変数の制約を受けません。
@@ -1477,20 +1489,23 @@ CRE形式の中のアトム(数と変数）は一般形式でのそれと同じ�
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) s: a*x + b*x + 5$
+<pre class="example">(%i1) s: a*x + b*x + 5$
 (%i2) ratcoef (s, a + b);
 (%o2)                           x
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
- &middot;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a> &middot;
+<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-ratdenom"></a>
 </p><dl>
-<dt><a name="index-ratdenom"></a><u>関数:</u> <b>ratdenom</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p><var>expr</var>を標準有理式(CRE)に強制した後、<var>expr</var>の分母を返します。
+<dt><u>関数:</u> <b>ratdenom</b><i> (<var>expr</var>)</i>
+<a name="IDX584"></a>
+</dt>
+<dd><p><var>expr</var>を標準有理式(CRE)に強制した後、<var>expr</var>の分母を返します。
 戻り値はCREです。
 </p>
 <p>もし<var>expr</var>がCREでないなら <code>rat</code>によってCREに強制的に変換されます。
@@ -1501,12 +1516,17 @@ CRE形式の中のアトム(数と変数）は一般形式でのそれと同じ�
 また、<code>denom</code>は共通の分母上にすべての項を置こうとはしませんし、
 <code>ratdenom</code>が比と見なすいくつかの式は <code>denom</code>は比と見なしません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-ratdenomdivide"></a>
 </p><dl>
-<dt><a name="index-ratdenomdivide"></a><u>オプション変数:</u> <b>ratdenomdivide</b></dt>
+<dt><u>オプション変数:</u> <b>ratdenomdivide</b>
+<a name="IDX585"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>ratdenomdivide</code>が <code>true</code>の時、
@@ -1516,7 +1536,7 @@ CRE形式の中のアトム(数と変数）は一般形式でのそれと同じ�
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) expr: (x^2 + x + 1)/(y^2 + 7);
+<pre class="example">(%i1) expr: (x^2 + x + 1)/(y^2 + 7);
                             2
                            x  + x + 1
 (%o1)                      ----------
@@ -1531,12 +1551,12 @@ CRE形式の中のアトム(数と変数）は一般形式でのそれと同じ�
                     y  + 7   y  + 7   y  + 7
 (%i4) ratdenomdivide: false$
 (%i5) ratexpand (expr);
-</pre><pre class="example">                            2
+                            2
                            x  + x + 1
 (%o5)                      ----------
                               2
                              y  + 7
-</pre><pre class="example">(%i6) expr2: a^2/(b^2 + 3) + b/(b^2 + 3);
+(%i6) expr2: a^2/(b^2 + 3) + b/(b^2 + 3);
                                      2
                            b        a
 (%o6)                    ------ + ------
@@ -1548,17 +1568,20 @@ CRE形式の中のアトム(数と変数）は一般形式でのそれと同じ�
 (%o7)                        ------
                               2
                              b  + 3
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
- &middot;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a> &middot;
+<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-ratdiff"></a>
 </p><dl>
-<dt><a name="index-ratdiff"></a><u>関数:</u> <b>ratdiff</b><i> (<var>expr</var>, <var>x</var>)</i></dt>
-<dd>
-<p>有理式 <var>expr</var>を <var>x</var>に関して微分します。
+<dt><u>関数:</u> <b>ratdiff</b><i> (<var>expr</var>, <var>x</var>)</i>
+<a name="IDX586"></a>
+</dt>
+<dd><p>有理式 <var>expr</var>を <var>x</var>に関して微分します。
 <var>expr</var>は <var>x</var>の多項式もしくは多項式の商でなければなりません。
 引数 <var>x</var>は <var>expr</var>の変数もしくは部分式を取り得ます。
 </p>
@@ -1576,13 +1599,13 @@ CRE形式の中のアトム(数と変数）は一般形式でのそれと同じ�
 
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) expr: (4*x^3 + 10*x - 11)/(x^5 + 5);
-</pre><pre class="example">                           3
+<pre class="example">(%i1) expr: (4*x^3 + 10*x - 11)/(x^5 + 5);
+                           3
                         4 x  + 10 x - 11
 (%o1)                   ----------------
                               5
                              x  + 5
-</pre><pre class="example">(%i2) ratdiff (expr, x);
+(%i2) ratdiff (expr, x);
                     7       5       4       2
                  8 x  + 40 x  - 55 x  - 60 x  - 50
 (%o2)          - ---------------------------------
@@ -1600,16 +1623,19 @@ CRE形式の中のアトム(数と変数）は一般形式でのそれと同じ�
 (%i6) ratdiff (expr, a + b);
                     2                    2
 (%o6)            3 b  + (6 a + 2) b + 3 a  + 2 a
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-ratdisrep"></a>
 </p><dl>
-<dt><a name="index-ratdisrep"></a><u>関数:</u> <b>ratdisrep</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p>引数を一般式として返します。
+<dt><u>関数:</u> <b>ratdisrep</b><i> (<var>expr</var>)</i>
+<a name="IDX587"></a>
+</dt>
+<dd><p>引数を一般式として返します。
 もし <var>expr</var>が一般式なら戻り値は引数と変わりません。
 </p>
 <p>典型的には <code>ratdisrep</code>は標準有理式(CRE)を一般式に変換するためにコールされます。
@@ -1618,15 +1644,21 @@ CRE形式の中のアトム(数と変数）は一般形式でのそれと同じ�
 </p>
 <p><code>totaldisrep</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-ratexpand"></a>
 </p><dl>
-<dt><a name="index-ratexpand"></a><u>関数:</u> <b>ratexpand</b><i> (<var>expr</var>)</i></dt>
-<dt><a name="index-ratexpand-1"></a><u>オプション変数:</u> <b>ratexpand</b></dt>
-<dd>
-<p><var>expr</var>を展開します。
+<dt><u>関数:</u> <b>ratexpand</b><i> (<var>expr</var>)</i>
+<a name="IDX588"></a>
+</dt>
+<dt><u>オプション変数:</u> <b>ratexpand</b>
+<a name="IDX589"></a>
+</dt>
+<dd><p><var>expr</var>を展開します。
 指数和や和の積を展開し、共通分母上の分数を結合し、通分し、
 （もし和なら）分子を分母で割ったそれぞれの項に分割します。
 </p>
@@ -1648,7 +1680,7 @@ CRE式は一般式や表示形式に変換された時完全に展開されま�
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) ratexpand ((2*x - 3*y)^3);
+<pre class="example">(%i1) ratexpand ((2*x - 3*y)^3);
                      3         2       2        3
 (%o1)          - 27 y  + 54 x y  - 36 x  y + 8 x
 (%i2) expr: (x - 1)/(x + 1)^2 + 1/(x - 1);
@@ -1657,25 +1689,29 @@ CRE式は一般式や表示形式に変換された時完全に展開されま�
                                2   x - 1
                         (x + 1)
 (%i3) expand (expr);
-</pre><pre class="example">                    x              1           1
+                    x              1           1
 (%o3)          ------------ - ------------ + -----
                 2              2             x - 1
                x  + 2 x + 1   x  + 2 x + 1
-</pre><pre class="example">(%i4) ratexpand (expr);
+(%i4) ratexpand (expr);
                         2
                      2 x                 2
 (%o4)           --------------- + ---------------
                  3    2            3    2
                 x  + x  - x - 1   x  + x  - x - 1
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="ratfac"></a>
 <a name="Item_003a-ratfac"></a>
 </p><dl>
-<dt><a name="index-ratfac"></a><u>オプション変数:</u> <b>ratfac</b></dt>
+<dt><u>オプション変数:</u> <b>ratfac</b>
+<a name="IDX590"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>ratfac</code>が <code>true</code>の時、
@@ -1700,14 +1736,18 @@ Ricci, Einstein, Riemann, Weylテンソルとスカラー曲率を
 <p><code>ratfac</code>と <code>ratweight</code>体系は互換性はなく、
 同時には使えないかもしれません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-ratnumer"></a>
 </p><dl>
-<dt><a name="index-ratnumer"></a><u>関数:</u> <b>ratnumer</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p><var>expr</var>を標準有理式(CRE)に強制変換した後、その分子を返します。
+<dt><u>関数:</u> <b>ratnumer</b><i> (<var>expr</var>)</i>
+<a name="IDX591"></a>
+</dt>
+<dd><p><var>expr</var>を標準有理式(CRE)に強制変換した後、その分子を返します。
 戻り値はCREです。
 </p>
 <p>もし<var>expr</var>がCREでないなら <code>rat</code>によってCREに強制変換されます。
@@ -1720,43 +1760,58 @@ CREではなく通常の式を返します。
 また <code>num</code>は共通の分母上にすべての項を置こうとはしませんし、
 <code>ratnumer</code>が比と見なすいくつかの式は <code>num</code>は比と見しません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-ratp"></a>
 </p><dl>
-<dt><a name="index-ratp"></a><u>関数:</u> <b>ratp</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p>もし <var>expr</var>が標準有理式(CRE)か拡張CREなら <code>true</code>を返し、
+<dt><u>関数:</u> <b>ratp</b><i> (<var>expr</var>)</i>
+<a name="IDX592"></a>
+</dt>
+<dd><p>もし <var>expr</var>が標準有理式(CRE)か拡張CREなら <code>true</code>を返し、
 そうでないなら <code>false</code>を返します。
 </p>
 <p>CREは <code>rat</code>と関連関数によって生成されます。
 拡張CREは <code>taylor</code>と関連関数によって生成されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Predicate-functions">Predicate functions</a>
- &middot;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Predicate-functions">Predicate functions</a> &middot;
+<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-ratprint"></a>
 </p><dl>
-<dt><a name="index-ratprint"></a><u>オプション変数:</u> <b>ratprint</b></dt>
+<dt><u>オプション変数:</u> <b>ratprint</b>
+<a name="IDX593"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>ratprint</code>が <code>true</code>の時、
 ユーザーに浮動小数点を有理数に変換したことを通知するメッセージを表示します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
- &middot;<a href="maxima_100.html#Category_003a-Numerical-evaluation">Numerical evaluation</a>
- &middot;<a href="maxima_100.html#Category_003a-Console-interaction">Console interaction</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a> &middot;
+<a href="maxima_100.html#Category_003a-Numerical-evaluation">Numerical evaluation</a> &middot;
+<a href="maxima_100.html#Category_003a-Console-interaction">Console interaction</a>
+</div>
+</p></dd></dl>
 
 <p><a name="ratsimp"></a>
 <a name="Item_003a-ratsimp"></a>
 </p><dl>
-<dt><a name="index-ratsimp"></a><u>関数:</u> <b>ratsimp</b><i> (<var>expr</var>)</i></dt>
-<dt><a name="index-ratsimp-1"></a><u>関数:</u> <b>ratsimp</b><i> (<var>expr</var>, <var>x_1</var>, ..., <var>x_n</var>)</i></dt>
-<dd>
-<p>式 <var>exp</var>とその部分式の全てを有理的に整理します（非有理的関数の引数も含みます）。
+<dt><u>関数:</u> <b>ratsimp</b><i> (<var>expr</var>)</i>
+<a name="IDX594"></a>
+</dt>
+<dt><u>関数:</u> <b>ratsimp</b><i> (<var>expr</var>, <var>x_1</var>, ..., <var>x_n</var>)</i>
+<a name="IDX595"></a>
+</dt>
+<dd><p>式 <var>exp</var>とその部分式の全てを有理的に整理します（非有理的関数の引数も含みます）。
 結果は二つの多項式の商として、再帰的形式
 —主変数の係数が他の変数の多項式である形式—で返されます。
 変数は(例えば <code>sin(z^2+1)</code>のような)非有理関数を含むかもしれませんが、
@@ -1774,22 +1829,22 @@ CREではなく通常の式を返します。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) sin (x/(x^2 + x)) = exp ((log(x) + 1)^2 - log(x)^2);
-</pre><pre class="example">                                         2      2
+<pre class="example">(%i1) sin (x/(x^2 + x)) = exp ((log(x) + 1)^2 - log(x)^2);
+                                         2      2
                    x         (log(x) + 1)  - log (x)
 (%o1)        sin(------) = %e
                   2
                  x  + x
-</pre><pre class="example">(%i2) ratsimp (%);
+(%i2) ratsimp (%);
                              1          2
 (%o2)                  sin(-----) = %e x
                            x + 1
 (%i3) ((x - 1)^(3/2) - (x + 1)*sqrt(x - 1))/sqrt((x - 1)*(x + 1));
-</pre><pre class="example">                       3/2
+                       3/2
                 (x - 1)    - sqrt(x - 1) (x + 1)
 (%o3)           --------------------------------
                      sqrt((x - 1) (x + 1))
-</pre><pre class="example">(%i4) ratsimp (%);
+(%i4) ratsimp (%);
                            2 sqrt(x - 1)
 (%o4)                    - -------------
                                  2
@@ -1800,43 +1855,56 @@ CREではなく通常の式を返します。
                               ------
                                 a
 (%o5)                        x
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-functions">Simplification functions</a>
- &middot;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-functions">Simplification functions</a> &middot;
+<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-ratsimpexpons"></a>
 </p><dl>
-<dt><a name="index-ratsimpexpons"></a><u>オプション変数:</u> <b>ratsimpexpons</b></dt>
+<dt><u>オプション変数:</u> <b>ratsimpexpons</b>
+<a name="IDX596"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>ratsimpexpons</code>が <code>true</code>の時、
 式整理の間 <code>ratsimp</code>を式の指数に適用します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
- &middot;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a> &middot;
+<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="radsubstflag"></a>
 <a name="Item_003a-radsubstflag"></a>
 </p><dl>
-<dt><a name="index-radsubstflag"></a><u>オプション変数:</u> <b>radsubstflag</b></dt>
+<dt><u>オプション変数:</u> <b>radsubstflag</b>
+<a name="IDX597"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p>もし <code>radsubstflag</code>が <code>true</code>なら、
 <code>ratsubst</code>が
 <code>x</code>の中の <code>sqrt (x)</code>に <code>u</code>を代入するような代入をできるようにします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="ratsubst"></a>
 <a name="Item_003a-ratsubst"></a>
 </p><dl>
-<dt><a name="index-ratsubst"></a><u>関数:</u> <b>ratsubst</b><i> (<var>a</var>, <var>b</var>, <var>c</var>)</i></dt>
-<dd>
-<p><var>c</var>の中の <var>b</var>に <var>a</var>を代入し、結果の式を返します。
+<dt><u>関数:</u> <b>ratsubst</b><i> (<var>a</var>, <var>b</var>, <var>c</var>)</i>
+<a name="IDX598"></a>
+</dt>
+<dd><p><var>c</var>の中の <var>b</var>に <var>a</var>を代入し、結果の式を返します。
 <var>b</var>は和でも積tでもべきなどでも問題ありません。
 </p>
 <p><code>subst</code>は純粋に構文法的代入ですが、
@@ -1852,7 +1920,7 @@ CREではなく通常の式を返します。
 <p>例:
 </p>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) ratsubst (a, x*y^2, x^4*y^3 + x^4*y^8);
+<pre class="example">(%i1) ratsubst (a, x*y^2, x^4*y^3 + x^4*y^8);
                               3      4
 (%o1)                      a x  y + a
 (%i2) cos(x)^4 + cos(x)^3 + cos(x)^2 + cos(x) + 1;
@@ -1862,27 +1930,34 @@ CREではなく通常の式を返します。
             4           2                     2
 (%o3)    sin (x) - 3 sin (x) + cos(x) (2 - sin (x)) + 3
 (%i4) ratsubst (1 - cos(x)^2, sin(x)^2, sin(x)^4);
-</pre><pre class="example">                        4           2
+                        4           2
 (%o4)                cos (x) - 2 cos (x) + 1
-</pre><pre class="example">(%i5) radsubstflag: false$
+(%i5) radsubstflag: false$
 (%i6) ratsubst (u, sqrt(x), x);
 (%o6)                           x
 (%i7) radsubstflag: true$
 (%i8) ratsubst (u, sqrt(x), x);
                                 2
 (%o8)                          u
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-ratvars"></a>
 </p><dl>
-<dt><a name="index-ratvars"></a><u>関数:</u> <b>ratvars</b><i> (<var>x_1</var>, &hellip;, <var>x_n</var>)</i></dt>
-<dt><a name="index-ratvars-1"></a><u>関数:</u> <b>ratvars</b><i> ()</i></dt>
-<dt><a name="index-ratvars-2"></a><u>システム変数:</u> <b>ratvars</b></dt>
-<dd>
-<p>有理式に関して主変数 <var>x_1</var>, ..., <var>x_n</var>を宣言します。
+<dt><u>関数:</u> <b>ratvars</b><i> (<var>x_1</var>, &hellip;, <var>x_n</var>)</i>
+<a name="IDX599"></a>
+</dt>
+<dt><u>関数:</u> <b>ratvars</b><i> ()</i>
+<a name="IDX600"></a>
+</dt>
+<dt><u>システム変数:</u> <b>ratvars</b>
+<a name="IDX601"></a>
+</dt>
+<dd><p>有理式に関して主変数 <var>x_1</var>, ..., <var>x_n</var>を宣言します。
 もし <var>x_n</var>が有理式の中に存在するなら それを主変数と見なします。
 もし <var>x_n</var>が有理式の中に存在せず
 <var>x_[n-1]</var>が存在するなら、それを主変数と見なします。
@@ -1898,12 +1973,17 @@ CREではなく通常の式を返します。
 関数 <code>ratvars</code>のコールそれぞれはリストを再設定します。
 <code>ratvars ()</code>はリストをクリアします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-ratvarswitch"></a>
 </p><dl>
-<dt><a name="index-ratvarswitch"></a><u>オプション変数:</u> <b>ratvarswitch</b></dt>
+<dt><u>オプション変数:</u> <b>ratvarswitch</b>
+<a name="IDX602"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p>Maximaは Lisp変数 <code>VARLIST</code>の中に有理式の主変数の内部リストを保持します。
@@ -1920,7 +2000,7 @@ CREではなく通常の式を返します。
 <p>もし <code>ratvarswitch</code>が <code>true</code>なら
 すべての評価は新しいリスト <code>VARLIST</code>で始まります。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) ratvarswitch:true$
+<pre class="example">(%i1) ratvarswitch:true$
 
 (%i2) rat(2*x+y^2);
                              2
@@ -1934,12 +2014,11 @@ CREではなく通常の式を返します。
 
 (%i4) :lisp varlist
 ($A $B)
-</pre></td></tr></table>
-
+</pre>
 <p>もし <code>ratvarswitch</code>が <code>false</code>なら
 直前の評価からの主変数はまだ存在しています。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) ratvarswitch:false$
+<pre class="example">(%i4) ratvarswitch:false$
 
 (%i5) rat(2*x+y^2);
                              2
@@ -1953,18 +2032,20 @@ CREではなく通常の式を返します。
 
 (%i7) :lisp varlist
 ($A $B $X $Y)
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
- &middot;<a href="maxima_100.html#Category_003a-Global-flags">Global flags</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a> &middot;
+<a href="maxima_100.html#Category_003a-Global-flags">Global flags</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-ratweight"></a>
 </p><dl>
-<dt><a name="index-ratweight"></a><u>関数:</u> <b>ratweight</b><i> (<var>x_1</var>, <var>w_1</var>, &hellip;, <var>x_n</var>, <var>w_n</var>)</i></dt>
-<dt><a name="index-ratweight-1"></a><u>関数:</u> <b>ratweight</b><i> ()</i></dt>
-<dd>
-<p>変数 <var>x_i</var>に重み <var>w_i</var>を割り当てます。
+<dt><u>関数:</u> <b>ratweight</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ratweight</tt> (<var>x_1</var>, <var>w_1</var>, &hellip;, <var>x_n</var>, <var>w_n</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ratweight</tt> ()</i>
+<a name="IDX603"></a>
+</dt>
+<dd><p>変数 <var>x_i</var>に重み <var>w_i</var>を割り当てます。
 これによって、
 もし重みが変数 <code>ratwtlvl</code>の値を越えるなら項を0に置き換えるようにします。
 （デフォルトでは切り詰めはもたらしません。）
@@ -1979,7 +2060,7 @@ CREではなく通常の式を返します。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) ratweight (a, 1, b, 1);
+<pre class="example">(%i1) ratweight (a, 1, b, 1);
 (%o1)                     [a, 1, b, 1]
 (%i2) expr1: rat(a + b + 1)$
 (%i3) expr1^2;
@@ -1988,14 +2069,18 @@ CREではなく通常の式を返します。
 (%i4) ratwtlvl: 1$
 (%i5) expr1^2;
 (%o5)/R/                  2 b + 2 a + 1
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-ratweights"></a>
 </p><dl>
-<dt><a name="index-ratweights"></a><u>システム変数:</u> <b>ratweights</b></dt>
+<dt><u>システム変数:</u> <b>ratweights</b>
+<a name="IDX604"></a>
+</dt>
 <dd><p>デフォルト値: <code>[]</code>
 </p>
 <p><code>ratweights</code>は <code>ratweight</code>が割り当てた重みのリストです。
@@ -2004,12 +2089,17 @@ CREではなく通常の式を返します。
 </p>
 <p><code>kill (ratweights)</code>と <code>save (ratweights)</code>はともに期待通り動作します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-ratwtlvl"></a>
 </p><dl>
-<dt><a name="index-ratwtlvl"></a><u>オプション変数:</u> <b>ratwtlvl</b></dt>
+<dt><u>オプション変数:</u> <b>ratwtlvl</b>
+<a name="IDX605"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>ratwtlvl</code>は、
@@ -2017,47 +2107,51 @@ CREではなく通常の式を返します。
 <code>ratweight</code>関数と組み合わせて使われます。
 デフォルト値の <code>false</code>では切り詰めは起こりません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-remainder"></a>
 </p><dl>
-<dt><a name="index-remainder"></a><u>関数:</u> <b>remainder</b><i> (<var>p_1</var>, <var>p_2</var>)</i></dt>
-<dt><a name="index-remainder-1"></a><u>関数:</u> <b>remainder</b><i> (<var>p_1</var>, <var>p_2</var>, <var>x_1</var>, &hellip;, <var>x_n</var>)</i></dt>
-<dd>
-<p>多項式 <var>p_1</var>を多項式 <var>p_2</var>で割った余りを返します。
+<dt><u>関数:</u> <b>remainder</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>remainder</tt> (<var>p_1</var>, <var>p_2</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>remainder</tt> (<var>p_1</var>, <var>p_2</var>, <var>x_1</var>, &hellip;, <var>x_n</var>)</i>
+<a name="IDX606"></a>
+</dt>
+<dd><p>多項式 <var>p_1</var>を多項式 <var>p_2</var>で割った余りを返します。
 引数 <var>x_1</var>, ..., <var>x_n</var>は<code>ratvars</code>と同様に解釈されます。
 </p>
 <p><code>remainder</code>は <code>divide</code>が返す２要素リストの２番目の要素を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 <p><a name="resultant"></a>
 <a name="Item_003a-resultant"></a>
 </p><dl>
-<dt><a name="index-resultant"></a><u>関数:</u> <b>resultant</b><i> (<var>p_1</var>, <var>p_2</var>, <var>x</var>)</i></dt>
-<dd>
-<p>関数 <code>resultant</code>は、変数 <var>x</var>を消去して２つの多項式
+<dt><u>関数:</u> <b>resultant</b><i> (<var>p_1</var>, <var>p_2</var>, <var>x</var>)</i>
+<a name="IDX607"></a>
+</dt>
+<dd><p>関数 <code>resultant</code>は、変数 <var>x</var>を消去して２つの多項式
 <var>p_1</var>と <var>p_2</var>の終結式を計算します。
 終結式は <var>p_1</var>と <var>p_2</var>の中の <var>x</var>の係数の判別式です。
 それは <var>p_1</var>と <var>p_2</var>が定数でない因子を共通に持つ時だけゼロに等しいです。
 </p>
 <p>もし <var>p_1</var>か <var>p_2</var>が因数分解できるなら、
-<code>resultant</code>をコールする前に <code><a href="#factor">factor</a></code>
-をコールするのが望ましいかもしれません。
+<code>resultant</code>をコールする前に <code><a href="#factor">factor</a></code>をコールするのが望ましいかもしれません。
 </p>
 <p>オプション変数 <code>resultant</code>はどのアルゴリズムが計算に使われるか制御します。
-オプション変数 <code><a href="#option_005fresultant">resultant</a></code>
-を参照してください。
+オプション変数 <code><a href="#option_005fresultant">resultant</a></code>を参照してください。
 </p>
-<p>関数 <code><a href="#bezout">bezout</a></code>
-は <code>resultant</code>と同じ引数を取り、行列を返します。
+<p>関数 <code><a href="#bezout">bezout</a></code>は <code>resultant</code>と同じ引数を取り、行列を返します。
 戻り値の判別式は望みの終結式です。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) resultant(2*x^2+3*x+1, 2*x^2+x+1, x);
+<pre class="example">(%i1) resultant(2*x^2+3*x+1, 2*x^2+x+1, x);
 (%o1)                           8
 (%i2) resultant(x+1, x+1, x);
 (%o2)                           0
@@ -2068,24 +2162,27 @@ CREではなく通常の式を返します。
 (%o4)                   c  - 2 b c + 4 a
 
 (%i5) bezout(a*x^2+b*x+1, c*x+2, x);
-</pre><pre class="example">                        [ 2 a  2 b - c ]
+                        [ 2 a  2 b - c ]
 (%o5)                   [              ]
                         [  c      2    ]
-</pre><pre class="example">(%i6) determinant(%);
+(%i6) determinant(%);
 (%o6)                   4 a - (2 b - c) c
-</pre></td></tr></table>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+</pre><div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 <p><a name="option_005fresultant"></a>
 </p>
 <dl>
-<dt><a name="index-resultant-1"></a><u>オプション変数:</u> <b>resultant</b></dt>
+<dt><u>オプション変数:</u> <b>resultant</b>
+<a name="IDX608"></a>
+</dt>
 <dd><p>デフォルト値: <code>subres</code>
 </p>
 <p>オプション変数 <code>resultant</code>は関数
-<code><a href="#resultant">resultant</a></code>.
-を使って終結式を計算するのにどのアルゴリズムが使われるか制御します。
+<code><a href="#resultant">resultant</a></code>.を使って終結式を計算するのにどのアルゴリズムが使われるか制御します。
 可能な値は以下の通りです:
 </p>
 <dl compact="compact">
@@ -2103,40 +2200,54 @@ CREではなく通常の式を返します。
 <p>大抵の問題では <code>subres</code>が最適です。
 いくつかの大きな次数の１変数もしくは２変数問題では <code>mod</code>がよりよいかもしれません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-savefactors"></a>
 </p><dl>
-<dt><a name="index-savefactors"></a><u>オプション変数:</u> <b>savefactors</b></dt>
+<dt><u>オプション変数:</u> <b>savefactors</b>
+<a name="IDX609"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>savefactors</code>が <code>true</code>の時、
 同じ因子のいくつかを含む式の因数分解を後でする時にスピードアップするために、
 いくつかの関数が因子の積の形の式の因子を保存されるようにします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-showratvars"></a>
 </p><dl>
-<dt><a name="index-showratvars"></a><u>関数:</u> <b>showratvars</b><i> (<var>expr</var>)</i></dt>
+<dt><u>関数:</u> <b>showratvars</b><i> (<var>expr</var>)</i>
+<a name="IDX610"></a>
+</dt>
 <dd><p>式 <code>expr</code>の中の標準有理式 (CRE)変数のリストを返します。
 </p>
 <p><code>ratvars</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
- &middot;<a href="maxima_100.html#Category_003a-Display-functions">Display functions</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a> &middot;
+<a href="maxima_100.html#Category_003a-Display-functions">Display functions</a>
+</div>
+</p>
 </dd></dl>
 
 
 <p><a name="sqfr"></a>
 <a name="Item_003a-sqfr"></a>
 </p><dl>
-<dt><a name="index-sqfr"></a><u>関数:</u> <b>sqfr</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p>多項式因子が「平方にならない」ことを除いて <code>factor</code>に似ています。
+<dt><u>関数:</u> <b>sqfr</b><i> (<var>expr</var>)</i>
+<a name="IDX611"></a>
+</dt>
+<dd><p>多項式因子が「平方にならない」ことを除いて <code>factor</code>に似ています。
 すなわち、それらは次数１だけの因子を持ちます。
 このアルゴリズムは <code>factor</code>の最初の段階でも使われるのですが、
 多項式は n階微分と共通に nよりも大きな次数のすべての因子を持つという事実を使います。
@@ -2145,21 +2256,23 @@ CREではなく通常の式を返します。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) sqfr (4*x^4 + 4*x^3 - 3*x^2 - 4*x - 1);
+<pre class="example">(%i1) sqfr (4*x^4 + 4*x^3 - 3*x^2 - 4*x - 1);
                                 2   2
 (%o1)                  (2 x + 1)  (x  - 1)
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-tellrat"></a>
 </p><dl>
-<dt><a name="index-tellrat"></a><u>関数:</u> <b>tellrat</b><i> (<var>p_1</var>, ..., <var>p_n</var>)</i></dt>
-<dt><a name="index-tellrat-1"></a><u>関数:</u> <b>tellrat</b><i> ()</i></dt>
-<dd>
-<p>多項式 <var>p_1</var>, ..., <var>p_n</var>の解である要素を
+<dt><u>関数:</u> <b>tellrat</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>tellrat</tt> (<var>p_1</var>, &hellip;, <var>p_n</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>tellrat</tt> ()</i>
+<a name="IDX612"></a>
+</dt>
+<dd><p>多項式 <var>p_1</var>, ..., <var>p_n</var>の解である要素を
 Maximaに知られている代数的整数の環に加えます。
 それぞれの引数 <var>p_i</var>は整数係数の多項式です。
 </p>
@@ -2186,7 +2299,7 @@ Maximaは特定の順序付けを選びますが、
 
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) 10*(%i + 1)/(%i + 3^(1/3));
+<pre class="example">(%i1) 10*(%i + 1)/(%i + 3^(1/3));
                            10 (%i + 1)
 (%o1)                      -----------
                                   1/3
@@ -2208,17 +2321,20 @@ Maximaは特定の順序付けを選びますが、
 (%i6) tellrat (y^2 = x^2);
                         2    2   2
 (%o6)                 [y  - x , a  + a + 1]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
- &middot;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a> &middot;
+<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-totaldisrep"></a>
 </p><dl>
-<dt><a name="index-totaldisrep"></a><u>関数:</u> <b>totaldisrep</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p><var>expr</var>のすべての部分式を標準有理式(CRE)から一般形に変換して結果を返します。
+<dt><u>関数:</u> <b>totaldisrep</b><i> (<var>expr</var>)</i>
+<a name="IDX613"></a>
+</dt>
+<dd><p><var>expr</var>のすべての部分式を標準有理式(CRE)から一般形に変換して結果を返します。
 もし <var>expr</var>がそれ自身CRE形なら、
 <code>totaldisrep</code>は <code>ratdisrep</code>と同一です。
 </p>
@@ -2226,36 +2342,44 @@ Maximaは特定の順序付けを選びますが、
 CRE形の部分式を持つ等式やリストや行列などの式を
 ratdisrepするために役に立つかもしれません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-untellrat"></a>
 </p><dl>
-<dt><a name="index-untellrat"></a><u>関数:</u> <b>untellrat</b><i> (<var>x_1</var>, &hellip;, <var>x_n</var>)</i></dt>
+<dt><u>関数:</u> <b>untellrat</b><i> (<var>x_1</var>, &hellip;, <var>x_n</var>)</i>
+<a name="IDX614"></a>
+</dt>
 <dd><p><var>x_1</var>, &hellip;, <var>x_n</var>から <code>tellrat</code>プロパティを削除します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a>
- &middot;<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Polynomials">Polynomials</a> &middot;
+<a href="maxima_100.html#Category_003a-Rational-expressions">Rational expressions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-Special-Functions"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Polynomials" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_15.html#Special-Functions" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC75" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_15.html#SEC78" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>5月, 20 2015</em>に<a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>を用いて生成されました。
  </font>
  <br>
 

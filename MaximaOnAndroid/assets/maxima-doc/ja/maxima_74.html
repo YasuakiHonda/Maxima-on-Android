@@ -1,27 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年9月月15日 by texi2html 1.82
-texi2html was written by: 
-            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+<!-- Created on 5月, 20 2015 by texi2html 1.76 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
             Olaf Bachmann <obachman@mathematik.uni-kl.de>
             and many others.
-Maintained by: Many creative people.
-Send bugs and suggestions to <texi2html-bug@nongnu.org>
+Maintained by: Many creative people <dev@texi2html.cvshome.org>
+Send bugs and suggestions to <users@texi2html.cvshome.org>
+
 -->
 <head>
-<title>Maxima 5.34.1 Manual: 74. simplex</title>
+<title>Maxima 5.36.1 Manual: 74. simplex</title>
 
-<meta name="description" content="Maxima 5.34.1 Manual: 74. simplex">
-<meta name="keywords" content="Maxima 5.34.1 Manual: 74. simplex">
+<meta name="description" content="Maxima 5.36.1 Manual: 74. simplex">
+<meta name="keywords" content="Maxima 5.36.1 Manual: 74. simplex">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.82">
+<meta name="Generator" content="texi2html 1.76">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
 pre.display {font-family: serif}
 pre.format {font-family: serif}
 pre.menu-comment {font-family: serif}
@@ -30,109 +30,30 @@ pre.smalldisplay {font-family: serif; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.roman {font-family:serif; font-weight:normal;}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
@@ -157,110 +78,113 @@ div.categorybox
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="simplex"></a>
+<a name="SEC349"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_73.html#Functions-and-Variables-for-romberg" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-simplex" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_73.html#SEC348" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC350" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_73.html#romberg" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#simplification" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_73.html#SEC347" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_75.html#SEC355" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="simplex-1"></a>
-<h1 class="chapter">74. simplex</h1>
+<h1 class="chapter"> 74. simplex </h1>
+
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-simplex">74.1 Introduction to simplex</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC350">74.1 Introduction to simplex</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-simplex">74.2 Functions and Variables for simplex</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC354">74.2 Functions and Variables for simplex</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <p><a name="Item_003a-Introduction-to-simplex"></a>
 </p><hr size="6">
 <a name="Introduction-to-simplex"></a>
+<a name="SEC350"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#simplex" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Tests-for-simplex" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC349" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC351" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#simplex" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#simplex" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#simplification" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC349" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC349" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_75.html#SEC355" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-simplex-1"></a>
-<h2 class="section">74.1 Introduction to simplex</h2>
+<h2 class="section"> 74.1 Introduction to simplex </h2>
 
 <p><code>simplex</code>はシンプレックスアルゴリズムを使った線形最適化のパッケージです。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;simplex&quot;)$
+<pre class="example">(%i1) load(&quot;simplex&quot;)$
 (%i2) minimize_lp(x+y, [3*x+2*y&gt;2, x+4*y&gt;3]);
                   9        7       1
 (%o2)            [--, [y = --, x = -]]
                   10       10      5
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a>
- &middot;<a href="maxima_100.html#Category_003a-Optimization">Optimization</a>
- &middot;<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a> &middot;
+<a href="maxima_100.html#Category_003a-Optimization">Optimization</a> &middot;
+<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a> &middot;
+<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a> 
+</div>
+</p>
 <hr size="6">
-<a name="Tests-for-simplex"></a>
+<a name="SEC351"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-simplex" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#klee_005fminty" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC350" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC352" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#simplex" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-simplex" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#simplification" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC349" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC350" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_75.html#SEC355" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h3 class="subsection">74.1.1 Tests for simplex</h3>
+<h3 class="subsection"> 74.1.1 Tests for simplex </h3>
 
 <p>ディレクトリ <code>share/simplex/Tests</code>にいくつかテストがあります。
 </p>
 <hr size="6">
-<a name="klee_005fminty"></a>
+<a name="SEC352"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Tests-for-simplex" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#NETLIB" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC351" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC353" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#simplex" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Tests-for-simplex" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#simplification" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC349" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC351" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_75.html#SEC355" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h4 class="subsubsection">74.1.1.1 klee_minty</h4>
+<h4 class="subsubsection"> 74.1.1.1 klee_minty </h4>
 
 <p>関数 <code>klee_minty</code>は
 <code>linear_program</code>のための入力を生成します。
@@ -268,36 +192,34 @@ div.categorybox
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">load(klee_minty)$
+<pre class="example">load(klee_minty)$
 apply(linear_program, klee_minty(6));
-</pre></td></tr></table>
-
+</pre>
 <p>よりよいアプローチ:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">epsilon_sx : 0$
+<pre class="example">epsilon_sx : 0$
 scale_sx : true$
 apply(linear_program, klee_minty(10));
-</pre></td></tr></table>
-
+</pre>
 <hr size="6">
-<a name="NETLIB"></a>
+<a name="SEC353"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#klee_005fminty" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-simplex" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC352" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC354" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#simplex" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Tests-for-simplex" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#simplification" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC349" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC351" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_75.html#SEC355" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h4 class="subsubsection">74.1.1.2 NETLIB</h4>
+<h4 class="subsubsection"> 74.1.1.2 NETLIB </h4>
 
 <p>netlib (<code>http://www.netlib.org/lp/data/</code>) テストスイートからいくつかのより小さい問題が
 Maximaが可読なフォーマットに変換されます。
@@ -306,63 +228,67 @@ Maximaが可読なフォーマットに変換されます。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">A : read_matrix(&quot;adlittle_A.csv&quot;, 'csv)$
+<pre class="example">A : read_matrix(&quot;adlittle_A.csv&quot;, 'csv)$
 b : read_list(&quot;adlittle_b.csv&quot;, 'csv)$
 c : read_list(&quot;adlittle_c.csv&quot;, 'csv)$
 linear_program(A, b, c)$
 %[2]
 =&gt; 225494.963126615
-</pre></td></tr></table>
-
+</pre>
 <p>結果:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">PROBLEM        MINIMUM                SCALING
+<pre class="example">PROBLEM        MINIMUM                SCALING
 adlittle       225494.963126615       no
 afiro          - 464.7531428571429    no
 kb2            - 1749.900129055996    yes
 sc50a          - 64.5750770585645     no
-</pre></td></tr></table>
-
+</pre>
 <p><a name="Item_003a-Functions-and-Variables-for-simplex"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-simplex"></a>
+<a name="SEC354"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#NETLIB" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#simplification" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC353" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_75.html#SEC355" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#simplex" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#simplex" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#simplification" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC349" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC349" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_75.html#SEC355" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-simplex-1"></a>
-<h2 class="section">74.2 Functions and Variables for simplex</h2>
+<h2 class="section"> 74.2 Functions and Variables for simplex </h2>
 
 <p><a name="Item_003a-epsilon_005flp"></a>
 </p><dl>
-<dt><a name="index-epsilon_005flp"></a><u>オプション変数:</u> <b>epsilon_lp</b></dt>
+<dt><u>オプション変数:</u> <b>epsilon_lp</b>
+<a name="IDX2327"></a>
+</dt>
 <dd><p>デフォルト値: <code>10^-8</code>
 </p>
 <p><code>linear_program</code>の数値計算で使われるイプシロン。
 </p>
 <p>以下も参照してください: <code>linear_program</code>
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-linear_005fprogram"></a>
 </p><dl>
-<dt><a name="index-linear_005fprogram"></a><u>関数:</u> <b>linear_program</b><i> (<var>A</var>, <var>b</var>, <var>c</var>)</i></dt>
-<dd>
-<p><code>linear_program</code>はシンプレックスアルゴリズムの実装です。
+<dt><u>関数:</u> <b>linear_program</b><i> (<var>A</var>, <var>b</var>, <var>c</var>)</i>
+<a name="IDX2328"></a>
+</dt>
+<dd><p><code>linear_program</code>はシンプレックスアルゴリズムの実装です。
 <code>linear_program(A, b, c)</code>は、
 <code>A.x = b</code>かつ <code>x &gt;= 0</code>を満たすベクトルの中で
 <code>c.x</code>が可能な最小となるベクトル <var>x</var>を計算します。
@@ -378,43 +304,50 @@ sc50a          - 64.5750770585645     no
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) A: matrix([1,1,-1,0], [2,-3,0,-1], [4,-5,0,0])$
+<pre class="example">(%i2) A: matrix([1,1,-1,0], [2,-3,0,-1], [4,-5,0,0])$
 (%i3) b: [1,1,6]$
 (%i4) c: [1,-2,0,0]$
 (%i5) linear_program(A, b, c);
                    13     19        3
 (%o5)            [[--, 4, --, 0], - -]
                    2      2         2
-</pre></td></tr></table>
-
+</pre>
 <p>以下も参照してください: <code>minimize_lp</code>, <code>scale_lp</code>, <code>epsilon_lp</code>
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a>
- &middot;<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a> &middot;
+<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-maximize_005flp"></a>
 </p><dl>
-<dt><a name="index-maximize_005flp"></a><u>関数:</u> <b>maximize_lp</b><i> (<var>obj</var>, <var>cond</var>, [<var>pos</var>])</i></dt>
-<dd>
-<p>いくつかの線形制約 <var>cond</var>に従う線形目標関数 <var>obj</var>を最大化します。
+<dt><u>関数:</u> <b>maximize_lp</b><i> (<var>obj</var>, <var>cond</var>, [<var>pos</var>])</i>
+<a name="IDX2329"></a>
+</dt>
+<dd><p>いくつかの線形制約 <var>cond</var>に従う線形目標関数 <var>obj</var>を最大化します。
 引数と戻り値の詳細な記述に関しては、
 <code>minimize_lp</code>を参照してください。
 </p>
 
 <p>以下も参照してください: <code>minimize_lp</code>.
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a>
- &middot;<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a> &middot;
+<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-minimize_005flp"></a>
 </p><dl>
-<dt><a name="index-minimize_005flp"></a><u>関数:</u> <b>minimize_lp</b><i> (<var>obj</var>, <var>cond</var>, [<var>pos</var>])</i></dt>
-<dd>
-<p>いくつかの線形制約 <var>cond</var>に従う線形目標関数 <var>obj</var>を最小化します。
+<dt><u>関数:</u> <b>minimize_lp</b><i> (<var>obj</var>, <var>cond</var>, [<var>pos</var>])</i>
+<a name="IDX2330"></a>
+</dt>
+<dd><p>いくつかの線形制約 <var>cond</var>に従う線形目標関数 <var>obj</var>を最小化します。
 <var>cond</var>は線形等式や不等式のリストです。
 厳密な不等式では、 <code>&gt;</code>は <code>&gt;=</code>に、
 <code>&lt;</code>は <code>&lt;=</code>に置き換えられます。
@@ -441,7 +374,7 @@ sc50a          - 64.5750770585645     no
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) minimize_lp(x+y, [3*x+y=0, x+2*y&gt;2]);
+<pre class="example">(%i1) minimize_lp(x+y, [3*x+y=0, x+2*y&gt;2]);
                       4       6        2
 (%o1)                [-, [y = -, x = - -]]
                       5       5        5
@@ -451,19 +384,23 @@ sc50a          - 64.5750770585645     no
 (%o3)                Problem not feasible!
 (%i4) minimize_lp(x+y, [3*x+y&gt;0]);
 (%o4)                Problem not bounded!
-</pre></td></tr></table>
-
+</pre>
 
 <p>いかも参照してください: <code>maximize_lp</code>, <code>nonegative_lp</code>, <code>epsilon_lp</code>。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a>
- &middot;<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a> &middot;
+<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-nonegative_005flp"></a>
 </p><dl>
-<dt><a name="index-nonegative_005flp"></a><u>オプション変数:</u> <b>nonegative_lp</b></dt>
+<dt><u>オプション変数:</u> <b>nonegative_lp</b>
+<a name="IDX2331"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p>もし <code>nonegative_lp</code>が trueなら、
@@ -471,42 +408,58 @@ sc50a          - 64.5750770585645     no
 </p>
 <p>以下も参照してください: <code>minimize_lp</code>。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-scale_005flp"></a>
 </p><dl>
-<dt><a name="index-scale_005flp"></a><u>Option variable:</u> <b>scale_lp</b></dt>
+<dt><u>Option variable:</u> <b>scale_lp</b>
+<a name="IDX2332"></a>
+</dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>When <code>scale_lp</code> is <code>true</code>,
 <code>linear_program</code> scales its input so that the maximum absolute value in each row or column is 1.
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-pivot_005fcount_005fsx"></a>
 </p><dl>
-<dt><a name="index-pivot_005fcount_005fsx"></a><u>変数:</u> <b>pivot_count_sx</b></dt>
-<dd>
-<p><code>linear_program</code>が戻った後、
+<dt><u>変数:</u> <b>pivot_count_sx</b>
+<a name="IDX2333"></a>
+</dt>
+<dd><p><code>linear_program</code>が戻った後、
 <code>pivot_count_sx</code>は最後の計算のピボットの数です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-pivot_005fmax_005fsx"></a>
 </p><dl>
-<dt><a name="index-pivot_005fmax_005fsx"></a><u>変数:</u> <b>pivot_max_sx</b></dt>
-<dd>
-<p><code>pivot_max_sx</code>は
+<dt><u>変数:</u> <b>pivot_max_sx</b>
+<a name="IDX2334"></a>
+</dt>
+<dd><p><code>pivot_max_sx</code>は
 <code>linear_program</code>が許すピボットの最大数です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-simplex">Package simplex</a>
+</div>
+</p>
 </dd></dl>
 
 
@@ -514,21 +467,21 @@ sc50a          - 64.5750770585645     no
 <p><a name="Item_003a-simplification"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#simplex" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#simplification" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC349" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_75.html#SEC355" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>5月, 20 2015</em>に<a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>を用いて生成されました。
  </font>
  <br>
 

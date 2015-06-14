@@ -1,27 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年9月月15日 by texi2html 1.82
-texi2html was written by: 
-            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+<!-- Created on 5月, 20 2015 by texi2html 1.76 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
             Olaf Bachmann <obachman@mathematik.uni-kl.de>
             and many others.
-Maintained by: Many creative people.
-Send bugs and suggestions to <texi2html-bug@nongnu.org>
+Maintained by: Many creative people <dev@texi2html.cvshome.org>
+Send bugs and suggestions to <users@texi2html.cvshome.org>
+
 -->
 <head>
-<title>Maxima 5.34.1 Manual: 8. Evaluation</title>
+<title>Maxima 5.36.1 Manual: 8. Evaluation</title>
 
-<meta name="description" content="Maxima 5.34.1 Manual: 8. Evaluation">
-<meta name="keywords" content="Maxima 5.34.1 Manual: 8. Evaluation">
+<meta name="description" content="Maxima 5.36.1 Manual: 8. Evaluation">
+<meta name="keywords" content="Maxima 5.36.1 Manual: 8. Evaluation">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.82">
+<meta name="Generator" content="texi2html 1.76">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
 pre.display {font-family: serif}
 pre.format {font-family: serif}
 pre.menu-comment {font-family: serif}
@@ -30,109 +30,30 @@ pre.smalldisplay {font-family: serif; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.roman {font-family:serif; font-weight:normal;}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
@@ -157,58 +78,60 @@ div.categorybox
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="Evaluation"></a>
+<a name="SEC44"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_7.html#User-defined-operators" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Evaluation" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_7.html#SEC43" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC45" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_7.html#Operators" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_9.html#Simplification" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_7.html#SEC36" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_9.html#SEC46" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Evaluation-1"></a>
-<h1 class="chapter">8. Evaluation</h1>
+<h1 class="chapter"> 8. Evaluation </h1>
+
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Evaluation">8.1 Functions and Variables for Evaluation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC45">8.1 Functions and Variables for Evaluation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <p><a name="Item_003a-Functions-and-Variables-for-Evaluation"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-Evaluation"></a>
+<a name="SEC45"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Evaluation" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_9.html#Simplification" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC44" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_9.html#SEC46" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Evaluation" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Evaluation" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_9.html#Simplification" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC44" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC44" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_9.html#SEC46" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-Evaluation-1"></a>
-<h2 class="section">8.1 Functions and Variables for Evaluation</h2>
+<h2 class="section"> 8.1 Functions and Variables for Evaluation </h2>
 
 
 <p><a name="quote"></a>
 <a name="Item_003a-_0027"></a>
 </p><dl>
-<dt><a name="index-_0027"></a><u>演算子:</u> <b>'</b></dt>
-<dd>
-<p>シングルクォート演算子 <code>'</code>は評価を抑制します。
+<dt><u>演算子:</u> <b>'</b>
+<a name="IDX238"></a>
+</dt>
+<dd><p>シングルクォート演算子 <code>'</code>は評価を抑制します。
 </p>
 <p>シンボルにシングルクォートを用いるとシンボルが評価されません。
 </p>
@@ -224,20 +147,17 @@ div.categorybox
 </p>
 <p>シングルクォートは式整理を抑制しません。
 </p>
-<p>グローバルフラグ <code><a href="maxima_6.html#noundisp">noundisp</a></code>
-が <code>true</code>の時
+<p>グローバルフラグ <code><a href="maxima_6.html#noundisp">noundisp</a></code>が <code>true</code>の時
 名詞はシングルクォート付きで表示されます。
 このスイッチは関数定義を表示するときには、常に<code>true</code>です。
 </p>
-<p>クォートクォート演算子 <code><a href="#quote_002dquote">''</a></code>
-と <code><a href="#nouns">nouns</a></code>
-も参照ください。
+<p>クォートクォート演算子 <code><a href="#quote_002dquote">''</a></code>と <code><a href="#nouns">nouns</a></code>も参照ください。
 </p>
 <p>例:
 </p>
 <p>シンボルにシングルクォートを用いるとシンボルが評価されません。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) aa: 1024;
+<pre class="example">(%i1) aa: 1024;
 (%o1)                         1024
 (%i2) aa^2;
 (%o2)                        1048576
@@ -246,13 +166,12 @@ div.categorybox
 (%o3)                          aa
 (%i4) ''%;
 (%o4)                        1048576
-</pre></td></tr></table>
-
+</pre>
 <p>関数コールにシングルクォートを用いると、関数の引数は評価されますが、
 関数コールが評価されません。
 結果は関数コールの名詞形です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) x0: 5;
+<pre class="example">(%i1) x0: 5;
 (%o1)                           5
 (%i2) x1: 7;
 (%o2)                           7
@@ -272,11 +191,10 @@ div.categorybox
                                218
 (%o5)                          ---
                                 3
-</pre></td></tr></table>
-
+</pre>
 <p>括弧でくくられた式にシングルクォートを用いると、式の中のすべてのシンボルと関数コールは評価されません。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) aa: 1024;
+<pre class="example">(%i1) aa: 1024;
 (%o1)                         1024
 (%i2) bb: 19;
 (%o2)                          19
@@ -286,29 +204,25 @@ div.categorybox
 (%o4)                     bb + sqrt(aa)
 (%i5) ''%;
 (%o5)                          51
-</pre></td></tr></table>
-
+</pre>
 <p>シングルクォートは式整理を抑制しません。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) sin (17 * %pi) + cos (17 * %pi);
+<pre class="example">(%i1) sin (17 * %pi) + cos (17 * %pi);
 (%o1)                          - 1
 (%i2) '(sin (17 * %pi) + cos (17 * %pi));
 (%o2)                          - 1
-</pre></td></tr></table>
-
+</pre>
 <p>Maximaは組み込み数学関数による浮動小数点演算を整理とみなします。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) sin(1.0);
+<pre class="example">(%i1) sin(1.0);
 (%o1)                          .8414709848078965
 (%i2) '(sin(1.0));
 (%o2)                          .8414709848078965
-</pre></td></tr></table>
-
-<p>グローバルフラグ <code><a href="maxima_6.html#noundisp">noundisp</a></code>
- が <code>true</code> の時、
+</pre>
+<p>グローバルフラグ <code><a href="maxima_6.html#noundisp">noundisp</a></code> が <code>true</code> の時、
 シングルクオートで名詞を表示します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) x:%pi;
+<pre class="example">(%i1) x:%pi;
 (%o1)                                 %pi
 (%i2) bfloat(x);
 (%o2)                         3.141592653589793b0
@@ -335,16 +249,20 @@ div.categorybox
 (%i13) sin('x);
 (%o13)                              sin(x)
 (%i14)
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation">Evaluation</a>
- &middot;<a href="maxima_100.html#Category_003a-Operators">Operators</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation">Evaluation</a> &middot;
+<a href="maxima_100.html#Category_003a-Operators">Operators</a>
+</div>
+</p></dd></dl>
 
 <p><a name="quote_002dquote"></a>
 <a name="Item_003a-_0027_0027"></a>
 </p><dl>
-<dt><a name="index-_0027_0027"></a><u>演算子:</u> <b>''</b></dt>
+<dt><u>演算子:</u> <b>&quot;</b>
+<a name="IDX239"></a>
+</dt>
 <dd><p>クォートクォート演算子<code>''</code>(シングルクォートマーク２つ）は
 入力式の中の評価を部分修正します。
 </p>
@@ -360,20 +278,16 @@ div.categorybox
 このように、関数定義やラムダ式、シングルクォート<code>'</code>でクォートされた式の中のように通常評価が抑制される時も、
 クォートクォートがあると評価を実行します。
 </p>
-<p><code><a href="maxima_13.html#batch">batch</a></code>
-や<code><a href="maxima_13.html#load">load</a></code>
-はクォートクォートを認識します。
+<p><code><a href="maxima_13.html#batch">batch</a></code>や<code><a href="maxima_13.html#load">load</a></code>はクォートクォートを認識します。
 </p>
-<p>シングルクォート演算子 <code><a href="#quote">'</a></code>
-と <code><a href="#nouns">nouns</a></code>
-も参照ください。
+<p>シングルクォート演算子 <code><a href="#quote">'</a></code>と <code><a href="#nouns">nouns</a></code>も参照ください。
 </p>
 <p>例:
 </p>
 <p>一般式 <var>expr</var>にクォートクォートを用いると入力式の中の <var>expr</var>に
 <var>expr</var>の値を代入します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) expand ((a + b)^3);
+<pre class="example">(%i1) expand ((a + b)^3);
                      3        2      2      3
 (%o1)               b  + 3 a b  + 3 a  b + a
 (%i2) [_, ''_];
@@ -404,12 +318,11 @@ div.categorybox
 (%o13)                         x2
 (%i14) '' ''x0;
 (%o14)                         x3
-</pre></td></tr></table>
-
+</pre>
 <p>式の演算子にクォートクォートを用いると
 （もし動詞でないなら）演算子は名詞から動詞に変わります。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) declare (foo, noun);
+<pre class="example">(%i1) declare (foo, noun);
 (%o1)                         done
 (%i2) foo (x) := x - 1729;
 (%o2)                 ''foo(x) := x - 1729
@@ -417,12 +330,11 @@ div.categorybox
 (%o3)                       foo(100)
 (%i4) ''foo (100);
 (%o4)                        - 1629
-</pre></td></tr></table>
-
+</pre>
 <p>クォートクォート演算子は入力パーサが適用します;
 クォートクォート演算子はパースされた入力式の一部としては格納されません。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) [aa : bb, cc : dd, bb : 1234, dd : 5678];
+<pre class="example">(%i1) [aa : bb, cc : dd, bb : 1234, dd : 5678];
 (%o1)                 [bb, dd, 1234, 5678]
 (%i2) aa + cc;
 (%o2)                        dd + bb
@@ -444,13 +356,12 @@ div.categorybox
                     args(dd + bb) = [dd, bb]
 
 (%o5)                         done
-</pre></td></tr></table>
-
+</pre>
 <p>関数定義やラムダ式、シングルクォート<code>'</code>でクォートされた式の中のように
 通常評価が抑制される時も、
 クォートクォートがあると評価を実行します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) foo_1a (x) := ''(integrate (log (x), x));
+<pre class="example">(%i1) foo_1a (x) := ''(integrate (log (x), x));
 (%o1)               foo_1a(x) := x log(x) - x
 (%i2) foo_1b (x) := integrate (log (x), x);
 (%o2)           foo_1b(x) := integrate(log(x), x)
@@ -482,19 +393,22 @@ div.categorybox
 (%i13) '(''(sum (a[k], k, 1, 3)) + ''(sum (b[k], k, 1, 3)));
 (%o13)             b  + a  + b  + a  + b  + a
                     3    3    2    2    1    1
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation">Evaluation</a>
- &middot;<a href="maxima_100.html#Category_003a-Operators">Operators</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation">Evaluation</a> &middot;
+<a href="maxima_100.html#Category_003a-Operators">Operators</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="ev"></a>
 <a name="Item_003a-ev"></a>
 </p><dl>
-<dt><a name="index-ev"></a><u>関数:</u> <b>ev</b><i> (<var>expr</var>, <var>arg_1</var>, &hellip;, <var>arg_n</var>)</i></dt>
-<dd>
-<p>引数<var>arg_1</var>, &hellip;, <var>arg_n</var>で指定された環境下で
+<dt><u>関数:</u> <b>ev</b><i> (<var>expr</var>, <var>arg_1</var>, &hellip;, <var>arg_n</var>)</i>
+<a name="IDX240"></a>
+</dt>
+<dd><p>引数<var>arg_1</var>, &hellip;, <var>arg_n</var>で指定された環境下で
 式<var>expr</var>を評価します。
 引数はスイッチ（ブーリアンフラグ）だったり、割り当てだったり、
 等式だったり、関数だったりします。
@@ -508,59 +422,43 @@ div.categorybox
 
 <ul>
 <li>
-<code><a href="maxima_9.html#simp">simp</a></code>
-を引数に指定すると<var>expr</var>を整理します。<code>false</code>なら整理を抑制するスイッチ<code>simp</code>の設定に関わらずです。
+<code><a href="maxima_9.html#simp">simp</a></code>を引数に指定すると<var>expr</var>を整理します。<code>false</code>なら整理を抑制するスイッチ<code>simp</code>の設定に関わらずです。
 </li><li>
-<code><a href="#noeval">noeval</a></code>
-を引数に指定すると<code>ev</code>の評価フェイズを抑制します。
+<code><a href="#noeval">noeval</a></code>を引数に指定すると<code>ev</code>の評価フェイズを抑制します。
 （以下のステップ(4)を参照してください。）
 これは、他のスイッチとの連携時や、<var>expr</var>を再評価せずに再整理をさせる時に役に立ちます。
 </li><li>
-<code><a href="#nouns">nouns</a></code>
-を引数に指定すると<var>expr</var>の中の名詞形式
+<code><a href="#nouns">nouns</a></code>を引数に指定すると<var>expr</var>の中の名詞形式
 （典型的には、<code>'integrate</code>や<code>'diff</code>のような未評価関数）を評価します。
 </li><li>
-<code><a href="maxima_9.html#expand">expand</a></code>
-を引数に指定すると展開します。
+<code><a href="maxima_9.html#expand">expand</a></code>を引数に指定すると展開します。
 </li><li>
 <code>expand (<var>m</var>, <var>n</var>)</code>を引数に指定すると、
-<code><a href="maxima_9.html#maxposex">maxposex</a></code>
-と<code><a href="maxima_9.html#maxnegex">maxnegex</a></code>
-の値をそれぞれ<var>m</var>と<var>n</var>に設定して、展開します。
+<code><a href="maxima_9.html#maxposex">maxposex</a></code>と<code><a href="maxima_9.html#maxnegex">maxnegex</a></code>の値をそれぞれ<var>m</var>と<var>n</var>に設定して、展開します。
 </li><li>
-<code><a href="maxima_23.html#detout">detout</a></code>
-を引数に指定すると、<var>expr</var>の中で計算されるどんな逆行列も、逆行列の外側に行列式を保つようにします。
+<code><a href="maxima_23.html#detout">detout</a></code>を引数に指定すると、<var>expr</var>の中で計算されるどんな逆行列も、逆行列の外側に行列式を保つようにします。
 </li><li>
-<code><a href="maxima_18.html#diff">diff</a></code>
-を引数に指定すると<var>expr</var>の中のすべての微分を実行します。
+<code><a href="maxima_18.html#diff">diff</a></code>を引数に指定すると<var>expr</var>の中のすべての微分を実行します。
 </li><li>
 <code>derivlist (<var>x</var>, <var>y</var>, <var>z</var>, ...)</code>を引数に指定すると指定された変数に関する微分のみを実行します。
 </li><li>
 <code>risch</code>を引数に指定すると
 <var>expr</var>の中の積分をRischアルゴリズムを使って評価します。
-<code><a href="maxima_19.html#risch">risch</a></code>
-を参照してください。
-特殊なシンボル<code><a href="#nouns">nouns</a></code>
-を使った時には標準の積分ルーチンが呼び出されます。
+<code><a href="maxima_19.html#risch">risch</a></code>を参照してください。
+特殊なシンボル<code><a href="#nouns">nouns</a></code>を使った時には標準の積分ルーチンが呼び出されます。
 </li><li>
-<code><a href="maxima_5.html#float">float</a></code>
-を引数に指定すると非整数有理数を浮動小数点に変換します。
+<code><a href="maxima_5.html#float">float</a></code>を引数に指定すると非整数有理数を浮動小数点に変換します。
 </li><li>
-<code><a href="maxima_5.html#numer">numer</a></code>
-を引数に指定すると数値引数が指定された（指数関数を含む）いくつかの数学関数を浮動小数点に評価します。
+<code><a href="maxima_5.html#numer">numer</a></code>を引数に指定すると数値引数が指定された（指数関数を含む）いくつかの数学関数を浮動小数点に評価します。
 また、<var>expr</var>の中の numerval宣言された変数は、宣言された値に置き換えられます。
-また、<code><a href="maxima_5.html#float">float</a></code>
-スイッチをオンにします。
+また、<code><a href="maxima_5.html#float">float</a></code>スイッチをオンにします。
 </li><li>
-<code><a href="#pred">pred</a></code>
-を引数に指定すると述語（<code>true</code>もしくは<code>false</code>に評価される式）を評価します。
+<code><a href="#pred">pred</a></code>を引数に指定すると述語（<code>true</code>もしくは<code>false</code>に評価される式）を評価します。
 </li><li>
-<code><a href="#eval">eval</a></code>
-を引数に指定すると<var>expr</var>の特別な後評価をします。（ステップ(5)を参照。）
+<code><a href="#eval">eval</a></code>を引数に指定すると<var>expr</var>の特別な後評価をします。（ステップ(5)を参照。）
 <code>eval</code>は複数回起こるかもしれません。<code>eval</code>のそれぞれのインスタンスのために、式は再評価されます。
 </li><li>
-評価フラグ（<code><a href="#evflag">evflag</a></code>
-を参照）として宣言されたアトム<code>A</code>を引数に指定すると、
+評価フラグ（<code><a href="#evflag">evflag</a></code>を参照）として宣言されたアトム<code>A</code>を引数に指定すると、
 <var>expr</var>の評価の最中、<code>A</code>が<code>true</code>にバインドされます。
 </li><li>
 <code>V: expression</code>（もしくは代わりに<code>V=expression</code>）を引数に指定すると、
@@ -569,12 +467,10 @@ div.categorybox
 もし<code>ev</code>の複数の引数がこのタイプの場合、並列してバインドされます。
 もし<code>V</code>が非アトムの式なら、バインドではなく、代入が実行されます。
 </li><li>
-関数名 <code>F</code>が評価関数(<code><a href="#evfun">evfun</a></code>
-参照)として宣言されている場合、
+関数名 <code>F</code>が評価関数(<code><a href="#evfun">evfun</a></code>参照)として宣言されている場合、
 <code>F</code>を引数に指定すると <code>F</code>が <var>expr</var>に適用されます。
 </li><li>
-他のどんな関数名（例えば、<code><a href="maxima_28.html#sum">sum</a></code>
-)でも引数に指定すると、
+他のどんな関数名（例えば、<code><a href="maxima_28.html#sum">sum</a></code>)でも引数に指定すると、
 <var>expr</var>の中にそれらの名前が現れた時それらが動詞であるかのように評価します。
 </li><li>
 加えて、exprの中で出現する関数（<code>F(x)</code>としましょう）を、
@@ -585,8 +481,7 @@ div.categorybox
 それを評価して、
 もしその結果が等式もしくは割り当てであったら、示されたバインドもしくは代入を実行します。
 もしその結果がリストなら、リストのメンバが、 <code>ev</code>に与えられた追加の引数であるかのように扱います。
-これにより、 <code><a href="maxima_20.html#solve">solve</a></code>
-が返すような、与えられた等式のリスト
+これにより、 <code><a href="maxima_20.html#solve">solve</a></code>が返すような、与えられた等式のリスト
 （例えば、 <code>[X=1,Y=A**2]</code>)や
 等式の名前のリスト（例えば、 <code>[%t1, %t2]</code>。ここで <code>%t1</code>, <code>%t2</code>は等式）が使えます。
 </li></ul>
@@ -596,10 +491,7 @@ div.categorybox
 評価関数は、例えば、 <code>ev (<var>expr</var>, ratsimp, realpart)</code>は
 <code>realpart (ratsimp (<var>expr</var>))</code>と扱われるように合成されます。
 </p>
-<p><code><a href="maxima_9.html#simp">simp</a></code>
-, <code><a href="maxima_5.html#numer">numer</a></code>
-, <code><a href="maxima_5.html#float">float</a></code>
-スイッチは、ブロックの中でローカルにも、
+<p><code><a href="maxima_9.html#simp">simp</a></code>, <code><a href="maxima_5.html#numer">numer</a></code>, <code><a href="maxima_5.html#float">float</a></code>スイッチは、ブロックの中でローカルにも、
 またMaximaの中でグローバルにも設定でき、その場合リセットされるまで効果を保ちます。
 </p>
 <p><code>numer</code>と <code>float</code>スイッチがともに <code>true</code>でない場合、
@@ -618,41 +510,37 @@ step (1)の最中に、引数の中のもしくは引数の値の、等式の左
 引数で指定されたどんな代入文もすぐ実行されます。
 
 </li><li>
-（引数で<code><a href="#noeval">noeval</a></code>
-が指定されていない限り）結果の式は再評価され
+（引数で<code><a href="#noeval">noeval</a></code>が指定されていない限り）結果の式は再評価され
 引数に従って整理されます。
 <var>expr</var>の中のどんな関数コールもその中の変数が評価された後実行されること、
 <code>ev(F(x))</code>は <code>F(ev(x))</code>のように振る舞うことに注意してください。
 
 </li><li>
-引数の中の<code><a href="#eval">eval</a></code>
-のそれぞれのインスタンスのために
+引数の中の<code><a href="#eval">eval</a></code>のそれぞれのインスタンスのために
 step (3)(4)を繰り返します。
 </li></ol>
 
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) sin(x) + cos(y) + (w+1)^2 + 'diff (sin(w), w);
+<pre class="example">(%i1) sin(x) + cos(y) + (w+1)^2 + 'diff (sin(w), w);
                                      d                    2
 (%o1)              cos(y) + sin(x) + -- (sin(w)) + (w + 1)
                                      dw
 (%i2) ev (%, numer, expand, diff, x=2, y=1);
                              2
 (%o2)              cos(w) + w  + 2 w + cos(1) + 2.449599732693821
-</pre></td></tr></table>
-
+</pre>
 <p><code>ev</code>のために代わりのトップレベルの文法が提供されています。
 それによって<code>ev()</code>なしに引数をタイプして入力するだけでよくなります。
 すなわち、単に以下のように書けます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example"><var>expr</var>, <var>arg_1</var>, ..., <var>arg_n</var>
-</pre></td></tr></table>
-
+<pre class="example"><var>expr</var>, <var>arg_1</var>, ..., <var>arg_n</var>
+</pre>
 <p>これは、例えば、関数やブロックの中など、他の式の一部としては許されません。
 </p>
 <p>以下の例では並列のバインドプロセスに注意してください。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) programmode: false;
+<pre class="example">(%i3) programmode: false;
 (%o3)                                false
 (%i4) x+y, x: a+y, y: 2;
 (%o4)                              y + a + 2
@@ -679,25 +567,27 @@ Solution
 (%o10)                      2.5 &gt; 1.772453850905516
 (%i11) %, pred;
 (%o11)                               true
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation">Evaluation</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation">Evaluation</a>
+</div>
+</p></dd></dl>
 
 <p><a name="eval"></a>
 <a name="Item_003a-eval"></a>
 </p><dl>
-<dt><a name="index-eval"></a><u>特殊シンボル:</u> <b>eval</b></dt>
-<dd>
-<p><code>ev (<var>expr</var>)</code>のコールの引数として
+<dt><u>特殊シンボル:</u> <b>eval</b>
+<a name="IDX241"></a>
+</dt>
+<dd><p><code>ev (<var>expr</var>)</code>のコールの引数として
 <code>eval</code>は
 <var>expr</var>の追加の評価をもたらします。
-<code><a href="#ev">ev</a></code>
-を参照してください。
+<code><a href="#ev">ev</a></code>を参照してください。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) [a:b,b:c,c:d,d:e];
+<pre class="example">(%i1) [a:b,b:c,c:d,d:e];
 (%o1)                            [b, c, d, e]
 (%i2) a;
 (%o2)                                  b
@@ -707,17 +597,20 @@ Solution
 (%o4)                                  e
 (%i5) a,eval,eval;
 (%o5)                                  e
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation-flags">Evaluation flags</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation-flags">Evaluation flags</a>
+</div>
+</p></dd></dl>
 
 <p><a name="evflag"></a>
 <a name="Item_003a-evflag"></a>
 </p><dl>
-<dt><a name="index-evflag"></a><u>プロパティ:</u> <b>evflag</b></dt>
-<dd>
-<p>シンボル<code>x</code>が<code>evflag</code>プロパティを持つ時、
+<dt><u>プロパティ:</u> <b>evflag</b>
+<a name="IDX242"></a>
+</dt>
+<dd><p>シンボル<code>x</code>が<code>evflag</code>プロパティを持つ時、
 式<code>ev(<var>expr</var>, <var>x</var>)</code>や対話プロンプトでの<code><var>expr</var>, <var>x</var></code>は
 <code>ev(<var>expr</var>, <var>x</var> = true)</code>と同値です。
 すなわち、<var>expr</var>が評価される間、<var>x</var>は<code>true</code>にバインドされます。
@@ -741,7 +634,7 @@ Solution
 </pre>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) sin (1/2);
+<pre class="example">(%i1) sin (1/2);
                                  1
 (%o1)                        sin(-)
                                  2
@@ -776,18 +669,21 @@ Solution
 (%o11)                         NO
 (%i12) if aa = true then YES else NO, aa;
 (%o12)                         YES
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation-flags">Evaluation flags</a>
- &middot;<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation-flags">Evaluation flags</a> &middot;
+<a href="maxima_100.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="evfun"></a>
 <a name="Item_003a-evfun"></a>
 </p><dl>
-<dt><a name="index-evfun"></a><u>プロパティ:</u> <b>evfun</b></dt>
-<dd>
-<p>関数 <var>F</var>が <code>evfun</code>プロパティを持つ時、
+<dt><u>プロパティ:</u> <b>evfun</b>
+<a name="IDX243"></a>
+</dt>
+<dd><p>関数 <var>F</var>が <code>evfun</code>プロパティを持つ時、
 式 <code>ev(<var>expr</var>, <var>F</var>)</code>や（対話プロンプトでの）
 <code><var>expr</var>, <var>F</var></code>は <code><var>F</var>(ev(<var>expr</var>))</code>と同値です。
 </p>
@@ -805,7 +701,7 @@ Solution
 </pre>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) x^3 - 1;
+<pre class="example">(%i1) x^3 - 1;
                               3
 (%o1)                        x  - 1
 (%i2) x^3 - 1, factor;
@@ -815,11 +711,11 @@ Solution
                                 2
 (%o3)                 (x - 1) (x  + x + 1)
 (%i4) cos(4 * x) / sin(x)^4;
-</pre><pre class="example">                            cos(4 x)
+                            cos(4 x)
 (%o4)                       --------
                                4
                             sin (x)
-</pre><pre class="example">(%i5) cos(4 * x) / sin(x)^4, trigexpand;
+(%i5) cos(4 * x) / sin(x)^4, trigexpand;
                  4           2       2         4
               sin (x) - 6 cos (x) sin (x) + cos (x)
 (%o5)         -------------------------------------
@@ -853,102 +749,111 @@ Solution
 (%o14)                      G(F(cc))
 (%i15) G (F (ev (aa)));
 (%o15)                      G(F(cc))
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation-flags">Evaluation flags</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation-flags">Evaluation flags</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="infeval"></a>
 <a name="Item_003a-infeval"></a>
 </p><dl>
-<dt><a name="index-infeval"></a><u>オプション変数:</u> <b>infeval</b></dt>
-<dd>
-<p>「無限評価」モードにします。
+<dt><u>オプション変数:</u> <b>infeval</b>
+<a name="IDX244"></a>
+</dt>
+<dd><p>「無限評価」モードにします。
 <code>ev</code>は値が変わらなくなるまで式を繰り返し評価します。
 このモードで変数 (<code>X</code>とします）が評価されることを避けるには、単に
 <code>X='X</code>を <code>ev</code>の引数として含めます。
 <code>ev (X, X=X+1, infeval)</code>のような式はもちろん、無限ループを引き起こします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation-flags">Evaluation flags</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation-flags">Evaluation flags</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="noeval"></a>
 <a name="Item_003a-noeval"></a>
 </p><dl>
-<dt><a name="index-noeval"></a><u>特殊シンボル:</u> <b>noeval</b></dt>
-<dd>
-<p><code>noeval</code>は <code><a href="#ev">ev</a></code>
-の評価フェイズを抑制します。
+<dt><u>特殊シンボル:</u> <b>noeval</b>
+<a name="IDX245"></a>
+</dt>
+<dd><p><code>noeval</code>は <code><a href="#ev">ev</a></code>の評価フェイズを抑制します。
 これは、他のスイッチと連携したり、
 式を再評価することなしに再整理したりするのに役に立ちます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation-flags">Evaluation flags</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation-flags">Evaluation flags</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="nouns"></a>
 <a name="Item_003a-nouns"></a>
 </p><dl>
-<dt><a name="index-nouns"></a><u>特殊シンボル:</u> <b>nouns</b></dt>
-<dd>
-<p><code>nouns</code>は <code><a href="#evflag">evflag</a></code>
-の１つです。
-<code><a href="#ev">ev</a></code>
-コマンドのオプションとして使われる時、
-<code>nouns</code>は式の中に現れる「名詞」形すべてを「動詞」に <code><a href="#ev">ev</a></code>
-します。
+<dt><u>特殊シンボル:</u> <b>nouns</b>
+<a name="IDX246"></a>
+</dt>
+<dd><p><code>nouns</code>は <code><a href="#evflag">evflag</a></code>の１つです。
+<code><a href="#ev">ev</a></code>コマンドのオプションとして使われる時、
+<code>nouns</code>は式の中に現れる「名詞」形すべてを「動詞」に <code><a href="#ev">ev</a></code>します。
 すなわち、それらを評価します。
-<code><a href="maxima_6.html#noun">noun</a></code>
-, <code><a href="maxima_6.html#nounify">nounify</a></code>
-, <code>verb</code>, <code><a href="maxima_6.html#verbify">verbify</a></code>
-も参照してください。
+<code><a href="maxima_6.html#noun">noun</a></code>, <code><a href="maxima_6.html#nounify">nounify</a></code>, <code>verb</code>, <code><a href="maxima_6.html#verbify">verbify</a></code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation-flags">Evaluation flags</a>
- &middot;<a href="maxima_100.html#Category_003a-Nouns-and-verbs">Nouns and verbs</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation-flags">Evaluation flags</a> &middot;
+<a href="maxima_100.html#Category_003a-Nouns-and-verbs">Nouns and verbs</a>
+</div>
+</p></dd></dl>
 
 <p><a name="pred"></a>
 <a name="Item_003a-pred"></a>
 </p><dl>
-<dt><a name="index-pred"></a><u>特殊シンボル:</u> <b>pred</b></dt>
-<dd>
-<p><code>ev (<var>expr</var>)</code>のコールでの引数として、
+<dt><u>特殊シンボル:</u> <b>pred</b>
+<a name="IDX247"></a>
+</dt>
+<dd><p><code>ev (<var>expr</var>)</code>のコールでの引数として、
 <code>pred</code>は
 述語論理 (<code>true</code>または <code>false</code>に評価される式)を評価するようにします。
-<code><a href="#ev">ev</a></code>
-を参照してください。
+<code><a href="#ev">ev</a></code>を参照してください。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) 1&lt;2;
+<pre class="example">(%i1) 1&lt;2;
 (%o1)                                1 &lt; 2
 (%i2) 1&lt;2,pred;
 (%o2)                                true
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation-flags">Evaluation flags</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Evaluation-flags">Evaluation flags</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-Simplification"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Evaluation" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_9.html#Simplification" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC44" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_9.html#SEC46" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>5月, 20 2015</em>に<a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>を用いて生成されました。
  </font>
  <br>
 

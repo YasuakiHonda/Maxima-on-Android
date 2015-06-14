@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on Setembro, 8 2014 by texi2html 1.76 -->
+<!-- Created on Janeiro, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual do Maxima: 59. mnewton</title>
+<title>Manual do Maxima 5.35.71.g68475e4: 59. numericalio</title>
 
-<meta name="description" content="Manual do Maxima: 59. mnewton">
-<meta name="keywords" content="Manual do Maxima: 59. mnewton">
+<meta name="description" content="Manual do Maxima 5.35.71.g68475e4: 59. numericalio">
+<meta name="keywords" content="Manual do Maxima 5.35.71.g68475e4: 59. numericalio">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,217 +32,275 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="mnewton"></a>
-<a name="SEC213"></a>
+<a name="numericalio"></a>
+<a name="SEC214"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_58.html#SEC212" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC214" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_58.html#SEC213" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC215" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_58.html#SEC211" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_58.html#SEC212" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_60.html#SEC215" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC217" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter"> 59. mnewton </h1>
+<h1 class="chapter"> 59. numericalio </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC214">59.1 Defini&ccedil;&otilde;es para mnewton</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC215">59.1 Introdução a numericalio</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC216">59.2 Definições para numericalio</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <hr size="6">
-<a name="Defini_00e7_00f5es-para-mnewton"></a>
-<a name="SEC214"></a>
+<a name="Introdu_00e7_00e3o-a-numericalio"></a>
+<a name="SEC215"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC213" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_60.html#SEC215" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC214" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC216" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC213" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC213" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_60.html#SEC215" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC214" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC214" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC217" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 59.1 Defini&ccedil;&otilde;es para mnewton </h2>
+<h2 class="section"> 59.1 Introdução a numericalio </h2>
+
+<p><code>numericalio</code> é uma colecção de funções para ler e escrever ficheiros de dados.
+O ficheiro é lido completamente para construir um objecto;
+leituras parciais não são suportadas.
+</p>
+<p>É assumido que cada item a ler ou escrever é at&ocirc;mico:
+um número inteiro, número em ponto flutuante, grande número em ponto flutuante, sequência de caracteres, ou símbolo,
+e não um número racional ou um número complexo ou qualquer outro tipo de expressão não at&ocirc;mica.
+Essas funções podem tentar fazer alguma coisa levemente parecida com expressões não at&ocirc;micas,
+mas os resultados não são especificados aqui e são sujeitos a mudanças.
+</p>
+<p>Átomos em ambos os ficheiros de entrada e saída possuem o mesmo formato que
+em ficheiros de lote do Maxima ou no console interativo.
+Em particular, sequência de caracteres são contidas dentro de aspas duplas,
+contrabarra <code>\</code> evita qualquer interpretação especial do caractere seguinte,
+e o ponto de interrogação <code>?</code> é reconhecido no início de um símbolo
+para significar um símbolo do Lisp (em oposição a um símbolo do Maxima).
+Nenhum caractere de continuação (para continuar linhas quebradas) é reconhecido.
+</p>
+<p><var>separator_flag</var> diz que caracteres separa elementos.
+<var>separator_flag</var> é um argumento opcional para todas as funções de leitura e escrita.
+</p>
+<p>Para entrada, os valores de <var>separator_flag</var> reconhecidos são:
+<code>comma</code> para valores separados por vírgula,
+<code>pipe</code> para valores separados pelo caractere barra vertical <code>|</code>,
+<code>semicolon</code> para valores separados por ponto e vírgula <code>;</code>, 
+e <code>space</code> para valores separados pelos caracteres de espaço e de tabulação.
+Se o nome do ficheiro a ser lido/escrito termina em <code>.csv</code> e <var>separator_flag</var> não for especificado,
+<code>comma</code> é assumido.
+Se o nome do ficheiro termina em alguma outra coisa que não <code>.csv</code> e <code>separator_flag</code> não for especificado,
+<code>space</code> é assumido.
+</p>
+<p>Para saída, os mesmos quatro sinalizadores são reconhecidos como na entrada,
+e também <code>tab</code>, para valores separados pelo caractere de tabulaçao.
+</p>
+<p>Em entrada, múltiplos espaços e múltiplas tabulações sucessivas contam como um separador simples.
+Todavia, múltiplas vírgulas, barras verticais, ou ponto-e-vírgulas são significativos.
+Sucessivas vírgulas, barras verticais, ou ponto-e-vírgulas (com ou sem intercalação de espaços ou tabulações)
+são considerados como tendo <code>false</code> entre os separadores.
+Por exemplo, <code>1234,,Foo</code> é tratado da mesma forma que <code>1234,false,Foo</code>.
+Em saídas, os átomos <code>false</code> são escritos como tais;
+uma lista <code>[1234, false, Foo]</code> é escrita <code>1234,false,Foo</code>,
+e não é tentado colapsar a saída para <code>1234,,Foo</code>.
+</p>
+<hr size="6">
+<a name="Defini_00e7_00f5es-para-numericalio"></a>
+<a name="SEC216"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC215" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC217" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC214" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC214" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC217" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 59.2 Definições para numericalio </h2>
+
+   <dl>
+<dt><u>Função:</u> <b>read_matrix</b><i> (<var>nomeficheiro</var>)</i>
+<a name="IDX1802"></a>
+</dt>
+<dt><u>Função:</u> <b>read_matrix</b><i> (<var>nomeficheiro</var>, <var>separator_flag</var>)</i>
+<a name="IDX1803"></a>
+</dt>
+<dd><p>Lê o ficheiro <var>nomeficheiro</var> e retorna seu conteúdo completo como uma matriz.
+Se <var>separator_flag</var> não for especificado, o ficheiro é assumido como delimitado por espaços em branco.
+</p>
+<p><code>read_matrix</code> infere o tamanho da matriz dos dados de entrada.
+Cada linha do ficheiro inicia uma linha da matriz.
+Se algumas linhas possuirem diferentes comprimentos, <code>read_matrix</code> reclama.
+</p>
+</dd></dl>
 
 <dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>newtonepsilon</b>
+<dt><u>Função:</u> <b>read_lisp_array</b><i> (<var>nomeficheiro</var>, <var>A</var>)</i>
 <a name="IDX1804"></a>
 </dt>
-<dd><p>Valor por omiss&atilde;o: <code>10.0^(-fpprec/2)</code>
-</p>
-<p>Precis&atilde;o para determinar quando a fun&ccedil;&atilde;o <code>mnewton</code> convergiu em dire&ccedil;&atilde;o &agrave; solu&ccedil;&atilde;o.
-</p>
-<p>Veja tamb&eacute;m <code>mnewton</code>.
-</p></dd></dl>
-
-
-<dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>newtonmaxiter</b>
+<dt><u>Função:</u> <b>read_lisp_array</b><i> (<var>nomeficheiro</var>, <var>A</var>, <var>separator_flag</var>)</i>
 <a name="IDX1805"></a>
 </dt>
-<dd><p>Valor por omiss&atilde;o: <code>50</code>
+<dd><p><code>read_lisp_array</code> exige que o array
+seja declarado através de <code>make_array</code> antes de chamar
+a função de leitura. (Isso obviamente é necessário para inferir a dimensão 
+do array, que pode ser um problema para arrays com múltiplas dimensões.)
 </p>
-<p>N&uacute;mero m&aacute;ximo de itera&ccedil;&otilde;es que para a fun&ccedil;&atilde;o <code>mnewton</code>
-caso essa fun&ccedil;&atilde;o n&atilde;o seja convergente ou se convergir muito lentamente.
+<p><code>read_lisp_array</code> não verifica para ver se o 
+ficheiro de entrada está de acordo com as dimensãoes do array; a entrada
+é lida como uma lista monótona, então o array é preenchido usando <code>fillarray</code>.
 </p>
-<p>Veja tamb&eacute;m <code>mnewton</code>.
-</p></dd></dl>
+</dd></dl>
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>mnewton</b><i> (<var>FuncList</var>,<var>VarList</var>,<var>GuessList</var>)</i>
+<dt><u>Função:</u> <b>read_maxima_array</b><i> (<var>nomeficheiro</var>, <var>A</var>)</i>
 <a name="IDX1806"></a>
 </dt>
-<dd><p>Solu&ccedil;&atilde;o de multiplas fun&ccedil;&otilde;es n&atilde;o lineares usando o m&eacute;todo de Newton.
-<var>FuncList</var> &eacute; a lista de fun&ccedil;&otilde;es a serem resolvidas,
-<var>VarList</var> &eacute; a lista dos nomes de vari&aacute;veis, e
-<var>GuessList</var> &eacute; a lista de aproxima&ccedil;&otilde;es iniciais.
+<dt><u>Função:</u> <b>read_maxima_array</b><i> (<var>nomeficheiro</var>, <var>A</var>, <var>separator_flag</var>)</i>
+<a name="IDX1807"></a>
+</dt>
+<dd><p><code>read_maxima_array</code> requer que o array
+seja declarado através de <code>array</code> antes de chamar
+a função de leitura. (Isso obviamente é necessário para inferir a dimensão 
+do array, que pode ser uma hassle para arrays com múltiplas dimensões.)
 </p>
-<p>A solu&ccedil;&atilde;o &eacute; retornada no mesmo formato retornado pela fun&ccedil;&atilde;o <code>solve()</code>.
-Caso a solu&ccedil;&atilde;o n&atilde;o seja encontrada, <code>[]</code> &eacute; retornado.
+<p><code>read_maxima_array</code> não verifica para ver se o 
+ficheiro de entrada está de acordo com as dimensãoes do array; a entrada
+é lida como uma lista monótona, então o array é preenchido usando <code>fillarray</code>.
 </p>
-<p>Essa fun&ccedil;&atilde;o &eacute; controlada atrav&eacute;s das vari&aacute;veis globais <code>newtonepsilon</code> e <code>newtonmaxiter</code>.
-</p>
-<pre class="example">(%i1) load(&quot;mnewton&quot;)$
+</dd></dl>
 
-(%i2) mnewton([x1+3*log(x1)-x2^2, 2*x1^2-x1*x2-5*x1+1],
-              [x1, x2], [5, 5]);
-(%o2) [[x1 = 3.756834008012769, x2 = 2.779849592817897]]
-(%i3) mnewton([2*a^a-5],[a],[1]);
-(%o3)             [[a = 1.70927556786144]]
-(%i4) mnewton([2*3^u-v/u-5, u+2^v-4], [u, v], [2, 2]);
-(%o4) [[u = 1.066618389595407, v = 1.552564766841786]]
-</pre>
-<p>Para usar essa fun&ccedil;&atilde;o primeiro escreva <code>load(&quot;mnewton&quot;)</code>. Veja tamb&eacute;m <code>newtonepsilon</code> e <code>newtonmaxiter</code>.
-</p></dd></dl>
+<dl>
+<dt><u>Função:</u> <b>read_hashed_array</b><i> (<var>nomeficheiro</var>, <var>A</var>)</i>
+<a name="IDX1808"></a>
+</dt>
+<dt><u>Função:</u> <b>read_hashed_array</b><i> (<var>nomeficheiro</var>, <var>A</var>, <var>separator_flag</var>)</i>
+<a name="IDX1809"></a>
+</dt>
+<dd><p><code>read_hashed_array</code> trata o primeiro item sobre uma linha como uma
+chave hash, e associa o restante da linha (como uma lista) com a chava.
+Por exemplo,
+a linha <code>567 12 17 32 55</code> é equivalente a <code>A[567]: [12, 17, 32, 55]$</code>.
+Linhas não precisam ter o mesmo número de elementos.
+</p>
+</dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>read_nested_list</b><i> (<var>nomeficheiro</var>)</i>
+<a name="IDX1810"></a>
+</dt>
+<dt><u>Função:</u> <b>read_nested_list</b><i> (<var>nomeficheiro</var>, <var>separator_flag</var>)</i>
+<a name="IDX1811"></a>
+</dt>
+<dd><p><code>read_nested_list</code> retorna uma lista que tem uma sublista para cada
+linha de entrada. Linhas não precisam ter o mesmo número de elementos.
+Linhas vazias <i>não</i> são ignoradas: uma linha vazia retorna uma sublista vazia.
+</p>
+</dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>read_list</b><i> (<var>nomeficheiro</var>)</i>
+<a name="IDX1812"></a>
+</dt>
+<dt><u>Função:</u> <b>read_list</b><i> (<var>nomeficheiro</var>, <var>separator_flag</var>)</i>
+<a name="IDX1813"></a>
+</dt>
+<dd><p><code>read_list</code> lê todas as entradas em uma lista monótona.
+<code>read_list</code> ignora o caractere de fim de linha.
+</p>
+</dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>write_data</b><i> (<var>X</var>, <var>nomeficheiro</var>)</i>
+<a name="IDX1814"></a>
+</dt>
+<dt><u>Função:</u> <b>write_data</b><i> (<var>object</var>, <var>nomeficheiro</var>, <var>separator_flag</var>)</i>
+<a name="IDX1815"></a>
+</dt>
+<dd><p><code>write_data</code> escreve o objecto <var>X</var> no ficheiro <var>nomeficheiro</var>.
+</p>
+<p><code>write_data</code> escreve matrizes da forma usual,
+com uma linha por fileira.
+</p>
+<p><code>write_data</code> escreve arrays declarados do Lisp e do Maxima da
+forma usual, com um caractere de nova linha no final de todo pedaço.
+Pedaços dimensionais muito grandes são separados por meio de novas linhas adicionais.
+</p>
+<p><code>write_data</code> escreve arrays desordenados com uma chave seguida por
+a lista associada sobre cada linha.
+</p>
+<p><code>write_data</code> escreve a lista seguinte com cada sublista em uma linha.
+</p>
+<p><code>write_data</code> escreve uma lista monótona toda em uma linha.
+</p>
+<p>Se <code>write_data</code> anexa ao final ou abandona os excessos em seus ficheiros de saída
+é governado através da variável global <code>file_output_append</code>.
+</p>
+</dd></dl>
+
 
 
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC213" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_60.html#SEC215" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC214" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_60.html#SEC217" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -250,12 +308,12 @@ Caso a solu&ccedil;&atilde;o n&atilde;o seja encontrada, <code>[]</code> &eacute
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>Setembro, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>Janeiro, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on Setembro, 8 2014 by texi2html 1.76 -->
+<!-- Created on Janeiro, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual do Maxima: 52. implicit_plot</title>
+<title>Manual do Maxima 5.35.71.g68475e4: 52. interpol</title>
 
-<meta name="description" content="Manual do Maxima: 52. implicit_plot">
-<meta name="keywords" content="Manual do Maxima: 52. implicit_plot">
+<meta name="description" content="Manual do Maxima 5.35.71.g68475e4: 52. interpol">
+<meta name="keywords" content="Manual do Maxima 5.35.71.g68475e4: 52. interpol">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,192 +32,352 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="implicit_005fplot"></a>
-<a name="SEC196"></a>
+<a name="interpol"></a>
+<a name="SEC197"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_51.html#SEC195" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC197" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_51.html#SEC196" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC198" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_51.html#SEC194" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_51.html#SEC195" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_53.html#SEC198" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_53.html#SEC200" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter"> 52. implicit_plot </h1>
+<h1 class="chapter"> 52. interpol </h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC197">52.1 Defini&ccedil;&otilde;es para implicit_plot</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC198">52.1 Introdução a interpol</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC199">52.2 Definições para interpol</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <hr size="6">
-<a name="Defini_00e7_00f5es-para-implicit_005fplot"></a>
-<a name="SEC197"></a>
+<a name="Introdu_00e7_00e3o-a-interpol"></a>
+<a name="SEC198"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC196" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_53.html#SEC198" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC197" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC199" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC196" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC196" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_53.html#SEC198" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC197" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC197" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_53.html#SEC200" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 52.1 Defini&ccedil;&otilde;es para implicit_plot </h2>
+<h2 class="section"> 52.1 Introdução a interpol </h2>
+
+<p>Pacote <code>interpol</code> define os métodos Lagrangiano, linear e o de
+splines cúbicos para interpolação polinomial.
+</p>
+
+
+<p>Comentários, correções e sugestões, por favor contacte-me em <var>'mario AT edu DOT xunta DOT es'</var>.
+</p>
+
+
+<hr size="6">
+<a name="Defini_00e7_00f5es-para-interpol"></a>
+<a name="SEC199"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC198" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_53.html#SEC200" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC197" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC197" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_53.html#SEC200" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 52.2 Definições para interpol </h2>
+
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>implicit_plot</b><i> (<var>expr</var>, <var>x_range</var>, <var>y_range</var>)</i>
+<dt><u>Função:</u> <b>lagrange</b><i> (<var>pontos</var>)</i>
+<a name="IDX1725"></a>
+</dt>
+<dt><u>Função:</u> <b>lagrange</b><i> (<var>pontos</var>, <var>opção</var>)</i>
+<a name="IDX1726"></a>
+</dt>
+<dd><p>Calcula a interpolação polinomial através do método Lagrangiano. O argumento <var>pontos</var> deve ser um dos seguintes:
+</p>
+<ul>
+<li>
+uma matriz de duas colunas, <code>p:matrix([2,4],[5,6],[9,3])</code>,
+</li><li>
+uma lista de pares, <code>p: [[2,4],[5,6],[9,3]]</code>,
+</li><li>
+uma lista de números, <code>p: [4,6,3]</code>, e nesse caso as abcissas irão ser atribuídas automaticamente aos valores 1, 2, 3, etc.
+</li></ul>
+
+<p>Nos dois primeiros casos os pares são ordenados em relação à primeira coordenada antes de fazer os cálculos.
+</p>
+<p>Com o argumento <var>opção</var> é possível escolher o nome da variável independente, o qual é <code>'x</code> por padrão; para definir qualquer outra, z por exemplo, escreva <code>varname='z</code>. 
+</p>
+<p>Exemplos:
+</p>
+<pre class="example">(%i1) load(&quot;interpol&quot;)$
+(%i2) p:[[7,2],[8,2],[1,5],[3,2],[6,7]]$
+(%i3) lagrange(p);
+                 4        3         2
+             73 x    701 x    8957 x    5288 x   186
+(%o3)        ----- - ------ + ------- - ------ + ---
+              420     210       420      105      5
+(%i4) f(x):=''%;
+                     4        3         2
+                 73 x    701 x    8957 x    5288 x   186
+(%o4)    f(x) := ----- - ------ + ------- - ------ + ---
+                  420     210       420      105      5
+(%i5) /* Evaluate the polynomial at some points */
+      map(f,[2.3,5/7,%pi]);
+                             919062
+(%o5)  [- 1.567534999999992, ------,
+                             84035
+                         4          3           2
+                   73 %pi    701 %pi    8957 %pi    5288 %pi   186
+                   ------- - -------- + --------- - -------- + ---]
+                     420       210         420        105       5
+(%i6) %,numer;
+(%o6) [- 1.567534999999992, 10.9366573451538, 2.89319655125692]
+(%i7) /* Plot the polynomial together with points */
+      plot2d([f(x),[discrete,p]],[x,0,10],
+           [gnuplot_curve_styles,
+                 [&quot;with lines&quot;,&quot;with points pointsize 3&quot;]])$
+(%i8) /* Change variable name */
+      lagrange(p, varname=w);
+                 4        3         2
+             73 w    701 w    8957 w    5288 w   186
+(%o8)        ----- - ------ + ------- - ------ + ---
+              420     210       420      105      5
+</pre>
+</dd></dl>
+
+
+<dl>
+<dt><u>Função:</u> <b>charfun2</b><i> (<var>x</var>, <var>a</var>, <var>b</var>)</i>
+<a name="IDX1727"></a>
+</dt>
+<dd><p>Retorna <code>true</code>, i. e., verdadeiro se o número <var>x</var> pertence ao intervalo <em>[a, b)</em>, e <code>false</code>, i. e., falsono caso contrário.
+</p></dd></dl>
+
+
+<dl>
+<dt><u>Função:</u> <b>linearinterpol</b><i> (<var>pontos</var>)</i>
 <a name="IDX1728"></a>
 </dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>implicit_plot</b><i> ([<var>expr_1</var>, ..., <var>expr_n</var>], <var>x_range</var>, <var>y_range</var>)</i>
+<dt><u>Função:</u> <b>linearinterpol</b><i> (<var>pontos</var>, <var>opção</var>)</i>
 <a name="IDX1729"></a>
 </dt>
-<dd><p>Mostra na tela um gr&aacute;fico de uma ou mais express&otilde;es na forma
-impl&iacute;cita. <var>expr</var> &eacute; a express&atilde;o a ser montado o gr&aacute;fico, <var>x_range</var> o
-intervalo do eixo do eixo horizontal e <var>y_range</var> o intervalo do eixo
-vertical. <var>implicit_plot</var> somente trabalha com o driver do
-gnuplot. <var>implicit_plot</var> respeita as escolhas globais para o driver do
-gnuplot escolhidas por meio da fun&ccedil;&atilde;o <var>set_plot_option</var>. Op&ccedil;&otilde;es podem tamb;em serem passadas para
-a fun&ccedil;&atilde;o <var>implicit_plot</var> como argumentos opcionais.
+<dd><p>Calcula a interpolação polinomial através do método linear. O argumento <var>pontos</var> deve ser um dos seguintes:
 </p>
-<p><var>implicit_plot</var> trabalha por meio de mudan&ccedil;as de sinal de trilha sobre a &aacute;rea
-fornecida atrav&eacute;s de <var>x_range</var> e <var>y_range</var> e pode falhar em express&otilde;es
-complicadas.
+<ul>
+<li>
+uma matriz de duas colunas, <code>p:matrix([2,4],[5,6],[9,3])</code>,
+</li><li>
+uma lista de pares, <code>p: [[2,4],[5,6],[9,3]]</code>,
+</li><li>
+uma lista de números, <code>p: [4,6,3]</code>, e nesse caso as abcissas irão ser atribuídas automaticamente aos valores 1, 2, 3, etc.
+</li></ul>
+
+<p>Nos dois primeiros casos os pares são ordenados em relação à primeira coordenada antes de fazer os cálculos.
 </p>
-<p>Exemplo:
-</p><pre class="example">(%i1) implicit_plot (x^2 = y^3 - 3*y + 1, [x, -4, 4], [y, -4, 4],
- [gnuplot_preamble, &quot;set zeroaxis&quot;]);
+<p>Com o argumento <var>opção</var> é possível escolher o nome da variável independente, o qual é <code>'x</code> por padrão; para definir qualquer outra, z por exemplo, escreva <code>varname='z</code>. 
+</p>
+<p>Examples:
+</p><pre class="example">(%i1) load(&quot;interpol&quot;)$
+(%i2) p: matrix([7,2],[8,3],[1,5],[3,2],[6,7])$
+(%i3) linearinterpol(p);
+        13   3 x
+(%o3)  (-- - ---) charfun2(x, minf, 3)
+        2     2
+ + (x - 5) charfun2(x, 7, inf) + (37 - 5 x) charfun2(x, 6, 7)
+    5 x
+ + (--- - 3) charfun2(x, 3, 6)
+     3
+
+(%i4) f(x):=''%;
+                13   3 x
+(%o4)  f(x) := (-- - ---) charfun2(x, minf, 3)
+                2     2
+ + (x - 5) charfun2(x, 7, inf) + (37 - 5 x) charfun2(x, 6, 7)
+    5 x
+ + (--- - 3) charfun2(x, 3, 6)
+     3
+(%i5)  /* Evaluate the polynomial at some points */
+       map(f,[7.3,25/7,%pi]);
+                            62  5 %pi
+(%o5)                 [2.3, --, ----- - 3]
+                            21    3
+(%i6) %,numer;
+(%o6)  [2.3, 2.952380952380953, 2.235987755982989]
+(%i7)  /* Plot the polynomial together with points */
+       plot2d(['(f(x)),[discrete,args(p)]],[x,-5,20],
+           [gnuplot_curve_styles,
+                 [&quot;with lines&quot;,&quot;with points pointsize 3&quot;]])$
+(%i8)  /* Change variable name */
+       linearinterpol(p, varname='s);
+       13   3 s
+(%o8) (-- - ---) charfun2(s, minf, 3)
+       2     2
+ + (s - 5) charfun2(s, 7, inf) + (37 - 5 s) charfun2(s, 6, 7)
+    5 s
+ + (--- - 3) charfun2(s, 3, 6)
+     3
 </pre>
-<p><div class="image"><img src="../figures/implicit_plot.jpg" alt="../figures/implicit_plot"></div>
-</p>
 </dd></dl>
+
+
+
+<dl>
+<dt><u>Função:</u> <b>cspline</b><i> (<var>pontos</var>)</i>
+<a name="IDX1730"></a>
+</dt>
+<dt><u>Função:</u> <b>cspline</b><i> (<var>pontos</var>, <var>opção1</var>, <var>opção2</var>, ...)</i>
+<a name="IDX1731"></a>
+</dt>
+<dd><p>Calcula a interpolação polnomial pelo método de splines ( polinómios de ordem k que interpolam os dados e têm k-1 derivadas contínuas em todo o intervalo ) cúbicos. O argumento <var>pontos</var> deve ser um dos
+seguintes:
+</p>
+<ul>
+<li>
+uma matriz de duas colunas, <code>p:matrix([2,4],[5,6],[9,3])</code>,
+</li><li>
+uma lista de pares, <code>p: [[2,4],[5,6],[9,3]]</code>,
+</li><li>
+uma lista de números, <code>p: [4,6,3]</code>, e nesse caso as abcissas irão ser atribuídas automaticamente aos valores 1, 2, 3, etc.
+</li></ul>
+
+<p>Nos dois primeiros casos os pares são ordenados em relação à primeira coordenada antes de fazer os cálculos.
+</p>
+<p>Existem três opções para ajustar necessidades específicas:
+</p><ul>
+<li>
+<code>'d1</code>, o padrão é <code>'unknown</code>, é a primeira derivada em <em>x_1</em>; se essa primeira derivada for desconhecida, <code>'unknown</code>, a segunda derivada em <em>x_1</em> é igualada a 0 (o spline cúbico natural); se
+essa primeira
+derivada for igual a um número, a segunda derivada é calculada baseando-se nesse número.
+
+</li><li>
+<code>'dn</code>, o padrão é <code>'unknown</code>, é a primeira derivada em <em>x_n</em>; se essa primeira derivada for desconhecida, <code>'unknown</code>, a segunda derivada em <em>x_n</em> é igualada a 0 (o spline cúbico natural); se
+essa primeira
+derivada for igual a um número, a segunda derivada é calculada baseando-se nesse número.
+
+</li><li>
+<code>'nome_var</code>, o padrão é <code>'x</code>, é o nome da variável independente.
+</li></ul>
+
+<p>Exemplos:
+</p><pre class="example">(%i1) load(&quot;interpol&quot;)$
+(%i2) p:[[7,2],[8,2],[1,5],[3,2],[6,7]]$
+(%i3) /* Unknown first derivatives at the extremes
+         is equivalent to natural cubic splines */
+      cspline(p);
+              3         2
+        1159 x    1159 x    6091 x   8283
+(%o3)  (------- - ------- - ------ + ----) charfun2(x, minf, 3)
+         3288      1096      3288    1096
+            3         2
+      2587 x    5174 x    494117 x   108928
+ + (- ------- + ------- - -------- + ------) charfun2(x, 7, inf)
+       1644       137       1644      137
+          3          2
+    4715 x    15209 x    579277 x   199575
+ + (------- - -------- + -------- - ------) charfun2(x, 6, 7)
+     1644       274        1644      274
+            3         2
+      3287 x    2223 x    48275 x   9609
+ + (- ------- + ------- - ------- + ----) charfun2(x, 3, 6)
+       4932       274      1644     274
+
+(%i4) f(x):=''%$
+(%i5) /* Some evaluations */
+      map(f,[2.3,5/7,%pi]), numer;
+(%o5) [1.991460766423356, 5.823200187269903, 2.227405312429507]
+(%i6) /* Plotting interpolating function */
+      plot2d(['(f(x)),[discrete,p]],[x,0,10],
+          [gnuplot_curve_styles,
+               [&quot;with lines&quot;,&quot;with points pointsize 3&quot;]])$
+(%i7) /* New call, but giving values at the derivatives */
+      cspline(p,d1=0,dn=0);
+              3          2
+        1949 x    11437 x    17027 x   1247
+(%o7)  (------- - -------- + ------- + ----) charfun2(x, minf, 3)
+         2256       2256      2256     752
+            3          2
+      1547 x    35581 x    68068 x   173546
+ + (- ------- + -------- - ------- + ------) charfun2(x, 7, inf)
+        564       564        141      141
+         3          2
+    607 x    35147 x    55706 x   38420
+ + (------ - -------- + ------- - -----) charfun2(x, 6, 7)
+     188       564        141      47
+            3         2
+      3895 x    1807 x    5146 x   2148
+ + (- ------- + ------- - ------ + ----) charfun2(x, 3, 6)
+       5076       188      141      47
+(%i8) /* Defining new interpolating function */
+      g(x):=''%$
+(%i9) /* Plotting both functions together */
+      plot2d(['(f(x)),'(g(x)),[discrete,p]],[x,0,10],
+           [gnuplot_curve_styles,
+              [&quot;with lines&quot;,&quot;with lines&quot;,&quot;with points pointsize 3&quot;]])$
+</pre>
+</dd></dl>
+
 
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC196" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_53.html#SEC198" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC197" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_53.html#SEC200" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -225,12 +385,12 @@ complicadas.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>Setembro, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>Janeiro, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

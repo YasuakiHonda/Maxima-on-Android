@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on Setembro, 8 2014 by texi2html 1.76 -->
+<!-- Created on Janeiro, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Manual do Maxima: 67. solve_rec</title>
+<title>Manual do Maxima 5.35.71.g68475e4: 67. stats</title>
 
-<meta name="description" content="Manual do Maxima: 67. solve_rec">
-<meta name="keywords" content="Manual do Maxima: 67. solve_rec">
+<meta name="description" content="Manual do Maxima 5.35.71.g68475e4: 67. stats">
+<meta name="keywords" content="Manual do Maxima 5.35.71.g68475e4: 67. stats">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -32,448 +32,1335 @@ pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="../figures/favicon.ico"/>
 </head>
 
 <body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<a name="solve_005frec"></a>
-<a name="SEC247"></a>
+<a name="stats"></a>
+<a name="SEC249"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_66.html#SEC246" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC248" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_66.html#SEC248" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC250" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_66.html#SEC237" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_66.html#SEC246" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_68.html#SEC250" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_68.html#SEC254" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter"> 67. solve_rec </h1>
+<h1 class="chapter"> 67. stats </h1>
 
-<p>/solve_rec.texi/1.7/Tue Jan 16 15:15:10 2007//
-</p><table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC248">67.1 Introdu&ccedil;&atilde;o a solve_rec</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#SEC250">67.1 Introdução a stats</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#SEC249">67.2 Defini&ccedil;&otilde;es para solve_rec</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC251">67.2 Definições para inference_result</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC252">67.3 Definições para stats</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC253">67.4 Definições para distribuições especiais</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <hr size="6">
-<a name="Introdu_00e7_00e3o-a-solve_005frec"></a>
-<a name="SEC248"></a>
+<a name="Introdu_00e7_00e3o-a-stats"></a>
+<a name="SEC250"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC247" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC249" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC249" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC251" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC247" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC247" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_68.html#SEC250" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC249" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC249" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_68.html#SEC254" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 67.1 Introdu&ccedil;&atilde;o a solve_rec </h2>
+<h2 class="section"> 67.1 Introdução a stats </h2>
 
-<p><code>solve_rec</code> &eacute; um pacote para resolver recorr&ecirc;ncias lineares com coeficientes
-polinomiais.
+
+<p>O pacote <code>stats</code> contém um conjunto de procedimentos de inferência clássica 
+estatística e procedimentos de teste.
 </p>
-<p>Um ficheiro de domostra&ccedil;&atilde;o est&aacute; disponivel com <code>demo(solve_rec);</code>.
+<p>Todas essas funções retornam um objecto do Maxima chamado <code>inference_result</code> que contém
+os resultados necessários para inferências de manipulação e tomada de decisões.
 </p>
-<p>Exemplo:
+<p>A variável global <code>stats_numer</code> controla se resultados são mostrados em 
+ponto flutuante ou simbólico e no formato racional; seu valor padrão é <code>true</code>
+e os resultados são retornados no formato de ponto flutuante.
 </p>
-<pre class="example">(%i1) load(&quot;solve_rec&quot;)$
-(%i2) solve_rec((n+4)*s[n+2] + s[n+1] - (n+1)*s[n], s[n]);
-                                    n
-                 %k  (2 n + 3) (- 1)          %k
-                   1                            2
-(%o2)       s  = -------------------- + ---------------
-             n     (n + 1) (n + 2)      (n + 1) (n + 2)
-</pre>
+<p>O pacote <code>descriptive</code> contém alguns utilitários para manipular estruturas de dados
+(listas e matrizes); por exemplo, para extrair subamostras. O pacote <code>descriptive</code> também contém alguns
+exemplos sobre como usar o pacote <code>numericalio</code> para ler dados a partir de ficheiro no formato texto 
+plano. Veja <code>descriptive</code> e <code>numericalio</code> para maiores detalhes.
+</p>
+<p>O pacote <code>stats</code> precisa dos pacotes <code>descriptive</code>, <code>distrib</code> e
+<code>inference_result</code>.
+</p>
+<p>Para comentários, erros ou sugestões, por favor contate o autor em
+</p>
+<p><var>'mario AT edu DOT xunta DOT es'</var>.
+</p>
+
 <hr size="6">
-<a name="Defini_00e7_00f5es-para-solve_005frec"></a>
-<a name="SEC249"></a>
+<a name="Defini_00e7_00f5es-para-inference_005fresult"></a>
+<a name="SEC251"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC248" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_68.html#SEC250" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC250" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC252" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC247" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC247" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_68.html#SEC250" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC249" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC249" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_68.html#SEC254" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"> 67.2 Defini&ccedil;&otilde;es para solve_rec </h2>
+<h2 class="section"> 67.2 Definições para inference_result </h2>
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>reduce_order</b><i> (<var>rec</var>, <var>sol</var>, <var>var</var>)</i>
-<a name="IDX1889"></a>
-</dt>
-<dd><p>Reduz a ordem de recorr&ecirc;ncia linear <var>rec</var> quando uma solu&ccedil;&atilde;o particular
-<var>sol</var> for conhecida. A recorr&ecirc;ncia reduzida pode ser usada para pegar outras solu&ccedil;&otilde;es.
-</p>
-<p>Exemplo:
-</p>
-<pre class="example">(%i3) rec: x[n+2] = x[n+1] + x[n]/n;
-                                      x
-                                       n
-(%o3)               x      = x      + --
-                     n + 2    n + 1   n
-(%i4) solve_rec(rec, x[n]);
-WARNING: found some hypergeometrical solutions! 
-(%o4)                    x  = %k  n
-                          n     1
-(%i5) reduce_order(rec, n, x[n]);
-(%t5)                    x  = n %z
-                          n       n
-
-                           n - 1
-                           ====
-                           \
-(%t6)                %z  =  &gt;     %u
-                       n   /        %j
-                           ====
-                           %j = 0
-
-(%o6)             (- n - 2) %u     - %u
-                              n + 1     n
-(%i6) solve_rec((n+2)*%u[n+1] + %u[n], %u[n]);
-                                     n
-                            %k  (- 1)
-                              1
-(%o6)                 %u  = ----------
-                        n    (n + 1)!
-
-So the general solution is
-
-             n - 1
-             ====        n
-             \      (- 1)
-       %k  n  &gt;    -------- + %k  n
-         2   /     (n + 1)!     1
-             ====
-             n = 0
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>simplify_products</b>
-<a name="IDX1890"></a>
-</dt>
-<dd><p>Valor por omiss&atilde;o: <code>true</code>
-</p>
-<p>Se <code>simplify_products</code> for <code>true</code>, <code>solve_rec</code> ir&aacute; tentar
-simplificar produtos no resultado.
-</p>
-<p>Veja tamb&eacute;m: <code>solve_rec</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>simplify_sum</b><i> (<var>expr</var>)</i>
-<a name="IDX1891"></a>
-</dt>
-<dd><p>Tenta simplificar todos os somat&oacute;rios que aparecem na <var>expr</var> para uma forma a mais simplificada poss&iacute;vel.
-</p>
-<p><code>simplify_sum</code> usa os algoritmos de Gosper e de Zeilberger para simplificar somat&oacute;rios.
-</p>
-<p>Para usar essa fun&ccedil;&atilde;o primeiramente chame o pacote <code>simplify_sum</code> com
-<code>load(simplify_sum)</code>.
-</p>
-<p>Exemplo:
-</p>
-<pre class="example">(%i1) load(&quot;simplify_sum&quot;)$
-(%i2) sum(binom(n+k,k)/2^k, k, 0, n) + sum(binom(2*n, 2*k), k, 0, n);
-         n                            n
-        ====                         ====
-        \      binomial(n + k, k)    \
-(%o2)    &gt;     ------------------ +   &gt;    binomial(2 n, 2 k)
-        /               k            /
-        ====           2             ====
-        k = 0                        k = 0
-(%i3) simplify_sum(%);
-                               n
-                              4     n
-(%o3)                         -- + 2
-                              2
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>solve_rec</b><i> (<var>eqn</var>, <var>var</var>, [<var>init</var>])</i>
+<dt><u>Função:</u> <b>inference_result</b><i> (<var>título</var>, <var>valores</var>, <var>números</var>)</i>
 <a name="IDX1892"></a>
 </dt>
-<dd><p>Encontra solu&ccedil;&otilde;es hipergeom&eacute;tricas para a recorr&ecirc;ncia linear <var>eqn</var> com
-coeficientes polinomiais na vari&aacute;vel <var>var</var>. Argumentos opcionais <var>init</var>
-s&atilde;o as condi&ccedil;&otilde;es iniciais.
+<dd><p>Constrói um objecto <code>inference_result</code> do tipo retornado pelas
+funções stats. O argumento <var>título</var> é uma
+sequência de caracteres do Maxima co o nome do procedimento; <var>valores</var> é uma lissta com
+elementos da forma <code>símbolo = valor</code> e <var>números</var> é uma lista
+com números inteiros positivos no intervalo de um para <code>length(<var>valores</var>)</code>,
+indicando que valores serão mostrados por padrão.
 </p>
-<p><code>solve_rec</code> pode resolver recorr&ecirc;ncias lineares com coeficientes constantes,
-encontrando solu&ccedil;&otilde;es hipergeom&eacute;tricas para recorr&ecirc;ncias lineares homog&ecirc;neas com
-coeficientes polinomiais, solu&ccedil;&otilde;es racionais para recorr&ecirc;ncias lineares com
-coeficientes polinomiais e pode resolver recorr&ecirc;ncias do tipo de Ricatti.
+<p>Exemplo:
 </p>
-<p>Note que o tempo de execu&ccedil;&atilde;o do algoritmo usado para encontrar solu&ccedil;&otilde;es
-hipergeom&eacute;tricas aumenta exponencialmente com o grau do coeficiente lider e
-guia.
+<p>Este é um exemplo que mostras os resultados associados a um retángulo. O
+título deste bojeto é a sequência de caraceteres <code>&quot;Retângulo&quot;</code>, o qual
+armazena cinco resultados, a saber, <code>'base</code>, <code>'altura</code>, 
+<code>'diagonal</code>, <code>'área</code> y <code>'perímetro</code>, porém só mostra
+o primeiro, segundo, quinto e quarto resultado. O resultado <code>'diagonal</code> também
+é armazenado neste objecto, no entanto não é mostrado por padrão; para se ter acesso
+a este valor, faz-se uso da função <code>take_inference</code>.
 </p>
-<p>Para usar essa fun&ccedil;&atilde;o primeiramente chame o pacote <code>solve_rec</code> com
-<code>load(solve_rec);</code>.
-</p>
-<p>Exemplo de recorr&ecirc;ncia linear com coeficientes constantes:
-</p>
-<pre class="example">(%i2) solve_rec(a[n]=a[n-1]+a[n-2]+n/2^n, a[n]);
-                        n          n
-           (sqrt(5) - 1)  %k  (- 1)
-                            1           n
-(%o2) a  = ------------------------- - ----
-       n               n                  n
-                      2                5 2
-                                                n
-                                   (sqrt(5) + 1)  %k
-                                                    2    2
-                                 + ------------------ - ----
-                                            n              n
-                                           2            5 2
+<pre class="example">(%i1) load(inference_result)$
+(%i2) b: 3$ h: 2$
+(%i3) inference_result(&quot;Retângulo&quot;,
+                        ['base=b,
+                         'altura=h,
+                         'diagonal=sqrt(b^2+h^2),
+                         'área=b*h,
+                         'perímetro=2*(b+h)],
+                        [1,2,5,4] );
+                        |   Retângulo
+                        |
+                        |    base = 3
+                        |
+(%o3)                   |   altura = 2
+                        |
+                        | perímetro = 10
+                        |
+                        |    area = 6
+(%i4) take_inference('diagonal,%);
+(%o4)                        sqrt(13)
 </pre>
-<p>Exemplo de recorr&ecirc;ncia linear com coeficientes polinomiais:
-</p>
-<pre class="example">(%i7) 2*x*(x+1)*y[x] - (x^2+3*x-2)*y[x+1] + (x-1)*y[x+2];
-                         2
-(%o7) (x - 1) y      - (x  + 3 x - 2) y      + 2 x (x + 1) y
-               x + 2                   x + 1                x
-(%i8) solve_rec(%, y[x], y[1]=1, y[3]=3);
-                              x
-                           3 2    x!
-(%o9)                 y  = ---- - --
-                       x    4     2
-</pre>
-<p>Exemplo de recorr&ecirc;ncia do tipo de Ricatti:
-</p>
-<pre class="example">(%i2) x*y[x+1]*y[x] - y[x+1]/(x+2) + y[x]/(x-1) = 0;
-                            y         y
-                             x + 1     x
-(%o2)         x y  y      - ------ + ----- = 0
-                 x  x + 1   x + 2    x - 1
-(%i3) solve_rec(%, y[x], y[3]=5)$
-(%i4) ratsimp(minfactorial(factcomb(%)));
-                                   3
-                               30 x  - 30 x
-(%o4) y  = - -------------------------------------------------
-       x        6      5       4       3       2
-             5 x  - 3 x  - 25 x  + 15 x  + 20 x  - 12 x - 1584
-</pre>
+<p>Veja também <code>take_inference</code>.
+</p></dd></dl>
 
-<p>Veja tamb&eacute;m: <code>solve_rec_rat</code>, <code>simplify_products</code>, e <code>product_use_gamma</code>.
-</p>
-</dd></dl>
+
+
+
+
 
 <dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>solve_rec_rat</b><i> (<var>eqn</var>, <var>var</var>, [<var>init</var>])</i>
+<dt><u>Função:</u> <b>inferencep</b><i> (<var>obj</var>)</i>
 <a name="IDX1893"></a>
 </dt>
-<dd><p>Encontra solu&ccedil;&otilde;es racionais para recorr&ecirc;ncias lineares. Veja solve_rec para
-uma descri&ccedil;&atilde;o dos argumentos.
-</p>
-<p>Para usar essa fun&ccedil;&atilde;o primeirametne chame o pacote <code>solve_rec</code> com
-<code>load(solve_rec);</code>.
-</p>
-<p>Exemplo:
-</p>
-<pre class="example">(%i1) (x+4)*a[x+3] + (x+3)*a[x+2] - x*a[x+1] + (x^2-1)*a[x];
-(%o1)  (x + 4) a      + (x + 3) a      - x a
-                x + 3            x + 2      x + 1
-                                                   2
-                                               + (x  - 1) a
-                                                            x
-(%i2) solve_rec_rat(% = (x+2)/(x+1), a[x]);
-                       1
-(%o2)      a  = ---------------
-            x   (x - 1) (x + 1)
-</pre>
-
-<p>Veja tamb&eacute;m: <code>solve_rec</code>.
+<dd><p>Retorna <code>true</code> ou <code>false</code>, dependendo se <var>obj</var> é
+um objecto <code>inference_result</code> ou não.
 </p>
 </dd></dl>
 
+
+
+
+
+
 <dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>product_use_gamma</b>
+<dt><u>Função:</u> <b>items_inference</b><i> (<var>obj</var>)</i>
 <a name="IDX1894"></a>
 </dt>
-<dd><p>Valor por omiss&atilde;o: <code>true</code>
-</p>
-<p>Quando simplificando produtos, <code>solve_rec</code> introduz a fun&ccedil;&atilde;o gama
-dentro da express&atilde;o se <code>product_use_gamma</code> for <code>true</code>.
-</p>
-<p>Veja tamb&eacute;m: <code>simplify_products</code>, <code>solve_rec</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>summand_to_rec</b><i> (<var>summand</var>, <var>k</var>, <var>n</var>)</i>
-<a name="IDX1895"></a>
-</dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>summand_to_rec</b><i> (<var>summand</var>, [<var>k</var>, <var>lo</var>, <var>hi</var>], <var>n</var>)</i>
-<a name="IDX1896"></a>
-</dt>
-<dd><p>Retorna a recorr&ecirc;ncia satisfeita pelo somat&oacute;rio
-</p>
-<pre class="example">     sup
-    ====
-    \
-     &gt;     x
-    /
-    ====
-  k = inf
-</pre>
-<p>onde x &eacute; hipergeom&eacute;trico em <var>k</var> e <var>n</var>. SE <var>inf</var> e <var>sup</var>
-forem omitidos, s&atilde;o assumidos como sendo <code>inf = -inf</code> e <code>sup = inf</code>.
-</p>
-<p>Para usar essa fun&ccedil;&atilde;o primeiro chame o pacote <code>simplify_sum</code> com
-<code>load(simplify_sum)</code>.
+<dd><p>Retorna uma lista com os nomes dos itens em <var>obj</var>, que devem
+ser um objecto <code>inference_result</code>.
 </p>
 <p>Exemplo:
 </p>
-<pre class="example">(%i1) load(&quot;simplify_sum&quot;)$
-(%i2) summand: binom(n,k);
-(%o2)                           binomial(n, k)
-(%i3) summand_to_rec(summand,k,n);
-(%o3)                      2 sm  - sm      = 0
-                               n     n + 1
-(%i7) summand: binom(n, k)/(k+1);
-                                binomial(n, k)
-(%o7)                           --------------
-                                    k + 1
-(%i8) summand_to_rec(summand, [k, 0, n], n);
-(%o8)               2 (n + 1) sm  - (n + 2) sm      = - 1
-                                n             n + 1
+<p>O objecto <code>inference_result</code> armazena dois valores, a saber <code>'pi</code> e <code>'e</code>,
+mas somente o segundo é mostrado. A função <code>items_inference</code> retorna os nomes
+de todos os itens, não importa se eles são ou não mostrados.
+</p>
+<pre class="example">(%i1) load(inference_result)$
+(%i2) inference_result(&quot;Hi&quot;, ['pi=%pi,'e=%e],[2]);
+                            |   Hi
+(%o2)                       |
+                            | e = %e
+(%i3) items_inference(%);
+(%o3)                        [pi, e]
+</pre></dd></dl>
+
+
+
+
+
+
+
+<dl>
+<dt><u>Função:</u> <b>take_inference</b><i> (<var>n</var>, <var>obj</var>)</i>
+<a name="IDX1895"></a>
+</dt>
+<dt><u>Função:</u> <b>take_inference</b><i> (<var>nome</var>, <var>obj</var>)</i>
+<a name="IDX1896"></a>
+</dt>
+<dt><u>Função:</u> <b>take_inference</b><i> (<var>lista</var>, <var>obj</var>)</i>
+<a name="IDX1897"></a>
+</dt>
+<dd><p>Retorna o <var>n</var>-ésimo valor armazenado em <var>obj</var> se <var>n</var> for um inteiro positivo,
+ou o item chamado <var>nome</var> se esse for o nome de um item. Se o primeiro
+argumento for uma lista de números e/ou símbolos, a função <code>take_inference</code> retorna
+uma lista com os resultados correspondentes.
+</p>
+<p>Exemplo:
+</p>
+<p>Fornece um objecto <code>inference_result</code>, a função <code>take_inference</code> é
+chamada com o objectivo de extrair alguma informação armazenada nesse objecto.
+</p>
+<pre class="example">(%i1) load(inference_result)$
+(%i2) b: 3$ h: 2$
+(%i3) sol: inference_result(&quot;Retângulo&quot;,
+                            ['base=b,
+                             'altura=h,
+                             'diagonal=sqrt(b^2+h^2),
+                             'area=b*h,
+                             'perímetro=2*(b+h)],
+                            [1,2,5,4] );
+                        |   Retângulo
+                        |
+                        |    base = 3
+                        |
+(%o3)                   |   altura = 2
+                        |
+                        | perímetro = 10
+                        |
+                        |    area = 6
+(%i4) take_inference('base,sol);
+(%o4)                           3
+(%i5) take_inference(5,sol);
+(%o5)                          10
+(%i6) take_inference([1,'diagonal],sol);
+(%o6)                     [3, sqrt(13)]
+(%i7) take_inference(items_inference(sol),sol);
+(%o7)                [3, 2, sqrt(13), 6, 10]
+</pre>
+<p>Veja também <code>inference_result</code> e <code>take_inference</code>.
+</p></dd></dl>
+
+
+
+
+
+
+
+
+
+<hr size="6">
+<a name="Defini_00e7_00f5es-para-stats"></a>
+<a name="SEC252"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC251" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC253" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC249" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC249" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_68.html#SEC254" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 67.3 Definições para stats </h2>
+
+
+<dl>
+<dt><u>Variável de opção:</u> <b>stats_numer</b>
+<a name="IDX1898"></a>
+</dt>
+<dd><p>Valor por omissão: <code>true</code>
+</p>
+<p>Se <code>stats_numer</code> for <code>true</code>, funções de inferência estatística 
+retornam seus resultados em números com ponto flutuante. Se <code>stats_numer</code> for <code>false</code>,
+resultados são fornecidos em formato simbólico e racional.
+</p>
+</dd></dl>
+
+
+<dl>
+<dt><u>Função:</u> <b>test_mean</b><i> (<var>x</var>)</i>
+<a name="IDX1899"></a>
+</dt>
+<dt><u>Função:</u> <b>test_mean</b><i> (<var>x</var>, <var>opção_1</var>, <var>opção_2</var>, ...)</i>
+<a name="IDX1900"></a>
+</dt>
+<dd><p>Esse é o teste-<var>t</var> de média. O argumento <var>x</var> é uma lista ou uma matriz coluna
+contendo uma amostra unidimensional. <code>test_mean</code> tamb;em executa um teste assintótico
+baseado no <i>Teorema do Limite Central</i> se a opção <code>'asymptotic</code> for
+<code>true</code>.
+</p>
+<p>Opções:
+</p>
+<ul>
+<li>
+<code>'mean</code>, o valor padrão é <code>0</code>, é o valor da média a ser verificado.
+
+</li><li>
+<code>'alternative</code>, o valor padrão é <code>'twosided</code>, é a hipótese alternativa;
+valores válidos são: <code>'twosided</code>, <code>'greater</code> e <code>'less</code>.
+
+</li><li>
+<code>'dev</code>, o valor padrão é <code>'unknown</code>, corresponde ao valor do desvio padrão quando esse valor de desvio padrão for
+conhecido; valores válidos são: <code>'unknown</code> ou uma expressão positiva.
+
+</li><li>
+<code>'conflevel</code>, o valor padrão é <code>95/100</code>, nível de confidência para o intervalo de confidência; deve
+ser uma expressão que toma um valor em (0,1).
+
+</li><li>
+<code>'asymptotic</code>, o valor padrão é <code>false</code>, indica se <code>test_mean</code> exeecuta um teste-<var>t</var> exato ou
+um teste assintótico baseando-se no <i>Teorema do Limite Central</i>;
+valores válidos são <code>true</code> e <code>false</code>.
+
+</li></ul>
+
+<p>A saída da função <code>test_mean</code> é um objecto <code>inference_result</code> do Maxima
+mostrando os seguintes resultados:
+</p>
+<ol>
+<li>
+<code>'mean_estimate</code>: a média da amostra.
+
+</li><li>
+<code>'conf_level</code>: nível de confidência seleccionado pelo utilizador.
+
+</li><li>
+<code>'conf_interval</code>: intervalo de confidência para a média da população.
+
+</li><li>
+<code>'method</code>: procedimento de inferência.
+
+</li><li>
+<code>'hypotheses</code>: hipótese do nulo e hipótese alternativa a ser testada.
+
+</li><li>
+<code>'statistic</code>: valor da amostra estatística a ser usado para testar a hipótese do nulo.
+
+</li><li>
+<code>'distribution</code>: distribuição da amostra estatística, juntamente com seus parâmetro(s).
+
+</li><li>
+<code>'p_value</code>: valores de <em>p</em> do teste.
+
+</li></ol>
+
+<p>Exemplos:
+</p>
+<p>Executa um teste-<var>t</var> exato com variância desconhecida. A hipótese do nulo
+é <em>H_0: mean=50</em> contra a alternativa unilatera <em>H_1: mean&lt;50</em>;
+conforme os resultados, o valor de <em>p</em> é muito grande, não existem
+evidências paa rejeitar <em>H_0</em>.
+</p>
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) data: [78,64,35,45,45,75,43,74,42,42]$
+(%i3) test_mean(data,'conflevel=0.9,'alternative='less,'mean=50);
+          |                 MEAN TEST
+          |
+          |            mean_estimate = 54.3
+          |
+          |              conf_level = 0.9
+          |
+          | conf_interval = [minf, 61.51314273502712]
+          |
+(%o3)     |  method = Exact t-test. Unknown variance.
+          |
+          | hypotheses = H0: mean = 50 , H1: mean &lt; 50
+          |
+          |       statistic = .8244705235071678
+          |
+          |       distribution = [student_t, 9]
+          |
+          |        p_value = .7845100411786889
+</pre>
+<p>Nesta ocasião Maxima executa um testte assintótico, baseado no <i>Teorema do Limite Central</i>.
+A hipótese do nulo é <em>H_0: equal(mean, 50)</em> contra a alternativa de duas vias <em>H_1: not equal(mean, 50)</em>;
+conforme os resultados, o valor de <em>p</em> é muito pequeno, <em>H_0</em> pode ser rejeitado em
+favor da alternativa <em>H_1</em>. Note que, como indicado pela componente <code>Method</code>,
+esse procedimento pode ser aplicado a grandes amostras.
+</p>
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) test_mean([36,118,52,87,35,256,56,178,57,57,89,34,25,98,35,
+              98,41,45,198,54,79,63,35,45,44,75,42,75,45,45,
+              45,51,123,54,151],
+              'asymptotic=true,'mean=50);
+          |                       MEAN TEST
+          |
+          |           mean_estimate = 74.88571428571429
+          |
+          |                   conf_level = 0.95
+          |
+          | conf_interval = [57.72848600856194, 92.04294256286663]
+          |
+(%o2)     |    method = Large sample z-test. Unknown variance.
+          |
+          |       hypotheses = H0: mean = 50 , H1: mean # 50
+          |
+          |             statistic = 2.842831192874313
+          |
+          |             distribution = [normal, 0, 1]
+          |
+          |             p_value = .004471474652002261
 </pre>
 </dd></dl>
+
+
+
+
+
+
+
+<dl>
+<dt><u>Função:</u> <b>test_means_difference</b><i> (<var>x1</var>, <var>x2</var>)</i>
+<a name="IDX1901"></a>
+</dt>
+<dt><u>Função:</u> <b>test_means_difference</b><i> (<var>x1</var>, <var>x2</var>, <var>opção_1</var>, <var>opção_2</var>, ...)</i>
+<a name="IDX1902"></a>
+</dt>
+<dd><p>Esse é o teste-<var>t</var> de diferença de médias entre duas amostras.
+Os argumentos <var>x1</var> e <var>x2</var> são listas ou matrizes colunas
+contendo duas amostras independentes. No caso de diferentes variâncias desconhecidas
+(veja opções <code>'dev1</code>, <code>'dev2</code> e <code>'varequal</code> abaixo),
+os graus de liberdade são calculados por meio da aproximação de Welch.
+<code>test_means_difference</code> também executa um teste assintótico
+baseado no <i>Teorema do Limite Central</i> se a opção <code>'asymptotic</code> for
+escolhida para <code>true</code>.
+</p>
+<p>Opções:
+</p>
+<ul>
+<li>
+<code>'alternative</code>, o valor padrão é <code>'twosided</code>, é a hipótese alternativa;
+valores válidos são: <code>'twosided</code>, <code>'greater</code> e <code>'less</code>.
+
+</li><li>
+<code>'dev1</code>, o valor padrão é <code>'unknown</code>, é o valor do desvio padrão
+da amostra <var>x1</var> quando esse desvio for conhecido; valores válidos são: <code>'unknown</code> ou uma expressão positiva.
+
+</li><li>
+<code>'dev2</code>, o valor padrão é <code>'unknown</code>, é o valor do desvio padrão
+da amostra <var>x2</var> quando esse desvio for conhecido; valores válidos são: <code>'unknown</code> ou uma expressão positiva.
+
+</li><li>
+<code>'varequal</code>, o valor padrão é <code>false</code>, se variâncias podem serem consideradas como iguais ou não;
+essa opção tem efeito somente quando <code>'dev1</code> e/ou <code>'dev2</code> forem  <code>'unknown</code>.
+
+</li><li>
+<code>'conflevel</code>, o valor padrão é <code>95/100</code>, nível de confidência para o intervalo de confidência; deve
+ser uma expressão que toma valores em (0,1). 
+
+<p>Nota de Tradução: (0,1) representa intervalo aberto.
+</p>
+</li><li>
+<code>'asymptotic</code>, o valor padrão é <code>false</code>, indica se <code>test_means_difference</code> executa um teste-<var>t</var> exato ou
+um teste assíntótico baseando-se no <i>Teorema do Limite Central</i>;
+valores válidos são <code>true</code> e <code>false</code>.
+
+</li></ul>
+
+<p>A saída da função <code>test_means_difference</code> é um objecto <code>inference_result</code> do Maxima
+mostrando os seguintes resultados:
+</p>
+<ol>
+<li>
+<code>'diff_estimate</code>: a diferença de médias estimadas.
+
+</li><li>
+<code>'conf_level</code>: nível de confidência seleccionado pelo utilizador.
+
+</li><li>
+<code>'conf_interval</code>: intervalo de confidência para a diferença de médias.
+
+</li><li>
+<code>'method</code>: procedimento de inferência.
+
+</li><li>
+<code>'hypotheses</code>: a hipótese do nulo e a hipótese alternativa a serem testadas.
+
+</li><li>
+<code>'statistic</code>: valor da amostra estatística usado para testar a hipótese do nulo.
+
+</li><li>
+<code>'distribution</code>: distribuição da amostra estatística, juntamente com seu(s) parâmetro(s).
+
+</li><li>
+<code>'p_value</code>: valor de <em>p</em> do teste.
+
+</li></ol>
+
+<p>Exemplos:
+</p>
+<p>A igualdade de médias é testada com duas pequenas amostras <var>x</var> e <var>y</var>,
+contra a alternativa <em>H_1: m_1&gt;m_2</em>, sendo <em>m_1</em> e <em>m_2</em>
+as médias das populações; variâncias são desconhecidas e supostamente admitidas para serem diferentes.
+</p>
+
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
+(%i3) y: [1.2,6.9,38.7,20.4,17.2]$
+(%i4) test_means_difference(x,y,'alternative='greater);
+            |              DIFFERENCE OF MEANS TEST
+            |
+            |         diff_estimate = 20.31999999999999
+            |
+            |                 conf_level = 0.95
+            |
+            |    conf_interval = [- .04597417812882298, inf]
+            |
+(%o4)       |        method = Exact t-test. Welch approx.
+            |
+            | hypotheses = H0: mean1 = mean2 , H1: mean1 &gt; mean2
+            |
+            |           statistic = 1.838004300728477
+            |
+            |    distribution = [student_t, 8.62758740184604]
+            |
+            |            p_value = .05032746527991905
+</pre>
+<p>O mesmo teste que antes, mas agora as variâncias são admitidas serem supostamente
+iguais.
+</p>
+
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
+(%i3) y: matrix([1.2],[6.9],[38.7],[20.4],[17.2])$
+(%i4) test_means_difference(x,y,'alternative='greater,'varequal=true);
+            |              DIFFERENCE OF MEANS TEST
+            |
+            |         diff_estimate = 20.31999999999999
+            |
+            |                 conf_level = 0.95
+            |
+            |     conf_interval = [- .7722627696897568, inf]
+            |
+(%o4)       |   method = Exact t-test. Unknown equal variances
+            |
+            | hypotheses = H0: mean1 = mean2 , H1: mean1 &gt; mean2
+            |
+            |           statistic = 1.765996124515009
+            |
+            |           distribution = [student_t, 9]
+            |
+            |            p_value = .05560320992529344
+</pre>
+</dd></dl>
+
+
+
+
+
+
+
+<dl>
+<dt><u>Função:</u> <b>test_variance</b><i> (<var>x</var>)</i>
+<a name="IDX1903"></a>
+</dt>
+<dt><u>Função:</u> <b>test_variance</b><i> (<var>x</var>, <var>opção_1</var>, <var>opção_2</var>, ...)</i>
+<a name="IDX1904"></a>
+</dt>
+<dd><p>Esse é o teste da variância <var>chi^2</var>. O argumento <var>x</var> é uma lista ou uma matriz coluna
+contendo uma amostra unidimensional tomada entre a população normal.
+</p>
+<p>Opções:
+</p>
+<ul>
+<li>
+<code>'mean</code>, o valor padrão é <code>'unknown</code>, é a média da população, quando for conhecida.
+
+</li><li>
+<code>'alternative</code>, o valor padrão é <code>'twosided</code>, é a hipótese alternativa;
+valores válidos são: <code>'twosided</code>, <code>'greater</code> e <code>'less</code>.
+
+</li><li>
+<code>'variance</code>, o valor padrão é <code>1</code>, isso é o valor (positivo) da variância a ser testado.
+
+</li><li>
+<code>'conflevel</code>, o valor padrão é <code>95/100</code>, nível de confidência para o intervalo de confidência; deve
+ser uma expressão que toma valores em (0,1).
+
+</li></ul>
+
+<p>A saída da função <code>test_variance</code> está no objecto <code>inference_result</code> do Maxima
+mostrando os seguintes resultados:
+</p>
+<ol>
+<li>
+<code>'var_estimate</code>: a variância da amostra.
+
+</li><li>
+<code>'conf_level</code>: nível de confidência seleccionado pelo utilizador.
+
+</li><li>
+<code>'conf_interval</code>: intervalo de confidência para a variância da população.
+
+</li><li>
+<code>'method</code>: procedimento de inferência.
+
+</li><li>
+<code>'hypotheses</code>: a hipótese do nulo e a hipótese alternativa a serem testadas.
+
+</li><li>
+<code>'statistic</code>: valor da amostra estatística usado para testar a hipótese do nulo.
+
+</li><li>
+<code>'distribution</code>: distribuição da amostra estatística, juntamente com seu parâmetro.
+
+</li><li>
+<code>'p_value</code>: o valor de <em>p</em> do teste.
+
+</li></ol>
+
+<p>Exemplos:
+</p>
+<p>Isso é testado se a variância de uma população com média desconhhecida
+for igual ou maior que 200.
+</p>
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [203,229,215,220,223,233,208,228,209]$
+(%i3) test_variance(x,'alternative='greater,'variance=200);
+             |                  VARIANCE TEST
+             |
+             |              var_estimate = 110.75
+             |
+             |                conf_level = 0.95
+             |
+             |     conf_interval = [57.13433376937479, inf]
+             |
+(%o3)        | method = Variance Chi-square test. Unknown mean.
+             |
+             |    hypotheses = H0: var = 200 , H1: var &gt; 200
+             |
+             |                 statistic = 4.43
+             |
+             |             distribution = [chi2, 8]
+             |
+             |           p_value = .8163948512777689
+</pre>
+</dd></dl>
+
+
+
+
+
+
+
+<dl>
+<dt><u>Função:</u> <b>test_variance_ratio</b><i> (<var>x1</var>, <var>x2</var>)</i>
+<a name="IDX1905"></a>
+</dt>
+<dt><u>Função:</u> <b>test_variance_ratio</b><i> (<var>x1</var>, <var>x2</var>, <var>opção_1</var>, <var>opção_2</var>, ...)</i>
+<a name="IDX1906"></a>
+</dt>
+<dd><p>Isso é o teste <var>F</var> da razão de variância para duas populações normais.
+Os argumentos <var>x1</var> e <var>x2</var> são listas ou matrizes colunas
+contendo duas amostras independentes.
+</p>
+<p>Opções:
+</p>
+<ul>
+<li>
+<code>'alternative</code>, o valor padrão é <code>'twosided</code>, é a hipótese alternativa;
+valores válidos são: <code>'twosided</code>, <code>'greater</code> e <code>'less</code>.
+
+</li><li>
+<code>'mean1</code>, o valor padrão é <code>'unknown</code>, quando for conhecida, isso é a média da
+população da qual <var>x1</var> foi tomada.
+
+</li><li>
+<code>'mean2</code>, o valor padrão é <code>'unknown</code>, quando for conhecida, isso é a média da
+população da qual <var>x2</var> foi tomada.
+
+</li><li>
+<code>'conflevel</code>, o valor padrão é <code>95/100</code>, nível de confidência para o intervalo de confidência da
+razão; deve ser uma expressão que tome valores em (0,1).
+
+</li></ul>
+
+<p>A saída da função <code>test_variance_ratio</code> é um objecto <code>inference_result</code> do Maxima
+mostrando os seguintes resultados:
+</p>
+<ol>
+<li>
+<code>'ratio_estimate</code>: a razão de variância da amostra.
+
+</li><li>
+<code>'conf_level</code>: nível de confidência seleccionado pelo utilizador.
+
+</li><li>
+<code>'conf_interval</code>: intervalo de confidência para a razão de variância.
+
+</li><li>
+<code>'method</code>: procedimento de inferência.
+
+</li><li>
+<code>'hypotheses</code>: a hipótese do nulo e a hipótese alternativa a serem testadas.
+
+</li><li>
+<code>'statistic</code>: valor da amostra estatística usado para testar a hipótese do nulo.
+
+</li><li>
+<code>'distribution</code>: distribuição da amostra estatística, juntamente com seus parâmetros.
+
+</li><li>
+<code>'p_value</code>: o valor de <em>p</em> do teste.
+
+</li></ol>
+
+
+<p>Exemplos:
+</p>
+<p>a igualdade das variâncias de duas populações normais é verificado
+contra a alternativa que a primeira é maior que a segunda.
+</p>
+
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
+(%i3) y: [1.2,6.9,38.7,20.4,17.2]$
+(%i4) test_variance_ratio(x,y,'alternative='greater);
+              |              VARIANCE RATIO TEST
+              |
+              |       ratio_estimate = 2.316933391522034
+              |
+              |               conf_level = 0.95
+              |
+              |    conf_interval = [.3703504689507268, inf]
+              |
+(%o4)         | method = Variance ratio F-test. Unknown means.
+              |
+              | hypotheses = H0: var1 = var2 , H1: var1 &gt; var2
+              |
+              |         statistic = 2.316933391522034
+              |
+              |            distribution = [f, 5, 4]
+              |
+              |          p_value = .2179269692254457
+</pre>
+</dd></dl>
+
+
+
+
+
+
+<dl>
+<dt><u>Função:</u> <b>test_sign</b><i> (<var>x</var>)</i>
+<a name="IDX1907"></a>
+</dt>
+<dt><u>Função:</u> <b>test_sign</b><i> (<var>x</var>, <var>opção_1</var>, <var>opção_2</var>, ...)</i>
+<a name="IDX1908"></a>
+</dt>
+<dd><p>Esse é o teste de sinal não paramétrico para a mediana de uma população contínua.
+O argumento <var>x</var> é uma lista ou uma matriz coluna contendo uma amostra unidimensional.
+</p>
+<p>Opções:
+</p>
+<ul>
+<li>
+<code>'alternative</code>, o valor padrão é <code>'twosided</code>, é a hipótese alternativa;
+valores válidos são: <code>'twosided</code>, <code>'greater</code> e <code>'less</code>.
+
+</li><li>
+<code>'median</code>, o valor padrão é <code>0</code>, é o valor da mediana a ser verificado.
+
+</li></ul>
+
+<p>A saída da função <code>test_sign</code> é um objecto <code>inference_result</code> do Maxima
+mostrando os seguintes resultados:
+</p>
+<ol>
+<li>
+<code>'med_estimate</code>: a mediana da amostra.
+
+</li><li>
+<code>'method</code>: procedimento de inferência.
+
+</li><li>
+<code>'hypotheses</code>: a hipótese do nulo e a hipótese alternativa a serem testadas.
+
+</li><li>
+<code>'statistic</code>: valor da amostra estatística usada para testar a hipótese do nulo.
+
+</li><li>
+<code>'distribution</code>: distribuição da amostra estatística, juntamente com seu(s) parâmetro(s).
+
+</li><li>
+<code>'p_value</code>: o valor de <em>p</em> do teste.
+
+</li></ol>
+
+<p>Exemplos:
+</p>
+<p>Verifica se a população da qual a amostra foi tomada tem mediana 6, 
+contra a alternativa <em>H_1: median &gt; 6</em>.
+</p>
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [2,0.1,7,1.8,4,2.3,5.6,7.4,5.1,6.1,6]$
+(%i3) test_sign(x,'median=6,'alternative='greater);
+               |                  SIGN TEST
+               |
+               |              med_estimate = 5.1
+               |
+               |      method = Non parametric sign test.
+               |
+(%o3)          | hypotheses = H0: median = 6 , H1: median &gt; 6
+               |
+               |                statistic = 7
+               |
+               |      distribution = [binomial, 10, 0.5]
+               |
+               |         p_value = .05468749999999989
+</pre>
+</dd></dl>
+
+
+
+
+
+
+
+
+
+<dl>
+<dt><u>Função:</u> <b>test_signed_rank</b><i> (<var>x</var>)</i>
+<a name="IDX1909"></a>
+</dt>
+<dt><u>Função:</u> <b>test_signed_rank</b><i> (<var>x</var>, <var>opção_1</var>, <var>opção_2</var>, ...)</i>
+<a name="IDX1910"></a>
+</dt>
+<dd><p>Esse é o teste de ranque sinalizado de Wilcoxon para fazer inferências sobre a mediana de uma
+população contínua. O argumento <var>x</var> é uma lista ou uma matriz coluna
+contendo uma amostra unidimensional. Executa uma aproximação normal se o
+tamanho da amostra for maior que 20, ou se existirem zeros ou houverem empates.
+</p>
+<p>Veja também <code>pdf_rank_test</code> e <code>cdf_rank_test</code>.
+</p>
+<p>Opções:
+</p>
+<ul>
+<li>
+<code>'median</code>, o valor padrão é <code>0</code>, é o valor da mediana a ser verificado.
+
+</li><li>
+<code>'alternative</code>, o valor padrão é <code>'twosided</code>, é a hipótese alternativa;
+valores válidos são: <code>'twosided</code>, <code>'greater</code> e <code>'less</code>.
+
+</li></ul>
+
+<p>A saída da função <code>test_signed_rank</code> é um objecto <code>inference_result</code> do Maxima
+com os seguintes resultados:
+</p>
+<ol>
+<li>
+<code>'med_estimate</code>: a mediana da amostra.
+
+</li><li>
+<code>'method</code>: procedimento de inferência.
+
+</li><li>
+<code>'hypotheses</code>: a hipótese do nulo e a hipótese alternativa a serem testadas.
+
+</li><li>
+<code>'statistic</code>: valor da amostra estatística usado para testar a hipótese do nulo.
+
+</li><li>
+<code>'distribution</code>: distribuição da amostra estatística, juntamente com seu(s) parâmetro(s).
+
+</li><li>
+<code>'p_value</code>: o valor de <em>p</em> do teste.
+
+</li></ol>
+
+<p>Exemplos:
+</p>
+<p>Verifica a hipótese do nulo <em>H_0: median = 15</em> contra a 
+alternativa <em>H_1: median &gt; 15</em>. Esse é um teste exato, ua vez que
+não exite empates.
+</p>
+
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [17.1,15.9,13.7,13.4,15.5,17.6]$
+(%i3) test_signed_rank(x,median=15,alternative=greater);
+                 |             SIGNED RANK TEST
+                 |
+                 |           med_estimate = 15.7
+                 |
+                 |           method = Exact test
+                 |
+(%o3)            | hypotheses = H0: med = 15 , H1: med &gt; 15
+                 |
+                 |              statistic = 14
+                 |
+                 |     distribution = [signed_rank, 6]
+                 |
+                 |            p_value = 0.28125
+</pre>
+<p>Verifica a hipótese do nulo <em>H_0: equal(median, 2.5)</em> contra a
+alternativa <em>H_1: not equal(median, 2.5)</em>. Esse é um teste aproximado,
+uma vez que ocorrem empates.
+</p>
+
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) y:[1.9,2.3,2.6,1.9,1.6,3.3,4.2,4,2.4,2.9,1.5,3,2.9,4.2,3.1]$
+(%i3) test_signed_rank(y,median=2.5);
+             |                 SIGNED RANK TEST
+             |
+             |                med_estimate = 2.9
+             |
+             |          method = Asymptotic test. Ties
+             |
+(%o3)        |    hypotheses = H0: med = 2.5 , H1: med # 2.5
+             |
+             |                 statistic = 76.5
+             |
+             | distribution = [normal, 60.5, 17.58195097251724]
+             |
+             |           p_value = .3628097734643669
+</pre>
+</dd></dl>
+
+
+
+
+
+
+
+<dl>
+<dt><u>Função:</u> <b>test_rank_sum</b><i> (<var>x1</var>, <var>x2</var>)</i>
+<a name="IDX1911"></a>
+</dt>
+<dt><u>Função:</u> <b>test_rank_sum</b><i> (<var>x1</var>, <var>x2</var>, <var>opção_1</var>)</i>
+<a name="IDX1912"></a>
+</dt>
+<dd><p>Esse é o teste de Wilcoxon-Mann-Whitney para comparação das medianas de duas
+populações contínuas. Os primeiros dois argumentos <var>x1</var> e <var>x2</var> são listas
+ou matrizes colunas com os dados de duas amostras independentes. Executa aproximação
+normal se quaisquer dos tamanhos de amostra for maior que 10, ou se houverem empates.
+</p>
+<p>Opção:
+</p>
+<ul>
+<li>
+<code>'alternative</code>, o valor padrão é <code>'twosided</code>, é a hipótese alternativa;
+valores válidos são: <code>'twosided</code>, <code>'greater</code> e <code>'less</code>.
+
+</li></ul>
+
+<p>A saída da função <code>test_rank_sum</code> é um objecto <code>inference_result</code> do Maxima
+com os seguintes resultados:
+</p>
+<ol>
+<li>
+<code>'method</code>: procedimento de inferência.
+
+</li><li>
+<code>'hypotheses</code>: a hipótese do nulo e a hipótese alternativa a serem testadas.
+
+</li><li>
+<code>'statistic</code>: valor da amostra estatística usada para testar a hipótese do nulo.
+
+</li><li>
+<code>'distribution</code>: distribuição da amostra estatística, juntamente com seus parâmetros.
+
+</li><li>
+<code>'p_value</code>: o valor de <em>p</em> do teste.
+
+</li></ol>
+
+<p>Exemplos:
+</p>
+<p>Verifica se populações possuem medianas similares. Tamanhos de amotra
+são pequenos e é feito um teste exato.
+</p>
+
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x:[12,15,17,38,42,10,23,35,28]$
+(%i3) y:[21,18,25,14,52,65,40,43]$
+(%i4) test_rank_sum(x,y);
+              |                 RANK SUM TEST
+              |
+              |              method = Exact test
+              |
+              | hypotheses = H0: med1 = med2 , H1: med1 # med2
+(%o4)         |
+              |                 statistic = 22
+              |
+              |        distribution = [rank_sum, 9, 8]
+              |
+              |          p_value = .1995886466474702
+</pre>
+<p>Agora, com grandes amostras e empates, o procedimento faz 
+aproximação norma. A hipótese alternativa é
+<em>H_1: median1 &lt; median2</em>.
+</p>
+
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [39,42,35,13,10,23,15,20,17,27]$
+(%i3) y: [20,52,66,19,41,32,44,25,14,39,43,35,19,56,27,15]$
+(%i4) test_rank_sum(x,y,'alternative='less);
+             |                  RANK SUM TEST
+             |
+             |          method = Asymptotic test. Ties
+             |
+             |  hypotheses = H0: med1 = med2 , H1: med1 &lt; med2
+(%o4)        |
+             |                 statistic = 48.5
+             |
+             | distribution = [normal, 79.5, 18.95419580097078]
+             |
+             |           p_value = .05096985666598441
+</pre>
+</dd></dl>
+
+
+
+
+
+
+
+<dl>
+<dt><u>Função:</u> <b>test_normality</b><i> (<var>x</var>)</i>
+<a name="IDX1913"></a>
+</dt>
+<dd><p>Teste de Shapiro-Wilk para normalidade. O argumento <var>x</var> é uma lista de números, e o tamanho
+da amostra deve ser maior que 2 e menor ou igua a 5000, de outra forma, a função
+<code>test_normality</code> sinaliza com um erro.
+</p>
+<p>Referência:
+</p>
+<p>  [1] Algorithm AS R94, Applied Statistics (1995), vol.44, no.4, 547-551
+</p>
+<p>A saída da função <code>test_normality</code> é um objecto <code>inference_result</code> do Maxima
+com os seguintes resultados:
+</p>
+<ol>
+<li>
+<code>'statistic</code>: valor do <var>W</var> estatístico.
+
+</li><li>
+<code>'p_value</code>: valor de <em>p</em> sob a hipótese de normalidade.
+
+</li></ol>
+
+<p>Exemplos:
+</p>
+<p>Verifica a normalidade de uma população, baseada em uma amostra de tamanho 9.
+</p>
+
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x:[12,15,17,38,42,10,23,35,28]$
+(%i3) test_normality(x);
+                       |      SHAPIRO - WILK TEST
+                       |
+(%o3)                  | statistic = .9251055695162436
+                       |
+                       |  p_value = .4361763918860381
+</pre>
+</dd></dl>
+
+
+
+
+
+
+
+
+
+<dl>
+<dt><u>Função:</u> <b>simple_linear_regression</b><i> (<var>x</var>)</i>
+<a name="IDX1914"></a>
+</dt>
+<dt><u>Função:</u> <b>simple_linear_regression</b><i> (<var>x</var> <var>opção_1</var>)</i>
+<a name="IDX1915"></a>
+</dt>
+<dd><p>Regressão linear simples, <em>y_i=a+b x_i+e_i</em>, onde os <em>e_i</em> são <em>N(0,sigma)</em>
+variáveis aleatórias independentes. O argumento <var>x</var> deve ser uma matriz de duas colunas ou uma lista de
+pares.
+</p>
+<p>Opções:
+</p>
+<ul>
+<li>
+<code>'conflevel</code>, o valor padrão é <code>95/100</code>, nível de confidência para o intervalo de confidência; isso deve
+ser uma expressão que tome valores em (0,1).
+
+</li><li>
+<code>'regressor</code>, o valor padrão é <code>'x</code>, nome da variável independente.
+
+</li></ul>
+
+<p>A saída da função <code>simple_linear_regression</code> é um objecto <code>inference_result</code> do Maxima
+com os seguintes resultados:
+</p>
+<ol>
+<li>
+<code>'model</code>: a equação ajustada. Útil para fazer novas previsões. Veja exemplos abaixo.
+
+</li><li>
+<code>'means</code>: média de duas variáveis pseudo-aleatórias.
+
+</li><li>
+<code>'variances</code>: variâncias de ambas as variáveis.
+
+</li><li>
+<code>'correlation</code>: coeficiente de correlação.
+
+</li><li>
+<code>'adc</code>: coeficiente de determinação ajustado.
+
+</li><li>
+<code>'a_estimation</code>: estimador do parâmetro <var>a</var>.
+
+</li><li>
+<code>'a_conf_int</code>: intervalo de confidência do parâmetro <var>a</var>.
+
+</li><li>
+<code>'b_estimation</code>: estimador do parâmetro <var>b</var>.
+
+</li><li>
+<code>'b_conf_int</code>: intervalo de confidência do parâmetro <var>b</var>.
+
+</li><li>
+<code>'hypotheses</code>: a hipótese do nulo e a hipótese alternativa sobre o parâmetro <var>b</var>.
+
+</li><li>
+<code>'statistic</code>: valor da amostra estatística usado para testar a hipótese do nulo.
+
+</li><li>
+<code>'distribution</code>: distribuição da amostra estatística, juntamente com seu parâmetro.
+
+</li><li>
+<code>'p_value</code>: o valor de <em>p</em> do teste sobre <var>b</var>.
+
+</li><li>
+<code>'v_estimation</code>: estimador de variância imparcial, ou variância residual.
+
+</li><li>
+<code>'v_conf_int</code>: intervalo de confidência da variância.
+
+</li><li>
+<code>'cond_mean_conf_int</code>: intervalo de confidência paa a média condicionada. Veja exemplos abaixo.
+
+</li><li>
+<code>'new_pred_conf_int</code>: intervalo de confidência para uma nova previsão. Veja exemplos abaixo.
+
+</li><li>
+<code>'residuals</code>: lista de pares (previsão, resíduo), ordenados em relação às previsões.
+Útil para achar o melhor da análise de ajuste. Veja exemplos abaixo.
+
+</li></ol>
+
+<p>Somente os itens 1, 4, 14, 9, 10, 11, 12, e 13 acima, nessa ordem, são mostrados por padrão. Os restantes
+escondem-se até que o utilizador faça uso de funções <code>items_inference</code> e <code>take_inference</code>.
+</p>
+<p>Exemplo:
+</p>
+<p>Ajustando um modelo linear para uma amostras de duas variáveis. A entrada <code>%i4</code> monta p gráfico
+da amostra junto com a linha de regressão; a entrada <code>%i5</code>
+calcula <code>y</code> dado <code>x=113</code>; a média e o 
+intervalo de confidência para uma nova previsão quando <code>x=113</code> são também calculados.
+</p>
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) s:[[125,140.7],[130,155.1],[135,160.3],[140,167.2],[145,169.8]]$
+(%i3) z:simple_linear_regression(s,conflevel=0.99);
+           |               SIMPLE LINEAR REGRESSION
+           |
+           |   model = 1.405999999999985 x - 31.18999999999804
+           |
+           |           correlation = .9611685255255155
+           |
+           |           v_estimation = 13.57966666666665
+           |
+(%o3)      | b_conf_int = [.04469633662525263, 2.767303663374718]
+           |
+           |          hypotheses = H0: b = 0 ,H1: b # 0
+           |
+           |            statistic = 6.032686683658114
+           |
+           |            distribution = [student_t, 3]
+           |
+           |             p_value = 0.0038059549413203
+(%i4) plot2d([[discrete, s], take_inference(model,z)],
+              [x,120,150],
+              [gnuplot_curve_styles, [&quot;with points&quot;,&quot;with lines&quot;]] )$
+(%i5) take_inference(model,z), x=133;
+(%o5)                         155.808
+(%i6) take_inference(means,z);
+(%o6)                     [135.0, 158.62]
+(%i7) take_inference(new_pred_conf_int,z), x=133;
+(%o7)              [132.0728595995113, 179.5431404004887]
+</pre>
+</dd></dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr size="6">
+<a name="Defini_00e7_00f5es-para-distribui_00e7_00f5es-especiais"></a>
+<a name="SEC253"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC252" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_68.html#SEC254" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC249" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC249" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_68.html#SEC254" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 67.4 Definições para distribuições especiais </h2>
+
+
+<dl>
+<dt><u>Função:</u> <b>pdf_signed_rank</b><i> (<var>x</var>, <var>n</var>)</i>
+<a name="IDX1916"></a>
+</dt>
+<dd><p>Função densidade de probabilidade da distribuição exacta da
+estatística do rank sinalizado. O argumento <var>x</var> é um número
+real e <var>n</var> um inteiro positivo.
+</p>
+<p>Veja também <code>test_signed_rank</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>cdf_signed_rank</b><i> (<var>x</var>, <var>n</var>)</i>
+<a name="IDX1917"></a>
+</dt>
+<dd><p>Função de densidade cumulativa da distribuição exacta da
+estatística do rank sinalizado. O argumento <var>x</var> é um número
+real e <var>n</var> um inteiro positivo. 
+</p>
+<p>Veja também <code>test_signed_rank</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>pdf_rank_sum</b><i> (<var>x</var>, <var>n</var>, <var>m</var>)</i>
+<a name="IDX1918"></a>
+</dt>
+<dd><p>Função densidade de probabilidade da distribuição exacta da
+estatística do somatório do rank. O argumento <var>x</var> é um número
+real e <var>n</var> e <var>m</var> são ambos inteiros positivos. 
+</p>
+<p>Veja também <code>test_rank_sum</code>.
+</p></dd></dl>
+
+<dl>
+<dt><u>Função:</u> <b>cdf_rank_sum</b><i> (<var>x</var>, <var>n</var>, <var>m</var>)</i>
+<a name="IDX1919"></a>
+</dt>
+<dd><p>Função de densidade cumulativa da distribuição exacta da
+estatística do somatório do rank. O argumento <var>x</var> é um número
+real e <var>n</var> e <var>m</var> são ambos inteiro positivos. 
+</p>
+<p>Veja também <code>test_rank_sum</code>.
+</p></dd></dl>
+
+
 
 <hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC247" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_68.html#SEC250" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC249" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_68.html#SEC254" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -481,12 +1368,12 @@ forem omitidos, s&atilde;o assumidos como sendo <code>inf = -inf</code> e <code>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC274" title="Index">&Iacute;ndice</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_72.html#SEC272" title="Index">&Iacute;ndice</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>Setembro, 8 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>Janeiro, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

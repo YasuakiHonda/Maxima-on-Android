@@ -1,27 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年9月月15日 by texi2html 1.82
-texi2html was written by: 
-            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+<!-- Created on 5月, 20 2015 by texi2html 1.76 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
             Olaf Bachmann <obachman@mathematik.uni-kl.de>
             and many others.
-Maintained by: Many creative people.
-Send bugs and suggestions to <texi2html-bug@nongnu.org>
+Maintained by: Many creative people <dev@texi2html.cvshome.org>
+Send bugs and suggestions to <users@texi2html.cvshome.org>
+
 -->
 <head>
-<title>Maxima 5.34.1 Manual: 13. File Input and Output</title>
+<title>Maxima 5.36.1 Manual: 13. File Input and Output</title>
 
-<meta name="description" content="Maxima 5.34.1 Manual: 13. File Input and Output">
-<meta name="keywords" content="Maxima 5.34.1 Manual: 13. File Input and Output">
+<meta name="description" content="Maxima 5.36.1 Manual: 13. File Input and Output">
+<meta name="keywords" content="Maxima 5.36.1 Manual: 13. File Input and Output">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.82">
+<meta name="Generator" content="texi2html 1.76">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
 pre.display {font-family: serif}
 pre.format {font-family: serif}
 pre.menu-comment {font-family: serif}
@@ -30,109 +30,30 @@ pre.smalldisplay {font-family: serif; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.roman {font-family:serif; font-weight:normal;}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
@@ -157,58 +78,59 @@ div.categorybox
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="File-Input-and-Output"></a>
+<a name="SEC69"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_12.html#Gnuplot_005fpipes-Format-Functions" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Comments" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_12.html#SEC68" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC70" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_12.html#Plotting" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_14.html#Polynomials" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_12.html#SEC62" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_14.html#SEC75" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="File-Input-and-Output-1"></a>
-<h1 class="chapter">13. File Input and Output</h1>
+<h1 class="chapter"> 13. File Input and Output </h1>
+
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Comments">13.1 Comments</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC70">13.1 Comments</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Files">13.2 Files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC71">13.2 Files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-File-Input-and-Output">13.3 Functions and Variables for File Input and Output</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC72">13.3 Functions and Variables for File Input and Output</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-TeX-Output">13.4 Functions and Variables for TeX Output</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC73">13.4 Functions and Variables for TeX Output</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Fortran-Output">13.5 Functions and Variables for Fortran Output</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC74">13.5 Functions and Variables for Fortran Output</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <p><a name="Item_003a-Comments"></a>
 </p><hr size="6">
 <a name="Comments"></a>
+<a name="SEC70"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#File-Input-and-Output" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Files" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC69" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC71" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#File-Input-and-Output" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#File-Input-and-Output" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_14.html#Polynomials" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC69" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC69" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_14.html#SEC75" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Comments-1"></a>
-<h2 class="section">13.1 Comments</h2>
+<h2 class="section"> 13.1 Comments </h2>
 
 <p>Maximaの入力中 <code>/*</code>と <code>*/</code>の間のテキストはどんなものでもコメントです。
 です。
@@ -226,7 +148,7 @@ div.categorybox
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) /* aa is a variable of interest */  aa : 1234;
+<pre class="example">(%i1) /* aa is a variable of interest */  aa : 1234;
 (%o1)                         1234
 (%i2) /* Value of bb depends on aa */  bb : aa^2;
 (%o2)                        1522756
@@ -236,31 +158,33 @@ div.categorybox
 (%o4)                         a b c
 (%i5) /* Comments /* can be nested /* to any depth */ */ */  1 + xyz;
 (%o5)                        xyz + 1
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Syntax">Syntax</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Syntax">Syntax</a>
+</div>
+</p>
 <p><a name="Item_003a-Files"></a>
 </p><hr size="6">
 <a name="Files"></a>
+<a name="SEC71"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Comments" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-File-Input-and-Output" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC70" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC72" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#File-Input-and-Output" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#File-Input-and-Output" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_14.html#Polynomials" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC69" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC69" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_14.html#SEC75" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Files-1"></a>
-<h2 class="section">13.2 Files</h2>
+<h2 class="section"> 13.2 Files </h2>
 
 <p>簡単に言えば、ファイルはデータやテキスト含む個々のストレージデバイス上のある領域です。
 ディスク上のファイルは比喩的に「名簿(ディレクトリ)」の中にグループ化されます。
@@ -277,10 +201,7 @@ div.categorybox
    pathname_type        printfile             save
    stringout            with_stdout           writefile
 </pre>
-<p>ファイル名が <code><a href="maxima_12.html#plot2d">plot2d</a></code>
-や <code><a href="#save">save</a></code>
-, <code><a href="#writefile">writefile</a></code>
-のような関数に渡され、
+<p>ファイル名が <code><a href="maxima_12.html#plot2d">plot2d</a></code>や <code><a href="#save">save</a></code>, <code><a href="#writefile">writefile</a></code>のような関数に渡され、
 ファイル名がパスを含まない時
 Maximaは現在のワーキングディレクトリにファイルを保存します。
 現在のワーキングディレクトリは Windowsや Linuxのようなシステムとインストールに依存します。
@@ -288,61 +209,60 @@ Maximaは現在のワーキングディレクトリにファイルを保存し�
 <p><a name="Item_003a-Functions-and-Variables-for-File-Input-and-Output"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-File-Input-and-Output"></a>
+<a name="SEC72"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Files" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-TeX-Output" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC71" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC73" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#File-Input-and-Output" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#File-Input-and-Output" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_14.html#Polynomials" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC69" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC69" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_14.html#SEC75" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-File-Input-and-Output-1"></a>
-<h2 class="section">13.3 Functions and Variables for File Input and Output</h2>
+<h2 class="section"> 13.3 Functions and Variables for File Input and Output </h2>
 
 <p><a name="appendfile"></a>
 <a name="Item_003a-appendfile"></a>
 </p><dl>
-<dt><a name="index-appendfile"></a><u>関数:</u> <b>appendfile</b><i> (<var>filename</var>)</i></dt>
-<dd>
-<p>コンソールの筆記録を <var>filename</var>に追加します。
+<dt><u>関数:</u> <b>appendfile</b><i> (<var>filename</var>)</i>
+<a name="IDX510"></a>
+</dt>
+<dd><p>コンソールの筆記録を <var>filename</var>に追加します。
 筆記録ファイルが存在すればいつも追加されることを除いて、
 <code>appendfile</code>は <code>writefile</code>と同じです。
 </p>
-<p><code><a href="#closefile">closefile</a></code>
-は <code>appendfile</code>や
+<p><code><a href="#closefile">closefile</a></code>は <code>appendfile</code>や
 <code>writefile</code>が開いた筆記録ファイルを閉じます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-output">File output</a>
- &middot;<a href="maxima_100.html#Category_003a-Console-interaction">Console interaction</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-output">File output</a> &middot;
+<a href="maxima_100.html#Category_003a-Console-interaction">Console interaction</a>
+</div>
+</p></dd></dl>
 
 <p><a name="batch"></a>
 <a name="Item_003a-batch"></a>
 </p><dl>
-<dt><a name="index-batch"></a><u>関数:</u> <b>batch</b><i> (<var>filename</var>)</i></dt>
-<dt><a name="index-batch-1"></a><u>関数:</u> <b>batch</b><i> (<var>filename</var>, <code>option</code>)</i></dt>
-<dd>
-<p><code>batch(<var>filename</var>)</code>は Maximaの式を <var>filename</var>から読み込んで評価します。
-<code>batch</code>はリスト <code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code>
-の中から <var>filename</var>を検索します。
-<code><a href="#file_005fsearch">file_search</a></code>
-も参照してください。
+<dt><u>関数:</u> <b>batch</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>batch</tt> (<var>filename</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>batch</tt> (<var>filename</var>, <code>option</code>)</i>
+<a name="IDX511"></a>
+</dt>
+<dd><p><code>batch(<var>filename</var>)</code>は Maximaの式を <var>filename</var>から読み込んで評価します。
+<code>batch</code>はリスト <code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code>の中から <var>filename</var>を検索します。
+<code><a href="#file_005fsearch">file_search</a></code>も参照してください。
 </p>
 <p><code>batch(<var>filename</var>, <code>demo</code>)</code>は
 <code>demo(<var>filename</var>)</code>ようなものです。
-この場合、<code>batch</code>はリスト <code><a href="#file_005fsearch_005fdemo">file_search_demo</a></code>
-の中から
+この場合、<code>batch</code>はリスト <code><a href="#file_005fsearch_005fdemo">file_search_demo</a></code>の中から
 <var>filename</var>を検索します。
-<code><a href="maxima_3.html#demo">demo</a></code>
-を参照してください。
+<code><a href="maxima_3.html#demo">demo</a></code>を参照してください。
 </p>
 <p><code>batch(<var>filename</var>, <code>test</code>)</code>はオプション
 <code>display_all=true</code>を付けた <code>run_testsuite</code>ようなものです。
@@ -357,21 +277,16 @@ Maximaは現在のワーキングディレクトリにファイルを保存し�
 </p>
 <p><var>filename</var>は一連の Maximaの式からなり、それぞれの式は
 <code>;</code>か <code>$</code>で終了します。
-特殊変数 <code><a href="maxima_4.html#g_t_0025">%</a></code>
-と関数 <code><a href="maxima_4.html#g_t_0025th">%th</a></code>
-はファイル内での前の結果を参照します。
+特殊変数 <code><a href="maxima_4.html#g_t_0025">%</a></code>と関数 <code><a href="maxima_4.html#g_t_0025th">%th</a></code>はファイル内での前の結果を参照します。
 ファイルは <code>:lisp</code>構成子を含むかもしれません。
 ファイルの中の空白、タブ、改行は無視されます。
-必要な入力ファイルはテキストエディタもしくは <code><a href="#stringout">stringout</a></code>
-関数で作ることができます。
+必要な入力ファイルはテキストエディタもしくは <code><a href="#stringout">stringout</a></code>関数で作ることができます。
 </p>
 <p><code>batch</code>はそれぞれの入力式を <var>filename</var>から読み込み、
 入力をコンソールに表示し、対応する出力式を計算し、出力式を表示します。
 入力ラベルは入力式に割り当てられ、出力ラベルは出力式に割り当てられます。
 <code>batch</code>はエラーがない限りファイルの中のすべての入力式を評価します。
-もしユーザー入力が（例えば、 <code><a href="maxima_11.html#asksign">asksign</a></code>
-や <code><a href="maxima_11.html#askinteger">askinteger</a></code>
-によって）要求されたら、
+もしユーザー入力が（例えば、 <code><a href="maxima_11.html#asksign">asksign</a></code>や <code><a href="maxima_11.html#askinteger">askinteger</a></code>によって）要求されたら、
 <code>batch</code>は必要な入力を入手するためポーズして、入手後評価を続けます。
 </p>
 <p>コンソールで <code>control-C</code>をタイプすると
@@ -388,61 +303,65 @@ Maximaは現在のワーキングディレクトリにファイルを保存し�
 オプション <code>test</code>で呼び出された時、
 戻り値は空のリスト<code>[]</code>か <var>filename</var>と失敗したテストの数を含むリストです。
 </p>
-<p><code><a href="#load">load</a></code>
-, <code><a href="#batchload">batchload</a></code>
-, <code><a href="maxima_3.html#demo">demo</a></code>
-も参照してください。
+<p><code><a href="#load">load</a></code>, <code><a href="#batchload">batchload</a></code>, <code><a href="maxima_3.html#demo">demo</a></code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Session-management">Session management</a>
- &middot;<a href="maxima_100.html#Category_003a-File-input">File input</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Session-management">Session management</a> &middot;
+<a href="maxima_100.html#Category_003a-File-input">File input</a>
+</div>
+</p>
 </dd></dl>
 
 
 <p><a name="batchload"></a>
 <a name="Item_003a-batchload"></a>
 </p><dl>
-<dt><a name="index-batchload"></a><u>関数:</u> <b>batchload</b><i> (<var>filename</var>)</i></dt>
-<dd>
-<p><var>filename</var>から Maximaの式を読み込んで評価します。
+<dt><u>関数:</u> <b>batchload</b><i> (<var>filename</var>)</i>
+<a name="IDX512"></a>
+</dt>
+<dd><p><var>filename</var>から Maximaの式を読み込んで評価します。
 入力式や出力式を表示しません。
 ラベルを出力式に割り当てません。
 しかし (<code>print</code>や <code>describe</code>が生成するような)プリント文の出力は表示されます。
 </p>
-<p>特殊変数 <code><a href="maxima_4.html#g_t_0025">%</a></code>
-や関数 <code><a href="maxima_4.html#g_t_0025th">%th</a></code>
-は
+<p>特殊変数 <code><a href="maxima_4.html#g_t_0025">%</a></code>や関数 <code><a href="maxima_4.html#g_t_0025th">%th</a></code>は
 ファイルの中の結果ではなく対話インタープリタからの以前の結果を参照します。
 ファイルは<code>:lisp</code>構成子を含むことはできません。
 </p>
 <p><code>batchload</code>は <var>filename</var>のパスを文字列として返します。
 <code>batchload</code>は引数を評価します。
 </p>
-<p><code><a href="#batch">batch</a></code>
-や <code><a href="#load">load</a></code>
-も参照してください。
+<p><code><a href="#batch">batch</a></code>や <code><a href="#load">load</a></code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Session-management">Session management</a>
- &middot;<a href="maxima_100.html#Category_003a-File-input">File input</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Session-management">Session management</a> &middot;
+<a href="maxima_100.html#Category_003a-File-input">File input</a>
+</div>
+</p></dd></dl>
 
 <p><a name="closefile"></a>
 <a name="Item_003a-closefile"></a>
 </p><dl>
-<dt><a name="index-closefile"></a><u>関数:</u> <b>closefile</b><i> ()</i></dt>
-<dd>
-<p><code><a href="#writefile">writefile</a></code>
-や <code><a href="#appendfile">appendfile</a></code>
-で開いたトランスクリプトファイルを閉じます。
+<dt><u>関数:</u> <b>closefile</b><i> ()</i>
+<a name="IDX513"></a>
+</dt>
+<dd><p><code><a href="#writefile">writefile</a></code>や <code><a href="#appendfile">appendfile</a></code>で開いたトランスクリプトファイルを閉じます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-output">File output</a>
- &middot;<a href="maxima_100.html#Category_003a-Console-interaction">Console interaction</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-output">File output</a> &middot;
+<a href="maxima_100.html#Category_003a-Console-interaction">Console interaction</a>
+</div>
+</p></dd></dl>
 
 <p><a name="file_005foutput_005fappend"></a>
 <a name="Item_003a-file_005foutput_005fappend"></a>
 </p><dl>
-<dt><a name="index-file_005foutput_005fappend"></a><u>オプション変数:</u> <b>file_output_append</b></dt>
+<dt><u>オプション変数:</u> <b>file_output_append</b>
+<a name="IDX514"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>file_output_append</code>は
@@ -451,71 +370,68 @@ Maximaは現在のワーキングディレクトリにファイルを保存し�
 ファイル出力関数は出力ファイルに追加します。
 そうでないなら出力ファイルは書き換えられます。
 </p>
-<p><code><a href="#save">save</a></code>
-, <code><a href="#stringout">stringout</a></code>
-, <code><a href="#with_005fstdout">with_stdout</a></code>
-は
+<p><code><a href="#save">save</a></code>, <code><a href="#stringout">stringout</a></code>, <code><a href="#with_005fstdout">with_stdout</a></code>は
 <code>file_output_append</code>に関係します。
 出力ファイルを書き出す他の関数は <code>file_output_append</code>に関係しません。
 特に、プロット関数や変換関数は常に出力ファイルを書き換え、
-<code><a href="#tex">tex</a></code>
-や <code><a href="#appendfile">appendfile</a></code>
-はいつも追加します。
+<code><a href="#tex">tex</a></code>や <code><a href="#appendfile">appendfile</a></code>はいつも追加します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-output">File output</a>
- &middot;<a href="maxima_100.html#Category_003a-Global-flags">Global flags</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-output">File output</a> &middot;
+<a href="maxima_100.html#Category_003a-Global-flags">Global flags</a>
+</div>
+</p></dd></dl>
 
 
 
 <p>mo<a name="filename_005fmerge"></a>
 <a name="Item_003a-filename_005fmerge"></a>
 </p><dl>
-<dt><a name="index-filename_005fmerge"></a><u>関数:</u> <b>filename_merge</b><i> (<var>path</var>, <var>filename</var>)</i></dt>
-<dd>
-<p><var>path</var>と <var>filename</var>から限定された(modified)パスを構成します。
+<dt><u>関数:</u> <b>filename_merge</b><i> (<var>path</var>, <var>filename</var>)</i>
+<a name="IDX515"></a>
+</dt>
+<dd><p><var>path</var>と <var>filename</var>から限定された(modified)パスを構成します。
 もし <var>path</var>の最後の構成要素が <code>###.<var>something</var></code>の形なら、
 構成要素は <code><var>filename</var>.<var>something</var></code>に置き換えられます。
 そうでないなら最後の構成要素は単に <var>filename</var>に置き換えられます。
 </p>
 <p>結果はLispのパス名オブジェクトです。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-input">File input</a>
- &middot;<a href="maxima_100.html#Category_003a-File-output">File output</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-input">File input</a> &middot;
+<a href="maxima_100.html#Category_003a-File-output">File output</a>
+</div>
+</p></dd></dl>
 
 <p><a name="file_005fsearch"></a>
 <a name="Item_003a-file_005fsearch"></a>
 </p><dl>
-<dt><a name="index-file_005fsearch"></a><u>関数:</u> <b>file_search</b><i> (<var>filename</var>)</i></dt>
-<dt><a name="index-file_005fsearch-1"></a><u>関数:</u> <b>file_search</b><i> (<var>filename</var>, <var>pathlist</var>)</i></dt>
-<dd>
-<p><code>file_search</code>はファイル <var>filename</var>を検索し、
+<dt><u>関数:</u> <b>file_search</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>file_search</tt> (<var>filename</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>file_search</tt> (<var>filename</var>, <var>pathlist</var>)</i>
+<a name="IDX516"></a>
+</dt>
+<dd><p><code>file_search</code>はファイル <var>filename</var>を検索し、
 もし見つかったら（文字列として）ファイルへのパスを返します;
 見つからないなら <code>file_search</code>は <code>false</code>を返します。
 <code>file_search (<var>filename</var>)</code>はデフォルトのサーチディレクトリを検索します。
-デフォルトのサーチディレクトリは <code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code>
-,
-<code><a href="#file_005fsearch_005flisp">file_search_lisp</a></code>
-, <code><a href="#file_005fsearch_005fdemo">file_search_demo</a></code>
-変数によって指定されます。
+デフォルトのサーチディレクトリは <code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code>,
+<code><a href="#file_005fsearch_005flisp">file_search_lisp</a></code>, <code><a href="#file_005fsearch_005fdemo">file_search_demo</a></code>変数によって指定されます。
 </p>
 <p><code>file_search</code>は、
 名前を「ワイルドカード」ファイルサーチパターンにマッチさせようとする前に、
 最初に、渡された実際の名前が存在するかチェックします。
-ファイルサーチパターンに関連した <code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code>
-を参照してください。
+ファイルサーチパターンに関連した <code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code>を参照してください。
 </p>
 <p>引数 <var>filename</var>は、パスとファイル名、もしくは単にファイル名、もしくは、
 もしファイルサーチディレクトリがファイルサーチパターンを含むなら
 単にファイル名のベース（拡張子なし）のいずれかです。
 例えば、
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">file_search (&quot;/home/wfs/special/zeta.mac&quot;);
+<pre class="example">file_search (&quot;/home/wfs/special/zeta.mac&quot;);
 file_search (&quot;zeta.mac&quot;);
 file_search (&quot;zeta&quot;);
-</pre></td></tr></table>
-
+</pre>
 <p>ファイルが存在していて、
 <code>/home/wfs/special/###.mac</code>が
 <code>file_search_maxima</code>に中にあるという仮定の下で
@@ -532,17 +448,17 @@ file_search (&quot;zeta&quot;);
 要素１つのリストとして与えなければいけません。
 </p>
 <p>ユーザーはデフォルト検索ディレクトリを変更できます。
-<code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code>
-を参照してください。
+<code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code>を参照してください。
 </p>
-<p><code><a href="#load">load</a></code>
-は
-<code>file_search_maxima</code>と <code><a href="#file_005fsearch_005flisp">file_search_lisp</a></code>
-を
+<p><code><a href="#load">load</a></code>は
+<code>file_search_maxima</code>と <code><a href="#file_005fsearch_005flisp">file_search_lisp</a></code>を
 を検索ディレクトリとして指定して <code>file_search</code>を呼び出します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-input">File input</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-input">File input</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="file_005fsearch_005fmaxima"></a>
@@ -552,15 +468,22 @@ file_search (&quot;zeta&quot;);
 <a name="file_005fsearch_005ftests"></a>
 <a name="Item_003a-file_005fsearch_005fmaxima"></a>
 </p><dl>
-<dt><a name="index-file_005fsearch_005fmaxima"></a><u>オプション変数:</u> <b>file_search_maxima</b></dt>
-<dt><a name="index-file_005fsearch_005flisp"></a><u>オプション変数:</u> <b>file_search_lisp</b></dt>
-<dt><a name="index-file_005fsearch_005fdemo"></a><u>オプション変数:</u> <b>file_search_demo</b></dt>
-<dt><a name="index-file_005fsearch_005fusage"></a><u>オプション変数:</u> <b>file_search_usage</b></dt>
-<dt><a name="index-file_005fsearch_005ftests"></a><u>オプション変数:</u> <b>file_search_tests</b></dt>
-<dd>
-<p>これらの変数は <code><a href="#load">load</a></code>
-や, <code><a href="maxima_3.html#demo">demo</a></code>
-, 他のいくつかの
+<dt><u>オプション変数:</u> <b>file_search_maxima</b>
+<a name="IDX517"></a>
+</dt>
+<dt><u>オプション変数:</u> <b>file_search_lisp</b>
+<a name="IDX518"></a>
+</dt>
+<dt><u>オプション変数:</u> <b>file_search_demo</b>
+<a name="IDX519"></a>
+</dt>
+<dt><u>オプション変数:</u> <b>file_search_usage</b>
+<a name="IDX520"></a>
+</dt>
+<dt><u>オプション変数:</u> <b>file_search_tests</b>
+<a name="IDX521"></a>
+</dt>
+<dd><p>これらの変数は <code><a href="#load">load</a></code>や, <code><a href="maxima_3.html#demo">demo</a></code>, 他のいくつかの
 Maximaの関数が検索するディレクトリのリストを指定します。
 これらの変数のデフォルト値は Maximaインストレーションの様々なディレクトリを指名します。
 </p>
@@ -568,20 +491,18 @@ Maximaの関数が検索するディレクトリのリストを指定します�
 デフォルト値を置き換えるかディレクトリを追加することでこれらの変数を変更できます
 例えば、
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">file_search_maxima: [&quot;/usr/local/foo/###.mac&quot;,
+<pre class="example">file_search_maxima: [&quot;/usr/local/foo/###.mac&quot;,
     &quot;/usr/local/bar/###.mac&quot;]$
-</pre></td></tr></table>
-
+</pre>
 <p>は <code>file_search_maxima</code>のデフォルト値を置き換えますし、
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">file_search_maxima: append (file_search_maxima,
+<pre class="example">file_search_maxima: append (file_search_maxima,
     [&quot;/usr/local/foo/###.mac&quot;, &quot;/usr/local/bar/###.mac&quot;])$
-</pre></td></tr></table>
-
+</pre>
 <p>は２つのディレクトリを追加します。
 ファイル <code>maxima-init.mac</code>に
 Maximaが起動した時にファイル検索パスが自動的に割り当てられるような式を入れておくと便利かもしれません。
-<a href="maxima_32.html#Introduction-for-Runtime-Environment">Introduction for Runtime Environment</a>も参照してください。
+<a href="maxima_32.html#SEC177">Introduction for Runtime Environment</a>も参照してください。
 </p>
 <p>特別な「ワイルドカード」構造によってファイル名の拡張子やパスを多重にしてすることができます。
 文字列 <code>###</code>は求められている名前に拡張される一方、
@@ -589,22 +510,25 @@ Maximaが起動した時にファイル検索パスが自動的に割り当て�
 多重文字列に拡張されます。
 例えば、求められてる名前が <code>neumann</code>とすると
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">&quot;/home/{wfs,gcj}/###.{lisp,mac}&quot;
-</pre></td></tr></table>
-
+<pre class="example">&quot;/home/{wfs,gcj}/###.{lisp,mac}&quot;
+</pre>
 <p align="left">は <code>/home/wfs/neumann.lisp</code>, <code>/home/gcj/neumann.lisp</code>,
 <code>/home/wfs/neumann.mac</code>, <code>/home/gcj/neumann.mac</code>に展開されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-input">File input</a>
- &middot;<a href="maxima_100.html#Category_003a-Global-variables">Global variables</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-input">File input</a> &middot;
+<a href="maxima_100.html#Category_003a-Global-variables">Global variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="file_005ftype"></a>
 <a name="Item_003a-file_005ftype"></a>
 </p><dl>
-<dt><a name="index-file_005ftype"></a><u>関数:</u> <b>file_type</b><i> (<var>filename</var>)</i></dt>
-<dd>
-<p>ファイル名拡張子に基づいて <var>filename</var>の中身について推測を返します。
+<dt><u>関数:</u> <b>file_type</b><i> (<var>filename</var>)</i>
+<a name="IDX522"></a>
+</dt>
+<dd><p>ファイル名拡張子に基づいて <var>filename</var>の中身について推測を返します。
 <var>filename</var>は実際のファイルを参照する必要はありません;
 ファイルを開いたり中身を探索したりはしません。
 </p>
@@ -615,56 +539,58 @@ Maximaが起動した時にファイル検索パスが自動的に割り当て�
 <code>file_type</code>は <code>lisp</code>を返します。
 上のいずれでもないなら、<code>file_type</code>は <code>object</code>を返します。
 </p>
-<p><code><a href="#pathname_005ftype">pathname_type</a></code>
-も参照してください。
+<p><code><a href="#pathname_005ftype">pathname_type</a></code>も参照してください。
 </p>
-<p>デフォルト値に関しては <code><a href="#file_005ftype_005fmaxima">file_type_maxima</a></code>
-と <code><a href="#file_005ftype_005flisp">file_type_lisp</a></code>
-を
+<p>デフォルト値に関しては <code><a href="#file_005ftype_005fmaxima">file_type_maxima</a></code>と <code><a href="#file_005ftype_005flisp">file_type_lisp</a></code>を
 参照してください。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i2) map('file_type,
+<pre class="example">(%i2) map('file_type,
           [&quot;test.lisp&quot;, &quot;test.mac&quot;, &quot;test.dem&quot;, &quot;test.txt&quot;]);
 (%o2)            [lisp, maxima, maxima, object]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-input">File input</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-input">File input</a>
+</div>
+</p></dd></dl>
 
 <p><a name="file_005ftype_005flisp"></a>
 <a name="Item_003a-file_005ftype_005flisp"></a>
 </p><dl>
-<dt><a name="index-file_005ftype_005flisp"></a><u>オプション変数:</u> <b>file_type_lisp</b></dt>
+<dt><u>オプション変数:</u> <b>file_type_lisp</b>
+<a name="IDX523"></a>
+</dt>
 <dd><p>デフォルト値:  <code>[l, lsp, lisp]</code>
 </p>
 <p><code>file_type_lisp</code>は
 maximaが Lispソースファイルの印として認識するファイル拡張子のリストです。
 </p>
-<p><code><a href="#file_005ftype">file_type</a></code>
-も参照してください。
+<p><code><a href="#file_005ftype">file_type</a></code>も参照してください。
 </p></dd></dl>
 
 <p><a name="file_005ftype_005fmaxima"></a>
 <a name="Item_003a-file_005ftype_005fmaxima"></a>
 </p><dl>
-<dt><a name="index-file_005ftype_005fmaxima"></a><u>オプション変数:</u> <b>file_type_maxima</b></dt>
+<dt><u>オプション変数:</u> <b>file_type_maxima</b>
+<a name="IDX524"></a>
+</dt>
 <dd><p>デフォルト値:  <code>[mac, mc, demo, dem, dm1, dm2, dm3, dmt]</code>
 </p>
 <p><code>file_type_maxima</code>は、
 maximaが Maximaソースファイルの印として認識するファイル拡張子のリストです。
 </p>
-<p><code><a href="#file_005ftype">file_type</a></code>
-も参照してください。
+<p><code><a href="#file_005ftype">file_type</a></code>も参照してください。
 </p></dd></dl>
 
 <p><a name="load"></a>
 <a name="Item_003a-load"></a>
 </p><dl>
-<dt><a name="index-load"></a><u>関数:</u> <b>load</b><i> (<var>filename</var>)</i></dt>
-<dd>
-<p><var>filename</var>の中の式を評価します。
+<dt><u>関数:</u> <b>load</b><i> (<var>filename</var>)</i>
+<a name="IDX525"></a>
+</dt>
+<dd><p><var>filename</var>の中の式を評価します。
 そして変数、関数、他のオブジェクトをMaximaにもたらします。
 <var>filename</var>から再生されたバインドは存在するオブジェクトのバインドを上書きします(clobber)。
 ファイルを見つけるために
@@ -675,48 +601,42 @@ maximaが Maximaソースファイルの印として認識するファイル拡�
 そうでないなら <code>load</code>はエラーメッセージを出力します。
 </p>
 <p><code>load</code>は Lispコードでも Maximaコードでも等しく機能します。
-<code><a href="#save">save</a></code>
-, <code><a href="maxima_36.html#translate_005ffile">translate_file</a></code>
-, <code><a href="maxima_36.html#compile_005ffile">compile_file</a></code>
+<code><a href="#save">save</a></code>, <code><a href="maxima_36.html#translate_005ffile">translate_file</a></code>, <code><a href="maxima_36.html#compile_005ffile">compile_file</a></code>
 ―これらはLispコードを生成します―
 が生成したファイルはすべて <code>load</code>によって処理できます。
 <code>load</code>は Lispファイルをロードするために <code>loadfile</code>をコールし、
-Maximaファイルをロードするために <code><a href="#batchload">batchload</a></code>
-をコールします。
+Maximaファイルをロードするために <code><a href="#batchload">batchload</a></code>をコールします。
 </p>
 <p><code>load</code>は Maximaファイルの中で <code>:lisp</code>構成子を認識しません。
 <var>filename</var>を処理する時
 グローバル変数 <code>_</code>, <code>__</code>, <code>%</code>, <code>%th</code>は
 <code>load</code>がコールされた時バインドされていた値を持ちます。
 </p>
-<p><code><a href="#loadfile">loadfile</a></code>
-, <code><a href="#batch">batch</a></code>
-, <code><a href="#batchload">batchload</a></code>
-, <code><a href="maxima_3.html#demo">demo</a></code>
-も参照してください。
+<p><code><a href="#loadfile">loadfile</a></code>, <code><a href="#batch">batch</a></code>, <code><a href="#batchload">batchload</a></code>, <code><a href="maxima_3.html#demo">demo</a></code>も参照してください。
 <code>loadfile</code>はLispファイルを処理します;
 <code>batch</code>, <code>batchload</code>, <code>demo</code>は Maximaファイルを処理します。
 </p>
-<p>ファイル探索メカニズムについてもっと詳しいことは <code><a href="#file_005fsearch">file_search</a></code>
-を参照してください。
+<p>ファイル探索メカニズムについてもっと詳しいことは <code><a href="#file_005fsearch">file_search</a></code>を参照してください。
 </p>
 <p><code>load</code>は引数を評価します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Session-management">Session management</a>
- &middot;<a href="maxima_100.html#Category_003a-File-input">File input</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Session-management">Session management</a> &middot;
+<a href="maxima_100.html#Category_003a-File-input">File input</a>
+</div>
+</p></dd></dl>
 
 <p><a name="load_005fpathname"></a>
 <a name="Item_003a-load_005fpathname"></a>
 </p><dl>
-<dt><a name="index-load_005fpathname"></a><u>システム変数:</u> <b>load_pathname</b></dt>
+<dt><u>システム変数:</u> <b>load_pathname</b>
+<a name="IDX526"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
-<p>関数 <code><a href="#load">load</a></code>
-や <code><a href="#loadfile">loadfile</a></code>
-,
-<code><a href="#batchload">batchload</a></code>
-を使ってファイルがロードされる時、
+<p>関数 <code><a href="#load">load</a></code>や <code><a href="#loadfile">loadfile</a></code>,
+<code><a href="#batchload">batchload</a></code>を使ってファイルがロードされる時、
 システム変数 <code>load_pathname</code>は処理するファイルのパス名を示します。
 </p>
 <p>変数 <code>load_pathname</code>はロード中にファイルからアクセスすることができます。
@@ -727,49 +647,52 @@ Maximaファイルをロードするために <code><a href="#batchload">batchlo
 </p><p align="left"><code>&quot;/home/dieter/workspace/mymaxima/temp/&quot;</code>
 </p><p>に以下のコマンドを含むバッチファイル <code>test.mac</code>があるとしましょう。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">print(&quot;The value of load_pathname is: &quot;, load_pathname)$
+<pre class="example">print(&quot;The value of load_pathname is: &quot;, load_pathname)$
 print(&quot;End of batchfile&quot;)$
-</pre></td></tr></table>
-
+</pre>
 <p>すると以下の出力を得ます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load(&quot;/home/dieter/workspace/mymaxima/temp/test.mac&quot;)$
-The value of load_pathname is:  
-                   /home/dieter/workspace/mymaxima/temp/test.mac 
+<pre class="example">(%i1) load(&quot;/home/dieter/workspace/mymaxima/temp/test.mac&quot;)$
+The value of load_pathname is:
+                   /home/dieter/workspace/mymaxima/temp/test.mac
 End of batchfile
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-input">File input</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-input">File input</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="loadfile"></a>
 <a name="Item_003a-loadfile"></a>
 </p><dl>
-<dt><a name="index-loadfile"></a><u>関数:</u> <b>loadfile</b><i> (<var>filename</var>)</i></dt>
-<dd>
-<p><var>filename</var>の中の Lisp式を評価します。
+<dt><u>関数:</u> <b>loadfile</b><i> (<var>filename</var>)</i>
+<a name="IDX527"></a>
+</dt>
+<dd><p><var>filename</var>の中の Lisp式を評価します。
 <code>loadfile</code>は <code>file_search</code>を呼び出しません。
 なのでファイル拡張子とファイルを見つけるのに
 <code>filename</code>は必要なパスも含まなければいけません。
 </p>
-<p><code>loadfile</code>は <code><a href="#save">save</a></code>
-, <code><a href="maxima_36.html#translate_005ffile">translate_file</a></code>
-,
-<code><a href="maxima_36.html#compile_005ffile">compile_file</a></code>
-によって生成されたファイルを処理できます。
-ユーザーは <code>loadfile</code>の代わりに <code><a href="#load">load</a></code>
-を使うほうが便利だと気づくでしょう。
+<p><code>loadfile</code>は <code><a href="#save">save</a></code>, <code><a href="maxima_36.html#translate_005ffile">translate_file</a></code>,
+<code><a href="maxima_36.html#compile_005ffile">compile_file</a></code>によって生成されたファイルを処理できます。
+ユーザーは <code>loadfile</code>の代わりに <code><a href="#load">load</a></code>を使うほうが便利だと気づくでしょう。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Session-management">Session management</a>
- &middot;<a href="maxima_100.html#Category_003a-File-input">File input</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Session-management">Session management</a> &middot;
+<a href="maxima_100.html#Category_003a-File-input">File input</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="loadprint"></a>
 <a name="Item_003a-loadprint"></a>
 </p><dl>
-<dt><a name="index-loadprint"></a><u>オプション変数:</u> <b>loadprint</b></dt>
+<dt><u>オプション変数:</u> <b>loadprint</b>
+<a name="IDX528"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>loadprint</code>はファイルがロードされた時メッセージを表示するかどうか告げます。
@@ -783,46 +706,75 @@ End of batchfile
 </li><li>
 <code>loadprint</code>が <code>'autoload</code>の時
 ファイルが自動的にロードされた時だけメッセージを表示します。
-<code><a href="maxima_33.html#setup_005fautoload">setup_autoload</a></code>
-を参照してください。
+<code><a href="maxima_33.html#setup_005fautoload">setup_autoload</a></code>を参照してください。
 </li><li>
 <code>loadprint</code>が <code>false</code>の時メッセージは決して表示されません。
 </li></ul>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-input">File input</a>
- &middot;<a href="maxima_100.html#Category_003a-Global-flags">Global flags</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-input">File input</a> &middot;
+<a href="maxima_100.html#Category_003a-Global-flags">Global flags</a>
+</div>
+</p></dd></dl>
+
+<p><a name="directory"></a>
+<a name="Item_003a-directory"></a>
+</p><dl>
+<dt><u>関数:</u> <b>directory</b><i> (<var>path</var>)</i>
+<a name="IDX529"></a>
+</dt>
+<dd><p>ファイルシステムの <var>path</var>の中のファイルとディレクトリのリストを返します。
+</p>
+<p><var>path</var>はワイルドカード文字(すなわち、パスの未指定部分を表す文字)を含むかもしれません。
+それはほとんどのシステム上で少なくともアスタリスクを含み、システムによっては可能な他の文字も含みます。
+</p>
+<p><code>ディレクトリ</code> はLisp関数 DIRECTORYを頼りにしていて、実装依存の振る舞いがあるかもしれません。
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-input">File input</a>
+</div>
+</p></dd></dl>
 
 <p><a name="pathname_005fdirectory"></a>
 <a name="pathname_005fname"></a>
 <a name="pathname_005ftype"></a>
 <a name="Item_003a-pathname_005fdirectory"></a>
 </p><dl>
-<dt><a name="index-pathname_005fdirectory"></a><u>関数:</u> <b>pathname_directory</b><i> (<var>pathname</var>)</i></dt>
-<dt><a name="index-pathname_005fname"></a><u>関数:</u> <b>pathname_name</b><i> (<var>pathname</var>)</i></dt>
-<dt><a name="index-pathname_005ftype"></a><u>関数:</u> <b>pathname_type</b><i> (<var>pathname</var>)</i></dt>
-<dd>
-<p>これらの関数は<var>pathname</var>の構成要素を返します。
+<dt><u>関数:</u> <b>pathname_directory</b><i> (<var>pathname</var>)</i>
+<a name="IDX530"></a>
+</dt>
+<dt><u>関数:</u> <b>pathname_name</b><i> (<var>pathname</var>)</i>
+<a name="IDX531"></a>
+</dt>
+<dt><u>関数:</u> <b>pathname_type</b><i> (<var>pathname</var>)</i>
+<a name="IDX532"></a>
+</dt>
+<dd><p>これらの関数は<var>pathname</var>の構成要素を返します。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) pathname_directory(&quot;/home/dieter/maxima/changelog.txt&quot;);
+<pre class="example">(%i1) pathname_directory(&quot;/home/dieter/maxima/changelog.txt&quot;);
 (%o1)                 /home/dieter/maxima/
 (%i2) pathname_name(&quot;/home/dieter/maxima/changelog.txt&quot;);
 (%o2)                       changelog
 (%i3) pathname_type(&quot;/home/dieter/maxima/changelog.txt&quot;);
 (%o3)                          txt
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-input">File input</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-input">File input</a>
+</div>
+</p></dd></dl>
 
 <p><a name="printfile"></a>
 <a name="Item_003a-printfile"></a>
 </p><dl>
-<dt><a name="index-printfile"></a><u>関数:</u> <b>printfile</b><i> (<var>path</var>)</i></dt>
-<dd>
-<p><var>path</var>という名前のファイルをコンソールに表示します。
+<dt><u>関数:</u> <b>printfile</b><i> (<var>path</var>)</i>
+<a name="IDX533"></a>
+</dt>
+<dd><p><var>path</var>という名前のファイルをコンソールに表示します。
 <var>path</var>は文字列かシンボルです;
 もしシンボルなら文字列に変換されます。
 </p>
@@ -830,30 +782,27 @@ End of batchfile
 そのファイルがコンソールに表示されます。
 そうでないなら
 <code>printfile</code>は
-<code><a href="#filename_005fmerge">filename_merge</a></code>
-を介して <code><a href="#file_005fsearch_005fusage">file_search_usage</a></code>
-の要素のそれぞれに
+<code><a href="#filename_005fmerge">filename_merge</a></code>を介して <code><a href="#file_005fsearch_005fusage">file_search_usage</a></code>の要素のそれぞれに
 <var>path</var>を追加することでファイルを見つけようとします。
 </p>
 <p>もし <var>path</var>が存在しているファイルを示しているなら、
 <code>printfile</code>は <var>path</var>を返し、
 そうでないなら成功したファイル名マージの結果を返します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-input">File input</a>
- &middot;<a href="maxima_100.html#Category_003a-Console-interaction">Console interaction</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-input">File input</a> &middot;
+<a href="maxima_100.html#Category_003a-Console-interaction">Console interaction</a>
+</div>
+</p></dd></dl>
 
 <p><a name="save"></a>
 <a name="Item_003a-save"></a>
 </p><dl>
-<dt><a name="index-save"></a><u>関数:</u> <b>save</b><i> (<var>filename</var>, <var>name_1</var>, <var>name_2</var>, <var>name_3</var>, &hellip;)</i></dt>
-<dt><a name="index-save-1"></a><u>関数:</u> <b>save</b><i> (<var>filename</var>, values, functions, labels, &hellip;)</i></dt>
-<dt><a name="index-save-2"></a><u>関数:</u> <b>save</b><i> (<var>filename</var>, [<var>m</var>, <var>n</var>])</i></dt>
-<dt><a name="index-save-3"></a><u>関数:</u> <b>save</b><i> (<var>filename</var>, <var>name_1</var>=<var>expr_1</var>, &hellip;)</i></dt>
-<dt><a name="index-save-4"></a><u>関数:</u> <b>save</b><i> (<var>filename</var>, all)</i></dt>
-<dt><a name="index-save-5"></a><u>関数:</u> <b>save</b><i> (<var>filename</var>, <var>name_1</var>=<var>expr_1</var>, <var>name_2</var>=<var>expr_2</var>, &hellip;)</i></dt>
-<dd>
-<p><var>filename</var>に <var>name_1</var>, <var>name_2</var>, <var>name_3</var>, &hellip;
+<dt><u>関数:</u> <b>save</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>save</tt> (<var>filename</var>, <var>name_1</var>, <var>name_2</var>, <var>name_3</var>, &hellip;) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>save</tt> (<var>filename</var>, values, functions, labels, &hellip;) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>save</tt> (<var>filename</var>, [<var>m</var>, <var>n</var>]) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>save</tt> (<var>filename</var>, <var>name_1</var>=<var>expr_1</var>, &hellip;) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>save</tt> (<var>filename</var>, all) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>save</tt> (<var>filename</var>, <var>name_1</var>=<var>expr_1</var>, <var>name_2</var>=<var>expr_2</var>, &hellip;)</i>
+<a name="IDX534"></a>
+</dt>
+<dd><p><var>filename</var>に <var>name_1</var>, <var>name_2</var>, <var>name_3</var>, &hellip;
 の現在値を保存します。
 引数は変数、関数、他のオブジェクトの名前です。
 もし名前が関連づけられた値や関数を持たないなら無視されます。
@@ -861,11 +810,9 @@ End of batchfile
 </p>
 <p><code>save</code>はデータを Lisp式の形式で保存します。
 <code>save</code>で保存されたデータは <code>load (<var>filename</var>)</code>によって回復できます。
-<code><a href="#load">load</a></code>
-を参照してください。
+<code><a href="#load">load</a></code>を参照してください。
 </p>
-<p>グローバルフラグ <code><a href="#file_005foutput_005fappend">file_output_append</a></code>
-は、
+<p>グローバルフラグ <code><a href="#file_005foutput_005fappend">file_output_append</a></code>は、
 <code>save</code>が出力ファイルに追加するか、書き換えるか決めます。
 <code>file_output_append</code>が <code>true</code>の時、
 <code>save</code>は出力ファイルに追加します。
@@ -873,14 +820,9 @@ End of batchfile
 どちらの場合も、もしファイルが存在しないなら <code>save</code>はファイルを生成します。
 </p>
 <p>特殊形式 <code>save (<var>filename</var>, values, functions, labels, ...)</code>は
-<code><a href="maxima_4.html#values">values</a></code>
-, <code><a href="maxima_36.html#functions">functions</a></code>
-, <code><a href="maxima_4.html#labels">labels</a></code>
-, などと指名された項目を保存します。
-名前は変数 <code><a href="maxima_4.html#infolists">infolists</a></code>
-によって指定された任意のものです。
-<code><a href="maxima_4.html#values">values</a></code>
-はユーザー定義変数すべてを含みます。
+<code><a href="maxima_4.html#values">values</a></code>, <code><a href="maxima_36.html#functions">functions</a></code>, <code><a href="maxima_4.html#labels">labels</a></code>, などと指名された項目を保存します。
+名前は変数 <code><a href="maxima_4.html#infolists">infolists</a></code>によって指定された任意のものです。
+<code><a href="maxima_4.html#values">values</a></code>はユーザー定義変数すべてを含みます。
 </p>
 <p>特殊形式 <code>save (<var>filename</var>, [<var>m</var>, <var>n</var>])</code>は、
 <var>m</var>から <var>n</var>までの入力ラベル、出力ラベルの値を保存します。
@@ -904,39 +846,32 @@ End of batchfile
 <p>特殊形式 <code>save (<var>filename</var>, all)</code>はMaximaの現在の状態を保存します。
 これは、自動的に定義された項目はもちろん、ユーザー定義の変数、関数、配列などすべてを
 含みます。
-もしユーザーが <code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code>
-や
-<code><a href="maxima_4.html#showtime">showtime</a></code>
-のようなシステム変数に新しい値を割り当てていたなら、
+もしユーザーが <code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code>や
+<code><a href="maxima_4.html#showtime">showtime</a></code>のようなシステム変数に新しい値を割り当てていたなら、
 保存項目はそれらを含みます。
-<code><a href="maxima_4.html#myoptions">myoptions</a></code>
-を参照してください。
+<code><a href="maxima_4.html#myoptions">myoptions</a></code>を参照してください。
 </p>
 <p><code>save</code>は <var>filename</var>を評価し、他の引数すべてをクォートします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Session-management">Session management</a>
- &middot;<a href="maxima_100.html#Category_003a-File-output">File output</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Session-management">Session management</a> &middot;
+<a href="maxima_100.html#Category_003a-File-output">File output</a>
+</div>
+</p></dd></dl>
 
 <p><a name="stringout"></a>
 <a name="Item_003a-stringout"></a>
 </p><dl>
-<dt><a name="index-stringout"></a><u>関数:</u> <b>stringout</b><i> (<var>filename</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, &hellip;)</i></dt>
-<dt><a name="index-stringout-1"></a><u>関数:</u> <b>stringout</b><i> (<var>filename</var>, [<var>m</var>, <var>n</var>])</i></dt>
-<dt><a name="index-stringout-2"></a><u>関数:</u> <b>stringout</b><i> (<var>filename</var>, input)</i></dt>
-<dt><a name="index-stringout-3"></a><u>関数:</u> <b>stringout</b><i> (<var>filename</var>, functions)</i></dt>
-<dt><a name="index-stringout-4"></a><u>関数:</u> <b>stringout</b><i> (<var>filename</var>, values)</i></dt>
-<dd>
-<p><code>stringout</code>は、式が入力としてタイプされたのと同じ形式で式をファイルに書き込みます。
-なので、ファイルは <code><a href="#batch">batch</a></code>
-や <code><a href="maxima_3.html#demo">demo</a></code>
-コマンドの入力として使えますし、
+<dt><u>関数:</u> <b>stringout</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>stringout</tt> (<var>filename</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, &hellip;) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>stringout</tt> (<var>filename</var>, [<var>m</var>, <var>n</var>]) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>stringout</tt> (<var>filename</var>, input) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>stringout</tt> (<var>filename</var>, functions) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>stringout</tt> (<var>filename</var>, values)</i>
+<a name="IDX535"></a>
+</dt>
+<dd><p><code>stringout</code>は、式が入力としてタイプされたのと同じ形式で式をファイルに書き込みます。
+なので、ファイルは <code><a href="#batch">batch</a></code>や <code><a href="maxima_3.html#demo">demo</a></code>コマンドの入力として使えますし、
 どんな目的のためでも編集できます。
-<code>stringout</code>は <code><a href="#writefile">writefile</a></code>
-が進行中の間に実行することができます。
+<code>stringout</code>は <code><a href="#writefile">writefile</a></code>が進行中の間に実行することができます。
 </p>
-<p>グローバルフラグ <code><a href="#file_005foutput_005fappend">file_output_append</a></code>
-は、
+<p>グローバルフラグ <code><a href="#file_005foutput_005fappend">file_output_append</a></code>は、
 <code>stringout</code>が出力ファイルに追加するか書き換えるか決めます。
 <code>file_output_append</code>が <code>true</code>の時、
 <code>stringout</code>は出力ファイルに追加します。
@@ -950,8 +885,7 @@ End of batchfile
 もしくは出力ラベル (<code>%o1</code>, <code>%o2</code>, <code>%o3</code>, &hellip;)でもよいです。
 ）
 </p>
-<p>もし <code><a href="maxima_4.html#grind">grind</a></code>
-が <code>true</code>なら、
+<p>もし <code><a href="maxima_4.html#grind">grind</a></code>が <code>true</code>なら、
 <code>stringout</code>は <code>grind</code>フォーマットを使って出力をフォーマットします。
 そうでないなら <code>string</code>フォーマットが使われます。
 <code>grind</code>と <code>string</code>を参照してください。
@@ -963,37 +897,34 @@ mからnまでの入力ラベルの値を書き込みます。
 入力ラベルすべてをファイルに書き込みます。
 </p>
 <p>特別な形 <code>stringout (<var>filename</var>, functions)</code>は
-（グローバルリスト <code><a href="maxima_36.html#functions">functions</a></code>
-で指定される）
+（グローバルリスト <code><a href="maxima_36.html#functions">functions</a></code>で指定される）
 ユーザー定義関数すべてをファイルに書き込みます。
 </p>
 <p>特別な形 <code>stringout (<var>filename</var>, values)</code>は、
-（グローバルリスト <code><a href="maxima_4.html#values">values</a></code>
-で指定される）
+（グローバルリスト <code><a href="maxima_4.html#values">values</a></code>で指定される）
 ユーザーが割り当てた変数すべてをファイルに書き込みます。
 変数それぞれは変数名とコロンとその値という割り当て文として出力されます。
 <code>stringout</code>の一般形は変数を割り当て文として出力しないことに注意してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Session-management">Session management</a>
- &middot;<a href="maxima_100.html#Category_003a-File-output">File output</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Session-management">Session management</a> &middot;
+<a href="maxima_100.html#Category_003a-File-output">File output</a>
+</div>
+</p></dd></dl>
 
 <p><a name="with_005fstdout"></a>
 <a name="Item_003a-with_005fstdout"></a>
 </p><dl>
-<dt><a name="index-with_005fstdout"></a><u>関数:</u> <b>with_stdout</b><i> (<var>f</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, &hellip;)</i></dt>
-<dt><a name="index-with_005fstdout-1"></a><u>関数:</u> <b>with_stdout</b><i> (<var>s</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, &hellip;)</i></dt>
-<dd>
-<p><var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, ...を評価し、
+<dt><u>関数:</u> <b>with_stdout</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>with_stdout</tt> (<var>f</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, &hellip;) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>with_stdout</tt> (<var>s</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, &hellip;)</i>
+<a name="IDX536"></a>
+</dt>
+<dd><p><var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, ...を評価し、
 生成された出力すべてをファイル <var>f</var>か出力ストリーム <var>s</var>に書き込みます。
 評価される式は出力に書き込まれません。
-出力は <code><a href="maxima_4.html#print">print</a></code>
-, <code><a href="maxima_4.html#display">display</a></code>
-, <code><a href="maxima_4.html#grind">grind</a></code>
-や他の関数が生成したものです。
+出力は <code><a href="maxima_4.html#print">print</a></code>, <code><a href="maxima_4.html#display">display</a></code>, <code><a href="maxima_4.html#grind">grind</a></code>や他の関数が生成したものです。
 </p>
-<p>グローバルフラグ <code><a href="#file_005foutput_005fappend">file_output_append</a></code>
-は、
+<p>グローバルフラグ <code><a href="#file_005foutput_005fappend">file_output_append</a></code>は、
 <code>with_stdout</code>が出力ファイル <var>f</var>に追加するか書き換えるかを決めます。
 <code>file_output_append</code>が <code>true</code>の時、
 <code>with_stdout</code>は出力ファイルに追加します。
@@ -1002,95 +933,91 @@ mからnまでの入力ラベルの値を書き込みます。
 </p>
 <p><code>with_stdout</code>は最後の引数の値を返します。
 </p>
-<p><code><a href="#writefile">writefile</a></code>
-も参照してください。
+<p><code><a href="#writefile">writefile</a></code>も参照してください。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) with_stdout (&quot;tmp.out&quot;, for i:5 thru 10 do
+<pre class="example">(%i1) with_stdout (&quot;tmp.out&quot;, for i:5 thru 10 do
       print (i, &quot;! yields&quot;, i!))$
 (%i2) printfile (&quot;tmp.out&quot;)$
-5 ! yields 120 
-6 ! yields 720 
-7 ! yields 5040 
-8 ! yields 40320 
-9 ! yields 362880 
+5 ! yields 120
+6 ! yields 720
+7 ! yields 5040
+8 ! yields 40320
+9 ! yields 362880
 10 ! yields 3628800
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-output">File output</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-output">File output</a>
+</div>
+</p></dd></dl>
 
 <p><a name="writefile"></a>
 <a name="Item_003a-writefile"></a>
 </p><dl>
-<dt><a name="index-writefile"></a><u>関数:</u> <b>writefile</b><i> (<var>filename</var>)</i></dt>
-<dd>
-<p>Maximaセッションのトランスクリプトを <var>filename</var>に書き込むことを開始します。
+<dt><u>関数:</u> <b>writefile</b><i> (<var>filename</var>)</i>
+<a name="IDX537"></a>
+</dt>
+<dd><p>Maximaセッションのトランスクリプトを <var>filename</var>に書き込むことを開始します。
 ユーザーと Maximaの間の対話すべてが
 ちょうどコンソールに現れるようにこのファイルに記録されます。
 </p>
 <p>トランスクリプトはコンソール出力フォーマットで出力されるので、
 Maximaに再ロードすることはできません。
 再ロード可能な式を含むファイルを作るには、
-<code><a href="#save">save</a></code>
-と <code><a href="#stringout">stringout</a></code>
-を参照してください。
+<code><a href="#save">save</a></code>と <code><a href="#stringout">stringout</a></code>を参照してください。
 <code>save</code>は Lisp形式の式を保存する一方、<code>stringout</code>は
 Maxima形式の式を保存します。
 </p>
 <p><var>filename</var>が既に存在している時、<code>writefile</code>の実行の効果は基礎となる
 Lisp実装に依存します;
 トランスクリプトファイルは書き換えられるかもしれませんし、追加されるかもしれません。
-<code><a href="#appendfile">appendfile</a></code>
-はいつもトランスクリプトファイルに追加します。
+<code><a href="#appendfile">appendfile</a></code>はいつもトランスクリプトファイルに追加します。
 </p>
 <p>以前の対話の表示を保存するためには <code>writefile</code>の後
-<code><a href="maxima_4.html#playback">playback</a></code>
-を実行するのが便利かもしれません。
+<code><a href="maxima_4.html#playback">playback</a></code>を実行するのが便利かもしれません。
 <code>playback</code>は入力と出力変数 (<code>%i1</code>, <code>%o1</code>, など)だけを表示し、
 （戻り値と違い）関数の中のプリント文が生成した出力はいずれも
 <code>playback</code>によって表示されません。
 </p>
-<p><code><a href="#closefile">closefile</a></code>
-は <code>writefile</code>や
+<p><code><a href="#closefile">closefile</a></code>は <code>writefile</code>や
 <code>appendfile</code>が開いたトランスクリプトファイルを閉じます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-output">File output</a>
- &middot;<a href="maxima_100.html#Category_003a-Console-interaction">Console interaction</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-File-output">File output</a> &middot;
+<a href="maxima_100.html#Category_003a-Console-interaction">Console interaction</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-Functions-and-Variables-for-TeX-Output"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-TeX-Output"></a>
+<a name="SEC73"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-File-Input-and-Output" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Fortran-Output" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC72" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC74" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#File-Input-and-Output" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#File-Input-and-Output" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_14.html#Polynomials" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC69" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC69" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_14.html#SEC75" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-TeX-Output-1"></a>
-<h2 class="section">13.4 Functions and Variables for TeX Output</h2>
+<h2 class="section"> 13.4 Functions and Variables for TeX Output </h2>
 
 <p><a name="tex"></a>
 <a name="Item_003a-tex"></a>
 </p><dl>
-<dt><a name="index-tex"></a><u>関数:</u> <b>tex</b><i> (<var>expr</var>)</i></dt>
-<dt><a name="index-tex-1"></a><u>関数:</u> <b>tex</b><i> (<var>expr</var>, <var>destination</var>)</i></dt>
-<dt><a name="index-tex-2"></a><u>関数:</u> <b>tex</b><i> (<var>expr</var>, false)</i></dt>
-<dt><a name="index-tex-3"></a><u>関数:</u> <b>tex</b><i> (<var>label</var>)</i></dt>
-<dt><a name="index-tex-4"></a><u>関数:</u> <b>tex</b><i> (<var>label</var>, <var>destination</var>)</i></dt>
-<dt><a name="index-tex-5"></a><u>関数:</u> <b>tex</b><i> (<var>label</var>, false)</i></dt>
-<dd>
-<p>TeXドキュメントの準備に適した式の表現を出力します。
+<dt><u>関数:</u> <b>tex</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>tex</tt> (<var>expr</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>tex</tt> (<var>expr</var>, <var>destination</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>tex</tt> (<var>expr</var>, false) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>tex</tt> (<var>label</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>tex</tt> (<var>label</var>, <var>destination</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>tex</tt> (<var>label</var>, false)</i>
+<a name="IDX538"></a>
+</dt>
+<dd><p>TeXドキュメントの準備に適した式の表現を出力します。
 結果はドキュメントの断片です。
 それはより大きなドキュメントにコピーすることができますが、それ自身では処理できません。
 </p>
@@ -1112,12 +1039,11 @@ TeX出力を文字列として返します。
 クォートクォート<code>''</code>は引数の評価を強制します。
 それによってテストを無効にしてラベルの表示を妨げます。
 </p>
-<p><code><a href="#texput">texput</a></code>
-も参照してください。
+<p><code><a href="#texput">texput</a></code>も参照してください。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) integrate (1/(1+x^3), x);
+<pre class="example">(%i1) integrate (1/(1+x^3), x);
                                     2 x - 1
                   2            atan(-------)
              log(x  - x + 1)        sqrt(3)    log(x + 1)
@@ -1133,46 +1059,44 @@ $$-\cos x$$
 (%o3)                           false
 (%i4) tex (%o1, &quot;foo.tex&quot;);
 (%o4)                          (\%o1)
-</pre></td></tr></table>
-
+</pre>
 <p><code>tex (<var>expr</var>, false)</code>はTeX出力を文字列として返します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) S : tex (x * y * z, false);
+<pre class="example">(%i1) S : tex (x * y * z, false);
 (%o1) $$x\,y\,z$$
 (%i2) S;
 (%o2) $$x\,y\,z$$
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-TeX-output">TeX output</a>
- &middot;<a href="maxima_100.html#Category_003a-File-output">File output</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-TeX-output">TeX output</a> &middot;
+<a href="maxima_100.html#Category_003a-File-output">File output</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="tex1"></a>
 <a name="Item_003a-tex1"></a>
 </p><dl>
-<dt><a name="index-tex1"></a><u>関数:</u> <b>tex1</b><i> (<var>e</var>)</i></dt>
-<dd>
-<p>式 <var>e</var>のTeX出力を表す文字列を返します。
+<dt><u>関数:</u> <b>tex1</b><i> (<var>e</var>)</i>
+<a name="IDX539"></a>
+</dt>
+<dd><p>式 <var>e</var>のTeX出力を表す文字列を返します。
 等式や他の任意の環境のため TeX出力を区切り記号で囲みません。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) tex1 (sin(x) + cos(x));
+<pre class="example">(%i1) tex1 (sin(x) + cos(x));
 (%o1)                     \sin x+\cos x
-</pre></td></tr></table>
-</dd></dl>
+</pre></dd></dl>
 
 <p><a name="texput"></a>
 <a name="Item_003a-texput"></a>
 </p><dl>
-<dt><a name="index-texput"></a><u>関数:</u> <b>texput</b><i> (<var>a</var>, <var>s</var>)</i></dt>
-<dt><a name="index-texput-1"></a><u>関数:</u> <b>texput</b><i> (<var>a</var>, <var>f</var>)</i></dt>
-<dt><a name="index-texput-2"></a><u>関数:</u> <b>texput</b><i> (<var>a</var>, <var>s</var>, <var>operator_type</var>)</i></dt>
-<dt><a name="index-texput-3"></a><u>関数:</u> <b>texput</b><i> (<var>a</var>, [<var>s_1</var>, <var>s_2</var>], matchfix)</i></dt>
-<dt><a name="index-texput-4"></a><u>関数:</u> <b>texput</b><i> (<var>a</var>, [<var>s_1</var>, <var>s_2</var>, <var>s_3</var>], matchfix)</i></dt>
-<dd>
-<p>アトム <var>a</var>にTeX出力を割り当てます。
+<dt><u>関数:</u> <b>texput</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>texput</tt> (<var>a</var>, <var>s</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>texput</tt> (<var>a</var>, <var>f</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>texput</tt> (<var>a</var>, <var>s</var>, <var>operator_type</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>texput</tt> (<var>a</var>, [<var>s_1</var>, <var>s_2</var>], matchfix) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>texput</tt> (<var>a</var>, [<var>s_1</var>, <var>s_2</var>, <var>s_3</var>], matchfix)</i>
+<a name="IDX540"></a>
+</dt>
+<dd><p>アトム <var>a</var>にTeX出力を割り当てます。
 ここで <var>a</var>はシンボルもしくは演算子名です。
 </p>
 <p><code>texput (<var>a</var>, <var>s</var>)</code>とすると、
@@ -1204,91 +1128,83 @@ $$-\cos x$$
 </p>
 <p>変数に TeX出力を割り当てます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) texput (me,&quot;\\mu_e&quot;);
+<pre class="example">(%i1) texput (me,&quot;\\mu_e&quot;);
 (%o1)                         \mu_e
 (%i2) tex (me);
 $$\mu_e$$
 (%o2)                         false
-</pre></td></tr></table>
-
+</pre>
 <p>任意の関数（演算子ではない）に TeX出力を割り当てます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) texput (lcm, &quot;\\mathrm{lcm}&quot;);
+<pre class="example">(%i1) texput (lcm, &quot;\\mathrm{lcm}&quot;);
 (%o1)                     \mathrm{lcm}
 (%i2) tex (lcm (a, b));
 $$\mathrm{lcm}\left(a , b\right)$$
 (%o2)                         false
-</pre></td></tr></table>
-
+</pre>
 <p>TeX出力を生成する関数をコールします。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) texfoo (e) := block ([a, b], [a, b] : args (e),
+<pre class="example">(%i1) texfoo (e) := block ([a, b], [a, b] : args (e),
   concat (&quot;\\left[\\stackrel{&quot;,tex1(b),&quot;}{&quot;,tex1(a),&quot;}\\right]&quot;))$
 (%i2) texput (foo, texfoo);
 (%o2)                        texfoo
 (%i3) tex (foo (2^x, %pi));
 $$\left[\stackrel{\pi}{2^{x}}\right]$$
 (%o3)                         false
-</pre></td></tr></table>
-
+</pre>
 <p>前置演算子に TeX出力を割り当てます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) prefix (&quot;grad&quot;);
+<pre class="example">(%i1) prefix (&quot;grad&quot;);
 (%o1)                         grad
 (%i2) texput (&quot;grad&quot;, &quot; \\nabla &quot;, prefix);
-(%o2)                        \nabla 
+(%o2)                        \nabla
 (%i3) tex (grad f);
 $$ \nabla f$$
 (%o3)                         false
-</pre></td></tr></table>
-
+</pre>
 <p>中置演算子に TeX出力を割り当てます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) infix (&quot;~&quot;);
+<pre class="example">(%i1) infix (&quot;~&quot;);
 (%o1)                           ~
 (%i2) texput (&quot;~&quot;, &quot; \\times &quot;, infix);
-(%o2)                        \times 
+(%o2)                        \times
 (%i3) tex (a ~ b);
 $$a \times b$$
 (%o3)                         false
-</pre></td></tr></table>
-
+</pre>
 <p>後置演算子に TeX出力を割り当てます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) postfix (&quot;##&quot;);
+<pre class="example">(%i1) postfix (&quot;##&quot;);
 (%o1)                          ##
 (%i2) texput (&quot;##&quot;, &quot;!!&quot;, postfix);
 (%o2)                          !!
 (%i3) tex (x ##);
 $$x!!$$
 (%o3)                         false
-</pre></td></tr></table>
-
+</pre>
 <p>n項演算子に TeX出力を割り当てます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) nary (&quot;@@&quot;);
+<pre class="example">(%i1) nary (&quot;@@&quot;);
 (%o1)                          @@
 (%i2) texput (&quot;@@&quot;, &quot; \\circ &quot;, nary);
-(%o2)                         \circ 
+(%o2)                         \circ
 (%i3) tex (a @@ b @@ c @@ d);
 $$a \circ b \circ c \circ d$$
 (%o3)                         false
-</pre></td></tr></table>
-
+</pre>
 <p>無項演算子に TeX出力を割り当てます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) nofix (&quot;foo&quot;);
+<pre class="example">(%i1) nofix (&quot;foo&quot;);
 (%o1)                          foo
 (%i2) texput (&quot;foo&quot;, &quot;\\mathsc{foo}&quot;, nofix);
 (%o2)                     \mathsc{foo}
 (%i3) tex (foo);
 $$\mathsc{foo}$$
 (%o3)                         false
-</pre></td></tr></table>
-
+</pre>
 <p>マッチフィックス演算子に TeX出力を割り当てます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) matchfix (&quot;&lt;&lt;&quot;, &quot;&gt;&gt;&quot;);
+<pre class="example">(%i1) matchfix (&quot;&lt;&lt;&quot;, &quot;&gt;&gt;&quot;);
 (%o1)                          &lt;&lt;
 (%i2) texput (&quot;&lt;&lt;&quot;, [&quot; \\langle &quot;, &quot; \\rangle &quot;], matchfix);
 (%o2)                [ \langle ,  \rangle ]
@@ -1307,18 +1223,23 @@ $$ \langle a \rangle $$
 (%i7) tex (&lt;&lt;a, b&gt;&gt;);
 $$ \langle a \, | \,b \rangle $$
 (%o7)                         false
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-TeX-output">TeX output</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-TeX-output">TeX output</a>
+</div>
+</p></dd></dl>
 
 <p><a name="get_005ftex_005fenvironment"></a>
 <a name="Item_003a-get_005ftex_005fenvironment"></a>
 </p><dl>
-<dt><a name="index-get_005ftex_005fenvironment"></a><u>関数:</u> <b>get_tex_environment</b><i> (<var>op</var>)</i></dt>
-<dt><a name="index-set_005ftex_005fenvironment"></a><u>関数:</u> <b>set_tex_environment</b><i> (<var>op</var>, <var>before</var>, <var>after</var>)</i></dt>
-<dd>
-<p><code>tex</code>が出力する TeX環境をカスタマイズします。
+<dt><u>関数:</u> <b>get_tex_environment</b><i> (<var>op</var>)</i>
+<a name="IDX541"></a>
+</dt>
+<dt><u>関数:</u> <b>set_tex_environment</b><i> (<var>op</var>, <var>before</var>, <var>after</var>)</i>
+<a name="IDX542"></a>
+</dt>
+<dd><p><code>tex</code>が出力する TeX環境をカスタマイズします。
 これらの関数が保持するように、 TeX環境は２つの文字列から構成されます;
 １つは他の任意のTeX出力に前もって出力されるもの、もう１つは後に出力されるものです。
 </p>
@@ -1332,7 +1253,7 @@ $$ \langle a \, | \,b \rangle $$
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) get_tex_environment (&quot;:=&quot;);
+<pre class="example">(%i1) get_tex_environment (&quot;:=&quot;);
 (%o1) [
 \begin{verbatim}
 , ;
@@ -1350,18 +1271,23 @@ f(x):=1-x;
 (%i4) tex (f (x) := 1 - x);
 $$f(x):=1-x$$
 (%o4)                         false
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-TeX-output">TeX output</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-TeX-output">TeX output</a>
+</div>
+</p></dd></dl>
 
 <p><a name="get_005ftex_005fenviroment_005fdefault"></a>
 <a name="Item_003a-get_005ftex_005fenvironment_005fdefault"></a>
 </p><dl>
-<dt><a name="index-get_005ftex_005fenvironment_005fdefault"></a><u>関数:</u> <b>get_tex_environment_default</b><i> ()</i></dt>
-<dt><a name="index-set_005ftex_005fenvironment_005fdefault"></a><u>関数:</u> <b>set_tex_environment_default</b><i> (<var>before</var>, <var>after</var>)</i></dt>
-<dd>
-<p><code>tex</code>が出力する TeX環境をカスタマイズします。
+<dt><u>関数:</u> <b>get_tex_environment_default</b><i> ()</i>
+<a name="IDX543"></a>
+</dt>
+<dt><u>関数:</u> <b>set_tex_environment_default</b><i> (<var>before</var>, <var>after</var>)</i>
+<a name="IDX544"></a>
+</dt>
+<dd><p><code>tex</code>が出力する TeX環境をカスタマイズします。
 これらの関数が保持するように、TeX環境は２つの文字列から構成されます;
 １つは他の任意のTeX出力に前もって出力されるもの、もう１つは後に出力されるものです。
 </p>
@@ -1373,7 +1299,7 @@ TeX環境を持たない式に適用された TeX環境を返します。
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) get_tex_environment_default ();
+<pre class="example">(%i1) get_tex_environment_default ();
 (%o1)                       [$$, $$]
 (%i2) tex (f(x) + g(x));
 $$g\left(x\right)+f\left(x\right)$$
@@ -1382,44 +1308,48 @@ $$g\left(x\right)+f\left(x\right)$$
 &quot;, &quot;
 \\end{equation}&quot;);
 (%o3) [\begin{equation}
-, 
+,
 \end{equation}]
 (%i4) tex (f(x) + g(x));
 \begin{equation}
 g\left(x\right)+f\left(x\right)
 \end{equation}
 (%o4)                         false
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-TeX-output">TeX output</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-TeX-output">TeX output</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-Functions-and-Variables-for-Fortran-Output"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-Fortran-Output"></a>
+<a name="SEC74"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Functions-and-Variables-for-TeX-Output" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_14.html#Polynomials" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC73" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_14.html#SEC75" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#File-Input-and-Output" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#File-Input-and-Output" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_14.html#Polynomials" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC69" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC69" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_14.html#SEC75" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-Fortran-Output-1"></a>
-<h2 class="section">13.5 Functions and Variables for Fortran Output</h2>
+<h2 class="section"> 13.5 Functions and Variables for Fortran Output </h2>
 
 <p><a name="fortindent"></a>
 <a name="Item_003a-fortindent"></a>
 </p><dl>
-<dt><a name="index-fortindent"></a><u>オプション変数:</u> <b>fortindent</b></dt>
+<dt><u>オプション変数:</u> <b>fortindent</b>
+<a name="IDX545"></a>
+</dt>
 <dd><p>デフォルト値: 0
 </p>
 <p><code>fortindent</code>は
@@ -1427,15 +1357,19 @@ g\left(x\right)+f\left(x\right)
 0は標準のプリントアウト(すなわち6スペース)を与え、
 正の値は式を更に右に印字するようにします。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Translation-and-compilation">Translation and compilation</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Translation-and-compilation">Translation and compilation</a>
+</div>
+</p></dd></dl>
 
 <p><a name="fortran"></a>
 <a name="Item_003a-fortran"></a>
 </p><dl>
-<dt><a name="index-fortran"></a><u>関数:</u> <b>fortran</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p>Fortran文として <var>expr</var>を印字します。
+<dt><u>関数:</u> <b>fortran</b><i> (<var>expr</var>)</i>
+<a name="IDX546"></a>
+</dt>
+<dd><p>Fortran文として <var>expr</var>を印字します。
 出力行はスペースでインデントされます。
 もし行が長過ぎるなら、
 <code>fortran</code>は継続行を印字します。
@@ -1467,10 +1401,10 @@ g\left(x\right)+f\left(x\right)
 </p>
 <pre class="verbatim">(%i1) expr: (a + b)^12$
 (%i2) fortran (expr);
-      (b+a)**12                                                                 
+      (b+a)**12
 (%o2)                         done
 (%i3) fortran ('x=expr);
-      x = (b+a)**12                                                             
+      x = (b+a)**12
 (%o3)                         done
 (%i4) fortran ('x=expand (expr));
       x = b**12+12*a*b**11+66*a**2*b**10+220*a**3*b**9+495*a**4*b**8+792
@@ -1478,49 +1412,57 @@ g\left(x\right)+f\left(x\right)
      2   **3+66*a**10*b**2+12*a**11*b+a**12
 (%o4)                         done
 (%i5) fortran ('x=7+5*%i);
-      x = (7,5)                                                                 
+      x = (7,5)
 (%o5)                         done
 (%i6) fortran ('x=[1,2,3,4]);
-      x = [1,2,3,4]                                                             
+      x = [1,2,3,4]
 (%o6)                         done
 (%i7) f(x) := x^2$
 (%i8) fortran (f);
-      f                                                                         
+      f
 (%o8)                         done
 </pre>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Translation-and-compilation">Translation and compilation</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Translation-and-compilation">Translation and compilation</a>
+</div>
+</p></dd></dl>
 
 <p><a name="fortspaces"></a>
 <a name="Item_003a-fortspaces"></a>
 </p><dl>
-<dt><a name="index-fortspaces"></a><u>オプション変数:</u> <b>fortspaces</b></dt>
+<dt><u>オプション変数:</u> <b>fortspaces</b>
+<a name="IDX547"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>fortspaces</code>が <code>true</code>の時、
 <code>fortran</code>は印字行それぞれを80カラムまでスペースで埋めます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Translation-and-compilation">Translation and compilation</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Translation-and-compilation">Translation and compilation</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-Polynomials"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#File-Input-and-Output" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_14.html#Polynomials" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC69" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_14.html#SEC75" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>5月, 20 2015</em>に<a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>を用いて生成されました。
  </font>
  <br>
 

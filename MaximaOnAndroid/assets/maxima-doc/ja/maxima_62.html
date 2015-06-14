@@ -1,27 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年9月月15日 by texi2html 1.82
-texi2html was written by: 
-            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+<!-- Created on 5月, 20 2015 by texi2html 1.76 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
             Olaf Bachmann <obachman@mathematik.uni-kl.de>
             and many others.
-Maintained by: Many creative people.
-Send bugs and suggestions to <texi2html-bug@nongnu.org>
+Maintained by: Many creative people <dev@texi2html.cvshome.org>
+Send bugs and suggestions to <users@texi2html.cvshome.org>
+
 -->
 <head>
-<title>Maxima 5.34.1 Manual: 62. lapack</title>
+<title>Maxima 5.36.1 Manual: 62. lapack</title>
 
-<meta name="description" content="Maxima 5.34.1 Manual: 62. lapack">
-<meta name="keywords" content="Maxima 5.34.1 Manual: 62. lapack">
+<meta name="description" content="Maxima 5.36.1 Manual: 62. lapack">
+<meta name="keywords" content="Maxima 5.36.1 Manual: 62. lapack">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.82">
+<meta name="Generator" content="texi2html 1.76">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
 pre.display {font-family: serif}
 pre.format {font-family: serif}
 pre.menu-comment {font-family: serif}
@@ -30,109 +30,30 @@ pre.smalldisplay {font-family: serif; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.roman {font-family:serif; font-weight:normal;}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
@@ -157,52 +78,53 @@ div.categorybox
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="lapack"></a>
+<a name="SEC306"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_61.html#Functions-and-Variables-for-interpol" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-lapack" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_61.html#SEC305" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC307" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_61.html#interpol" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_63.html#lbfgs" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_61.html#SEC303" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_63.html#SEC309" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="lapack-1"></a>
-<h1 class="chapter">62. lapack</h1>
+<h1 class="chapter"> 62. lapack </h1>
+
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction-to-lapack">62.1 Introduction to lapack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC307">62.1 Introduction to lapack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-lapack">62.2 Functions and Variables for lapack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC308">62.2 Functions and Variables for lapack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <p><a name="Item_003a-Introduction-to-lapack"></a>
 </p><hr size="6">
 <a name="Introduction-to-lapack"></a>
+<a name="SEC307"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#lapack" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-lapack" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC306" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC308" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#lapack" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#lapack" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_63.html#lbfgs" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC306" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC306" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_63.html#SEC309" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-lapack-1"></a>
-<h2 class="section">62.1 Introduction to lapack</h2>
+<h2 class="section"> 62.1 Introduction to lapack </h2>
 
 <p><code>lapack</code>は SLATECプロジェクトから得られるような Fortranライブラリ
 LAPACKの(プログラム <code>f2cl</code>を介した) Common Lisp翻訳です。
@@ -211,39 +133,42 @@ LAPACKの(プログラム <code>f2cl</code>を介した) Common Lisp翻訳です
 load(&quot;lapack&quot;); load(&quot;eigensys&quot;);を実行してください。
 load(&quot;lapack&quot;)には、初回だけコンパイルで時間がかかるかもしれません。)
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a>
- &middot;<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a>
- &middot;<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Numerical-methods">Numerical methods</a> &middot;
+<a href="maxima_100.html#Category_003a-Share-packages">Share packages</a> &middot;
+<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a>
+</div>
+</p>
 
 <p><a name="Item_003a-Functions-and-Variables-for-lapack"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-lapack"></a>
+<a name="SEC308"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-lapack" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_63.html#lbfgs" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC307" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_63.html#SEC309" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#lapack" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#lapack" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_63.html#lbfgs" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC306" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC306" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_63.html#SEC309" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-lapack-1"></a>
-<h2 class="section">62.2 Functions and Variables for lapack</h2>
+<h2 class="section"> 62.2 Functions and Variables for lapack </h2>
 
 <p><a name="Item_003a-dgeev"></a>
 </p><dl>
-<dt><a name="index-dgeev"></a><u>関数:</u> <b>dgeev</b><i> (<var>A</var>)</i></dt>
-<dt><a name="index-dgeev-1"></a><u>関数:</u> <b>dgeev</b><i> (<var>A</var>, <var>right_p</var>, <var>left_p</var>)</i></dt>
-<dd>
-<p>行列 <var>A</var>の固有値と、オプションで固有ベクトルを計算します。
+<dt><u>関数:</u> <b>dgeev</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>dgeev</tt> (<var>A</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>dgeev</tt> (<var>A</var>, <var>right_p</var>, <var>left_p</var>)</i>
+<a name="IDX2212"></a>
+</dt>
+<dd><p>行列 <var>A</var>の固有値と、オプションで固有ベクトルを計算します。
 <var>A</var>の要素はすべて整数か浮動小数点数でなければいけません。
 <var>A</var>は平方(行と列が同じ数)でなければいけません。
 <var>A</var>は対称であってもなくてもいいです。
@@ -278,7 +203,7 @@ Euclideanノルムが 1に等しく、最大成分の虚部が
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lapack)$
+<pre class="example">(%i1) load (lapack)$
 (%i2) fpprintprec : 6;
 (%o2)                           6
 (%i3) M : matrix ([9.5, 1.75], [3.25, 10.45]);
@@ -306,17 +231,20 @@ Euclideanノルムが 1に等しく、最大成分の虚部が
                      [ 0.0  - 4.44089E-16 ]
 (%o8)                [                    ]
                      [ 0.0       0.0      ]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-dgeqrf"></a>
 </p><dl>
-<dt><a name="index-dgeqrf"></a><u>関数:</u> <b>dgeqrf</b><i> (<var>A</var>)</i></dt>
-<dd>
-<p>行列 <var>A</var>の QR分解します。
+<dt><u>関数:</u> <b>dgeqrf</b><i> (<var>A</var>)</i>
+<a name="IDX2213"></a>
+</dt>
+<dd><p>行列 <var>A</var>の QR分解します。
 <var>A</var>のすべての要素は整数か浮動小数点数でなければいけません。
 <var>A</var>は行と列の数は同じかもしれませんし違うかもしれません。
 </p>
@@ -327,7 +255,7 @@ Euclideanノルムが 1に等しく、最大成分の虚部が
 積 <code><var>Q</var> . <var>R</var></code>は(浮動小数点の丸め誤差を除いて) <var>A</var>に等しい。
 ここで &quot;.&quot;は非可換乗算演算子です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lapack) $
+<pre class="example">(%i1) load (lapack) $
 (%i2) fpprintprec : 6 $
 (%i3) M : matrix ([1, -3.2, 8], [-11, 2.7, 5.9]) $
 (%i4) [q, r] : dgeqrf (M);
@@ -343,17 +271,20 @@ Euclideanノルムが 1に等しく、最大成分の虚部が
          [      0.0       - 1.33227E-15   8.88178E-16  ]
 (%i6) mat_norm (%, 1);
 (%o6)                      3.10862E-15
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-dgesv"></a>
 </p><dl>
-<dt><a name="index-dgesv"></a><u>関数:</u> <b>dgesv</b><i> (<var>A</var>, <var>b</var>)</i></dt>
-<dd>
-<p>線形方程式 <em><var>A</var> <var>x</var> = <var>b</var></em>の解 <var>x</var>を計算します。
+<dt><u>関数:</u> <b>dgesv</b><i> (<var>A</var>, <var>b</var>)</i>
+<a name="IDX2214"></a>
+</dt>
+<dd><p>線形方程式 <em><var>A</var> <var>x</var> = <var>b</var></em>の解 <var>x</var>を計算します。
 ここで、 <var>A</var>は平方行列、
 <var>b</var>は <var>A</var>と同じ数の行と任意の長さの列を持つ行列です。
 戻り値 <var>x</var>は <var>b</var>と同じサイズです。
@@ -370,7 +301,7 @@ Euclideanノルムが 1に等しく、最大成分の虚部が
 </p>
 <p><code>dgesv</code>は線形方程式 <em><var>A</var> <var>x</var> = <var>b</var></em>の解を計算します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) A : matrix ([1, -2.5], [0.375, 5]);
+<pre class="example">(%i1) A : matrix ([1, -2.5], [0.375, 5]);
                                [   1    - 2.5 ]
 (%o1)                          [              ]
                                [ 0.375    5   ]
@@ -384,12 +315,11 @@ Euclideanノルムが 1に等しく、最大成分の虚部が
                             [ - 0.215789473684211 ]
 (%i4) dlange (inf_norm, b - A.x);
 (%o4)                                 0.0
-</pre></td></tr></table>
-
+</pre>
 <p><var>b</var>は <var>A</var>と同じ数の行と任意の長さの列を持つ行列です。
 <var>x</var>は <var>b</var>と同じサイズです。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) A : matrix ([1, -0.15], [1.82, 2]);
+<pre class="example">(%i1) A : matrix ([1, -0.15], [1.82, 2]);
                                [  1    - 0.15 ]
 (%o1)                          [              ]
                                [ 1.82    2    ]
@@ -403,11 +333,10 @@ Euclideanノルムが 1に等しく、最大成分の虚部が
       [ - 3.974483062032557  1.399032116146062  - 8.121425428948527 ]
 (%i4) dlange (inf_norm, b - A . x);
 (%o4)                       1.1102230246251565E-15
-</pre></td></tr></table>
-
+</pre>
 <p><var>A</var>と <var>b</var>の要素は実の浮動小数点数に評価されなければいけません;
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) A : matrix ([5, -%pi], [1b0, 11/17]);
+<pre class="example">(%i1) A : matrix ([5, -%pi], [1b0, 11/17]);
                                [   5    - %pi ]
                                [              ]
 (%o1)                          [         11   ]
@@ -423,19 +352,21 @@ Euclideanノルムが 1に等しく、最大成分の虚部が
                              [ 0.233510982552952 ]
 (%i4) dlange (inf_norm, b - A . x);
 (%o4)                        2.220446049250313E-16
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a>
- &middot;<a href="maxima_100.html#Category_003a-Linear-equations">Linear equations</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a> &middot;
+<a href="maxima_100.html#Category_003a-Linear-equations">Linear equations</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-dgesvd"></a>
 </p><dl>
-<dt><a name="index-dgesvd"></a><u>関数:</u> <b>dgesvd</b><i> (<var>A</var>)</i></dt>
-<dt><a name="index-dgesvd-1"></a><u>関数:</u> <b>dgesvd</b><i> (<var>A</var>, <var>left_p</var>, <var>right_p</var>)</i></dt>
-<dd>
-<p>特異値から成る行列 <var>A</var>の特異値分解 (SVD)を計算します。
+<dt><u>関数:</u> <b>dgesvd</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>dgesvd</tt> (<var>A</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>dgesvd</tt> (<var>A</var>, <var>left_p</var>, <var>right_p</var>)</i>
+<a name="IDX2215"></a>
+</dt>
+<dd><p>特異値から成る行列 <var>A</var>の特異値分解 (SVD)を計算します。
 オプションで左および右特異ベクトルを取ります。
 </p>
 <p><var>A</var>の要素はすべて整数か浮動小数点数でなければいけません。
@@ -469,7 +400,7 @@ Euclideanノルムが 1に等しく、最大成分の虚部が
 </p>
 <p>例:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lapack)$
+<pre class="example">(%i1) load (lapack)$
 (%i2) fpprintprec : 6;
 (%o2)                           6
 (%i3) M: matrix([1, 2, 3], [3.5, 0.5, 8], [-1, 2, -3], [4, 9, 7]);
@@ -532,18 +463,23 @@ Euclideanノルムが 1に等しく、最大成分の虚部が
 (%o11)    [      0.0           1.0       5.55112E-17  ]
           [                                           ]
           [ - 5.55112E-17  5.55112E-17       1.0      ]
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a>
-</div></p>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-dlange"></a>
 </p><dl>
-<dt><a name="index-dlange"></a><u>関数:</u> <b>dlange</b><i> (<var>norm</var>, <var>A</var>)</i></dt>
-<dt><a name="index-zlange"></a><u>関数:</u> <b>zlange</b><i> (<var>norm</var>, <var>A</var>)</i></dt>
-<dd>
-<p>行列 <var>A</var>のノルムもしくはノルムのような関数を計算します。
+<dt><u>関数:</u> <b>dlange</b><i> (<var>norm</var>, <var>A</var>)</i>
+<a name="IDX2216"></a>
+</dt>
+<dt><u>関数:</u> <b>zlange</b><i> (<var>norm</var>, <var>A</var>)</i>
+<a name="IDX2217"></a>
+</dt>
+<dd><p>行列 <var>A</var>のノルムもしくはノルムのような関数を計算します。
 </p>
 <dl compact="compact">
 <dt> <code>max</code></dt>
@@ -564,14 +500,18 @@ Euclideanノルムが 1に等しく、最大成分の虚部が
 </p></dd>
 </dl>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-dgemm"></a>
 </p><dl>
-<dt><a name="index-dgemm"></a><u>関数:</u> <b>dgemm</b><i> (<var>A</var>, <var>B</var>)</i></dt>
-<dt><a name="index-dgemm-1"></a><u>関数:</u> <b>dgemm</b><i> (<var>A</var>, <var>B</var>, <var>options</var>)</i></dt>
+<dt><u>関数:</u> <b>dgemm</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>dgemm</tt> (<var>A</var>, <var>B</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>dgemm</tt> (<var>A</var>, <var>B</var>, <var>options</var>)</i>
+<a name="IDX2218"></a>
+</dt>
 <dd><p>2つの行列の積を計算します。オプションで積を三つ目の行列に足し算します。
 </p>
 <p>最も簡単な形式では、 <code>dgemm(<var>A</var>, <var>B</var>)</code>は
@@ -616,7 +556,7 @@ Euclideanノルムが 1に等しく、最大成分の虚部が
 </p></dd>
 </dl>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) load (lapack)$
+<pre class="example">(%i1) load (lapack)$
 (%i2) A : matrix([1,2,3],[4,5,6],[7,8,9]);
                                   [ 1  2  3 ]
                                   [         ]
@@ -684,28 +624,33 @@ Euclideanノルムが 1に等しく、最大成分の虚部が
                                [               ]
                                [ 111  134  157 ]
 
-</pre></td></tr></table>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a>
-</div></p>
+</pre><div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-zgeev"></a>
 </p><dl>
-<dt><a name="index-zgeev"></a><u>関数:</u> <b>zgeev</b><i> (<var>A</var>)</i></dt>
-<dt><a name="index-zgeev-1"></a><u>関数:</u> <b>zgeev</b><i> (<var>A</var>, <var>right_p</var>, <var>left_p</var>)</i></dt>
-<dd>
-<p><code>dgeev</code>同様、しかし行列  <var>A</var>は複素行列です。
+<dt><u>関数:</u> <b>zgeev</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>zgeev</tt> (<var>A</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>zgeev</tt> (<var>A</var>, <var>right_p</var>, <var>left_p</var>)</i>
+<a name="IDX2219"></a>
+</dt>
+<dd><p><code>dgeev</code>同様、しかし行列  <var>A</var>は複素行列です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a>
+</div>
+</p>
 </dd></dl>
 
 <p><a name="Item_003a-zheev"></a>
 </p><dl>
-<dt><a name="index-zheev"></a><u>関数:</u> <b>zheev</b><i> (<var>A</var>)</i></dt>
-<dt><a name="index-zheev-1"></a><u>関数:</u> <b>zheev</b><i> (<var>A</var>, <var>eigvec_p</var>)</i></dt>
-<dd>
-<p><code>zheev</code>同様、しかし行列 <var>A</var>は平方複素エルミート行列と仮定されます。
+<dt><u>関数:</u> <b>zheev</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>zheev</tt> (<var>A</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>zheev</tt> (<var>A</var>, <var>eigvec_p</var>)</i>
+<a name="IDX2220"></a>
+</dt>
+<dd><p><code>zheev</code>同様、しかし行列 <var>A</var>は平方複素エルミート行列と仮定されます。
 もし <var>eigvec_p</var>が <code>true</code>なら、
 行列の固有ベクトルも計算します。
 </p>
@@ -714,8 +659,11 @@ Euclideanノルムが 1に等しく、最大成分の虚部が
 <p><code>dgeev</code>と同じように2つの項目のリストを返します:
 固有値のリストと、 <code>false</code>または固有ベクトルの行列。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Package-lapack">Package lapack</a>
+</div>
+</p>
 </dd></dl>
 
 
@@ -723,21 +671,21 @@ Euclideanノルムが 1に等しく、最大成分の虚部が
 <p><a name="Item_003a-lbfgs"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#lapack" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_63.html#lbfgs" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC306" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_63.html#SEC309" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>5月, 20 2015</em>に<a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>を用いて生成されました。
  </font>
  <br>
 

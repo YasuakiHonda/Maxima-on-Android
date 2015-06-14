@@ -1,27 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on 2014年9月月15日 by texi2html 1.82
-texi2html was written by: 
-            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+<!-- Created on 5月, 20 2015 by texi2html 1.76 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
             Olaf Bachmann <obachman@mathematik.uni-kl.de>
             and many others.
-Maintained by: Many creative people.
-Send bugs and suggestions to <texi2html-bug@nongnu.org>
+Maintained by: Many creative people <dev@texi2html.cvshome.org>
+Send bugs and suggestions to <users@texi2html.cvshome.org>
+
 -->
 <head>
-<title>Maxima 5.34.1 Manual: 37. Program Flow</title>
+<title>Maxima 5.36.1 Manual: 37. Program Flow</title>
 
-<meta name="description" content="Maxima 5.34.1 Manual: 37. Program Flow">
-<meta name="keywords" content="Maxima 5.34.1 Manual: 37. Program Flow">
+<meta name="description" content="Maxima 5.36.1 Manual: 37. Program Flow">
+<meta name="keywords" content="Maxima 5.36.1 Manual: 37. Program Flow">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.82">
+<meta name="Generator" content="texi2html 1.76">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
 pre.display {font-family: serif}
 pre.format {font-family: serif}
 pre.menu-comment {font-family: serif}
@@ -30,109 +30,30 @@ pre.smalldisplay {font-family: serif; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: serif; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.roman {font-family:serif; font-weight:normal;}
 span.sansserif {font-family:sans-serif; font-weight:normal;}
 ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 
 -->
 </style>
@@ -157,56 +78,57 @@ div.categorybox
 <body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
 <a name="Program-Flow"></a>
+<a name="SEC201"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_36.html#Functions-and-Variables-for-Function-Definition" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Lisp-and-Maxima" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="maxima_36.html#SEC200" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC202" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_36.html#Function-Definition" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_38.html#Debugging" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima_36.html#SEC194" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_38.html#SEC206" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Program-Flow-1"></a>
-<h1 class="chapter">37. Program Flow</h1>
+<h1 class="chapter"> 37. Program Flow </h1>
+
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Lisp-and-Maxima">37.1 Lisp and Maxima</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC202">37.1 Lisp and Maxima</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Garbage-Collection">37.2 Garbage Collection</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#SEC203">37.2 Garbage Collection</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Introduction-to-Program-Flow">37.3 Introduction to Program Flow</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+<tr><td align="left" valign="top"><a href="#SEC204">37.3 Introduction to Program Flow</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Functions-and-Variables-for-Program-Flow">37.4 Functions and Variables for Program Flow</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+<tr><td align="left" valign="top"><a href="#SEC205">37.4 Functions and Variables for Program Flow</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
 </td></tr>
 </table>
 
 <p><a name="Item_003a-Lisp-and-Maxima"></a>
 </p><hr size="6">
 <a name="Lisp-and-Maxima"></a>
+<a name="SEC202"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Program-Flow" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Garbage-Collection" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC201" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC203" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Program-Flow" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Program-Flow" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_38.html#Debugging" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC201" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC201" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_38.html#SEC206" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Lisp-and-Maxima-1"></a>
-<h2 class="section">37.1 Lisp and Maxima</h2>
+<h2 class="section"> 37.1 Lisp and Maxima </h2>
 
 <p>Maximaは Lispで書かれており、
 Lisp関数や変数を Maximaからアクセスしたり、その逆が簡単にできます。
@@ -227,8 +149,8 @@ Maximaのコードの中ではバックスラッシュ <code>\</code>でエス�
 特殊コマンド <code>:lisp</code>を使って、
 （１つか複数のフォームを含む） Lispの一行を実行できます。例えば、
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) :lisp (foo $x $y)
-</pre></td></tr></table>
+<pre class="example">(%i1) :lisp (foo $x $y)
+</pre>
 
 <p>は、 Lisp関数 <code>foo</code>を Maxima変数 <code>x</code>, <code>y</code>を引数としてコールします。
 <code>:lisp</code>構成子は
@@ -268,32 +190,30 @@ Maximaの識別子に対応します。
 <p><code>#$</code> Lisp マクロを使うと、 Maximaの式を Lispコードの中で使うことができます。
 <code>#$<var>expr</var>$</code>は Maximaの式 <var>expr</var>と同値な Lispの式に展開されます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(msetq $foo #$[x, y]$)
-</pre></td></tr></table>
+<pre class="example">(msetq $foo #$[x, y]$)
+</pre>
 
 <p>これは以下のように入力するのと同じ効果です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) foo: [x, y];
-</pre></td></tr></table>
+<pre class="example">(%i1) foo: [x, y];
+</pre>
 
 <p>Lisp関数 <code>displa</code>は Maximaフォーマットで式を表示します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) :lisp #$[x, y, z]$ 
+<pre class="example">(%i1) :lisp #$[x, y, z]$ 
 ((MLIST SIMP) $X $Y $Z)
 (%i1) :lisp (displa '((MLIST SIMP) $X $Y $Z))
 [x, y, z]
 NIL
-</pre></td></tr></table>
-
+</pre>
 <p>Maximaで定義された関数は通常の Lisp関数ではありません。
 Lisp関数 <code>mfuncall</code>は Maxima関数をコールします。
 例えば:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) foo(x,y) := x*y$
+<pre class="example">(%i1) foo(x,y) := x*y$
 (%i2) :lisp (mfuncall '$foo 'a 'b)
 ((MTIMES SIMP) A B)
-</pre></td></tr></table>
-
+</pre>
 <p>以下の Lisp関数は Maximaパッケージの中でシャドウされています。
 </p>
 <pre class="verbatim">   complement     continue      //
@@ -304,29 +224,32 @@ Lisp関数 <code>mfuncall</code>は Maxima関数をコールします。
    tanh           cosh          sinh
    tan            break         gcd
 </pre>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
-</div></p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
+</div>
+</p>
 <p><a name="Item_003a-Garbage-Collection"></a>
 </p><hr size="6">
 <a name="Garbage-Collection"></a>
+<a name="SEC203"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Lisp-and-Maxima" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction-to-Program-Flow" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC202" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC204" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Program-Flow" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Program-Flow" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_38.html#Debugging" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC201" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC201" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_38.html#SEC206" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Garbage-Collection-1"></a>
-<h2 class="section">37.2 Garbage Collection</h2>
+<h2 class="section"> 37.2 Garbage Collection </h2>
 
 <p>数式処理は膨大なゴミ(最終的には使われない一時的な、もしくは中間の結果)を生む傾向があり、
 ゴミの効率的な取り扱いは、プログラムをうまく完了させるために非常に重要な場合があります。
@@ -344,24 +267,24 @@ Lispレベルで (setq si::*notify-gbc* t)を実行すると
 <p><a name="Item_003a-Introduction-to-Program-Flow"></a>
 </p><hr size="6">
 <a name="Introduction-to-Program-Flow"></a>
+<a name="SEC204"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Garbage-Collection" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-and-Variables-for-Program-Flow" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC203" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC205" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Program-Flow" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Program-Flow" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_38.html#Debugging" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC201" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC201" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_38.html#SEC206" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Introduction-to-Program-Flow-1"></a>
-<h2 class="section">37.3 Introduction to Program Flow</h2>
+<h2 class="section"> 37.3 Introduction to Program Flow </h2>
 
 <p>Maximaは <code>go</code>のようなもっとプリミティブな構成子はもちろん、繰り返しのために
 <code>do</code>ループを提供します。
@@ -370,32 +293,32 @@ Lispレベルで (setq si::*notify-gbc* t)を実行すると
 <p><a name="Item_003a-Functions-and-Variables-for-Program-Flow"></a>
 </p><hr size="6">
 <a name="Functions-and-Variables-for-Program-Flow"></a>
+<a name="SEC205"></a>
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction-to-Program-Flow" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_38.html#Debugging" title="Next section in reading order"> &gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC204" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_38.html#SEC206" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Program-Flow" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Program-Flow" title="Up section">上</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_38.html#Debugging" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC201" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC201" title="Up section">上</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_38.html#SEC206" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<a name="Functions-and-Variables-for-Program-Flow-1"></a>
-<h2 class="section">37.4 Functions and Variables for Program Flow</h2>
+<h2 class="section"> 37.4 Functions and Variables for Program Flow </h2>
 
 <p><a name="backtrace"></a>
 <a name="Item_003a-backtrace"></a>
 </p><dl>
-<dt><a name="index-backtrace"></a><u>関数:</u> <b>backtrace</b><i> ()</i></dt>
-<dt><a name="index-backtrace-1"></a><u>関数:</u> <b>backtrace</b><i> (<var>n</var>)</i></dt>
-<dd>
-<p>コールスタック、すなわち、現在アクティブな関数をコールした関数のリストを印字します。
+<dt><u>関数:</u> <b>backtrace</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>backtrace</tt> () &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>backtrace</tt> (<var>n</var>)</i>
+<a name="IDX1371"></a>
+</dt>
+<dd><p>コールスタック、すなわち、現在アクティブな関数をコールした関数のリストを印字します。
 </p>
 <p><code>backtrace()</code>はコールスタック全体を印字します。
 </p>
@@ -411,7 +334,7 @@ Lispレベルで (setq si::*notify-gbc* t)を実行すると
 <li>
 <code>backtrace()</code>はコールスタック全体を印字します。
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) h(x) := g(x/7)$
+<pre class="example">(%i1) h(x) := g(x/7)$
 (%i2) g(x) := f(x-11)$
 (%i3) f(x) := e(x^2)$
 (%i4) e(x) := (backtrace(), 2*x + 13)$
@@ -423,15 +346,14 @@ Lispレベルで (setq si::*notify-gbc* t)を実行すると
                               9615
 (%o5)                         ----
                                49
-</pre></td></tr></table>
-</li></ul>
+</pre></li></ul>
 
 <ul>
 <li>
 <code>backtrace (<var>n</var>)</code>は現在アクティブな関数を含めて
 <var>n</var>個の直近の関数を印字します。
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) h(x) := (backtrace(1), g(x/7))$
+<pre class="example">(%i1) h(x) := (backtrace(1), g(x/7))$
 (%i2) g(x) := (backtrace(1), f(x-11))$
 (%i3) f(x) := (backtrace(1), e(x^2))$
 (%i4) e(x) := (backtrace(1), 2*x + 13)$
@@ -443,19 +365,24 @@ Lispレベルで (setq si::*notify-gbc* t)を実行すると
                               9615
 (%o5)                         ----
                                49
-</pre></td></tr></table>
-</li></ul>
+</pre></li></ul>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Debugging">Debugging</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Debugging">Debugging</a>
+</div>
+</p></dd></dl>
 
 <p><a name="do"></a>
 <a name="Item_003a-do"></a>
 </p><dl>
-<dt><a name="index-do"></a><u>特殊演算子:</u> <b>do</b></dt>
-<dt><a name="index-in"></a><u>特殊演算子:</u> <b>in</b></dt>
-<dd>
-<p><code>do</code>文は繰り返しを実行するために使われます。
+<dt><u>特殊演算子:</u> <b>do</b>
+<a name="IDX1372"></a>
+</dt>
+<dt><u>特殊演算子:</u> <b>in</b>
+<a name="IDX1373"></a>
+</dt>
+<dd><p><code>do</code>文は繰り返しを実行するために使われます。
 その強力な一般性のために <code>do</code>文は２編で記述されます。
 最初、通常の形式が
 (Fortran, Algol, PL/I, など)いくつかの他のプログラミング言語の中で使われるそれ
@@ -526,7 +453,7 @@ Maximaは <code>do</code>が実行される時、正と仮定します。
 <code>do</code>の外側の同じ名前を持つ変数の値に影響することなく、任意の変数が使えます。
 制御変数は <code>do</code>が終了した後バインドされていません。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) for a:-3 thru 26 step 7 do display(a)$
+<pre class="example">(%i1) for a:-3 thru 26 step 7 do display(a)$
                              a = - 3
 
                               a = 4
@@ -536,19 +463,17 @@ Maximaは <code>do</code>が実行される時、正と仮定します。
                              a = 18
 
                              a = 25
-</pre></td></tr></table>
-
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) s: 0$
+</pre>
+<pre class="example">(%i1) s: 0$
 (%i2) for i: 1 while i &lt;= 10 do s: s+i;
 (%o2)                         done
 (%i3) s;
 (%o3)                          55
-</pre></td></tr></table>
-
+</pre>
 <p>条件 <code>while i &lt;= 10</code>は、
 <code>unless i &gt; 10</code>や<code>thru 10</code>と同値であることに注意してください。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) series: 1$
+<pre class="example">(%i1) series: 1$
 (%i2) term: exp (sin (x))$
 (%i3) for p: 1 unless p &gt; 7 do
           (term: diff (term, x)/p, 
@@ -558,12 +483,11 @@ Maximaは <code>do</code>が実行される時、正と仮定します。
                  x    x     x    x    x
 (%o4)            -- - --- - -- - -- + -- + x + 1
                  90   240   15   8    2
-</pre></td></tr></table>
-
+</pre>
 <p>以上は <code>e^sin(x)</code>のTaylor級数の8項を与えます。
 </p>
 
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) poly: 0$
+<pre class="example">(%i1) poly: 0$
 (%i2) for i: 1 thru 5 do
           for j: i step -1 thru 1 do
               poly: poly + i*x^j$
@@ -575,8 +499,7 @@ Maximaは <code>do</code>が実行される時、正と仮定します。
           (guess: subst (guess, x, 0.5*(x + 10/x)),
            if abs (guess^2 - 10) &lt; 0.00005 then return (guess));
 (%o5)                  - 3.162280701754386
-</pre></td></tr></table>
-
+</pre>
 <p>この例は、Newton-Raphson反復を最大10回使って 10の負の平方根を計算します。
 もし収束基準が満たされないなら、戻り値は <code>done</code>になります。
 </p>
@@ -588,14 +511,13 @@ Maximaは <code>do</code>が実行される時、正と仮定します。
 これは、ループの間、
 制御変数が毎回 <var>expression</var>の評価結果に設定されるようにします。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i6) for count: 2 next 3*count thru 20 do display (count)$
+<pre class="example">(%i6) for count: 2 next 3*count thru 20 do display (count)$
                             count = 2
 
                             count = 6
 
                            count = 18
-</pre></td></tr></table>
-
+</pre>
 <p><code>for <var>variable</var>: <var>value</var> ...do...</code>の代わりとして、
 構文法 <code>for <var>variable</var> from <var>value</var> ...do...</code>が使えます。
 これは、<code>from <var>value</var></code>を <code>step</code>や
@@ -607,26 +529,24 @@ Maximaは <code>do</code>が実行される時、正と仮定します。
 それゆえに、貧弱な初期推測を使って 5の平方根を計算する以下の例にあるように、
 初期化と更新情報を省略して終了条件だけ与えることが許されます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) x: 1000$
+<pre class="example">(%i1) x: 1000$
 (%i2) thru 20 do x: 0.5*(x + 5.0/x)$
 (%i3) x;
 (%o3)                   2.23606797749979
 (%i4) sqrt(5), numer;
 (%o4)                   2.23606797749979
-</pre></td></tr></table>
-
+</pre>
 <p>もし望むなら、終了条件さえ完全に省略し、
 無限に <var>body</var>を評価し続ける <code>do <var>body</var></code>だけを与えることもできます。
 この場合、関数 <code>return</code>が <code>do</code>の実行を終了するのに使われるべきです。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) newton (f, x):= ([y, df, dfx], df: diff (f ('x), 'x),
+<pre class="example">(%i1) newton (f, x):= ([y, df, dfx], df: diff (f ('x), 'x),
           do (y: ev(df), x: x - f(x)/y, 
               if abs (f (x)) &lt; 5e-6 then return (x)))$
 (%i2) sqr (x) := x^2 - 5.0$
 (%i3) newton (sqr, 1000);
 (%o3)                   2.236068027062195
-</pre></td></tr></table>
-
+</pre>
 <p>(<code>return</code>が実行された時、
 <code>x</code>の現在値を <code>do</code>の値として返そうとすることに注意してください。
 <code>do</code>がブロックの最後の文なので、
@@ -634,9 +554,8 @@ Maximaは <code>do</code>が実行される時、正と仮定します。
 </p>
 <p><code>do</code>のもう１つ別の形式が Maximaで利用可能です。構文法は:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">for <var>variable</var> in <var>list</var> <var>end_tests</var> do <var>body</var>
-</pre></td></tr></table>
-
+<pre class="example">for <var>variable</var> in <var>list</var> <var>end_tests</var> do <var>body</var>
+</pre>
 <p><var>list</var>の要素は、 <var>body</var>の繰り返しのそれぞれで
 <code>variable</code>に連続的に割り当てられる任意の式です。
 オプションの終了テスト <var>end_tests</var>は、
@@ -647,7 +566,7 @@ Maximaは <code>do</code>が実行される時、正と仮定します。
 終了します。
  (実際には、 <code>list</code>は非アトムの任意の式を取り得えて、連続的な部分が取られます。)
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1)  for f in [log, rho, atan] do ldisp(f(1))$
+<pre class="example">(%i1)  for f in [log, rho, atan] do ldisp(f(1))$
 (%t1)                                  0
 (%t2)                                rho(1)
                                      %pi
@@ -655,17 +574,20 @@ Maximaは <code>do</code>が実行される時、正と仮定します。
                                       4
 (%i4) ev(%t3,numer);
 (%o4)                             0.78539816
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
+</div>
+</p></dd></dl>
 
 <p><a name="errcatch"></a>
 <a name="Item_003a-errcatch"></a>
 </p><dl>
-<dt><a name="index-errcatch"></a><u>関数:</u> <b>errcatch</b><i> (<var>expr_1</var>, &hellip;, <var>expr_n</var>)</i></dt>
-<dd>
-<p><var>expr_1</var>, &hellip;, <var>expr_n</var>を１つずつ評価し、もしエラーが起こらないなら、
+<dt><u>関数:</u> <b>errcatch</b><i> (<var>expr_1</var>, &hellip;, <var>expr_n</var>)</i>
+<a name="IDX1374"></a>
+</dt>
+<dd><p><var>expr_1</var>, &hellip;, <var>expr_n</var>を１つずつ評価し、もしエラーが起こらないなら、
 <code>[<var>expr_n</var>]</code> (リスト)を返します。
 もしいずれかの引数の評価中にエラーが起こったら、
 <code>errcatch</code> はエラーが伝搬することを抑制し、
@@ -675,16 +597,22 @@ Maximaは <code>do</code>が実行される時、正と仮定します。
 <code>batch</code>を終了させるエラーが起こるかもしれないと疑うような
 <code>batch</code>ファイルで役立ちます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
+</div>
+</p></dd></dl>
 
 <p><a name="error"></a>
 <a name="Item_003a-error"></a>
 </p><dl>
-<dt><a name="index-error"></a><u>関数:</u> <b>error</b><i> (<var>expr_1</var>, ..., <var>expr_n</var>)</i></dt>
-<dt><a name="index-error-1"></a><u>システム変数:</u> <b>error</b></dt>
-<dd>
-<p><var>expr_1</var>, ..., <var>expr_n</var>を評価して印字します。
+<dt><u>関数:</u> <b>error</b><i> (<var>expr_1</var>, ..., <var>expr_n</var>)</i>
+<a name="IDX1375"></a>
+</dt>
+<dt><u>システム変数:</u> <b>error</b>
+<a name="IDX1376"></a>
+</dt>
+<dd><p><var>expr_1</var>, ..., <var>expr_n</var>を評価して印字します。
 そしてエラーがあれば、トップレベル Maximaか直近の <code>errcatch</code>に戻るようにします。
 </p>
 <p>変数 <code>error</code>はエラーを記述するリストに設定されます。
@@ -695,13 +623,18 @@ Maximaは <code>do</code>が実行される時、正と仮定します。
 <p><code>errormsg()</code>は <code>error</code>をフォーマットし印字します。
 これは直近のエラーメッセージを効果的に再印字します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
+</div>
+</p></dd></dl>
 
 <p><a name="error_005fsize"></a>
 <a name="Item_003a-error_005fsize"></a>
 </p><dl>
-<dt><a name="index-error_005fsize"></a><u>オプション変数:</u> <b>error_size</b></dt>
+<dt><u>オプション変数:</u> <b>error_size</b>
+<a name="IDX1377"></a>
+</dt>
 <dd><p>デフォルト値: 10
 </p>
 <p><code>error_size</code>は現れる式のサイズに従ってエラーメッセージを変更します。
@@ -718,7 +651,7 @@ Maximaは <code>do</code>が実行される時、正と仮定します。
 </p>
 <p><code>U</code>のサイズは <code>ERROR-SIZE</code>で決められるように 24です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) U: (C^D^E + B + A)/(cos(X-1) + 1)$
+<pre class="example">(%i1) U: (C^D^E + B + A)/(cos(X-1) + 1)$
 
 (%i2) error_size: 20$
 
@@ -742,16 +675,20 @@ Example expression is errexp1
 Example expression is --------------
                       cos(X - 1) + 1
  -- an error.  Quitting.  To debug this try debugmode(true);
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Debugging">Debugging</a>
- &middot;<a href="maxima_100.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Debugging">Debugging</a> &middot;
+<a href="maxima_100.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="error_005fsyms"></a>
 <a name="Item_003a-error_005fsyms"></a>
 </p><dl>
-<dt><a name="index-error_005fsyms"></a><u>オプション変数:</u> <b>error_syms</b></dt>
+<dt><u>オプション変数:</u> <b>error_syms</b>
+<a name="IDX1378"></a>
+</dt>
 <dd><p>デフォルト値: <code>[errexp1, errexp2, errexp3]</code>
 </p>
 <p>エラーメッセージの中で、
@@ -766,26 +703,35 @@ Example expression is --------------
 </p>
 <p><code>error</code>と <code>error_size</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Debugging">Debugging</a>
- &middot;<a href="maxima_100.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Debugging">Debugging</a> &middot;
+<a href="maxima_100.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+</div>
+</p></dd></dl>
 
 <p><a name="errormsg"></a>
 <a name="Item_003a-errormsg"></a>
 </p><dl>
-<dt><a name="index-errormsg"></a><u>関数:</u> <b>errormsg</b><i> ()</i></dt>
-<dd>
-<p>直近のエラーメッセージを再印字します。
+<dt><u>関数:</u> <b>errormsg</b><i> ()</i>
+<a name="IDX1379"></a>
+</dt>
+<dd><p>直近のエラーメッセージを再印字します。
 変数 <code>error</code>はメッセージを保持し、
 <code>errormsg</code>はそれをフォーマットし印字します。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
+</div>
+</p></dd></dl>
 
 <p><a name="option_005ferrormsg"></a>
 </p>
 <dl>
-<dt><a name="index-errormsg-1"></a><u>オプション変数:</u> <b>errormsg</b></dt>
+<dt><u>オプション変数:</u> <b>errormsg</b>
+<a name="IDX1380"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>false</code>の時、エラーメッセージの出力は抑制されます。
@@ -794,7 +740,7 @@ Example expression is --------------
 ブロックの中でローカル値に設定することはできません。
 <code>errormsg</code>のグローバル値が常に存在します。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) errormsg;
+<pre class="example">(%i1) errormsg;
 (%o1)                                true
 (%i2) sin(a,b);
 Wrong number of arguments to sin
@@ -804,11 +750,10 @@ Wrong number of arguments to sin
 (%i4) sin(a,b);
 
  -- an error. To debug this try: debugmode(true);
-</pre></td></tr></table>
-
+</pre>
 <p>オプション変数 <code>errormsg</code>はブロックの中でローカル値に設定できません。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) f(bool):=block([errormsg:bool], 
+<pre class="example">(%i1) f(bool):=block([errormsg:bool], 
                      print (&quot;value of errormsg is&quot;,errormsg))$
 (%i2) errormsg:true;
 (%o2)                                true
@@ -820,52 +765,62 @@ value of errormsg is true
 (%i5) f(true);
 value of errormsg is false 
 (%o5)                                false
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="for"></a>
 <a name="Item_003a-for"></a>
 </p><dl>
-<dt><a name="index-for"></a><u>特殊演算子:</u> <b>for</b></dt>
-<dd>
-<p>繰り返しで使われます。
+<dt><u>特殊演算子:</u> <b>for</b>
+<a name="IDX1381"></a>
+</dt>
+<dd><p>繰り返しで使われます。
 Maximaの繰り返し機能の記述に関しては <code>do</code>を参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
+</div>
+</p></dd></dl>
 
 <p><a name="go"></a>
 <a name="Item_003a-go"></a>
 </p><dl>
-<dt><a name="index-go"></a><u>関数:</u> <b>go</b><i> (<var>tag</var>)</i></dt>
-<dd>
-<p>制御を
+<dt><u>関数:</u> <b>go</b><i> (<var>tag</var>)</i>
+<a name="IDX1382"></a>
+</dt>
+<dd><p>制御を
 <code>go</code>の引数でタグ付けされたブロックの文に移すために
 <code>block</code>内部で使われます。
 文をタグ付けするには、その文の前にアトムの引数を
 <code>block</code>の中の別の文として先行させてください。
 例えば:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">block ([x], x:1, loop, x+1, ..., go(loop), ...)
-</pre></td></tr></table>
-
+<pre class="example">block ([x], x:1, loop, x+1, ..., go(loop), ...)
+</pre>
 <p><code>go</code>の引数は同じ <code>block</code>の中に現れるタグの名前でなければいけません。
 <code>go</code>を含む <code>block</code>以外の <code>block</code>の中のタグに移るために、
 <code>go</code>を使うことはできません。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="if"></a>
 <a name="Item_003a-if"></a>
 </p><dl>
-<dt><a name="index-if"></a><u>特殊演算子:</u> <b>if</b></dt>
-<dd>
-<p>条件評価を表します。
+<dt><u>特殊演算子:</u> <b>if</b>
+<a name="IDX1383"></a>
+</dt>
+<dd><p>条件評価を表します。
 <code>if</code>式の様々な形が認識されます。
 </p>
 <p><code>if <var>cond_1</var> then <var>expr_1</var> else <var>expr_0</var></code>は、もし
@@ -904,7 +859,7 @@ elseif ... elseif <var>cond_n</var> then <var>expr_n</var> else false</code>と�
 </p>
 <p>条件は以下のように他の要素間の関係演算子と論理演算子からなります。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">演算                 シンボル     タイプ
+<pre class="example">演算                 シンボル     タイプ
  
 小なり                &lt;           関係 中置
 以下                  &lt;=          関係 中置
@@ -917,19 +872,22 @@ elseif ... elseif <var>cond_n</var> then <var>expr_n</var> else false</code>と�
 かつ                  and         論理 中置
 または                or          論理 中置
 否定                  not         論理 前置
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
- &middot;<a href="maxima_100.html#Category_003a-Predicate-functions">Predicate functions</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a> &middot;
+<a href="maxima_100.html#Category_003a-Predicate-functions">Predicate functions</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="map"></a>
 <a name="Item_003a-map"></a>
 </p><dl>
-<dt><a name="index-map"></a><u>関数:</u> <b>map</b><i> (<var>f</var>, <var>expr_1</var>, &hellip;, <var>expr_n</var>)</i></dt>
-<dd>
-<p><code>map</code>は、主演算子（訳注：内部表現の最上位階層のリストに対応する演算子）は式
+<dt><u>関数:</u> <b>map</b><i> (<var>f</var>, <var>expr_1</var>, &hellip;, <var>expr_n</var>)</i>
+<a name="IDX1384"></a>
+</dt>
+<dd><p><code>map</code>は、主演算子（訳注：内部表現の最上位階層のリストに対応する演算子）は式
 <var>expr_1</var>, ..., <var>expr_n</var>のそれと同じ演算子を使い、
 そのサブパーツは、引数式の対応するサブパーツに <var>f</var>を適用した結果である式を返します。
 <var>f</var>は <em>n</em>個の引数の関数名か <em>n</em>個の引数のラムダ形式です。
@@ -947,7 +905,7 @@ elseif ... elseif <var>cond_n</var> then <var>expr_n</var> else false</code>と�
 計算の間にリスト保存領域を枯渇させるため式全体に適応するのが不可能な場合に、
 それぞれの項に関数をマップすることです。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) map(f,x+a*y+b*z);
+<pre class="example">(%i1) map(f,x+a*y+b*z);
 (%o1)                        f(b z) + f(a y) + f(x)
 (%i2) map(lambda([u],partfrac(u,x)),x+1/(x^3+4*x^2+5*x+2));
                            1       1        1
@@ -962,35 +920,42 @@ elseif ... elseif <var>cond_n</var> then <var>expr_n</var> else false</code>と�
 (%o4)                          [a = - 0.5, b = 3]
 
 
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Function-application">Function application</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Function-application">Function application</a>
+</div>
+</p></dd></dl>
 
 <p><a name="mapatom"></a>
 <a name="Item_003a-mapatom"></a>
 </p><dl>
-<dt><a name="index-mapatom"></a><u>関数:</u> <b>mapatom</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p><var>expr</var>がマップルーチンでアトムとして扱われる時だけ <code>true</code>を返します。
+<dt><u>関数:</u> <b>mapatom</b><i> (<var>expr</var>)</i>
+<a name="IDX1385"></a>
+</dt>
+<dd><p><var>expr</var>がマップルーチンでアトムとして扱われる時だけ <code>true</code>を返します。
 &quot;Mapatoms&quot;はアトム、(有理数を含む)数、添字付き変数です。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Predicate-functions">Predicate functions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Predicate-functions">Predicate functions</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="maperror"></a>
 <a name="Item_003a-maperror"></a>
 </p><dl>
-<dt><a name="index-maperror"></a><u>オプション変数:</u> <b>maperror</b></dt>
+<dt><u>オプション変数:</u> <b>maperror</b>
+<a name="IDX1386"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>maperror</code>が <code>false</code>の時は、
 マップ関数すべてに以下の例のようにさせます。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">map (<var>f</var>, <var>expr_1</var>, <var>expr_2</var>, &hellip;)
-</pre></td></tr></table>
-
+<pre class="example">map (<var>f</var>, <var>expr_1</var>, <var>expr_2</var>, &hellip;)
+</pre>
 <p>に対しては、
 (1) もし <var>expr_i</var>のすべてが同じ長さでないなら、
 最も短い <var>expr_i</var>の終わりまで完了した時、停止するようにさせ、
@@ -1000,13 +965,18 @@ elseif ... elseif <var>cond_n</var> then <var>expr_n</var> else false</code>と�
 <p>もし <code>maperror</code>が <code>true</code>なら、
 上の２つの例に関してエラーメッセージが表示されます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Function-application">Function application</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Function-application">Function application</a>
+</div>
+</p></dd></dl>
 
 <p><a name="mapprint"></a>
 <a name="Item_003a-mapprint"></a>
 </p><dl>
-<dt><a name="index-mapprint"></a><u>オプション変数:</u> <b>mapprint</b></dt>
+<dt><u>オプション変数:</u> <b>mapprint</b>
+<a name="IDX1387"></a>
+</dt>
 <dd><p>デフォルト値: <code>true</code>
 </p>
 <p><code>mapprint</code>が <code>true</code>の時、
@@ -1017,16 +987,20 @@ elseif ... elseif <var>cond_n</var> then <var>expr_n</var> else false</code>と�
 </p>
 <p>もし <code>mapprint</code>が <code>false</code>なら、これらのメッセージは抑制されます
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Function-application">Function application</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Function-application">Function application</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="maplist"></a>
 <a name="Item_003a-maplist"></a>
 </p><dl>
-<dt><a name="index-maplist"></a><u>関数:</u> <b>maplist</b><i> (<var>f</var>, <var>expr_1</var>, &hellip;, <var>expr_n</var>)</i></dt>
-<dd>
-<p>式 <var>expr_1</var>, &hellip;, <var>expr_n</var>のパーツに
+<dt><u>関数:</u> <b>maplist</b><i> (<var>f</var>, <var>expr_1</var>, &hellip;, <var>expr_n</var>)</i>
+<a name="IDX1388"></a>
+</dt>
+<dd><p>式 <var>expr_1</var>, &hellip;, <var>expr_n</var>のパーツに
 <var>f</var>を適用した結果のリストを返します。
 <var>f</var>は関数名かラムダ式です。
 </p>
@@ -1036,14 +1010,19 @@ mapは主演算子が <var>expr_i</var>と同じ式を返します。
 (整理と <code>map</code>が <code>apply</code>を行う場合は例外です。)
 </p>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Function-application">Function application</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Function-application">Function application</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="prederror"></a>
 <a name="Item_003a-prederror"></a>
 </p><dl>
-<dt><a name="index-prederror"></a><u>オプション変数:</u> <b>prederror</b></dt>
+<dt><u>オプション変数:</u> <b>prederror</b>
+<a name="IDX1389"></a>
+</dt>
 <dd><p>デフォルト値: <code>false</code>
 </p>
 <p><code>prederror</code>が <code>true</code>の時、
@@ -1057,100 +1036,118 @@ mapは主演算子が <var>expr_i</var>と同じ式を返します。
 </p>
 <p><code>is</code>と <code>maybe</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
- &middot;<a href="maxima_100.html#Category_003a-Predicate-functions">Predicate functions</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a> &middot;
+<a href="maxima_100.html#Category_003a-Predicate-functions">Predicate functions</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-return"></a>
 </p><dl>
-<dt><a name="index-return"></a><u>関数:</u> <b>return</b><i> (<var>value</var>)</i></dt>
-<dd>
-<p>引数を連れて、明示的にブロックから抜けるために使われます。
+<dt><u>関数:</u> <b>return</b><i> (<var>value</var>)</i>
+<a name="IDX1390"></a>
+</dt>
+<dd><p>引数を連れて、明示的にブロックから抜けるために使われます。
 もっと情報を知るには <code>block</code>も参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-scanmap"></a>
 </p><dl>
-<dt><a name="index-scanmap"></a><u>関数:</u> <b>scanmap</b><i> (<var>f</var>, <var>expr</var>)</i></dt>
-<dt><a name="index-scanmap-1"></a><u>関数:</u> <b>scanmap</b><i> (<var>f</var>, <var>expr</var>, bottomup)</i></dt>
-<dd>
-<p>トップダウン法で <var>f</var>を <var>expr</var>に再帰的に適用します。
+<dt><u>関数:</u> <b>scanmap</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>scanmap</tt> (<var>f</var>, <var>expr</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>scanmap</tt> (<var>f</var>, <var>expr</var>, bottomup)</i>
+<a name="IDX1391"></a>
+</dt>
+<dd><p>トップダウン法で <var>f</var>を <var>expr</var>に再帰的に適用します。
 完全な因数分解が望まれる時、これは最も役に立ちます。
 例えば:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) exp:(a^2+2*a+1)*y + x^2$
+<pre class="example">(%i1) exp:(a^2+2*a+1)*y + x^2$
 (%i2) scanmap(factor,exp);
                                     2      2
 (%o2)                         (a + 1)  y + x
-</pre></td></tr></table>
-
+</pre>
 <p><code>scanmap</code>が与えられた関数 <code>factor</code>を
 <var>expr</var>の構成部分式に適用する方法に注意してください;
 もし <var>expr</var>の別の形が <code>scanmap</code>に適用されるなら、結果は異なるかもしれません。
 従って、 <code>scanmap</code>が <code>exp</code>の展開形に適用される時、
 <code>%o2</code>が再現されません:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i3) scanmap(factor,expand(exp));
+<pre class="example">(%i3) scanmap(factor,expand(exp));
                            2                  2
 (%o3)                      a  y + 2 a y + y + x
-</pre></td></tr></table>
-
+</pre>
 <p><code>scanmap</code>が
 与えられた関数を指数関数を含む部分式すべてに再帰的に適用する方法の別の例です:
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i4) expr : u*v^(a*x+b) + c$
+<pre class="example">(%i4) expr : u*v^(a*x+b) + c$
 (%i5) scanmap('f, expr);
                     f(f(f(a) f(x)) + f(b))
 (%o5) f(f(f(u) f(f(v)                      )) + f(c))
-</pre></td></tr></table>
-
+</pre>
 <p><code>scanmap (<var>f</var>, <var>expr</var>, bottomup)</code>は、
 ボトムアップ法で <var>f</var>を <var>expr</var>に適用します。
 例えば、未定義 <code>f</code>に関して、
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">scanmap(f,a*x+b) -&gt;
+<pre class="example">scanmap(f,a*x+b) -&gt;
    f(a*x+b) -&gt; f(f(a*x)+f(b)) -&gt; f(f(f(a)*f(x))+f(b))
 scanmap(f,a*x+b,bottomup) -&gt; f(a)*f(x)+f(b)
     -&gt; f(f(a)*f(x))+f(b) -&gt;
      f(f(f(a)*f(x))+f(b))
-</pre></td></tr></table>
-
+</pre>
 <p>この場合、両方の方法で同じ答えを得ます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Function-application">Function application</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Function-application">Function application</a>
+</div>
+</p></dd></dl>
 
 <p><a name="throw"></a>
 <a name="Item_003a-throw"></a>
 </p><dl>
-<dt><a name="index-throw"></a><u>関数:</u> <b>throw</b><i> (<var>expr</var>)</i></dt>
-<dd>
-<p><var>expr</var>を評価し、直近の <code>catch</code>に値を投げ戻します。
+<dt><u>関数:</u> <b>throw</b><i> (<var>expr</var>)</i>
+<a name="IDX1392"></a>
+</dt>
+<dd><p><var>expr</var>を評価し、直近の <code>catch</code>に値を投げ戻します。
 <code>throw</code>は <code>catch</code>と一緒に非ローカルリターンメカニズムとして使われます。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="while"></a>
 <a name="unless"></a>
 <a name="Item_003a-while"></a>
 </p><dl>
-<dt><a name="index-while"></a><u>特殊演算子:</u> <b>while</b></dt>
-<dt><a name="index-unless"></a><u>特殊演算子:</u> <b>unless</b></dt>
+<dt><u>特殊演算子:</u> <b>while</b>
+<a name="IDX1393"></a>
+</dt>
+<dt><u>特殊演算子:</u> <b>unless</b>
+<a name="IDX1394"></a>
+</dt>
 <dd><p><code>do</code>を参照してください。
 </p>
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
-</div></p></dd></dl>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Programming">Programming</a>
+</div>
+</p></dd></dl>
 
 <p><a name="outermap"></a>
 <a name="Item_003a-outermap"></a>
 </p><dl>
-<dt><a name="index-outermap"></a><u>関数:</u> <b>outermap</b><i> (<var>f</var>, <var>a_1</var>, &hellip;, <var>a_n</var>)</i></dt>
-<dd>
-<p>関数 <var>f</var>を外積 <var>a_1</var>掛ける <var>a_2</var> ... 掛ける
+<dt><u>関数:</u> <b>outermap</b><i> (<var>f</var>, <var>a_1</var>, &hellip;, <var>a_n</var>)</i>
+<a name="IDX1395"></a>
+</dt>
+<dd><p>関数 <var>f</var>を外積 <var>a_1</var>掛ける <var>a_2</var> ... 掛ける
 <var>a_n</var>の要素のそれぞれに適用します。
 </p>
 <p><var>f</var>は <em>n</em>個の引数の関数の名前か、 <em>n</em>個の引数のラムダ式です。
@@ -1187,7 +1184,7 @@ scanmap(f,a*x+b,bottomup) -&gt; f(a)*f(x)+f(b)
 <p><code>outermap</code>の初等的な例。
 よりはっきり引数の組み合わせを示すために、 <code>F</code>は未定義のままです。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) outermap(F, [a, b, c], [1, 2, 3]);
+<pre class="example">(%i1) outermap(F, [a, b, c], [1, 2, 3]);
 (%o1) [[F(a, 1), F(a, 2), F(a, 3)], [F(b, 1), F(b, 2), F(b, 3)], 
                                      [F(c, 1), F(c, 2), F(c, 3)]]
 (%i2) outermap(F, matrix([a, b],[c, d]), matrix([1, 2],[3, 4]));
@@ -1212,14 +1209,13 @@ scanmap(f,a*x+b,bottomup) -&gt; f(a)*f(x)+f(b)
 (%i5) outermap (&quot;+&quot;, [a, b, c], [1, 2, 3]);
 (%o5) [[a + 1, a + 2, a + 3], [b + 1, b + 2, b + 3], 
                                            [c + 1, c + 2, c + 3]]
-</pre></td></tr></table>
-
+</pre>
 <p><code>outermap</code>の戻り値のより密な検査。
 最初の、二番目の、三番目の引数は、それぞれ、行列、リスト、行列です。
 戻り値は行列です。
 その行列の要素それぞれはリストで、それぞれのリストの要素それぞれは行列です。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) arg_1 :  matrix ([a, b], [c, d]);
+<pre class="example">(%i1) arg_1 :  matrix ([a, b], [c, d]);
                             [ a  b ]
 (%o1)                       [      ]
                             [ c  d ]
@@ -1236,14 +1232,14 @@ scanmap(f,a*x+b,bottomup) -&gt; f(a)*f(x)+f(b)
                [  [      c        c  ]  [      c        c  ]  ]
                [ [[ xx + --  yy + -- ], [ xx + --  yy + -- ]] ]
                [  [      11       11 ]  [      22       22 ]  ]
-</pre><pre class="example">                 [  [      b        b  ]  [      b        b  ]  ]
+                 [  [      b        b  ]  [      b        b  ]  ]
                  [ [[ xx + --  yy + -- ], [ xx + --  yy + -- ]] ]
                  [  [      11       11 ]  [      22       22 ]  ]
          Col 2 = [                                              ]
                  [  [      d        d  ]  [      d        d  ]  ]
                  [ [[ xx + --  yy + -- ], [ xx + --  yy + -- ]] ]
                  [  [      11       11 ]  [      22       22 ]  ]
-</pre><pre class="example">(%i5) xx_1 : xx_0 [1][1];
+(%i5) xx_1 : xx_0 [1][1];
            [      a        a  ]  [      a        a  ]
 (%o5)     [[ xx + --  yy + -- ], [ xx + --  yy + -- ]]
            [      11       11 ]  [      22       22 ]
@@ -1259,12 +1255,11 @@ scanmap(f,a*x+b,bottomup) -&gt; f(a)*f(x)+f(b)
 (%o8)                  [matrix, [, matrix]
 (%i9) [op (xx_0), op (xx_1), op (xx_2)];
 (%o9)                  [matrix, [, matrix]
-</pre></td></tr></table>
-
+</pre>
 <p><code>outermap</code>は戻り値の中で引数の構造を保持します。
 <code>cartesian_product</code>は保持しません。
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="example">(%i1) outermap (F, [a, b, c], [1, 2, 3]);
+<pre class="example">(%i1) outermap (F, [a, b, c], [1, 2, 3]);
 (%o1) [[F(a, 1), F(a, 2), F(a, 3)], [F(b, 1), F(b, 2), F(b, 3)], 
                                      [F(c, 1), F(c, 2), F(c, 3)]]
 (%i2) setify (flatten (%));
@@ -1276,29 +1271,31 @@ scanmap(f,a*x+b,bottomup) -&gt; f(a)*f(x)+f(b)
                                        F(c, 1), F(c, 2), F(c, 3)}
 (%i4) is (equal (%, %th (2)));
 (%o4)                         true
-</pre></td></tr></table>
+</pre>
+<div class=categorybox>
 
-<div class=categorybox>&middot;<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Function-application">Function application</a>
-</div></p></dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_100.html#Category_003a-Function-application">Function application</a>
+</div>
+</p></dd></dl>
 
 <p><a name="Item_003a-Debugging"></a>
 </p><hr size="6">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Program-Flow" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_38.html#Debugging" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="#SEC201" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="maxima_38.html#SEC206" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#Top" title="Cover (top) of document">冒頭</a>]</td>
+<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">冒頭</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">目次</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#Function-and-Variable-Index" title="見出し">見出し</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_84.html#SEC395" title="Index">見出し</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  この文書は<em>市川 雄二</em>によって<em>2014年9月月15日</em>に<a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>を用いて生成されました。
+  この文書は<em>市川 雄二</em>によって<em>5月, 20 2015</em>に<a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>を用いて生成されました。
  </font>
  <br>
 
